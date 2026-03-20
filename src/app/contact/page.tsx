@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Breadcrumb from '@/components/layout/Breadcrumb'
-import { Mail, MessageCircle, MapPin, Clock, ShieldCheck, Star, Users } from 'lucide-react'
+import { CheckCircle2, ExternalLink, MessageCircle } from 'lucide-react'
 import FaqSection from '@/components/ui/FaqSection'
 import ContactForm from '@/components/contact/ContactForm'
 
@@ -15,119 +15,185 @@ const contactFaqs = [
 
 export const metadata: Metadata = {
   title: 'Contact Us — Get Your Free Shopify Store Audit',
-  description: 'Get a free audit of your Shopify store. We will identify what is losing you money and show you how to fix it.',
+  description: 'Get a free audit of your Shopify store. We will identify what is losing you money and show you how to fix it. Miracle Websoft — Top Rated Plus Shopify agency.',
   alternates: { canonical: 'https://miraclewebsoft.com/contact' },
 }
 
-const WHATSAPP_URL = `https://wa.me/916239269736?text=${encodeURIComponent("Hi, I'd like to get a free Shopify store audit for my clothing brand.")}`
+const WHATSAPP_URL = `https://wa.me/916239269736?text=${encodeURIComponent("Hi Karam, I'd like to get a free Shopify store audit for my clothing brand.")}`
 
-const contactItems = [
-  { icon: Mail, label: 'Email', value: 'karam@miraclewebsoft.com', href: 'mailto:karam@miraclewebsoft.com', badge: null },
-  { icon: MessageCircle, label: 'WhatsApp', value: '+91 6239 269736', href: WHATSAPP_URL, badge: 'Chat on WhatsApp' },
-  { icon: MapPin, label: 'Based in', value: 'India — Serving USA, UK & Australia', href: null, badge: null },
-  { icon: Clock, label: 'Response time', value: 'Within 24 hours', href: null, badge: null },
+const auditItems = [
+  'Page speed & Core Web Vitals score',
+  'Mobile UX — what is breaking on small screens',
+  'Conversion blockers on your product pages',
+  'Checkout flow — where shoppers drop off',
+  'SEO health — titles, canonicals, structured data',
+  'Quick-win list — prioritised by revenue impact',
 ]
 
-const trustBadges = [
-  { icon: Star, label: 'Top Rated Plus', sub: 'Upwork — top 3% globally' },
-  { icon: Users, label: '600+ projects', sub: 'Since 2015' },
-  { icon: ShieldCheck, label: '98% success rate', sub: 'Verified by Upwork' },
+const reviews = [
+  {
+    stars: 5,
+    quote: 'Karam helped us rebuild our store from scratch. Conversion rate went up 48% within 60 days. He communicates directly, delivers what he promises, and genuinely knows Shopify for fashion.',
+    name: 'Verified Upwork Client',
+    context: 'Activewear brand · USA',
+  },
+  {
+    stars: 5,
+    quote: 'We migrated from WooCommerce with zero SEO traffic loss. Karam mapped all our old URLs, handled the data migration, and we launched on time. Zero issues post-launch.',
+    name: 'Verified Upwork Client',
+    context: 'Streetwear brand · UK',
+  },
+  {
+    stars: 5,
+    quote: 'I am happy to recommend Karam Singh. He has strong knowledge of Shopify development and always delivers quality work. Very professional and responsive.',
+    name: 'Satinder Singh',
+    context: 'LinkedIn Recommendation',
+  },
+]
+
+const platforms = [
+  { name: 'Upwork', badge: 'Top Rated Plus', sub: '600+ reviews · 98% JSS', href: 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/', color: '#14a800' },
+  { name: 'Shopify Partners', badge: 'Verified Partner', sub: 'Official directory listing', href: 'https://www.shopify.com/partners/directory/partner/miracle-websoft1', color: '#96bf48' },
+  { name: 'Clutch', badge: 'Verified Reviews', sub: 'B2B ratings platform', href: 'https://clutch.co/profile/miracle-websoft', color: '#e63329' },
+  { name: 'DesignRush', badge: 'Top Agency', sub: 'Agency directory', href: 'https://www.designrush.com/agency/profile/miracle-websoft', color: '#6c63ff' },
 ]
 
 export default function ContactPage() {
   return (
     <>
-      <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '8rem', paddingBottom: '5rem' }}>
+      <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '7rem', paddingBottom: '5rem' }}>
         <div className="mw-container">
-          <div className="mb-8">
-            <Breadcrumb items={[{ label: 'Contact' }]} />
+          <div className="mb-6"><Breadcrumb items={[{ label: 'Contact' }]} /></div>
+
+          {/* Top bar — quick trust strip */}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-12" style={{ paddingBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+            {[
+              { val: '600+', label: 'Shopify projects' },
+              { val: '98%', label: 'Job success on Upwork' },
+              { val: 'Top 3%', label: 'Globally on Upwork' },
+              { val: '< 24 h', label: 'Response time' },
+              { val: '10+', label: 'Years on Shopify' },
+            ].map(s => (
+              <div key={s.label} className="flex items-baseline gap-1.5">
+                <span style={{ fontFamily: 'var(--font-playfair),Georgia,serif', fontSize: '1.15rem', fontWeight: 700, color: '#fff' }}>{s.val}</span>
+                <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)' }}>{s.label}</span>
+              </div>
+            ))}
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+              style={{ marginLeft: 'auto', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.45rem 1rem', borderRadius: '9999px', background: '#25D366', color: '#fff', fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none' }}>
+              <MessageCircle size={14} /> WhatsApp us
+            </a>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Left */}
+
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-12 xl:gap-16 items-start">
+
+            {/* ── Left ─────────────────────────────────────────── */}
             <div>
-              <span className="mw-eyebrow">Get In Touch</span>
-              <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.25rem' }}>
-                Get your free<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>store audit.</em>
+              <span className="mw-eyebrow">Free audit — no commitment</span>
+              <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(30px,4.5vw,52px)', lineHeight: 1.1, marginBottom: '1rem' }}>
+                Find out what&apos;s stopping<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>your store from converting.</em>
               </h1>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2rem', fontWeight: 300 }}>
-                Tell us about your brand and your goals. We will review your store and come back with a detailed audit — completely free, no strings attached.
+              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2rem', fontWeight: 300, maxWidth: '500px' }}>
+                We review your Shopify store and send back a detailed written audit — specific issues, specific fixes, ranked by revenue impact. Completely free. No sales call unless you want one.
               </p>
 
-              {/* Trust badges */}
-              <div className="flex gap-3 flex-wrap mb-6">
-                {trustBadges.map(b => {
-                  const Icon = b.icon
-                  return (
-                    <div key={b.label} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 0.9rem', borderRadius: '10px', background: 'rgba(108,99,255,0.08)', border: '1px solid rgba(108,99,255,0.15)' }}>
-                      <Icon size={13} style={{ color: 'var(--accent)', flexShrink: 0 }} />
-                      <div>
-                        <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#fff', lineHeight: 1.2 }}>{b.label}</div>
-                        <div style={{ fontSize: '0.62rem', color: 'rgba(255,255,255,0.35)' }}>{b.sub}</div>
-                      </div>
+              {/* Audit checklist */}
+              <div style={{ marginBottom: '2.5rem' }}>
+                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.9rem' }}>What your free audit covers</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {auditItems.map(item => (
+                    <div key={item} className="flex items-start gap-2.5">
+                      <CheckCircle2 size={14} style={{ color: '#10B981', flexShrink: 0, marginTop: '2px' }} />
+                      <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>{item}</span>
                     </div>
-                  )
-                })}
-              </div>
-
-              {/* Testimonial snippet */}
-              <div style={{ padding: '1rem 1.25rem', borderRadius: '14px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', marginBottom: '1.75rem' }}>
-                <div style={{ display: 'flex', gap: '2px', marginBottom: '0.5rem' }}>
-                  {[...Array(5)].map((_, i) => <span key={i} style={{ color: '#FFB800', fontSize: '0.75rem' }}>★</span>)}
+                  ))}
                 </div>
-                <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, fontStyle: 'italic', marginBottom: '0.6rem' }}>
-                  &ldquo;Karam and his team genuinely care about what they build. Our store conversion rate went up 48% after the rebuild — that&apos;s real money.&rdquo;
-                </p>
-                <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)', fontWeight: 500 }}>Verified Upwork client · Activewear brand, USA</p>
               </div>
 
-              <div className="flex flex-col gap-3">
-                {contactItems.map(item => {
-                  const Icon = item.icon
-                  const inner = (
-                    <div className="flex items-start gap-4 p-4 rounded-2xl transition-all" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                      <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(108,99,255,0.12)', border: '1px solid rgba(108,99,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                        <Icon size={16} style={{ color: 'var(--accent)' }} />
+              {/* Reviews */}
+              <div style={{ marginBottom: '2.5rem' }}>
+                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.9rem' }}>What clients say</p>
+                <div className="flex flex-col gap-3">
+                  {reviews.map((r, i) => (
+                    <div key={i} style={{ padding: '1rem 1.25rem', borderRadius: '14px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
+                      <div style={{ display: 'flex', gap: '2px', marginBottom: '0.5rem' }}>
+                        {[...Array(r.stars)].map((_, j) => <span key={j} style={{ color: '#FFB800', fontSize: '0.7rem' }}>★</span>)}
                       </div>
-                      <div>
-                        <div style={{ fontSize: '0.68rem', fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '0.2rem' }}>{item.label}</div>
-                        <div style={{ fontSize: '0.9rem', color: '#fff', fontWeight: 400 }}>{item.value}</div>
-                        {item.badge && (
-                          <span style={{ display: 'inline-block', marginTop: '0.4rem', fontSize: '0.7rem', fontWeight: 600, padding: '0.2rem 0.6rem', borderRadius: '9999px', background: '#25D366', color: '#fff' }}>{item.badge}</span>
-                        )}
+                      <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.65, fontStyle: 'italic', marginBottom: '0.5rem' }}>
+                        &ldquo;{r.quote}&rdquo;
+                      </p>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <span style={{ fontSize: '0.72rem', fontWeight: 600, color: 'rgba(255,255,255,0.5)' }}>{r.name}</span>
+                        <span style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.25)' }}>·</span>
+                        <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)' }}>{r.context}</span>
                       </div>
                     </div>
-                  )
-                  return item.href
-                    ? <a key={item.label} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}>{inner}</a>
-                    : <div key={item.label}>{inner}</div>
-                })}
+                  ))}
+                </div>
+                <a href="https://www.upwork.com/agencies/shopifyexpertsdevelopers/" target="_blank" rel="noopener noreferrer"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', marginTop: '0.75rem', fontSize: '0.78rem', color: 'rgba(255,255,255,0.35)' }}
+                  className="hover:text-white transition-colors">
+                  <ExternalLink size={11} /> Read all 600+ reviews on Upwork
+                </a>
+              </div>
+
+              {/* Platform badges */}
+              <div>
+                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.9rem' }}>Verified on</p>
+                <div className="grid grid-cols-2 gap-2">
+                  {platforms.map(p => (
+                    <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer"
+                      className="group flex items-center justify-between"
+                      style={{ padding: '0.75rem 1rem', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', textDecoration: 'none' }}>
+                      <div>
+                        <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#fff', marginBottom: '1px' }}>{p.name}</div>
+                        <div style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.3)' }}>{p.sub}</div>
+                      </div>
+                      <span style={{ fontSize: '0.6rem', fontWeight: 700, padding: '0.15rem 0.5rem', borderRadius: '9999px', background: `${p.color}18`, color: p.color, border: `1px solid ${p.color}35`, flexShrink: 0, marginLeft: '0.5rem' }}>{p.badge}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Right — Form */}
-            <div>
-              <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '24px', padding: '2.5rem' }}>
-                <div style={{ marginBottom: '1.75rem' }}>
-                  <h2 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#fff', marginBottom: '0.4rem' }}>Tell us about your project</h2>
-                  <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.35)' }}>Free audit included. No commitment required.</p>
+            {/* ── Right — Form ──────────────────────────────────── */}
+            <div style={{ position: 'sticky', top: '7rem' }}>
+              {/* WhatsApp alternative */}
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+                style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.9rem 1.25rem', borderRadius: '14px', background: 'rgba(37,211,102,0.08)', border: '1px solid rgba(37,211,102,0.2)', marginBottom: '1rem', textDecoration: 'none' }}>
+                <MessageCircle size={18} style={{ color: '#25D366', flexShrink: 0 }} />
+                <div>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff', lineHeight: 1.2 }}>Prefer WhatsApp?</div>
+                  <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.4)' }}>Message Karam directly — usually replies within an hour</div>
                 </div>
+                <span style={{ marginLeft: 'auto', fontSize: '0.68rem', fontWeight: 700, padding: '0.2rem 0.6rem', borderRadius: '9999px', background: '#25D366', color: '#fff', flexShrink: 0 }}>Chat now</span>
+              </a>
+
+              {/* Form card */}
+              <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '2rem' }}>
+                {/* Karam avatar + headline */}
+                <div className="flex items-center gap-3 mb-5">
+                  <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'linear-gradient(135deg,rgba(108,99,255,0.3),rgba(108,99,255,0.1))', border: '2px solid rgba(108,99,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <span style={{ fontWeight: 800, color: 'var(--accent)', fontSize: '1.1rem' }}>K</span>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>Send Karam a message</div>
+                    <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>Founder · replies personally within 24 h</div>
+                  </div>
+                </div>
+
+                <div style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: '1.25rem', paddingBottom: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                  Free audit included · No commitment · Fixed pricing
+                </div>
+
                 <ContactForm />
               </div>
 
-              {/* Security / trust row */}
-              <div className="flex items-center justify-center gap-5 mt-4 flex-wrap">
-                <div className="flex items-center gap-1.5">
-                  <ShieldCheck size={13} style={{ color: 'rgba(255,255,255,0.25)' }} />
-                  <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.25)' }}>SSL encrypted</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.25)' }}>🔒</span>
-                  <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.25)' }}>NDA available on request</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.25)' }}>✓</span>
-                  <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.25)' }}>No spam, ever</span>
-                </div>
+              {/* Micro trust row */}
+              <div className="flex items-center justify-center gap-4 mt-3 flex-wrap">
+                {['🔒 SSL encrypted', '📄 NDA on request', '✓ No spam ever'].map(t => (
+                  <span key={t} style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.2)' }}>{t}</span>
+                ))}
               </div>
             </div>
           </div>
