@@ -1,0 +1,25 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            cd /home/miraclewebsoft/htdocs/miraclewebsoft.com
+            git pull origin main
+            npm ci --production
+            npm run build
+            /home/miraclewebsoft/.nvm/versions/node/v22.22.1/bin/pm2 restart miraclewebsoft
+            /home/miraclewebsoft/.nvm/versions/node/v22.22.1/bin/pm2 save
+            echo "Deploy complete"
