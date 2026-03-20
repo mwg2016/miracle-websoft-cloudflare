@@ -8,6 +8,7 @@ import WhyUs from '@/components/home/WhyUs'
 import ProcessSteps from '@/components/home/ProcessSteps'
 import TrustProfiles from '@/components/home/TrustProfiles'
 import Testimonials from '@/components/home/Testimonials'
+import ClientPortfolio from '@/components/home/ClientPortfolio'
 import CtaBanner from '@/components/home/CtaBanner'
 import FaqSection from '@/components/ui/FaqSection'
 
@@ -46,6 +47,7 @@ export default function HomePage() {
       <WhyUs />
       <ProcessSteps />
       <Testimonials />
+      <ClientPortfolio />
       <TrustProfiles />
       <FaqSection faqs={homeFaqs} heading="Questions about working with us" />
       <CtaBanner />

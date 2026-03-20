@@ -5,10 +5,13 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: false,
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+      { protocol: 'https', hostname: 'image.thum.io' },
+      { protocol: 'https', hostname: 'cdn.shopify.com' },
+      { protocol: 'https', hostname: 'farmersatelier.com' },
+      { protocol: 'https', hostname: 'www.otaa.com' },
+      { protocol: 'https', hostname: 'buddhatrends.com' },
+      { protocol: 'https', hostname: 'momifa.com' },
     ],
   },
   compress: true,
