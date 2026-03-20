@@ -1,6 +1,16 @@
 import type { Metadata } from 'next'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import { Mail, MessageCircle, MapPin, Clock } from 'lucide-react'
+import FaqSection from '@/components/ui/FaqSection'
+
+const contactFaqs = [
+  { question: 'How do I get started with Miracle Websoft?', answer: 'Fill in the contact form or message us on WhatsApp. We reply within 24 hours. If your project is a good fit, we schedule a 30-minute discovery call, then send a detailed proposal with clear scope, timeline, and fixed pricing. No vague estimates.' },
+  { question: 'What is included in the free store audit?', answer: 'A full review of your Shopify store covering: page speed and Core Web Vitals, mobile user experience, conversion rate blockers, product page quality, checkout flow analysis, and SEO health. Delivered as a written report with specific, prioritised recommendations — completely free, no strings attached.' },
+  { question: 'Do you work on a fixed price or hourly basis?', answer: 'Fixed price on all projects. We send a detailed proposal before any work begins. You know exactly what you are paying before we start. No hourly billing, no surprise invoices.' },
+  { question: 'How long does it take to get a proposal?', answer: 'After our discovery call, we typically send a full proposal within 2–3 business days. For smaller projects or straightforward audits, it is often the same day.' },
+  { question: 'Do you sign NDAs?', answer: 'Yes. We sign NDAs on request before any discovery or audit work begins. All client information is treated as strictly confidential.' },
+  { question: 'Do you work with brands outside the USA/UK/Australia?', answer: 'Yes — those are our primary markets but we work with fashion brands worldwide. All communication is in English. If your store sells internationally and you need Shopify Markets or multi-currency setup, that is something we handle regularly.' },
+]
 
 export const metadata: Metadata = {
   title: 'Contact Us — Get Your Free Shopify Store Audit',
@@ -19,7 +29,8 @@ const contactItems = [
 
 export default function ContactPage() {
   return (
-    <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '8rem', paddingBottom: '5rem' }}>
+    <>
+      <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '8rem', paddingBottom: '5rem' }}>
       <div className="mw-container">
         <div className="mb-8">
           <Breadcrumb items={[{ label: 'Contact' }]} />
@@ -96,5 +107,7 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
+    <FaqSection faqs={contactFaqs} heading="Before you reach out" eyebrow="FAQ" />
+  </>
   )
 }

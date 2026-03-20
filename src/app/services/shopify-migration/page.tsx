@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import WhyUs from '@/components/home/WhyUs'
 import ProcessSteps from '@/components/home/ProcessSteps'
 import CtaBanner from '@/components/home/CtaBanner'
+import FaqSection from '@/components/ui/FaqSection'
 
 export const metadata: Metadata = {
   title: 'WooCommerce to Shopify Migration | Magento to Shopify | Miracle Websoft',
@@ -12,6 +13,37 @@ export const metadata: Metadata = {
     'Migrate to Shopify with zero data loss and zero SEO traffic drop.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/shopify-migration' },
 }
+
+const faqs = [
+  {
+    question: 'Will I lose SEO rankings when migrating to Shopify?',
+    answer: 'Not if done correctly. We set up 301 redirects for every old URL, migrate all meta titles and descriptions, preserve your blog content and internal link structure, and monitor rankings for 30 days post-launch. Across all our completed migrations, we have a zero SEO traffic loss record.',
+  },
+  {
+    question: 'What platforms can you migrate from?',
+    answer: 'WooCommerce, Magento, BigCommerce, Squarespace, Wix, PrestaShop, OpenCart, and custom-built ecommerce platforms. We have completed the most migrations from WooCommerce and Magento, including large stores with 4,000+ products and 8 years of order history.',
+  },
+  {
+    question: 'Will I lose any data during the migration?',
+    answer: 'No. We migrate all products (with variants, images and metafields), customers, orders, blog posts, pages, and media files. We also migrate product reviews where the platform and review app technically allow it.',
+  },
+  {
+    question: 'How long does a Shopify migration take?',
+    answer: 'A standard migration with 500–2,000 products typically takes 3–6 weeks. Large migrations with 5,000+ products, complex taxonomies, multiple integrations, or a custom theme build alongside the migration may take 8–14 weeks.',
+  },
+  {
+    question: 'Do you handle the DNS cutover and go-live?',
+    answer: 'Yes. We manage the entire go-live process — DNS changes, SSL certificate configuration, post-launch redirect verification, and real-time monitoring during the cutover window to ensure zero downtime.',
+  },
+  {
+    question: 'Can I keep my existing Shopify theme after migrating?',
+    answer: 'You will need a Shopify theme — your old platform\'s theme cannot be used on Shopify. We can customise an existing Shopify theme to match your current design, or build a custom theme as part of the migration. Both options are included in our migration proposals.',
+  },
+  {
+    question: 'How much does a Shopify migration cost?',
+    answer: 'Migrations start from approximately $1,500 for a small store. Large migrations with thousands of products, customer data, and a theme build typically range from $5,000–$15,000. We always quote a fixed price after understanding your full scope.',
+  },
+]
 
 const included = [
   'Full product catalog migration — all variants, images and metafields',
@@ -71,6 +103,7 @@ export default function MigrationPage() {
 
       <WhyUs />
       <ProcessSteps />
+      <FaqSection faqs={faqs} heading="Shopify migration — common questions" />
       <CtaBanner />
     </>
   )

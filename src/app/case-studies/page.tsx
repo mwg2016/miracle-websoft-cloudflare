@@ -2,6 +2,15 @@ import type { Metadata } from 'next'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import Link from 'next/link'
 import { ArrowRight, ExternalLink } from 'lucide-react'
+import FaqSection from '@/components/ui/FaqSection'
+
+const csFaqs = [
+  { question: 'How many Shopify projects has Miracle Websoft completed?', answer: 'Over 600 Shopify projects since 2015 — across custom builds, migrations, app development, and CRO. Our clients range from DTC fashion startups to established brands with thousands of SKUs and years of order history.' },
+  { question: 'Can I see specific client results?', answer: 'We share anonymised results on this page — average +48% conversion rate, -35% cart abandonment, and 1.1s mobile load times. We keep individual client names confidential unless the client has given explicit permission to be named. All results shown are real, verified metrics from completed projects.' },
+  { question: 'What fashion verticals have you worked in?', answer: 'We have worked across women\'s clothing, activewear, streetwear, sustainable fashion, luxury fashion, swimwear, menswear, jewelry, accessories, fragrance, beauty, footwear, and home goods. The 40+ brands shown on this page cover most major fashion categories.' },
+  { question: 'Do you show before/after comparisons?', answer: 'We can share before/after speed scores, conversion rate data, and design comparisons during our discovery call for projects similar to yours. This helps set realistic expectations for your specific situation.' },
+  { question: 'How long does it take to see results after a CRO project?', answer: 'Speed improvements are immediate — the day we launch. Conversion rate improvements typically become statistically significant within 4–8 weeks, depending on your traffic volume. A/B tests we set up usually reach significance within 30–60 days.' },
+]
 
 export const metadata: Metadata = {
   title: 'Case Studies — Shopify Results for Fashion Brands',
@@ -82,7 +91,8 @@ const categories = ['All', ...Array.from(new Set(portfolioClients.map(c => c.cat
 
 export default function CaseStudiesPage() {
   return (
-    <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '8rem', paddingBottom: '5rem' }}>
+    <>
+      <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '8rem', paddingBottom: '5rem' }}>
       <div className="mw-container">
         <div className="mb-8"><Breadcrumb items={[{ label: 'Case Studies' }]} /></div>
         <div className="mb-12">
@@ -134,5 +144,7 @@ export default function CaseStudiesPage() {
         </div>
       </div>
     </div>
+    <FaqSection faqs={csFaqs} heading="About our work & results" />
+    </>
   )
 }

@@ -4,7 +4,7 @@ import IndustryHero from './IndustryHero'
 import IndustryStats from './IndustryStats'
 import PainPoints from './PainPoints'
 import ServicesChecklist from './ServicesChecklist'
-import FaqAccordion from './FaqAccordion'
+import FaqSection from '@/components/ui/FaqSection'
 import WhyUs from '@/components/home/WhyUs'
 import ProcessSteps from '@/components/home/ProcessSteps'
 import CtaBanner from '@/components/home/CtaBanner'
@@ -25,7 +25,7 @@ export default function IndustryLayout({ industry }: Props) {
       <ServicesChecklist services={industry.services} />
       <WhyUs />
       <ProcessSteps />
-      <FaqAccordion faqs={industry.faqs} />
+      <FaqSection faqs={industry.faqs} heading={`${industry.title} — common questions`} />
       <CtaBanner />
     </>
   )

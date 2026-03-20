@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import WhyUs from '@/components/home/WhyUs'
 import ProcessSteps from '@/components/home/ProcessSteps'
 import CtaBanner from '@/components/home/CtaBanner'
+import FaqSection from '@/components/ui/FaqSection'
 
 export const metadata: Metadata = {
   title: 'Shopify CRO and Speed Optimization for Fashion Brands | Miracle Websoft',
@@ -12,6 +13,37 @@ export const metadata: Metadata = {
     'Conversion rate optimization and speed improvements for clothing brands.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/shopify-cro-speed' },
 }
+
+const faqs = [
+  {
+    question: 'What is CRO (conversion rate optimisation)?',
+    answer: 'CRO is the process of improving your store so a higher percentage of visitors become buyers. For a fashion brand doing $500K/year, a 1% lift in conversion rate is worth $5,000 in extra revenue — with no extra ad spend. We improve product pages, checkout flows, mobile experience, imagery, size guides, and cart recovery.',
+  },
+  {
+    question: 'What is a good Shopify page speed score?',
+    answer: 'A Google PageSpeed Insights score of 90+ on mobile is the target. Most unoptimised Shopify stores score 40–65. We consistently achieve 90+ and a Largest Contentful Paint (LCP) under 1.5 seconds after our optimisation work.',
+  },
+  {
+    question: 'What most affects Shopify store speed?',
+    answer: 'The three biggest culprits are: unoptimised images (often the single largest issue), too many third-party apps loading JavaScript, and an unoptimised theme with render-blocking code. We audit all three and fix them systematically — usually eliminating 3–8 unnecessary app scripts alone.',
+  },
+  {
+    question: 'How much can you improve my conversion rate?',
+    answer: 'Our average across completed CRO projects is a 42% conversion rate increase. Results vary — some stores see 20%, others see 60%+. We show you the specific changes planned and their expected impact before we start, so you know exactly what you are getting.',
+  },
+  {
+    question: 'Do you guarantee a page speed improvement?',
+    answer: 'Yes. We guarantee a Google PageSpeed Insights score of 90+ on mobile for speed optimisation projects. If we do not achieve this, we keep working until we do — at no additional cost.',
+  },
+  {
+    question: 'How long does a CRO and speed project take?',
+    answer: 'A focused speed optimisation project typically takes 1–3 weeks. A full CRO programme — including product page redesign, checkout improvements, A/B test setup, and ongoing monthly reporting — runs for 3–6 months.',
+  },
+  {
+    question: 'Do I need to rebuild my whole store for speed improvements?',
+    answer: 'No. Speed optimisation can be done on your existing store without a full rebuild. We work with your current theme, removing bloat, compressing images, deferring scripts, and inlining critical CSS. A full rebuild is only recommended if the theme itself is fundamentally unoptimisable.',
+  },
+]
 
 const deliverables = [
   'Full Lighthouse audit — mobile and desktop',
@@ -71,6 +103,7 @@ export default function CROSpeedPage() {
 
       <WhyUs />
       <ProcessSteps />
+      <FaqSection faqs={faqs} heading="CRO & speed optimisation — common questions" />
       <CtaBanner />
     </>
   )
