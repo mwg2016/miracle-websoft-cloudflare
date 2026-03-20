@@ -45,7 +45,7 @@ const jsonLd = {
       telephone: '+916239269736',
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Rajpura',
+        addressLocality: 'Chandigarh',
         addressRegion: 'Punjab',
         addressCountry: 'IN',
       },
@@ -55,7 +55,7 @@ const jsonLd = {
         { '@type': 'Country', name: 'Australia' },
         { '@type': 'Country', name: 'India' },
       ],
-      numberOfEmployees: { '@type': 'QuantitativeValue', value: 14 },
+      numberOfEmployees: { '@type': 'QuantitativeValue', value: 16 },
       knowsAbout: [
         'Shopify development',
         'Shopify app development',

@@ -7,6 +7,7 @@ import StatsRow from '@/components/home/StatsRow'
 import WhyUs from '@/components/home/WhyUs'
 import ProcessSteps from '@/components/home/ProcessSteps'
 import TrustProfiles from '@/components/home/TrustProfiles'
+import Testimonials from '@/components/home/Testimonials'
 import CtaBanner from '@/components/home/CtaBanner'
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function HomePage() {
       <StatsRow />
       <WhyUs />
       <ProcessSteps />
+      <Testimonials />
       <TrustProfiles />
       <CtaBanner />
     </>
