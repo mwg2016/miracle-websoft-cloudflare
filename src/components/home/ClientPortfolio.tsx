@@ -2,7 +2,18 @@
 import { ExternalLink } from 'lucide-react'
 import { useState } from 'react'
 
-const clients = [
+export type PortfolioStore = {
+  name: string
+  url: string
+  displayUrl: string
+  category: string
+  country: string
+  flag: string
+  desc: string
+  accent: string
+}
+
+const clients: PortfolioStore[] = [
   {
     name: 'Farmers Atelier',
     url: 'https://farmersatelier.com',
@@ -136,15 +147,26 @@ function ClientCard({ client }: { client: typeof clients[0] }) {
   )
 }
 
-export default function ClientPortfolio() {
+interface Props {
+  stores?: PortfolioStore[]
+  heading?: string
+  eyebrow?: string
+}
+
+export default function ClientPortfolio({ stores, heading, eyebrow }: Props) {
+  const list = stores ?? clients
   return (
     <section style={{ background: '#080808', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
       <div className="mw-container">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
-            <p className="mw-eyebrow">Our Work</p>
+            <p className="mw-eyebrow">{eyebrow ?? 'Our Work'}</p>
             <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(28px,4vw,44px)', lineHeight: 1.15 }}>
-              Stores we&apos;ve built<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>for real brands.</em>
+              {heading ? (
+                <>{heading}</>
+              ) : (
+                <>Stores we&apos;ve built<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>for real brands.</em></>
+              )}
             </h2>
           </div>
           <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.35)', maxWidth: '220px', lineHeight: 1.6, textAlign: 'right' }}>
@@ -152,7 +174,7 @@ export default function ClientPortfolio() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {clients.map(client => (
+          {list.map(client => (
             <ClientCard key={client.name} client={client} />
           ))}
         </div>

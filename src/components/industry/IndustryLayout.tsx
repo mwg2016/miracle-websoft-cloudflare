@@ -8,6 +8,7 @@ import FaqSection from '@/components/ui/FaqSection'
 import WhyUs from '@/components/home/WhyUs'
 import ProcessSteps from '@/components/home/ProcessSteps'
 import ClientPortfolio from '@/components/home/ClientPortfolio'
+import { industryStores } from '@/data/industryStores'
 import CtaBanner from '@/components/home/CtaBanner'
 
 interface Props { industry: IndustryPage }
@@ -25,7 +26,11 @@ export default function IndustryLayout({ industry }: Props) {
       <PainPoints painPoints={industry.painPoints} />
       <ServicesChecklist services={industry.services} />
       <WhyUs />
-      <ClientPortfolio />
+      <ClientPortfolio
+        stores={industryStores[industry.slug as keyof typeof industryStores]}
+        eyebrow="Stores in this niche"
+        heading={`${industry.title} stores\non Shopify`}
+      />
       <ProcessSteps />
       <FaqSection faqs={industry.faqs} heading={`${industry.title} — common questions`} />
       <CtaBanner />
