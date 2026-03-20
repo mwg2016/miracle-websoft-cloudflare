@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Breadcrumb from '@/components/layout/Breadcrumb'
-import { Mail, MessageCircle, MapPin, Clock } from 'lucide-react'
+import { Mail, MessageCircle, MapPin, Clock, ShieldCheck, Star, Users } from 'lucide-react'
 import FaqSection from '@/components/ui/FaqSection'
+import ContactForm from '@/components/contact/ContactForm'
 
 const contactFaqs = [
   { question: 'How do I get started with Miracle Websoft?', answer: 'Fill in the contact form or message us on WhatsApp. We reply within 24 hours. If your project is a good fit, we schedule a 30-minute discovery call, then send a detailed proposal with clear scope, timeline, and fixed pricing. No vague estimates.' },
@@ -27,87 +28,112 @@ const contactItems = [
   { icon: Clock, label: 'Response time', value: 'Within 24 hours', href: null, badge: null },
 ]
 
+const trustBadges = [
+  { icon: Star, label: 'Top Rated Plus', sub: 'Upwork — top 3% globally' },
+  { icon: Users, label: '600+ projects', sub: 'Since 2015' },
+  { icon: ShieldCheck, label: '98% success rate', sub: 'Verified by Upwork' },
+]
+
 export default function ContactPage() {
   return (
     <>
       <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '8rem', paddingBottom: '5rem' }}>
-      <div className="mw-container">
-        <div className="mb-8">
-          <Breadcrumb items={[{ label: 'Contact' }]} />
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left */}
-          <div>
-            <span className="mw-eyebrow">Get In Touch</span>
-            <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.25rem' }}>Get your free<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>store audit.</em></h1>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2.5rem', fontWeight: 300 }}>
-              Tell us about your brand and your goals. We will review your store and come back with a detailed audit — completely free, no strings attached.
-            </p>
-            <div className="flex flex-col gap-3">
-              {contactItems.map(item => {
-                const Icon = item.icon
-                const inner = (
-                  <div className="flex items-start gap-4 p-4 rounded-2xl transition-all" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                    <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(108,99,255,0.12)', border: '1px solid rgba(108,99,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <Icon size={16} style={{ color: 'var(--accent)' }} />
-                    </div>
-                    <div>
-                      <div style={{ fontSize: '0.68rem', fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '0.2rem' }}>{item.label}</div>
-                      <div style={{ fontSize: '0.9rem', color: '#fff', fontWeight: 400 }}>{item.value}</div>
-                      {item.badge && (
-                        <span style={{ display: 'inline-block', marginTop: '0.4rem', fontSize: '0.7rem', fontWeight: 600, padding: '0.2rem 0.6rem', borderRadius: '9999px', background: '#25D366', color: '#fff' }}>{item.badge}</span>
-                      )}
-                    </div>
-                  </div>
-                )
-                return item.href
-                  ? <a key={item.label} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}>{inner}</a>
-                  : <div key={item.label}>{inner}</div>
-              })}
-            </div>
+        <div className="mw-container">
+          <div className="mb-8">
+            <Breadcrumb items={[{ label: 'Contact' }]} />
           </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Left */}
+            <div>
+              <span className="mw-eyebrow">Get In Touch</span>
+              <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.25rem' }}>
+                Get your free<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>store audit.</em>
+              </h1>
+              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2rem', fontWeight: 300 }}>
+                Tell us about your brand and your goals. We will review your store and come back with a detailed audit — completely free, no strings attached.
+              </p>
 
-          {/* Right — Form */}
-          <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '24px', padding: '2.5rem' }}>
-            <h2 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#fff', marginBottom: '1.75rem' }}>Tell us about your project</h2>
-            <form className="flex flex-col gap-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 500, color: 'rgba(255,255,255,0.5)', marginBottom: '0.5rem', letterSpacing: '0.05em' }}>Your name</label>
-                  <input type="text" placeholder="Jane Smith" style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '10px', padding: '0.75rem 1rem', fontSize: '0.875rem', color: '#fff', outline: 'none' }} />
+              {/* Trust badges */}
+              <div className="flex gap-3 flex-wrap mb-6">
+                {trustBadges.map(b => {
+                  const Icon = b.icon
+                  return (
+                    <div key={b.label} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 0.9rem', borderRadius: '10px', background: 'rgba(108,99,255,0.08)', border: '1px solid rgba(108,99,255,0.15)' }}>
+                      <Icon size={13} style={{ color: 'var(--accent)', flexShrink: 0 }} />
+                      <div>
+                        <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#fff', lineHeight: 1.2 }}>{b.label}</div>
+                        <div style={{ fontSize: '0.62rem', color: 'rgba(255,255,255,0.35)' }}>{b.sub}</div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+
+              {/* Testimonial snippet */}
+              <div style={{ padding: '1rem 1.25rem', borderRadius: '14px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', marginBottom: '1.75rem' }}>
+                <div style={{ display: 'flex', gap: '2px', marginBottom: '0.5rem' }}>
+                  {[...Array(5)].map((_, i) => <span key={i} style={{ color: '#FFB800', fontSize: '0.75rem' }}>★</span>)}
                 </div>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 500, color: 'rgba(255,255,255,0.5)', marginBottom: '0.5rem', letterSpacing: '0.05em' }}>Email address</label>
-                  <input type="email" placeholder="jane@yourbrand.com" style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '10px', padding: '0.75rem 1rem', fontSize: '0.875rem', color: '#fff', outline: 'none' }} />
+                <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, fontStyle: 'italic', marginBottom: '0.6rem' }}>
+                  &ldquo;Karam and his team genuinely care about what they build. Our store conversion rate went up 48% after the rebuild — that&apos;s real money.&rdquo;
+                </p>
+                <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)', fontWeight: 500 }}>Verified Upwork client · Activewear brand, USA</p>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                {contactItems.map(item => {
+                  const Icon = item.icon
+                  const inner = (
+                    <div className="flex items-start gap-4 p-4 rounded-2xl transition-all" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                      <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(108,99,255,0.12)', border: '1px solid rgba(108,99,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <Icon size={16} style={{ color: 'var(--accent)' }} />
+                      </div>
+                      <div>
+                        <div style={{ fontSize: '0.68rem', fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '0.2rem' }}>{item.label}</div>
+                        <div style={{ fontSize: '0.9rem', color: '#fff', fontWeight: 400 }}>{item.value}</div>
+                        {item.badge && (
+                          <span style={{ display: 'inline-block', marginTop: '0.4rem', fontSize: '0.7rem', fontWeight: 600, padding: '0.2rem 0.6rem', borderRadius: '9999px', background: '#25D366', color: '#fff' }}>{item.badge}</span>
+                        )}
+                      </div>
+                    </div>
+                  )
+                  return item.href
+                    ? <a key={item.label} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}>{inner}</a>
+                    : <div key={item.label}>{inner}</div>
+                })}
+              </div>
+            </div>
+
+            {/* Right — Form */}
+            <div>
+              <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '24px', padding: '2.5rem' }}>
+                <div style={{ marginBottom: '1.75rem' }}>
+                  <h2 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#fff', marginBottom: '0.4rem' }}>Tell us about your project</h2>
+                  <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.35)' }}>Free audit included. No commitment required.</p>
+                </div>
+                <ContactForm />
+              </div>
+
+              {/* Security / trust row */}
+              <div className="flex items-center justify-center gap-5 mt-4 flex-wrap">
+                <div className="flex items-center gap-1.5">
+                  <ShieldCheck size={13} style={{ color: 'rgba(255,255,255,0.25)' }} />
+                  <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.25)' }}>SSL encrypted</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.25)' }}>🔒</span>
+                  <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.25)' }}>NDA available on request</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.25)' }}>✓</span>
+                  <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.25)' }}>No spam, ever</span>
                 </div>
               </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 500, color: 'rgba(255,255,255,0.5)', marginBottom: '0.5rem', letterSpacing: '0.05em' }}>Your Shopify store URL</label>
-                <input type="url" placeholder="yourstore.myshopify.com" style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '10px', padding: '0.75rem 1rem', fontSize: '0.875rem', color: '#fff', outline: 'none' }} />
-              </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 500, color: 'rgba(255,255,255,0.5)', marginBottom: '0.5rem', letterSpacing: '0.05em' }}>What do you need help with?</label>
-                <select style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '10px', padding: '0.75rem 1rem', fontSize: '0.875rem', color: '#fff', outline: 'none' }}>
-                  <option value="">Select a service...</option>
-                  <option>Custom Shopify Development</option>
-                  <option>Shopify App Development</option>
-                  <option>Migration to Shopify</option>
-                  <option>CRO &amp; Speed Optimization</option>
-                  <option>Free Store Audit</option>
-                </select>
-              </div>
-              <div>
-                <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 500, color: 'rgba(255,255,255,0.5)', marginBottom: '0.5rem', letterSpacing: '0.05em' }}>Tell us about your brand</label>
-                <textarea rows={4} placeholder="What do you sell, who are your customers, what is your biggest challenge?" style={{ width: '100%', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '10px', padding: '0.75rem 1rem', fontSize: '0.875rem', color: '#fff', outline: 'none', resize: 'none' }} />
-              </div>
-              <button type="submit" className="mw-btn-primary justify-center w-full py-4">Send message — get free audit</button>
-              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)', textAlign: 'center' }}>We respond within 24 hours. No spam, ever.</p>
-            </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <FaqSection faqs={contactFaqs} heading="Before you reach out" eyebrow="FAQ" />
-  </>
+      <FaqSection faqs={contactFaqs} heading="Before you reach out" eyebrow="FAQ" />
+    </>
   )
 }

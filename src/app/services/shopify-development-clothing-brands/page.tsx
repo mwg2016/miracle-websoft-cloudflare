@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import WhyUs from '@/components/home/WhyUs'
 import ProcessSteps from '@/components/home/ProcessSteps'
+import ClientPortfolio from '@/components/home/ClientPortfolio'
 import CtaBanner from '@/components/home/CtaBanner'
 import FaqSection from '@/components/ui/FaqSection'
 
@@ -99,6 +100,7 @@ export default function ShopifyDevelopmentPage() {
 
       <WhyUs />
       <ProcessSteps />
+      <ClientPortfolio />
       <FaqSection faqs={faqs} heading="Custom Shopify development — common questions" />
       <CtaBanner />
     </>

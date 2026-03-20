@@ -3,6 +3,7 @@ import Breadcrumb from '@/components/layout/Breadcrumb'
 import Link from 'next/link'
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import FaqSection from '@/components/ui/FaqSection'
+import ClientPortfolio from '@/components/home/ClientPortfolio'
 
 const csFaqs = [
   { question: 'How many Shopify projects has Miracle Websoft completed?', answer: 'Over 600 Shopify projects since 2015 — across custom builds, migrations, app development, and CRO. Our clients range from DTC fashion startups to established brands with thousands of SKUs and years of order history.' },
@@ -144,6 +145,7 @@ export default function CaseStudiesPage() {
         </div>
       </div>
     </div>
+    <ClientPortfolio />
     <FaqSection faqs={csFaqs} heading="About our work & results" />
     </>
   )
