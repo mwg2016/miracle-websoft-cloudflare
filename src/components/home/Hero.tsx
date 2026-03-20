@@ -4,13 +4,13 @@ import { ArrowRight } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 const INDUSTRIES = [
-  "Women's Fashion",
+  "Women's",
   'Activewear',
   'Streetwear',
-  'Luxury Fashion',
+  'Luxury',
   'Gym Wear',
-  'Kids Clothing',
-  'Sustainable Fashion',
+  'Kids',
+  'Sustainable',
 ]
 
 function Typewriter() {
@@ -62,7 +62,9 @@ export default function Hero() {
           </div>
 
           <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.5rem', lineHeight: 1.1 }}>
-            Shopify Development<br />for <Typewriter /><br />Brands
+            Shopify Development<br />
+            <span style={{ display: 'block', whiteSpace: 'nowrap' }}>for <Typewriter /></span>
+            Fashion Brands
           </h1>
 
           <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 'clamp(1rem,2vw,1.2rem)', lineHeight: 1.8, maxWidth: '580px', marginBottom: '2.5rem', fontWeight: 300 }}>

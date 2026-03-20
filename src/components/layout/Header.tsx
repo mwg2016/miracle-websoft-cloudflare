@@ -50,6 +50,7 @@ export default function Header() {
   }, [])
 
   return (
+    <>
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={scrolled ? { background: 'rgba(10,10,10,0.92)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(255,255,255,0.06)' } : {}}
@@ -111,7 +112,9 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+    </header>
+
+      {/* Mobile menu — outside <header> to avoid backdrop-filter containing-block trap */}
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 top-16 overflow-y-auto z-40" style={{ background: '#0a0a0a' }}>
           <div className="mw-container py-6 flex flex-col gap-1">
@@ -142,6 +145,6 @@ export default function Header() {
           </div>
         </div>
       )}
-    </header>
+    </>
   )
 }

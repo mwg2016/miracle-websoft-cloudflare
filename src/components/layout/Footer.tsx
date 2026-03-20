@@ -59,9 +59,9 @@ export default function Footer() {
               Free audit included. We will show you exactly what your store is missing and how to fix it.
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link href="/contact" className="mw-btn-primary text-base px-8 py-4">Get Free Audit</Link>
-            <Link href="https://wa.me/916239269736?text=Hi%2C%20I%27d%20like%20to%20get%20a%20free%20Shopify%20store%20audit." target="_blank" rel="noopener noreferrer" className="mw-btn-outline text-base px-8 py-4">WhatsApp Us</Link>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/contact" className="mw-btn-primary">Get Free Audit</Link>
+            <Link href="https://wa.me/916239269736?text=Hi%2C%20I%27d%20like%20to%20get%20a%20free%20Shopify%20store%20audit." target="_blank" rel="noopener noreferrer" className="mw-btn-outline">WhatsApp Us</Link>
           </div>
         </div>
       </div>
