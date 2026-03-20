@@ -7,6 +7,7 @@ import ServicesChecklist from './ServicesChecklist'
 import FaqSection from '@/components/ui/FaqSection'
 import WhyUs from '@/components/home/WhyUs'
 import ProcessSteps from '@/components/home/ProcessSteps'
+import ClientPortfolio from '@/components/home/ClientPortfolio'
 import CtaBanner from '@/components/home/CtaBanner'
 
 interface Props { industry: IndustryPage }
@@ -24,6 +25,7 @@ export default function IndustryLayout({ industry }: Props) {
       <PainPoints painPoints={industry.painPoints} />
       <ServicesChecklist services={industry.services} />
       <WhyUs />
+      <ClientPortfolio />
       <ProcessSteps />
       <FaqSection faqs={industry.faqs} heading={`${industry.title} — common questions`} />
       <CtaBanner />
