@@ -1,0 +1,200 @@
+export type BlogPost = {
+  slug: string
+  date: string
+  tag: string
+  title: string
+  excerpt: string
+  body: string[]
+}
+
+export const blogPosts: BlogPost[] = [
+  {
+    slug: 'shopify-summer-2025-edition',
+    date: 'May 2025',
+    tag: 'Platform Updates',
+    title: 'Shopify Summer 2025 Edition — what store owners need to know',
+    excerpt: "The key changes from Shopify's Summer 2025 release that affect clothing and fashion brands. New checkout features, Markets updates, and developer tools.",
+    body: [
+      "Shopify's Summer 2025 Edition introduced a set of changes that directly affect how clothing and fashion stores operate. Here is what matters most.",
+      "Checkout extensibility is now the only way to customise checkout on Shopify Plus. If your store uses old checkout.liquid customisations, these will stop working. The new Checkout UI Extensions system gives you more flexibility and better performance — but it requires a rebuild.",
+      "Shopify Markets received significant updates including better language detection, currency switching improvements, and a new market-level inventory routing system. For brands selling to multiple countries, this removes a lot of the custom logic that was previously needed.",
+      "The Storefront API has new Cart transformation APIs that allow for complex cart-level discount and bundle logic without requiring Shopify Plus Functions. This is a meaningful change for brands running promotions like BOGO or tiered discounts.",
+      "On the developer tooling side, the Shopify CLI 3.0 introduces local theme development improvements and a faster hot-reload cycle. Theme developers will notice build times are significantly reduced.",
+      "For clothing brands specifically: the new Combined Listings feature allows a single product to have multiple handle variants with separate images, SEO metadata, and social sharing per variant. This is especially powerful for products where colour or style dramatically changes the look — like swimwear or casualwear.",
+    ],
+  },
+  {
+    slug: 'shopify-may-2025-updates',
+    date: 'May 2025',
+    tag: 'Platform Updates',
+    title: 'Shopify May 2025 updates every merchant should know',
+    excerpt: 'Monthly roundup of Shopify platform updates — new APIs, storefront changes, and what they mean for your fashion store.',
+    body: [
+      "May 2025 brought several incremental updates to the Shopify platform. None are individually dramatic, but together they represent meaningful improvements for fashion store operators.",
+      "The Metaobjects API received expanded query filtering, making it much easier to use metaobjects as a backend for custom content like lookbooks, editorial pages, and size guides — without needing a headless setup.",
+      "Shopify Flow added new triggers and conditions for customer segmentation automation. You can now trigger flows based on first purchase product category — useful for fashion brands that want to send different post-purchase sequences for buyers of tops versus footwear.",
+      "The Online Store editor gained new section grouping features, making it easier to organise complex page templates. For brands with large homepage builds, this significantly improves the editor experience.",
+      "Product taxonomy updates expanded the structured attribute system for apparel. Shopify now has standardised attributes for things like fit, material, care instructions, and occasion — which feed directly into Google Shopping and Shopify Markets localisation.",
+      "If you use Shopify's native search and discovery, the filter system now supports price range sliders natively without requiring third-party apps. This was a common pain point for fashion brands with wide price ranges.",
+    ],
+  },
+  {
+    slug: 'custom-shopify-section-with-ai',
+    date: 'April 2025',
+    tag: 'AI & No-Code',
+    title: 'Built a custom Shopify section with AI — no code needed',
+    excerpt: 'How we used AI to build a fully custom Shopify section without writing a single line of code. A game changer for store owners who want custom features fast.',
+    body: [
+      "We built a fully functional Shopify theme section using AI tooling — no developer required. Here is exactly how we did it, and what the limitations are.",
+      "The use case was a custom lookbook section for a fashion brand. The client wanted an editorial-style layout with large images, overlay text, and a product tag system that links directly to the product page. Something that would normally take 4–6 hours of development time.",
+      "Using an AI prompt-to-code workflow, we described the desired layout in plain English and generated the initial Liquid/CSS code in under 5 minutes. The output needed minor corrections — mostly around schema settings and mobile breakpoints — but the structural logic was correct on the first pass.",
+      "The process works best for self-contained sections with clear UI logic. It breaks down for complex state management, JavaScript-heavy interactions, or sections that need to interact with Shopify's Cart API. For those, you still need a developer.",
+      "For store owners, the practical takeaway is this: straightforward section builds — hero banners, testimonial grids, feature callouts, lookbooks — can now be prototyped in under an hour with AI assistance. You still need someone who understands Shopify Liquid to review and adjust the output, but the time savings are real.",
+      "We use this approach regularly at Miracle Websoft for rapid prototyping. It has meaningfully reduced the turnaround time on new section builds without reducing quality.",
+    ],
+  },
+  {
+    slug: 'fashion-cart-abandonment',
+    date: 'March 2025',
+    tag: 'Conversion',
+    title: 'Why 77% of fashion shoppers abandon their cart — and how to stop it',
+    excerpt: 'Cart abandonment in fashion runs higher than almost any other ecommerce vertical. Here is why it happens and the Shopify changes that fix it.',
+    body: [
+      "Fashion ecommerce has some of the highest cart abandonment rates of any vertical — around 77% across the industry. Understanding why is the first step to fixing it.",
+      "The biggest single driver is fit and sizing uncertainty. Fashion shoppers routinely add items to cart as a shortlisting mechanism, not a buying decision. They are unsure whether it will fit, and without confidence, they do not complete the purchase. The fix is not more popups — it is a size guide that actually answers the question. A fit recommendation tool that takes body measurements and returns a size recommendation reduces abandonment meaningfully.",
+      "The second driver is price discovery. Shoppers want to see the final price before they get to checkout. Shipping costs appearing late in the checkout flow cause abandonment spikes. Show shipping costs early — ideally on the cart page — and offer a clear threshold for free shipping.",
+      "The third driver is trust signals. Fashion is a category where returns matter enormously. Shoppers want to know: how easy is it to return this? What is the return window? Can I return it for free? These signals belong on the product page, not buried in the footer.",
+      "On the Shopify side, the most impactful changes are: native cart page with shipping estimator, a persistent cart that remembers items across sessions, and Klaviyo abandoned cart sequences that trigger within 1 hour of abandonment.",
+      "We have seen a 35% reduction in cart abandonment across multiple client stores after implementing a combination of fit recommendations, upfront shipping display, and return policy visibility on product pages.",
+    ],
+  },
+  {
+    slug: 'slow-shopify-store-cost',
+    date: 'February 2025',
+    tag: 'Speed',
+    title: 'The real cost of a slow Shopify store for clothing brands',
+    excerpt: 'Every extra second of load time costs you sales. We break down the exact numbers for fashion ecommerce and what to do about it.',
+    body: [
+      "Speed is not a technical metric — it is a revenue metric. Here is how to think about what a slow Shopify store is actually costing your clothing brand.",
+      "The industry benchmark is consistent: a 1-second delay in page load time reduces conversions by approximately 7%. For a brand doing $50,000 per month in revenue, a 2-second delay is costing roughly $7,000 every month. That is $84,000 per year sitting in your page load time.",
+      "Fashion stores have a specific speed problem that other ecommerce categories do not: image weight. High-quality product photography is essential for fashion — customers need to see texture, fit, and detail. But unoptimised images are the number one cause of slow load times. A single uncompressed hero image can add 2–3 seconds to your load time on mobile.",
+      "The second major culprit is app bloat. The average Shopify fashion store has 12–15 apps installed. Many of these apps inject JavaScript and CSS into every page load, even on pages where they are not used. We regularly audit stores and find 300–500KB of unused JavaScript loading on every product page.",
+      "The third issue is render-blocking resources. Fonts, third-party scripts, and analytics tools that load synchronously will block the browser from rendering your page. Moving these to load asynchronously or deferring non-critical scripts can cut 0.5–1s from your load time immediately.",
+      "Our standard speed optimisation process targets a Lighthouse Performance score above 90 on mobile. Stores that reach this threshold consistently see 15–25% improvements in conversion rate within the first 30 days.",
+    ],
+  },
+  {
+    slug: 'tiktok-shop-shopify-activewear',
+    date: 'February 2025',
+    tag: 'TikTok',
+    title: 'How to set up TikTok Shop on Shopify for activewear brands',
+    excerpt: 'A step-by-step guide to connecting TikTok Shop to Shopify, syncing your catalog and making sure orders flow correctly.',
+    body: [
+      "TikTok Shop is a significant channel for activewear brands. Here is a practical walkthrough of the integration setup from the Shopify side.",
+      "Step one is eligibility. TikTok Shop is available in the USA, UK, and several Southeast Asian markets. Your Shopify store needs to be on a paid plan, and your TikTok account needs to be a Business Account with a minimum follower threshold (currently 1,000 for most markets).",
+      "Step two is the TikTok Shopify app. Install the official TikTok app from the Shopify App Store. This handles the catalog sync, pixel installation, and order routing. During setup you will connect your TikTok Business Center account and your TikTok Shop seller account.",
+      "Step three is catalog mapping. Your Shopify product variants need clean, consistent data to sync correctly. Common issues: variant titles that are too long, missing size/colour attribute values, and products without a primary category. Fix these in Shopify before syncing — cleaning them up in TikTok Shop after the fact is slower.",
+      "Step four is order routing. TikTok Shop orders flow into Shopify as standard orders with a TikTok source tag. Your existing fulfilment workflow handles them. Make sure your shipping zones cover the markets TikTok Shop is active in, and that your return policy URL is set in TikTok Seller Center.",
+      "For activewear specifically: video content performs significantly better than static images for product listings on TikTok Shop. Invest in short-form product demonstration videos. These drive 3–5x higher click-through rates than static imagery in our experience.",
+    ],
+  },
+  {
+    slug: 'woocommerce-to-shopify-migration',
+    date: 'January 2025',
+    tag: 'Migration',
+    title: 'WooCommerce to Shopify: the complete migration guide for fashion brands',
+    excerpt: 'Everything you need to know about migrating from WooCommerce to Shopify — what data transfers, what does not, and how to protect your SEO.',
+    body: [
+      "WooCommerce to Shopify migrations are one of our most common project types. Here is a clear picture of what the process looks like and where the risks are.",
+      "What transfers cleanly: products, variants, images, customer records, and order history all migrate with high fidelity using Shopify's import tools or a migration app. For stores with up to 5,000 products, this is typically straightforward.",
+      "What requires manual work: custom product attributes and metafields need to be remapped to Shopify's metafield system. WooCommerce has a flexible attribute system that does not map 1:1. For fashion stores with complex size/material/care attribute setups, this remapping can take several days.",
+      "The SEO question is the one that causes the most anxiety — and it is legitimate. WooCommerce and Shopify use different URL structures. A product at /shop/product-name in WooCommerce needs to become /products/product-name in Shopify, and a 301 redirect needs to be in place before you go live. We set up all redirects before DNS cutover, and we have never had a client lose significant organic traffic from a migration we managed.",
+      "The DNS cutover itself is the highest-risk moment. We handle this by: keeping WooCommerce live and read-only during the migration, doing a full QA pass on the Shopify store at a preview URL, then cutting DNS over on a low-traffic day (typically Tuesday or Wednesday morning). The window between DNS update and full propagation is 2–24 hours.",
+      "Timeline: a typical WooCommerce to Shopify migration with 500–2,000 products takes 3–4 weeks from kickoff to launch. Larger catalogues or complex data structures extend this.",
+    ],
+  },
+  {
+    slug: 'shopify-product-drop-system',
+    date: 'January 2025',
+    tag: 'Product Drops',
+    title: 'How to set up a product drop system on Shopify',
+    excerpt: 'Waitlists, countdown timers, pre-orders and sell-out handling. Here is how to build the infrastructure for a successful Shopify drop.',
+    body: [
+      "Product drops are now a core strategy for streetwear, activewear, and limited-edition fashion brands on Shopify. Here is the technical infrastructure you need.",
+      "The core components of a drop system are: pre-launch waitlist capture, countdown timer on product and collection pages, pre-order handling, inventory reservation at cart, and sell-out state management.",
+      "For waitlist capture, the cleanest solution is a Klaviyo-backed back-in-stock or pre-launch form. Set up a dedicated product page in a hidden state with a waitlist form embedded. Collect emails, segment them in Klaviyo by drop interest, and send the live notification with a first-access link 10 minutes before the drop goes live.",
+      "Countdown timers can be built natively in Shopify theme sections using JavaScript and a metafield to hold the drop timestamp. No app is needed for this. The timer reads the metafield value and counts down to zero, at which point it triggers a page refresh to show the live product.",
+      "Inventory reservation at cart is the most technically complex piece. When stock is limited, you need to hold inventory while the customer is in checkout — otherwise two customers can complete purchase of the last unit simultaneously. Shopify's native checkout holds inventory for 10 minutes during active checkout, which handles most cases.",
+      "Post-drop, set up automated flows in Klaviyo for: waitlist members who did not get the product (missed-out sequence with next drop preview), customers who purchased (post-purchase content with care instructions and styling), and a restock alert if you add units later.",
+    ],
+  },
+  {
+    slug: 'shopify-product-page-conversions',
+    date: 'December 2024',
+    tag: 'CRO',
+    title: '10 Shopify product page changes that increase fashion conversions',
+    excerpt: 'Small changes to your product pages can make a big difference. Here are the ten highest-impact improvements for clothing brand stores.',
+    body: [
+      "Product pages are where fashion purchases are won or lost. These are the ten changes we implement most consistently across client stores, ranked roughly by impact.",
+      "1. Size guide as a modal overlay on the product page. Not a separate page, not a PDF — a quick-open modal with a simple measurement-to-size table. This alone reduces sizing-related returns by 15–20% in our experience.",
+      "2. Multiple image angles including a flat lay, on-model front, on-model back, and detail/texture shot. Fashion shoppers make decisions based on texture and fit — they need enough visual information.",
+      "3. Model height and size displayed on the product page for every on-model image. 'Model is 5\'9\" wearing size S' removes a huge amount of uncertainty.",
+      "4. Social proof on the product page — not just a star rating but a review count and a brief quote from a review that addresses fit or quality. Reviews that mention sizing ('fits true to size', 'runs small') are especially valuable.",
+      "5. A sticky add-to-cart button that remains visible on mobile as the user scrolls through images and description. This reduces friction at the moment of decision.",
+      "6. Variant selection using swatches rather than dropdowns. Visual colour and material swatches perform better than dropdown menus for fashion products.",
+      "7. Return and exchange policy visible on the product page — not just in the footer. A clear '30-day free returns' badge near the add-to-cart button directly addresses purchase anxiety.",
+      "8. Related products that are actually related — same style or similar occasion, not just same collection. Manual curation or a well-configured recommendation app outperforms random 'you may also like' significantly.",
+      "9. Scarcity signal when stock is genuinely low. 'Only 3 left in this size' is honest and effective when true. Do not fake this — customers notice.",
+      "10. Page speed. A product page that loads in under 1.5 seconds on mobile performs materially better than one that takes 3+ seconds. Everything else on this list is secondary to a fast page.",
+    ],
+  },
+  {
+    slug: 'recently-viewed-products-shopify',
+    date: 'November 2024',
+    tag: 'Shopify Tips',
+    title: 'How to show recently viewed products in Shopify (step-by-step guide)',
+    excerpt: 'Recently viewed products keep shoppers engaged and lift average order value. Here is exactly how to add this feature to your Shopify store.',
+    body: [
+      "Recently viewed products is one of the highest-ROI features you can add to a Shopify store for clothing brands. Here is how to implement it correctly.",
+      "The feature works by storing product IDs in the browser's localStorage as the visitor browses your store. On product and collection pages, a section reads this stored list and renders the corresponding products using the Shopify Storefront API or a simple AJAX call to the product JSON endpoint.",
+      "Option 1 — Native theme implementation: If your theme is a Shopify 2.0 theme (Dawn or similar), you can add a custom section that reads from localStorage and renders product cards. This requires about 60–100 lines of JavaScript and a Liquid section file. No app needed.",
+      "Option 2 — App: If you are not comfortable with custom code, apps like 'Also Bought' or 'LimeSpot' include recently viewed as a feature. Be aware that most recommendation apps inject additional JavaScript, which adds page weight.",
+      "For maximum impact, place the recently viewed section in two locations: the product page (below the main product content) and the cart page (as a 'before you check out' section). The cart page placement is particularly effective for fashion brands with browseable catalogues.",
+      "One common mistake: displaying recently viewed products that are out of stock. Make sure your implementation checks stock status before rendering a product in the section. An out-of-stock product in the recently viewed section creates a dead end.",
+    ],
+  },
+  {
+    slug: 'ai-shopify-theme-sections-builder',
+    date: 'October 2024',
+    tag: 'Apps',
+    title: 'AI Shopify theme sections builder — build custom sections without a developer',
+    excerpt: "How our AI-powered sections builder lets you create fully custom Shopify theme sections without touching code.",
+    body: [
+      "We built an AI-powered Shopify theme sections builder that lets store owners create custom sections from a plain-English description. Here is how it works and what it can do.",
+      "The tool takes a description of what you want — for example, 'a two-column section with a video on the left and a headline, three bullet points, and a button on the right' — and generates production-ready Liquid, CSS, and section schema JSON that you can drop into your Shopify theme.",
+      "The output includes the full Shopify section file with schema settings so you can edit content from the theme editor without touching code. Customisable fields like heading text, button label, colours, and image are all exposed as schema settings.",
+      "What it handles well: layout-focused sections, content blocks, hero sections, testimonial grids, feature callouts, and editorial layouts. These are the sections that make up most of a fashion brand homepage.",
+      "What it does not handle: complex JavaScript interactions, Cart API integrations, real-time inventory-dependent logic, or sections that need to interact with third-party apps. Those still require a developer.",
+      "The tool is available as a Shopify app. For fashion brands who want to move quickly on new homepage sections or landing page builds, it removes the bottleneck of waiting for developer availability for straightforward layout work.",
+    ],
+  },
+  {
+    slug: 'custom-pc-builder-shopify',
+    date: 'September 2024',
+    tag: 'Apps',
+    title: 'Custom PC builder for Shopify — sell configurable products the right way',
+    excerpt: 'How the Shopify PC Builder app handles complex product configurations, compatibility logic and custom pricing — all without apps that slow your store down.',
+    body: [
+      "Configurable and bundle products are one of the hardest problems in Shopify development. Our PC Builder app was built to solve this without the performance cost of most existing solutions.",
+      "The standard Shopify variant system supports up to 100 variants per product with up to 3 options. For products with more configuration options than this — computers, custom bundles, build-your-own kits — you need a different approach.",
+      "The PC Builder app stores configuration data in metafields and uses a custom Storefront API integration to handle the cart and pricing logic. This means: no page reload when the user changes configuration, real-time price updates, and compatibility logic that prevents invalid combinations.",
+      "For fashion applications, the same technology applies to: custom suit builders with fabric, lining, and button selection; bespoke shoe configurators; or bundle builders for gifting (choose top, bottom, and accessory as a set).",
+      "Performance is the key differentiator. Most configurator apps work by loading a large JavaScript bundle and communicating with a remote server on every interaction. Our approach loads configuration data as JSON on page load and handles all logic client-side. The result is a configurator that feels instantaneous.",
+      "The app is available on the Shopify App Store. If you have a product configuration use case that does not fit the standard Shopify variant model, it is worth reviewing.",
+    ],
+  },
+]
+
+export function getPost(slug: string): BlogPost | undefined {
+  return blogPosts.find(p => p.slug === slug)
+}

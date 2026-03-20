@@ -30,19 +30,6 @@ const certifications = [
   { name: 'Upwork Top Rated Plus', year: '2020', issuer: 'Upwork' },
 ]
 
-const team = [
-  {
-    name: 'Karam Singh Mehra',
-    role: 'Founder & Lead Shopify Expert',
-    note: 'Top Rated Plus · Shopify Verified Partner · 10+ years',
-    upwork: 'https://www.upwork.com/freelancers/~0108a0862ff3e2f2de',
-    linkedin: 'https://www.linkedin.com/in/ecommerce-experts/',
-  },
-  { name: 'Saksham Chopra', role: 'Shopify Developer', note: null, upwork: null, linkedin: null },
-  { name: 'Bhaskar Bansal', role: 'Shopify Developer', note: null, upwork: null, linkedin: null },
-  { name: 'Barinder Singh', role: 'Shopify Developer', note: null, upwork: null, linkedin: null },
-]
-
 const testimonials = [
   {
     quote: 'I am happy to recommend Karam Singh, who runs a Shopify agency and is an expert Shopify developer. He has strong knowledge of Shopify development and always delivers quality work.',
@@ -140,32 +127,35 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Team */}
+        {/* Founder */}
         <div className="mb-14">
-          <p className="mw-eyebrow">The Team</p>
-          <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)', marginBottom: '1.5rem' }}>Meet the people<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>building your store.</em></h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {team.map(m => (
-              <div key={m.name} className="mw-card" style={{ padding: '1.5rem' }}>
-                <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'rgba(108,99,255,0.15)', border: '1px solid rgba(108,99,255,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
-                  <span style={{ fontWeight: 700, color: 'var(--accent)', fontSize: '1rem' }}>{m.name.charAt(0)}</span>
-                </div>
-                <div style={{ fontWeight: 600, color: '#fff', fontSize: '0.9rem', marginBottom: '0.25rem' }}>{m.name}</div>
-                <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', marginBottom: '0.75rem' }}>{m.role}</div>
-                {m.note && (
-                  <div className="flex items-center gap-1.5 mb-2">
-                    <Star size={10} style={{ color: '#14a800' }} />
-                    <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.35)' }}>{m.note}</span>
-                  </div>
-                )}
-                {m.upwork && (
-                  <div className="flex flex-col gap-1">
-                    <a href={m.upwork} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.72rem', color: 'rgba(255,255,255,0.3)' }} className="hover:text-white transition-colors"><ExternalLink size={10} />Upwork</a>
-                    <a href={m.linkedin!} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.72rem', color: 'rgba(255,255,255,0.3)' }} className="hover:text-white transition-colors"><ExternalLink size={10} />LinkedIn</a>
-                  </div>
-                )}
+          <p className="mw-eyebrow">The Founder</p>
+          <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)', marginBottom: '1.5rem' }}>Meet the person<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>behind the work.</em></h2>
+          <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: '2rem', maxWidth: '560px' }}>
+            <div className="flex items-start gap-4">
+              <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'rgba(108,99,255,0.15)', border: '1px solid rgba(108,99,255,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <span style={{ fontWeight: 700, color: 'var(--accent)', fontSize: '1.3rem' }}>K</span>
               </div>
-            ))}
+              <div>
+                <div style={{ fontWeight: 700, color: '#fff', fontSize: '1.05rem', marginBottom: '0.2rem' }}>Karam Singh Mehra</div>
+                <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', marginBottom: '0.75rem' }}>Founder & Lead Shopify Expert</div>
+                <div className="flex items-center gap-1.5 mb-3">
+                  <Star size={11} style={{ color: '#14a800' }} />
+                  <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.4)' }}>Top Rated Plus · Shopify Verified Partner · 10+ years</span>
+                </div>
+                <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, fontWeight: 300, marginBottom: '1rem' }}>
+                  Karam founded Miracle Websoft in 2015 after years of freelance Shopify work. He personally leads every project — clients communicate directly with him, not an account manager. Based in Chandigarh, India.
+                </p>
+                <div className="flex gap-3">
+                  <a href="https://www.upwork.com/freelancers/~0108a0862ff3e2f2de" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)', padding: '0.3rem 0.75rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9999px' }} className="hover:text-white hover:border-white/30 transition-all">
+                    <ExternalLink size={11} /> Upwork
+                  </a>
+                  <a href="https://www.linkedin.com/in/ecommerce-experts/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)', padding: '0.3rem 0.75rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9999px' }} className="hover:text-white hover:border-white/30 transition-all">
+                    <ExternalLink size={11} /> LinkedIn
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
