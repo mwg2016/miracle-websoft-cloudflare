@@ -2,8 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'miraclewebsoft',
-      script: 'node_modules/.bin/next',
-      args: 'start',
+      script: '.next/standalone/server.js',
       instances: 1,
       autorestart: true,
       watch: false,

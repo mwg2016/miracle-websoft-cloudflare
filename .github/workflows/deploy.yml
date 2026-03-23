@@ -19,6 +19,9 @@ jobs:
             cd /home/miraclewebsoft/htdocs/miraclewebsoft.com
             git pull origin main
             npm ci
-            npm run build && /home/miraclewebsoft/.nvm/versions/node/v22.22.1/bin/pm2 restart miraclewebsoft
+            npm run build
+            cp -r public .next/standalone/
+            cp -r .next/static .next/standalone/.next/static
+            /home/miraclewebsoft/.nvm/versions/node/v22.22.1/bin/pm2 reload miraclewebsoft
             /home/miraclewebsoft/.nvm/versions/node/v22.22.1/bin/pm2 save
             echo "Deploy complete"
