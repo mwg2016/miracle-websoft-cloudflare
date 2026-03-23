@@ -18,8 +18,7 @@ jobs:
           script: |
             cd /home/miraclewebsoft/htdocs/miraclewebsoft.com
             git pull origin main
-            npm ci --production
-            npm run build
-            /home/miraclewebsoft/.nvm/versions/node/v22.22.1/bin/pm2 restart miraclewebsoft
+            npm ci
+            npm run build && /home/miraclewebsoft/.nvm/versions/node/v22.22.1/bin/pm2 restart miraclewebsoft
             /home/miraclewebsoft/.nvm/versions/node/v22.22.1/bin/pm2 save
             echo "Deploy complete"
