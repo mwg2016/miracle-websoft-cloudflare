@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, ExternalLink, Star, Award } from 'lucide-react'
+import TrustProfiles from '@/components/home/TrustProfiles'
 
 export const metadata: Metadata = {
   title: 'About Miracle Websoft — Shopify Agency for Fashion Brands',
@@ -43,27 +44,11 @@ const testimonials = [
   },
 ]
 
-const profiles = [
-  { name: 'Upwork Agency', badge: 'Top Rated Plus', href: 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/', accent: '#14a800' },
-  { name: 'Shopify Partner Directory', badge: 'Verified Partner', href: 'https://www.shopify.com/partners/directory/partner/miracle-websoft1', accent: '#96bf48' },
-  { name: 'Clutch', badge: 'Verified Reviews', href: 'https://clutch.co/profile/miracle-websoft', accent: '#e63329' },
-  { name: 'DesignRush', badge: 'Top Agency', href: 'https://www.designrush.com/agency/profile/miracle-websoft', accent: '#6c63ff' },
-  { name: 'Trustpilot', badge: '5★ Rated', href: 'https://www.trustpilot.com/review/miraclewebsoft.com', accent: '#00b67a' },
-  { name: 'Shopify App Store', badge: 'Published Apps', href: 'https://apps.shopify.com/partners/miracle-websoft1', accent: '#96bf48' },
-]
-
-const socials = [
-  { name: 'LinkedIn', href: 'https://in.linkedin.com/company/shopify-experts-miracle-websoft' },
-  { name: 'Instagram', href: 'https://www.instagram.com/miracle_websoft/' },
-  { name: 'Facebook', href: 'https://www.facebook.com/miraclewebsoft/' },
-  { name: 'X / Twitter', href: 'https://x.com/miraclewebsoft' },
-  { name: 'GitHub', href: 'https://github.com/mwg2016' },
-]
 
 export default function AboutPage() {
   return (
-    <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '8rem', paddingBottom: '5rem' }}>
-      <div className="mw-container">
+    <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '8rem' }}>
+      <div className="mw-container" style={{ paddingBottom: '5rem' }}>
         <div className="mb-8"><Breadcrumb items={[{ label: 'About' }]} /></div>
 
         {/* Hero */}
@@ -182,34 +167,11 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Find us on */}
-        <div className="mb-14">
-          <h2 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#fff', marginBottom: '1.25rem' }}>Find us on</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {profiles.map(p => (
-              <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between mw-card" style={{ padding: '1.25rem 1.5rem' }}>
-                <div>
-                  <div style={{ fontWeight: 600, color: '#fff', fontSize: '0.88rem', marginBottom: '0.25rem' }}>{p.name}</div>
-                  <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '0.2rem 0.55rem', borderRadius: '9999px', background: `${p.accent}18`, color: p.accent, border: `1px solid ${p.accent}35` }}>{p.badge}</span>
-                </div>
-                <ExternalLink size={13} style={{ color: 'rgba(255,255,255,0.2)', flexShrink: 0 }} className="group-hover:text-white transition-colors" />
-              </a>
-            ))}
-          </div>
-        </div>
+      </div>
 
-        {/* Social */}
-        <div style={{ marginBottom: '3rem' }}>
-          <h2 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#fff', marginBottom: '1rem' }}>Follow us</h2>
-          <div className="flex flex-wrap gap-2">
-            {socials.map(s => (
-              <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer"
-                style={{ padding: '0.5rem 1.1rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9999px', color: 'rgba(255,255,255,0.5)', fontSize: '0.82rem', fontWeight: 500 }}
-                className="hover:text-white hover:border-white/30 transition-all">{s.name}</a>
-            ))}
-          </div>
-        </div>
+      <TrustProfiles />
 
+      <div className="mw-container" style={{ paddingTop: '3rem', paddingBottom: '5rem' }}>
         <Link href="/contact" className="mw-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
           Work with us <ArrowRight size={16} />
         </Link>
