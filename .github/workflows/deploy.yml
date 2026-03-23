@@ -22,6 +22,6 @@ jobs:
             npm run build
             cp -r public .next/standalone/
             cp -r .next/static .next/standalone/.next/static
-            /home/miraclewebsoft/.nvm/versions/node/v22.22.1/bin/pm2 reload miraclewebsoft
+            /home/miraclewebsoft/.nvm/versions/node/v22.22.1/bin/pm2 startOrReload ecosystem.config.js --update-env
             /home/miraclewebsoft/.nvm/versions/node/v22.22.1/bin/pm2 save
             echo "Deploy complete"
