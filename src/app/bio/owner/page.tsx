@@ -218,7 +218,7 @@ export default function OwnerBioPage() {
             boxShadow: '0 8px 28px rgba(108,99,255,0.4)',
           }}>
             <Calendar size={17} />
-            Book a Free 15-min Call
+            Book a Free 15-Min Call
             <ArrowUpRight size={14} style={{ opacity: 0.8 }} />
           </a>
           <a href={PAYMENT_LINK} target="_blank" rel="noopener noreferrer" style={{
