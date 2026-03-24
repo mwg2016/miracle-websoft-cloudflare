@@ -102,6 +102,7 @@ export default function ContactForm() {
         <select value={form.service} onChange={e => set('service', e.target.value)}
           style={{ ...inputStyle, appearance: 'none' as const }}>
           <option value="">Select a service...</option>
+          <option>Custom Tool Development</option>
           <option>Custom Shopify Development</option>
           <option>Shopify App Development</option>
           <option>Migration to Shopify</option>
