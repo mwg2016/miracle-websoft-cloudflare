@@ -188,7 +188,7 @@ export default function OwnerBioPage() {
           </p>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', color: 'rgba(255,255,255,0.28)', fontSize: '0.75rem', marginBottom: '1.25rem' }}>
             <MapPin size={11} />
-            <span>Chandigarh, India - Serving USA, UK & Australia</span>
+            <span>Chandigarh, India | Serving USA, UK & Australia</span>
           </div>
 
           {/* Upwork Top Rated Plus badge — hero */}
