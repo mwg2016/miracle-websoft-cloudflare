@@ -16,6 +16,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
+            set -e
             cd /home/miraclewebsoft/htdocs/miraclewebsoft.com
             git pull origin main
             npm ci
