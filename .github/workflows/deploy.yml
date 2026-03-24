@@ -18,6 +18,7 @@ jobs:
           script: |
             set -e
             export PATH=/home/miraclewebsoft/.nvm/versions/node/v22.22.1/bin:$PATH
+            export PM2_HOME=/home/miraclewebsoft/.pm2
             git config --global --add safe.directory /home/miraclewebsoft/htdocs/miraclewebsoft.com
             cd /home/miraclewebsoft/htdocs/miraclewebsoft.com
             git pull origin main
