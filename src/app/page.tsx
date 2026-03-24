@@ -9,6 +9,7 @@ import ProcessSteps from '@/components/home/ProcessSteps'
 import TrustProfiles from '@/components/home/TrustProfiles'
 import Testimonials from '@/components/home/Testimonials'
 import ClientPortfolio from '@/components/home/ClientPortfolio'
+import ToolsSection from '@/components/home/ToolsSection'
 import CtaBanner from '@/components/home/CtaBanner'
 import FaqSection from '@/components/ui/FaqSection'
 
@@ -49,6 +50,7 @@ export default function HomePage() {
       <Testimonials />
       <ClientPortfolio />
       <TrustProfiles />
+      <ToolsSection />
       <FaqSection faqs={homeFaqs} heading="Questions about working with us" />
       <CtaBanner />
     </>
