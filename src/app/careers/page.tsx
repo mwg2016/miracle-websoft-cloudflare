@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const openRoles = [
   {
     title: 'Shopify Developer — Junior',
-    type: 'Full-time / Remote',
+    type: 'Full-time',
     icon: Code2,
     color: '#6C63FF',
     colorDim: 'rgba(108,99,255,0.12)',
@@ -33,7 +33,7 @@ const openRoles = [
   },
   {
     title: 'Shopify Developer — Mid-Level',
-    type: 'Full-time / Remote',
+    type: 'Full-time',
     icon: Layers,
     color: '#10B981',
     colorDim: 'rgba(16,185,129,0.12)',
@@ -55,7 +55,7 @@ const openRoles = [
   },
   {
     title: 'Shopify Developer — Senior',
-    type: 'Full-time / Remote',
+    type: 'Full-time',
     icon: Zap,
     color: '#F59E0B',
     colorDim: 'rgba(245,158,11,0.12)',
@@ -77,7 +77,7 @@ const openRoles = [
   },
   {
     title: 'Shopify Theme Developer',
-    type: 'Full-time / Remote',
+    type: 'Full-time',
     icon: Users,
     color: '#EC4899',
     colorDim: 'rgba(236,72,153,0.12)',
@@ -100,9 +100,8 @@ const openRoles = [
 ]
 
 const perks = [
-  { label: 'Remote-first', sub: 'Work from anywhere in India' },
+  { label: 'Full-time', sub: 'Stable full-time position' },
   { label: 'Real projects', sub: '600+ completed — fashion & clothing brands' },
-  { label: 'Mentorship', sub: 'Karam personally coaches the team' },
   { label: 'Growth path', sub: 'Junior → Mid → Senior → Lead' },
   { label: 'Good pay', sub: 'Based on skill, not just title' },
   { label: 'Stable work', sub: '10+ years in business, consistent clients' },
@@ -286,7 +285,7 @@ export default function CareersPage() {
                   </div>
                   <div>
                     <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>Apply to Miracle Websoft</div>
-                    <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>All levels welcome · Remote · India</div>
+                    <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>All levels welcome · Full-time · India</div>
                   </div>
                 </div>
 
