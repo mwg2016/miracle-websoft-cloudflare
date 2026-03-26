@@ -14,7 +14,7 @@ cp -r .next/static .next/standalone/.next/static
 cp -r public .next/standalone/public
 pm2 restart miraclewebsoft
 # If process doesn't exist yet:
-# PORT=3200 pm2 start .next/standalone/server.js --name miraclewebsoft
+# pm2 start ecosystem.config.js
 ```
 
 ## Push to GitHub
