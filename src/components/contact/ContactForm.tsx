@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ArrowRight, CheckCircle2, Loader2 } from 'lucide-react'
 
 const inputStyle: React.CSSProperties = {
@@ -27,7 +27,19 @@ const optionalTag = (
 
 export default function ContactForm() {
   const [state, setState] = useState<'idle' | 'sending' | 'done' | 'error'>('idle')
-  const [form, setForm] = useState({ name: '', email: '', storeUrl: '', service: '', message: '', _hp: '' })
+  const [form, setForm] = useState({ name: '', email: '', storeUrl: '', service: '', message: '', _hp: '', _source: '' })
+
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search)
+    const source = {
+      page: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      ...(p.get('utm_source') && { utm_source: p.get('utm_source') }),
+      ...(p.get('utm_medium') && { utm_medium: p.get('utm_medium') }),
+      ...(p.get('utm_campaign') && { utm_campaign: p.get('utm_campaign') }),
+    }
+    setForm(f => ({ ...f, _source: JSON.stringify(source) }))
+  }, [])
 
   function set(field: string, value: string) {
     setForm(f => ({ ...f, [field]: value }))
@@ -63,7 +75,7 @@ export default function ContactForm() {
           Karam will review your store and reply within 24 hours.
         </p>
         <button
-          onClick={() => { setState('idle'); setForm({ name: '', email: '', storeUrl: '', service: '', message: '', _hp: '' }) }}
+          onClick={() => { setState('idle'); setForm(f => ({ name: '', email: '', storeUrl: '', service: '', message: '', _hp: '', _source: f._source })) }}
           style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
         >
           Send another message

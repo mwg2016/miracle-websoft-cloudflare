@@ -11,6 +11,37 @@ const transporter = nodemailer.createTransport({
   },
 })
 
+// ─── Parse source tracking data ───────────────────────────────────────────────
+function parseSource(raw: string) {
+  try { return JSON.parse(raw) } catch { return null }
+}
+
+function sourceTextLines(src: ReturnType<typeof parseSource>): string[] {
+  if (!src) return []
+  const lines = [`Page: ${src.page}`, `Referrer: ${src.referrer}`]
+  if (src.utm_source) lines.push(`UTM Source: ${src.utm_source}`)
+  if (src.utm_medium) lines.push(`UTM Medium: ${src.utm_medium}`)
+  if (src.utm_campaign) lines.push(`UTM Campaign: ${src.utm_campaign}`)
+  return lines
+}
+
+function sourceHtmlRows(src: ReturnType<typeof parseSource>): string {
+  if (!src) return ''
+  const rows = [
+    `<tr><td style="padding:8px 0;color:#888;font-size:14px;width:130px">Page</td><td style="padding:8px 0;font-size:14px;color:#111">${src.page}</td></tr>`,
+    `<tr><td style="padding:8px 0;color:#888;font-size:14px">Referrer</td><td style="padding:8px 0;font-size:14px;color:#111">${src.referrer}</td></tr>`,
+  ]
+  if (src.utm_source) rows.push(`<tr><td style="padding:8px 0;color:#888;font-size:14px">UTM Source</td><td style="padding:8px 0;font-size:14px;color:#111">${src.utm_source}</td></tr>`)
+  if (src.utm_medium) rows.push(`<tr><td style="padding:8px 0;color:#888;font-size:14px">UTM Medium</td><td style="padding:8px 0;font-size:14px;color:#111">${src.utm_medium}</td></tr>`)
+  if (src.utm_campaign) rows.push(`<tr><td style="padding:8px 0;color:#888;font-size:14px">UTM Campaign</td><td style="padding:8px 0;font-size:14px;color:#111">${src.utm_campaign}</td></tr>`)
+  return `
+    <tr><td colspan="2" style="padding-top:16px;padding-bottom:4px">
+      <p style="margin:0;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#aaa">Lead Source</p>
+    </td></tr>
+    ${rows.join('\n')}
+  `
+}
+
 function buildNotificationEmail(
   name: string,
   email: string,
@@ -19,8 +50,10 @@ function buildNotificationEmail(
   experience: string,
   portfolio: string,
   message: string,
+  sourceRaw: string,
   resumeName?: string,
 ) {
+  const src = parseSource(sourceRaw)
   return {
     from: `"Miracle Websoft Site" <${process.env.SMTP_USER}>`,
     to: process.env.SMTP_USER,
@@ -37,6 +70,8 @@ function buildNotificationEmail(
       ``,
       `Cover letter:`,
       message,
+      ``,
+      ...sourceTextLines(src),
     ].join('\n'),
     html: `
       <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px">
@@ -50,6 +85,7 @@ function buildNotificationEmail(
           <tr><td style="padding:8px 0;color:#888;font-size:14px">Experience</td><td style="padding:8px 0;font-size:14px;color:#111">${experience}</td></tr>
           <tr><td style="padding:8px 0;color:#888;font-size:14px">Portfolio</td><td style="padding:8px 0;font-size:14px;color:#111">${portfolio ? `<a href="${portfolio}" style="color:#6c63ff">${portfolio}</a>` : '—'}</td></tr>
           <tr><td style="padding:8px 0;color:#888;font-size:14px">Resume</td><td style="padding:8px 0;font-size:14px;color:#111">${resumeName ? `✅ ${resumeName} (attached)` : 'Not provided'}</td></tr>
+          ${sourceHtmlRows(src)}
         </table>
         <div style="margin-top:20px;padding:16px;background:#f5f5f5;border-radius:8px">
           <p style="margin:0 0 8px;font-size:13px;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:.05em">Cover letter</p>
@@ -173,13 +209,14 @@ export async function POST(req: NextRequest) {
     const experience = (fd.get('experience') as string) || ''
     const portfolio = (fd.get('portfolio') as string) || ''
     const message = (fd.get('message') as string) || ''
+    const sourceRaw = (fd.get('_source') as string) || ''
     const resumeFile = fd.get('resume') as File | null
 
     if (!name || !email || !position || !experience || !message) {
       return Response.json({ success: false, error: 'Missing required fields' }, { status: 400 })
     }
 
-    const notifEmail = buildNotificationEmail(name, email, phone, position, experience, portfolio, message, resumeFile?.name)
+    const notifEmail = buildNotificationEmail(name, email, phone, position, experience, portfolio, message, sourceRaw, resumeFile?.name)
     const confirmEmail = buildConfirmationEmail(name, email, position)
 
     // Attach resume if provided

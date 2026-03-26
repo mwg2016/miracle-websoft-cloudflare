@@ -59,7 +59,6 @@ const nextConfig: NextConfig = {
       { source: '/terms-of-service-for-social-auto-post', destination: '/terms', permanent: true },
 
       // ─── Services → Shopify Development ──────────────────────────────────
-      { source: '/services', destination: '/services/shopify-development-clothing-brands', permanent: true },
       { source: '/shopify-store-setup', destination: '/services/shopify-development-clothing-brands', permanent: true },
       { source: '/shopify-e-commerce-service-packages', destination: '/services/shopify-development-clothing-brands', permanent: true },
       { source: '/shopify-maintenance-support-by-shopify-development-agency', destination: '/services/shopify-development-clothing-brands', permanent: true },

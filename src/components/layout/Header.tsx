@@ -4,10 +4,12 @@ import Link from 'next/link'
 import { ChevronDown, Menu, X } from 'lucide-react'
 
 const services = [
-  { label: 'Custom Shopify Development', href: '/services/shopify-development-clothing-brands' },
+  { label: 'Custom Shopify Development', href: '/services/shopify/development' },
   { label: 'Shopify App Development', href: '/services/shopify-app-development' },
   { label: 'Shopify Migrations', href: '/services/shopify-migration' },
-  { label: 'CRO & Speed Optimization', href: '/services/shopify-cro-speed' },
+  { label: 'CRO & Speed Optimisation', href: '/services/shopify-cro-speed' },
+  { label: 'WordPress Development', href: '/services/wordpress-development' },
+  { label: 'Custom Web Development', href: '/services/custom-web-development' },
 ]
 const industries = [
   { label: "Women's Clothing & Boutiques", href: '/industries/womens-clothing-boutiques' },
@@ -75,6 +77,10 @@ export default function Header() {
                       {s.label}
                     </Link>
                   ))}
+                  <div style={{ margin: '6px 8px 4px', borderTop: '1px solid rgba(255,255,255,0.08)' }} />
+                  <Link href="/services" onClick={() => setServicesOpen(false)} className="block px-4 py-2.5 text-sm rounded-lg mx-1 font-medium" style={{ color: '#6c63ff' }} onMouseEnter={e => { (e.target as HTMLElement).style.background = 'rgba(108,99,255,0.08)' }} onMouseLeave={e => { (e.target as HTMLElement).style.background = 'transparent' }}>
+                    View all services →
+                  </Link>
                 </div>
               )}
             </div>
@@ -125,6 +131,7 @@ export default function Header() {
               {mobileServicesOpen && (
                 <div className="pl-4 py-2 flex flex-col gap-1">
                   {services.map(s => <Link key={s.href} href={s.href} onClick={() => setMobileOpen(false)} className="py-2 text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>{s.label}</Link>)}
+                  <Link href="/services" onClick={() => setMobileOpen(false)} className="py-2 text-sm font-medium" style={{ color: '#6c63ff' }}>View all services →</Link>
                 </div>
               )}
             </div>

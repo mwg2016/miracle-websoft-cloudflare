@@ -2,10 +2,13 @@
 import Link from 'next/link'
 
 const serviceLinks = [
-  { label: 'Custom Shopify Development', href: '/services/shopify-development-clothing-brands' },
+  { label: 'All Services', href: '/services' },
+  { label: 'Custom Shopify Development', href: '/services/shopify/development' },
   { label: 'Shopify App Development', href: '/services/shopify-app-development' },
+  { label: 'WordPress Development', href: '/services/wordpress-development' },
+  { label: 'Custom Web Development', href: '/services/custom-web-development' },
   { label: 'Shopify Migrations', href: '/services/shopify-migration' },
-  { label: 'CRO & Speed Optimization', href: '/services/shopify-cro-speed' },
+  { label: 'CRO & Speed Optimisation', href: '/services/shopify-cro-speed' },
 ]
 const industryLinks = [
   { label: "Women's Clothing & Boutiques", href: '/industries/womens-clothing-boutiques' },

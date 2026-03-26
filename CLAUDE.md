@@ -10,7 +10,11 @@ Next.js 16 App Router · Tailwind CSS v4 · TypeScript · `output: standalone` �
 ## Deploy
 ```bash
 npm run build
-~/.nvm/versions/node/v22.22.1/bin/pm2 restart miraclewebsoft
+cp -r .next/static .next/standalone/.next/static
+cp -r public .next/standalone/public
+pm2 restart miraclewebsoft
+# If process doesn't exist yet:
+# PORT=3200 pm2 start .next/standalone/server.js --name miraclewebsoft
 ```
 
 ## Push to GitHub

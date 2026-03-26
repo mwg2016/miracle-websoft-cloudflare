@@ -11,14 +11,46 @@ const transporter = nodemailer.createTransport({
   },
 })
 
+// ─── Parse source tracking data ───────────────────────────────────────────────
+function parseSource(raw: string) {
+  try { return JSON.parse(raw) } catch { return null }
+}
+
+function sourceTextLines(src: ReturnType<typeof parseSource>): string[] {
+  if (!src) return []
+  const lines = [`Page: ${src.page}`, `Referrer: ${src.referrer}`]
+  if (src.utm_source) lines.push(`UTM Source: ${src.utm_source}`)
+  if (src.utm_medium) lines.push(`UTM Medium: ${src.utm_medium}`)
+  if (src.utm_campaign) lines.push(`UTM Campaign: ${src.utm_campaign}`)
+  return lines
+}
+
+function sourceHtmlRows(src: ReturnType<typeof parseSource>): string {
+  if (!src) return ''
+  const rows = [
+    `<tr><td style="padding:8px 0;color:#888;font-size:14px;width:120px">Page</td><td style="padding:8px 0;font-size:14px;color:#111">${src.page}</td></tr>`,
+    `<tr><td style="padding:8px 0;color:#888;font-size:14px">Referrer</td><td style="padding:8px 0;font-size:14px;color:#111">${src.referrer}</td></tr>`,
+  ]
+  if (src.utm_source) rows.push(`<tr><td style="padding:8px 0;color:#888;font-size:14px">UTM Source</td><td style="padding:8px 0;font-size:14px;color:#111">${src.utm_source}</td></tr>`)
+  if (src.utm_medium) rows.push(`<tr><td style="padding:8px 0;color:#888;font-size:14px">UTM Medium</td><td style="padding:8px 0;font-size:14px;color:#111">${src.utm_medium}</td></tr>`)
+  if (src.utm_campaign) rows.push(`<tr><td style="padding:8px 0;color:#888;font-size:14px">UTM Campaign</td><td style="padding:8px 0;font-size:14px;color:#111">${src.utm_campaign}</td></tr>`)
+  return `
+    <tr><td colspan="2" style="padding-top:16px;padding-bottom:4px">
+      <p style="margin:0;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#aaa">Lead Source</p>
+    </td></tr>
+    ${rows.join('\n')}
+  `
+}
+
 // ─── Notification email to Karam ─────────────────────────────────────────────
-function buildNotificationEmail(name: string, email: string, storeUrl: string, service: string, message: string) {
+function buildNotificationEmail(name: string, email: string, storeUrl: string, service: string, message: string, sourceRaw: string, budget?: string) {
+  const src = parseSource(sourceRaw)
   return {
     from: `"Miracle Websoft Site" <${process.env.SMTP_USER}>`,
     to: process.env.SMTP_USER,
     replyTo: email,
     subject: `New enquiry from ${name} — ${service || 'website form'}`,
-    text: [`Name: ${name}`, `Email: ${email}`, `Store URL: ${storeUrl || '—'}`, `Service: ${service || '—'}`, ``, `Message:`, message].join('\n'),
+    text: [`Name: ${name}`, `Email: ${email}`, `Store URL: ${storeUrl || '—'}`, `Service: ${service || '—'}`, budget ? `Budget: ${budget}` : '', ``, `Message:`, message, ``, ...sourceTextLines(src)].filter(l => l !== '').join('\n'),
     html: `
       <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px">
         <h2 style="margin:0 0 20px;font-size:20px;color:#111">New enquiry from ${name}</h2>
@@ -27,6 +59,8 @@ function buildNotificationEmail(name: string, email: string, storeUrl: string, s
           <tr><td style="padding:8px 0;color:#888;font-size:14px">Email</td><td style="padding:8px 0;font-size:14px;color:#111"><a href="mailto:${email}" style="color:#6c63ff">${email}</a></td></tr>
           <tr><td style="padding:8px 0;color:#888;font-size:14px">Store URL</td><td style="padding:8px 0;font-size:14px;color:#111">${storeUrl || '—'}</td></tr>
           <tr><td style="padding:8px 0;color:#888;font-size:14px">Service</td><td style="padding:8px 0;font-size:14px;color:#111">${service || '—'}</td></tr>
+          ${budget ? `<tr><td style="padding:8px 0;color:#888;font-size:14px">Budget</td><td style="padding:8px 0;font-size:14px;color:#111">${budget}</td></tr>` : ''}
+          ${sourceHtmlRows(src)}
         </table>
         <div style="margin-top:20px;padding:16px;background:#f5f5f5;border-radius:8px">
           <p style="margin:0 0 8px;font-size:13px;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:.05em">Message</p>
@@ -219,7 +253,7 @@ export async function POST(req: NextRequest) {
       return Response.json({ success: true })
     }
 
-    const { name, email, storeUrl, service, message } = data
+    const { name, email, storeUrl, service, message, budget, _source } = data
 
     if (!name || !email || !message) {
       return Response.json({ success: false, error: 'Missing required fields' }, { status: 400 })
@@ -227,7 +261,7 @@ export async function POST(req: NextRequest) {
 
     // Send both emails in parallel
     await Promise.all([
-      transporter.sendMail(buildNotificationEmail(name, email, storeUrl, service, message)),
+      transporter.sendMail(buildNotificationEmail(name, email, storeUrl, service, message, _source || '', budget)),
       transporter.sendMail(buildConfirmationEmail(name, email, service)),
     ])
 

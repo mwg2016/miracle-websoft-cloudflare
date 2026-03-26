@@ -1,5 +1,5 @@
 'use client'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { ArrowRight, CheckCircle2, Loader2, Upload, X } from 'lucide-react'
 
 const inputStyle: React.CSSProperties = {
@@ -36,7 +36,20 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
     portfolio: '',
     message: '',
     _hp: '',
+    _source: '',
   })
+
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search)
+    const source = {
+      page: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      ...(p.get('utm_source') && { utm_source: p.get('utm_source') }),
+      ...(p.get('utm_medium') && { utm_medium: p.get('utm_medium') }),
+      ...(p.get('utm_campaign') && { utm_campaign: p.get('utm_campaign') }),
+    }
+    setForm(f => ({ ...f, _source: JSON.stringify(source) }))
+  }, [])
   const [resume, setResume] = useState<File | null>(null)
   const [dragOver, setDragOver] = useState(false)
   const fileRef = useRef<HTMLInputElement>(null)
@@ -90,7 +103,7 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
           We typically respond to all applicants within 3–5 business days.
         </p>
         <button
-          onClick={() => { setState('idle'); setForm({ name: '', email: '', phone: '', position: defaultPosition || '', experience: '', portfolio: '', message: '', _hp: '' }); setResume(null) }}
+          onClick={() => { setState('idle'); setForm(f => ({ name: '', email: '', phone: '', position: defaultPosition || '', experience: '', portfolio: '', message: '', _hp: '', _source: f._source })); setResume(null) }}
           style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
         >
           Submit another application
