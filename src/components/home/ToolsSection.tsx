@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { Search, Layers, Package, Grid3X3, MessageCircle, Bot, Clock, Globe, ArrowUpRight, ExternalLink, ArrowRight } from 'lucide-react'
+import { Search, Layers, Package, Grid3X3, MessageCircle, Bot, Clock, Globe, ArrowUpRight, ExternalLink, ArrowRight, Cpu, ShoppingCart, Sparkles, BarChart2 } from 'lucide-react'
 
 const tools = [
   {
@@ -43,6 +43,26 @@ const tools = [
       { icon: Globe, label: '8 Languages' },
     ],
   },
+  {
+    badge: 'Shopify App',
+    badgeColor: '#38bdf8',
+    badgeBg: 'rgba(56,189,248,0.12)',
+    badgeBorder: 'rgba(56,189,248,0.3)',
+    accentGradient: 'linear-gradient(90deg, #0284c7, #38bdf8)',
+    accentBorder: 'rgba(56,189,248,0.2)',
+    accentBg: 'linear-gradient(135deg, rgba(56,189,248,0.06) 0%, rgba(56,189,248,0.01) 100%)',
+    tag: '14-day free trial',
+    title: 'PC Builder',
+    desc: 'Interactive PC configurator for Shopify stores. Lets customers build compatible PCs step by step and checkout in one click — with real-time compatibility validation.',
+    url: 'https://apps.shopify.com/pc-builder-mw',
+    urlLabel: 'pcbuilderapp.com',
+    features: [
+      { icon: Cpu, label: 'Compatibility Engine' },
+      { icon: ShoppingCart, label: 'Bundle Checkout' },
+      { icon: Sparkles, label: 'AI-Powered Fill' },
+      { icon: BarChart2, label: 'Order Analytics' },
+    ],
+  },
 ]
 
 export default function ToolsSection() {
@@ -54,7 +74,7 @@ export default function ToolsSection() {
           <h2 style={{ color: '#fff' }}>Tools we&apos;ve shipped<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>used by thousands.</em></h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
           {tools.map((tool) => (
             <div
               key={tool.title}

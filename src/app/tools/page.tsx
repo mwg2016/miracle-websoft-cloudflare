@@ -5,7 +5,7 @@ import {
   MessageCircle, Bot, Clock, Globe,
   ExternalLink, ArrowUpRight, ArrowRight,
   Zap, DollarSign, Calendar, CheckCircle2,
-  Code2, Sparkles, Users,
+  Code2, Sparkles, Users, Cpu, ShoppingCart, BarChart2, Smartphone,
 } from 'lucide-react'
 import ContactForm from '@/components/contact/ContactForm'
 
@@ -64,6 +64,27 @@ const builtTools = [
       { icon: MessageCircle, label: 'Keyword Triggers', desc: 'Custom keyword-based auto-response rules' },
       { icon: Clock, label: 'Working Hours', desc: 'Set active hours and scheduling' },
       { icon: Globe, label: '8 Languages', desc: 'Multi-language support out of the box' },
+    ],
+  },
+  {
+    badge: 'Shopify App',
+    badgeColor: '#38bdf8',
+    badgeBg: 'rgba(56,189,248,0.12)',
+    badgeBorder: 'rgba(56,189,248,0.3)',
+    accentGradient: 'linear-gradient(90deg, #0284c7, #38bdf8)',
+    accentBorder: 'rgba(56,189,248,0.2)',
+    accentCardBg: 'rgba(56,189,248,0.03)',
+    title: 'PC Builder',
+    url: 'https://apps.shopify.com/pc-builder-mw',
+    urlLabel: 'pcbuilderapp.com',
+    budget: '$9.99/mo',
+    timeline: '14-day trial',
+    desc: 'Interactive PC configurator for Shopify stores. Lets customers build compatible PCs step by step and checkout in one click — with real-time compatibility validation and AI-powered component fill.',
+    features: [
+      { icon: Cpu, label: 'Compatibility Engine', desc: 'Real-time CPU socket, RAM, power and form factor validation' },
+      { icon: ShoppingCart, label: 'Bundle Checkout', desc: 'Full PC build added to cart in one click' },
+      { icon: Sparkles, label: 'AI-Powered Fill', desc: 'Auto-populate component data and compatibility notes' },
+      { icon: BarChart2, label: 'Order Analytics', desc: 'Track builds, configs, conversion rates and AOV per widget' },
     ],
   },
   {
@@ -133,7 +154,7 @@ const processSteps = [
 const stats = [
   { value: '5–7', unit: 'days', label: 'Typical build time' },
   { value: '$200', unit: '+', label: 'Starting budget' },
-  { value: '3', unit: '', label: 'Live tools shipped' },
+  { value: '4', unit: '', label: 'Live tools shipped' },
   { value: '1000s', unit: '', label: 'Users across tools' },
 ]
 
@@ -204,7 +225,7 @@ export default function ToolsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {builtTools.map((tool) => (
               <div
                 key={tool.title}
