@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { MapPin, Mail, Phone, Calendar, CreditCard, ArrowUpRight, CheckCircle2 } from 'lucide-react'
+import { MapPin, Mail, Phone, Calendar, CreditCard, ArrowUpRight, CheckCircle2, Download } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Miracle Websoft — Shopify Agency for Fashion Brands',
@@ -235,26 +235,36 @@ export default function CompanyBioPage() {
             Book a Free Discovery Call
             <ArrowUpRight size={14} style={{ opacity: 0.8 }} />
           </a>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0.5rem' }}>
             <a href={PAYMENT_LINK} target="_blank" rel="noopener noreferrer" style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
-              padding: '0.85rem',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem',
+              padding: '0.85rem 0.5rem',
               background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.22)',
-              color: '#10B981', fontWeight: 600, fontSize: '0.83rem',
+              color: '#10B981', fontWeight: 600, fontSize: '0.78rem',
               borderRadius: 14, textDecoration: 'none',
             }}>
               <CreditCard size={14} />
               Pay Online
             </a>
             <a href="mailto:karam@miraclewebsoft.com" style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
-              padding: '0.85rem',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem',
+              padding: '0.85rem 0.5rem',
               background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)',
-              color: 'rgba(255,255,255,0.65)', fontWeight: 600, fontSize: '0.83rem',
+              color: 'rgba(255,255,255,0.65)', fontWeight: 600, fontSize: '0.78rem',
               borderRadius: 14, textDecoration: 'none',
             }}>
               <Mail size={14} />
               Get a Quote
+            </a>
+            <a href="/miracle-websoft.vcf" download="Miracle-Websoft.vcf" style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem',
+              padding: '0.85rem 0.5rem',
+              background: 'rgba(108,99,255,0.08)', border: '1px solid rgba(108,99,255,0.22)',
+              color: 'rgba(180,175,255,0.9)', fontWeight: 600, fontSize: '0.78rem',
+              borderRadius: 14, textDecoration: 'none',
+            }}>
+              <Download size={14} />
+              Save Contact
             </a>
           </div>
         </div>

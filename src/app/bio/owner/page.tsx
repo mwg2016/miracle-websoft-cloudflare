@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { MapPin, Mail, Phone, Calendar, CreditCard, ArrowUpRight, CheckCircle2 } from 'lucide-react'
+import { MapPin, Mail, Phone, Calendar, CreditCard, ArrowUpRight, CheckCircle2, Download } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Karam Singh Mehra — Shopify Expert & Founder | Miracle Websoft',
@@ -221,18 +221,30 @@ export default function OwnerBioPage() {
             Book a Free 15-Min Call
             <ArrowUpRight size={14} style={{ opacity: 0.8 }} />
           </a>
-          <a href={PAYMENT_LINK} target="_blank" rel="noopener noreferrer" style={{
-            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.6rem',
-            padding: '0.9rem 1.5rem',
-            background: 'rgba(255,255,255,0.05)',
-            color: 'rgba(255,255,255,0.8)', fontWeight: 600, fontSize: '0.9rem',
-            borderRadius: 16, border: '1px solid rgba(255,255,255,0.12)',
-            textDecoration: 'none',
-          }}>
-            <CreditCard size={16} />
-            Pay Invoice (Razorpay)
-            <ArrowUpRight size={14} style={{ opacity: 0.6 }} />
-          </a>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+            <a href={PAYMENT_LINK} target="_blank" rel="noopener noreferrer" style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
+              padding: '0.9rem',
+              background: 'rgba(255,255,255,0.05)',
+              color: 'rgba(255,255,255,0.8)', fontWeight: 600, fontSize: '0.83rem',
+              borderRadius: 14, border: '1px solid rgba(255,255,255,0.12)',
+              textDecoration: 'none',
+            }}>
+              <CreditCard size={15} />
+              Pay Invoice
+            </a>
+            <a href="/karam-mehra.vcf" download="Karam-Singh-Mehra.vcf" style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
+              padding: '0.9rem',
+              background: 'rgba(108,99,255,0.08)',
+              color: 'rgba(180,175,255,0.9)', fontWeight: 600, fontSize: '0.83rem',
+              borderRadius: 14, border: '1px solid rgba(108,99,255,0.22)',
+              textDecoration: 'none',
+            }}>
+              <Download size={15} />
+              Save Contact
+            </a>
+          </div>
         </div>
 
         {/* Social media icons row */}
