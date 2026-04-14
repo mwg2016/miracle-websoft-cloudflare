@@ -2,46 +2,113 @@ import type { MetadataRoute } from 'next'
 
 const BASE = 'https://miraclewebsoft.com'
 
-const industries = [
+// Keep these in sync with src/data/industries.ts
+const industryslugs = [
   'womens-clothing-boutiques',
   'activewear-athleisure',
   'streetwear-urban-fashion',
   'sustainable-ethical-fashion',
   'gym-wear-fitness-apparel',
-  'luxury-fashion',
-  'swimwear-beachwear',
-  'plus-size-fashion',
-  'kidswear-childrens-clothing',
-  'bridal-occasion-wear',
-  'accessories-jewellery',
-  'footwear-shoes',
+  'yoga-wear-wellness',
+  'kids-children-clothing',
+  'plus-size-inclusive-apparel',
+  'sportswear-performance-apparel',
+  'menswear-casual-clothing',
+  'occasion-wear-luxury-fashion',
+  'online-boutiques-multi-brand',
+]
+
+// Keep in sync with src/data/blogPosts.ts
+const blogSlugs = [
+  'shopify-summer-2025-edition',
+  'shopify-may-2025-updates',
+  'custom-shopify-section-with-ai',
+  'fashion-cart-abandonment',
+  'slow-shopify-store-cost',
+  'tiktok-shop-shopify-activewear',
+  'woocommerce-to-shopify-migration',
+  'shopify-product-drop-system',
+  'shopify-product-page-conversions',
+  'recently-viewed-products-shopify',
+  'ai-shopify-theme-sections-builder',
+  'custom-pc-builder-shopify',
+]
+
+// Keep in sync with src/data/shopify-services.ts
+const shopifyServiceSlugs = [
+  'development',
+  'electronics',
+  'health-beauty',
+  'jewelry',
+  'food-beverage',
+  'home-decor',
+  'sports-fitness',
+  'pets',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
-  const staticPages = [
-    { url: BASE, priority: 1.0, changeFrequency: 'weekly' as const },
-    { url: `${BASE}/about`, priority: 0.8, changeFrequency: 'monthly' as const },
-    { url: `${BASE}/contact`, priority: 0.9, changeFrequency: 'monthly' as const },
-    { url: `${BASE}/case-studies`, priority: 0.8, changeFrequency: 'weekly' as const },
-    { url: `${BASE}/blog`, priority: 0.7, changeFrequency: 'weekly' as const },
-    { url: `${BASE}/services/shopify-development-clothing-brands`, priority: 0.9, changeFrequency: 'monthly' as const },
-    { url: `${BASE}/services/shopify-app-development`, priority: 0.9, changeFrequency: 'monthly' as const },
-    { url: `${BASE}/services/shopify-migration`, priority: 0.9, changeFrequency: 'monthly' as const },
-    { url: `${BASE}/services/shopify-cro-speed`, priority: 0.9, changeFrequency: 'monthly' as const },
-    { url: `${BASE}/privacy`, priority: 0.3, changeFrequency: 'yearly' as const },
-    { url: `${BASE}/terms`, priority: 0.3, changeFrequency: 'yearly' as const },
+  const core: MetadataRoute.Sitemap = [
+    // ── Tier 1: Homepage & highest-intent pages ──────────────────────────────
+    { url: BASE,                                                          priority: 1.0, changeFrequency: 'weekly'  as const },
+    { url: `${BASE}/contact`,                                             priority: 0.95, changeFrequency: 'monthly' as const },
+    { url: `${BASE}/case-studies`,                                        priority: 0.9,  changeFrequency: 'weekly'  as const },
+    { url: `${BASE}/services`,                                            priority: 0.9,  changeFrequency: 'monthly' as const },
+
+    // ── Tier 2: Core service pages ───────────────────────────────────────────
+    { url: `${BASE}/services/shopify-development-clothing-brands`,        priority: 0.9,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/services/shopify-app-development`,                    priority: 0.9,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/services/shopify-migration`,                          priority: 0.9,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/services/shopify-cro-speed`,                          priority: 0.9,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/services/wordpress-development`,                      priority: 0.7,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/services/custom-web-development`,                     priority: 0.7,  changeFrequency: 'monthly' as const },
+
+    // ── Tier 3: Company & content ────────────────────────────────────────────
+    { url: `${BASE}/about`,                                               priority: 0.8,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/blog`,                                                priority: 0.8,  changeFrequency: 'weekly'  as const },
+    { url: `${BASE}/careers`,                                             priority: 0.6,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/tools`,                                               priority: 0.7,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/tools/pc-builder`,                                    priority: 0.65, changeFrequency: 'monthly' as const },
+
+    // ── Partner pages (new) ──────────────────────────────────────────────────
+    { url: `${BASE}/white-label`,                                         priority: 0.85, changeFrequency: 'monthly' as const },
+    { url: `${BASE}/referral`,                                            priority: 0.7,  changeFrequency: 'monthly' as const },
+
+    // ── Bio pages ────────────────────────────────────────────────────────────
+    { url: `${BASE}/bio/owner`,                                           priority: 0.65, changeFrequency: 'monthly' as const },
+    { url: `${BASE}/bio/company`,                                         priority: 0.65, changeFrequency: 'monthly' as const },
+
+    // ── Legal ────────────────────────────────────────────────────────────────
+    { url: `${BASE}/privacy`,                                             priority: 0.3,  changeFrequency: 'yearly'  as const },
+    { url: `${BASE}/terms`,                                               priority: 0.3,  changeFrequency: 'yearly'  as const },
   ]
 
-  const industryPages = industries.map(slug => ({
-    url: `${BASE}/industries/${slug}`,
-    priority: 0.8,
+  const shopifyServicePages: MetadataRoute.Sitemap = shopifyServiceSlugs.map(slug => ({
+    url: `${BASE}/services/shopify/${slug}`,
+    priority: 0.75,
     changeFrequency: 'monthly' as const,
-  }))
-
-  return [...staticPages, ...industryPages].map(page => ({
-    ...page,
     lastModified: now,
   }))
+
+  const industryPages: MetadataRoute.Sitemap = industryslugs.map(slug => ({
+    url: `${BASE}/industries/${slug}`,
+    priority: 0.75,
+    changeFrequency: 'monthly' as const,
+    lastModified: now,
+  }))
+
+  const blogPages: MetadataRoute.Sitemap = blogSlugs.map(slug => ({
+    url: `${BASE}/blog/${slug}`,
+    priority: 0.65,
+    changeFrequency: 'yearly' as const,
+    lastModified: now,
+  }))
+
+  return [
+    ...core.map(p => ({ ...p, lastModified: now })),
+    ...shopifyServicePages,
+    ...industryPages,
+    ...blogPages,
+  ]
 }

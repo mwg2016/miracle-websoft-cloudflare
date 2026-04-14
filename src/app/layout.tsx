@@ -33,12 +33,18 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
+    // ── Organisation ──────────────────────────────────────────────────────────
     {
       '@type': 'ProfessionalService',
       '@id': 'https://miraclewebsoft.com/#organization',
       name: 'Miracle Websoft',
       url: 'https://miraclewebsoft.com',
-      logo: 'https://miraclewebsoft.com/logo.png',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://miraclewebsoft.com/icon-512.png',
+        width: 512,
+        height: 512,
+      },
       description: 'Specialist Shopify development agency for clothing, fashion and apparel brands. Custom development, app builds, migrations and CRO. Based in India, serving USA, UK and Australia.',
       foundingDate: '2015',
       email: 'karam@miraclewebsoft.com',
@@ -57,30 +63,27 @@ const jsonLd = {
       ],
       numberOfEmployees: { '@type': 'QuantitativeValue', value: 16 },
       knowsAbout: [
-        'Shopify development',
-        'Shopify app development',
-        'Shopify migration',
-        'Shopify CRO',
-        'fashion ecommerce',
-        'clothing brand websites',
-        'Shopify speed optimization',
-        'TikTok Shop integration',
+        'Shopify development', 'Shopify app development', 'Shopify migration',
+        'Shopify CRO', 'fashion ecommerce', 'clothing brand websites',
+        'Shopify speed optimization', 'TikTok Shop integration',
+        'white label Shopify development', 'Shopify agency',
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'Shopify Services',
         itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Shopify Development', url: 'https://miraclewebsoft.com/services/shopify-development-clothing-brands' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shopify App Development', url: 'https://miraclewebsoft.com/services/shopify-app-development' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shopify Migration', url: 'https://miraclewebsoft.com/services/shopify-migration' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'CRO & Speed Optimization', url: 'https://miraclewebsoft.com/services/shopify-cro-speed' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Shopify Development',    url: 'https://miraclewebsoft.com/services/shopify-development-clothing-brands' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shopify App Development',       url: 'https://miraclewebsoft.com/services/shopify-app-development' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shopify Migration',             url: 'https://miraclewebsoft.com/services/shopify-migration' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'CRO & Speed Optimization',     url: 'https://miraclewebsoft.com/services/shopify-cro-speed' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'White Label Shopify Development', url: 'https://miraclewebsoft.com/white-label' } },
         ],
       },
       founder: {
         '@type': 'Person',
-        name: 'Karam Singh',
-        jobTitle: 'Founder & Shopify Expert',
-        url: 'https://www.upwork.com/freelancers/~0108a0862ff3e2f2de',
+        name: 'Karam Singh Mehra',
+        jobTitle: 'Founder & Lead Shopify Expert',
+        url: 'https://miraclewebsoft.com/bio/owner',
         sameAs: [
           'https://www.linkedin.com/in/ecommerce-experts/',
           'https://www.upwork.com/freelancers/~0108a0862ff3e2f2de',
@@ -106,12 +109,45 @@ const jsonLd = {
         bestRating: '5',
       },
     },
+
+    // ── WebSite + SearchAction (enables Google Sitelinks Search Box) ──────────
     {
       '@type': 'WebSite',
       '@id': 'https://miraclewebsoft.com/#website',
       url: 'https://miraclewebsoft.com',
       name: 'Miracle Websoft',
+      description: 'Shopify agency for clothing and fashion brands — custom development, migrations, app development, and CRO.',
       publisher: { '@id': 'https://miraclewebsoft.com/#organization' },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: 'https://miraclewebsoft.com/blog?q={search_term_string}',
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    },
+
+    // ── SiteNavigationElement — helps Google understand site structure ─────────
+    {
+      '@type': 'ItemList',
+      '@id': 'https://miraclewebsoft.com/#navigation',
+      name: 'Main Navigation',
+      itemListElement: [
+        { '@type': 'SiteLinksSearchBox', position: 1, url: 'https://miraclewebsoft.com', name: 'Miracle Websoft' },
+        { '@type': 'ListItem', position: 2,  item: { '@id': 'https://miraclewebsoft.com/services',                                     name: 'Services' } },
+        { '@type': 'ListItem', position: 3,  item: { '@id': 'https://miraclewebsoft.com/case-studies',                                  name: 'Case Studies' } },
+        { '@type': 'ListItem', position: 4,  item: { '@id': 'https://miraclewebsoft.com/about',                                         name: 'About' } },
+        { '@type': 'ListItem', position: 5,  item: { '@id': 'https://miraclewebsoft.com/blog',                                          name: 'Blog' } },
+        { '@type': 'ListItem', position: 6,  item: { '@id': 'https://miraclewebsoft.com/contact',                                       name: 'Contact' } },
+        { '@type': 'ListItem', position: 7,  item: { '@id': 'https://miraclewebsoft.com/careers',                                       name: 'Careers' } },
+        { '@type': 'ListItem', position: 8,  item: { '@id': 'https://miraclewebsoft.com/white-label',                                   name: 'White Label Development' } },
+        { '@type': 'ListItem', position: 9,  item: { '@id': 'https://miraclewebsoft.com/referral',                                      name: 'Referral Program' } },
+        { '@type': 'ListItem', position: 10, item: { '@id': 'https://miraclewebsoft.com/services/shopify-development-clothing-brands',  name: 'Shopify Development' } },
+        { '@type': 'ListItem', position: 11, item: { '@id': 'https://miraclewebsoft.com/services/shopify-app-development',              name: 'Shopify App Development' } },
+        { '@type': 'ListItem', position: 12, item: { '@id': 'https://miraclewebsoft.com/services/shopify-migration',                    name: 'Shopify Migration' } },
+        { '@type': 'ListItem', position: 13, item: { '@id': 'https://miraclewebsoft.com/services/shopify-cro-speed',                    name: 'CRO & Speed Optimisation' } },
+      ],
     },
   ],
 }
