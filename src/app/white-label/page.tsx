@@ -57,7 +57,7 @@ const models = [
     from: 'From $1,500/mo',
     description: 'Dedicated team capacity reserved for your agency every month. Priority queue, consistent team, maximum output.',
     includes: [
-      '40 dedicated hours/month',
+      '20 dedicated hours/week',
       'Same team, every month',
       'Priority over ad-hoc requests',
       'Monthly strategy call',
@@ -150,7 +150,7 @@ const faqs = [
   },
   {
     q: 'What is the minimum engagement?',
-    a: 'For per-project work there\'s no minimum — one project is fine. For hourly, we ask for a minimum of 10 hours per week. For retainers, the entry point is 40 hours per month.',
+    a: 'For per-project work there\'s no minimum — one project is fine. For hourly, we ask for a minimum of 10 hours per week. For retainers, the entry point is 20 hours per week.',
   },
   {
     q: 'How fast can you start?',
