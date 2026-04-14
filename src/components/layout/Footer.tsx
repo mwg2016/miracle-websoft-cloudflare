@@ -23,6 +23,8 @@ const companyLinks = [
   { label: 'Blog', href: '/blog' },
   { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },
+  { label: 'White Label', href: '/white-label' },
+  { label: 'Referral Program', href: '/referral' },
 ]
 
 const socials = [

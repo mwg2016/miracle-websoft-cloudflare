@@ -11,6 +11,11 @@ const services = [
   { label: 'WordPress Development', href: '/services/wordpress-development' },
   { label: 'Custom Web Development', href: '/services/custom-web-development' },
 ]
+
+const partnerLinks = [
+  { label: 'White Label Development', href: '/white-label', badge: 'For Agencies', badgeColor: '#6C63FF' },
+  { label: 'Referral Program', href: '/referral', badge: 'Earn 20%', badgeColor: '#10B981' },
+]
 const industries = [
   { label: "Women's Clothing & Boutiques", href: '/industries/womens-clothing-boutiques' },
   { label: 'Activewear & Athleisure', href: '/industries/activewear-athleisure' },
@@ -78,6 +83,14 @@ export default function Header() {
                     </Link>
                   ))}
                   <div style={{ margin: '6px 8px 4px', borderTop: '1px solid rgba(255,255,255,0.08)' }} />
+                  <p style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', padding: '0.4rem 1rem 0.2rem' }}>For Partners</p>
+                  {partnerLinks.map(p => (
+                    <Link key={p.href} href={p.href} onClick={() => setServicesOpen(false)} className="flex items-center justify-between px-4 py-2.5 text-sm rounded-lg mx-1 transition-colors" style={{ color: 'rgba(255,255,255,0.7)' }} onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#fff'; (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.06)' }} onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.7)'; (e.currentTarget as HTMLElement).style.background = 'transparent' }}>
+                      {p.label}
+                      <span style={{ fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.08em', color: p.badgeColor, background: `${p.badgeColor}18`, border: `1px solid ${p.badgeColor}30`, borderRadius: 9999, padding: '0.1rem 0.45rem' }}>{p.badge}</span>
+                    </Link>
+                  ))}
+                  <div style={{ margin: '6px 8px 4px', borderTop: '1px solid rgba(255,255,255,0.08)' }} />
                   <Link href="/services" onClick={() => setServicesOpen(false)} className="block px-4 py-2.5 text-sm rounded-lg mx-1 font-medium" style={{ color: '#6c63ff' }} onMouseEnter={e => { (e.target as HTMLElement).style.background = 'rgba(108,99,255,0.08)' }} onMouseLeave={e => { (e.target as HTMLElement).style.background = 'transparent' }}>
                     View all services →
                   </Link>
@@ -131,6 +144,15 @@ export default function Header() {
               {mobileServicesOpen && (
                 <div className="pl-4 py-2 flex flex-col gap-1">
                   {services.map(s => <Link key={s.href} href={s.href} onClick={() => setMobileOpen(false)} className="py-2 text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>{s.label}</Link>)}
+                  <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', marginTop: '0.25rem', paddingTop: '0.5rem' }}>
+                    <p style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: '0.25rem' }}>For Partners</p>
+                    {partnerLinks.map(p => (
+                      <Link key={p.href} href={p.href} onClick={() => setMobileOpen(false)} className="py-2 text-sm flex items-center justify-between" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                        {p.label}
+                        <span style={{ fontSize: '0.58rem', fontWeight: 700, color: p.badgeColor, background: `${p.badgeColor}18`, border: `1px solid ${p.badgeColor}28`, borderRadius: 9999, padding: '0.1rem 0.45rem' }}>{p.badge}</span>
+                      </Link>
+                    ))}
+                  </div>
                   <Link href="/services" onClick={() => setMobileOpen(false)} className="py-2 text-sm font-medium" style={{ color: '#6c63ff' }}>View all services →</Link>
                 </div>
               )}
