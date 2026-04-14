@@ -67,7 +67,7 @@ const nextConfig: NextConfig = {
       { source: '/white-label-shopify-development-2', destination: '/services/shopify-development-clothing-brands', permanent: true },
       { source: '/white-label-wordpress-development', destination: '/services/shopify-development-clothing-brands', permanent: true },
       { source: '/white-label-website-design', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/white-label', destination: '/services/shopify-development-clothing-brands', permanent: true },
+
       { source: '/shopify-business-skills-professional-training', destination: '/services/shopify-development-clothing-brands', permanent: true },
       { source: '/fashion-apparel', destination: '/services/shopify-development-clothing-brands', permanent: true },
       { source: '/beauty-cosmetics', destination: '/services/shopify-development-clothing-brands', permanent: true },
