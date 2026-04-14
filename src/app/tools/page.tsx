@@ -77,6 +77,7 @@ const builtTools = [
     title: 'PC Builder',
     url: 'https://apps.shopify.com/pc-builder-mw',
     urlLabel: 'pcbuilderapp.com',
+    dedicatedPage: '/tools/pc-builder',
     budget: '$9.99/mo',
     timeline: '14-day trial',
     desc: 'Interactive PC configurator for Shopify stores. Lets customers build compatible PCs step by step and checkout in one click — with real-time compatibility validation and AI-powered component fill.',
@@ -288,6 +289,16 @@ export default function ToolsPage() {
                     }}>
                       Visit <ExternalLink size={11} />
                     </Link>
+                    {'dedicatedPage' in tool && tool.dedicatedPage && (
+                      <Link href={tool.dedicatedPage} style={{
+                        display: 'inline-flex', alignItems: 'center', gap: '0.3rem',
+                        border: `1px solid ${tool.badgeBorder}`, color: tool.badgeColor,
+                        padding: '0.5rem 1rem', borderRadius: '7px',
+                        fontWeight: 600, fontSize: '0.8rem', textDecoration: 'none',
+                      }}>
+                        Learn more <ArrowRight size={11} />
+                      </Link>
+                    )}
                     <Link href={tool.url} target="_blank" rel="noopener noreferrer" style={{
                       display: 'inline-flex', alignItems: 'center', gap: '0.3rem',
                       border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.4)',
