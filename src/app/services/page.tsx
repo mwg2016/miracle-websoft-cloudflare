@@ -51,7 +51,7 @@ const shopifyIndustry = [
     icon: Shirt,
     title: 'Shopify for Clothing Brands',
     desc: 'Fashion-specific Shopify builds — size guides, fit tools, lookbooks, Instagram integration and mobile-first design.',
-    href: '/services/shopify-development-clothing-brands',
+    href: '/services/shopify/development',
     badge: 'Speciality',
   },
   {
@@ -133,7 +133,7 @@ function ServiceCard({ icon: Icon, title, desc, href, badge }: {
         <Icon size={17} style={{ color: accent }} />
       </div>
       <h3 style={{ fontSize: '0.975rem', fontWeight: 600, color: '#fff', marginBottom: '0.5rem', lineHeight: 1.3 }}>{title}</h3>
-      <p style={{ fontSize: '0.825rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.75, fontWeight: 300, marginBottom: '1.1rem' }}>{desc}</p>
+      <p style={{ fontSize: '0.825rem', color: 'rgba(255,255,255,0.62)', lineHeight: 1.75, fontWeight: 300, marginBottom: '1.1rem' }}>{desc}</p>
       <span style={{ fontSize: '0.78rem', color: accent, display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: 500 }}>
         Learn more <ArrowRight size={12} />
       </span>
@@ -164,13 +164,13 @@ export default function ServicesPage() {
           <div className="max-w-2xl">
             <span className="mw-eyebrow">ALL SERVICES</span>
             <h1 style={{ color: '#fff', marginBottom: '1.25rem' }}>
-              Everything we build.<br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>All in one place.</em>
+              600+ Projects Delivered.<br />
+              <span style={{ color: 'var(--accent)' }}>Find the Right Service for Your Store.</span>
             </h1>
-            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.85, fontWeight: 300, maxWidth: '540px' }}>
-              From Shopify store builds to custom web applications — we cover the full stack. Browse every service we offer below, or{' '}
-              <Link href="/contact" style={{ color: accent, textDecoration: 'none' }}>get in touch</Link>{' '}
-              and we&apos;ll point you in the right direction.
+            <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.05rem', lineHeight: 1.85, fontWeight: 300, maxWidth: '540px' }}>
+              From custom Shopify builds to migrations, apps, and speed optimisation. Not sure which service fits?{' '}
+              <Link href="#find-service" style={{ color: accent, textDecoration: 'none' }}>Answer 3 quick questions below</Link>{' '}
+              and we&apos;ll point you to the right one.
             </p>
           </div>
         </div>
@@ -194,6 +194,57 @@ export default function ServicesPage() {
           </div>
         </div>
       </div>
+
+      {/* Which service do I need? */}
+      <section id="find-service" style={{ background: '#080808', paddingTop: '4rem', paddingBottom: '4rem', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+        <div className="mw-container">
+          <div style={{ marginBottom: '2rem' }}>
+            <span className="mw-eyebrow">FIND YOUR SERVICE</span>
+            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(20px,2.5vw,28px)' }}>Not sure which service you need?</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              {
+                q: 'Starting from scratch or rebuilding?',
+                answer: 'You need Custom Shopify Development',
+                desc: 'A new store built around your brand, product structure, and customers.',
+                href: '/services/shopify/development',
+                color: '#6C63FF',
+              },
+              {
+                q: 'Have an existing Shopify store that isn\'t converting?',
+                answer: 'You need CRO & Speed Optimisation',
+                desc: 'We fix what\'s slowing your store down and increase conversions — no full rebuild.',
+                href: '/services/shopify-cro-speed',
+                color: '#F59E0B',
+              },
+              {
+                q: 'On WooCommerce, Magento, or another platform?',
+                answer: 'You need a Shopify Migration',
+                desc: 'Move to Shopify with zero data loss, zero SEO drop, and zero downtime.',
+                href: '/services/shopify-migration',
+                color: '#10B981',
+              },
+            ].map((item, i) => (
+              <Link key={i} href={item.href} style={{ textDecoration: 'none' }} className="group">
+                <div className="rounded-2xl p-5 h-full flex flex-col transition-all" style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${item.color}25` }}>
+                  <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.5, marginBottom: '0.75rem' }}>{item.q}</p>
+                  <p style={{ fontWeight: 700, color: item.color, fontSize: '0.9rem', marginBottom: '0.4rem', lineHeight: 1.3 }}>{item.answer}</p>
+                  <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.50)', lineHeight: 1.55, flex: 1 }}>{item.desc}</p>
+                  <div className="flex items-center gap-1.5 mt-3" style={{ color: item.color, fontSize: '0.75rem', fontWeight: 600 }}>
+                    Learn more <ArrowRight size={11} />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.28)', marginTop: '1.25rem' }}>
+            Still unsure?{' '}
+            <Link href="/contact" style={{ color: accent, textDecoration: 'none' }}>Send us a message</Link>
+            {' '}and we&apos;ll recommend the right approach for your situation — free.
+          </p>
+        </div>
+      </section>
 
       {/* Shopify Core Services */}
       <section style={{ background: '#0a0a0a', paddingTop: '5rem', paddingBottom: '5rem' }}>

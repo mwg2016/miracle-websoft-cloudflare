@@ -23,7 +23,7 @@ export default function NotFound() {
           <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.25)', marginBottom: '1rem' }}>You might be looking for:</p>
           <div className="flex flex-wrap gap-2 justify-center">
             {[
-              { label: 'Services', href: '/services/shopify-development-clothing-brands' },
+              { label: 'Services', href: '/services/shopify/development' },
               { label: 'Case Studies', href: '/case-studies' },
               { label: 'Blog', href: '/blog' },
               { label: 'About', href: '/about' },

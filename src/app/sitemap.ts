@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { jobs } from '@/data/jobs'
 
 const BASE = 'https://miraclewebsoft.com'
 
@@ -57,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/services`,                                            priority: 0.9,  changeFrequency: 'monthly' as const },
 
     // ── Tier 2: Core service pages ───────────────────────────────────────────
-    { url: `${BASE}/services/shopify-development-clothing-brands`,        priority: 0.9,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/services/shopify/development`,        priority: 0.9,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/services/shopify-app-development`,                    priority: 0.9,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/services/shopify-migration`,                          priority: 0.9,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/services/shopify-cro-speed`,                          priority: 0.9,  changeFrequency: 'monthly' as const },
@@ -105,10 +106,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
   }))
 
+  const workPages: MetadataRoute.Sitemap = jobs.map(job => ({
+    url: `${BASE}/work/${job.id}`,
+    priority: 0.60,
+    changeFrequency: 'yearly' as const,
+    lastModified: now,
+  }))
+
+  const workIndex: MetadataRoute.Sitemap = [
+    { url: `${BASE}/work`,    priority: 0.85, changeFrequency: 'weekly'  as const, lastModified: now },
+    { url: `${BASE}/reviews`, priority: 0.85, changeFrequency: 'monthly' as const, lastModified: now },
+  ]
+
   return [
     ...core.map(p => ({ ...p, lastModified: now })),
     ...shopifyServicePages,
     ...industryPages,
     ...blogPages,
+    ...workIndex,
+    ...workPages,
   ]
 }

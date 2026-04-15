@@ -4,6 +4,10 @@ import { ArrowRight, CheckCircle2, Globe, ShoppingCart, Users, BookOpen, Layers,
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import FaqSection from '@/components/ui/FaqSection'
 import ServiceContactForm from '@/components/services/ServiceContactForm'
+import ServiceResult from '@/components/services/ServiceResult'
+import GuaranteeBar from '@/components/services/GuaranteeBar'
+import MidPageCta from '@/components/services/MidPageCta'
+import RelatedServices from '@/components/services/RelatedServices'
 
 export const metadata: Metadata = {
   title: 'WordPress Website Development Services | Miracle Websoft',
@@ -41,6 +45,18 @@ const whyUs = [
   { icon: DollarSign, title: 'Fixed-price proposals', body: 'Every project starts with a scoped proposal at a fixed price. No hourly surprises, no scope creep billing. You know what you\'re paying before we begin.' },
   { icon: Star, title: '600+ projects delivered', body: 'A track record built across 600+ projects and 10+ years. Top Rated Plus on Upwork with a 98% job success score.' },
   { icon: Users, title: 'Direct team access', body: 'You work directly with the developers and strategists. No account managers, no ticketing systems, no handoffs.' },
+]
+
+const guarantees = [
+  { icon: '⚡', title: 'No Page Builders — Ever', body: 'We build custom themes without Elementor, Divi or WPBakery. Leaner code, faster load times, and no technical debt that comes back to haunt you a year later.' },
+  { icon: '🔒', title: 'Fixed-Price Before We Start', body: 'Every project is scoped at a fixed price. No hourly billing, no scope creep invoices. The price we quote is the price you pay.' },
+  { icon: '🛡️', title: 'Security Baked In', body: 'WordPress is the most-targeted CMS on the internet. We harden every build from the start — hardened configs, proper role management, limited attack surface.' },
+]
+
+const related = [
+  { title: 'Custom Web Development', desc: 'Need more than WordPress? React, Node.js or Laravel builds.', href: '/services/custom-web-development' },
+  { title: 'Custom Shopify Development', desc: 'Moving to an ecommerce-first platform instead.', href: '/services/shopify/development' },
+  { title: 'Shopify Migrations', desc: 'Migrating from WooCommerce to Shopify.', href: '/services/shopify-migration' },
 ]
 
 const faqs = [
@@ -104,6 +120,27 @@ export default function WordPressDevelopmentPage() {
         </div>
       </section>
 
+      {/* Case Study Result */}
+      <section style={{ paddingTop: '4rem', paddingBottom: '1rem' }}>
+        <div className="mw-container">
+          <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '1rem' }}>Real Project Result</p>
+          <ServiceResult
+            tag="Membership & LMS Site"
+            tagColor="#6C63FF"
+            metric="2.1s"
+            metricLabel="Mobile Load Time"
+            title="Online education platform: replaced Elementor theme with custom WordPress build — page load dropped from 8.4s to 2.1s, membership sign-ups up 31%."
+            bullets={[
+              'Rebuilt Elementor-based theme from scratch — removed 1.8MB of unused page-builder CSS/JS',
+              'Integrated LearnDash LMS with custom-coded membership tiers and content gating',
+              'Mobile load time dropped from 8.4s to 2.1s — membership sign-up conversion up 31%',
+            ]}
+            duration="6-week build"
+            cta={{ label: 'See all case studies', href: '/case-studies' }}
+          />
+        </div>
+      </section>
+
       {/* ── What We Build ─────────────────────────────────────────────────── */}
       <section style={{ background: '#080808', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="mw-container">
@@ -151,6 +188,14 @@ export default function WordPressDevelopmentPage() {
         </div>
       </section>
 
+      {/* Mid-page CTA */}
+      <MidPageCta
+        heading="Want a WordPress site that actually loads fast?"
+        sub="No page builders, no bloated themes. Send us your requirements and we'll come back with a fixed-price proposal within 24 hours."
+        btnLabel="Get a Free Proposal"
+        btnHref="/contact"
+      />
+
       {/* ── Why Us ────────────────────────────────────────────────────────── */}
       <section className="mw-section" style={{ background: '#080808', backgroundImage: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(108,99,255,0.08) 0%, transparent 70%)' }}>
         <div className="mw-container">
@@ -178,7 +223,11 @@ export default function WordPressDevelopmentPage() {
         </div>
       </section>
 
+      <GuaranteeBar guarantees={guarantees} />
+
       <FaqSection faqs={faqs} heading="WordPress development — common questions" />
+
+      <RelatedServices services={related} />
 
       {/* ── Contact Form ──────────────────────────────────────────────────── */}
       <section id="get-quote" style={{ background: '#0a0a0a', paddingTop: '5rem', paddingBottom: '6rem', borderTop: '1px solid rgba(255,255,255,0.06)', backgroundImage: 'radial-gradient(ellipse 70% 60% at 70% 50%, rgba(108,99,255,0.07) 0%, transparent 70%)' }}>

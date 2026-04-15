@@ -12,76 +12,10 @@ export type ShopifyServiceData = {
   formSubtext: string
 }
 
-const shopifyServices: ShopifyServiceData[] = [
-  {
-    slug: 'development',
-    metaTitle: 'Custom Shopify Development Services | Miracle Websoft',
-    metaDescription: 'Expert Shopify development — custom themes, app integrations, Shopify Plus, and migrations. We build fast, conversion-focused stores for businesses worldwide.',
-    eyebrow: 'SHOPIFY DEVELOPMENT',
-    h1: 'Custom Shopify Development Services',
-    subtext: 'We build high-performance Shopify stores from the ground up. Custom themes, app integrations, Shopify Plus builds, and seamless migrations — engineered for speed and built to convert.',
-    features: [
-      'Custom theme design built from scratch',
-      'Mobile-first, sub-1.5s load time target',
-      'Shopify Plus builds and migrations',
-      'Custom app and integration development',
-      'Complex product variant architecture',
-      'Checkout flow optimisation',
-      'Multi-currency and international markets',
-      'B2B wholesale and gated pricing',
-      'Third-party API and ERP integrations',
-      'SEO-optimised site structure',
-      'Full cross-device QA testing',
-      'Post-launch support and CRO',
-    ],
-    challenges: [
-      {
-        title: 'Picking the wrong Shopify plan',
-        body: 'Many businesses overpay or under-invest in their Shopify subscription. We help you choose the right plan — and tell you honestly when Shopify Plus is and isn\'t worth the cost.',
-      },
-      {
-        title: 'Theme limits vs. custom builds',
-        body: 'Pre-made themes look great in demos but break under real business complexity. We scope every project honestly — and only recommend a full custom build when the business case is clear.',
-      },
-      {
-        title: 'Integration chaos',
-        body: 'The wrong app stack creates performance drag and data conflicts. We architect your tech carefully — choosing integrations that play well together and don\'t slow your store down.',
-      },
-      {
-        title: 'Speed and conversion loss',
-        body: 'A 1-second page load delay reduces conversions by up to 7%. We treat performance as a first-class concern, not something bolted on after the build.',
-      },
-    ],
-    faqs: [
-      {
-        question: 'How much does a custom Shopify store cost?',
-        answer: 'Custom Shopify theme builds typically start from $3,000–$5,000 for a focused build. Complex projects with custom apps, API integrations or Shopify Plus features range from $10,000–$30,000+. We always provide a fixed-price proposal before any work begins.',
-      },
-      {
-        question: 'Do you work with existing Shopify stores or only new builds?',
-        answer: 'Both. We handle full rebuilds, redesigns of live stores, and targeted improvements — product pages, checkout flows, speed optimisation — on stores already in production.',
-      },
-      {
-        question: 'What is Shopify Plus and do I need it?',
-        answer: 'Shopify Plus is Shopify\'s enterprise tier (from ~$2,300/month). It unlocks custom checkout extensibility, Shopify Functions, higher API limits, and B2B wholesale features. Most businesses need it once they exceed $1M/year in revenue or require checkout-level customisations.',
-      },
-      {
-        question: 'How long does a custom Shopify build take?',
-        answer: 'A focused custom theme build typically takes 4–8 weeks. Complex projects with custom apps, integrations or Shopify Plus checkout features usually take 10–16 weeks. Every proposal includes a clear timeline.',
-      },
-      {
-        question: 'Do you build Shopify apps as well?',
-        answer: 'Yes. We build both private and public Shopify apps — custom admin tools, storefront extensions, Shopify Functions, and integrations with external platforms. We\'ve built apps for inventory management, loyalty, B2B pricing, and more.',
-      },
-      {
-        question: 'What happens after launch?',
-        answer: 'We offer ongoing support and CRO packages. Most clients work with us on a retained basis — monthly performance reviews, A/B testing, new feature development, and keeping up with Shopify platform updates.',
-      },
-    ],
-    formHeading: 'Get a free Shopify proposal',
-    formSubtext: 'Tell us about your business and project goals. We\'ll review it and send you a detailed, fixed-price proposal within 24 hours.',
-  },
+// Note: 'development' slug has its own dedicated page at /services/shopify/development
+// It was removed from this array so the dynamic [slug] route does not conflict.
 
+const shopifyServices: ShopifyServiceData[] = [
   {
     slug: 'electronics',
     metaTitle: 'Shopify Development for Electronics Stores | Miracle Websoft',

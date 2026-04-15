@@ -7,7 +7,7 @@ const services = [
     tag: 'Core Service',
     title: 'Custom Shopify Development',
     body: 'Bespoke Shopify and Shopify Plus stores designed around how your customers shop. Fast, beautiful, conversion-focused.',
-    href: '/services/shopify-development-clothing-brands',
+    href: '/services/shopify/development',
     large: true,
   },
   {

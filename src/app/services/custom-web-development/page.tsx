@@ -4,6 +4,10 @@ import { ArrowRight, CheckCircle2, Code2, LayoutDashboard, Cpu, Globe2, Database
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import FaqSection from '@/components/ui/FaqSection'
 import ServiceContactForm from '@/components/services/ServiceContactForm'
+import ServiceResult from '@/components/services/ServiceResult'
+import GuaranteeBar from '@/components/services/GuaranteeBar'
+import MidPageCta from '@/components/services/MidPageCta'
+import RelatedServices from '@/components/services/RelatedServices'
 
 export const metadata: Metadata = {
   title: 'Custom Web Application Development — React, Node.js & Laravel | Miracle Websoft',
@@ -68,6 +72,18 @@ const whyUs = [
   { icon: Star, title: '600+ projects, 10+ years', body: 'Top Rated Plus on Upwork with a 98% job success score. We\'ve built everything from internal tools to production SaaS platforms serving thousands of users.' },
 ]
 
+const guarantees = [
+  { icon: '🔒', title: 'Fixed-Price Proposals', body: 'Scoped clearly, priced accurately, delivered as agreed. No hourly billing, no change-order surprises. You know exactly what you\'re paying before we start.' },
+  { icon: '🛡️', title: 'Security by Default', body: 'OWASP Top 10, input validation, CSRF protection, proper secrets management and secure auth are defaults in every build — not extras you have to ask for.' },
+  { icon: '📦', title: 'Full-Stack, Single Vendor', body: 'We own the entire stack — frontend, backend, database, deployment. No hand-off gaps, no finger-pointing. If it breaks, we fix it.' },
+]
+
+const related = [
+  { title: 'Shopify App Development', desc: 'Need a custom Shopify app as part of your platform?', href: '/services/shopify-app-development' },
+  { title: 'Custom Shopify Development', desc: 'Building an ecommerce-first product on Shopify.', href: '/services/shopify/development' },
+  { title: 'WordPress Development', desc: 'Content-heavy or membership-based platform on WordPress.', href: '/services/wordpress-development' },
+]
+
 const faqs = [
   {
     question: 'When should I choose custom development over a no-code or SaaS tool?',
@@ -103,6 +119,7 @@ export default function CustomWebDevelopmentPage() {
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
+      {/* Hero */}
       <section className="pt-32 pb-20" style={{ background: '#0a0a0a', backgroundImage: 'radial-gradient(ellipse at 60% 45%, rgba(108,99,255,0.18) 0%, transparent 60%)' }}>
         <div className="mw-container">
           <div className="mb-6">
@@ -126,6 +143,27 @@ export default function CustomWebDevelopmentPage() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Case Study Result */}
+      <section style={{ paddingTop: '4rem', paddingBottom: '1rem' }}>
+        <div className="mw-container">
+          <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '1rem' }}>Real Project Result</p>
+          <ServiceResult
+            tag="SaaS Platform"
+            tagColor="#6C63FF"
+            metric="12 wks"
+            metricLabel="From Brief to Launch"
+            title="Logistics SaaS: multi-tenant platform with role-based access, Stripe billing, and a real-time driver tracking dashboard — launched in 12 weeks."
+            bullets={[
+              'Multi-tenant architecture with organisation-level data isolation and per-seat Stripe billing',
+              'Real-time driver tracking dashboard built with WebSockets — updates every 3 seconds',
+              'Role-based access control: Admin, Dispatcher, Driver — 3 permission levels, 40+ guarded routes',
+            ]}
+            duration="12-week build"
+            cta={{ label: 'See all case studies', href: '/case-studies' }}
+          />
         </div>
       </section>
 
@@ -211,6 +249,14 @@ export default function CustomWebDevelopmentPage() {
         </div>
       </section>
 
+      {/* Mid-page CTA */}
+      <MidPageCta
+        heading="Have a complex web application in mind?"
+        sub="Describe what you need to build — even roughly. We'll respond with a preliminary approach and fixed-price proposal within 24 hours."
+        btnLabel="Discuss Your Project"
+        btnHref="/contact"
+      />
+
       {/* ── Why Us ────────────────────────────────────────────────────────── */}
       <section className="mw-section" style={{ background: '#0a0a0a', backgroundImage: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(108,99,255,0.08) 0%, transparent 70%)' }}>
         <div className="mw-container">
@@ -238,7 +284,11 @@ export default function CustomWebDevelopmentPage() {
         </div>
       </section>
 
+      <GuaranteeBar guarantees={guarantees} />
+
       <FaqSection faqs={faqs} heading="Custom web development — common questions" />
+
+      <RelatedServices services={related} />
 
       {/* ── Contact Form ──────────────────────────────────────────────────── */}
       <section id="get-quote" style={{ background: '#080808', paddingTop: '5rem', paddingBottom: '6rem', borderTop: '1px solid rgba(255,255,255,0.06)', backgroundImage: 'radial-gradient(ellipse 70% 60% at 30% 50%, rgba(108,99,255,0.08) 0%, transparent 70%)' }}>

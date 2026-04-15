@@ -12,6 +12,7 @@ import ClientPortfolio from '@/components/home/ClientPortfolio'
 import ToolsSection from '@/components/home/ToolsSection'
 import CtaBanner from '@/components/home/CtaBanner'
 import FaqSection from '@/components/ui/FaqSection'
+import RecentWork from '@/components/home/RecentWork'
 
 const homeFaqs = [
   { question: 'What does Miracle Websoft do?', answer: 'We are a Shopify development agency specialising exclusively in clothing, fashion and apparel brands. We build custom Shopify stores, develop Shopify apps, migrate stores from platforms like WooCommerce and Magento, and optimise existing stores for speed and conversions.' },
@@ -48,6 +49,7 @@ export default function HomePage() {
       <WhyUs />
       <ProcessSteps />
       <Testimonials />
+      <RecentWork />
       <ClientPortfolio />
       <TrustProfiles />
       <ToolsSection />

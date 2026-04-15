@@ -113,7 +113,7 @@ export default function Header() {
               )}
             </div>
 
-            {[{ l: 'Tools', h: '/tools' }, { l: 'Case Studies', h: '/case-studies' }, { l: 'Blog', h: '/blog' }, { l: 'About', h: '/about' }, { l: 'Careers', h: '/careers' }].map(({ l, h }) => (
+            {[{ l: 'Work', h: '/work' }, { l: 'Reviews', h: '/reviews' }, { l: 'Case Studies', h: '/case-studies' }, { l: 'Blog', h: '/blog' }, { l: 'About', h: '/about' }].map(({ l, h }) => (
               <Link key={h} href={h} className="text-sm font-medium transition-colors" style={{ color: 'rgba(255,255,255,0.7)' }} onMouseEnter={e => ((e.target as HTMLElement).style.color = '#fff')} onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.7)')}>
                 {l}
               </Link>
@@ -121,7 +121,7 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Link href="/contact" className="mw-btn-primary hidden sm:inline-flex text-sm">
+            <Link href="/contact" className="mw-btn-primary inline-flex text-xs px-4 py-2.5 sm:text-sm sm:px-5">
               Get Free Audit
             </Link>
             <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 text-white" aria-label="Toggle menu">
@@ -167,7 +167,7 @@ export default function Header() {
                 </div>
               )}
             </div>
-            {[{ l: 'Tools', h: '/tools' }, { l: 'Case Studies', h: '/case-studies' }, { l: 'Blog', h: '/blog' }, { l: 'About', h: '/about' }, { l: 'Careers', h: '/careers' }].map(({ l, h }) => (
+            {[{ l: 'Work', h: '/work' }, { l: 'Reviews', h: '/reviews' }, { l: 'Case Studies', h: '/case-studies' }, { l: 'Blog', h: '/blog' }, { l: 'About', h: '/about' }].map(({ l, h }) => (
               <Link key={h} href={h} onClick={() => setMobileOpen(false)} className="py-3 text-base font-semibold text-white" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>{l}</Link>
             ))}
             <Link href="/contact" onClick={() => setMobileOpen(false)} className="mw-btn-primary mt-6 justify-center">Get Free Audit</Link>

@@ -1,6 +1,5 @@
 'use client'
 import { ExternalLink } from 'lucide-react'
-import { useState } from 'react'
 
 export type PortfolioStore = {
   name: string
@@ -77,51 +76,43 @@ const clients: PortfolioStore[] = [
 ]
 
 function ClientCard({ client }: { client: typeof clients[0] }) {
-  const [imgError, setImgError] = useState(false)
-  const screenshotUrl = `https://image.thum.io/get/width/1200/crop/750/noanimate/${client.url}`
-
   return (
     <a
       href={client.url}
       target="_blank"
       rel="noopener noreferrer"
       className="group block"
-      style={{ borderRadius: '20px', overflow: 'hidden', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', transition: 'border-color 0.25s, transform 0.25s' }}
-      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = `${client.accent}50`; (e.currentTarget as HTMLElement).style.transform = 'translateY(-3px)' }}
+      style={{ borderRadius: '20px', overflow: 'hidden', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', transition: 'border-color 0.25s, transform 0.25s' }}
+      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = `${client.accent}55`; (e.currentTarget as HTMLElement).style.transform = 'translateY(-3px)' }}
       onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.08)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)' }}
     >
-      {/* Screenshot */}
-      <div style={{ position: 'relative', aspectRatio: '16/10', overflow: 'hidden', background: '#111', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        {!imgError ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={screenshotUrl}
-            alt={`${client.name} Shopify store screenshot`}
-            onError={() => setImgError(true)}
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', transition: 'transform 0.4s ease' }}
-            className="group-hover:scale-105"
-            loading="lazy"
-          />
-        ) : (
-          <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: `linear-gradient(135deg, ${client.accent}15, transparent)` }}>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>{client.flag}</div>
-              <div style={{ fontWeight: 700, color: '#fff', fontSize: '1.1rem' }}>{client.name}</div>
-            </div>
-          </div>
-        )}
-        {/* Browser chrome overlay */}
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '28px', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'center', padding: '0 10px', gap: '5px' }}>
+      {/* Brand preview — static, no external requests */}
+      <div style={{ position: 'relative', aspectRatio: '16/10', overflow: 'hidden', background: `linear-gradient(135deg, ${client.accent}18 0%, rgba(255,255,255,0.02) 60%, transparent 100%)`, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+        {/* Background grid pattern */}
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: `linear-gradient(${client.accent}08 1px, transparent 1px), linear-gradient(90deg, ${client.accent}08 1px, transparent 1px)`, backgroundSize: '24px 24px' }} />
+        {/* Glow orb */}
+        <div style={{ position: 'absolute', top: '20%', right: '15%', width: '120px', height: '120px', borderRadius: '50%', background: `radial-gradient(circle, ${client.accent}30, transparent 70%)`, filter: 'blur(20px)' }} />
+
+        {/* Browser chrome bar */}
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '28px', background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', padding: '0 10px', gap: '5px' }}>
           <div style={{ width: 7, height: 7, borderRadius: '50%', background: '#ff5f57' }} />
           <div style={{ width: 7, height: 7, borderRadius: '50%', background: '#febc2e' }} />
           <div style={{ width: 7, height: 7, borderRadius: '50%', background: '#28c840' }} />
-          <div style={{ flex: 1, margin: '0 8px', background: 'rgba(255,255,255,0.12)', borderRadius: '4px', height: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.5)', fontFamily: 'monospace' }}>{client.displayUrl}</span>
+          <div style={{ flex: 1, margin: '0 8px', background: 'rgba(255,255,255,0.10)', borderRadius: '4px', height: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.45)', fontFamily: 'monospace' }}>🔒 {client.displayUrl}</span>
           </div>
-          <ExternalLink size={9} style={{ color: 'rgba(255,255,255,0.35)' }} />
+          <ExternalLink size={9} style={{ color: 'rgba(255,255,255,0.30)' }} />
         </div>
-        {/* Accent glow on hover */}
-        <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to top, ${client.accent}20, transparent 50%)`, opacity: 0, transition: 'opacity 0.3s' }} className="group-hover:opacity-100" />
+
+        {/* Brand identity center */}
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', paddingTop: '28px' }}>
+          <div style={{ fontSize: '2.2rem', lineHeight: 1 }}>{client.flag}</div>
+          <div style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontWeight: 600, color: '#fff', fontSize: '1.15rem', letterSpacing: '0.01em' }}>{client.name}</div>
+          <div style={{ fontSize: '0.68rem', color: client.accent, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', opacity: 0.85 }}>{client.category}</div>
+        </div>
+
+        {/* Bottom gradient */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '40px', background: `linear-gradient(to top, ${client.accent}20, transparent)` }} />
       </div>
 
       {/* Info */}

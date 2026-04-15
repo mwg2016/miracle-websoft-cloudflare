@@ -58,26 +58,29 @@ const nextConfig: NextConfig = {
       { source: '/terms-condition', destination: '/terms', permanent: true },
       { source: '/terms-of-service-for-social-auto-post', destination: '/terms', permanent: true },
 
-      // ─── Services → Shopify Development ──────────────────────────────────
-      { source: '/shopify-store-setup', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/shopify-e-commerce-service-packages', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/shopify-maintenance-support-by-shopify-development-agency', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/psd-to-shopify-developments', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/theme-customization', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/white-label-shopify-development-2', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/white-label-wordpress-development', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/white-label-website-design', destination: '/services/shopify-development-clothing-brands', permanent: true },
+      // ─── Clothing brands page → canonical development page ───────────────
+      { source: '/services/shopify-development-clothing-brands', destination: '/services/shopify/development', permanent: true },
 
-      { source: '/shopify-business-skills-professional-training', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/fashion-apparel', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/beauty-cosmetics', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/food-beverages', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/health-nutrition', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/pet-industry', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/shoes-page', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/wine-page', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/section', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/shop', destination: '/services/shopify-development-clothing-brands', permanent: true },
+      // ─── Services → Shopify Development ──────────────────────────────────
+      { source: '/shopify-store-setup', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-e-commerce-service-packages', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-maintenance-support-by-shopify-development-agency', destination: '/services/shopify/development', permanent: true },
+      { source: '/psd-to-shopify-developments', destination: '/services/shopify/development', permanent: true },
+      { source: '/theme-customization', destination: '/services/shopify/development', permanent: true },
+      { source: '/white-label-shopify-development-2', destination: '/services/shopify/development', permanent: true },
+      { source: '/white-label-wordpress-development', destination: '/services/shopify/development', permanent: true },
+      { source: '/white-label-website-design', destination: '/services/shopify/development', permanent: true },
+
+      { source: '/shopify-business-skills-professional-training', destination: '/services/shopify/development', permanent: true },
+      { source: '/fashion-apparel', destination: '/services/shopify/development', permanent: true },
+      { source: '/beauty-cosmetics', destination: '/services/shopify/development', permanent: true },
+      { source: '/food-beverages', destination: '/services/shopify/development', permanent: true },
+      { source: '/health-nutrition', destination: '/services/shopify/development', permanent: true },
+      { source: '/pet-industry', destination: '/services/shopify/development', permanent: true },
+      { source: '/shoes-page', destination: '/services/shopify/development', permanent: true },
+      { source: '/wine-page', destination: '/services/shopify/development', permanent: true },
+      { source: '/section', destination: '/services/shopify/development', permanent: true },
+      { source: '/shop', destination: '/services/shopify/development', permanent: true },
 
       // ─── Services → App Development ──────────────────────────────────────
       { source: '/shopify-app-development', destination: '/services/shopify-app-development', permanent: true },
@@ -103,19 +106,19 @@ const nextConfig: NextConfig = {
       { source: '/shopify-services/product-information-management-pim-integration', destination: '/services/shopify-app-development', permanent: true },
       { source: '/shopify-services/erp-integration-for-shopify-netsuite-sap-etc', destination: '/services/shopify-app-development', permanent: true },
       { source: '/shopify-services/3pl-warehouse-management-system-wms-integration', destination: '/services/shopify-app-development', permanent: true },
-      { source: '/shopify-services/shopify-training-for-merchants-staff', destination: '/services/shopify-development-clothing-brands', permanent: true },
+      { source: '/shopify-services/shopify-training-for-merchants-staff', destination: '/services/shopify/development', permanent: true },
       { source: '/shopify-services/accessibility-wcag-ada-compliance-audit-remediation', destination: '/services/shopify-cro-speed', permanent: true },
       { source: '/shopify-services/shopify-for-print-on-demand-pod-businesses', destination: '/services/shopify-app-development', permanent: true },
       { source: '/shopify-services/shopify-for-digital-products-downloads', destination: '/services/shopify-app-development', permanent: true },
       { source: '/shopify-services/shopify-plus-functions-scripts-development', destination: '/services/shopify-app-development', permanent: true },
-      { source: '/shopify-services/shopify-development-for-beauty-cosmetics-brands', destination: '/services/shopify-development-clothing-brands', permanent: true },
+      { source: '/shopify-services/shopify-development-for-beauty-cosmetics-brands', destination: '/services/shopify/development', permanent: true },
       { source: '/shopify-services/klaviyo-email-sms-marketing-automation-setup', destination: '/services/shopify-app-development', permanent: true },
       { source: '/shopify-services/crm-integration-for-shopify-salesforce-hubspot', destination: '/services/shopify-app-development', permanent: true },
-      { source: '/shopify-services/shopify-store-redesign-modernization', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/shopify-services/shopify-for-food-beverage-brands', destination: '/services/shopify-development-clothing-brands', permanent: true },
+      { source: '/shopify-services/shopify-store-redesign-modernization', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-services/shopify-for-food-beverage-brands', destination: '/services/shopify/development', permanent: true },
       { source: '/shopify-services/shopify-plus-launchpad-automation-for-sales-events', destination: '/services/shopify-app-development', permanent: true },
       { source: '/shopify-services/advanced-product-customizer-personalizer', destination: '/services/shopify-app-development', permanent: true },
-      { source: '/shopify-services/:path*', destination: '/services/shopify-development-clothing-brands', permanent: true },
+      { source: '/shopify-services/:path*', destination: '/services/shopify/development', permanent: true },
 
       // ─── Portfolio (wildcard patterns) ───────────────────────────────────
       { source: '/portfolio-items/:path*', destination: '/case-studies', permanent: true },
@@ -126,8 +129,8 @@ const nextConfig: NextConfig = {
       { source: '/portfolio', destination: '/case-studies', permanent: true },
 
       // ─── Old product/shop pages ───────────────────────────────────────────
-      { source: '/product/:path*', destination: '/services/shopify-development-clothing-brands', permanent: true },
-      { source: '/product-category/:path*', destination: '/services/shopify-development-clothing-brands', permanent: true },
+      { source: '/product/:path*', destination: '/services/shopify/development', permanent: true },
+      { source: '/product-category/:path*', destination: '/services/shopify/development', permanent: true },
     ]
   },
 }

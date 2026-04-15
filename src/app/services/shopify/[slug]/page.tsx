@@ -3,9 +3,11 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, AlertCircle, Star, Zap, DollarSign, Users, TrendingUp } from 'lucide-react'
 import Breadcrumb from '@/components/layout/Breadcrumb'
-import ProcessSteps from '@/components/home/ProcessSteps'
 import FaqSection from '@/components/ui/FaqSection'
 import ServiceContactForm from '@/components/services/ServiceContactForm'
+import GuaranteeBar from '@/components/services/GuaranteeBar'
+import MidPageCta from '@/components/services/MidPageCta'
+import RelatedServices from '@/components/services/RelatedServices'
 import shopifyServices, { getShopifyService } from '@/data/shopify-services'
 
 type Params = { slug: string }
@@ -24,6 +26,18 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     alternates: { canonical: `https://miraclewebsoft.com/services/shopify/${slug}` },
   }
 }
+
+const shopifyGuarantees = [
+  { icon: '⚡', title: 'Sub-1.5s Mobile Load Time', body: 'Every build targets sub-1.5s mobile load time. We treat performance as a first-class concern — not something added after launch.' },
+  { icon: '🔒', title: 'Fixed-Price Before We Start', body: 'You get a detailed fixed-price proposal before a single line of code is written. No hourly billing, no surprise invoices at the end.' },
+  { icon: '🚀', title: 'Zero Downtime Launch', body: 'We manage the go-live process — DNS, SSL, post-launch QA and real-time monitoring. Your store transitions with no gap in availability.' },
+]
+
+const shopifyRelated = [
+  { title: 'CRO & Speed Optimisation', desc: 'Already have a store? Improve conversions and page speed.', href: '/services/shopify-cro-speed' },
+  { title: 'Shopify App Development', desc: 'Custom apps for drop systems, loyalty, bundles and more.', href: '/services/shopify-app-development' },
+  { title: 'Shopify Migrations', desc: 'Moving from WooCommerce, Magento or another platform.', href: '/services/shopify-migration' },
+]
 
 const whyReasons = [
   { icon: TrendingUp, title: '10+ years on Shopify', body: 'We\'ve been building Shopify stores since 2015 — through every platform update, API change and feature release. Experience you can\'t fake.' },
@@ -136,9 +150,20 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
         </div>
       </section>
 
-      <ProcessSteps />
+      {/* Mid-page CTA */}
+      <MidPageCta
+        heading={`Ready to build your ${svc.eyebrow.toLowerCase().replace('shopify for ', '').replace('shopify ', '')} Shopify store?`}
+        sub="Get a fixed-price proposal within 24 hours. No commitment required — we'll review your brief and recommend the right approach."
+        btnLabel="Get a Free Proposal"
+        btnHref="/contact"
+      />
+
+      {/* Guarantees */}
+      <GuaranteeBar guarantees={shopifyGuarantees} />
 
       <FaqSection faqs={svc.faqs} heading={`${svc.h1} — common questions`} />
+
+      <RelatedServices services={shopifyRelated} />
 
       {/* ── Contact Form ──────────────────────────────────────────────────── */}
       <section id="get-quote" style={{ background: '#080808', paddingTop: '5rem', paddingBottom: '6rem', borderTop: '1px solid rgba(255,255,255,0.06)', backgroundImage: 'radial-gradient(ellipse 70% 60% at 30% 50%, rgba(108,99,255,0.07) 0%, transparent 70%)' }}>

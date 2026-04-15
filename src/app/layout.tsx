@@ -72,7 +72,7 @@ const jsonLd = {
         '@type': 'OfferCatalog',
         name: 'Shopify Services',
         itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Shopify Development',    url: 'https://miraclewebsoft.com/services/shopify-development-clothing-brands' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Shopify Development',    url: 'https://miraclewebsoft.com/services/shopify/development' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shopify App Development',       url: 'https://miraclewebsoft.com/services/shopify-app-development' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Shopify Migration',             url: 'https://miraclewebsoft.com/services/shopify-migration' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'CRO & Speed Optimization',     url: 'https://miraclewebsoft.com/services/shopify-cro-speed' } },
@@ -143,7 +143,7 @@ const jsonLd = {
         { '@type': 'ListItem', position: 7,  item: { '@id': 'https://miraclewebsoft.com/careers',                                       name: 'Careers' } },
         { '@type': 'ListItem', position: 8,  item: { '@id': 'https://miraclewebsoft.com/white-label',                                   name: 'White Label Development' } },
         { '@type': 'ListItem', position: 9,  item: { '@id': 'https://miraclewebsoft.com/referral',                                      name: 'Referral Program' } },
-        { '@type': 'ListItem', position: 10, item: { '@id': 'https://miraclewebsoft.com/services/shopify-development-clothing-brands',  name: 'Shopify Development' } },
+        { '@type': 'ListItem', position: 10, item: { '@id': 'https://miraclewebsoft.com/services/shopify/development',  name: 'Shopify Development' } },
         { '@type': 'ListItem', position: 11, item: { '@id': 'https://miraclewebsoft.com/services/shopify-app-development',              name: 'Shopify App Development' } },
         { '@type': 'ListItem', position: 12, item: { '@id': 'https://miraclewebsoft.com/services/shopify-migration',                    name: 'Shopify Migration' } },
         { '@type': 'ListItem', position: 13, item: { '@id': 'https://miraclewebsoft.com/services/shopify-cro-speed',                    name: 'CRO & Speed Optimisation' } },
