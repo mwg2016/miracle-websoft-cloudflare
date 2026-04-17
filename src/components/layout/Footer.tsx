@@ -1,4 +1,3 @@
-'use client'
 import Link from 'next/link'
 
 const serviceLinks = [
@@ -80,19 +79,19 @@ export default function Footer() {
           <div>
             <p className="mw-eyebrow">Services</p>
             <ul className="flex flex-col gap-3 mt-1">
-              {serviceLinks.map(l => <li key={l.href}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} onMouseEnter={e => ((e.target as HTMLElement).style.color = '#fff')} onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.5)')} className="transition-colors">{l.label}</Link></li>)}
+              {serviceLinks.map(l => <li key={l.href}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">{l.label}</Link></li>)}
             </ul>
           </div>
           <div>
             <p className="mw-eyebrow">Industries</p>
             <ul className="flex flex-col gap-3 mt-1">
-              {industryLinks.map(l => <li key={l.href}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} onMouseEnter={e => ((e.target as HTMLElement).style.color = '#fff')} onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.5)')} className="transition-colors">{l.label}</Link></li>)}
+              {industryLinks.map(l => <li key={l.href}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">{l.label}</Link></li>)}
             </ul>
           </div>
           <div>
             <p className="mw-eyebrow">Company</p>
             <ul className="flex flex-col gap-3 mt-1">
-              {companyLinks.map(l => <li key={l.href}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} onMouseEnter={e => ((e.target as HTMLElement).style.color = '#fff')} onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.5)')} className="transition-colors">{l.label}</Link></li>)}
+              {companyLinks.map(l => <li key={l.href}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">{l.label}</Link></li>)}
             </ul>
           </div>
           <div>
@@ -118,8 +117,7 @@ export default function Footer() {
             {socials.map(({ label, href, icon: Icon }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
                 style={{ color: 'rgba(255,255,255,0.3)', transition: 'color 0.2s' }}
-                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = '#fff')}
-                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.3)')}
+                className="hover:!text-white"
               >
                 <Icon />
               </a>

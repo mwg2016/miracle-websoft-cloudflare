@@ -145,6 +145,20 @@ p  { line-height: 1.7; color: var(--text-2); font-weight: 300; }
     text-align: center;
     margin-bottom: 4rem;
   }
+  .social-pill {
+    padding: 0.55rem 1.1rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 9999px;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.82rem;
+    font-weight: 500;
+    background: rgba(255,255,255,0.03);
+    transition: all 0.2s ease;
+  }
+  .social-pill:hover {
+    border-color: rgba(255,255,255,0.3);
+    color: #fff;
+  }
 }
 
 @keyframes marquee {

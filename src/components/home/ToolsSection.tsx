@@ -1,4 +1,3 @@
-'use client'
 import Link from 'next/link'
 import { Search, Layers, Package, Grid3X3, MessageCircle, Bot, Clock, Globe, ArrowUpRight, ExternalLink, ArrowRight, Cpu, ShoppingCart, Sparkles, BarChart2 } from 'lucide-react'
 

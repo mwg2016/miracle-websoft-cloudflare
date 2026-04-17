@@ -1,4 +1,3 @@
-'use client'
 import Link from 'next/link'
 import { Star, ExternalLink, CheckCircle2, TrendingUp, Clock } from 'lucide-react'
 
@@ -181,10 +180,7 @@ export default function TrustProfiles() {
           <div className="flex flex-wrap gap-3">
             {socials.map(({ name, href, icon: Icon }) => (
               <Link key={name} href={href} target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-2 transition-all group"
-                style={{ padding: '0.55rem 1.1rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9999px', color: 'rgba(255,255,255,0.5)', fontSize: '0.82rem', fontWeight: 500, background: 'rgba(255,255,255,0.03)' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.3)'; (e.currentTarget as HTMLElement).style.color = '#fff' }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)'; (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)' }}
+                className="social-pill flex items-center gap-2"
               >
                 <Icon />
                 {name}
