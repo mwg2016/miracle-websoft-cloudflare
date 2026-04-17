@@ -5,6 +5,7 @@ import {
   Shield, Smartphone, Palette, Zap,
   ArrowRight, ExternalLink, CheckCircle2,
 } from 'lucide-react'
+import { breadcrumb, renderJsonLd, softwareApplication } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'PC Builder App for Shopify — Interactive PC Configurator | Miracle Websoft',
@@ -68,9 +69,27 @@ const stats = [
   { value: '15 min', label: 'Setup time' },
 ]
 
+const jsonLd = renderJsonLd([
+  softwareApplication({
+    name: 'PC Builder — Shopify App',
+    description:
+      'Interactive PC configurator for Shopify stores. Real-time compatibility validation, AI-powered fill and one-click bundle checkout.',
+    url: 'https://apps.shopify.com/pc-builder-mw',
+    category: 'BusinessApplication',
+    operatingSystem: 'Shopify',
+    priceRange: '9.99',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'Tools', url: '/tools' },
+    { name: 'PC Builder', url: '/tools/pc-builder' },
+  ]),
+])
+
 export default function PcBuilderPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       {/* Hero */}
       <section
         className="pt-32 pb-20"

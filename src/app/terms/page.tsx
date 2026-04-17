@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import Link from 'next/link'
+import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Terms of Service — Miracle Websoft',
@@ -8,9 +9,22 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://miraclewebsoft.com/terms' },
 }
 
+const jsonLd = renderJsonLd([
+  webPage({
+    name: 'Terms of Service — Miracle Websoft',
+    description: 'Terms of service for Miracle Websoft Shopify development agency.',
+    url: 'https://miraclewebsoft.com/terms',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'Terms of Service', url: '/terms' },
+  ]),
+])
+
 export default function TermsPage() {
   return (
     <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '8rem', paddingBottom: '5rem' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <div className="mw-container" style={{ maxWidth: '760px' }}>
         <div className="mb-8"><Breadcrumb items={[{ label: 'Terms of Service' }]} /></div>
         <span className="mw-eyebrow">Legal</span>

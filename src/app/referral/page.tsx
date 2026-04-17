@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import ReferralCalculator from '@/components/ReferralCalculator'
 import ReferralForm from '@/components/ReferralForm'
+import { breadcrumb, faqPage, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Earn 20% Commission — Shopify Referral Program | Miracle Websoft',
@@ -125,6 +126,20 @@ const faqs = [
   },
 ]
 
+const jsonLd = renderJsonLd([
+  webPage({
+    name: 'Referral Program — Earn 20% Commission',
+    description:
+      'Refer a Shopify client to Miracle Websoft and earn 20% of the project value. No cap, no limits.',
+    url: 'https://miraclewebsoft.com/referral',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'Referral', url: '/referral' },
+  ]),
+  faqPage(faqs.map((f) => ({ question: f.q, answer: f.a }))),
+])
+
 export default function ReferralPage() {
   return (
     <div style={{
@@ -132,6 +147,7 @@ export default function ReferralPage() {
       minHeight: '100vh',
       paddingTop: '5rem',
     }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       {/* Background glow */}
       <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '5%', left: '30%', width: 800, height: 500, borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(108,99,255,0.09) 0%, transparent 65%)' }} />

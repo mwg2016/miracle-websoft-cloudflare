@@ -8,6 +8,7 @@ import ServiceResult from '@/components/services/ServiceResult'
 import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
+import { breadcrumb, faqPage, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Custom Web Application Development — React, Node.js & Laravel | Miracle Websoft',
@@ -115,9 +116,26 @@ const faqs = [
   },
 ]
 
+const jsonLd = renderJsonLd([
+  service({
+    name: 'Custom Web Application Development',
+    description:
+      'Bespoke web applications in React, Next.js, Node.js and Laravel — SaaS platforms, APIs, dashboards and marketplaces.',
+    url: '/services/custom-web-development',
+    serviceType: 'Custom web development',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/services' },
+    { name: 'Custom Web Development', url: '/services/custom-web-development' },
+  ]),
+  faqPage(faqs),
+])
+
 export default function CustomWebDevelopmentPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       {/* Hero */}
       <section className="pt-32 pb-20" style={{ background: '#0a0a0a', backgroundImage: 'radial-gradient(ellipse at 60% 45%, rgba(108,99,255,0.18) 0%, transparent 60%)' }}>

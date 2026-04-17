@@ -4,6 +4,18 @@ import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import { blogPosts, getPost } from '@/data/blogPosts'
+import { article, breadcrumb, renderJsonLd } from '@/lib/jsonld'
+
+const MONTHS: Record<string, string> = {
+  January: '01', February: '02', March: '03', April: '04', May: '05', June: '06',
+  July: '07', August: '08', September: '09', October: '10', November: '11', December: '12',
+}
+
+function toIso(date: string): string {
+  const [m, y] = date.trim().split(' ')
+  const mm = MONTHS[m] ?? '01'
+  return `${y}-${mm}-01`
+}
 
 export function generateStaticParams() {
   return blogPosts.map(p => ({ slug: p.slug }))
@@ -30,19 +42,25 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const prev = idx < blogPosts.length - 1 ? blogPosts[idx + 1] : null
   const next = idx > 0 ? blogPosts[idx - 1] : null
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: post.title,
-    description: post.excerpt,
-    author: { '@type': 'Person', name: 'Karam Singh Mehra', url: 'https://miraclewebsoft.com/about' },
-    publisher: { '@type': 'Organization', name: 'Miracle Websoft', url: 'https://miraclewebsoft.com' },
-    url: `https://miraclewebsoft.com/blog/${post.slug}`,
-  }
+  const jsonLd = renderJsonLd([
+    article({
+      title: post.title,
+      description: post.excerpt,
+      url: `/blog/${post.slug}`,
+      datePublished: toIso(post.date),
+      tag: post.tag,
+      body: post.body,
+    }),
+    breadcrumb([
+      { name: 'Home', url: '/' },
+      { name: 'Blog', url: '/blog' },
+      { name: post.title, url: `/blog/${post.slug}` },
+    ]),
+  ])
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '8rem', paddingBottom: '5rem' }}>
         <div className="mw-container" style={{ maxWidth: '780px' }}>
           <div className="mb-8">

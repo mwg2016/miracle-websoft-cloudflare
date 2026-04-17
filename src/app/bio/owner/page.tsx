@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { MapPin, Mail, Phone, Calendar, CreditCard, ArrowUpRight, CheckCircle2, Download } from 'lucide-react'
+import { breadcrumb, person, renderJsonLd } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Karam Singh Mehra — Shopify Expert & Founder | Miracle Websoft',
@@ -135,6 +136,30 @@ function StarRating({ rating, count }: { rating: number; count: string }) {
   )
 }
 
+const jsonLd = renderJsonLd([
+  person({
+    name: 'Karam Singh Mehra',
+    url: 'https://miraclewebsoft.com/bio/owner',
+    jobTitle: 'Founder & Lead Shopify Expert',
+    description:
+      'Founder of Miracle Websoft — 10+ years of Shopify expertise, 600+ projects delivered. Top Rated Plus on Upwork.',
+    image: 'https://miraclewebsoft.com/icon-512.png',
+    sameAs: [
+      'https://www.linkedin.com/in/ecommerce-experts/',
+      'https://www.upwork.com/freelancers/~0108a0862ff3e2f2de',
+      'https://www.instagram.com/miracle_websoft/',
+      'https://www.facebook.com/miraclewebsoft/',
+      'https://x.com/miraclewebsoft',
+    ],
+    worksFor: { name: 'Miracle Websoft', url: 'https://miraclewebsoft.com' },
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'Bio', url: '/bio/owner' },
+    { name: 'Karam Singh Mehra', url: '/bio/owner' },
+  ]),
+])
+
 export default function OwnerBioPage() {
   return (
     <div style={{
@@ -143,6 +168,7 @@ export default function OwnerBioPage() {
       paddingTop: '7rem',
       paddingBottom: '5rem',
     }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       {/* Background glow */}
       <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)', width: 700, height: 400, borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(108,99,255,0.1) 0%, transparent 65%)' }} />

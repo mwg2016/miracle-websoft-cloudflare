@@ -7,6 +7,7 @@ import {
   Globe, Code2,
 } from 'lucide-react'
 import CtaBanner from '@/components/home/CtaBanner'
+import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'All Services | Miracle Websoft',
@@ -153,11 +154,36 @@ function SectionHeader({ eyebrow, title, sub }: { eyebrow: string; title: string
   )
 }
 
+// ─── JSON-LD ──────────────────────────────────────────────────────────────────
+
+const jsonLd = renderJsonLd([
+  webPage({
+    name: 'All Services — Miracle Websoft',
+    description:
+      'Full service offering — Shopify development, app development, migrations, CRO, WordPress and custom web applications.',
+    url: 'https://miraclewebsoft.com/services',
+    type: 'CollectionPage',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/services' },
+  ]),
+  itemList({
+    name: 'Services offered by Miracle Websoft',
+    items: [...shopifyCore, ...shopifyIndustry, ...otherServices].map((s) => ({
+      name: s.title,
+      url: s.href,
+      description: s.desc,
+    })),
+  }),
+])
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ServicesPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       {/* Hero */}
       <section className="pt-32 pb-16" style={{ background: '#0a0a0a', backgroundImage: 'radial-gradient(ellipse at 65% 45%, rgba(108,99,255,0.14) 0%, transparent 58%)' }}>
         <div className="mw-container">

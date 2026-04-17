@@ -3,6 +3,7 @@ import Breadcrumb from '@/components/layout/Breadcrumb'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, ExternalLink, Star, Award } from 'lucide-react'
 import TrustProfiles from '@/components/home/TrustProfiles'
+import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'About Miracle Websoft — Shopify Agency for Fashion Brands',
@@ -45,9 +46,24 @@ const testimonials = [
 ]
 
 
+const jsonLd = renderJsonLd([
+  webPage({
+    name: 'About Miracle Websoft — Shopify agency for fashion brands',
+    description:
+      'Top Rated Plus Shopify agency on Upwork — 600+ projects, 98% job success, a 16-person team serving USA, UK and Australia since 2015.',
+    url: 'https://miraclewebsoft.com/about',
+    type: 'AboutPage',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'About', url: '/about' },
+  ]),
+])
+
 export default function AboutPage() {
   return (
     <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '8rem' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <div className="mw-container" style={{ paddingBottom: '5rem' }}>
         <div className="mb-8"><Breadcrumb items={[{ label: 'About' }]} /></div>
 

@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react'
 import FaqSection from '@/components/ui/FaqSection'
 import RecentWork from '@/components/home/RecentWork'
 import BrandGrid from '@/components/case-studies/BrandGrid'
+import { breadcrumb, faqPage, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Case Studies — Shopify Results for Fashion Brands | Miracle Websoft',
@@ -130,9 +131,33 @@ const portfolioClients = [
   { name: 'Saint Mcqueen',       category: 'Fashion',          desc: 'Where fashion meets florals',                                         href: null },
 ]
 
+const jsonLd = renderJsonLd([
+  webPage({
+    name: 'Case Studies — Shopify results for fashion brands',
+    description:
+      'Real results from 600+ Shopify projects — conversion lifts, migration success, speed and CRO outcomes.',
+    url: 'https://miraclewebsoft.com/case-studies',
+    type: 'CollectionPage',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'Case Studies', url: '/case-studies' },
+  ]),
+  itemList({
+    name: 'Featured case studies',
+    items: featuredCaseStudies.map((cs) => ({
+      name: cs.title,
+      url: '/case-studies',
+      description: `${cs.result} ${cs.resultLabel} — ${cs.tag}`,
+    })),
+  }),
+  faqPage(csFaqs),
+])
+
 export default function CaseStudiesPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <div style={{ background: '#0a0a0a', minHeight: '100vh' }}>
 
         {/* ── Hero ───────────────────────────────────────── */}

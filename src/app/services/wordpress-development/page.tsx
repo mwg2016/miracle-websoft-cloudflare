@@ -8,6 +8,7 @@ import ServiceResult from '@/components/services/ServiceResult'
 import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
+import { breadcrumb, faqPage, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'WordPress Website Development Services | Miracle Websoft',
@@ -90,9 +91,26 @@ const faqs = [
   },
 ]
 
+const jsonLd = renderJsonLd([
+  service({
+    name: 'WordPress Development',
+    description:
+      'Custom WordPress themes, WooCommerce stores, membership platforms and corporate websites — built without page-builder bloat.',
+    url: '/services/wordpress-development',
+    serviceType: 'WordPress development',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/services' },
+    { name: 'WordPress Development', url: '/services/wordpress-development' },
+  ]),
+  faqPage(faqs),
+])
+
 export default function WordPressDevelopmentPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="pt-32 pb-20" style={{ background: '#0a0a0a', backgroundImage: 'radial-gradient(ellipse at 65% 45%, rgba(108,99,255,0.15) 0%, transparent 58%)' }}>
         <div className="mw-container">

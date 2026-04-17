@@ -9,6 +9,7 @@ import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
 import shopifyServices, { getShopifyService } from '@/data/shopify-services'
+import { breadcrumb, faqPage, renderJsonLd, service } from '@/lib/jsonld'
 
 type Params = { slug: string }
 
@@ -52,8 +53,25 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
   const svc = getShopifyService(slug)
   if (!svc) notFound()
 
+  const url = `/services/shopify/${slug}`
+  const jsonLd = renderJsonLd([
+    service({
+      name: svc.h1,
+      description: svc.subtext,
+      url,
+      serviceType: 'Shopify development',
+    }),
+    breadcrumb([
+      { name: 'Home', url: '/' },
+      { name: 'Services', url: '/services' },
+      { name: svc.h1, url },
+    ]),
+    faqPage(svc.faqs),
+  ])
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="pt-32 pb-20" style={{ background: '#0a0a0a', backgroundImage: 'radial-gradient(ellipse at 70% 50%, rgba(108,99,255,0.15) 0%, transparent 60%)' }}>
         <div className="mw-container">

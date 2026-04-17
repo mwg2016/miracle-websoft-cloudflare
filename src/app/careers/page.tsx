@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import { CheckCircle2, Code2, Layers, Zap, Users } from 'lucide-react'
 import CareersForm from '@/components/careers/CareersForm'
+import { breadcrumb, jobPosting, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Careers — Join Miracle Websoft | Shopify Developer Jobs',
@@ -107,9 +108,36 @@ const perks = [
   { label: 'Stable work', sub: '10+ years in business, consistent clients' },
 ]
 
+const jsonLd = renderJsonLd([
+  webPage({
+    name: 'Careers — Miracle Websoft',
+    description:
+      'Shopify developer jobs at Miracle Websoft — Junior, Mid-level, Senior and Theme Developer roles. Full-time, remote-friendly, based out of Chandigarh, India.',
+    url: 'https://miraclewebsoft.com/careers',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'Careers', url: '/careers' },
+  ]),
+  ...openRoles.map((r) =>
+    jobPosting({
+      title: r.title,
+      description: `${r.description} Experience level: ${r.level}. Requirements: ${r.requirements.join('; ')}. Nice to have: ${r.niceToHave.join('; ')}.`,
+      datePosted: '2026-01-01',
+      validThrough: '2026-12-31',
+      employmentType: 'FULL_TIME',
+      url: '/careers',
+      experienceRequirements: r.level,
+      skills: r.requirements,
+      qualifications: r.requirements,
+    })
+  ),
+])
+
 export default function CareersPage() {
   return (
     <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '7rem', paddingBottom: '5rem' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <div className="mw-container">
         <div className="mb-6"><Breadcrumb items={[{ label: 'Careers' }]} /></div>
 

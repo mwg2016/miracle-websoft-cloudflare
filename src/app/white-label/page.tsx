@@ -7,6 +7,7 @@ import {
   MessageSquare, GitBranch, Star,
 } from 'lucide-react'
 import WhiteLabelForm from '@/components/WhiteLabelForm'
+import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'White Label Shopify Development — Miracle Websoft',
@@ -166,6 +167,20 @@ const faqs = [
   },
 ]
 
+const jsonLd = renderJsonLd([
+  service({
+    name: 'White Label Shopify Development',
+    description:
+      'Silent Shopify development partner for agencies — build under your brand per project, hourly, or on a monthly retainer. NDA always signed.',
+    url: '/white-label',
+    serviceType: 'White label Shopify development',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'White Label', url: '/white-label' },
+  ]),
+])
+
 export default function WhiteLabelPage() {
   return (
     <div style={{
@@ -173,6 +188,7 @@ export default function WhiteLabelPage() {
       minHeight: '100vh',
       paddingTop: '5rem',
     }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       {/* Background glows */}
       <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '5%', left: '20%', width: 900, height: 500, borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(108,99,255,0.07) 0%, transparent 65%)' }} />

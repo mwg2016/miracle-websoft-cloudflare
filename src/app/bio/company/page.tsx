@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { MapPin, Mail, Phone, Calendar, CreditCard, ArrowUpRight, CheckCircle2, Download } from 'lucide-react'
+import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Miracle Websoft — Shopify Agency for Fashion Brands',
@@ -147,6 +148,21 @@ function MiniStars({ count }: { count: number }) {
   )
 }
 
+const jsonLd = renderJsonLd([
+  webPage({
+    name: 'Miracle Websoft — Company bio',
+    description:
+      'Miracle Websoft company profile — Top Rated Plus Shopify agency specialising in fashion brands. 600+ projects, 98% job success, 16 specialists.',
+    url: 'https://miraclewebsoft.com/bio/company',
+    type: 'AboutPage',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'Bio', url: '/bio/company' },
+    { name: 'Company', url: '/bio/company' },
+  ]),
+])
+
 export default function CompanyBioPage() {
   return (
     <div style={{
@@ -155,6 +171,7 @@ export default function CompanyBioPage() {
       paddingTop: '7rem',
       paddingBottom: '5rem',
     }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       {/* Background glow */}
       <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '8%', left: '50%', transform: 'translateX(-50%)', width: 800, height: 450, borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(16,185,129,0.07) 0%, transparent 65%)' }} />

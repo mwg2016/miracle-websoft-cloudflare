@@ -3,6 +3,7 @@ import Breadcrumb from '@/components/layout/Breadcrumb'
 import { CheckCircle2, ExternalLink, MessageCircle } from 'lucide-react'
 import FaqSection from '@/components/ui/FaqSection'
 import ContactForm from '@/components/contact/ContactForm'
+import { breadcrumb, faqPage, renderJsonLd, webPage } from '@/lib/jsonld'
 
 const contactFaqs = [
   { question: 'How do I get started with Miracle Websoft?', answer: 'Fill in the contact form or message us on WhatsApp. We reply within 24 hours. If your project is a good fit, we schedule a 30-minute discovery call, then send a detailed proposal with clear scope, timeline, and fixed pricing. No vague estimates.' },
@@ -58,9 +59,25 @@ const platforms = [
   { name: 'DesignRush', badge: 'Top Agency', sub: 'Agency directory', href: 'https://www.designrush.com/agency/profile/miracle-websoft', color: '#6c63ff' },
 ]
 
+const jsonLd = renderJsonLd([
+  webPage({
+    name: 'Contact Miracle Websoft — Free Shopify store audit',
+    description:
+      'Get a free Shopify store audit. We identify what is losing you money and show you how to fix it. Response within 24 hours.',
+    url: 'https://miraclewebsoft.com/contact',
+    type: 'ContactPage',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'Contact', url: '/contact' },
+  ]),
+  faqPage(contactFaqs),
+])
+
 export default function ContactPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '7rem', paddingBottom: '5rem' }}>
         <div className="mw-container">
           <div className="mb-6"><Breadcrumb items={[{ label: 'Contact' }]} /></div>

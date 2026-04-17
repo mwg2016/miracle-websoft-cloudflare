@@ -9,6 +9,7 @@ import ServiceResult from '@/components/services/ServiceResult'
 import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
+import { breadcrumb, faqPage, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Shopify CRO and Speed Optimization for Fashion Brands | Miracle Websoft',
@@ -53,9 +54,26 @@ const related = [
   { title: 'Shopify App Development', desc: 'Replace slow third-party apps with lean custom-built alternatives.', href: '/services/shopify-app-development' },
 ]
 
+const jsonLd = renderJsonLd([
+  service({
+    name: 'Shopify CRO & Speed Optimisation',
+    description:
+      'Sub-1.5s mobile load time, 90+ PageSpeed scores and conversion rate optimisation for existing Shopify stores.',
+    url: '/services/shopify-cro-speed',
+    serviceType: 'Conversion rate optimisation',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/services' },
+    { name: 'CRO & Speed Optimisation', url: '/services/shopify-cro-speed' },
+  ]),
+  faqPage(faqs),
+])
+
 export default function CROSpeedPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       {/* Hero */}
       <section className="pt-32 pb-20" style={{ background: '#0a0a0a', backgroundImage: 'radial-gradient(ellipse at 70% 50%, rgba(108,99,255,0.15) 0%, transparent 60%)' }}>
         <div className="mw-container">

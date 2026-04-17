@@ -10,6 +10,7 @@ import ServiceResult from '@/components/services/ServiceResult'
 import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
+import { breadcrumb, faqPage, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Custom Shopify Development for Clothing Brands | Miracle Websoft',
@@ -68,9 +69,26 @@ const related = [
   { title: 'Shopify Migrations', desc: 'Moving from WooCommerce or another platform to Shopify.', href: '/services/shopify-migration' },
 ]
 
+const jsonLd = renderJsonLd([
+  service({
+    name: 'Shopify Development for Clothing Brands',
+    description:
+      'Custom Shopify stores for clothing, apparel and fashion brands. Mobile-first builds, size guides, lookbooks, TikTok Shop and Instagram integrations.',
+    url: '/services/shopify-development-clothing-brands',
+    serviceType: 'Shopify development for fashion',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/services' },
+    { name: 'Shopify for Clothing Brands', url: '/services/shopify-development-clothing-brands' },
+  ]),
+  faqPage(faqs),
+])
+
 export default function ShopifyDevelopmentPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       {/* Hero */}
       <section className="pt-32 pb-20" style={{ background: '#0a0a0a', backgroundImage: 'radial-gradient(ellipse at 70% 50%, rgba(108,99,255,0.15) 0%, transparent 60%)' }}>
         <div className="mw-container">

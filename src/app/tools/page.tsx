@@ -8,6 +8,7 @@ import {
   Code2, Sparkles, Users, Cpu, ShoppingCart, BarChart2, Smartphone,
 } from 'lucide-react'
 import ContactForm from '@/components/contact/ContactForm'
+import { breadcrumb, itemList, renderJsonLd, softwareApplication, webPage } from '@/lib/jsonld'
 
 const WHATSAPP_URL = `https://wa.me/916239269736?text=${encodeURIComponent('Hi Karam, I have a tool idea I\'d like to discuss.')}`
 
@@ -159,9 +160,43 @@ const stats = [
   { value: '1000s', unit: '', label: 'Users across tools' },
 ]
 
+const jsonLd = renderJsonLd([
+  webPage({
+    name: 'Custom Tool Development — Miracle Websoft',
+    description:
+      'We build digital tools, SaaS apps and web products in 5–7 days starting from $200. See our live tools and get a quote.',
+    url: 'https://miraclewebsoft.com/tools',
+    type: 'CollectionPage',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'Tools', url: '/tools' },
+  ]),
+  ...builtTools.map((t) =>
+    softwareApplication({
+      name: t.title,
+      description: t.desc,
+      url: t.url,
+      category: 'BusinessApplication',
+    })
+  ),
+  itemList({
+    name: 'Tools shipped by Miracle Websoft',
+    items: builtTools.map((t) => {
+      const dedicated = (t as { dedicatedPage?: string }).dedicatedPage
+      return {
+        name: t.title,
+        url: dedicated ? `https://miraclewebsoft.com${dedicated}` : t.url,
+        description: t.desc,
+      }
+    }),
+  }),
+])
+
 export default function ToolsPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       {/* Hero */}
       <section
         className="pt-32 pb-20"

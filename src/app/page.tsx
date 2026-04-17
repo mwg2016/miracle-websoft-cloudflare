@@ -13,6 +13,7 @@ import ToolsSection from '@/components/home/ToolsSection'
 import CtaBanner from '@/components/home/CtaBanner'
 import FaqSection from '@/components/ui/FaqSection'
 import RecentWork from '@/components/home/RecentWork'
+import { breadcrumb, faqPage, renderJsonLd, webPage } from '@/lib/jsonld'
 
 const homeFaqs = [
   { question: 'What does Miracle Websoft do?', answer: 'We are a Shopify development agency specialising exclusively in clothing, fashion and apparel brands. We build custom Shopify stores, develop Shopify apps, migrate stores from platforms like WooCommerce and Magento, and optimise existing stores for speed and conversions.' },
@@ -38,9 +39,21 @@ export const metadata: Metadata = {
   },
 }
 
+const jsonLd = renderJsonLd([
+  webPage({
+    name: 'Shopify Agency for Clothing & Fashion Brands — Miracle Websoft',
+    description:
+      'We build high-converting Shopify stores for clothing, fashion and apparel brands. Custom development, app builds, migrations and CRO.',
+    url: 'https://miraclewebsoft.com/',
+  }),
+  breadcrumb([{ name: 'Home', url: '/' }]),
+  faqPage(homeFaqs),
+])
+
 export default function HomePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <Hero />
       <ProblemSection />
       <IndustryGrid />

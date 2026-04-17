@@ -3,6 +3,7 @@ import Breadcrumb from '@/components/layout/Breadcrumb'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { blogPosts } from '@/data/blogPosts'
+import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Blog — Shopify Tips for Fashion & Clothing Brands',
@@ -10,9 +11,33 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://miraclewebsoft.com/blog' },
 }
 
+const jsonLd = renderJsonLd([
+  webPage({
+    name: 'Miracle Websoft Blog — Shopify insights for fashion brands',
+    description:
+      'Development tips, conversion tactics and platform updates for Shopify fashion stores.',
+    url: 'https://miraclewebsoft.com/blog',
+    type: 'CollectionPage',
+  }),
+  breadcrumb([
+    { name: 'Home', url: '/' },
+    { name: 'Blog', url: '/blog' },
+  ]),
+  itemList({
+    name: 'Blog posts',
+    description: 'All posts published on the Miracle Websoft blog.',
+    items: blogPosts.map((p) => ({
+      name: p.title,
+      url: `/blog/${p.slug}`,
+      description: p.excerpt,
+    })),
+  }),
+])
+
 export default function BlogPage() {
   return (
     <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '8rem', paddingBottom: '5rem' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <div className="mw-container">
         <div className="mb-8"><Breadcrumb items={[{ label: 'Blog' }]} /></div>
         <div className="mb-12">
