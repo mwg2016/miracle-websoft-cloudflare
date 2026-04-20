@@ -36,7 +36,7 @@ export default function Hero() {
 
           {/* Sub-copy */}
           <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: 'clamp(1rem,2vw,1.2rem)', lineHeight: 1.8, maxWidth: '580px', marginBottom: '2rem', fontWeight: 300 }}>
-            We build high-converting Shopify stores for DTC clothing brands, activewear labels, boutiques and fashion retailers across USA, UK and Australia.
+            We design and build conversion-focused Shopify stores for DTC clothing brands, activewear labels, boutiques and fashion retailers across USA, UK and Australia.
           </p>
 
           {/* Stats strip */}
