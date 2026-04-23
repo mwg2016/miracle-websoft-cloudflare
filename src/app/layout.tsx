@@ -4,6 +4,7 @@ import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import LeadTracker from '@/components/LeadTracker'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap' })
@@ -176,6 +177,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <noscript>
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSP2DJDW" height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} />
         </noscript>
+        <LeadTracker />
         <Header />
         <main>{children}</main>
         <Footer />

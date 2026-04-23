@@ -1,6 +1,7 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
 import { ArrowRight, CheckCircle2, Loader2, Upload, X } from 'lucide-react'
+import { trackLead } from '@/lib/analytics'
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
@@ -83,7 +84,12 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
 
       const res = await fetch('/api/careers', { method: 'POST', body: fd })
       const data = await res.json()
-      setState(data.success ? 'done' : 'error')
+      if (data.success) {
+        trackLead('lead_form_submit', { form: 'careers', position: form.position || '(unspecified)' })
+        setState('done')
+      } else {
+        setState('error')
+      }
     } catch {
       setState('error')
     }

@@ -1,6 +1,7 @@
 'use client'
 import { useState, useRef } from 'react'
 import { Send, CheckCircle2, Loader2, Shield } from 'lucide-react'
+import { trackLead } from '@/lib/analytics'
 
 type State = 'idle' | 'sending' | 'success' | 'error'
 
@@ -59,6 +60,7 @@ export default function WhiteLabelForm() {
       })
       const json = await res.json()
       if (json.success) {
+        trackLead('lead_form_submit', { form: 'white_label', engagement_type: data.engagementType || '(unspecified)' })
         setState('success')
         formRef.current?.reset()
         setNda(false)

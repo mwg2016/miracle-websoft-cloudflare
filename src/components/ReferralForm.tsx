@@ -1,6 +1,7 @@
 'use client'
 import { useState, useRef } from 'react'
 import { Send, CheckCircle2, Loader2 } from 'lucide-react'
+import { trackLead } from '@/lib/analytics'
 
 type State = 'idle' | 'sending' | 'success' | 'error'
 
@@ -57,6 +58,7 @@ export default function ReferralForm() {
       })
       const json = await res.json()
       if (json.success) {
+        trackLead('lead_form_submit', { form: 'referral', project_type: data.projectType || '(unspecified)' })
         setState('success')
         formRef.current?.reset()
       } else {

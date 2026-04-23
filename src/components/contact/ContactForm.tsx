@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { ArrowRight, CheckCircle2, Loader2 } from 'lucide-react'
+import { trackLead } from '@/lib/analytics'
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
@@ -55,7 +56,12 @@ export default function ContactForm() {
         body: JSON.stringify(form),
       })
       const data = await res.json()
-      setState(data.success ? 'done' : 'error')
+      if (data.success) {
+        trackLead('lead_form_submit', { form: 'contact', service: form.service || '(unspecified)' })
+        setState('done')
+      } else {
+        setState('error')
+      }
     } catch {
       setState('error')
     }
