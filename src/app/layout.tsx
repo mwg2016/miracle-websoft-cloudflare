@@ -5,6 +5,7 @@ import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import LeadTracker from '@/components/LeadTracker'
+import IntentRouter from '@/components/IntentRouter'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap' })
@@ -181,6 +182,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main>{children}</main>
         <Footer />
+        <IntentRouter />
 
         {/* ── Analytics (deferred – no render-blocking) ──────────────────── */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-YT1GLKW8L5" strategy="afterInteractive" />
