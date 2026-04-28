@@ -1,9 +1,10 @@
 'use client'
 import { useState, useRef } from 'react'
-import { Send, CheckCircle2, Loader2 } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { Send, Loader2 } from 'lucide-react'
 import { trackLead } from '@/lib/analytics'
 
-type State = 'idle' | 'sending' | 'success' | 'error'
+type State = 'idle' | 'sending' | 'error'
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
@@ -38,6 +39,7 @@ function Field({ label, required, children }: { label: string; required?: boolea
 }
 
 export default function ReferralForm() {
+  const router = useRouter()
   const [state, setState] = useState<State>('idle')
   const [error, setError] = useState('')
   const formRef = useRef<HTMLFormElement>(null)
@@ -59,8 +61,8 @@ export default function ReferralForm() {
       const json = await res.json()
       if (json.success) {
         trackLead('lead_form_submit', { form: 'referral', project_type: data.projectType || '(unspecified)' })
-        setState('success')
         formRef.current?.reset()
+        router.push('/thank-you?form=referral')
       } else {
         throw new Error(json.error || 'Failed to send')
       }
@@ -68,50 +70,6 @@ export default function ReferralForm() {
       setState('error')
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
     }
-  }
-
-  if (state === 'success') {
-    return (
-      <div style={{
-        background: 'linear-gradient(145deg, rgba(16,185,129,0.08), rgba(16,185,129,0.04))',
-        border: '1px solid rgba(16,185,129,0.25)',
-        borderRadius: 24,
-        padding: '3rem 2rem',
-        textAlign: 'center',
-        maxWidth: 560,
-        margin: '0 auto',
-      }}>
-        <div style={{
-          width: 64, height: 64, borderRadius: '50%',
-          background: 'rgba(16,185,129,0.15)', border: '1px solid rgba(16,185,129,0.3)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          margin: '0 auto 1.25rem',
-        }}>
-          <CheckCircle2 size={28} style={{ color: '#10B981' }} />
-        </div>
-        <h3 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: '1.4rem', fontWeight: 700, marginBottom: '0.75rem' }}>
-          Referral Received!
-        </h3>
-        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: 360, margin: '0 auto 1.5rem' }}>
-          Thank you! We&apos;ll reach out to your client within 24 hours and keep you updated every step of the way.
-        </p>
-        <button
-          onClick={() => setState('idle')}
-          style={{
-            padding: '0.65rem 1.5rem',
-            background: 'rgba(255,255,255,0.06)',
-            border: '1px solid rgba(255,255,255,0.12)',
-            borderRadius: 9999,
-            color: 'rgba(255,255,255,0.6)',
-            fontSize: '0.8rem',
-            cursor: 'pointer',
-            fontFamily: 'var(--font-inter), system-ui, sans-serif',
-          }}
-        >
-          Submit another referral
-        </button>
-      </div>
-    )
   }
 
   return (

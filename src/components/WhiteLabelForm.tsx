@@ -1,9 +1,10 @@
 'use client'
 import { useState, useRef } from 'react'
-import { Send, CheckCircle2, Loader2, Shield } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { Send, Loader2, Shield } from 'lucide-react'
 import { trackLead } from '@/lib/analytics'
 
-type State = 'idle' | 'sending' | 'success' | 'error'
+type State = 'idle' | 'sending' | 'error'
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
@@ -38,6 +39,7 @@ function Field({ label, required, children }: { label: string; required?: boolea
 }
 
 export default function WhiteLabelForm() {
+  const router = useRouter()
   const [state, setState] = useState<State>('idle')
   const [error, setError] = useState('')
   const [nda, setNda] = useState(false)
@@ -61,9 +63,9 @@ export default function WhiteLabelForm() {
       const json = await res.json()
       if (json.success) {
         trackLead('lead_form_submit', { form: 'white_label', engagement_type: data.engagementType || '(unspecified)' })
-        setState('success')
         formRef.current?.reset()
         setNda(false)
+        router.push('/thank-you?form=white_label')
       } else {
         throw new Error(json.error || 'Failed to send')
       }
@@ -71,50 +73,6 @@ export default function WhiteLabelForm() {
       setState('error')
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
     }
-  }
-
-  if (state === 'success') {
-    return (
-      <div style={{
-        background: 'linear-gradient(145deg, rgba(16,185,129,0.08), rgba(16,185,129,0.03))',
-        border: '1px solid rgba(16,185,129,0.25)',
-        borderRadius: 24,
-        padding: '3.5rem 2rem',
-        textAlign: 'center',
-        maxWidth: 620,
-        margin: '0 auto',
-      }}>
-        <div style={{
-          width: 64, height: 64, borderRadius: '50%',
-          background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.3)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          margin: '0 auto 1.5rem',
-        }}>
-          <CheckCircle2 size={28} style={{ color: '#10B981' }} />
-        </div>
-        <h3 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.75rem' }}>
-          Enquiry Received
-        </h3>
-        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', lineHeight: 1.7, maxWidth: 400, margin: '0 auto 2rem' }}>
-          We&apos;ll review your requirements and reply within 24 hours. Check your inbox for a confirmation.
-        </p>
-        <button
-          onClick={() => setState('idle')}
-          style={{
-            padding: '0.65rem 1.5rem',
-            background: 'rgba(255,255,255,0.06)',
-            border: '1px solid rgba(255,255,255,0.12)',
-            borderRadius: 9999,
-            color: 'rgba(255,255,255,0.55)',
-            fontSize: '0.8rem',
-            cursor: 'pointer',
-            fontFamily: 'var(--font-inter), system-ui, sans-serif',
-          }}
-        >
-          Submit another enquiry
-        </button>
-      </div>
-    )
   }
 
   return (

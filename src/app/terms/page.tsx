@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import Link from 'next/link'
 import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
+import { outboundHref } from '@/lib/outbound'
 
 export const metadata: Metadata = {
   title: 'Terms of Service — Miracle Websoft',
@@ -57,7 +58,7 @@ export default function TermsPage() {
           </section>
           <section>
             <h2 style={{ color: '#fff', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem' }}>7. Contact</h2>
-            <p>Questions about these terms? Email <a href="mailto:karam@miraclewebsoft.com" style={{ color: 'var(--accent)' }}>karam@miraclewebsoft.com</a>.</p>
+            <p>Questions about these terms? Email <a href={outboundHref('email', 'mailto:karam@miraclewebsoft.com')} style={{ color: 'var(--accent)' }}>karam@miraclewebsoft.com</a>.</p>
           </section>
         </div>
         <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>

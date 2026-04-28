@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import { Star, ExternalLink, CheckCircle2, TrendingUp, Clock } from 'lucide-react'
+import { outboundHref } from '@/lib/outbound'
 
 const platforms = [
   {
     name: 'Upwork',
     badge: 'Top Rated Plus',
     badgeColor: '#14a800',
-    href: 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/',
+    href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/'),
     description: 'Top 3% of all Shopify agencies globally',
     stats: [
       { icon: Star, value: '98%', label: 'Job Success Score' },
@@ -21,7 +22,7 @@ const platforms = [
     name: 'Shopify Partner',
     badge: 'Verified Partner',
     badgeColor: '#96bf48',
-    href: 'https://www.shopify.com/partners/directory/partner/miracle-websoft1',
+    href: outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1'),
     description: 'Official Shopify Partner since 2015',
     accent: '#96bf48',
     large: false,
@@ -30,7 +31,7 @@ const platforms = [
     name: 'DesignRush',
     badge: 'Listed Agency',
     badgeColor: '#6c63ff',
-    href: 'https://www.designrush.com/agency/profile/miracle-websoft',
+    href: outboundHref('external', 'https://www.designrush.com/agency/profile/miracle-websoft'),
     description: 'Shopify development & e-commerce experts',
     accent: '#6c63ff',
     large: false,
@@ -39,7 +40,7 @@ const platforms = [
     name: 'Clutch',
     badge: 'Verified Reviews',
     badgeColor: '#e63329',
-    href: 'https://clutch.co/profile/miracle-websoft',
+    href: outboundHref('external', 'https://clutch.co/profile/miracle-websoft'),
     description: 'Client-verified B2B service provider',
     accent: '#e63329',
     large: false,
@@ -48,7 +49,7 @@ const platforms = [
     name: 'Trustpilot',
     badge: '5★ Reviews',
     badgeColor: '#00b67a',
-    href: 'https://www.trustpilot.com/review/miraclewebsoft.com',
+    href: outboundHref('external', 'https://www.trustpilot.com/review/miraclewebsoft.com'),
     description: 'Verified customer reviews',
     accent: '#00b67a',
     large: false,
@@ -57,7 +58,7 @@ const platforms = [
     name: 'TechBehemoths',
     badge: 'Verified Agency',
     badgeColor: '#4a9eff',
-    href: 'https://techbehemoths.com/company/miracle-websoft',
+    href: outboundHref('external', 'https://techbehemoths.com/company/miracle-websoft'),
     description: 'Global IT agency directory',
     accent: '#4a9eff',
     large: false,
@@ -65,11 +66,11 @@ const platforms = [
 ]
 
 const socials = [
-  { name: 'LinkedIn', href: 'https://in.linkedin.com/company/shopify-experts-miracle-websoft', icon: LinkedInIcon },
-  { name: 'Instagram', href: 'https://www.instagram.com/miracle_websoft/', icon: InstagramIcon },
-  { name: 'Facebook', href: 'https://www.facebook.com/miraclewebsoft/', icon: FacebookIcon },
-  { name: 'X / Twitter', href: 'https://x.com/miraclewebsoft', icon: XIcon },
-  { name: 'GitHub', href: 'https://github.com/mwg2016', icon: GitHubIcon },
+  { name: 'LinkedIn', href: outboundHref('linkedin', 'https://in.linkedin.com/company/shopify-experts-miracle-websoft'), icon: LinkedInIcon },
+  { name: 'Instagram', href: outboundHref('external', 'https://www.instagram.com/miracle_websoft/'), icon: InstagramIcon },
+  { name: 'Facebook', href: outboundHref('external', 'https://www.facebook.com/miraclewebsoft/'), icon: FacebookIcon },
+  { name: 'X / Twitter', href: outboundHref('external', 'https://x.com/miraclewebsoft'), icon: XIcon },
+  { name: 'GitHub', href: outboundHref('external', 'https://github.com/mwg2016'), icon: GitHubIcon },
 ]
 
 function LinkedInIcon() {
@@ -196,7 +197,7 @@ export default function TrustProfiles() {
               <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '0.4rem' }}>Shopify App Store</p>
               <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)' }}>Browse our published Shopify apps</p>
             </div>
-            <Link href="https://apps.shopify.com/partners/miracle-websoft1" target="_blank" rel="noopener noreferrer" className="mw-btn-outline" style={{ whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.6rem 1.25rem', fontSize: '0.82rem' }}>
+            <Link href={outboundHref('shopify_apps', 'https://apps.shopify.com/partners/miracle-websoft1')} target="_blank" rel="noopener noreferrer" className="mw-btn-outline" style={{ whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.6rem 1.25rem', fontSize: '0.82rem' }}>
               View Our Apps <ExternalLink size={13} />
             </Link>
           </div>

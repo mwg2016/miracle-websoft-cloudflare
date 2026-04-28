@@ -6,3 +6,7 @@ node_modules/
 *.log
 pm2-error.log
 pm2-out.log
+
+# Admin / runtime data — JSON logs and uploaded resumes
+data/*.json
+data/resumes/

@@ -1,6 +1,8 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { ArrowRight, CheckCircle2, Loader2 } from 'lucide-react'
+import { trackLead } from '@/lib/analytics'
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
@@ -30,7 +32,8 @@ interface Props {
 }
 
 export default function ServiceContactForm({ service, heading, subtext }: Props) {
-  const [state, setState] = useState<'idle' | 'sending' | 'done' | 'error'>('idle')
+  const router = useRouter()
+  const [state, setState] = useState<'idle' | 'sending' | 'error'>('idle')
   const [form, setForm] = useState({ name: '', email: '', storeUrl: '', budget: '', message: '', _hp: '', _source: '' })
 
   useEffect(() => {
@@ -51,7 +54,7 @@ export default function ServiceContactForm({ service, heading, subtext }: Props)
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (form._hp) { setState('done'); return }
+    if (form._hp) { router.push('/thank-you?form=services'); return }
     setState('sending')
     try {
       const res = await fetch('/api/contact', {
@@ -60,24 +63,15 @@ export default function ServiceContactForm({ service, heading, subtext }: Props)
         body: JSON.stringify({ ...form, service }),
       })
       const data = await res.json()
-      setState(data.success ? 'done' : 'error')
+      if (data.success) {
+        trackLead('lead_form_submit', { form: 'services', service })
+        router.push('/thank-you?form=services')
+      } else {
+        setState('error')
+      }
     } catch {
       setState('error')
     }
-  }
-
-  if (state === 'done') {
-    return (
-      <div style={{ textAlign: 'center', padding: '3rem 1rem' }}>
-        <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(34,197,94,0.12)', border: '1px solid rgba(34,197,94,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
-          <CheckCircle2 size={28} style={{ color: '#22c55e' }} />
-        </div>
-        <h3 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#fff', marginBottom: '0.6rem' }}>Message sent!</h3>
-        <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>
-          We&apos;ve received your enquiry and will respond within 24 hours with a custom proposal.
-        </p>
-      </div>
-    )
   }
 
   return (

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { MapPin, Mail, Phone, Calendar, CreditCard, ArrowUpRight, CheckCircle2, Download } from 'lucide-react'
 import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
+import { outboundHref } from '@/lib/outbound'
 
 export const metadata: Metadata = {
   title: 'Miracle Websoft — Shopify Agency for Fashion Brands',
@@ -10,8 +11,8 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 }
 
-const MEETING_LINK = 'https://calendly.com/karam-4my/15-mints-discussion?month=2026-03'
-const PAYMENT_LINK = 'https://razorpay.com/export-link/@miraclewebsoft'
+const MEETING_LINK = outboundHref('calendly', 'https://calendly.com/karam-4my/15-mints-discussion?month=2026-03')
+const PAYMENT_LINK = outboundHref('external', 'https://razorpay.com/export-link/@miraclewebsoft')
 
 const stats = [
   { value: '600+', label: 'Projects' },
@@ -87,7 +88,7 @@ const trustProfiles = [
   {
     label: 'Upwork Agency',
     sub: 'Top Rated Plus · 4.9★ · 600+ reviews',
-    href: 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/',
+    href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/'),
     color: '#14a800',
     bg: 'rgba(20,168,0,0.07)',
     border: 'rgba(20,168,0,0.18)',
@@ -97,7 +98,7 @@ const trustProfiles = [
   {
     label: 'Shopify Partner Directory',
     sub: 'Verified Partner · Certified 2024',
-    href: 'https://www.shopify.com/partners/directory/partner/miracle-websoft1',
+    href: outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1'),
     color: '#96BF48',
     bg: 'rgba(150,191,72,0.07)',
     border: 'rgba(150,191,72,0.18)',
@@ -107,7 +108,7 @@ const trustProfiles = [
   {
     label: 'Clutch',
     sub: '5.0★ · Top B2B company',
-    href: 'https://clutch.co/profile/miracle-websoft',
+    href: outboundHref('external', 'https://clutch.co/profile/miracle-websoft'),
     color: '#e63329',
     bg: 'rgba(230,51,41,0.07)',
     border: 'rgba(230,51,41,0.18)',
@@ -263,7 +264,7 @@ export default function CompanyBioPage() {
               <CreditCard size={14} />
               Pay Online
             </a>
-            <a href="mailto:karam@miraclewebsoft.com" style={{
+            <a href={outboundHref('email', 'mailto:karam@miraclewebsoft.com')} style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem',
               padding: '0.85rem 0.5rem',
               background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)',
@@ -373,7 +374,7 @@ export default function CompanyBioPage() {
         }}>
           <div style={{ fontSize: '0.65rem', fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: '0.85rem' }}>Get In Touch</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
-            <a href="mailto:karam@miraclewebsoft.com" style={{
+            <a href={outboundHref('email', 'mailto:karam@miraclewebsoft.com')} style={{
               display: 'flex', alignItems: 'center', gap: '0.75rem',
               padding: '0.7rem 0.85rem',
               background: 'rgba(108,99,255,0.06)', border: '1px solid rgba(108,99,255,0.15)',
@@ -382,7 +383,7 @@ export default function CompanyBioPage() {
               <Mail size={14} style={{ color: '#6C63FF', flexShrink: 0 }} />
               <span style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.55)' }}>karam@miraclewebsoft.com</span>
             </a>
-            <a href="tel:+916239269736" style={{
+            <a href={outboundHref('phone', 'tel:+916239269736')} style={{
               display: 'flex', alignItems: 'center', gap: '0.75rem',
               padding: '0.7rem 0.85rem',
               background: 'rgba(108,99,255,0.06)', border: '1px solid rgba(108,99,255,0.15)',

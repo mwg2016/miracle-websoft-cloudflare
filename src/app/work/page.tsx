@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import { jobs } from '@/data/jobs'
 import WorkList from '@/components/work/WorkList'
+import { outboundHref } from '@/lib/outbound'
+
+const UPWORK_FREELANCER = outboundHref('upwork', 'https://www.upwork.com/freelancers/shopifydeveloperupwork')
 
 export const metadata: Metadata = {
   title: 'Verified Shopify Work History — 600+ Projects | Miracle Websoft',
@@ -123,7 +126,7 @@ export default function WorkPage() {
                 </span>
               ))}
               <a
-                href="https://www.upwork.com/freelancers/shopifydeveloperupwork"
+                href={UPWORK_FREELANCER}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full transition-all"
@@ -190,7 +193,7 @@ export default function WorkPage() {
                 99% Job Success · Top Rated Plus on Upwork · Response within 4–8 hrs
               </p>
               <a
-                href="https://www.upwork.com/freelancers/shopifydeveloperupwork"
+                href={UPWORK_FREELANCER}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 transition-opacity hover:opacity-80"

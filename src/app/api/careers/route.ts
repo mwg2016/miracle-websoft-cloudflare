@@ -1,5 +1,23 @@
 import { NextRequest } from 'next/server'
 import nodemailer from 'nodemailer'
+import { appendLead, saveResume, type LeadRecord } from '@/lib/admin/store'
+
+function mapSource(raw: string): LeadRecord['origin'] {
+  const s = parseSource(raw) as Record<string, string> | null
+  if (!s) return undefined
+  return {
+    landing_page: s.page, referrer: s.referrer,
+    utm_source: s.utm_source, utm_medium: s.utm_medium, utm_campaign: s.utm_campaign,
+    utm_term: s.utm_term, utm_content: s.utm_content,
+    gclid: s.gclid, fbclid: s.fbclid,
+  }
+}
+
+function clientIp(req: NextRequest): string {
+  const fwd = req.headers.get('x-forwarded-for')
+  if (fwd) return fwd.split(',')[0].trim()
+  return req.headers.get('x-real-ip') ?? 'unknown'
+}
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
@@ -219,13 +237,31 @@ export async function POST(req: NextRequest) {
     const notifEmail = buildNotificationEmail(name, email, phone, position, experience, portfolio, message, sourceRaw, resumeFile?.name)
     const confirmEmail = buildConfirmationEmail(name, email, position)
 
-    // Attach resume if provided
+    // Read resume bytes once — the Body stream can only be consumed once.
+    let resumeBuffer: Buffer | null = null
     if (resumeFile && resumeFile.size > 0) {
-      const buffer = Buffer.from(await resumeFile.arrayBuffer())
+      resumeBuffer = Buffer.from(await resumeFile.arrayBuffer())
       ;(notifEmail as Record<string, unknown>).attachments = [
-        { filename: resumeFile.name, content: buffer },
+        { filename: resumeFile.name, content: resumeBuffer },
       ]
     }
+
+    // Pre-generate the lead ID so we can name the resume file after it,
+    // then persist resume + append the lead with that same id.
+    const leadId = crypto.randomUUID()
+    let resumeStored: string | undefined
+    if (resumeFile && resumeBuffer) {
+      try { resumeStored = await saveResume(resumeFile.name, resumeBuffer, leadId) }
+      catch (e) { console.error('[careers] saveResume', e) }
+    }
+    await appendLead({
+      id: leadId,
+      form: 'careers',
+      ip: clientIp(req),
+      userAgent: req.headers.get('user-agent') ?? undefined,
+      origin: mapSource(sourceRaw),
+      payload: { name, email, phone, position, experience, portfolio, message, resumeName: resumeFile?.name, resumeStored },
+    }).catch(err => console.error('[careers] appendLead', err))
 
     await Promise.all([
       transporter.sendMail(notifEmail),

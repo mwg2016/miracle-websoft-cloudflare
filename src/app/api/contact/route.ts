@@ -1,5 +1,24 @@
 import { NextRequest } from 'next/server'
 import nodemailer from 'nodemailer'
+import { appendLead, type LeadRecord } from '@/lib/admin/store'
+
+function mapSource(raw: string): LeadRecord['origin'] {
+  const s = parseSource(raw) as Record<string, string> | null
+  if (!s) return undefined
+  return {
+    landing_page: s.page,
+    referrer: s.referrer,
+    utm_source: s.utm_source, utm_medium: s.utm_medium, utm_campaign: s.utm_campaign,
+    utm_term: s.utm_term, utm_content: s.utm_content,
+    gclid: s.gclid, fbclid: s.fbclid,
+  }
+}
+
+function clientIp(req: NextRequest): string {
+  const fwd = req.headers.get('x-forwarded-for')
+  if (fwd) return fwd.split(',')[0].trim()
+  return req.headers.get('x-real-ip') ?? 'unknown'
+}
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
@@ -259,10 +278,18 @@ export async function POST(req: NextRequest) {
       return Response.json({ success: false, error: 'Missing required fields' }, { status: 400 })
     }
 
-    // Send both emails in parallel
+    // Send both emails in parallel + record the lead for admin
+    const isServiceSubmission = Boolean(budget) // ServiceContactForm includes a budget field; ContactForm does not.
     await Promise.all([
       transporter.sendMail(buildNotificationEmail(name, email, storeUrl, service, message, _source || '', budget)),
       transporter.sendMail(buildConfirmationEmail(name, email, service)),
+      appendLead({
+        form: isServiceSubmission ? 'services' : 'contact',
+        ip: clientIp(req),
+        userAgent: req.headers.get('user-agent') ?? undefined,
+        origin: mapSource(_source || ''),
+        payload: { name, email, storeUrl, service, message, budget },
+      }).catch(err => console.error('[contact] appendLead', err)),
     ])
 
     return Response.json({ success: true })

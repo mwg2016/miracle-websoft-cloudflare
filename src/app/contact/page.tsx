@@ -4,6 +4,7 @@ import { CheckCircle2, ExternalLink, MessageCircle } from 'lucide-react'
 import FaqSection from '@/components/ui/FaqSection'
 import ContactForm from '@/components/contact/ContactForm'
 import { breadcrumb, faqPage, renderJsonLd, webPage } from '@/lib/jsonld'
+import { outboundHref } from '@/lib/outbound'
 
 const contactFaqs = [
   { question: 'How do I get started with Miracle Websoft?', answer: 'Fill in the contact form or message us on WhatsApp. We reply within 24 hours. If your project is a good fit, we schedule a 30-minute discovery call, then send a detailed proposal with clear scope, timeline, and fixed pricing. No vague estimates.' },
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://miraclewebsoft.com/contact' },
 }
 
-const WHATSAPP_URL = `https://wa.me/916239269736?text=${encodeURIComponent("Hi Karam, I'd like to get a free Shopify store audit for my clothing brand.")}`
+const WHATSAPP_URL = outboundHref('whatsapp', `https://wa.me/916239269736?text=${encodeURIComponent("Hi Karam, I'd like to get a free Shopify store audit for my clothing brand.")}`)
 
 const auditItems = [
   'Page speed & Core Web Vitals score',
@@ -53,10 +54,10 @@ const reviews = [
 ]
 
 const platforms = [
-  { name: 'Upwork', badge: 'Top Rated Plus', sub: '600+ reviews · 98% JSS', href: 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/', color: '#14a800' },
-  { name: 'Shopify Partners', badge: 'Verified Partner', sub: 'Official directory listing', href: 'https://www.shopify.com/partners/directory/partner/miracle-websoft1', color: '#96bf48' },
-  { name: 'Clutch', badge: 'Verified Reviews', sub: 'B2B ratings platform', href: 'https://clutch.co/profile/miracle-websoft', color: '#e63329' },
-  { name: 'DesignRush', badge: 'Top Agency', sub: 'Agency directory', href: 'https://www.designrush.com/agency/profile/miracle-websoft', color: '#6c63ff' },
+  { name: 'Upwork', badge: 'Top Rated Plus', sub: '600+ reviews · 98% JSS', href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/'), color: '#14a800' },
+  { name: 'Shopify Partners', badge: 'Verified Partner', sub: 'Official directory listing', href: outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1'), color: '#96bf48' },
+  { name: 'Clutch', badge: 'Verified Reviews', sub: 'B2B ratings platform', href: outboundHref('external', 'https://clutch.co/profile/miracle-websoft'), color: '#e63329' },
+  { name: 'DesignRush', badge: 'Top Agency', sub: 'Agency directory', href: outboundHref('external', 'https://www.designrush.com/agency/profile/miracle-websoft'), color: '#6c63ff' },
 ]
 
 const jsonLd = renderJsonLd([
@@ -147,7 +148,7 @@ export default function ContactPage() {
                     </div>
                   ))}
                 </div>
-                <a href="https://www.upwork.com/agencies/shopifyexpertsdevelopers/" target="_blank" rel="noopener noreferrer"
+                <a href={outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/')} target="_blank" rel="noopener noreferrer"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', marginTop: '0.75rem', fontSize: '0.78rem', color: 'rgba(255,255,255,0.35)' }}
                   className="hover:text-white transition-colors">
                   <ExternalLink size={11} /> Read all 600+ reviews on Upwork

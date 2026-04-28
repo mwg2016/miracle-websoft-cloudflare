@@ -6,6 +6,9 @@ import {
   ArrowRight, ExternalLink, CheckCircle2,
 } from 'lucide-react'
 import { breadcrumb, renderJsonLd, softwareApplication } from '@/lib/jsonld'
+import { outboundHref } from '@/lib/outbound'
+
+const PC_BUILDER_OUTBOUND = outboundHref('shopify_apps', 'https://apps.shopify.com/pc-builder-mw')
 
 export const metadata: Metadata = {
   title: 'PC Builder App for Shopify — Interactive PC Configurator | Miracle Websoft',
@@ -119,7 +122,7 @@ export default function PcBuilderPage() {
 
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Link
-              href="https://apps.shopify.com/pc-builder-mw"
+              href={PC_BUILDER_OUTBOUND}
               target="_blank"
               rel="noopener noreferrer"
               className="mw-btn-primary"
@@ -266,7 +269,7 @@ export default function PcBuilderPage() {
               ))}
               <div style={{ marginTop: '2rem' }}>
                 <Link
-                  href="https://apps.shopify.com/pc-builder-mw"
+                  href={PC_BUILDER_OUTBOUND}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -301,7 +304,7 @@ export default function PcBuilderPage() {
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link
-              href="https://apps.shopify.com/pc-builder-mw"
+              href={PC_BUILDER_OUTBOUND}
               target="_blank"
               rel="noopener noreferrer"
               className="mw-btn-primary"

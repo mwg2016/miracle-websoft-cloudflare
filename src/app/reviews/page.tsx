@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { jobs } from '@/data/jobs'
+import { outboundHref } from '@/lib/outbound'
+
+const UPWORK_FREELANCER = outboundHref('upwork', 'https://www.upwork.com/freelancers/shopifydeveloperupwork')
 
 export const metadata: Metadata = {
   title: 'Client Reviews — 23 Verified Shopify Developer Reviews | Miracle Websoft',
@@ -357,7 +360,7 @@ export default function ReviewsPage() {
                 Want to see more? All reviews are publicly visible on Upwork.
               </p>
               <a
-                href="https://www.upwork.com/freelancers/shopifydeveloperupwork"
+                href={UPWORK_FREELANCER}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full transition-all"

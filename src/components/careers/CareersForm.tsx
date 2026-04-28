@@ -1,6 +1,7 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
-import { ArrowRight, CheckCircle2, Loader2, Upload, X } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { ArrowRight, Loader2, Upload, X } from 'lucide-react'
 import { trackLead } from '@/lib/analytics'
 
 const inputStyle: React.CSSProperties = {
@@ -27,7 +28,8 @@ const optionalTag = (
 )
 
 export default function CareersForm({ defaultPosition }: { defaultPosition?: string }) {
-  const [state, setState] = useState<'idle' | 'sending' | 'done' | 'error'>('idle')
+  const router = useRouter()
+  const [state, setState] = useState<'idle' | 'sending' | 'error'>('idle')
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -74,7 +76,7 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (form._hp) { setState('done'); return }
+    if (form._hp) { router.push('/thank-you?form=careers'); return }
 
     setState('sending')
     try {
@@ -86,36 +88,13 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
       const data = await res.json()
       if (data.success) {
         trackLead('lead_form_submit', { form: 'careers', position: form.position || '(unspecified)' })
-        setState('done')
+        router.push('/thank-you?form=careers')
       } else {
         setState('error')
       }
     } catch {
       setState('error')
     }
-  }
-
-  if (state === 'done') {
-    return (
-      <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
-        <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: 'rgba(34,197,94,0.12)', border: '1px solid rgba(34,197,94,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem' }}>
-          <CheckCircle2 size={26} style={{ color: '#22c55e' }} />
-        </div>
-        <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#fff', marginBottom: '0.6rem' }}>Application received!</h3>
-        <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7, marginBottom: '0.5rem' }}>
-          We&apos;ve received your application and will review it carefully. Check your inbox for a confirmation.
-        </p>
-        <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.35)', marginBottom: '1.5rem' }}>
-          We typically respond to all applicants within 3–5 business days.
-        </p>
-        <button
-          onClick={() => { setState('idle'); setForm(f => ({ name: '', email: '', phone: '', position: defaultPosition || '', experience: '', portfolio: '', message: '', _hp: '', _source: f._source })); setResume(null) }}
-          style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
-        >
-          Submit another application
-        </button>
-      </div>
-    )
   }
 
   return (

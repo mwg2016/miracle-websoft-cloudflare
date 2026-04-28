@@ -9,8 +9,9 @@ import {
 } from 'lucide-react'
 import ContactForm from '@/components/contact/ContactForm'
 import { breadcrumb, itemList, renderJsonLd, softwareApplication, webPage } from '@/lib/jsonld'
+import { outboundHref } from '@/lib/outbound'
 
-const WHATSAPP_URL = `https://wa.me/916239269736?text=${encodeURIComponent('Hi Karam, I have a tool idea I\'d like to discuss.')}`
+const WHATSAPP_URL = outboundHref('whatsapp', `https://wa.me/916239269736?text=${encodeURIComponent('Hi Karam, I have a tool idea I\'d like to discuss.')}`)
 
 export const metadata: Metadata = {
   title: 'Custom Tool Development — Fast & Affordable | Miracle Websoft',
@@ -316,7 +317,7 @@ export default function ToolsPage() {
 
                   {/* Links */}
                   <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                    <Link href={tool.url} target="_blank" rel="noopener noreferrer" style={{
+                    <Link href={outboundHref('external', tool.url)} target="_blank" rel="noopener noreferrer" style={{
                       display: 'inline-flex', alignItems: 'center', gap: '0.3rem',
                       background: tool.badgeColor, color: '#000',
                       padding: '0.5rem 1rem', borderRadius: '7px',
@@ -334,7 +335,7 @@ export default function ToolsPage() {
                         Learn more <ArrowRight size={11} />
                       </Link>
                     )}
-                    <Link href={tool.url} target="_blank" rel="noopener noreferrer" style={{
+                    <Link href={outboundHref('external', tool.url)} target="_blank" rel="noopener noreferrer" style={{
                       display: 'inline-flex', alignItems: 'center', gap: '0.3rem',
                       border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.4)',
                       padding: '0.5rem 1rem', borderRadius: '7px',

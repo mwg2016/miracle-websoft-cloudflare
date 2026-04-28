@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import Script from 'next/script'
+import { headers } from 'next/headers'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -161,7 +162,11 @@ const jsonLd = {
   ],
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const h = await headers()
+  const pathname = h.get('x-pathname') ?? ''
+  const isAdmin = pathname.startsWith('/admin')
+
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <head>
@@ -181,10 +186,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSP2DJDW" height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} />
         </noscript>
         <LeadTracker />
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <IntentRouter />
+        {!isAdmin && <Header />}
+        {isAdmin ? children : <main>{children}</main>}
+        {!isAdmin && (
+          <>
+            <Footer />
+            <IntentRouter />
+          </>
+        )}
 
         {/* ── Analytics (deferred – no render-blocking) ──────────────────── */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-YT1GLKW8L5" strategy="afterInteractive" />

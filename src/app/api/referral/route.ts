@@ -1,5 +1,12 @@
 import { NextRequest } from 'next/server'
 import nodemailer from 'nodemailer'
+import { appendLead } from '@/lib/admin/store'
+
+function clientIp(req: NextRequest): string {
+  const fwd = req.headers.get('x-forwarded-for')
+  if (fwd) return fwd.split(',')[0].trim()
+  return req.headers.get('x-real-ip') ?? 'unknown'
+}
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
@@ -104,6 +111,12 @@ export async function POST(req: NextRequest) {
     await Promise.all([
       transporter.sendMail(buildNotification(data)),
       transporter.sendMail(buildConfirmation(referrerName, referrerEmail)),
+      appendLead({
+        form: 'referral',
+        ip: clientIp(req),
+        userAgent: req.headers.get('user-agent') ?? undefined,
+        payload: data,
+      }).catch(err => console.error('[referral] appendLead', err)),
     ])
 
     return Response.json({ success: true })

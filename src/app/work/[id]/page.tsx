@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { jobs } from '@/data/jobs'
+import { outboundHref } from '@/lib/outbound'
+
+const UPWORK_FREELANCER = outboundHref('upwork', 'https://www.upwork.com/freelancers/shopifydeveloperupwork')
 
 interface Props {
   params: Promise<{ id: string }>
@@ -299,7 +302,7 @@ export default async function JobPage({ params }: Props) {
                     This project was completed and rated by a verified Upwork client. All 600+ projects in our portfolio are verified engagements.
                   </p>
                   <a
-                    href="https://www.upwork.com/freelancers/shopifydeveloperupwork"
+                    href={UPWORK_FREELANCER}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: '0.75rem', fontSize: '0.78rem', color: '#14BD7D', textDecoration: 'none', fontWeight: 500 }}

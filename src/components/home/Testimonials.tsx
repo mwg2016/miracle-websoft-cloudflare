@@ -1,24 +1,25 @@
 import Link from 'next/link'
 import { ExternalLink } from 'lucide-react'
+import { outboundHref } from '@/lib/outbound'
 
 const testimonials = [
   {
     quote: 'I am happy to recommend Karam Singh, who runs a Shopify agency and is an expert Shopify developer. He has strong knowledge of Shopify development and always delivers quality work.',
     name: 'Satinder Singh',
     source: 'LinkedIn Recommendation',
-    href: 'https://in.linkedin.com/company/shopify-experts-miracle-websoft',
+    href: outboundHref('linkedin', 'https://in.linkedin.com/company/shopify-experts-miracle-websoft'),
   },
   {
     quote: 'Karam helped me out tremendously by recommending and installing a new theme and main page layout for my site. Very professional and responsive.',
     name: 'Susan D.',
     source: 'LinkedIn Recommendation',
-    href: 'https://in.linkedin.com/company/shopify-experts-miracle-websoft',
+    href: outboundHref('linkedin', 'https://in.linkedin.com/company/shopify-experts-miracle-websoft'),
   },
   {
     quote: 'Top Rated Plus on Upwork — top 3% globally. 600+ jobs completed. 98% job success score. $500K+ earned. Our track record speaks for itself.',
     name: 'Miracle Websoft',
     source: 'Upwork Agency Profile',
-    href: 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/',
+    href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/'),
     isAgency: true,
   },
 ]
@@ -50,7 +51,7 @@ export default function Testimonials() {
         </div>
         <div className="flex flex-wrap gap-3">
           <Link href="/case-studies" className="mw-btn-outline" style={{ fontSize: '0.875rem', padding: '0.65rem 1.5rem' }}>View case studies</Link>
-          <a href="https://www.upwork.com/agencies/shopifyexpertsdevelopers/" target="_blank" rel="noopener noreferrer" className="mw-btn-outline" style={{ fontSize: '0.875rem', padding: '0.65rem 1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+          <a href={outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/')} target="_blank" rel="noopener noreferrer" className="mw-btn-outline" style={{ fontSize: '0.875rem', padding: '0.65rem 1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
             See all Upwork reviews <ExternalLink size={13} />
           </a>
         </div>

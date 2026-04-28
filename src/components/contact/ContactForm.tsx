@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { ArrowRight, CheckCircle2, Loader2 } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { ArrowRight, Loader2 } from 'lucide-react'
 import { trackLead } from '@/lib/analytics'
 
 const inputStyle: React.CSSProperties = {
@@ -27,7 +28,8 @@ const optionalTag = (
 )
 
 export default function ContactForm() {
-  const [state, setState] = useState<'idle' | 'sending' | 'done' | 'error'>('idle')
+  const router = useRouter()
+  const [state, setState] = useState<'idle' | 'sending' | 'error'>('idle')
   const [form, setForm] = useState({ name: '', email: '', storeUrl: '', service: '', message: '', _hp: '', _source: '' })
 
   useEffect(() => {
@@ -58,36 +60,13 @@ export default function ContactForm() {
       const data = await res.json()
       if (data.success) {
         trackLead('lead_form_submit', { form: 'contact', service: form.service || '(unspecified)' })
-        setState('done')
+        router.push('/thank-you?form=contact')
       } else {
         setState('error')
       }
     } catch {
       setState('error')
     }
-  }
-
-  if (state === 'done') {
-    return (
-      <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
-        <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: 'rgba(34,197,94,0.12)', border: '1px solid rgba(34,197,94,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem' }}>
-          <CheckCircle2 size={26} style={{ color: '#22c55e' }} />
-        </div>
-        <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#fff', marginBottom: '0.6rem' }}>Message sent!</h3>
-        <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7, marginBottom: '0.5rem' }}>
-          Check your inbox — we&apos;ve sent you a confirmation with useful links and what happens next.
-        </p>
-        <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.35)', marginBottom: '1.5rem' }}>
-          Karam will review your store and reply within 24 hours.
-        </p>
-        <button
-          onClick={() => { setState('idle'); setForm(f => ({ name: '', email: '', storeUrl: '', service: '', message: '', _hp: '', _source: f._source })) }}
-          style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
-        >
-          Send another message
-        </button>
-      </div>
-    )
   }
 
   return (

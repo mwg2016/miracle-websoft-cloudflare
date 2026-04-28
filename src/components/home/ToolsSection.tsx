@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Search, Layers, Package, Grid3X3, MessageCircle, Bot, Clock, Globe, ArrowUpRight, ExternalLink, ArrowRight, Cpu, ShoppingCart, Sparkles, BarChart2 } from 'lucide-react'
+import { outboundHref } from '@/lib/outbound'
 
 const tools = [
   {
@@ -13,7 +14,7 @@ const tools = [
     tag: 'No login · No API key',
     title: 'Shopify Theme Detector',
     desc: 'Instantly find what theme any Shopify store is using — plus detect installed apps, product count and collections. 100% free.',
-    url: 'https://themedetectorapp.com/',
+    url: outboundHref('external', 'https://themedetectorapp.com/'),
     urlLabel: 'themedetectorapp.com',
     features: [
       { icon: Layers, label: 'Theme Detection' },
@@ -33,7 +34,7 @@ const tools = [
     tag: 'Free plan available',
     title: 'WA Auto-Reply',
     desc: 'Your WhatsApp replies on autopilot. AI-powered auto-responses, keyword triggers, working hours and smart number filtering — 24/7.',
-    url: 'https://www.whatsappautomaticreply.com/',
+    url: outboundHref('external', 'https://www.whatsappautomaticreply.com/'),
     urlLabel: 'whatsappautomaticreply.com',
     features: [
       { icon: Bot, label: 'AI-Powered (Claude)' },
@@ -53,7 +54,7 @@ const tools = [
     tag: '14-day free trial',
     title: 'PC Builder',
     desc: 'Interactive PC configurator for Shopify stores. Lets customers build compatible PCs step by step and checkout in one click — with real-time compatibility validation.',
-    url: 'https://apps.shopify.com/pc-builder-mw',
+    url: outboundHref('shopify_apps', 'https://apps.shopify.com/pc-builder-mw'),
     urlLabel: 'pcbuilderapp.com',
     features: [
       { icon: Cpu, label: 'Compatibility Engine' },

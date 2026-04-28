@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import Link from 'next/link'
 import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
+import { outboundHref } from '@/lib/outbound'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy — Miracle Websoft',
@@ -49,11 +50,11 @@ export default function PrivacyPage() {
           </section>
           <section>
             <h2 style={{ color: '#fff', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem' }}>5. Your Rights</h2>
-            <p>You have the right to access, correct or delete any personal data we hold about you. To exercise these rights, contact us at <a href="mailto:karam@miraclewebsoft.com" style={{ color: 'var(--accent)' }}>karam@miraclewebsoft.com</a>.</p>
+            <p>You have the right to access, correct or delete any personal data we hold about you. To exercise these rights, contact us at <a href={outboundHref('email', 'mailto:karam@miraclewebsoft.com')} style={{ color: 'var(--accent)' }}>karam@miraclewebsoft.com</a>.</p>
           </section>
           <section>
             <h2 style={{ color: '#fff', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem' }}>6. Contact</h2>
-            <p>For any privacy-related questions, email us at <a href="mailto:karam@miraclewebsoft.com" style={{ color: 'var(--accent)' }}>karam@miraclewebsoft.com</a>.</p>
+            <p>For any privacy-related questions, email us at <a href={outboundHref('email', 'mailto:karam@miraclewebsoft.com')} style={{ color: 'var(--accent)' }}>karam@miraclewebsoft.com</a>.</p>
           </section>
         </div>
         <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>

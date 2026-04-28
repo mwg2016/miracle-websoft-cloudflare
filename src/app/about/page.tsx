@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowRight, CheckCircle2, ExternalLink, Star, Award } from 'lucide-react'
 import TrustProfiles from '@/components/home/TrustProfiles'
 import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
+import { outboundHref } from '@/lib/outbound'
 
 export const metadata: Metadata = {
   title: 'About Miracle Websoft — Shopify Agency for Fashion Brands',
@@ -148,7 +149,7 @@ export default function AboutPage() {
                   Karam founded Miracle Websoft in 2015 after years of freelance Shopify work. He personally leads every project — clients communicate directly with him, not an account manager. Based in Chandigarh, India.
                 </p>
                 <div className="flex gap-3">
-                  <a href="https://www.upwork.com/freelancers/~0108a0862ff3e2f2de" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)', padding: '0.3rem 0.75rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9999px' }} className="hover:text-white hover:border-white/30 transition-all">
+                  <a href={outboundHref('upwork', 'https://www.upwork.com/freelancers/~0108a0862ff3e2f2de')} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)', padding: '0.3rem 0.75rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9999px' }} className="hover:text-white hover:border-white/30 transition-all">
                     <ExternalLink size={11} /> Upwork
                   </a>
                   <a href="https://www.linkedin.com/in/ecommerce-experts/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)', padding: '0.3rem 0.75rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9999px' }} className="hover:text-white hover:border-white/30 transition-all">
@@ -177,7 +178,7 @@ export default function AboutPage() {
             ))}
           </div>
           <div style={{ marginTop: '1rem' }}>
-            <a href="https://www.upwork.com/agencies/shopifyexpertsdevelopers/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)' }} className="hover:text-white transition-colors">
+            <a href={outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/')} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)' }} className="hover:text-white transition-colors">
               <ExternalLink size={12} /> Read 600+ reviews on Upwork
             </a>
           </div>
