@@ -152,7 +152,7 @@ export default function AboutPage() {
                   <a href={outboundHref('upwork', 'https://www.upwork.com/freelancers/~0108a0862ff3e2f2de')} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)', padding: '0.3rem 0.75rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9999px' }} className="hover:text-white hover:border-white/30 transition-all">
                     <ExternalLink size={11} /> Upwork
                   </a>
-                  <a href="https://www.linkedin.com/in/ecommerce-experts/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)', padding: '0.3rem 0.75rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9999px' }} className="hover:text-white hover:border-white/30 transition-all">
+                  <a href={outboundHref('linkedin', 'https://www.linkedin.com/in/ecommerce-experts/')} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)', padding: '0.3rem 0.75rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9999px' }} className="hover:text-white hover:border-white/30 transition-all">
                     <ExternalLink size={11} /> LinkedIn
                   </a>
                 </div>

@@ -130,7 +130,7 @@ export default function PcBuilderPage() {
               Install on Shopify <ExternalLink size={15} />
             </Link>
             <Link
-              href="https://pcbuilderapp.com/"
+              href={outboundHref('external', 'https://pcbuilderapp.com/')}
               target="_blank"
               rel="noopener noreferrer"
               style={{

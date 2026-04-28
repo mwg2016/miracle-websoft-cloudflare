@@ -1,5 +1,6 @@
 'use client'
 import { ExternalLink } from 'lucide-react'
+import { outboundHref } from '@/lib/outbound'
 
 export type PortfolioStore = {
   name: string
@@ -78,7 +79,7 @@ const clients: PortfolioStore[] = [
 function ClientCard({ client }: { client: typeof clients[0] }) {
   return (
     <a
-      href={client.url}
+      href={outboundHref('external', client.url)}
       target="_blank"
       rel="noopener noreferrer"
       className="group block"

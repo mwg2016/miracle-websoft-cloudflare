@@ -18,31 +18,10 @@ export function outboundHref(channel: OutboundChannel, url: string): string {
   return `/thank-you?to=${encodeURIComponent(url)}&channel=${encodeURIComponent(channel)}`
 }
 
-// Allow-list for the thank-you page to validate `?to=` and prevent open
-// redirect abuse. Schemes (mailto:/tel:) and host suffixes are matched.
+// Schemes the thank-you page is willing to redirect to. http(s) is broad
+// on purpose so portfolio / industry store links work without us having
+// to maintain a whitelist of every client domain.
 export const OUTBOUND_ALLOWED_SCHEMES = ['mailto:', 'tel:'] as const
-export const OUTBOUND_ALLOWED_HOSTS = [
-  'wa.me',
-  'api.whatsapp.com',
-  'upwork.com',
-  'shopify.com',
-  'apps.shopify.com',
-  'calendly.com',
-  'linkedin.com',
-  'clutch.co',
-  'designrush.com',
-  'trustpilot.com',
-  'techbehemoths.com',
-  'facebook.com',
-  'instagram.com',
-  'x.com',
-  'twitter.com',
-  'github.com',
-  'razorpay.com',
-  'themedetectorapp.com',
-  'whatsappautomaticreply.com',
-  'pcbuilderapp.com',
-] as const
 
 export const CHANNEL_LABEL: Record<OutboundChannel, string> = {
   whatsapp: 'WhatsApp',
@@ -64,8 +43,12 @@ export function isOutboundUrlSafe(raw: string): boolean {
   try {
     const u = new URL(raw)
     if (u.protocol !== 'https:' && u.protocol !== 'http:') return false
+    // Block redirects back to our own host (would loop) and obviously-bad
+    // patterns. Anything else is allowed.
     const host = u.hostname.toLowerCase()
-    return OUTBOUND_ALLOWED_HOSTS.some(allowed => host === allowed || host.endsWith(`.${allowed}`))
+    if (host === 'localhost' || host === '0.0.0.0') return false
+    if (host === 'miraclewebsoft.com' || host.endsWith('.miraclewebsoft.com')) return false
+    return host.length > 0
   } catch {
     return false
   }
