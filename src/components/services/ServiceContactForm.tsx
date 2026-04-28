@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { ArrowRight, CheckCircle2, Loader2 } from 'lucide-react'
-import { trackLead } from '@/lib/analytics'
+import { getEffectiveOrigin, trackLead } from '@/lib/analytics'
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
@@ -37,13 +37,10 @@ export default function ServiceContactForm({ service, heading, subtext }: Props)
   const [form, setForm] = useState({ name: '', email: '', storeUrl: '', budget: '', message: '', _hp: '', _source: '' })
 
   useEffect(() => {
-    const p = new URLSearchParams(window.location.search)
     const source = {
+      ...getEffectiveOrigin(),
       page: window.location.pathname,
       referrer: document.referrer || 'direct',
-      ...(p.get('utm_source') && { utm_source: p.get('utm_source') }),
-      ...(p.get('utm_medium') && { utm_medium: p.get('utm_medium') }),
-      ...(p.get('utm_campaign') && { utm_campaign: p.get('utm_campaign') }),
     }
     setForm(f => ({ ...f, _source: JSON.stringify(source) }))
   }, [])

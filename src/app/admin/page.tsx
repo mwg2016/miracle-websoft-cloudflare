@@ -1,4 +1,5 @@
 import { readLeads, readOutbound, topBy } from '@/lib/admin/store'
+import { resolveSource, sourceKey } from '@/lib/admin/source'
 import { Bar, Card, Empty, SectionTitle, Stat, fmtTime } from './_components'
 
 export const dynamic = 'force-dynamic'
@@ -23,12 +24,16 @@ export default async function AdminDashboard() {
   const channelCounts = topBy(outbound, o => o.channel, 8)
   const channelMax = channelCounts[0]?.[1] ?? 1
 
-  // Top first-touch utm_source for leads — which paid/organic channel converts.
-  const sourceCounts = topBy(leads, l => l.origin?.utm_source, 8)
+  // Top resolved sources for leads — UTM > click ID > referrer > direct.
+  const sourceCounts = topBy(leads, l => sourceKey(resolveSource(l.origin)), 8)
   const sourceMax = sourceCounts[0]?.[1] ?? 1
 
+  // Same priority resolution applied to outbound clicks.
+  const outboundSourceCounts = topBy(outbound, o => sourceKey(resolveSource(o.origin)), 8)
+  const outboundSourceMax = outboundSourceCounts[0]?.[1] ?? 1
+
   // Top landing pages — where converters arrived.
-  const pageCounts = topBy(leads, l => l.origin?.landing_page, 8)
+  const pageCounts = topBy(leads, l => l.origin?.first_landing_page ?? l.origin?.landing_page, 8)
   const pageMax = pageCounts[0]?.[1] ?? 1
 
   // Top form types.
@@ -69,7 +74,7 @@ export default async function AdminDashboard() {
         <Stat label="Leads · today" value={leadsToday} sub={`${leadsWeek} this week · ${leads.length} total`} />
         <Stat label="Outbound · today" value={outToday} sub={`${outWeek} this week · ${outbound.length} total`} />
         <Stat label="Top channel" value={channelCounts[0]?.[0] ?? '—'} sub={channelCounts[0] ? `${channelCounts[0][1]} clicks` : 'No clicks yet'} />
-        <Stat label="Top source" value={sourceCounts[0]?.[0] ?? '—'} sub={sourceCounts[0] ? `${sourceCounts[0][1]} leads` : 'No utm_source captured yet'} />
+        <Stat label="Top source" value={sourceCounts[0]?.[0] ?? '—'} sub={sourceCounts[0] ? `${sourceCounts[0][1]} leads` : 'No leads yet'} />
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
@@ -83,11 +88,20 @@ export default async function AdminDashboard() {
         </Card>
 
         <Card>
-          <SectionTitle sub="First-touch utm_source on form submissions">Lead sources</SectionTitle>
+          <SectionTitle sub="UTM > click-id > referrer > direct (priority)">Lead sources</SectionTitle>
           {sourceCounts.length === 0 ? (
-            <Empty>No utm_source captured. Tag links with ?utm_source=xxx&utm_medium=yyy to see this populate.</Empty>
+            <Empty>No leads yet.</Empty>
           ) : (
             sourceCounts.map(([k, v], i) => <Bar key={k} label={k} count={v} max={sourceMax} accent={ACCENTS[i % ACCENTS.length]} />)
+          )}
+        </Card>
+
+        <Card>
+          <SectionTitle sub="UTM > click-id > referrer > direct (priority)">Outbound sources</SectionTitle>
+          {outboundSourceCounts.length === 0 ? (
+            <Empty>No outbound clicks yet.</Empty>
+          ) : (
+            outboundSourceCounts.map(([k, v], i) => <Bar key={k} label={k} count={v} max={outboundSourceMax} accent={ACCENTS[i % ACCENTS.length]} />)
           )}
         </Card>
 

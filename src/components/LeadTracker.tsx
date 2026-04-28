@@ -1,6 +1,7 @@
 'use client'
 import { useEffect } from 'react'
-import { captureFirstTouch, trackLead } from '@/lib/analytics'
+import { usePathname } from 'next/navigation'
+import { captureFirstTouch, recordPathVisit, trackLead } from '@/lib/analytics'
 
 // Hosts we treat as "lead intent" outbound clicks.
 const OUTBOUND_DESTINATIONS: { match: (url: URL) => boolean; destination: string }[] = [
@@ -20,6 +21,13 @@ function classify(href: string): string | null {
 }
 
 export default function LeadTracker() {
+  const pathname = usePathname()
+
+  // Track every visited path within the session (last 20).
+  useEffect(() => {
+    if (pathname) recordPathVisit(pathname)
+  }, [pathname])
+
   useEffect(() => {
     captureFirstTouch()
 

@@ -1,5 +1,33 @@
 import { readLeads, type LeadRecord } from '@/lib/admin/store'
+import { resolveSource, type ResolvedSource } from '@/lib/admin/source'
 import { Card, Empty, fmtTime, SectionTitle } from '../_components'
+
+const BASIS_COLORS: Record<ResolvedSource['basis'], string> = {
+  utm: '#10B981',
+  click_id: '#F59E0B',
+  referrer: '#6C63FF',
+  direct: '#6B7280',
+}
+
+function SourceBadge({ s }: { s: ResolvedSource }) {
+  const color = BASIS_COLORS[s.basis]
+  // Render as a single string to keep "source / medium" in one text node —
+  // {a} / {b} JSX renders as separate React children, which serialises into
+  // disjoint DOM text nodes and breaks substring search in the HTML.
+  const label = `${s.source} / ${s.medium}`
+  return (
+    <span title={s.detail ? `${s.basis}: ${s.detail}` : s.basis} style={{
+      display: 'inline-flex', alignItems: 'center', gap: '0.3rem',
+      fontSize: '0.7rem', fontWeight: 600,
+      padding: '0.2rem 0.55rem', borderRadius: 9999,
+      background: `${color}1f`, color, border: `1px solid ${color}40`,
+      textTransform: 'lowercase', letterSpacing: '0.02em',
+    }}>
+      <span>{label}</span>
+      {s.campaign && <span style={{ opacity: 0.7 }}>· {s.campaign}</span>}
+    </span>
+  )
+}
 
 export const dynamic = 'force-dynamic'
 
@@ -22,15 +50,20 @@ function summary(lead: LeadRecord): { name: string; email: string; extra?: strin
   }
 }
 
-function origin(lead: LeadRecord): string {
+function originDetail(lead: LeadRecord): string {
   const o = lead.origin
   if (!o) return '—'
-  const parts = []
-  if (o.utm_source) parts.push(`${o.utm_source}/${o.utm_medium ?? '?'}`)
-  else if (o.referrer && o.referrer !== 'direct') parts.push(`ref: ${o.referrer.replace(/^https?:\/\//, '').split('/')[0]}`)
-  else parts.push('direct')
-  if (o.landing_page) parts.push(o.landing_page)
-  return parts.join(' · ')
+  const parts: string[] = []
+  const landing = o.first_landing_page ?? o.landing_page
+  const referrer = o.first_referrer ?? o.referrer
+  if (landing) parts.push(`landing: ${landing}`)
+  if (referrer && referrer !== 'direct') {
+    let host = referrer
+    try { host = new URL(referrer).hostname } catch {}
+    parts.push(`ref: ${host}`)
+  }
+  if (o.click_page && o.click_page !== landing) parts.push(`clicked from: ${o.click_page}`)
+  return parts.join(' · ') || '—'
 }
 
 export default async function AdminLeads({ searchParams }: { searchParams: Promise<{ form?: string }> }) {
@@ -86,6 +119,9 @@ export default async function AdminLeads({ searchParams }: { searchParams: Promi
                     <div style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.55)', marginBottom: '0.4rem' }}>
                       {s.email}{s.extra ? ` · ${s.extra}` : ''}
                     </div>
+                    <div style={{ marginBottom: '0.5rem' }}>
+                      <SourceBadge s={resolveSource(lead.origin)} />
+                    </div>
                     {typeof message === 'string' && message && (
                       <div style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.55, margin: '0.4rem 0', whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>
                         {message}
@@ -100,8 +136,19 @@ export default async function AdminLeads({ searchParams }: { searchParams: Promi
                       </a>
                     )}
                     <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)', marginTop: '0.6rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                      {origin(lead)}
+                      {originDetail(lead)}
                     </div>
+                    {lead.origin?.page_history && lead.origin.page_history.length > 1 && (
+                      <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)', marginTop: '0.3rem', display: 'flex', alignItems: 'center', gap: '0.3rem', flexWrap: 'wrap' }}>
+                        <span style={{ opacity: 0.7 }}>journey:</span>
+                        {lead.origin.page_history.map((p, i, arr) => (
+                          <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
+                            <code style={{ background: 'rgba(255,255,255,0.04)', padding: '1px 5px', borderRadius: 4, fontSize: '0.68rem' }}>{p}</code>
+                            {i < arr.length - 1 && <span style={{ opacity: 0.4 }}>→</span>}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                   <details style={{ fontSize: '0.78rem' }}>
                     <summary style={{ cursor: 'pointer', color: 'rgba(255,255,255,0.4)', listStyle: 'none', userSelect: 'none' }}>raw</summary>

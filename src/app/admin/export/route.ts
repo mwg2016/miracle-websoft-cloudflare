@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { readLeads, readOutbound, type LeadRecord, type OutboundRecord } from '@/lib/admin/store'
+import { resolveSource } from '@/lib/admin/source'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -14,14 +15,19 @@ function csvCell(v: unknown): string {
 function leadsToCsv(rows: LeadRecord[]): string {
   const headers = [
     'id', 'ts', 'form', 'name', 'email', 'phone', 'storeUrl', 'service', 'message',
-    'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
-    'referrer', 'landing_page', 'gclid', 'fbclid',
+    'resolved_source', 'resolved_medium', 'resolved_campaign', 'resolved_basis',
+    'first_utm_source', 'first_utm_medium', 'first_utm_campaign', 'first_utm_term', 'first_utm_content',
+    'first_gclid', 'first_fbclid', 'first_referrer', 'first_landing_page',
+    'click_page', 'click_referrer',
+    'ga_client_id', 'google_ads_click_id', 'facebook_browser_id', 'facebook_click_id',
+    'page_history',
     'ip', 'userAgent', 'raw',
   ]
   const lines = [headers.join(',')]
   for (const r of rows) {
     const p = r.payload as Record<string, unknown>
     const o = r.origin ?? {}
+    const src = resolveSource(o)
     lines.push([
       r.id, r.ts, r.form,
       p.name ?? p.contactName ?? p.referrerName ?? '',
@@ -30,8 +36,23 @@ function leadsToCsv(rows: LeadRecord[]): string {
       p.storeUrl ?? p.website ?? '',
       p.service ?? p.engagementType ?? p.projectType ?? p.position ?? '',
       p.message ?? p.description ?? p.notes ?? '',
-      o.utm_source ?? '', o.utm_medium ?? '', o.utm_campaign ?? '', o.utm_term ?? '', o.utm_content ?? '',
-      o.referrer ?? '', o.landing_page ?? '', o.gclid ?? '', o.fbclid ?? '',
+      src.source, src.medium, src.campaign ?? '', src.basis,
+      o.first_utm_source ?? o.utm_source ?? '',
+      o.first_utm_medium ?? o.utm_medium ?? '',
+      o.first_utm_campaign ?? o.utm_campaign ?? '',
+      o.first_utm_term ?? o.utm_term ?? '',
+      o.first_utm_content ?? o.utm_content ?? '',
+      o.first_gclid ?? o.gclid ?? '',
+      o.first_fbclid ?? o.fbclid ?? '',
+      o.first_referrer ?? o.referrer ?? '',
+      o.first_landing_page ?? o.landing_page ?? '',
+      o.click_page ?? '',
+      o.click_referrer ?? '',
+      o.ga_client_id ?? '',
+      o.google_ads_click_id ?? '',
+      o.facebook_browser_id ?? '',
+      o.facebook_click_id ?? '',
+      Array.isArray(o.page_history) ? o.page_history.join(' → ') : '',
       r.ip ?? '', r.userAgent ?? '', JSON.stringify(p),
     ].map(csvCell).join(','))
   }
@@ -41,15 +62,35 @@ function leadsToCsv(rows: LeadRecord[]): string {
 function outboundToCsv(rows: OutboundRecord[]): string {
   const headers = [
     'id', 'ts', 'channel', 'destination', 'page',
-    'utm_source', 'utm_medium', 'utm_campaign', 'referrer', 'landing_page',
+    'resolved_source', 'resolved_medium', 'resolved_campaign', 'resolved_basis',
+    'first_utm_source', 'first_utm_medium', 'first_utm_campaign',
+    'first_referrer', 'first_landing_page',
+    'click_page', 'click_referrer',
+    'gclid', 'fbclid', 'ga_client_id', 'google_ads_click_id', 'facebook_browser_id', 'facebook_click_id',
+    'page_history',
     'ip', 'userAgent',
   ]
   const lines = [headers.join(',')]
   for (const r of rows) {
     const o = r.origin ?? {}
+    const src = resolveSource(o)
     lines.push([
       r.id, r.ts, r.channel, r.destination, r.page ?? '',
-      o.utm_source ?? '', o.utm_medium ?? '', o.utm_campaign ?? '', o.referrer ?? '', o.landing_page ?? '',
+      src.source, src.medium, src.campaign ?? '', src.basis,
+      o.first_utm_source ?? o.utm_source ?? '',
+      o.first_utm_medium ?? o.utm_medium ?? '',
+      o.first_utm_campaign ?? o.utm_campaign ?? '',
+      o.first_referrer ?? o.referrer ?? '',
+      o.first_landing_page ?? o.landing_page ?? '',
+      o.click_page ?? '',
+      o.click_referrer ?? '',
+      o.first_gclid ?? o.gclid ?? '',
+      o.first_fbclid ?? o.fbclid ?? '',
+      o.ga_client_id ?? '',
+      o.google_ads_click_id ?? '',
+      o.facebook_browser_id ?? '',
+      o.facebook_click_id ?? '',
+      Array.isArray(o.page_history) ? o.page_history.join(' → ') : '',
       r.ip ?? '', r.userAgent ?? '',
     ].map(csvCell).join(','))
   }

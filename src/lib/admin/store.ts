@@ -7,23 +7,49 @@ import path from 'node:path'
 
 const DATA_DIR = path.join(process.cwd(), 'data')
 
+export type Origin = {
+  // First-touch (legacy + current)
+  landing_page?: string         // legacy field (still set by API mapSource)
+  referrer?: string             // legacy field
+  utm_source?: string
+  utm_medium?: string
+  utm_campaign?: string
+  utm_term?: string
+  utm_content?: string
+  gclid?: string
+  fbclid?: string
+
+  // First-touch (new client-side payload)
+  first_landing_page?: string
+  first_referrer?: string
+  first_utm_source?: string
+  first_utm_medium?: string
+  first_utm_campaign?: string
+  first_utm_term?: string
+  first_utm_content?: string
+  first_gclid?: string
+  first_fbclid?: string
+
+  // Cookie-based attribution
+  ga_client_id?: string
+  ga_session_id?: string
+  google_ads_click_id?: string
+  facebook_browser_id?: string
+  facebook_click_id?: string
+
+  // Click-time / last-touch context
+  click_page?: string
+  click_referrer?: string
+  page_history?: string[]
+}
+
 export type LeadRecord = {
   id: string
   ts: string
   form: 'contact' | 'services' | 'careers' | 'referral' | 'white_label'
   ip?: string
   userAgent?: string
-  origin?: {
-    landing_page?: string
-    referrer?: string
-    utm_source?: string
-    utm_medium?: string
-    utm_campaign?: string
-    utm_term?: string
-    utm_content?: string
-    gclid?: string
-    fbclid?: string
-  }
+  origin?: Origin
   payload: Record<string, unknown>
 }
 

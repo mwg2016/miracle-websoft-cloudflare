@@ -2,7 +2,7 @@
 import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { Send, Loader2, Shield } from 'lucide-react'
-import { trackLead } from '@/lib/analytics'
+import { getEffectiveOrigin, trackLead } from '@/lib/analytics'
 
 type State = 'idle' | 'sending' | 'error'
 
@@ -53,12 +53,17 @@ export default function WhiteLabelForm() {
     const fd = new FormData(e.currentTarget)
     const data = Object.fromEntries(fd.entries()) as Record<string, string>
     data.ndaRequired = nda ? 'true' : 'false'
+    const _source = JSON.stringify({
+      ...getEffectiveOrigin(),
+      page: window.location.pathname,
+      referrer: document.referrer || 'direct',
+    })
 
     try {
       const res = await fetch('/api/whitelabel', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, _source }),
       })
       const json = await res.json()
       if (json.success) {

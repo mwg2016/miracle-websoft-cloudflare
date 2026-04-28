@@ -1,17 +1,7 @@
 import { NextRequest } from 'next/server'
 import nodemailer from 'nodemailer'
-import { appendLead, saveResume, type LeadRecord } from '@/lib/admin/store'
-
-function mapSource(raw: string): LeadRecord['origin'] {
-  const s = parseSource(raw) as Record<string, string> | null
-  if (!s) return undefined
-  return {
-    landing_page: s.page, referrer: s.referrer,
-    utm_source: s.utm_source, utm_medium: s.utm_medium, utm_campaign: s.utm_campaign,
-    utm_term: s.utm_term, utm_content: s.utm_content,
-    gclid: s.gclid, fbclid: s.fbclid,
-  }
-}
+import { appendLead, saveResume } from '@/lib/admin/store'
+import { parseClientOrigin } from '@/lib/admin/origin'
 
 function clientIp(req: NextRequest): string {
   const fwd = req.headers.get('x-forwarded-for')
@@ -259,7 +249,7 @@ export async function POST(req: NextRequest) {
       form: 'careers',
       ip: clientIp(req),
       userAgent: req.headers.get('user-agent') ?? undefined,
-      origin: mapSource(sourceRaw),
+      origin: parseClientOrigin(sourceRaw),
       payload: { name, email, phone, position, experience, portfolio, message, resumeName: resumeFile?.name, resumeStored },
     }).catch(err => console.error('[careers] appendLead', err))
 

@@ -1,6 +1,7 @@
 import { NextRequest } from 'next/server'
 import nodemailer from 'nodemailer'
 import { appendLead } from '@/lib/admin/store'
+import { parseClientOrigin } from '@/lib/admin/origin'
 
 function clientIp(req: NextRequest): string {
   const fwd = req.headers.get('x-forwarded-for')
@@ -115,6 +116,7 @@ export async function POST(req: NextRequest) {
         form: 'referral',
         ip: clientIp(req),
         userAgent: req.headers.get('user-agent') ?? undefined,
+        origin: parseClientOrigin(typeof data._source === 'string' ? data._source : undefined),
         payload: data,
       }).catch(err => console.error('[referral] appendLead', err)),
     ])

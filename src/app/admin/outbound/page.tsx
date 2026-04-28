@@ -1,4 +1,5 @@
 import { readOutbound, topBy } from '@/lib/admin/store'
+import { resolveSource, sourceKey } from '@/lib/admin/source'
 import { Bar, Card, Empty, fmtTime, SectionTitle } from '../_components'
 
 export const dynamic = 'force-dynamic'
@@ -16,6 +17,10 @@ export default async function AdminOutbound({ searchParams }: { searchParams: Pr
 
   const pageCounts = topBy(filtered, o => o.page, 12)
   const pageMax = pageCounts[0]?.[1] ?? 1
+
+  // Resolved-source breakdown using priority (UTM > click ID > referrer > direct)
+  const sourceCounts = topBy(filtered, o => sourceKey(resolveSource(o.origin)), 10)
+  const sourceMax = sourceCounts[0]?.[1] ?? 1
 
   return (
     <>
@@ -42,6 +47,12 @@ export default async function AdminOutbound({ searchParams }: { searchParams: Pr
           }
         </Card>
         <Card>
+          <SectionTitle sub="UTM > click-id > referrer > direct (priority)">Effective source</SectionTitle>
+          {sourceCounts.length === 0 ? <Empty>No source data yet.</Empty> :
+            sourceCounts.map(([k, v], i) => <Bar key={k} label={k} count={v} max={sourceMax} accent={ACCENTS[i % ACCENTS.length]} />)
+          }
+        </Card>
+        <Card>
           <SectionTitle sub="Where the click came from">By source page</SectionTitle>
           {pageCounts.length === 0 ? <Empty>No pages captured yet.</Empty> :
             pageCounts.map(([k, v], i) => <Bar key={k} label={k} count={v} max={pageMax} accent={ACCENTS[i % ACCENTS.length]} />)
@@ -53,27 +64,35 @@ export default async function AdminOutbound({ searchParams }: { searchParams: Pr
         <SectionTitle sub={`${sorted.length} click${sorted.length === 1 ? '' : 's'}`}>Click log</SectionTitle>
         {sorted.length === 0 ? <Empty>No clicks for this filter.</Empty> : (
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {sorted.map((o, i) => (
-              <div key={o.id} style={{
-                display: 'grid', gridTemplateColumns: '110px 90px 1fr 1fr', gap: '0.85rem',
-                alignItems: 'center', padding: '0.7rem 0',
-                borderTop: i === 0 ? 'none' : '1px solid rgba(255,255,255,0.05)',
-                fontSize: '0.83rem',
-              }}>
-                <span style={{ color: 'rgba(255,255,255,0.45)', fontVariantNumeric: 'tabular-nums' }}>{fmtTime(o.ts)}</span>
-                <span style={{
-                  fontSize: '0.7rem', fontWeight: 600, padding: '0.2rem 0.55rem', borderRadius: 9999, textAlign: 'center',
-                  background: 'rgba(108,99,255,0.12)', color: '#a78bfa',
-                  border: '1px solid rgba(108,99,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.06em',
-                }}>{o.channel}</span>
-                <span style={{ color: 'rgba(255,255,255,0.5)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                  from {o.page ?? '—'}
-                </span>
-                <span style={{ color: 'rgba(255,255,255,0.7)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                  → {o.destination}
-                </span>
-              </div>
-            ))}
+            {sorted.map((o, i) => {
+              const src = resolveSource(o.origin)
+              return (
+                <div key={o.id} style={{
+                  display: 'grid', gridTemplateColumns: '110px 90px 1.4fr 1fr 1.2fr', gap: '0.7rem',
+                  alignItems: 'center', padding: '0.7rem 0',
+                  borderTop: i === 0 ? 'none' : '1px solid rgba(255,255,255,0.05)',
+                  fontSize: '0.82rem',
+                }}>
+                  <span style={{ color: 'rgba(255,255,255,0.45)', fontVariantNumeric: 'tabular-nums' }}>{fmtTime(o.ts)}</span>
+                  <span style={{
+                    fontSize: '0.7rem', fontWeight: 600, padding: '0.2rem 0.55rem', borderRadius: 9999, textAlign: 'center',
+                    background: 'rgba(108,99,255,0.12)', color: '#a78bfa',
+                    border: '1px solid rgba(108,99,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.06em',
+                  }}>{o.channel}</span>
+                  <span style={{ color: 'rgba(255,255,255,0.55)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: '0.75rem' }}
+                        title={src.detail ? `${src.basis}: ${src.detail}` : src.basis}>
+                    {`src: ${src.source} / ${src.medium}`}
+                    {src.campaign && <span style={{ opacity: 0.7 }}> · {src.campaign}</span>}
+                  </span>
+                  <span style={{ color: 'rgba(255,255,255,0.5)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    from {o.page ?? '—'}
+                  </span>
+                  <span style={{ color: 'rgba(255,255,255,0.7)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    → {o.destination}
+                  </span>
+                </div>
+              )
+            })}
           </div>
         )}
       </Card>

@@ -1,6 +1,6 @@
 'use client'
 import { useEffect } from 'react'
-import { trackLead } from '@/lib/analytics'
+import { getEffectiveOrigin, trackLead } from '@/lib/analytics'
 
 interface Props {
   to: string
@@ -11,6 +11,9 @@ interface Props {
 
 export default function OutboundRedirect({ to, channel, delay = 700 }: Props) {
   useEffect(() => {
+    // The page that initiated the click was the previous in-history entry.
+    // /thank-you redirected here, so document.referrer points to that
+    // origin page (or empty if we lost it across navigation).
     const referrer = typeof document !== 'undefined' ? document.referrer : ''
     const sourcePage = referrer && referrer.startsWith(window.location.origin)
       ? referrer.slice(window.location.origin.length)
@@ -22,9 +25,12 @@ export default function OutboundRedirect({ to, channel, delay = 700 }: Props) {
     // Server-side log for the admin panel — uses sendBeacon so the request
     // survives the impending navigation. Falls back to fetch+keepalive.
     try {
+      const origin = getEffectiveOrigin()
+      // Override click_page with the page that owned the click (referrer),
+      // since by the time this code runs the user is already on /thank-you.
+      origin.click_page = sourcePage
       const payload = JSON.stringify({
-        channel, destination: to, page: sourcePage,
-        origin: window.__mwOrigin ?? {},
+        channel, destination: to, page: sourcePage, origin,
       })
       const blob = new Blob([payload], { type: 'application/json' })
       const sent = typeof navigator.sendBeacon === 'function' && navigator.sendBeacon('/api/track', blob)
