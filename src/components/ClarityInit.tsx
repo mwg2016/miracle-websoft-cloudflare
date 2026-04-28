@@ -4,7 +4,7 @@ import Clarity from '@microsoft/clarity'
 
 export default function ClarityInit() {
   useEffect(() => {
-    Clarity.init('mbw7qvm2wb')
+    Clarity.init('wikuue0e88')
   }, [])
   return null
 }
