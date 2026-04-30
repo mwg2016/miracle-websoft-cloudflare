@@ -89,14 +89,14 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
   const sp = await searchParams
 
   // Block direct hits — only valid via form submission (?form=) or outbound redirect (?to=).
-  const hasOutbound = sp.to && isOutboundUrlSafe(sp.to)
-  const hasForm = sp.form && sp.form in COPY
+  const hasOutbound = !!sp.to && isOutboundUrlSafe(sp.to)
+  const hasForm = !!sp.form && sp.form in COPY
   if (!hasOutbound && !hasForm) {
     notFound()
   }
 
   // ── Outbound interstitial mode ────────────────────────────────────────
-  if (hasOutbound) {
+  if (sp.to && isOutboundUrlSafe(sp.to)) {
     const channelKey = (sp.channel || 'external') as OutboundChannel
     const channelLabel = CHANNEL_LABEL[channelKey] ?? CHANNEL_LABEL.external
     return (
