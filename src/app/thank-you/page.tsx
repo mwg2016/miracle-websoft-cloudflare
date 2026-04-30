@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import { CheckCircle2, Mail, Clock, MessageCircle, ArrowRight, ArrowUpRight, Briefcase, Sparkles, BookOpen, Wrench, Loader2 } from 'lucide-react'
 import OutboundRedirect from '@/components/OutboundRedirect'
 import { CHANNEL_LABEL, isOutboundUrlSafe, type OutboundChannel } from '@/lib/outbound'
@@ -87,8 +88,15 @@ const EXPLORE = [
 export default async function ThankYouPage({ searchParams }: { searchParams: Promise<{ form?: string; to?: string; channel?: string }> }) {
   const sp = await searchParams
 
+  // Block direct hits — only valid via form submission (?form=) or outbound redirect (?to=).
+  const hasOutbound = sp.to && isOutboundUrlSafe(sp.to)
+  const hasForm = sp.form && sp.form in COPY
+  if (!hasOutbound && !hasForm) {
+    notFound()
+  }
+
   // ── Outbound interstitial mode ────────────────────────────────────────
-  if (sp.to && isOutboundUrlSafe(sp.to)) {
+  if (hasOutbound) {
     const channelKey = (sp.channel || 'external') as OutboundChannel
     const channelLabel = CHANNEL_LABEL[channelKey] ?? CHANNEL_LABEL.external
     return (
