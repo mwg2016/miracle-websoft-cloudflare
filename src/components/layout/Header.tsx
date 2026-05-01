@@ -113,7 +113,7 @@ export default function Header() {
               )}
             </div>
 
-            {[{ l: 'Work', h: '/work' }, { l: 'Reviews', h: '/reviews' }, { l: 'Case Studies', h: '/case-studies' }, { l: 'Blog', h: '/blog' }, { l: 'About', h: '/about' }].map(({ l, h }) => (
+            {[{ l: 'Pricing', h: '/pricing' }, { l: 'Work', h: '/work' }, { l: 'Reviews', h: '/reviews' }, { l: 'Case Studies', h: '/case-studies' }, { l: 'Blog', h: '/blog' }, { l: 'About', h: '/about' }].map(({ l, h }) => (
               <Link key={h} href={h} className="text-sm font-medium transition-colors" style={{ color: 'rgba(255,255,255,0.7)' }} onMouseEnter={e => ((e.target as HTMLElement).style.color = '#fff')} onMouseLeave={e => ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.7)')}>
                 {l}
               </Link>
@@ -167,7 +167,7 @@ export default function Header() {
                 </div>
               )}
             </div>
-            {[{ l: 'Work', h: '/work' }, { l: 'Reviews', h: '/reviews' }, { l: 'Case Studies', h: '/case-studies' }, { l: 'Blog', h: '/blog' }, { l: 'About', h: '/about' }].map(({ l, h }) => (
+            {[{ l: 'Pricing', h: '/pricing' }, { l: 'Work', h: '/work' }, { l: 'Reviews', h: '/reviews' }, { l: 'Case Studies', h: '/case-studies' }, { l: 'Blog', h: '/blog' }, { l: 'About', h: '/about' }].map(({ l, h }) => (
               <Link key={h} href={h} onClick={() => setMobileOpen(false)} className="py-3 text-base font-semibold text-white" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>{l}</Link>
             ))}
             <Link href="/contact" onClick={() => setMobileOpen(false)} className="mw-btn-primary mt-6 justify-center">Get Free Audit</Link>

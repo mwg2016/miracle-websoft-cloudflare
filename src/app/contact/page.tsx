@@ -5,6 +5,7 @@ import FaqSection from '@/components/ui/FaqSection'
 import ContactForm from '@/components/contact/ContactForm'
 import { breadcrumb, faqPage, renderJsonLd, webPage } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
+import { getPlanBySlug } from '@/lib/pricing'
 
 const contactFaqs = [
   { question: 'How do I get started with Miracle Websoft?', answer: 'Fill in the contact form or message us on WhatsApp. We reply within 24 hours. If your project is a good fit, we schedule a 30-minute discovery call, then send a detailed proposal with clear scope, timeline, and fixed pricing. No vague estimates.' },
@@ -75,13 +76,15 @@ const jsonLd = renderJsonLd([
   faqPage(contactFaqs),
 ])
 
-export default function ContactPage() {
+export default async function ContactPage({ searchParams }: { searchParams: Promise<{ package?: string }> }) {
+  const params = await searchParams
+  const plan = getPlanBySlug(params?.package)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '7rem', paddingBottom: '5rem' }}>
         <div className="mw-container">
-          <div className="mb-6"><Breadcrumb items={[{ label: 'Contact' }]} /></div>
+          <div className="mb-6"><Breadcrumb items={plan ? [{ label: 'Pricing', href: '/pricing' }, { label: plan.name }] : [{ label: 'Contact' }]} /></div>
 
           {/* Top bar — quick trust strip */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-12" style={{ paddingBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
@@ -107,25 +110,63 @@ export default function ContactPage() {
 
             {/* ── Left ─────────────────────────────────────────── */}
             <div>
-              <span className="mw-eyebrow">Free audit — no commitment</span>
-              <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(30px,4.5vw,52px)', lineHeight: 1.1, marginBottom: '1rem' }}>
-                Find out what&apos;s stopping<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>your store from converting.</em>
-              </h1>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2rem', fontWeight: 300, maxWidth: '500px' }}>
-                We review your Shopify store and send back a detailed written audit — specific issues, specific fixes, ranked by revenue impact. Completely free. No sales call unless you want one.
-              </p>
+              {plan ? (
+                <>
+                  <span className="mw-eyebrow">You picked the {plan.name} plan</span>
+                  <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(30px,4.5vw,52px)', lineHeight: 1.1, marginBottom: '1rem' }}>
+                    Tell us about your brand —<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>we&apos;ll take it from here.</em>
+                  </h1>
+                  <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2rem', fontWeight: 300, maxWidth: '520px' }}>
+                    No payment yet. Send the form and Karam will personally reply within 24 hours with next steps — a short discovery call, a written proposal with full scope, and a clear timeline. You only pay if you approve the proposal.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <span className="mw-eyebrow">Free audit — no commitment</span>
+                  <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(30px,4.5vw,52px)', lineHeight: 1.1, marginBottom: '1rem' }}>
+                    Find out what&apos;s stopping<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>your store from converting.</em>
+                  </h1>
+                  <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2rem', fontWeight: 300, maxWidth: '500px' }}>
+                    We review your Shopify store and send back a detailed written audit — specific issues, specific fixes, ranked by revenue impact. Completely free. No sales call unless you want one.
+                  </p>
+                </>
+              )}
 
-              {/* Audit checklist */}
+              {/* Audit checklist OR what happens next */}
               <div style={{ marginBottom: '2.5rem' }}>
-                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.9rem' }}>What your free audit covers</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {auditItems.map(item => (
-                    <div key={item} className="flex items-start gap-2.5">
-                      <CheckCircle2 size={14} style={{ color: '#10B981', flexShrink: 0, marginTop: '2px' }} />
-                      <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>{item}</span>
+                {plan ? (
+                  <>
+                    <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.9rem' }}>What happens after you submit</p>
+                    <ol style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', listStyle: 'none', padding: 0, margin: 0 }}>
+                      {[
+                        { n: '1', t: 'Confirmation email — instant', d: 'You\'ll get a copy of your enquiry in your inbox right away.' },
+                        { n: '2', t: 'Personal reply within 24 hours', d: 'Karam reads every enquiry and replies with any clarifying questions.' },
+                        { n: '3', t: 'Short discovery call', d: '30-minute call to align on goals, timeline, and any custom needs.' },
+                        { n: '4', t: 'Written proposal — fixed price', d: `Full scope and timeline for the ${plan.name} plan. You only pay after you approve.` },
+                      ].map(s => (
+                        <li key={s.n} className="flex items-start gap-3">
+                          <span style={{ flexShrink: 0, width: 26, height: 26, borderRadius: '50%', background: 'rgba(108,99,255,0.15)', border: '1px solid rgba(108,99,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.72rem', fontWeight: 700, color: 'var(--accent)' }}>{s.n}</span>
+                          <div>
+                            <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#fff', marginBottom: '0.15rem' }}>{s.t}</div>
+                            <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.55 }}>{s.d}</div>
+                          </div>
+                        </li>
+                      ))}
+                    </ol>
+                  </>
+                ) : (
+                  <>
+                    <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.9rem' }}>What your free audit covers</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {auditItems.map(item => (
+                        <div key={item} className="flex items-start gap-2.5">
+                          <CheckCircle2 size={14} style={{ color: '#10B981', flexShrink: 0, marginTop: '2px' }} />
+                          <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>{item}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </>
+                )}
               </div>
 
               {/* Reviews */}
@@ -195,13 +236,13 @@ export default function ContactPage() {
                     <span style={{ fontWeight: 800, color: 'var(--accent)', fontSize: '1.1rem' }}>K</span>
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>Send Karam a message</div>
+                    <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>{plan ? `Confirm your ${plan.name} plan` : 'Send Karam a message'}</div>
                     <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>Founder · replies personally within 24 h</div>
                   </div>
                 </div>
 
                 <div style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: '1.25rem', paddingBottom: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                  Free audit included · No commitment · Fixed pricing
+                  {plan ? 'No payment yet · Proposal first · Fixed pricing' : 'Free audit included · No commitment · Fixed pricing'}
                 </div>
 
                 <ContactForm />

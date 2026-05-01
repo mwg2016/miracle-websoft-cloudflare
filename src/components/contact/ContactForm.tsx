@@ -1,8 +1,10 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { ArrowRight, Loader2 } from 'lucide-react'
+import { useRouter, useSearchParams } from 'next/navigation'
+import Link from 'next/link'
+import { ArrowRight, Loader2, CheckCircle2, Tag } from 'lucide-react'
 import { getEffectiveOrigin, trackLead } from '@/lib/analytics'
+import { getPlanBySlug, type PricingPlan } from '@/lib/pricing'
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
@@ -29,7 +31,9 @@ const optionalTag = (
 
 export default function ContactForm() {
   const router = useRouter()
+  const searchParams = useSearchParams()
   const [state, setState] = useState<'idle' | 'sending' | 'error'>('idle')
+  const [selectedPlan, setSelectedPlan] = useState<PricingPlan | null>(null)
   const [form, setForm] = useState({ name: '', email: '', storeUrl: '', service: '', message: '', _hp: '', _source: '' })
 
   useEffect(() => {
@@ -42,6 +46,21 @@ export default function ContactForm() {
     }
     setForm(f => ({ ...f, _source: JSON.stringify(source) }))
   }, [])
+
+  useEffect(() => {
+    const plan = getPlanBySlug(searchParams.get('package'))
+    if (!plan) return
+    setSelectedPlan(plan)
+    const prefillMessage =
+      plan.type === 'build'
+        ? `Hi Karam, I'd like to start with the ${plan.name} package (${plan.price}). Please review my store/brand details below and send next steps for the discovery call.\n\nA bit about my brand: `
+        : `Hi Karam, I'd like to sign up for the ${plan.name} maintenance plan (${plan.price}). Here's a bit about my Shopify store and what I'd want help with each month: `
+    setForm(f => ({
+      ...f,
+      service: plan.priceLabel,
+      message: f.message || prefillMessage,
+    }))
+  }, [searchParams])
 
   function set(field: string, value: string) {
     setForm(f => ({ ...f, [field]: value }))
@@ -74,6 +93,38 @@ export default function ContactForm() {
       <input type="text" name="_hp" value={form._hp} onChange={e => set('_hp', e.target.value)}
         style={{ display: 'none' }} tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
+      {selectedPlan && (
+        <div
+          style={{
+            background: 'linear-gradient(135deg, rgba(108,99,255,0.12) 0%, rgba(108,99,255,0.04) 100%)',
+            border: '1px solid rgba(108,99,255,0.3)',
+            borderRadius: '14px',
+            padding: '1rem 1.1rem',
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: '0.75rem',
+          }}
+        >
+          <CheckCircle2 size={18} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: '2px' }} />
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginBottom: '0.25rem' }}>
+              <Tag size={10} style={{ display: 'inline', marginRight: '4px', verticalAlign: '-1px' }} /> Selected plan
+            </div>
+            <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', marginBottom: '0.15rem' }}>
+              {selectedPlan.name} <span style={{ color: 'var(--accent)' }}>· {selectedPlan.price}</span>
+            </div>
+            <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>
+              {selectedPlan.type === 'build'
+                ? 'No payment yet — we\'ll send a written proposal first. 50% only after you approve.'
+                : 'No payment yet — we\'ll confirm scope, then start with month 1 invoice.'}
+            </div>
+            <Link href="/pricing" style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.5)', textDecoration: 'underline', textUnderlineOffset: '3px', marginTop: '0.4rem', display: 'inline-block' }}>
+              Change plan
+            </Link>
+          </div>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label style={labelStyle}>Your name *</label>
@@ -93,19 +144,21 @@ export default function ContactForm() {
           value={form.storeUrl} onChange={e => set('storeUrl', e.target.value)} style={inputStyle} />
       </div>
 
-      <div>
-        <label style={labelStyle}>What do you need help with? {optionalTag}</label>
-        <select value={form.service} onChange={e => set('service', e.target.value)}
-          style={{ ...inputStyle, appearance: 'none' as const }}>
-          <option value="">Select a service...</option>
-          <option>Custom Tool Development</option>
-          <option>Custom Shopify Development</option>
-          <option>Shopify App Development</option>
-          <option>Migration to Shopify</option>
-          <option>CRO &amp; Speed Optimization</option>
-          <option>Free Store Audit</option>
-        </select>
-      </div>
+      {!selectedPlan && (
+        <div>
+          <label style={labelStyle}>What do you need help with? {optionalTag}</label>
+          <select value={form.service} onChange={e => set('service', e.target.value)}
+            style={{ ...inputStyle, appearance: 'none' as const }}>
+            <option value="">Select a service...</option>
+            <option>Custom Tool Development</option>
+            <option>Custom Shopify Development</option>
+            <option>Shopify App Development</option>
+            <option>Migration to Shopify</option>
+            <option>CRO &amp; Speed Optimization</option>
+            <option>Free Store Audit</option>
+          </select>
+        </div>
+      )}
 
       <div>
         <label style={labelStyle}>Tell us about your brand *</label>
@@ -130,13 +183,15 @@ export default function ContactForm() {
           </span>
         ) : (
           <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
-            Get my free audit <ArrowRight size={15} />
+            {selectedPlan ? `Confirm ${selectedPlan.name} & send` : 'Get my free audit'} <ArrowRight size={15} />
           </span>
         )}
       </button>
 
       <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.25)', textAlign: 'center', lineHeight: 1.6 }}>
-        Takes 60 seconds. You&apos;ll get a confirmation email immediately. We respond within 24 hours.
+        {selectedPlan
+          ? 'No payment now. You\'ll get a confirmation email immediately, then a written proposal within 24 hours.'
+          : 'Takes 60 seconds. You\'ll get a confirmation email immediately. We respond within 24 hours.'}
       </p>
     </form>
   )

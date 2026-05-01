@@ -54,6 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Tier 1: Homepage & highest-intent pages ──────────────────────────────
     { url: BASE,                                                          priority: 1.0, changeFrequency: 'weekly'  as const },
     { url: `${BASE}/contact`,                                             priority: 0.95, changeFrequency: 'monthly' as const },
+    { url: `${BASE}/pricing`,                                             priority: 0.95, changeFrequency: 'monthly' as const },
     { url: `${BASE}/case-studies`,                                        priority: 0.9,  changeFrequency: 'weekly'  as const },
     { url: `${BASE}/services`,                                            priority: 0.9,  changeFrequency: 'monthly' as const },
 

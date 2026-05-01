@@ -19,6 +19,7 @@ const industryLinks = [
 ]
 const companyLinks = [
   { label: 'About', href: '/about' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Work', href: '/work' },
   { label: 'Reviews', href: '/reviews' },
   { label: 'Case Studies', href: '/case-studies' },
