@@ -92,6 +92,7 @@ const maintenancePlans: Plan[] = [
     bestFor: 'Live stores that are running fine and just need a safety net.',
     outcomes: [
       'Monthly Shopify, app, and theme updates handled for you',
+      'Up to 10 new products added per month (images, descriptions, variants)',
       '1 hour/month of small content tweaks (banners, text, products)',
       'Monthly uptime + speed health check',
       'Email response within 48 hours on weekdays',
@@ -108,6 +109,7 @@ const maintenancePlans: Plan[] = [
     bestFor: 'Brands actively shipping changes — drops, campaigns, A/B tests.',
     outcomes: [
       'Everything in Care, plus 4 hours/month of dev/design work',
+      'Up to 30 new products added per month (images, descriptions, variants)',
       'Weekly speed, broken-link, SEO, and Klaviyo/GA4 sanity checks',
       'Monthly performance report (LCP, conversion, top pages)',
       'Email response within 24 hours on weekdays',
@@ -125,6 +127,7 @@ const maintenancePlans: Plan[] = [
     bestFor: 'Growing brands where the store directly drives revenue.',
     outcomes: [
       'Everything in Care+, plus 8 hours/month of dev/design work',
+      'Up to 50 new products added per month (images, descriptions, variants)',
       'Direct Slack channel + same-day response on weekdays',
       'Monthly CRO review with one recommended A/B test',
       'Quarterly site audit + roadmap',
