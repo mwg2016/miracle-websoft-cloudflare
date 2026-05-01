@@ -133,6 +133,28 @@ export default function AboutPage() {
         <div className="mb-14">
           <p className="mw-eyebrow">The Founder</p>
           <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)', marginBottom: '1.5rem' }}>Meet the person<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>behind the work.</em></h2>
+
+          <div style={{ maxWidth: '720px', marginBottom: '2rem' }}>
+            <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.02rem', lineHeight: 1.85, fontWeight: 300 }}>
+              <p style={{ marginBottom: '1.1rem' }}>
+                I grew up in a small village in India where &ldquo;IT&rdquo; meant data entry or a call-center job — that was the only kind of computer work anyone around me had heard of. After school I found a six-month course in website development and took it. That led to my first job at a small web company, then a second one where I could go deeper into programming.
+              </p>
+              <p style={{ marginBottom: '1.1rem' }}>
+                What I noticed working there was that most clients walking in were quietly pushed toward pre-built templates, because real custom work felt out of budget. That gap bothered me, and it&apos;s the gap this company was built to fill.
+              </p>
+              <p style={{ marginBottom: '1.1rem' }}>
+                My first attempts at running something on my own failed. The break came in an unexpected way. A friend who was sharing a room with me started bidding for freelance projects from our flat — he didn&apos;t have a laptop, so he used mine. I sat next to him in the evenings and watched how he wrote proposals, priced work, and handled clients. Eventually I made my own Upwork profile. Within a few days I landed my first job: ten dollars. He looked at me and said, <em style={{ color: 'rgba(255,255,255,0.85)' }}>&ldquo;You&apos;re lucky. It&apos;s hard to get hired on a new profile that fast.&rdquo;</em> I still remember that job more clearly than the larger ones — it was the first proof that a career could be built from a laptop in a small town.
+              </p>
+              <p style={{ marginBottom: '1.1rem' }}>
+                I kept freelancing in the evenings while holding down my full-time job. The month my Upwork earnings crossed my salary, I quit. For a long stretch I did everything alone — sales, scoping, development, support, invoicing. Hiring only started when I couldn&apos;t keep up. The team has grown around the same idea I started with: real custom Shopify work for fashion brands, priced honestly, built by the people you actually speak with.
+              </p>
+              <p style={{ marginBottom: 0 }}>
+                Ten years in, that&apos;s still the company. Over $400,000 earned on Upwork, hundreds of brands shipped, and the same instinct that made me leave a stable job in the first place — that good work shouldn&apos;t be gated behind enterprise pricing.
+              </p>
+              <p style={{ marginTop: '1.25rem', fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>— Karam</p>
+            </div>
+          </div>
+
           <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: '2rem', maxWidth: '560px' }}>
             <div className="flex items-start gap-4">
               <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'rgba(108,99,255,0.15)', border: '1px solid rgba(108,99,255,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
@@ -146,7 +168,7 @@ export default function AboutPage() {
                   <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.4)' }}>Top Rated Plus · Shopify Verified Partner · 10+ years</span>
                 </div>
                 <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, fontWeight: 300, marginBottom: '1rem' }}>
-                  Karam founded Miracle Websoft in 2015 after years of freelance Shopify work. He personally leads every project — clients communicate directly with him, not an account manager. Based in Chandigarh, India.
+                  Personally leads every project — clients work directly with him, not an account manager. Based in Chandigarh, India.
                 </p>
                 <div className="flex gap-3">
                   <a href={outboundHref('upwork', 'https://www.upwork.com/freelancers/~0108a0862ff3e2f2de')} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)', padding: '0.3rem 0.75rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9999px' }} className="hover:text-white hover:border-white/30 transition-all">
