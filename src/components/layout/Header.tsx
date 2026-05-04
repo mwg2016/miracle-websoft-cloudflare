@@ -17,18 +17,18 @@ const partnerLinks = [
   { label: 'Referral Program', href: '/referral', badge: 'Earn 20%', badgeColor: '#10B981' },
 ]
 const industries = [
-  { label: "Women's Clothing & Boutiques", href: '/industries/womens-clothing-boutiques' },
-  { label: 'Activewear & Athleisure', href: '/industries/activewear-athleisure' },
-  { label: 'Streetwear & Urban Fashion', href: '/industries/streetwear-urban-fashion' },
-  { label: 'Sustainable Fashion', href: '/industries/sustainable-ethical-fashion' },
-  { label: 'Gym Wear & Fitness', href: '/industries/gym-wear-fitness-apparel' },
-  { label: 'Yoga Wear & Wellness', href: '/industries/yoga-wear-wellness' },
-  { label: "Kids & Children's Clothing", href: '/industries/kids-children-clothing' },
-  { label: 'Plus-Size & Inclusive', href: '/industries/plus-size-inclusive-apparel' },
-  { label: 'Sportswear & Performance', href: '/industries/sportswear-performance-apparel' },
-  { label: 'Menswear & Casual', href: '/industries/menswear-casual-clothing' },
-  { label: 'Occasion Wear & Luxury', href: '/industries/occasion-wear-luxury-fashion' },
-  { label: 'Online Boutiques & Multi-Brand', href: '/industries/online-boutiques-multi-brand' },
+  { label: 'Fashion & Apparel',     href: '/services/shopify/fashion-apparel' },
+  { label: 'Beauty & Cosmetics',    href: '/services/shopify/beauty-cosmetics' },
+  { label: 'Health & Wellness',     href: '/services/shopify/health-wellness' },
+  { label: 'Home & Furniture',      href: '/services/shopify/home-decor' },
+  { label: 'Food & Beverage',       href: '/services/shopify/food-beverage' },
+  { label: 'Electronics & Gadgets', href: '/services/shopify/electronics' },
+  { label: 'Jewelry & Accessories', href: '/services/shopify/jewelry' },
+  { label: 'Sports & Outdoors',     href: '/services/shopify/sports-fitness' },
+  { label: 'Pet Supplies',          href: '/services/shopify/pets' },
+  { label: 'B2B & Wholesale',       href: '/services/shopify/b2b-wholesale' },
+  { label: 'Subscription & DTC',    href: '/services/shopify/subscription-dtc' },
+  { label: 'Print on Demand',       href: '/services/shopify/print-on-demand' },
 ]
 
 const workItems = [

@@ -82,68 +82,133 @@ const shopifyServices: ShopifyServiceData[] = [
   },
 
   {
-    slug: 'health-beauty',
-    metaTitle: 'Shopify Development for Health & Beauty Brands | Miracle Websoft',
-    metaDescription: 'Custom Shopify stores for health, beauty, skincare and wellness brands. Subscription builds, ingredient transparency, quiz funnels, and loyalty programs.',
-    eyebrow: 'SHOPIFY FOR HEALTH & BEAUTY',
-    h1: 'Shopify Development for Health & Beauty Brands',
-    subtext: 'Health and beauty shoppers care about ingredients, trust, and results. We build Shopify stores that communicate transparency, drive repeat purchases through subscriptions, and convert browsers into loyal buyers.',
+    slug: 'beauty-cosmetics',
+    metaTitle: 'Shopify Development for Beauty & Cosmetics Brands | Miracle Websoft',
+    metaDescription: 'Custom Shopify stores for beauty, cosmetics, skincare and makeup brands. Quiz funnels, shade matching, subscription, ingredient transparency and Klaviyo flows.',
+    eyebrow: 'SHOPIFY FOR BEAUTY & COSMETICS',
+    h1: 'Shopify Development for Beauty & Cosmetics Brands',
+    subtext: 'Beauty shoppers research obsessively, trust their friends more than your ads, and want to feel confident before they buy. We build Shopify stores with quiz funnels, shade matching, ingredient transparency and subscription flows that turn first-time buyers into long-term subscribers.',
     features: [
-      'Subscription and auto-ship product setup',
-      'Ingredient transparency and INCI list display',
-      'Before-and-after image galleries',
-      'Skin type and beauty quiz funnels',
+      'Custom skincare and makeup quiz funnels',
+      'Shade matching and virtual try-on integration',
+      'Subscription and auto-ship (Recharge, Skio, Loop)',
+      'Ingredient and INCI list transparency display',
       'Loyalty and rewards programme integration',
-      'Bundle builder and routine kits',
-      'Klaviyo email flow integration',
-      'Compliance-safe product claim formatting',
-      'UGC and review integration with photos',
-      'Virtual try-on and shade matching tools',
+      'Bundle builder and full-routine kits',
+      'Klaviyo segmented email and SMS flows',
+      'UGC, before/after and review integration with photos',
       'Refill and sustainable packaging messaging',
+      'Influencer and ambassador discount tiers',
       'International DTC with localised compliance',
+      'Faster mobile PDPs to convert paid social traffic',
     ],
     challenges: [
       {
-        title: 'Building consumer trust',
-        body: 'Health and beauty shoppers are sceptical. They research ingredients, read reviews obsessively, and abandon stores that feel generic. Your store needs to communicate expertise, transparency and authenticity at every touchpoint.',
+        title: 'Helping shoppers find the right shade and formula',
+        body: 'Beauty buyers abandon when they cannot tell if a foundation is their shade, or if a serum is right for their skin. Quiz funnels, shade finders and AI try-on tools remove that uncertainty — and dramatically lift conversion.',
       },
       {
-        title: 'Driving repeat purchases',
-        body: 'Acquiring beauty customers is expensive. The real profit is in second, third and tenth orders. We build subscription flows, loyalty programmes and email sequences that turn one-time buyers into subscribers.',
+        title: 'Driving subscription LTV',
+        body: 'Acquiring a beauty customer is expensive. Profit lives in the second, third and tenth order. We build subscription flows, replenishment reminders and loyalty mechanics that convert one-time buyers into auto-ship subscribers.',
       },
       {
-        title: 'Regulatory compliance',
-        body: 'Beauty and health product claims are regulated. What you can say on a US vs UK vs EU store differs significantly. We build compliant product pages and help you structure claims that convert without risk.',
+        title: 'Regulatory and ingredient compliance',
+        body: 'Cosmetics claims are regulated differently in the US, UK, EU and Australia. We build compliant product page templates that separate marketing claims from regulated statements — so you convert without crossing lines.',
       },
       {
-        title: 'Finding the right product match',
-        body: 'Beauty shoppers often don\'t know which product is right for them. Quiz funnels and skin-type filters dramatically reduce "wrong product" returns and increase satisfaction — and we build them into the store experience.',
+        title: 'Standing out from a crowded shelf',
+        body: 'Beauty is one of the most saturated DTC categories online. Your store needs editorial design, fast PDPs, social proof and UGC at every touchpoint to convert — not a generic theme that looks like every competitor.',
       },
     ],
     faqs: [
       {
-        question: 'Can you build subscription boxes and auto-ship on Shopify?',
-        answer: 'Yes. We integrate Recharge, Skio, or Loop Subscriptions depending on your needs, and build full subscription management — customer portal, pause/skip, frequency changes — into your storefront.',
+        question: 'Can you build a beauty or skincare quiz on Shopify?',
+        answer: 'Yes. We build custom quiz funnels — skin type, concerns, undertone, goals — that recommend a personalised routine and add it to cart. These typically lift conversion rate, AOV and reduce return rates significantly.',
       },
       {
-        question: 'Can you build a beauty quiz to recommend products?',
-        answer: 'Yes. We build custom quiz funnels — skin type, concerns, goals — that funnel shoppers to the right products. These typically lift average order value and reduce return rates significantly.',
+        question: 'Can you build shade matching or virtual try-on?',
+        answer: 'Yes. We integrate Perfect Corp, ModiFace or YouCam for AR shade matching and virtual try-on, or build custom shade finder tools using metafields and tag-based filtering for simpler use cases.',
       },
       {
-        question: 'How do you handle EU/UK cosmetic ingredient regulations?',
-        answer: 'We structure product pages to comply with INCI listing requirements and help you separate marketing claims from regulated statements. For legal compliance specifics, we work alongside your regulatory consultant.',
+        question: 'Which subscription apps do you integrate for cosmetics?',
+        answer: 'We integrate Recharge, Skio, Loop Subscriptions and Smartrr depending on your AOV, churn pattern and customer portal needs. We advise on the right tool — they are not interchangeable.',
       },
       {
-        question: 'What loyalty programmes do you integrate?',
-        answer: 'We work with LoyaltyLion, Yotpo Loyalty, Smile.io, and Okendo for reviews and loyalty. We advise on the right tool based on your AOV, repeat purchase rate and customer segment.',
+        question: 'How do you handle EU and UK cosmetic ingredient regulations?',
+        answer: 'We structure product pages to comply with INCI listing requirements, country-of-origin display and notification number visibility (where required). For specific regulatory sign-off, we work alongside your in-house or third-party regulatory consultant.',
       },
       {
-        question: 'Can you build bundle kits and routine sets?',
-        answer: 'Yes — bundle builders, routine kits, "complete the routine" cross-sells, and gift sets are all common features we build. These consistently lift AOV for health and beauty brands.',
+        question: 'Can you build bundle kits and full-routine sets?',
+        answer: 'Yes — bundle builders, "complete the routine" cross-sells, regimen kits and gift sets are core to beauty AOV. We build these as configurable bundles with discount logic that flows cleanly through to fulfilment.',
       },
     ],
-    formHeading: 'Build your health & beauty store',
-    formSubtext: 'Tell us about your brand, product range and goals. We\'ll send you a tailored Shopify proposal within 24 hours.',
+    formHeading: 'Build your beauty & cosmetics store',
+    formSubtext: 'Tell us about your brand, hero products and growth goals. We\'ll send you a tailored Shopify proposal within 24 hours.',
+  },
+
+  {
+    slug: 'health-wellness',
+    metaTitle: 'Shopify Development for Health & Wellness Brands | Miracle Websoft',
+    metaDescription: 'Custom Shopify stores for supplements, vitamins, nutraceuticals and wellness brands. Subscription builds, regulatory-compliant product pages, quiz funnels and loyalty.',
+    eyebrow: 'SHOPIFY FOR HEALTH & WELLNESS',
+    h1: 'Shopify Development for Health & Wellness Brands',
+    subtext: 'Supplements, vitamins, functional foods and wellness products live or die on trust. We build Shopify stores with compliant claims architecture, quiz-driven personalisation, subscription delivery and the trust signals that turn cautious shoppers into long-term subscribers.',
+    features: [
+      'Subscription and auto-ship for supplements',
+      'Symptom and goal-based quiz funnels',
+      'Regulatory-compliant product page templates',
+      'Certification and lab-test result display',
+      'Ingredient sourcing and traceability messaging',
+      'Subscribe-and-save pricing and tiered discounts',
+      'Bundle and stack builder for full regimens',
+      'Klaviyo email flows for replenishment and education',
+      'Loyalty programme with referral mechanics',
+      'Doctor, dietitian or expert endorsement display',
+      'International compliance routing per market',
+      'Pre-launch waitlist and back-in-stock notifications',
+    ],
+    challenges: [
+      {
+        title: 'Communicating efficacy without crossing claims lines',
+        body: 'Wellness products live in a regulatory grey zone. What you can say in the US is different from the UK, EU and Australia. We architect product templates that separate compliant marketing from regulated claims — so you sell without putting the brand at risk.',
+      },
+      {
+        title: 'Building trust for ingestible products',
+        body: 'Supplement shoppers are sceptical — they want to see lab tests, certifications, sourcing, doctor formulators and verified reviews. We build product pages where every claim is backed by something visible.',
+      },
+      {
+        title: 'Maximising lifetime value through subscription',
+        body: 'Vitamins and supplements are the natural subscription category — daily-use products with predictable replenishment. We build subscription flows with portion calculators, smart refill timing and easy customer self-service.',
+      },
+      {
+        title: 'Personalisation at scale',
+        body: 'A one-size-fits-all supplement store loses to personalised wellness brands. Quiz funnels that recommend a tailored stack based on goals, lifestyle and symptoms convert dramatically better — and we build them into the storefront.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can you build a personalised supplement quiz on Shopify?',
+        answer: 'Yes. We build quiz funnels that ask about goals, symptoms, diet and lifestyle, then recommend a personalised stack — adding it to cart as a subscription bundle. These funnels typically 2–3× conversion rate vs. browsing the catalogue.',
+      },
+      {
+        question: 'How do you handle FDA, FSA and TGA compliance on product pages?',
+        answer: 'We build product page templates that separate marketing claims from regulated structure-function statements, with clear disclaimer placement and country-specific routing where needed. We work alongside your regulatory consultant for sign-off on copy.',
+      },
+      {
+        question: 'Which subscription apps work best for supplements?',
+        answer: 'Recharge and Skio both work well. We typically recommend Skio for newer brands needing flexibility and Recharge for established brands with deep app stack integration. The right choice depends on AOV, churn and customer service workflow.',
+      },
+      {
+        question: 'Can you display lab test results and certifications?',
+        answer: 'Yes. We build certificate of analysis (COA) display systems, batch-level lab result lookup, and certification badge libraries (NSF, USP, GMP, organic, vegan, etc.) — all of which measurably improve trust signals and conversion.',
+      },
+      {
+        question: 'Do you handle international expansion for wellness brands?',
+        answer: 'Yes. We build Shopify Markets-based multi-region storefronts with country-specific compliance gating, tax handling and ingredient claim variations — so you can sell into the US, UK, EU, Australia and Canada without spinning up separate stores.',
+      },
+    ],
+    formHeading: 'Build your health & wellness store',
+    formSubtext: 'Tell us about your products, target markets and compliance setup. We\'ll send you a tailored Shopify proposal within 24 hours.',
   },
 
   {
@@ -469,6 +534,266 @@ const shopifyServices: ShopifyServiceData[] = [
     ],
     formHeading: 'Build your pet supply store',
     formSubtext: 'Tell us about your products and customer base. We\'ll send you a custom Shopify proposal within 24 hours.',
+  },
+
+  {
+    slug: 'fashion-apparel',
+    metaTitle: 'Shopify Development for Fashion & Apparel Brands | Miracle Websoft',
+    metaDescription: 'Custom Shopify stores for fashion, apparel, activewear, streetwear and boutique brands. Mobile-first PDPs, size guides, drop systems, TikTok Shop and CRO. 60+ fashion brands served.',
+    eyebrow: 'SHOPIFY FOR FASHION & APPAREL',
+    h1: 'Shopify Development for Fashion & Apparel Brands',
+    subtext: 'Fashion ecommerce is our deepest specialism — 60+ clothing brands served across DTC startups, scaling activewear labels, streetwear drops and luxury boutiques. We build mobile-first Shopify stores that convert TikTok and Instagram traffic into paying customers, reduce returns through fit tools, and handle product drops without falling over.',
+    features: [
+      'Mobile-first PDPs built for paid social traffic',
+      'Size guide and fit recommendation tools',
+      'Product drop infrastructure — waitlists, timers, pre-orders',
+      'TikTok Shop and Instagram Shopping sync',
+      'Advanced filtering by size, colour, occasion and style',
+      'Wishlist, save-for-later and recently viewed',
+      'Shoppable lookbook and editorial content pages',
+      'Klaviyo email and SMS flows for launches',
+      'Loyalty, referral and ambassador programmes',
+      'Shopify Plus and headless storefronts for scaling brands',
+      'WooCommerce, Magento and BigCommerce migrations',
+      'Speed and Core Web Vitals optimisation',
+    ],
+    challenges: [
+      {
+        title: 'Mobile speed kills fashion conversion',
+        body: '81% of fashion traffic is mobile. If your PDP takes more than 2 seconds to load, paid social traffic bounces before they see the product. We build with sub-1.5s mobile load times as a non-negotiable.',
+      },
+      {
+        title: 'Fit uncertainty drives returns',
+        body: 'Fashion has the highest return rate in ecommerce — averaging 25%. Most of it is fixable: detailed size guides, fit recommenders, model-stat displays and review-driven sizing reduce returns measurably.',
+      },
+      {
+        title: 'Product drops break standard themes',
+        body: 'Drop launches, waitlists, sell-out handling and pre-orders need real infrastructure. Without it, drop day is chaos and your most loyal fans miss out. We build drop systems that handle traffic spikes and queue logic.',
+      },
+      {
+        title: 'Cart abandonment at 77%',
+        body: 'Fashion cart abandonment is the highest of any ecommerce category. Most of it is fixable — better PDPs, faster checkout, smart upsells and abandonment recovery. We treat it as a development problem, not a marketing one.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you specialise in fashion brands?',
+        answer: 'Yes — fashion and apparel is our deepest specialism. We have served 60+ clothing brands across DTC, activewear, streetwear, boutique and luxury segments. Our case studies, sub-niche industry pages and design language all reflect this depth.',
+      },
+      {
+        question: 'Can you build product drop systems on Shopify?',
+        answer: 'Yes. We build full drop infrastructure — waitlist signups, countdown timers, pre-order logic, sell-out handling, queue management for high-traffic spikes, and post-drop email automation — using a mix of Shopify Functions and custom apps.',
+      },
+      {
+        question: 'How do you reduce return rates for clothing?',
+        answer: 'Detailed interactive size guides, fit recommendation tools (size, height, body shape inputs), high-quality product video, review-based fit signals and AR try-on where appropriate. These typically cut return rates by 15–30% within a quarter.',
+      },
+      {
+        question: 'Can you migrate our WooCommerce or Magento store to Shopify?',
+        answer: 'Yes. We migrate full product catalogues, customer history, order data and SEO URLs from WooCommerce, Magento, BigCommerce or any custom platform — with zero downtime and zero traffic loss. We have done this for 100+ fashion brands.',
+      },
+      {
+        question: 'Which fashion sub-niches do you have specific experience in?',
+        answer: 'Women\'s clothing and boutiques, activewear and athleisure, streetwear, sustainable fashion, gym wear, yoga and wellness apparel, kids\' clothing, plus-size and inclusive fashion, sportswear, menswear, occasion and luxury wear, and multi-brand online boutiques. Each has a dedicated industry page with specific pain points and case studies.',
+      },
+    ],
+    formHeading: 'Build your fashion store',
+    formSubtext: 'Tell us about your brand, channels and growth goals. We\'ll send you a tailored Shopify proposal within 24 hours.',
+  },
+
+  {
+    slug: 'b2b-wholesale',
+    metaTitle: 'Shopify B2B & Wholesale Development Agency | Miracle Websoft',
+    metaDescription: 'Shopify Plus B2B and wholesale store development. Gated portals, volume pricing tiers, net payment terms, custom invoicing, ERP integration and trade account management.',
+    eyebrow: 'SHOPIFY PLUS FOR B2B & WHOLESALE',
+    h1: 'Shopify B2B & Wholesale Development',
+    subtext: 'Selling to businesses is fundamentally different from selling to consumers — different pricing, different payment terms, different procurement workflows. We build Shopify Plus B2B stores with gated trade portals, volume pricing tiers, net terms, ERP integration and the kind of dedicated account experience that wins long-term wholesale clients.',
+    features: [
+      'Shopify Plus B2B portal with gated trade access',
+      'Customer-specific catalogues and price lists',
+      'Volume and tiered pricing rules',
+      'Net 15, 30, 60 payment term workflows',
+      'Custom invoicing and PO upload',
+      'Quote request and approval flows',
+      'Bulk order entry and CSV upload',
+      'Reorder and order template tools',
+      'Multi-buyer company accounts with role permissions',
+      'ERP and inventory system integration (NetSuite, SAP, Brightpearl)',
+      'Combined B2B + DTC storefront on a single Shopify Plus',
+      'Account manager dashboards for sales reps',
+    ],
+    challenges: [
+      {
+        title: 'Different buyers, different storefronts',
+        body: 'A retailer logging in to reorder needs a fundamentally different experience than a consumer browsing the public site. Gated catalogues, custom pricing, role-based permissions and reorder-first UX matter — and Shopify Plus B2B handles this natively when set up correctly.',
+      },
+      {
+        title: 'Net payment terms and credit handling',
+        body: 'Wholesale customers expect net 30 or 60 terms, not Stripe checkouts. We build payment-term workflows, automated invoicing, credit limit checks and AR sync with your accounting platform — so finance teams stay in control.',
+      },
+      {
+        title: 'Bulk ordering at speed',
+        body: 'A trade buyer placing a 200-line restock order does not click through 200 product pages. We build bulk order forms, CSV upload, reorder-from-history tools and SKU-based quick add — so wholesale orders close in minutes, not hours.',
+      },
+      {
+        title: 'ERP and inventory truth',
+        body: 'B2B operations run on ERP, not on Shopify. We build real-time inventory sync, customer pricing pull-down and order push-up between Shopify Plus and NetSuite, SAP, Brightpearl, Linnworks or custom systems — so the storefront and your back office never disagree.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do we need Shopify Plus to build a B2B store?',
+        answer: 'For most serious B2B operations, yes. Shopify Plus includes the native B2B suite — company accounts, customer-specific catalogues, payment terms, quote requests — that standard Shopify cannot match. We can build limited B2B on standard Shopify with apps, but Plus is the right home for any meaningful wholesale operation.',
+      },
+      {
+        question: 'Can you run B2B and DTC on the same store?',
+        answer: 'Yes — and we usually recommend it. Shopify Plus lets you run a public DTC storefront alongside a gated B2B portal, sharing inventory, products and reporting. Two separate stores creates double the maintenance for very little benefit.',
+      },
+      {
+        question: 'How do you handle volume pricing and tiered discounts?',
+        answer: 'We build customer-segment pricing using Shopify Plus B2B catalogues and price lists — different customers see different prices on the same SKUs based on their tier, location or contract. Volume break pricing within a single order is built using Shopify Functions.',
+      },
+      {
+        question: 'Can you integrate with our ERP or inventory system?',
+        answer: 'Yes. We have built integrations with NetSuite, SAP, Brightpearl, Linnworks, Cin7, Katana and custom in-house systems — using either pre-built connectors or custom middleware via Shopify\'s GraphQL Admin API.',
+      },
+      {
+        question: 'How long does a B2B Shopify Plus build take?',
+        answer: 'A focused B2B-only build typically runs 8–12 weeks. A combined B2B + DTC build with ERP integration runs 12–20 weeks depending on integration complexity. We provide a fixed-price proposal with a phased delivery plan before any work begins.',
+      },
+    ],
+    formHeading: 'Build your B2B Shopify store',
+    formSubtext: 'Tell us about your buyers, pricing structure and integrations. We\'ll send you a fixed-price Shopify Plus proposal within 24 hours.',
+  },
+
+  {
+    slug: 'subscription-dtc',
+    metaTitle: 'Shopify Subscription & DTC Development | Miracle Websoft',
+    metaDescription: 'Shopify development for subscription boxes, DTC brands and recurring revenue businesses. Recharge, Skio, Loop integration, custom subscription portals, churn-reduction flows.',
+    eyebrow: 'SHOPIFY FOR SUBSCRIPTION & DTC',
+    h1: 'Shopify Subscription & DTC Development',
+    subtext: 'Subscription is the highest-LTV business model in ecommerce — and the hardest to get right. We build Shopify subscription stores with the right app stack (Recharge, Skio, Loop, Smartrr), custom subscriber portals, churn-reduction logic and the personalisation that turns trial buyers into long-term subscribers.',
+    features: [
+      'Subscription strategy and app stack selection',
+      'Recharge, Skio, Loop and Smartrr integration',
+      'Custom subscriber portal with self-service controls',
+      'Subscribe-and-save discount logic',
+      'Subscription bundle and box configurator',
+      'Pause, skip, swap and frequency change flows',
+      'Reactivation and win-back email sequences',
+      'Churn reduction prompts at cancel flow',
+      'Build-a-box and curated box experiences',
+      'Pre-paid and gift subscription support',
+      'Klaviyo segmentation by subscription state',
+      'Dunning, failed payment and retention workflows',
+    ],
+    challenges: [
+      {
+        title: 'Choosing the right subscription app',
+        body: 'Recharge, Skio, Loop, Smartrr — they are not interchangeable. Each has different pricing, customer portal flexibility, app integrations and exit costs. Picking wrong adds 6 months of pain. We pick based on AOV, churn pattern, product type and team size — not on what is trendy.',
+      },
+      {
+        title: 'Reducing voluntary churn',
+        body: 'Most subscription brands lose 5–10% of subscribers per month — a leaking bucket no acquisition spend can fix. Pause-instead-of-cancel flows, swap-product offers, smart frequency adjustments and reactivation sequences cut churn measurably.',
+      },
+      {
+        title: 'Failed payments quietly killing LTV',
+        body: 'Up to 30% of subscription cancellations are involuntary — failed cards, expired details. Without smart dunning (multi-attempt retries, email and SMS recovery, payment update prompts) you lose subscribers who wanted to keep buying.',
+      },
+      {
+        title: 'Customer portals that feel like an afterthought',
+        body: 'The default portals on most subscription apps are bare-bones and live on a third-party domain. We build embedded, branded portals with full self-service — pause, skip, swap, frequency, address — so subscribers stay in control without contacting support.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Which subscription app should we use on Shopify?',
+        answer: 'It depends on your AOV, churn rate, product type and existing app stack. Skio is strong for newer brands wanting modern UX. Recharge has the deepest integration ecosystem. Loop is built for retention-first operations. Smartrr fits brands wanting deep customer insights. We will recommend based on your specific situation — not push a single tool.',
+      },
+      {
+        question: 'Can you build a custom subscription portal on our domain?',
+        answer: 'Yes. We build embedded subscriber portals on your Shopify storefront — branded, on-domain, with full self-service for pause, skip, swap, frequency change, address update, payment method change and order history. Most off-the-shelf portals look generic; ours match your brand.',
+      },
+      {
+        question: 'How do you reduce subscription churn?',
+        answer: 'A combination of pause-instead-of-cancel offers, product swap incentives at cancel, smart frequency suggestions, win-back email and SMS sequences, and dunning workflows for failed payments. We typically reduce voluntary churn by 15–25% within the first 90 days post-launch.',
+      },
+      {
+        question: 'Can you migrate subscriptions from another platform?',
+        answer: 'Yes — including subscriber records, billing schedules, payment methods and customer portal data — from Recharge to Skio, Skio to Recharge, ReCharge classic to ReCharge new, or from custom platforms. Migration is delicate and we plan it with zero subscriber disruption.',
+      },
+      {
+        question: 'Do you build build-a-box or curated subscription boxes?',
+        answer: 'Yes. We build build-a-box configurators (where subscribers choose their items each cycle) and curated box experiences (where you ship a themed selection). Both work on Shopify with the right subscription app and custom storefront logic.',
+      },
+    ],
+    formHeading: 'Build your subscription store',
+    formSubtext: 'Tell us about your product, current platform and subscriber goals. We\'ll send you a tailored Shopify proposal within 24 hours.',
+  },
+
+  {
+    slug: 'print-on-demand',
+    metaTitle: 'Shopify Print on Demand Development | Miracle Websoft',
+    metaDescription: 'Shopify development for print on demand stores. Printful, Printify, Gelato integration, mockup generators, custom POD workflows and high-volume catalogue management.',
+    eyebrow: 'SHOPIFY FOR PRINT ON DEMAND',
+    h1: 'Shopify Print on Demand Development',
+    subtext: 'Print on demand is a great low-inventory business model — until you scale. Then catalogue size, mockup quality, supplier sync, return handling and margin all become development problems. We build Shopify POD stores that handle thousands of SKUs cleanly, sync flawlessly with Printful, Printify, Gelato or your custom supplier, and convert at the rate a serious POD brand deserves.',
+    features: [
+      'Printful, Printify, Gelato and Customcat integration',
+      'Custom POD supplier API integration',
+      'Bulk product creation and catalogue management',
+      'Custom mockup generator embedded in storefront',
+      'Personalisation and custom text/upload flows',
+      'Variant explosion handling (colour × size × style)',
+      'Smart product filtering for large catalogues',
+      'Print-area preview tools for buyers',
+      'Multi-supplier routing for fulfilment optimisation',
+      'Returns and reprint workflow automation',
+      'Custom design upload and approval flows',
+      'Marketplace and POD multi-channel sync',
+    ],
+    challenges: [
+      {
+        title: 'Catalogue at scale',
+        body: 'A serious POD brand can have 5,000+ SKUs — every design × product × colour × size combination. Standard Shopify product management buckles. We build catalogue tools, bulk editing flows and metafield-driven structure that keeps a 5K-product store manageable.',
+      },
+      {
+        title: 'Supplier sync without manual work',
+        body: 'Without proper integration, a Printful or Printify store means hours of manual product creation, image management and stock sync. We build automated pipelines that push designs, generate mockups, sync inventory and route orders without daily human touch.',
+      },
+      {
+        title: 'Mockup quality and conversion',
+        body: 'POD lives or dies on mockup quality. Generic supplier mockups convert poorly. We build either custom mockup generators (so your designs appear on lifestyle imagery) or photoshop pipelines that batch-produce branded product imagery at scale.',
+      },
+      {
+        title: 'Margin compression on personalised products',
+        body: 'Personalisation drives premium pricing — but only if the upload, preview and approval flow is frictionless. We build personalisation tools (text, upload, position) with live preview that customers can actually use, lifting AOV without breaking fulfilment.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Which POD supplier should we use — Printful, Printify or Gelato?',
+        answer: 'Each has trade-offs. Printful has the best quality and tightest Shopify integration but higher base costs. Printify has the lowest base costs but variable supplier quality. Gelato has the best global fulfilment network for international brands. We recommend based on your margin target, geography and quality bar.',
+      },
+      {
+        question: 'Can you integrate a custom mockup generator on Shopify?',
+        answer: 'Yes. We build mockup generators embedded directly in the product page — customers upload artwork, position it on the product, see a preview and add to cart. The output flows cleanly to your supplier with print files attached.',
+      },
+      {
+        question: 'How do you handle thousands of POD products on Shopify?',
+        answer: 'We use metafield-driven catalogue architecture, bulk editing tools (Matrixify, custom CSV pipelines), smart collections by metafield filters and lazy-loaded product feeds — so a 5,000-product store stays fast and manageable. Standard Shopify admin breaks at scale; ours does not.',
+      },
+      {
+        question: 'Can you build personalisation and custom text products?',
+        answer: 'Yes — text personalisation, image upload, position and font selection, with live preview. Personalisation data flows to the supplier as structured metadata so fulfilment is automated, not manual.',
+      },
+      {
+        question: 'Do you handle multi-supplier POD routing?',
+        answer: 'Yes. For brands using multiple POD suppliers (e.g. Printful for apparel, Gelato for posters), we build order routing logic that splits multi-product orders to the right supplier automatically, with combined customer-facing tracking.',
+      },
+    ],
+    formHeading: 'Build your print on demand store',
+    formSubtext: 'Tell us about your suppliers, catalogue size and personalisation needs. We\'ll send you a tailored Shopify proposal within 24 hours.',
   },
 ]
 

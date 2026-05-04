@@ -38,13 +38,18 @@ const blogSlugs = [
 // Keep in sync with src/data/shopify-services.ts
 const shopifyServiceSlugs = [
   'development',
-  'electronics',
-  'health-beauty',
-  'jewelry',
-  'food-beverage',
+  'fashion-apparel',
+  'beauty-cosmetics',
+  'health-wellness',
   'home-decor',
+  'food-beverage',
+  'electronics',
+  'jewelry',
   'sports-fitness',
   'pets',
+  'b2b-wholesale',
+  'subscription-dtc',
+  'print-on-demand',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

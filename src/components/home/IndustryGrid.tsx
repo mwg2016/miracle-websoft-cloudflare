@@ -1,27 +1,26 @@
 import Link from 'next/link'
-import { industries } from '@/data/industries'
-import { ShoppingBag, Zap, Tag, Leaf, Dumbbell, Heart, Baby, Users, Trophy, Shirt, Sparkles, Store, type LucideIcon } from 'lucide-react'
+import { Shirt, Sparkles, HeartPulse, Sofa, UtensilsCrossed, Cpu, Gem, Trophy, PawPrint, Building2, Repeat, Printer, ArrowUpRight, type LucideIcon } from 'lucide-react'
 
-const industryIcons: Record<string, LucideIcon> = {
-  'womens-clothing-boutiques':      ShoppingBag,
-  'activewear-athleisure':          Zap,
-  'streetwear-urban-fashion':       Tag,
-  'sustainable-ethical-fashion':    Leaf,
-  'gym-wear-fitness-apparel':       Dumbbell,
-  'yoga-wear-wellness':             Heart,
-  'kids-children-clothing':         Baby,
-  'plus-size-inclusive-apparel':    Users,
-  'sportswear-performance-apparel': Trophy,
-  'menswear-casual-clothing':       Shirt,
-  'occasion-wear-luxury-fashion':   Sparkles,
-  'online-boutiques-multi-brand':   Store,
+interface Vertical {
+  slug: string
+  title: string
+  desc: string
+  icon: LucideIcon
 }
 
-const verticals = [
-  'Fashion & Apparel', 'Beauty & Cosmetics', 'Health & Wellness',
-  'Home & Furniture', 'Food & Beverage', 'Electronics & Gadgets',
-  'Jewelry & Accessories', 'Sports & Outdoors', 'Pet Supplies',
-  'B2B & Wholesale', 'Subscription & DTC', 'Print on Demand',
+const verticals: Vertical[] = [
+  { slug: 'fashion-apparel',      title: 'Fashion & Apparel',     desc: 'DTC, activewear, streetwear, boutiques and luxury — our deepest specialism.',     icon: Shirt },
+  { slug: 'beauty-cosmetics',     title: 'Beauty & Cosmetics',    desc: 'Quiz funnels, shade matching, subscription and ingredient-led PDPs.',             icon: Sparkles },
+  { slug: 'health-wellness',      title: 'Health & Wellness',     desc: 'Supplements, vitamins and nutraceuticals with compliant claims architecture.',    icon: HeartPulse },
+  { slug: 'home-decor',           title: 'Home & Furniture',      desc: 'Visualisation, configurators, freight shipping and trade portals.',                icon: Sofa },
+  { slug: 'food-beverage',        title: 'Food & Beverage',       desc: 'Subscription delivery, allergen displays, age gating and corporate gifting.',     icon: UtensilsCrossed },
+  { slug: 'electronics',          title: 'Electronics & Gadgets', desc: 'Spec tables, complex variants, B2B wholesale and ERP integration.',                icon: Cpu },
+  { slug: 'jewelry',              title: 'Jewelry & Accessories', desc: 'Luxury checkout, engraving, custom configurators and bespoke ordering.',           icon: Gem },
+  { slug: 'sports-fitness',       title: 'Sports & Outdoors',     desc: 'Equipment, supplements, B2B gym orders and performance-first builds.',             icon: Trophy },
+  { slug: 'pets',                 title: 'Pet Supplies',          desc: 'Breed-based filtering, food subscription, vet-approved trust signals.',             icon: PawPrint },
+  { slug: 'b2b-wholesale',        title: 'B2B & Wholesale',       desc: 'Shopify Plus B2B portals, net terms, volume pricing and ERP sync.',                 icon: Building2 },
+  { slug: 'subscription-dtc',     title: 'Subscription & DTC',    desc: 'Recharge, Skio, Loop builds with custom portals and churn-reduction flows.',       icon: Repeat },
+  { slug: 'print-on-demand',      title: 'Print on Demand',       desc: 'Printful, Printify, Gelato sync, mockup generators and personalisation.',          icon: Printer },
 ]
 
 export default function IndustryGrid() {
@@ -32,42 +31,35 @@ export default function IndustryGrid() {
           <span className="mw-eyebrow">Industries We Serve</span>
           <h2 style={{ color: '#fff' }}>Shopify experts across<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>every ecommerce vertical.</em></h2>
           <p style={{ color: 'rgba(255,255,255,0.45)', marginTop: '1rem', fontSize: '0.95rem', fontWeight: 300, maxWidth: '640px' }}>
-            10+ years building Shopify and Shopify Plus stores across fashion, beauty, health, home, food, electronics, B2B and subscription. Deep niche expertise where it matters — generalist range where you need it.
+            10+ years building Shopify and Shopify Plus stores across fashion, beauty, health, home, food, electronics, B2B and subscription. Deep niche expertise where it matters — full coverage where you need it.
           </p>
         </div>
 
-        {/* Vertical chips — broad ecommerce coverage */}
-        <div className="flex flex-wrap gap-2 justify-center mb-10">
-          {verticals.map(v => (
-            <span key={v} className="px-4 py-2 rounded-full" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', fontSize: '0.78rem', color: 'rgba(255,255,255,0.7)', fontWeight: 500 }}>
-              {v}
-            </span>
-          ))}
-        </div>
-
-        <p style={{ textAlign: 'center', color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 500, marginBottom: '1.75rem' }}>
-          Featured specialism — Fashion &amp; Apparel
-        </p>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-          {industries.map(industry => {
-            const Icon = industryIcons[industry.slug]
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {verticals.map(v => {
+            const Icon = v.icon
             return (
-              <Link key={industry.slug} href={`/industries/${industry.slug}`} className="mw-card group flex flex-col items-center text-center" style={{ padding: '1.75rem 1.25rem' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(108,99,255,0.1)', border: '1px solid rgba(108,99,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem', transition: 'all 0.25s' }}>
-                  {Icon && <Icon size={18} style={{ color: 'var(--accent)' }} />}
+              <Link
+                key={v.slug}
+                href={`/services/shopify/${v.slug}`}
+                className="mw-card group relative"
+                style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', minHeight: '180px' }}
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(108,99,255,0.12)', border: '1px solid rgba(108,99,255,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Icon size={20} style={{ color: 'var(--accent)' }} />
+                  </div>
+                  <ArrowUpRight size={16} style={{ color: 'rgba(255,255,255,0.2)', transition: 'all 0.2s' }} className="group-hover:text-white" />
                 </div>
-                <span style={{ fontSize: '0.8rem', fontWeight: 500, color: 'rgba(255,255,255,0.7)', lineHeight: 1.4, transition: 'color 0.2s' }} className="group-hover:text-white">
-                  {industry.title}
-                </span>
+                <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#fff', marginBottom: '0.5rem', lineHeight: 1.3 }}>{v.title}</h3>
+                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, fontWeight: 300 }}>{v.desc}</p>
               </Link>
             )
           })}
         </div>
 
         <p style={{ textAlign: 'center', marginTop: '2.5rem', color: 'rgba(255,255,255,0.4)', fontSize: '0.875rem' }}>
-          Not in fashion? We deliver the same depth across every vertical above.{' '}
-          <Link href="/contact" style={{ color: 'var(--accent)', fontWeight: 500 }}>Talk to us about your store →</Link>
+          Not sure which fits? <Link href="/contact" style={{ color: 'var(--accent)', fontWeight: 500 }}>Tell us about your store →</Link>
         </p>
       </div>
     </section>
