@@ -68,8 +68,8 @@ const nextConfig: NextConfig = {
       { source: '/terms-and-conditions-pc-builder', destination: '/terms', permanent: true },
       { source: '/terms-of-service-for-social-auto-post', destination: '/terms', permanent: true },
 
-      // ─── Clothing brands page → canonical development page ───────────────
-      { source: '/services/shopify-development-clothing-brands', destination: '/services/shopify/development', permanent: true },
+      // ─── Clothing brands page → dedicated fashion vertical page ──────────
+      { source: '/services/shopify-development-clothing-brands', destination: '/services/shopify/fashion-apparel', permanent: true },
 
       // ─── Services → Shopify Development ──────────────────────────────────
       { source: '/shopify-store-setup', destination: '/services/shopify/development', permanent: true },
@@ -126,14 +126,14 @@ const nextConfig: NextConfig = {
       { source: '/shopify-services/3pl-warehouse-management-system-wms-integration', destination: '/services/shopify-app-development', permanent: true },
       { source: '/shopify-services/shopify-training-for-merchants-staff', destination: '/services/shopify/development', permanent: true },
       { source: '/shopify-services/accessibility-wcag-ada-compliance-audit-remediation', destination: '/services/shopify-cro-speed', permanent: true },
-      { source: '/shopify-services/shopify-for-print-on-demand-pod-businesses', destination: '/services/shopify-app-development', permanent: true },
+      { source: '/shopify-services/shopify-for-print-on-demand-pod-businesses', destination: '/services/shopify/print-on-demand', permanent: true },
       { source: '/shopify-services/shopify-for-digital-products-downloads', destination: '/services/shopify-app-development', permanent: true },
       { source: '/shopify-services/shopify-plus-functions-scripts-development', destination: '/services/shopify-app-development', permanent: true },
-      { source: '/shopify-services/shopify-development-for-beauty-cosmetics-brands', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-services/shopify-development-for-beauty-cosmetics-brands', destination: '/services/shopify/beauty-cosmetics', permanent: true },
       { source: '/shopify-services/klaviyo-email-sms-marketing-automation-setup', destination: '/services/shopify-app-development', permanent: true },
       { source: '/shopify-services/crm-integration-for-shopify-salesforce-hubspot', destination: '/services/shopify-app-development', permanent: true },
       { source: '/shopify-services/shopify-store-redesign-modernization', destination: '/services/shopify/development', permanent: true },
-      { source: '/shopify-services/shopify-for-food-beverage-brands', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-services/shopify-for-food-beverage-brands', destination: '/services/shopify/food-beverage', permanent: true },
       { source: '/shopify-services/shopify-plus-launchpad-automation-for-sales-events', destination: '/services/shopify-app-development', permanent: true },
       { source: '/shopify-services/advanced-product-customizer-personalizer', destination: '/services/shopify-app-development', permanent: true },
       { source: '/shopify-services/:path*', destination: '/services/shopify/development', permanent: true },
@@ -158,10 +158,10 @@ const nextConfig: NextConfig = {
       { source: '/industries/luxury-fashion', destination: '/industries/occasion-wear-luxury-fashion', permanent: true },
       { source: '/industries/bridal-occasion-wear', destination: '/industries/occasion-wear-luxury-fashion', permanent: true },
       { source: '/industries/plus-size-fashion', destination: '/industries/plus-size-inclusive-apparel', permanent: true },
-      // No matching industry page — send to relevant service
-      { source: '/industries/accessories-jewellery', destination: '/services/shopify/development', permanent: true },
-      { source: '/industries/footwear-shoes', destination: '/services/shopify/development', permanent: true },
-      { source: '/industries/swimwear-beachwear', destination: '/services/shopify/development', permanent: true },
+      // No matching industry page — send to most relevant vertical service
+      { source: '/industries/accessories-jewellery', destination: '/services/shopify/jewelry', permanent: true },
+      { source: '/industries/footwear-shoes', destination: '/services/shopify/fashion-apparel', permanent: true },
+      { source: '/industries/swimwear-beachwear', destination: '/services/shopify/fashion-apparel', permanent: true },
 
       // ─── Misc old pages ───────────────────────────────────────────────────
       { source: '/the-studio', destination: '/case-studies', permanent: true },
@@ -173,6 +173,103 @@ const nextConfig: NextConfig = {
       { source: '/wp-login.php', destination: '/', permanent: true },
       { source: '/wp-sitemap-index.xsl', destination: '/', permanent: true },
       { source: '/xmlrpc.php', destination: '/', permanent: true },
+      { source: '/feed', destination: '/blog', permanent: true },
+      { source: '/feed/:path*', destination: '/blog', permanent: true },
+      { source: '/comments', destination: '/blog', permanent: true },
+      { source: '/comments/feed', destination: '/blog', permanent: true },
+
+      // ─── Homepage variants ───────────────────────────────────────────────
+      { source: '/index', destination: '/', permanent: true },
+      { source: '/index.html', destination: '/', permanent: true },
+      { source: '/index.php', destination: '/', permanent: true },
+      { source: '/home-page', destination: '/', permanent: true },
+      { source: '/miracle-websoft', destination: '/', permanent: true },
+
+      // ─── Old work / portfolio / project paths ────────────────────────────
+      { source: '/our-work', destination: '/work', permanent: true },
+      { source: '/projects', destination: '/work', permanent: true },
+      { source: '/our-projects', destination: '/work', permanent: true },
+      { source: '/project', destination: '/work', permanent: true },
+      { source: '/project/:path*', destination: '/case-studies', permanent: true },
+      { source: '/clients', destination: '/case-studies', permanent: true },
+      { source: '/our-clients', destination: '/case-studies', permanent: true },
+      { source: '/testimonials', destination: '/reviews', permanent: true },
+      { source: '/reviews-page', destination: '/reviews', permanent: true },
+
+      // ─── FAQ / contact aliases ───────────────────────────────────────────
+      { source: '/faq', destination: '/contact', permanent: true },
+      { source: '/faqs', destination: '/contact', permanent: true },
+
+      // ─── Sitemap aliases ─────────────────────────────────────────────────
+      { source: '/sitemap-index.xml', destination: '/sitemap.xml', permanent: true },
+      { source: '/sitemap_index.xml', destination: '/sitemap.xml', permanent: true },
+
+      // ─── Generic Shopify positioning aliases → development hub ───────────
+      { source: '/shopify', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-development', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-developer', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-developers', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-experts', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-experts-developers', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-agency', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-store-development', destination: '/services/shopify/development', permanent: true },
+      { source: '/custom-shopify-store', destination: '/services/shopify/development', permanent: true },
+      { source: '/hire-shopify-developer', destination: '/services/shopify/development', permanent: true },
+      { source: '/hire-shopify-expert', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-consultant', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-consulting', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-theme-customization', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-theme-development', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-design', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-store-design', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-website-design', destination: '/services/shopify/development', permanent: true },
+      { source: '/shopify-customization', destination: '/services/shopify/development', permanent: true },
+
+      // ─── Generic services / ecommerce → services hub ─────────────────────
+      { source: '/our-services', destination: '/services', permanent: true },
+      { source: '/services-page', destination: '/services', permanent: true },
+      { source: '/ecommerce', destination: '/services', permanent: true },
+      { source: '/ecommerce-services', destination: '/services', permanent: true },
+      { source: '/ecommerce-development', destination: '/services/shopify/development', permanent: true },
+      { source: '/web-development', destination: '/services/custom-web-development', permanent: true },
+      { source: '/digital-marketing', destination: '/services', permanent: true },
+
+      // ─── Vertical aliases → dedicated vertical pages ─────────────────────
+      { source: '/clothing', destination: '/services/shopify/fashion-apparel', permanent: true },
+      { source: '/fashion', destination: '/services/shopify/fashion-apparel', permanent: true },
+      { source: '/apparel', destination: '/services/shopify/fashion-apparel', permanent: true },
+      { source: '/clothing-shopify', destination: '/services/shopify/fashion-apparel', permanent: true },
+      { source: '/fashion-shopify', destination: '/services/shopify/fashion-apparel', permanent: true },
+      { source: '/apparel-shopify', destination: '/services/shopify/fashion-apparel', permanent: true },
+      { source: '/shopify-for-fashion', destination: '/services/shopify/fashion-apparel', permanent: true },
+      { source: '/shopify-for-clothing', destination: '/services/shopify/fashion-apparel', permanent: true },
+      { source: '/shopify-for-apparel', destination: '/services/shopify/fashion-apparel', permanent: true },
+      { source: '/shopify-clothing-brands', destination: '/services/shopify/fashion-apparel', permanent: true },
+
+      { source: '/b2b', destination: '/services/shopify/b2b-wholesale', permanent: true },
+      { source: '/b2b-shopify', destination: '/services/shopify/b2b-wholesale', permanent: true },
+      { source: '/wholesale', destination: '/services/shopify/b2b-wholesale', permanent: true },
+      { source: '/wholesale-shopify', destination: '/services/shopify/b2b-wholesale', permanent: true },
+
+      { source: '/subscription', destination: '/services/shopify/subscription-dtc', permanent: true },
+      { source: '/subscription-shopify', destination: '/services/shopify/subscription-dtc', permanent: true },
+      { source: '/dtc', destination: '/services/shopify/subscription-dtc', permanent: true },
+
+      { source: '/print-on-demand', destination: '/services/shopify/print-on-demand', permanent: true },
+      { source: '/pod', destination: '/services/shopify/print-on-demand', permanent: true },
+      { source: '/shopify-pod', destination: '/services/shopify/print-on-demand', permanent: true },
+      { source: '/pod-shopify', destination: '/services/shopify/print-on-demand', permanent: true },
+
+      { source: '/sports', destination: '/services/shopify/sports-fitness', permanent: true },
+      { source: '/sports-fitness', destination: '/services/shopify/sports-fitness', permanent: true },
+      { source: '/pets', destination: '/services/shopify/pets', permanent: true },
+      { source: '/pet-supplies', destination: '/services/shopify/pets', permanent: true },
+      { source: '/jewelry', destination: '/services/shopify/jewelry', permanent: true },
+      { source: '/jewellery', destination: '/services/shopify/jewelry', permanent: true },
+      { source: '/electronics', destination: '/services/shopify/electronics', permanent: true },
+      { source: '/food-beverage', destination: '/services/shopify/food-beverage', permanent: true },
+      { source: '/home-decor', destination: '/services/shopify/home-decor', permanent: true },
+      { source: '/home-furniture', destination: '/services/shopify/home-decor', permanent: true },
     ]
   },
 }
