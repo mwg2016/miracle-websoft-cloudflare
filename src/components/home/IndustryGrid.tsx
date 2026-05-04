@@ -17,17 +17,38 @@ const industryIcons: Record<string, LucideIcon> = {
   'online-boutiques-multi-brand':   Store,
 }
 
+const verticals = [
+  'Fashion & Apparel', 'Beauty & Cosmetics', 'Health & Wellness',
+  'Home & Furniture', 'Food & Beverage', 'Electronics & Gadgets',
+  'Jewelry & Accessories', 'Sports & Outdoors', 'Pet Supplies',
+  'B2B & Wholesale', 'Subscription & DTC', 'Print on Demand',
+]
+
 export default function IndustryGrid() {
   return (
     <section className="mw-section" style={{ background: '#0a0a0a' }}>
       <div className="mw-container">
         <div className="mw-section-header">
-          <span className="mw-eyebrow">Who We Work With</span>
-          <h2 style={{ color: '#fff' }}>Built for fashion.<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>Every niche covered.</em></h2>
-          <p style={{ color: 'rgba(255,255,255,0.45)', marginTop: '1rem', fontSize: '0.95rem', fontWeight: 300 }}>
-            We work exclusively with clothing, fashion and apparel brands. We already know your customers and your problems.
+          <span className="mw-eyebrow">Industries We Serve</span>
+          <h2 style={{ color: '#fff' }}>Shopify experts across<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>every ecommerce vertical.</em></h2>
+          <p style={{ color: 'rgba(255,255,255,0.45)', marginTop: '1rem', fontSize: '0.95rem', fontWeight: 300, maxWidth: '640px' }}>
+            10+ years building Shopify and Shopify Plus stores across fashion, beauty, health, home, food, electronics, B2B and subscription. Deep niche expertise where it matters — generalist range where you need it.
           </p>
         </div>
+
+        {/* Vertical chips — broad ecommerce coverage */}
+        <div className="flex flex-wrap gap-2 justify-center mb-10">
+          {verticals.map(v => (
+            <span key={v} className="px-4 py-2 rounded-full" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', fontSize: '0.78rem', color: 'rgba(255,255,255,0.7)', fontWeight: 500 }}>
+              {v}
+            </span>
+          ))}
+        </div>
+
+        <p style={{ textAlign: 'center', color: 'rgba(255,255,255,0.4)', fontSize: '0.78rem', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 500, marginBottom: '1.75rem' }}>
+          Featured specialism — Fashion &amp; Apparel
+        </p>
+
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
           {industries.map(industry => {
             const Icon = industryIcons[industry.slug]
@@ -43,6 +64,11 @@ export default function IndustryGrid() {
             )
           })}
         </div>
+
+        <p style={{ textAlign: 'center', marginTop: '2.5rem', color: 'rgba(255,255,255,0.4)', fontSize: '0.875rem' }}>
+          Not in fashion? We deliver the same depth across every vertical above.{' '}
+          <Link href="/contact" style={{ color: 'var(--accent)', fontWeight: 500 }}>Talk to us about your store →</Link>
+        </p>
       </div>
     </section>
   )

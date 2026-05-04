@@ -25,18 +25,18 @@ export default function Hero() {
           {/* Tag pill */}
           <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full" style={{ background: 'rgba(108,99,255,0.12)', border: '1px solid rgba(108,99,255,0.25)' }}>
             <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--accent)' }} />
-            <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 500 }}>Shopify Agency for Fashion Brands</span>
+            <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 500 }}>Shopify Development Agency · Since 2015</span>
           </div>
 
           {/* Headline */}
           <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.5rem', lineHeight: 1.1 }}>
             High-Converting Shopify<br />
-            Stores Built for <span style={{ color: 'var(--accent)' }}>Fashion<br />Brands That Sell More</span>
+            Stores, Apps &amp; <span style={{ color: 'var(--accent)' }}>Migrations<br />Built to Scale</span>
           </h1>
 
           {/* Sub-copy */}
           <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: 'clamp(1rem,2vw,1.2rem)', lineHeight: 1.8, maxWidth: '580px', marginBottom: '2rem', fontWeight: 300 }}>
-            We design and build conversion-focused Shopify stores for DTC clothing brands, activewear labels, boutiques and fashion retailers across USA, UK and Australia.
+            We design, develop and optimize Shopify and Shopify Plus stores for ecommerce brands across fashion, beauty, health, home, food, electronics, B2B and subscription — serving clients in the USA, UK and Australia.
           </p>
 
           {/* Stats strip */}
@@ -86,7 +86,7 @@ export default function Hero() {
               { label: 'Officially Shopify Verified Partner', icon: '✓' },
               { label: 'Top Rated Plus on Upwork', icon: '✓' },
               { label: 'USA · UK · Australia', icon: '✓' },
-              { label: '60+ Fashion Brands Served', icon: '✓' },
+              { label: '600+ Stores Delivered', icon: '✓' },
             ].map(item => (
               <div key={item.label} className="flex items-center gap-2">
                 <span style={{ color: 'var(--accent)', fontSize: '0.82rem', fontWeight: 700, lineHeight: 1 }}>{item.icon}</span>

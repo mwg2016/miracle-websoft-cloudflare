@@ -1,7 +1,7 @@
 import { Target, Zap, TrendingUp, ShieldCheck, Users } from 'lucide-react'
 
 const reasons = [
-  { icon: Target, title: 'Fashion-only focus', body: 'We work exclusively with clothing brands. We already know your customers, your problems and your conversion challenges.' },
+  { icon: Target, title: 'Shopify-only specialists', body: 'We do one thing — Shopify and Shopify Plus development. 10+ years, 600+ stores delivered across every ecommerce vertical.' },
   { icon: Zap, title: 'Performance-first', body: 'Every store targets sub-1.5s mobile load times. Speed is the foundation of every decision we make.' },
   { icon: TrendingUp, title: 'Conversion built in', body: 'CRO thinking is in every page layout, button placement and checkout flow — not an afterthought.' },
   { icon: ShieldCheck, title: 'Zero-risk migrations', body: 'Full product catalog, customer data, SEO URLs all preserved. Zero downtime, zero traffic loss — guaranteed.' },
@@ -14,7 +14,7 @@ export default function WhyUs() {
       <div className="mw-container">
         <div className="mw-section-header">
           <span className="mw-eyebrow">Why Miracle Websoft</span>
-          <h2 style={{ color: '#fff' }}>Not a generic agency.<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>A fashion Shopify specialist.</em></h2>
+          <h2 style={{ color: '#fff' }}>Not a generic web shop.<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>A dedicated Shopify specialist.</em></h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {reasons.map((r, i) => {

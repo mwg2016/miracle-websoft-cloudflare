@@ -6,7 +6,7 @@ const services = [
     icon: Code2,
     tag: 'Core Service',
     title: 'Custom Shopify Development',
-    body: 'Bespoke Shopify and Shopify Plus stores designed around how your customers shop. Fast, beautiful, conversion-focused.',
+    body: 'Bespoke Shopify and Shopify Plus stores designed around how your customers shop. Fast, beautiful, conversion-focused — across every ecommerce vertical.',
     href: '/services/shopify/development',
     large: true,
   },
@@ -30,7 +30,7 @@ const services = [
     icon: TrendingUp,
     tag: 'Growth',
     title: 'CRO & Speed Optimization',
-    body: 'Conversion rate audits and speed fixes. Average 42% conversion increase across our fashion brand clients.',
+    body: 'Conversion rate audits, Core Web Vitals fixes and checkout optimization. Average 42% conversion lift across our store builds.',
     href: '/services/shopify-cro-speed',
     large: true,
   },
@@ -42,7 +42,7 @@ export default function ServicesOverview() {
       <div className="mw-container">
         <div className="mw-section-header">
           <span className="mw-eyebrow">What We Build</span>
-          <h2 style={{ color: '#fff' }}>Everything your clothing<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>brand needs on Shopify.</em></h2>
+          <h2 style={{ color: '#fff' }}>Everything you need<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>to grow on Shopify.</em></h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Row 1: large (7) + small (5) */}

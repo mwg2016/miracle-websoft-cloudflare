@@ -1,7 +1,7 @@
 const cards = [
-  { icon: '⚡', title: 'Your store is too slow for mobile', body: 'Over 53% of visitors abandon a site that takes longer than 3 seconds to load. Fashion shoppers on mobile will not wait.' },
-  { icon: '🛒', title: '77% of shoppers leave before buying', body: 'Fashion has the highest cart abandonment rate of any ecommerce category. Most of it is fixable with the right Shopify setup.' },
-  { icon: '📦', title: 'Returns are cutting your margin', body: 'Poor product pages, weak size guides and unclear fit information drive returns. Every return is a development problem.' },
+  { icon: '⚡', title: 'Your store is too slow for mobile', body: 'Over 53% of visitors abandon a site that takes longer than 3 seconds to load. Mobile shoppers will not wait — and Google ranks slow stores lower.' },
+  { icon: '🛒', title: '70% of shoppers leave before buying', body: 'Cart abandonment is the silent killer of ecommerce revenue. Most of it is fixable with the right Shopify setup, checkout flow and product page architecture.' },
+  { icon: '📉', title: 'Your theme is holding you back', body: 'Bloated themes, poor UX and missing functionality cap your conversion rate. Every percentage point lost on PDP, cart or checkout is a development problem.' },
 ]
 
 export default function ProblemSection() {
