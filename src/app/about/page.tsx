@@ -3,6 +3,9 @@ import Breadcrumb from '@/components/layout/Breadcrumb'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, ExternalLink, Star, Award } from 'lucide-react'
 import TrustProfiles from '@/components/home/TrustProfiles'
+import FounderIntro from '@/components/ui/FounderIntro'
+import VideoTestimonialGrid from '@/components/ui/VideoTestimonialGrid'
+import { clientVideos } from '@/data/videos'
 import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
 
@@ -134,6 +137,11 @@ export default function AboutPage() {
           <p className="mw-eyebrow">The Founder</p>
           <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)', marginBottom: '1.5rem' }}>Meet the person<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>behind the work.</em></h2>
 
+          {/* Founder intro video */}
+          <div style={{ maxWidth: '720px', marginBottom: '2rem' }}>
+            <FounderIntro />
+          </div>
+
           <div style={{ maxWidth: '720px', marginBottom: '2rem' }}>
             <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.02rem', lineHeight: 1.85, fontWeight: 300 }}>
               <p style={{ marginBottom: '1.1rem' }}>
@@ -187,6 +195,15 @@ export default function AboutPage() {
         <div className="mb-14">
           <p className="mw-eyebrow">Client Feedback</p>
           <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)', marginBottom: '1.5rem' }}>What clients say</h2>
+
+          {/* Video reviews */}
+          <div className="mb-6">
+            <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', fontWeight: 600, marginBottom: '0.85rem' }}>
+              ▶ On-camera reviews
+            </p>
+            <VideoTestimonialGrid videos={clientVideos.slice(0, 3)} theme="dark" />
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {testimonials.map((t, i) => (
               <div key={i} className="mw-card" style={{ padding: '2rem' }}>

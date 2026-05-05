@@ -6,6 +6,9 @@ import ContactForm from '@/components/contact/ContactForm'
 import { breadcrumb, faqPage, renderJsonLd, webPage } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
 import { getPlanBySlug } from '@/lib/pricing'
+import FounderIntro from '@/components/ui/FounderIntro'
+import VideoTestimonialGrid from '@/components/ui/VideoTestimonialGrid'
+import { clientVideos } from '@/data/videos'
 
 const contactFaqs = [
   { question: 'How do I get started with Miracle Websoft?', answer: 'Fill in the contact form or message us on WhatsApp. We reply within 24 hours. If your project is a good fit, we schedule a 30-minute discovery call, then send a detailed proposal with clear scope, timeline, and fixed pricing. No vague estimates.' },
@@ -167,6 +170,22 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                     </div>
                   </>
                 )}
+              </div>
+
+              {/* Founder intro video */}
+              <div style={{ marginBottom: '2.5rem' }}>
+                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.9rem' }}>
+                  ▶ A 60-second hello before you reach out
+                </p>
+                <FounderIntro caption="" />
+              </div>
+
+              {/* Video reviews */}
+              <div style={{ marginBottom: '2.5rem' }}>
+                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.9rem' }}>
+                  ▶ Watch real client reviews
+                </p>
+                <VideoTestimonialGrid videos={clientVideos.slice(0, 3)} theme="dark" />
               </div>
 
               {/* Reviews */}

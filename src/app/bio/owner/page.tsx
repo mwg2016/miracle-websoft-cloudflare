@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { MapPin, Mail, Phone, Calendar, CreditCard, ArrowUpRight, CheckCircle2, Download } from 'lucide-react'
 import { breadcrumb, person, renderJsonLd } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
+import YouTubeEmbed from '@/components/ui/YouTubeEmbed'
+import { clientVideos, founderIntro } from '@/data/videos'
 
 export const metadata: Metadata = {
   title: 'Karam Singh Mehra — Shopify Expert & Founder | Miracle Websoft',
@@ -233,6 +235,24 @@ export default function OwnerBioPage() {
           </div>
         </div>
 
+        {/* Founder intro video */}
+        <div style={{
+          background: 'rgba(255,255,255,0.025)',
+          border: '1px solid rgba(108,99,255,0.22)',
+          borderRadius: 20, padding: '1rem',
+          marginBottom: '0.75rem',
+        }}>
+          <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(108,99,255,0.85)', marginBottom: '0.6rem', textAlign: 'center' }}>
+            ▶ Watch my 60-second intro
+          </div>
+          <YouTubeEmbed
+            videoId={founderIntro.videoId}
+            title={founderIntro.title}
+            aspect="16/9"
+            rounded="14px"
+          />
+        </div>
+
         {/* CTA buttons */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '0.75rem' }}>
           <a href={MEETING_LINK} target="_blank" rel="noopener noreferrer" style={{
@@ -389,6 +409,30 @@ export default function OwnerBioPage() {
               <Phone size={14} style={{ color: '#6C63FF', flexShrink: 0 }} />
               <span style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.55)' }}>+91 62392 69736</span>
             </a>
+          </div>
+        </div>
+
+        {/* Client video reviews */}
+        <div style={{
+          background: 'rgba(255,255,255,0.025)',
+          border: '1px solid rgba(255,255,255,0.08)',
+          borderRadius: 20, padding: '1.25rem',
+          marginBottom: '0.75rem',
+        }}>
+          <div style={{ fontSize: '0.65rem', fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: '0.85rem' }}>
+            ▶ Client Video Reviews
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            {clientVideos.slice(0, 3).map((v) => (
+              <div key={v.videoId}>
+                <YouTubeEmbed
+                  videoId={v.videoId}
+                  title={v.title}
+                  aspect={v.aspect ?? '16/9'}
+                  rounded="12px"
+                />
+              </div>
+            ))}
           </div>
         </div>
 

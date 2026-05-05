@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { jobs } from '@/data/jobs'
 import { outboundHref } from '@/lib/outbound'
+import VideoTestimonialGrid from '@/components/ui/VideoTestimonialGrid'
+import FounderIntro from '@/components/ui/FounderIntro'
+import { clientVideos } from '@/data/videos'
 
 const UPWORK_FREELANCER = outboundHref('upwork', 'https://www.upwork.com/freelancers/shopifydeveloperupwork')
 
@@ -221,6 +224,41 @@ export default function ReviewsPage() {
                 {avgRating} / 5.0 from {reviewedJobs.length} Upwork reviews
               </span>
             </div>
+          </div>
+        </section>
+
+        {/* Video reviews — featured */}
+        <section style={{ paddingTop: '4rem', paddingBottom: '4rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+          <div className="mw-container">
+            <div className="flex items-end justify-between flex-wrap gap-4 mb-6">
+              <div>
+                <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#F59E0B', fontWeight: 600, marginBottom: '0.5rem' }}>
+                  ▶ Video Reviews
+                </p>
+                <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(24px,3vw,34px)' }}>
+                  Hear it from clients on camera.
+                </h2>
+                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', marginTop: '0.5rem', maxWidth: '520px' }}>
+                  Unscripted on-camera reviews from Shopify store owners we&apos;ve worked with.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-5 items-start">
+              <VideoTestimonialGrid videos={clientVideos.slice(0, 3)} theme="dark" metricColor="#F59E0B" />
+              <div>
+                <FounderIntro
+                  variant="compact"
+                  caption="Watch a 60-second intro from Karam — the founder who personally leads every project."
+                />
+              </div>
+            </div>
+
+            {clientVideos.length > 3 && (
+              <div className="mt-5">
+                <VideoTestimonialGrid videos={clientVideos.slice(3)} theme="dark" metricColor="#F59E0B" />
+              </div>
+            )}
           </div>
         </section>
 
