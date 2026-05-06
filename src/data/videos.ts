@@ -43,14 +43,6 @@ export const clientVideos: VideoTestimonial[] = [
     aspect: '16/9',
   },
   {
-    videoId: 'mv-2p80wmQU',
-    title: 'Quick client shoutout — Miracle Websoft',
-    speaker: 'Verified Shopify Client',
-    metric: 'Short · 60 sec',
-    category: 'Quick Review',
-    aspect: '9/16',
-  },
-  {
     videoId: 'nxVqcIxrWpE',
     title: 'Shopify client review — long-term ecommerce partnership',
     speaker: 'Verified Shopify Client',
