@@ -7,6 +7,17 @@ function generateNonce() {
   return btoa(String.fromCharCode(...arr))
 }
 
+// Google Ads conversion beacons go to the visitor's regional Google domain.
+// CSP source-lists can't wildcard a TLD, so we enumerate the major ones.
+const GOOGLE_REGIONAL = [
+  'com', 'co.uk', 'co.in', 'com.au', 'ca', 'de', 'fr', 'es', 'it', 'nl',
+  'com.br', 'co.jp', 'co.kr', 'com.mx', 'com.sg', 'com.hk', 'com.tw',
+  'se', 'no', 'dk', 'fi', 'pl', 'ie', 'ch', 'at', 'be', 'pt', 'gr',
+  'ro', 'cz', 'hu', 'com.ph', 'com.vn', 'com.my', 'co.th', 'co.id',
+  'co.nz', 'co.za', 'com.ar', 'com.tr', 'cl', 'com.eg', 'com.sa', 'ae',
+  'com.pk', 'com.bd', 'lk',
+].map((tld) => `https://www.google.${tld}`).join(' ')
+
 function buildCsp(nonce: string) {
   return [
     "default-src 'self'",
@@ -16,7 +27,7 @@ function buildCsp(nonce: string) {
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "img-src 'self' data: blob: https:",
     "font-src 'self' https: data:",
-    "connect-src 'self' https://www.google.com https://www.googleadservices.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.doubleclick.net https://www.googletagmanager.com https://*.googletagmanager.com https://*.facebook.com https://*.facebook.net https://*.clarity.ms https://c.bing.com",
+    `connect-src 'self' ${GOOGLE_REGIONAL} https://www.googleadservices.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.doubleclick.net https://www.googletagmanager.com https://*.googletagmanager.com https://*.facebook.com https://*.facebook.net https://*.clarity.ms https://c.bing.com`,
     "frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.googletagmanager.com https://td.doubleclick.net https://*.facebook.com",
     "media-src 'self' https:",
     "object-src 'none'",
