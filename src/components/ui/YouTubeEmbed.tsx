@@ -22,9 +22,12 @@ export default function YouTubeEmbed({
   showCaption = false,
 }: Props) {
   const [loaded, setLoaded] = useState(false)
+  // hqdefault.jpg is the only YouTube thumbnail size guaranteed to exist for
+  // every video. maxresdefault/sddefault 404 for non-HD uploads — using hq
+  // by default keeps the console clean.
   const thumb =
     thumbnail ||
-    `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`
+    `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
 
   return (
     <div
@@ -63,29 +66,12 @@ export default function YouTubeEmbed({
             alt={title}
             loading="lazy"
             decoding="async"
-            onLoad={(e) => {
-              const img = e.currentTarget
-              // YouTube returns a 120x90 gray placeholder when a higher-res thumb doesn't exist.
-              // Detect that and downgrade in order: maxres → sd → hq → mq.
-              if (img.naturalWidth === 120 && img.naturalHeight === 90) {
-                if (img.src.includes('maxresdefault')) {
-                  img.src = `https://i.ytimg.com/vi/${videoId}/sddefault.jpg`
-                } else if (img.src.includes('sddefault')) {
-                  img.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
-                } else if (img.src.includes('hqdefault')) {
-                  img.src = `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`
-                }
-              }
-            }}
             onError={(e) => {
+              // hqdefault is universal but a caller may pass a custom thumbnail
+              // (e.g. maxresdefault) — fall back to mqdefault as a last resort.
               const img = e.currentTarget
-              if (img.src.includes('maxresdefault')) {
-                img.src = `https://i.ytimg.com/vi/${videoId}/sddefault.jpg`
-              } else if (img.src.includes('sddefault')) {
-                img.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
-              } else if (img.src.includes('hqdefault')) {
-                img.src = `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`
-              }
+              const fallback = `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`
+              if (img.src !== fallback) img.src = fallback
             }}
             style={{
               position: 'absolute',
