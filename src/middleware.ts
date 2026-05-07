@@ -15,8 +15,8 @@ function buildCsp(nonce: string) {
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https:`,
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "img-src 'self' data: blob: https:",
-    "font-src 'self' https://fonts.gstatic.com data:",
-    "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://*.googletagmanager.com https://googleads.g.doubleclick.net https://td.doubleclick.net https://*.facebook.com https://*.facebook.net https://*.clarity.ms https://c.bing.com",
+    "font-src 'self' https: data:",
+    "connect-src 'self' https://www.google.com https://www.googleadservices.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.doubleclick.net https://www.googletagmanager.com https://*.googletagmanager.com https://*.facebook.com https://*.facebook.net https://*.clarity.ms https://c.bing.com",
     "frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.googletagmanager.com https://td.doubleclick.net https://*.facebook.com",
     "media-src 'self' https:",
     "object-src 'none'",
@@ -24,7 +24,7 @@ function buildCsp(nonce: string) {
     "form-action 'self'",
     "frame-ancestors 'none'",
     "require-trusted-types-for 'script'",
-    "trusted-types default 'allow-duplicates'",
+    "trusted-types * 'allow-duplicates'",
     "upgrade-insecure-requests",
   ].join('; ')
 }
