@@ -73,7 +73,7 @@ export default async function AdminOutbound({ searchParams }: { searchParams: Pr
                   borderTop: i === 0 ? 'none' : '1px solid rgba(255,255,255,0.05)',
                   fontSize: '0.82rem',
                 }}>
-                  <span style={{ color: 'rgba(255,255,255,0.45)', fontVariantNumeric: 'tabular-nums' }}>{fmtTime(o.ts)}</span>
+                  <span style={{ color: 'rgba(255,255,255,0.6)', fontVariantNumeric: 'tabular-nums' }}>{fmtTime(o.ts)}</span>
                   <span style={{
                     fontSize: '0.7rem', fontWeight: 600, padding: '0.2rem 0.55rem', borderRadius: 9999, textAlign: 'center',
                     background: 'rgba(108,99,255,0.12)', color: '#a78bfa',

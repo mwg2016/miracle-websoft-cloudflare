@@ -103,7 +103,7 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
             <span className="mw-eyebrow">COMMON CHALLENGES</span>
             <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(24px,3vw,36px)' }}>
               What slows businesses down<br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>in this space.</em>
+              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>in this space.</em>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -193,7 +193,7 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
               <span className="mw-eyebrow">GET A FREE PROPOSAL</span>
               <h2 style={{ color: '#fff', fontSize: 'clamp(28px,4vw,44px)', marginBottom: '1.5rem', lineHeight: 1.15 }}>
                 Let&apos;s build your<br />
-                <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.45)' }}>Shopify store.</em>
+                <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>Shopify store.</em>
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2.5rem', fontWeight: 300 }}>
                 Send us your project brief and we&apos;ll come back with a fixed-price proposal, timeline and recommended approach — within 24 hours.

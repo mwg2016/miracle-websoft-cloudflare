@@ -10,7 +10,7 @@ function StarRating({ rating }: { rating: number }) {
       {[...Array(5)].map((_, i) => (
         <span key={i} style={{ color: i < full ? '#F59E0B' : 'rgba(255,255,255,0.15)', fontSize: '0.8rem' }}>★</span>
       ))}
-      <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.45)', marginLeft: '2px' }}>{rating.toFixed(1)}</span>
+      <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginLeft: '2px' }}>{rating.toFixed(1)}</span>
     </div>
   )
 }
@@ -67,7 +67,7 @@ export default function WorkList() {
       </div>
 
       {/* Count */}
-      <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.35)', marginBottom: '1.5rem' }}>
+      <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)', marginBottom: '1.5rem' }}>
         Showing {filtered.length} verified project{filtered.length !== 1 ? 's' : ''}
         {active !== 'All' ? ` in ${active}` : ' across all categories'}
       </p>
@@ -129,7 +129,7 @@ export default function WorkList() {
               {job.tags.map(tag => (
                 <span
                   key={tag}
-                  style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.4)', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 9999, padding: '0.15rem 0.5rem' }}
+                  style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 9999, padding: '0.15rem 0.5rem' }}
                 >
                   {tag}
                 </span>
@@ -137,7 +137,7 @@ export default function WorkList() {
             </div>
 
             <div className="flex items-center gap-2 pt-3 mt-auto" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-              <span style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.30)' }}>{job.completedDate}</span>
+              <span style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.6)' }}>{job.completedDate}</span>
               <span style={{ fontSize: '0.68rem', color: '#10B981', fontWeight: 600, letterSpacing: '0.05em' }}>✓ VERIFIED</span>
               <span style={{ marginLeft: 'auto', fontSize: '0.72rem', color: 'var(--accent)', fontWeight: 500 }}>Details →</span>
             </div>

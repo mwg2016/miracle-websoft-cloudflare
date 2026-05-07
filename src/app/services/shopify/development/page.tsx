@@ -184,7 +184,7 @@ export default function ShopifyDevelopmentPage() {
             ].map((s, i) => (
               <div key={i} style={{ background: '#080808', padding: '1.25rem 2rem', textAlign: 'center' }}>
                 <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#fff', lineHeight: 1 }}>{s.stat}</div>
-                <div style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.4)', marginTop: '0.3rem' }}>{s.label}</div>
+                <div style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.3rem' }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -214,7 +214,7 @@ export default function ShopifyDevelopmentPage() {
             {/* ROI callout */}
             <div className="rounded-2xl p-6 flex flex-col justify-between" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
               <div>
-                <p style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)', fontWeight: 600, marginBottom: '0.5rem' }}>Why Custom vs. Theme</p>
+                <p style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '0.5rem' }}>Why Custom vs. Theme</p>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '1.25rem', lineHeight: 1.4 }}>
                   A 1% conversion lift on a $500K store pays for our entire build within 60 days.
                 </h3>
@@ -227,14 +227,14 @@ export default function ShopifyDevelopmentPage() {
                     <div key={row.store} className="flex items-center justify-between rounded-xl px-4 py-3" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
                       <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>{row.store}</span>
                       <div className="flex items-center gap-3">
-                        <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)' }}>{row.lift}</span>
+                        <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>{row.lift}</span>
                         <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#10B981' }}>{row.extra}</span>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-              <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.28)', marginTop: '1.25rem', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', marginTop: '1.25rem', lineHeight: 1.5 }}>
                 Our average across completed builds is a 42% conversion rate improvement. These figures use 1% as a conservative floor.
               </p>
             </div>
@@ -303,7 +303,7 @@ export default function ShopifyDevelopmentPage() {
             {integrations.map((item, i) => (
               <div key={i} className="rounded-xl px-4 py-3 flex flex-col" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
                 <span style={{ fontSize: '0.88rem', fontWeight: 600, color: '#fff', marginBottom: '0.15rem' }}>{item.name}</span>
-                <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>{item.category}</span>
+                <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>{item.category}</span>
               </div>
             ))}
           </div>
@@ -332,7 +332,7 @@ export default function ShopifyDevelopmentPage() {
               <Link key={i} href={ind.href} style={{ textDecoration: 'none' }} className="group">
                 <div className="rounded-xl p-4 h-full transition-all" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
                   <p style={{ fontWeight: 600, color: '#fff', fontSize: '0.88rem', marginBottom: '0.25rem', lineHeight: 1.3 }}>{ind.name}</p>
-                  <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.38)', lineHeight: 1.4 }}>{ind.highlight}</p>
+                  <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.4 }}>{ind.highlight}</p>
                   <div className="flex items-center gap-1 mt-2" style={{ color: 'var(--accent)', fontSize: '0.7rem', fontWeight: 600 }}>
                     View <ArrowRight size={10} />
                   </div>

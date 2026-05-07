@@ -37,11 +37,11 @@ export default function LoginForm({ next }: { next?: string }) {
       borderRadius: 18,
       padding: '2rem 1.75rem',
     }}>
-      <label style={{ display: 'block', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', marginBottom: '0.5rem' }}>
+      <label style={{ display: 'block', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.5rem' }}>
         Password
       </label>
       <div style={{ position: 'relative' }}>
-        <Lock size={14} style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: 'rgba(255,255,255,0.3)' }} />
+        <Lock size={14} style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: 'rgba(255,255,255,0.6)' }} />
         <input
           type="password"
           autoFocus

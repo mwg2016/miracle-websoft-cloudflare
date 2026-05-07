@@ -81,11 +81,11 @@ export default async function AdminAttribution() {
           { k: 'fbc', label: '_fbc (Meta click)', val: clickIdStats.fbc },
         ].map(c => (
           <Card key={c.k}>
-            <div style={{ fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.4rem' }}>
+            <div style={{ fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.4rem' }}>
               {c.label}
             </div>
             <div style={{ fontSize: '1.4rem', fontWeight: 600, color: '#fff' }}>
-              {c.val} <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.4)', fontWeight: 400 }}>leads</span>
+              {c.val} <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)', fontWeight: 400 }}>leads</span>
             </div>
           </Card>
         ))}

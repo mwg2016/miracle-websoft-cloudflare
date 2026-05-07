@@ -191,7 +191,7 @@ export default function CaseStudiesPage() {
               ].map(({ value, label }) => (
                 <div key={label}>
                   <div style={{ fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 700, color: '#fff', lineHeight: 1, letterSpacing: '-0.02em' }}>{value}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.38)', marginTop: '0.25rem' }}>{label}</div>
+                  <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.25rem' }}>{label}</div>
                 </div>
               ))}
             </div>
@@ -222,7 +222,7 @@ export default function CaseStudiesPage() {
                   {/* Big result */}
                   <div className="flex items-baseline gap-3 mb-1">
                     <span style={{ fontSize: 'clamp(2.5rem,5vw,3.5rem)', fontWeight: 800, color: cs.color, lineHeight: 1, letterSpacing: '-0.03em' }}>{cs.result}</span>
-                    <span style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.45)', fontWeight: 500 }}>{cs.resultLabel}</span>
+                    <span style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>{cs.resultLabel}</span>
                   </div>
 
                   {/* Title */}
@@ -232,7 +232,7 @@ export default function CaseStudiesPage() {
 
                   {/* What we did */}
                   <div style={{ marginBottom: '1.25rem', flex: 1 }}>
-                    <p style={{ fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)', fontWeight: 600, marginBottom: '0.6rem' }}>What we did</p>
+                    <p style={{ fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '0.6rem' }}>What we did</p>
                     <ul className="flex flex-col gap-2">
                       {cs.bullets.map((b, j) => (
                         <li key={j} className="flex gap-2.5">
@@ -245,7 +245,7 @@ export default function CaseStudiesPage() {
 
                   {/* Duration */}
                   <div className="flex items-center justify-between pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                    <span style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.28)' }}>{cs.duration}</span>
+                    <span style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.6)' }}>{cs.duration}</span>
                     <span style={{ fontSize: '0.68rem', color: '#10B981', fontWeight: 700, letterSpacing: '0.06em' }}>✓ REAL PROJECT</span>
                   </div>
                 </div>
@@ -260,7 +260,7 @@ export default function CaseStudiesPage() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl px-7 py-5" style={{ background: 'rgba(108,99,255,0.08)', border: '1px solid rgba(108,99,255,0.18)' }}>
               <div>
                 <p style={{ fontWeight: 600, color: '#fff', fontSize: '1rem', marginBottom: '0.25rem' }}>Want results like these for your brand?</p>
-                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.45)' }}>Book a free 30-min call — we'll review your store and tell you exactly what's holding it back.</p>
+                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)' }}>Book a free 30-min call — we'll review your store and tell you exactly what's holding it back.</p>
               </div>
               <Link href="/contact" className="mw-btn-primary whitespace-nowrap text-sm">
                 Book Free Strategy Call <ArrowRight size={14} />
@@ -277,7 +277,7 @@ export default function CaseStudiesPage() {
               <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '0.5rem' }}>
                 {portfolioClients.length}+ Brands We've Built on Shopify
               </h2>
-              <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.45)', maxWidth: '500px', lineHeight: 1.7 }}>
+              <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.6)', maxWidth: '500px', lineHeight: 1.7 }}>
                 From DTC fashion startups to established global brands across jewelry, beauty, sports, food, and more.
               </p>
             </div>
@@ -299,7 +299,7 @@ export default function CaseStudiesPage() {
               <Link href="/contact" className="mw-btn-primary inline-flex text-sm px-8 py-4">
                 Book Your Free Strategy Call <ArrowRight size={15} />
               </Link>
-              <p style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.28)', marginTop: '1rem' }}>
+              <p style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.6)', marginTop: '1rem' }}>
                 No commitment · 30-min call · Response within 4–8 hrs · 99% Job Success on Upwork
               </p>
             </div>

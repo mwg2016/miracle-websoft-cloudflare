@@ -215,7 +215,7 @@ export default function OwnerBioPage() {
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem', fontWeight: 400, marginBottom: '0.75rem' }}>
             Founder & Lead Shopify Expert
           </p>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', color: 'rgba(255,255,255,0.28)', fontSize: '0.75rem', marginBottom: '1.25rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', marginBottom: '1.25rem' }}>
             <MapPin size={11} />
             <span>Chandigarh, India | Serving USA, UK & Australia</span>
           </div>
@@ -231,7 +231,7 @@ export default function OwnerBioPage() {
               <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#14a800' }}>Top Rated Plus on Upwork</span>
             </div>
             <StarRating rating={4.9} count="600+" />
-            <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.3)', marginTop: '0.25rem' }}>Top 3% of all Upwork freelancers globally</span>
+            <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.25rem' }}>Top 3% of all Upwork freelancers globally</span>
           </div>
         </div>
 
@@ -314,7 +314,7 @@ export default function OwnerBioPage() {
                 textDecoration: 'none',
               }}>
                 {s.icon}
-                <span style={{ fontSize: '0.62rem', color: 'rgba(255,255,255,0.45)', fontWeight: 500 }}>{s.label}</span>
+                <span style={{ fontSize: '0.62rem', color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>{s.label}</span>
               </a>
             ))}
           </div>
@@ -346,7 +346,7 @@ export default function OwnerBioPage() {
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff', marginBottom: '0.1rem' }}>{p.label}</div>
-                  <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.38)' }}>{p.sub}</div>
+                  <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)' }}>{p.sub}</div>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.25rem' }}>
                   <span style={{
@@ -454,14 +454,14 @@ export default function OwnerBioPage() {
             </div>
             <div>
               <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'rgba(255,255,255,0.7)' }}>Miracle Websoft</div>
-              <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)' }}>View company bio</div>
+              <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)' }}>View company bio</div>
             </div>
           </div>
           <ArrowUpRight size={14} style={{ color: 'rgba(255,255,255,0.25)' }} />
         </Link>
 
         <p style={{ textAlign: 'center', fontSize: '0.7rem', color: 'rgba(255,255,255,0.18)' }}>
-          <Link href="/" style={{ color: 'rgba(255,255,255,0.28)', textDecoration: 'none' }}>miraclewebsoft.com</Link>
+          <Link href="/" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>miraclewebsoft.com</Link>
           {' '}· Shopify Agency for Fashion Brands
         </p>
       </div>

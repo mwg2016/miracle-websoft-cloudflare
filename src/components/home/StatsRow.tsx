@@ -13,7 +13,7 @@ export default function StatsRow() {
           {stats.map((stat, i) => (
             <div key={i} className="text-center">
               <div style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: 'clamp(2.5rem,4vw,3.5rem)', fontWeight: 600, color: '#fff', lineHeight: 1, marginBottom: '0.5rem' }}>{stat.value}</div>
-              <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.5, fontWeight: 400 }}>{stat.label}</p>
+              <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5, fontWeight: 400 }}>{stat.label}</p>
             </div>
           ))}
         </div>

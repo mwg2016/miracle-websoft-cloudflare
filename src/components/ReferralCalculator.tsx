@@ -32,7 +32,7 @@ export default function ReferralCalculator() {
 
       {/* Commission display */}
       <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-        <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', marginBottom: '0.35rem' }}>
+        <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', marginBottom: '0.35rem' }}>
           On a <span style={{ color: 'rgba(255,255,255,0.7)', fontWeight: 600 }}>${fmt(value)}</span> project, you earn
         </div>
         <div style={{
@@ -45,7 +45,7 @@ export default function ReferralCalculator() {
         }}>
           ${fmt(commission)}
         </div>
-        <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)' }}>20% commission · paid after client invoice clears</div>
+        <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>20% commission · paid after client invoice clears</div>
       </div>
 
       {/* Slider */}

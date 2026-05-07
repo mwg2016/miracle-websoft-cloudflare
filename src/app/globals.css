@@ -17,8 +17,8 @@
   --accent-dim:    rgba(108,99,255,0.15);
   --accent-glow:   rgba(108,99,255,0.3);
   --text-1:        #ffffff;
-  --text-2:        rgba(255,255,255,0.6);
-  --text-3:        rgba(255,255,255,0.35);
+  --text-2:        rgba(255,255,255,0.72);
+  --text-3:        rgba(255,255,255,0.6);
   --success:       #10B981;
   --max-width:     1200px;
 }

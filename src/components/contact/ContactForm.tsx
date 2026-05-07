@@ -21,7 +21,7 @@ const labelStyle: React.CSSProperties = {
   display: 'block',
   fontSize: '0.78rem',
   fontWeight: 500,
-  color: 'rgba(255,255,255,0.45)',
+  color: 'rgba(255,255,255,0.6)',
   marginBottom: '0.4rem',
 }
 
@@ -107,13 +107,13 @@ export default function ContactForm() {
         >
           <CheckCircle2 size={18} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: '2px' }} />
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginBottom: '0.25rem' }}>
+            <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.25rem' }}>
               <Tag size={10} style={{ display: 'inline', marginRight: '4px', verticalAlign: '-1px' }} /> Selected plan
             </div>
             <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', marginBottom: '0.15rem' }}>
               {selectedPlan.name} <span style={{ color: 'var(--accent)' }}>· {selectedPlan.price}</span>
             </div>
-            <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>
+            <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>
               {selectedPlan.type === 'build'
                 ? 'No payment yet — we\'ll send a written proposal first. 50% only after you approve.'
                 : 'No payment yet — we\'ll confirm scope, then start with month 1 invoice.'}

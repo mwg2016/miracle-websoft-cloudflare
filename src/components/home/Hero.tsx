@@ -61,7 +61,7 @@ export default function Hero() {
             </Link>
           </div>
 
-          <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.38)', marginBottom: '2.5rem', letterSpacing: '0.01em' }}>
+          <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', marginBottom: '2.5rem', letterSpacing: '0.01em' }}>
             No commitment &nbsp;·&nbsp; 30-min call &nbsp;·&nbsp; Response within 24hrs
           </p>
 
@@ -75,7 +75,7 @@ export default function Hero() {
             <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.65, fontStyle: 'italic', marginBottom: '0.6rem' }}>
               "Had a great experience working with Karam. He developed new custom sections for my store and optimized existing ones. The work was clean, efficient, and exactly what I needed."
             </p>
-            <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.38)', fontWeight: 500 }}>
+            <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>
               Verified Upwork Client &nbsp;·&nbsp; Top Rated Plus
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function Hero() {
       {/* Scroll hint */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none">
         <div style={{ width: '1px', height: '48px', background: 'linear-gradient(to bottom, rgba(108,99,255,0.7), transparent)' }} />
-        <span style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.28)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>scroll</span>
+        <span style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>scroll</span>
       </div>
     </section>
   )

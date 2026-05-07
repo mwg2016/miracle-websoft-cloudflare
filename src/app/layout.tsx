@@ -165,11 +165,19 @@ const jsonLd = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const h = await headers()
   const pathname = h.get('x-pathname') ?? ''
+  const nonce = h.get('x-nonce') ?? undefined
   const isAdmin = pathname.startsWith('/admin')
 
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <head>
+        {/* Trusted Types default policy — must run before any script that touches innerHTML. */}
+        <script
+          nonce={nonce}
+          dangerouslySetInnerHTML={{
+            __html: "if(window.trustedTypes&&trustedTypes.createPolicy){try{trustedTypes.createPolicy('default',{createHTML:s=>s,createScript:s=>s,createScriptURL:s=>s})}catch(e){}}",
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -181,7 +189,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body>
         <ClarityInit />
-        <Script id="gtm-init" strategy="afterInteractive">{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PSP2DJDW');`}</Script>
+        <Script id="gtm-init" nonce={nonce} strategy="afterInteractive">{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PSP2DJDW');`}</Script>
         <noscript>
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSP2DJDW" height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} />
         </noscript>
@@ -196,11 +204,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         )}
 
         {/* ── Analytics (deferred – no render-blocking) ──────────────────── */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-YT1GLKW8L5" strategy="afterInteractive" />
-        <Script id="ga-init" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YT1GLKW8L5');`}</Script>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18095762557" strategy="afterInteractive" />
-        <Script id="gads-init" strategy="afterInteractive">{`gtag('config','AW-18095762557');`}</Script>
-        <Script id="meta-pixel" strategy="afterInteractive">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','854778784223732');fbq('track','PageView');`}</Script>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-YT1GLKW8L5" nonce={nonce} strategy="afterInteractive" />
+        <Script id="ga-init" nonce={nonce} strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YT1GLKW8L5');`}</Script>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18095762557" nonce={nonce} strategy="afterInteractive" />
+        <Script id="gads-init" nonce={nonce} strategy="afterInteractive">{`gtag('config','AW-18095762557');`}</Script>
+        <Script id="meta-pixel" nonce={nonce} strategy="afterInteractive">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','854778784223732');fbq('track','PageView');`}</Script>
       </body>
     </html>
   )

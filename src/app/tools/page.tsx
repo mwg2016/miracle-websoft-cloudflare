@@ -210,7 +210,7 @@ export default function ToolsPage() {
           <span className="mw-eyebrow">TOOL DEVELOPMENT</span>
           <h1 className="text-white mb-5" style={{ maxWidth: '700px' }}>
             We build digital tools.<br />
-            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>Fast. Affordable. Live.</em>
+            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>Fast. Affordable. Live.</em>
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.1rem', lineHeight: 1.75, maxWidth: '540px', marginBottom: '2.5rem' }}>
             From idea to live product in 5–7 days. We've already shipped 3 tools used by thousands.
@@ -244,7 +244,7 @@ export default function ToolsPage() {
                 <div style={{ fontSize: '2rem', fontWeight: 800, color: '#fff', lineHeight: 1 }}>
                   {s.value}<span style={{ color: 'var(--accent)', fontSize: '1.5rem' }}>{s.unit}</span>
                 </div>
-                <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.4)', marginTop: '0.35rem', fontWeight: 500 }}>{s.label}</div>
+                <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.35rem', fontWeight: 500 }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -256,8 +256,8 @@ export default function ToolsPage() {
         <div className="mw-container">
           <div className="mw-section-header">
             <span className="mw-eyebrow">LIVE & SHIPPED</span>
-            <h2 style={{ color: '#fff' }}>Tools we&apos;ve already<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>built and launched.</em></h2>
-            <p style={{ color: 'rgba(255,255,255,0.45)', maxWidth: '480px', margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
+            <h2 style={{ color: '#fff' }}>Tools we&apos;ve already<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>built and launched.</em></h2>
+            <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '480px', margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
               Every tool here was built in under 7 days on a tight budget. Proof that speed and quality aren't opposites.
             </p>
           </div>
@@ -286,10 +286,10 @@ export default function ToolsPage() {
                       {tool.badge}
                     </span>
                     <div style={{ display: 'flex', gap: '0.75rem' }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)', fontWeight: 600 }}>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', fontWeight: 600 }}>
                         <DollarSign size={10} style={{ color: tool.badgeColor }} />{tool.budget}
                       </span>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)', fontWeight: 600 }}>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', fontWeight: 600 }}>
                         <Zap size={10} style={{ color: tool.badgeColor }} />{tool.timeline}
                       </span>
                     </div>
@@ -298,7 +298,7 @@ export default function ToolsPage() {
                   <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#fff', marginBottom: '0.6rem' }}>
                     {tool.title}
                   </h3>
-                  <p style={{ color: 'rgba(255,255,255,0.48)', fontSize: '0.85rem', lineHeight: 1.65, marginBottom: '1.25rem', flex: 1 }}>
+                  <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', lineHeight: 1.65, marginBottom: '1.25rem', flex: 1 }}>
                     {tool.desc}
                   </p>
 
@@ -309,7 +309,7 @@ export default function ToolsPage() {
                         <Icon size={13} style={{ color: tool.badgeColor, marginTop: '2px', flexShrink: 0 }} />
                         <div>
                           <span style={{ fontSize: '0.78rem', fontWeight: 600, color: 'rgba(255,255,255,0.75)' }}>{label}</span>
-                          <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)', marginLeft: '0.35rem' }}>— {desc}</span>
+                          <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginLeft: '0.35rem' }}>— {desc}</span>
                         </div>
                       </div>
                     ))}
@@ -337,7 +337,7 @@ export default function ToolsPage() {
                     )}
                     <Link href={outboundHref('external', tool.url)} target="_blank" rel="noopener noreferrer" style={{
                       display: 'inline-flex', alignItems: 'center', gap: '0.3rem',
-                      border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.4)',
+                      border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.6)',
                       padding: '0.5rem 1rem', borderRadius: '7px',
                       fontWeight: 500, fontSize: '0.8rem', textDecoration: 'none',
                     }}>
@@ -356,8 +356,8 @@ export default function ToolsPage() {
         <div className="mw-container">
           <div className="mw-section-header">
             <span className="mw-eyebrow">PRICING</span>
-            <h2 style={{ color: '#fff' }}>Simple pricing.<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>No surprises.</em></h2>
-            <p style={{ color: 'rgba(255,255,255,0.45)', maxWidth: '440px', margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
+            <h2 style={{ color: '#fff' }}>Simple pricing.<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>No surprises.</em></h2>
+            <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '440px', margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
               Fixed-price quotes only. You know the cost before we start. No hourly billing, no scope creep.
             </p>
           </div>
@@ -394,7 +394,7 @@ export default function ToolsPage() {
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '1.25rem' }}>
                     <Calendar size={12} style={{ color: tier.color }} />
-                    <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.4)', fontWeight: 500 }}>{tier.timeline} delivery</span>
+                    <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>{tier.timeline} delivery</span>
                   </div>
                   <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6, marginBottom: '1.5rem', flex: 1 }}>
                     {tier.desc}
@@ -420,7 +420,7 @@ export default function ToolsPage() {
             ))}
           </div>
 
-          <p style={{ textAlign: 'center', marginTop: '2rem', fontSize: '0.82rem', color: 'rgba(255,255,255,0.3)' }}>
+          <p style={{ textAlign: 'center', marginTop: '2rem', fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)' }}>
             All prices in USD · Fixed-price only · Source code included · Free post-launch support
           </p>
         </div>
@@ -431,7 +431,7 @@ export default function ToolsPage() {
         <div className="mw-container">
           <div className="mw-section-header">
             <span className="mw-eyebrow">PROCESS</span>
-            <h2 style={{ color: '#fff' }}>From idea to live<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>in under a week.</em></h2>
+            <h2 style={{ color: '#fff' }}>From idea to live<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>in under a week.</em></h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -451,7 +451,7 @@ export default function ToolsPage() {
                 <h4 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '0.5rem' }}>
                   {step.title}
                 </h4>
-                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.65, margin: 0 }}>
+                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.65, margin: 0 }}>
                   {step.desc}
                 </p>
               </div>
@@ -470,9 +470,9 @@ export default function ToolsPage() {
               <span className="mw-eyebrow">GET A QUOTE</span>
               <h2 style={{ color: '#fff', marginBottom: '1rem' }}>
                 Have a tool idea?<br />
-                <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>Tell us. We&apos;ll build it.</em>
+                <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>Tell us. We&apos;ll build it.</em>
               </h2>
-              <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: '420px', marginBottom: '2.5rem' }}>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: '420px', marginBottom: '2.5rem' }}>
                 Send us a quick message. We&apos;ll scope it, price it and tell you if we can ship it in 7 days.
                 No commitment, no fluff.
               </p>
@@ -503,7 +503,7 @@ export default function ToolsPage() {
                 <MessageCircle size={18} style={{ color: '#25D366', flexShrink: 0 }} />
                 <div>
                   <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff', lineHeight: 1.2 }}>Prefer WhatsApp?</div>
-                  <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.4)' }}>Message Karam directly — replies within an hour</div>
+                  <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>Message Karam directly — replies within an hour</div>
                 </div>
                 <span style={{ marginLeft: 'auto', fontSize: '0.68rem', fontWeight: 700, padding: '0.2rem 0.6rem', borderRadius: '9999px', background: '#25D366', color: '#fff', flexShrink: 0 }}>Chat</span>
               </a>
@@ -518,7 +518,7 @@ export default function ToolsPage() {
                   </div>
                   <div>
                     <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>Tell Karam your idea</div>
-                    <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>Founder · quotes within 24 h · fixed price</div>
+                    <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>Founder · quotes within 24 h · fixed price</div>
                   </div>
                 </div>
                 <div style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: '1.25rem', paddingBottom: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>

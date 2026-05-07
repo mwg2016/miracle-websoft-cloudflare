@@ -67,12 +67,12 @@ export default function IntentRouter() {
                 <span style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>What are you looking for?</span>
               </div>
               <button onClick={close} aria-label="Close"
-                style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.4)', padding: 4, display: 'flex' }}>
+                style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.6)', padding: 4, display: 'flex' }}>
                 <X size={18} />
               </button>
             </div>
 
-            <p style={{ fontSize: '0.74rem', color: 'rgba(255,255,255,0.4)', margin: '0 0 0.9rem', lineHeight: 1.6 }}>
+            <p style={{ fontSize: '0.74rem', color: 'rgba(255,255,255,0.6)', margin: '0 0 0.9rem', lineHeight: 1.6 }}>
               Pick one and we&apos;ll take you there.
             </p>
 
@@ -84,20 +84,20 @@ export default function IntentRouter() {
                   className="mw-intent-chip"
                 >
                   <span>{opt.label}</span>
-                  <ArrowRight size={13} style={{ color: 'rgba(255,255,255,0.35)', flexShrink: 0 }} />
+                  <ArrowRight size={13} style={{ color: 'rgba(255,255,255,0.6)', flexShrink: 0 }} />
                 </button>
               ))}
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, margin: '1rem 0 0.75rem' }}>
               <div style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.06)' }} />
-              <span style={{ fontSize: '0.66rem', color: 'rgba(255,255,255,0.3)', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' }}>Or</span>
+              <span style={{ fontSize: '0.66rem', color: 'rgba(255,255,255,0.6)', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' }}>Or</span>
               <div style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.06)' }} />
             </div>
 
             <form onSubmit={handleSearch}>
               <div style={{ position: 'relative' }}>
-                <Search size={13} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'rgba(255,255,255,0.3)' }} />
+                <Search size={13} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'rgba(255,255,255,0.6)' }} />
                 <input
                   ref={inputRef}
                   type="text"

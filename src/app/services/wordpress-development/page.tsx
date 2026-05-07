@@ -121,7 +121,7 @@ export default function WordPressDevelopmentPage() {
             <span className="mw-eyebrow">WORDPRESS DEVELOPMENT</span>
             <h1 style={{ color: '#fff', marginBottom: '1.5rem' }}>
               WordPress Development<br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.45)' }}>Built properly. Built to last.</em>
+              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>Built properly. Built to last.</em>
             </h1>
             <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: '600px', fontWeight: 300 }}>
               Custom WordPress websites — no page builders, no bloated themes, no compromise on performance. From WooCommerce stores to membership platforms to corporate sites, built to the specification your business actually needs.
@@ -166,7 +166,7 @@ export default function WordPressDevelopmentPage() {
             <span className="mw-eyebrow">WHAT WE BUILD</span>
             <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(24px,3vw,36px)' }}>
               WordPress for every<br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>business model.</em>
+              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>business model.</em>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -256,7 +256,7 @@ export default function WordPressDevelopmentPage() {
               <span className="mw-eyebrow">GET A FREE PROPOSAL</span>
               <h2 style={{ color: '#fff', fontSize: 'clamp(28px,4vw,44px)', marginBottom: '1.5rem', lineHeight: 1.15 }}>
                 Let&apos;s build your<br />
-                <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.45)' }}>WordPress site.</em>
+                <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>WordPress site.</em>
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2.5rem', fontWeight: 300 }}>
                 Tell us what you need to build and we&apos;ll come back with a fixed-price proposal and timeline within 24 hours. No commitment required.

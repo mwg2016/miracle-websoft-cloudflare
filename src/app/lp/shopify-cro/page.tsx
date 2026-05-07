@@ -440,7 +440,7 @@ export default function ShopifyCROLandingPage() {
                     <div
                       style={{
                         fontSize: '0.72rem',
-                        color: 'rgba(255,255,255,0.45)',
+                        color: 'rgba(255,255,255,0.6)',
                         marginTop: '0.4rem',
                         letterSpacing: '0.04em',
                       }}
@@ -594,7 +594,7 @@ export default function ShopifyCROLandingPage() {
                     <span
                       style={{
                         fontSize: '0.65rem',
-                        color: 'rgba(255,255,255,0.4)',
+                        color: 'rgba(255,255,255,0.6)',
                         fontWeight: 600,
                         letterSpacing: '0.06em',
                       }}
@@ -861,7 +861,7 @@ export default function ShopifyCROLandingPage() {
                 >
                   <div>
                     <div style={{ color: '#fff', fontSize: '0.88rem', fontWeight: 600 }}>{t.name}</div>
-                    <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.75rem', marginTop: '0.2rem' }}>
+                    <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', marginTop: '0.2rem' }}>
                       {t.role}
                     </div>
                   </div>

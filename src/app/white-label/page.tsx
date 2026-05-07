@@ -272,7 +272,7 @@ export default function WhiteLabelPage() {
               ].map(s => (
                 <div key={s.label}>
                   <div style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: '1.65rem', fontWeight: 700, color: '#fff', lineHeight: 1 }}>{s.val}</div>
-                  <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.35)', marginTop: '0.25rem' }}>{s.label}</div>
+                  <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.25rem' }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -311,7 +311,7 @@ export default function WhiteLabelPage() {
           <div className="mw-section-header">
             <span className="mw-eyebrow">How it works</span>
             <h2>You front it. We build it.</h2>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem' }}>Your client never knows we exist unless you want them to.</p>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>Your client never knows we exist unless you want them to.</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem', maxWidth: 860, margin: '0 auto' }}>
@@ -357,7 +357,7 @@ export default function WhiteLabelPage() {
                   color: s.color, marginBottom: '1.25rem',
                 }}>{s.icon}</div>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '0.6rem' }}>{s.title}</h3>
-                <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.42)', lineHeight: 1.7, margin: 0 }}>{s.body}</p>
+                <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, margin: 0 }}>{s.body}</p>
               </div>
             ))}
           </div>
@@ -370,7 +370,7 @@ export default function WhiteLabelPage() {
           <div className="mw-section-header">
             <span className="mw-eyebrow">Engagement models</span>
             <h2>Hire us the way that fits your agency</h2>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem' }}>One-off project, ongoing hours, or a dedicated monthly team — you choose.</p>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>One-off project, ongoing hours, or a dedicated monthly team — you choose.</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem', maxWidth: 1000, margin: '0 auto' }}>
@@ -414,7 +414,7 @@ export default function WhiteLabelPage() {
 
                 <div>
                   <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#fff', marginBottom: '0.2rem' }}>{m.title}</h3>
-                  <p style={{ margin: 0, fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)', letterSpacing: '0.04em' }}>{m.sub}</p>
+                  <p style={{ margin: 0, fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.04em' }}>{m.sub}</p>
                 </div>
 
                 <p style={{ margin: 0, fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>{m.description}</p>
@@ -501,7 +501,7 @@ export default function WhiteLabelPage() {
           <div className="mw-section-header">
             <span className="mw-eyebrow">Our work</span>
             <h2>Brands we&apos;ve built & grown</h2>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem' }}>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>
               A sample of real projects across fashion, beauty, sports, and home goods.
               Many more delivered anonymously for agency partners.
             </p>
@@ -521,20 +521,20 @@ export default function WhiteLabelPage() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                   <div>
                     <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '0.15rem' }}>{p.name}</div>
-                    <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)' }}>{p.category} · {p.location}</div>
+                    <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)' }}>{p.category} · {p.location}</div>
                   </div>
                   {p.href && (
                     <a href={p.href} target="_blank" rel="noopener noreferrer" style={{
                       width: 30, height: 30, borderRadius: 8, flexShrink: 0,
                       background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: 'rgba(255,255,255,0.3)',
+                      color: 'rgba(255,255,255,0.6)',
                     }}>
                       <ArrowUpRight size={13} />
                     </a>
                   )}
                 </div>
-                <p style={{ margin: 0, fontSize: '0.8rem', color: 'rgba(255,255,255,0.42)', lineHeight: 1.6 }}>{p.desc}</p>
+                <p style={{ margin: 0, fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{p.desc}</p>
                 <div style={{
                   display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
                   fontSize: '0.72rem', fontWeight: 700,
@@ -572,7 +572,7 @@ export default function WhiteLabelPage() {
           <div className="mw-section-header">
             <span className="mw-eyebrow">Why agencies choose us</span>
             <h2>Built for agency partnerships</h2>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem' }}>Everything we do is designed to make you look good in front of your client.</p>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>Everything we do is designed to make you look good in front of your client.</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', maxWidth: 1000, margin: '0 auto' }}>
@@ -591,7 +591,7 @@ export default function WhiteLabelPage() {
                   color: w.color,
                 }}>{w.icon}</div>
                 <h3 style={{ fontSize: '0.92rem', fontWeight: 700, color: '#fff', margin: 0 }}>{w.title}</h3>
-                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.42)', lineHeight: 1.65, margin: 0 }}>{w.body}</p>
+                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.65, margin: 0 }}>{w.body}</p>
               </div>
             ))}
           </div>
@@ -621,7 +621,7 @@ export default function WhiteLabelPage() {
                 borderRadius: 14, textAlign: 'center',
               }}>
                 <span style={{ fontSize: '0.8rem', fontWeight: 700, color: t.color }}>{t.label}</span>
-                <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.3)' }}>{t.sub}</span>
+                <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.6)' }}>{t.sub}</span>
               </div>
             ))}
           </div>
@@ -634,7 +634,7 @@ export default function WhiteLabelPage() {
           <div className="mw-section-header">
             <span className="mw-eyebrow">Get started</span>
             <h2>Get a private quote</h2>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem' }}>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>
               Tell us what you need. We&apos;ll reply with a tailored proposal within 24 hours — NDA signed first if you need it.
             </p>
           </div>
@@ -658,7 +658,7 @@ export default function WhiteLabelPage() {
                 padding: '1.4rem 1.6rem',
               }}>
                 <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#fff', marginBottom: '0.6rem' }}>{f.q}</div>
-                <div style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7 }}>{f.a}</div>
+                <div style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7 }}>{f.a}</div>
               </div>
             ))}
           </div>
@@ -687,7 +687,7 @@ export default function WhiteLabelPage() {
             }}>
               Ready to scale your<br />agency&apos;s Shopify output?
             </div>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem', marginBottom: '2rem', maxWidth: 440, margin: '0 auto 2rem' }}>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', marginBottom: '2rem', maxWidth: 440, margin: '0 auto 2rem' }}>
               Send us a brief. We&apos;ll come back with a proposal, timeline, and price — no obligation.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
@@ -721,7 +721,7 @@ export default function WhiteLabelPage() {
       {/* Footer note */}
       <div style={{ position: 'relative', zIndex: 1, paddingBottom: '3rem', textAlign: 'center' }}>
         <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.18)' }}>
-          <Link href="/" style={{ color: 'rgba(255,255,255,0.28)', textDecoration: 'none' }}>miraclewebsoft.com</Link>
+          <Link href="/" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>miraclewebsoft.com</Link>
           {' '}· White Label Shopify Development · Confidential
         </p>
       </div>

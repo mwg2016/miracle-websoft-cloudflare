@@ -140,7 +140,7 @@ export default function AppDevelopmentPage() {
             {/* ROI callout */}
             <div className="rounded-2xl p-6 flex flex-col justify-between" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
               <div>
-                <p style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)', fontWeight: 600, marginBottom: '0.5rem' }}>App Replacement ROI</p>
+                <p style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '0.5rem' }}>App Replacement ROI</p>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '1.25rem', lineHeight: 1.4 }}>
                   A custom app pays for itself — and eliminates the annual cost forever.
                 </h3>
@@ -153,14 +153,14 @@ export default function AppDevelopmentPage() {
                     <div key={row.apps} className="flex items-center justify-between rounded-xl px-4 py-3" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
                       <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>{row.apps}</span>
                       <div className="flex items-center gap-3">
-                        <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)' }}>{row.monthly}</span>
+                        <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>{row.monthly}</span>
                         <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#EF4444' }}>{row.annual}</span>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-              <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.28)', marginTop: '1.25rem', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', marginTop: '1.25rem', lineHeight: 1.5 }}>
                 A custom build typically costs $1,500–$6,000 depending on complexity. Most clients recover the cost in 6–18 months and pay nothing recurring after that.
               </p>
             </div>

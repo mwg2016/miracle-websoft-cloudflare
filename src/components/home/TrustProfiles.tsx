@@ -148,7 +148,7 @@ export default function TrustProfiles() {
                         <Icon size={13} style={{ color: featured.accent }} />
                         <span style={{ fontSize: '1.5rem', fontWeight: 700, color: '#fff', fontFamily: 'var(--font-playfair), Georgia, serif' }}>{stat.value}</span>
                       </div>
-                      <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.4)', fontWeight: 500, letterSpacing: '0.05em' }}>{stat.label}</p>
+                      <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', fontWeight: 500, letterSpacing: '0.05em' }}>{stat.label}</p>
                     </div>
                   )
                 })}
@@ -169,7 +169,7 @@ export default function TrustProfiles() {
                   <ExternalLink size={12} style={{ color: 'rgba(255,255,255,0.2)', flexShrink: 0 }} className="group-hover:text-white transition-colors mt-0.5" />
                 </div>
                 <span style={{ display: 'inline-block', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '0.2rem 0.6rem', borderRadius: '9999px', background: `${p.accent}18`, color: p.accent, border: `1px solid ${p.accent}35`, marginBottom: '0.6rem' }}>{p.badge}</span>
-                <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 }}>{p.description}</p>
+                <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>{p.description}</p>
               </div>
             </Link>
           ))}
@@ -177,7 +177,7 @@ export default function TrustProfiles() {
 
         {/* Social links */}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '2rem' }}>
-          <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '1rem' }}>Follow Us</p>
+          <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '1rem' }}>Follow Us</p>
           <div className="flex flex-wrap gap-3">
             {socials.map(({ name, href, icon: Icon }) => (
               <Link key={name} href={href} target="_blank" rel="noopener noreferrer"
@@ -194,7 +194,7 @@ export default function TrustProfiles() {
         <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
             <div>
-              <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '0.4rem' }}>Shopify App Store</p>
+              <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.4rem' }}>Shopify App Store</p>
               <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)' }}>Browse our published Shopify apps</p>
             </div>
             <Link href={outboundHref('shopify_apps', 'https://apps.shopify.com/partners/miracle-websoft1')} target="_blank" rel="noopener noreferrer" className="mw-btn-outline" style={{ whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.6rem 1.25rem', fontSize: '0.82rem' }}>

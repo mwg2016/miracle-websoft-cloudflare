@@ -8,7 +8,7 @@ export default function IndustryStats({ stats }: Props) {
           {stats.map((stat, i) => (
             <div key={i} className="text-center">
               <div style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: 'clamp(2rem,3.5vw,3rem)', fontWeight: 600, color: '#fff', lineHeight: 1, marginBottom: '0.5rem' }}>{stat.value}</div>
-              <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 }}>{stat.label}</p>
+              <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>{stat.label}</p>
             </div>
           ))}
         </div>

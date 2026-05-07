@@ -113,7 +113,7 @@ export default function WorkPage() {
               ].map(({ value, label }) => (
                 <div key={label}>
                   <div style={{ fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 700, color: '#fff', lineHeight: 1 }}>{value}</div>
-                  <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.40)', marginTop: '0.2rem' }}>{label}</div>
+                  <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.2rem' }}>{label}</div>
                 </div>
               ))}
             </div>
@@ -142,7 +142,7 @@ export default function WorkPage() {
         {/* Client Insights from Upwork */}
         <section style={{ paddingTop: '3rem', paddingBottom: '3rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
           <div className="mw-container">
-            <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.30)', fontWeight: 600, marginBottom: '1.25rem' }}>
+            <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '1.25rem' }}>
               Insights from completed jobs — voted by clients on Upwork
             </p>
             <div className="flex flex-wrap gap-3">
@@ -189,7 +189,7 @@ export default function WorkPage() {
               <a href="/contact" className="mw-btn-primary inline-flex text-sm px-8 py-4">
                 Book Your Free Strategy Call →
               </a>
-              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.30)', marginTop: '1rem', marginBottom: '1.25rem' }}>
+              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '1rem', marginBottom: '1.25rem' }}>
                 99% Job Success · Top Rated Plus on Upwork · Response within 4–8 hrs
               </p>
               <a

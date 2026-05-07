@@ -245,7 +245,7 @@ function PlanCard({ plan, badge }: { plan: Plan; badge: string }) {
         </span>
       )}
 
-      <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.6rem' }}>
+      <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.6rem' }}>
         {badge}
       </div>
       <h3 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: '1.6rem', color: '#fff', marginBottom: '0.5rem', lineHeight: 1.2 }}>
@@ -257,12 +257,12 @@ function PlanCard({ plan, badge }: { plan: Plan; badge: string }) {
           {plan.price}
         </span>
       </div>
-      <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', marginBottom: '1.25rem' }}>{plan.priceSub}</div>
+      <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginBottom: '1.25rem' }}>{plan.priceSub}</div>
 
       <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)', fontStyle: 'italic', lineHeight: 1.55, marginBottom: '0.75rem', fontWeight: 300 }}>
         &ldquo;{plan.promise}&rdquo;
       </p>
-      <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)', marginBottom: '1.5rem', lineHeight: 1.6 }}>
+      <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', marginBottom: '1.5rem', lineHeight: 1.6 }}>
         {plan.bestFor}
       </p>
 
@@ -277,7 +277,7 @@ function PlanCard({ plan, badge }: { plan: Plan; badge: string }) {
         ))}
       </ul>
 
-      <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)', marginBottom: '1.25rem', lineHeight: 1.5, paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+      <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', marginBottom: '1.25rem', lineHeight: 1.5, paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         {plan.meta}
       </div>
 
@@ -368,10 +368,10 @@ export default function PricingPage() {
                 <p className="mw-eyebrow">Build packages</p>
                 <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(24px,3.4vw,36px)' }}>
                   One-time builds.<br />
-                  <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>Pay 50% to start, 50% on launch.</em>
+                  <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>Pay 50% to start, 50% on launch.</em>
                 </h2>
               </div>
-              <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.4)', maxWidth: '320px', lineHeight: 1.6 }}>
+              <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', maxWidth: '320px', lineHeight: 1.6 }}>
                 Every package includes a discovery call, a written proposal, and post-launch support. You only pay if you approve the proposal.
               </p>
             </div>
@@ -388,10 +388,10 @@ export default function PricingPage() {
                 <p className="mw-eyebrow">Monthly maintenance</p>
                 <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(24px,3.4vw,36px)' }}>
                   Keep your store healthy.<br />
-                  <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>Month-to-month. Cancel anytime.</em>
+                  <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>Month-to-month. Cancel anytime.</em>
                 </h2>
               </div>
-              <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.4)', maxWidth: '320px', lineHeight: 1.6 }}>
+              <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', maxWidth: '320px', lineHeight: 1.6 }}>
                 A real Shopify developer on call every month. Updates, fixes, and small improvements handled — so your store keeps working while you focus on the brand.
               </p>
             </div>
@@ -407,7 +407,7 @@ export default function PricingPage() {
               <p className="mw-eyebrow">What happens next</p>
               <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(24px,3.4vw,36px)' }}>
                 From clicking a plan<br />
-                <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>to a launched store.</em>
+                <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>to a launched store.</em>
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', marginTop: '1rem', lineHeight: 1.7 }}>
                 No payment until you&apos;ve had a call, seen the proposal, and said yes. Here&apos;s exactly how it goes:

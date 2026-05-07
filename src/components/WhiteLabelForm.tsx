@@ -25,7 +25,7 @@ const labelStyle: React.CSSProperties = {
   fontWeight: 600,
   letterSpacing: '0.08em',
   textTransform: 'uppercase',
-  color: 'rgba(255,255,255,0.4)',
+  color: 'rgba(255,255,255,0.6)',
   marginBottom: '0.45rem',
 }
 
@@ -186,7 +186,7 @@ export default function WhiteLabelForm() {
               <Shield size={13} style={{ color: nda ? '#6C63FF' : 'rgba(255,255,255,0.3)' }} />
               <span style={{ fontSize: '0.83rem', fontWeight: 600, color: nda ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.5)' }}>Send NDA before sharing brief</span>
             </div>
-            <p style={{ margin: 0, fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)', lineHeight: 1.5 }}>We&apos;ll send a mutual NDA for signing before discussing any project details.</p>
+            <p style={{ margin: 0, fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>We&apos;ll send a mutual NDA for signing before discussing any project details.</p>
           </div>
         </label>
       </div>

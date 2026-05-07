@@ -172,8 +172,8 @@ export default function ReviewsPage() {
           <div className="mw-container relative z-10">
 
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 mb-6" style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.35)' }}>
-              <Link href="/" style={{ color: 'rgba(255,255,255,0.35)', textDecoration: 'none' }}>Home</Link>
+            <nav className="flex items-center gap-2 mb-6" style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>
+              <Link href="/" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>Home</Link>
               <span>/</span>
               <span style={{ color: 'rgba(255,255,255,0.6)' }}>Reviews</span>
             </nav>
@@ -212,7 +212,7 @@ export default function ReviewsPage() {
               ].map(({ value, label }) => (
                 <div key={label}>
                   <div style={{ fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 700, color: '#fff', lineHeight: 1 }}>{value}</div>
-                  <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.40)', marginTop: '0.2rem' }}>{label}</div>
+                  <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.2rem' }}>{label}</div>
                 </div>
               ))}
             </div>
@@ -220,7 +220,7 @@ export default function ReviewsPage() {
             {/* Star display */}
             <div className="flex items-center gap-3">
               <StarRating rating={5} size="lg" />
-              <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)' }}>
+              <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' }}>
                 {avgRating} / 5.0 from {reviewedJobs.length} Upwork reviews
               </span>
             </div>
@@ -265,7 +265,7 @@ export default function ReviewsPage() {
         {/* Featured Reviews — 3 cards full-width */}
         <section style={{ paddingTop: '4rem', paddingBottom: '3rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
           <div className="mw-container">
-            <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.30)', fontWeight: 600, marginBottom: '1.5rem' }}>
+            <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '1.5rem' }}>
               Featured reviews
             </p>
             <div className="grid gap-5 md:grid-cols-3">
@@ -305,7 +305,7 @@ export default function ReviewsPage() {
         {/* Category breakdown bar */}
         <section style={{ paddingTop: '3rem', paddingBottom: '3rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
           <div className="mw-container">
-            <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.30)', fontWeight: 600, marginBottom: '1.25rem' }}>
+            <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '1.25rem' }}>
               Reviews by service category
             </p>
             <div className="flex flex-wrap gap-3">
@@ -331,7 +331,7 @@ export default function ReviewsPage() {
         {/* All reviews grid */}
         <section style={{ paddingTop: '3.5rem', paddingBottom: '6rem' }}>
           <div className="mw-container">
-            <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.30)', fontWeight: 600, marginBottom: '1.5rem' }}>
+            <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '1.5rem' }}>
               All {reviewedJobs.length} verified reviews
             </p>
 
@@ -372,7 +372,7 @@ export default function ReviewsPage() {
                           <span style={{ color: 'rgba(255,255,255,0.25)', fontWeight: 400 }}> · {job.company}</span>
                         )}
                       </p>
-                      <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.28)', marginBottom: '0.6rem' }}>
+                      <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginBottom: '0.6rem' }}>
                         {job.title} · {job.completedDate}
                       </p>
                       <div className="flex items-center justify-between">
@@ -381,7 +381,7 @@ export default function ReviewsPage() {
                         </span>
                         <Link
                           href={`/work/${job.id}`}
-                          style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)', textDecoration: 'none' }}
+                          style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}
                         >
                           Project details →
                         </Link>
@@ -394,7 +394,7 @@ export default function ReviewsPage() {
 
             {/* Upwork profile link */}
             <div className="mt-10 text-center">
-              <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.40)', marginBottom: '1rem' }}>
+              <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', marginBottom: '1rem' }}>
                 Want to see more? All reviews are publicly visible on Upwork.
               </p>
               <a
@@ -429,7 +429,7 @@ export default function ReviewsPage() {
               <Link href="/contact" className="mw-btn-primary inline-flex text-sm px-8 py-4">
                 Book Your Free Strategy Call →
               </Link>
-              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.30)', marginTop: '1rem' }}>
+              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '1rem' }}>
                 99% Job Success · Top Rated Plus on Upwork · Response within 4–8 hrs
               </p>
             </div>

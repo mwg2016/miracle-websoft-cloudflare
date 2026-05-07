@@ -166,10 +166,10 @@ export default async function JobPage({ params }: Props) {
           <div className="mw-container relative z-10">
 
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 mb-6" aria-label="Breadcrumb" style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.35)' }}>
-              <Link href="/" style={{ color: 'rgba(255,255,255,0.35)', textDecoration: 'none' }}>Home</Link>
+            <nav className="flex items-center gap-2 mb-6" aria-label="Breadcrumb" style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>
+              <Link href="/" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>Home</Link>
               <span>/</span>
-              <Link href="/work" style={{ color: 'rgba(255,255,255,0.35)', textDecoration: 'none' }}>Work</Link>
+              <Link href="/work" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>Work</Link>
               <span>/</span>
               <span style={{ color: 'rgba(255,255,255,0.6)' }}>{job.title}</span>
             </nav>
@@ -199,7 +199,7 @@ export default async function JobPage({ params }: Props) {
             )}
 
             {/* Meta row */}
-            <div className="flex flex-wrap gap-6 mb-6" style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)' }}>
+            <div className="flex flex-wrap gap-6 mb-6" style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' }}>
               <span>
                 <span style={{ color: 'rgba(255,255,255,0.25)', marginRight: '0.4rem' }}>Completed</span>
                 <span style={{ color: 'rgba(255,255,255,0.7)' }}>{job.completedDate}</span>
@@ -258,7 +258,7 @@ export default async function JobPage({ params }: Props) {
                       <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, fontStyle: 'italic', marginBottom: '1rem' }}>
                         "{job.review}"
                       </p>
-                      <footer style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.35)' }}>
+                      <footer style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>
                         — {job.client || 'Verified Upwork Client'} · {job.completedDate}
                         <span className="inline-flex items-center gap-1 ml-3" style={{ color: '#10B981' }}>
                           <span style={{ fontWeight: 700 }}>✓</span> Verified via Upwork
@@ -314,7 +314,7 @@ export default async function JobPage({ params }: Props) {
 
                 {/* Stats card */}
                 <div className="rounded-2xl p-5" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                  <p style={{ fontSize: '0.72rem', letterSpacing: '0.10em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.30)', marginBottom: '1rem', fontWeight: 600 }}>
+                  <p style={{ fontSize: '0.72rem', letterSpacing: '0.10em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '1rem', fontWeight: 600 }}>
                     Agency Stats
                   </p>
                   {[
@@ -324,7 +324,7 @@ export default async function JobPage({ params }: Props) {
                     { value: '5.0', label: 'Avg. Client Rating' },
                   ].map(({ value, label }) => (
                     <div key={label} className="flex items-center justify-between py-2.5" style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                      <span style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.45)' }}>{label}</span>
+                      <span style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)' }}>{label}</span>
                       <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#fff' }}>{value}</span>
                     </div>
                   ))}
@@ -372,14 +372,14 @@ export default async function JobPage({ params }: Props) {
                       <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff', lineHeight: 1.4, marginBottom: '0.5rem' }}>
                         {rel.title}
                       </h3>
-                      <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.55 }}>
+                      <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.55 }}>
                         {rel.description.slice(0, 100)}…
                       </p>
                       <div className="flex items-center gap-1 mt-3">
                         {[...Array(5)].map((_, i) => (
                           <span key={i} style={{ color: i < Math.floor(rel.rating) ? '#F59E0B' : 'rgba(255,255,255,0.12)', fontSize: '0.7rem' }}>★</span>
                         ))}
-                        <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.35)', marginLeft: '2px' }}>{rel.rating.toFixed(1)}</span>
+                        <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)', marginLeft: '2px' }}>{rel.rating.toFixed(1)}</span>
                       </div>
                     </div>
                   </Link>

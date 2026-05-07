@@ -19,7 +19,7 @@ const labelStyle: React.CSSProperties = {
   display: 'block',
   fontSize: '0.78rem',
   fontWeight: 500,
-  color: 'rgba(255,255,255,0.45)',
+  color: 'rgba(255,255,255,0.6)',
   marginBottom: '0.4rem',
 }
 
@@ -174,10 +174,10 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', borderRadius: '10px', background: 'rgba(108,99,255,0.1)', border: '1px solid rgba(108,99,255,0.25)' }}>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontSize: '0.82rem', fontWeight: 500, color: '#fff', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{resume.name}</div>
-              <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.35)', marginTop: '1px' }}>{(resume.size / 1024).toFixed(0)} KB</div>
+              <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)', marginTop: '1px' }}>{(resume.size / 1024).toFixed(0)} KB</div>
             </div>
             <button type="button" onClick={() => { setResume(null); if (fileRef.current) fileRef.current.value = '' }}
-              style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.4)', padding: '2px', flexShrink: 0 }}>
+              style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.6)', padding: '2px', flexShrink: 0 }}>
               <X size={14} />
             </button>
           </div>
@@ -202,8 +202,8 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
               transition: 'all 0.2s',
             }}
           >
-            <Upload size={16} style={{ color: 'rgba(255,255,255,0.35)' }} />
-            <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)' }}>Click to upload or drag &amp; drop</span>
+            <Upload size={16} style={{ color: 'rgba(255,255,255,0.6)' }} />
+            <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>Click to upload or drag &amp; drop</span>
             <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.2)' }}>PDF, DOC, DOCX — max 5 MB</span>
           </button>
         )}

@@ -19,7 +19,7 @@ const labelStyle: React.CSSProperties = {
   display: 'block',
   fontSize: '0.78rem',
   fontWeight: 500,
-  color: 'rgba(255,255,255,0.45)',
+  color: 'rgba(255,255,255,0.6)',
   marginBottom: '0.4rem',
 }
 
@@ -150,7 +150,7 @@ export default function ServiceContactForm({ service, heading, subtext }: Props)
 
         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           {['Responds within 24 hours', '600+ projects delivered', 'Fixed-price proposals'].map((t, i) => (
-            <span key={i} style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+            <span key={i} style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
               <CheckCircle2 size={11} style={{ color: '#10B981' }} /> {t}
             </span>
           ))}

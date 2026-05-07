@@ -223,7 +223,7 @@ export default function ReferralPage() {
             ].map(s => (
               <div key={s.label} style={{ textAlign: 'center' }}>
                 <div style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: '1.35rem', fontWeight: 700, color: '#fff', lineHeight: 1 }}>{s.val}</div>
-                <div style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.3)', marginTop: '0.25rem' }}>{s.label}</div>
+                <div style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.25rem' }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -250,7 +250,7 @@ export default function ReferralPage() {
           <div className="mw-section-header">
             <span className="mw-eyebrow">How it works</span>
             <h2>Three steps to your first commission</h2>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem' }}>No contracts, no minimums. Just introduce your contact and we handle the rest.</p>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>No contracts, no minimums. Just introduce your contact and we handle the rest.</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem', maxWidth: 900, margin: '0 auto' }}>
@@ -281,7 +281,7 @@ export default function ReferralPage() {
                   {s.icon}
                 </div>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '0.6rem' }}>{s.title}</h3>
-                <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7, margin: 0 }}>{s.body}</p>
+                <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, margin: 0 }}>{s.body}</p>
               </div>
             ))}
           </div>
@@ -294,7 +294,7 @@ export default function ReferralPage() {
           <div className="mw-section-header">
             <span className="mw-eyebrow">Your potential earnings</span>
             <h2>How much can you earn?</h2>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem' }}>Drag the slider to see your commission on any project size.</p>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>Drag the slider to see your commission on any project size.</p>
           </div>
           <ReferralCalculator />
         </div>
@@ -325,7 +325,7 @@ export default function ReferralPage() {
                   {p.icon}
                 </div>
                 <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '0.5rem' }}>{p.title}</h3>
-                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.42)', lineHeight: 1.65, margin: 0 }}>{p.body}</p>
+                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.65, margin: 0 }}>{p.body}</p>
               </div>
             ))}
           </div>
@@ -365,7 +365,7 @@ export default function ReferralPage() {
                   </div>
                 ))}
               </div>
-              <p style={{ margin: '1.5rem 0 0', textAlign: 'center', fontSize: '0.75rem', color: 'rgba(255,255,255,0.28)' }}>
+              <p style={{ margin: '1.5rem 0 0', textAlign: 'center', fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>
                 Minimum project value $300 · Commission paid within 3 business days of client invoice clearing
               </p>
             </div>
@@ -379,7 +379,7 @@ export default function ReferralPage() {
           <div className="mw-section-header">
             <span className="mw-eyebrow">Trust & transparency</span>
             <h2>Why your referral is in safe hands</h2>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem' }}>Your reputation is on the line when you refer. Here&apos;s why partners keep sending us clients.</p>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>Your reputation is on the line when you refer. Here&apos;s why partners keep sending us clients.</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem', maxWidth: 900, margin: '0 auto' }}>
@@ -400,7 +400,7 @@ export default function ReferralPage() {
                   {t.icon}
                 </div>
                 <h3 style={{ fontSize: '0.92rem', fontWeight: 700, color: '#fff', margin: 0 }}>{t.title}</h3>
-                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.42)', lineHeight: 1.65, margin: 0 }}>{t.body}</p>
+                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.65, margin: 0 }}>{t.body}</p>
               </div>
             ))}
           </div>
@@ -413,7 +413,7 @@ export default function ReferralPage() {
           <div className="mw-section-header">
             <span className="mw-eyebrow">Start earning</span>
             <h2>Refer a client today</h2>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem' }}>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>
               Fill in the details below. We&apos;ll reach out to your client within 24 hours and handle everything from here.
             </p>
           </div>
@@ -438,7 +438,7 @@ export default function ReferralPage() {
                 padding: '1.4rem 1.6rem',
               }}>
                 <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#fff', marginBottom: '0.6rem' }}>{f.q}</div>
-                <div style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7 }}>{f.a}</div>
+                <div style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7 }}>{f.a}</div>
               </div>
             ))}
           </div>
@@ -467,7 +467,7 @@ export default function ReferralPage() {
             }}>
               Already have someone<br />in mind?
             </div>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem', marginBottom: '2rem' }}>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', marginBottom: '2rem' }}>
               Take 2 minutes to fill in the form. We&apos;ll do the rest.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
@@ -501,7 +501,7 @@ export default function ReferralPage() {
       {/* Footer note */}
       <div style={{ position: 'relative', zIndex: 1, paddingBottom: '3rem', textAlign: 'center' }}>
         <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.18)' }}>
-          <Link href="/" style={{ color: 'rgba(255,255,255,0.28)', textDecoration: 'none' }}>miraclewebsoft.com</Link>
+          <Link href="/" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>miraclewebsoft.com</Link>
           {' '}· Shopify Agency · Referral Program
         </p>
       </div>

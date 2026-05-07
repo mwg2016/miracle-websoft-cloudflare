@@ -21,7 +21,7 @@ export default function ProblemSection() {
             </div>
           ))}
         </div>
-        <p style={{ textAlign: 'center', marginTop: '3rem', color: 'rgba(255,255,255,0.35)', fontSize: '0.875rem' }}>
+        <p style={{ textAlign: 'center', marginTop: '3rem', color: 'rgba(255,255,255,0.6)', fontSize: '0.875rem' }}>
           These are not marketing problems. They are Shopify development problems — and exactly what we fix.
         </p>
       </div>

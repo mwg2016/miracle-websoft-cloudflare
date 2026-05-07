@@ -216,7 +216,7 @@ export default function CompanyBioPage() {
           <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: '1.7rem', fontWeight: 700, marginBottom: '0.3rem', lineHeight: 1.2 }}>
             Miracle Websoft
           </h1>
-          <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.85rem', fontWeight: 300, marginBottom: '0.75rem' }}>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', fontWeight: 300, marginBottom: '0.75rem' }}>
             Fashion-focused Shopify development
           </p>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', color: 'rgba(255,255,255,0.25)', fontSize: '0.74rem', marginBottom: '1.5rem' }}>
@@ -232,7 +232,7 @@ export default function CompanyBioPage() {
                 borderRadius: 12, padding: '0.75rem 0.25rem', textAlign: 'center',
               }}>
                 <div style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: '1.35rem', fontWeight: 700, color: '#fff', lineHeight: 1 }}>{s.value}</div>
-                <div style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.32)', marginTop: '0.3rem', lineHeight: 1.3 }}>{s.label}</div>
+                <div style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.3rem', lineHeight: 1.3 }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -304,7 +304,7 @@ export default function CompanyBioPage() {
                 borderRadius: 14, color: s.color, textDecoration: 'none',
               }}>
                 {s.icon}
-                <span style={{ fontSize: '0.62rem', color: 'rgba(255,255,255,0.45)', fontWeight: 500 }}>{s.label}</span>
+                <span style={{ fontSize: '0.62rem', color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>{s.label}</span>
               </a>
             ))}
           </div>
@@ -348,7 +348,7 @@ export default function CompanyBioPage() {
                   <div style={{ fontSize: '0.83rem', fontWeight: 600, color: '#fff', marginBottom: '0.2rem' }}>{p.label}</div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                     <MiniStars count={p.stars} />
-                    <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.35)' }}>{p.sub}</span>
+                    <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.6)' }}>{p.sub}</span>
                   </div>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.3rem', flexShrink: 0 }}>
@@ -412,14 +412,14 @@ export default function CompanyBioPage() {
             </div>
             <div>
               <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'rgba(255,255,255,0.7)' }}>Karam Singh Mehra</div>
-              <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)' }}>Founder · View personal bio</div>
+              <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)' }}>Founder · View personal bio</div>
             </div>
           </div>
           <ArrowUpRight size={14} style={{ color: 'rgba(255,255,255,0.25)' }} />
         </Link>
 
         <p style={{ textAlign: 'center', fontSize: '0.7rem', color: 'rgba(255,255,255,0.18)' }}>
-          <Link href="/" style={{ color: 'rgba(255,255,255,0.28)', textDecoration: 'none' }}>miraclewebsoft.com</Link>
+          <Link href="/" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>miraclewebsoft.com</Link>
           {' '}· Shopify Agency for Fashion & Clothing Brands
         </p>
       </div>

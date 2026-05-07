@@ -80,7 +80,7 @@ export default function RecentWork() {
 
                 {/* Footer */}
                 <div className="flex items-center justify-between pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                  <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.28)' }}>{job.completedDate}</span>
+                  <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)' }}>{job.completedDate}</span>
                   <span style={{ fontSize: '0.65rem', color: '#10B981', fontWeight: 700, letterSpacing: '0.06em' }}>✓ UPWORK</span>
                 </div>
               </div>
@@ -90,7 +90,7 @@ export default function RecentWork() {
 
         {/* Upwork insight badges */}
         <div className="flex flex-wrap gap-3 mt-8 pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-          <span style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.30)', alignSelf: 'center', marginRight: '0.5rem' }}>
+          <span style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.6)', alignSelf: 'center', marginRight: '0.5rem' }}>
             Clients say:
           </span>
           {['Committed to Quality · 98', 'Collaborative · 88', 'Reliable · 79', 'Clear Communicator · 75'].map(label => (

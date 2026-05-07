@@ -147,7 +147,7 @@ export default function CustomWebDevelopmentPage() {
             <span className="mw-eyebrow">CUSTOM WEB DEVELOPMENT</span>
             <h1 style={{ color: '#fff', marginBottom: '1.5rem' }}>
               Custom Web Application<br />Development
-              <em style={{ display: 'block', fontStyle: 'italic', color: 'rgba(255,255,255,0.4)', fontSize: '0.85em', marginTop: '0.25rem' }}>React · Node.js · Laravel</em>
+              <em style={{ display: 'block', fontStyle: 'italic', color: 'rgba(255,255,255,0.6)', fontSize: '0.85em', marginTop: '0.25rem' }}>React · Node.js · Laravel</em>
             </h1>
             <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: '600px', fontWeight: 300 }}>
               When off-the-shelf tools can&apos;t do what your business needs, we build it. Full-stack web applications — SaaS platforms, dashboards, APIs and marketplace systems — engineered for performance, security and scale.
@@ -192,7 +192,7 @@ export default function CustomWebDevelopmentPage() {
             <span className="mw-eyebrow">OUR TECH STACK</span>
             <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(24px,3vw,36px)' }}>
               Modern tools. Proven patterns.<br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>No hype, no buzzword-chasing.</em>
+              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>No hype, no buzzword-chasing.</em>
             </h2>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -226,7 +226,7 @@ export default function CustomWebDevelopmentPage() {
             <span className="mw-eyebrow">WHAT WE BUILD</span>
             <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(24px,3vw,36px)' }}>
               Applications that solve<br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>real business problems.</em>
+              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>real business problems.</em>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -253,7 +253,7 @@ export default function CustomWebDevelopmentPage() {
             <span className="mw-eyebrow">CAPABILITIES</span>
             <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(24px,3vw,36px)' }}>
               Full-stack coverage,<br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>front to back.</em>
+              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>front to back.</em>
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl">
@@ -317,7 +317,7 @@ export default function CustomWebDevelopmentPage() {
               <span className="mw-eyebrow">GET A FREE PROPOSAL</span>
               <h2 style={{ color: '#fff', fontSize: 'clamp(28px,4vw,44px)', marginBottom: '1.5rem', lineHeight: 1.15 }}>
                 Let&apos;s discuss<br />
-                <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.45)' }}>your project.</em>
+                <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>your project.</em>
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2.5rem', fontWeight: 300 }}>
                 Describe what you need to build — even roughly. We&apos;ll respond with questions, a preliminary approach, and a fixed-price proposal within 24 hours.

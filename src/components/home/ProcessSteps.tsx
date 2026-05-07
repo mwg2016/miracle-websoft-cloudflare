@@ -19,7 +19,7 @@ export default function ProcessSteps() {
             <div key={i} style={{ background: '#0a0a0a', padding: '2rem 1.5rem' }}>
               <div style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: '2.5rem', fontWeight: 600, color: 'rgba(108,99,255,0.25)', lineHeight: 1, marginBottom: '1.25rem' }}>{step.n}</div>
               <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', marginBottom: '0.6rem' }}>{step.title}</h3>
-              <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.8, fontWeight: 300 }}>{step.body}</p>
+              <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, fontWeight: 300 }}>{step.body}</p>
             </div>
           ))}
         </div>

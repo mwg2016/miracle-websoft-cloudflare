@@ -101,7 +101,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3 mt-1">
               <a href={outboundHref('email', 'mailto:karam@miraclewebsoft.com')} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">karam@miraclewebsoft.com</a>
               <a href={outboundHref('whatsapp', 'https://wa.me/916239269736')} target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">+91 6239 269736</a>
-              <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.8rem', lineHeight: 1.5 }}>India<br />Serving USA · UK · Australia</p>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', lineHeight: 1.5 }}>India<br />Serving USA · UK · Australia</p>
             </div>
           </div>
         </div>
@@ -110,7 +110,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="mw-container" style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem' }}>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)' }}>
+          <div className="flex items-center gap-3" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>
             <span className="font-bold text-white text-sm">Miracle<span style={{ color: 'var(--accent)' }}>Websoft</span></span>
             <span>© 2025 All rights reserved.</span>
           </div>
@@ -118,14 +118,14 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             {socials.map(({ label, href, icon: Icon }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                style={{ color: 'rgba(255,255,255,0.3)', transition: 'color 0.2s' }}
+                style={{ color: 'rgba(255,255,255,0.6)', transition: 'color 0.2s' }}
                 className="hover:!text-white"
               >
                 <Icon />
               </a>
             ))}
           </div>
-          <div className="flex items-center gap-4" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)' }}>
+          <div className="flex items-center gap-4" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>
             <Link href={outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1')} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Shopify Partner</Link>
             <span>·</span>
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>

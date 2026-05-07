@@ -100,9 +100,9 @@ function ClientCard({ client }: { client: typeof clients[0] }) {
           <div style={{ width: 7, height: 7, borderRadius: '50%', background: '#febc2e' }} />
           <div style={{ width: 7, height: 7, borderRadius: '50%', background: '#28c840' }} />
           <div style={{ flex: 1, margin: '0 8px', background: 'rgba(255,255,255,0.10)', borderRadius: '4px', height: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.45)', fontFamily: 'monospace' }}>🔒 {client.displayUrl}</span>
+            <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.6)', fontFamily: 'monospace' }}>🔒 {client.displayUrl}</span>
           </div>
-          <ExternalLink size={9} style={{ color: 'rgba(255,255,255,0.30)' }} />
+          <ExternalLink size={9} style={{ color: 'rgba(255,255,255,0.6)' }} />
         </div>
 
         {/* Brand identity center */}
@@ -128,12 +128,12 @@ function ClientCard({ client }: { client: typeof clients[0] }) {
               <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '0.2rem 0.6rem', borderRadius: '9999px', background: `${client.accent}18`, color: client.accent, border: `1px solid ${client.accent}35` }}>
                 {client.category}
               </span>
-              <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)' }}>{client.country}</span>
+              <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)' }}>{client.country}</span>
             </div>
           </div>
           <ExternalLink size={14} style={{ color: 'rgba(255,255,255,0.2)', flexShrink: 0, transition: 'color 0.2s' }} className="group-hover:text-white mt-1" />
         </div>
-        <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.6, fontWeight: 300 }}>{client.desc}</p>
+        <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, fontWeight: 300 }}>{client.desc}</p>
       </div>
     </a>
   )
@@ -161,7 +161,7 @@ export default function ClientPortfolio({ stores, heading, eyebrow }: Props) {
               )}
             </h2>
           </div>
-          <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.35)', maxWidth: '220px', lineHeight: 1.6, textAlign: 'right' }}>
+          <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', maxWidth: '220px', lineHeight: 1.6, textAlign: 'right' }}>
             Click any store to visit the live site
           </p>
         </div>

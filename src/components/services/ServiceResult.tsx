@@ -22,12 +22,12 @@ export default function ServiceResult({
         <div className="flex flex-col justify-center items-center px-8 py-8 sm:py-0 sm:min-w-[160px] text-center" style={{ background: tagColor + '12', borderRight: '1px solid rgba(255,255,255,0.06)' }}>
           <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4" style={{ background: tagColor + '20', color: tagColor, border: `1px solid ${tagColor}35` }}>{tag}</span>
           <div style={{ fontSize: 'clamp(2.2rem,5vw,3rem)', fontWeight: 800, color: tagColor, lineHeight: 1, letterSpacing: '-0.03em' }}>{metric}</div>
-          <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.45)', marginTop: '0.3rem', fontWeight: 500 }}>{metricLabel}</div>
+          <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.3rem', fontWeight: 500 }}>{metricLabel}</div>
         </div>
 
         {/* Right — detail */}
         <div className="flex flex-col justify-center p-6 flex-1">
-          <p style={{ fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)', fontWeight: 600, marginBottom: '0.4rem' }}>Real project result</p>
+          <p style={{ fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '0.4rem' }}>Real project result</p>
           <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', lineHeight: 1.5, marginBottom: '0.9rem', fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>{title}</h3>
           <ul className="flex flex-col gap-1.5 mb-4">
             {bullets.map((b, i) => (
@@ -38,7 +38,7 @@ export default function ServiceResult({
             ))}
           </ul>
           <div className="flex flex-wrap items-center justify-between gap-3 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-            <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.28)' }}>{duration} · Verified project</span>
+            <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>{duration} · Verified project</span>
             {cta && (
               <Link href={cta.href} className="inline-flex items-center gap-1.5 text-xs font-semibold transition-colors" style={{ color: tagColor }}>
                 {cta.label} <ArrowRight size={11} />

@@ -123,7 +123,7 @@ export default function CROSpeedPage() {
             {/* ROI example */}
             <div className="rounded-2xl p-6 flex flex-col justify-between" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
               <div>
-                <p style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.28)', fontWeight: 600, marginBottom: '0.5rem' }}>What This Means in Revenue</p>
+                <p style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '0.5rem' }}>What This Means in Revenue</p>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '1.25rem', lineHeight: 1.4, fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
                   A 1% conversion lift pays for our entire CRO service in 30–60 days.
                 </h3>
@@ -136,14 +136,14 @@ export default function CROSpeedPage() {
                     <div key={row.revenue} className="flex items-center justify-between rounded-xl px-4 py-3" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
                       <span style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.55)' }}>Store doing {row.revenue}</span>
                       <div className="flex items-center gap-3">
-                        <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.35)' }}>{row.lift} conv. lift</span>
+                        <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)' }}>{row.lift} conv. lift</span>
                         <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#10B981' }}>{row.extra}</span>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-              <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.28)', marginTop: '1.25rem', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', marginTop: '1.25rem', lineHeight: 1.5 }}>
                 Our average is a 42% conversion rate increase — not 1%. The numbers above are conservative. This is with zero increase in ad spend.
               </p>
             </div>
@@ -163,12 +163,12 @@ export default function CROSpeedPage() {
             <div className="rounded-2xl p-6" style={{ background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.18)' }}>
               <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#EF4444', marginBottom: '0.75rem' }}>Before</p>
               <div style={{ fontSize: '3.5rem', fontWeight: 800, color: '#EF4444', lineHeight: 1, letterSpacing: '-0.04em', marginBottom: '0.5rem' }}>44</div>
-              <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.45)', marginBottom: '1rem' }}>Google PageSpeed Mobile</p>
+              <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)', marginBottom: '1rem' }}>Google PageSpeed Mobile</p>
               <div className="flex flex-col gap-1.5">
                 {['4.2MB page weight', '11 app scripts loading', '6.8s LCP (Largest Content Paint)', 'CLS score 0.42 (layout shifting)'].map(i => (
                   <div key={i} className="flex items-center gap-2">
                     <span style={{ color: '#EF4444', fontSize: '0.75rem', fontWeight: 700 }}>✕</span>
-                    <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)' }}>{i}</span>
+                    <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)' }}>{i}</span>
                   </div>
                 ))}
               </div>
@@ -177,7 +177,7 @@ export default function CROSpeedPage() {
             <div className="rounded-2xl p-6" style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.25)' }}>
               <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#10B981', marginBottom: '0.75rem' }}>After</p>
               <div style={{ fontSize: '3.5rem', fontWeight: 800, color: '#10B981', lineHeight: 1, letterSpacing: '-0.04em', marginBottom: '0.5rem' }}>91</div>
-              <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.45)', marginBottom: '1rem' }}>Google PageSpeed Mobile</p>
+              <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)', marginBottom: '1rem' }}>Google PageSpeed Mobile</p>
               <div className="flex flex-col gap-1.5">
                 {['680KB page weight', '3 scripts (deferred)', '1.1s LCP — below 1.5s target', 'CLS score 0.03 (no shifting)'].map(i => (
                   <div key={i} className="flex items-center gap-2">

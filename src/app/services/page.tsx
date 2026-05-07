@@ -149,7 +149,7 @@ function SectionHeader({ eyebrow, title, sub }: { eyebrow: string; title: string
     <div style={{ marginBottom: '2.5rem' }}>
       <span className="mw-eyebrow">{eyebrow}</span>
       <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)', marginBottom: sub ? '0.6rem' : 0 }}>{title}</h2>
-      {sub && <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.45)', fontWeight: 300, maxWidth: '520px', lineHeight: 1.7 }}>{sub}</p>}
+      {sub && <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.6)', fontWeight: 300, maxWidth: '520px', lineHeight: 1.7 }}>{sub}</p>}
     </div>
   )
 }
@@ -214,7 +214,7 @@ export default function ServicesPage() {
             ].map((s, i) => (
               <div key={i} style={{ background: '#080808', padding: '1.5rem 2rem', textAlign: 'center' }}>
                 <div style={{ fontSize: '1.75rem', fontWeight: 800, color: '#fff', lineHeight: 1 }}>{s.stat}</div>
-                <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', marginTop: '0.35rem' }}>{s.label}</div>
+                <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.35rem' }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -254,7 +254,7 @@ export default function ServicesPage() {
             ].map((item, i) => (
               <Link key={i} href={item.href} style={{ textDecoration: 'none' }} className="group">
                 <div className="rounded-2xl p-5 h-full flex flex-col transition-all" style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${item.color}25` }}>
-                  <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.5, marginBottom: '0.75rem' }}>{item.q}</p>
+                  <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5, marginBottom: '0.75rem' }}>{item.q}</p>
                   <p style={{ fontWeight: 700, color: item.color, fontSize: '0.9rem', marginBottom: '0.4rem', lineHeight: 1.3 }}>{item.answer}</p>
                   <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.50)', lineHeight: 1.55, flex: 1 }}>{item.desc}</p>
                   <div className="flex items-center gap-1.5 mt-3" style={{ color: item.color, fontSize: '0.75rem', fontWeight: 600 }}>
@@ -264,7 +264,7 @@ export default function ServicesPage() {
               </Link>
             ))}
           </div>
-          <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.28)', marginTop: '1.25rem' }}>
+          <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', marginTop: '1.25rem' }}>
             Still unsure?{' '}
             <Link href="/contact" style={{ color: accent, textDecoration: 'none' }}>Send us a message</Link>
             {' '}and we&apos;ll recommend the right approach for your situation — free.

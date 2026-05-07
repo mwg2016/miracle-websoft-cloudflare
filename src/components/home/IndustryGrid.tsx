@@ -30,7 +30,7 @@ export default function IndustryGrid() {
         <div className="mw-section-header">
           <span className="mw-eyebrow">Industries We Serve</span>
           <h2 style={{ color: '#fff' }}>Shopify experts across<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>every ecommerce vertical.</em></h2>
-          <p style={{ color: 'rgba(255,255,255,0.45)', marginTop: '1rem', fontSize: '0.95rem', fontWeight: 300, maxWidth: '640px' }}>
+          <p style={{ color: 'rgba(255,255,255,0.6)', marginTop: '1rem', fontSize: '0.95rem', fontWeight: 300, maxWidth: '640px' }}>
             10+ years building Shopify and Shopify Plus stores across fashion, beauty, health, home, food, electronics, B2B and subscription. Deep niche expertise where it matters — full coverage where you need it.
           </p>
         </div>
@@ -58,7 +58,7 @@ export default function IndustryGrid() {
           })}
         </div>
 
-        <p style={{ textAlign: 'center', marginTop: '2.5rem', color: 'rgba(255,255,255,0.4)', fontSize: '0.875rem' }}>
+        <p style={{ textAlign: 'center', marginTop: '2.5rem', color: 'rgba(255,255,255,0.6)', fontSize: '0.875rem' }}>
           Not sure which fits? <Link href="/contact" style={{ color: 'var(--accent)', fontWeight: 500 }}>Tell us about your store →</Link>
         </p>
       </div>

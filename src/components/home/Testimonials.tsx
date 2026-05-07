@@ -74,7 +74,7 @@ export default function Testimonials() {
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
                 <div style={{ fontWeight: 600, color: '#fff', fontSize: '0.85rem' }}>{testimonials[2].name}</div>
-                <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.3)' }}>{testimonials[2].source}</div>
+                <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>{testimonials[2].source}</div>
               </div>
               <ExternalLink size={12} style={{ color: 'rgba(255,255,255,0.2)' }} className="group-hover:text-white transition-colors" />
             </div>
@@ -83,7 +83,7 @@ export default function Testimonials() {
 
         {/* Client video reviews — 3 featured */}
         <div className="mb-4">
-          <p style={{ fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', fontWeight: 600, marginBottom: '0.85rem' }}>
+          <p style={{ fontSize: '0.7rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '0.85rem' }}>
             ▶ Watch real client reviews
           </p>
           <VideoTestimonialGrid videos={clientVideos.slice(0, 3)} theme="dark" />
@@ -98,7 +98,7 @@ export default function Testimonials() {
               <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div>
                   <div style={{ fontWeight: 600, color: '#fff', fontSize: '0.85rem' }}>{t.name}</div>
-                  <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.3)' }}>{t.source}</div>
+                  <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>{t.source}</div>
                 </div>
                 <ExternalLink size={12} style={{ color: 'rgba(255,255,255,0.2)' }} className="group-hover:text-white transition-colors" />
               </div>

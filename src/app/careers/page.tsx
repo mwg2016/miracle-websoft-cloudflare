@@ -150,19 +150,19 @@ export default function CareersPage() {
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.05rem', lineHeight: 1.8, fontWeight: 300, marginBottom: '1.5rem' }}>
             We are Miracle Websoft — a Shopify-specialist agency with 10+ years experience, 600+ completed projects, and a Top Rated Plus badge on Upwork. We work with fashion and clothing brands worldwide, and we are always looking for good developers to grow with us.
           </p>
-          <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.95rem', lineHeight: 1.8, fontWeight: 300 }}>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.8, fontWeight: 300 }}>
             Whether you are just starting out with basic HTML/CSS/JS, or you are an experienced Shopify developer — if you are talented, hard-working, and care about quality, we want to hear from you.
           </p>
         </div>
 
         {/* Perks row */}
         <div style={{ marginBottom: '5rem' }}>
-          <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '1rem' }}>Why work with us</p>
+          <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '1rem' }}>Why work with us</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
             {perks.map(p => (
               <div key={p.label} style={{ padding: '1rem', borderRadius: '14px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
                 <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff', marginBottom: '0.25rem' }}>{p.label}</div>
-                <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.35)', lineHeight: 1.5 }}>{p.sub}</div>
+                <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>{p.sub}</div>
               </div>
             ))}
           </div>
@@ -170,7 +170,7 @@ export default function CareersPage() {
 
         {/* Open Roles */}
         <div style={{ marginBottom: '6rem' }}>
-          <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '0.75rem' }}>Open roles</p>
+          <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Open roles</p>
           <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(24px,3vw,38px)', lineHeight: 1.15, marginBottom: '2.5rem' }}>
             Current positions
           </h2>
@@ -190,7 +190,7 @@ export default function CareersPage() {
                         <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', margin: 0 }}>{role.title}</h3>
                         <span style={{ fontSize: '0.65rem', fontWeight: 700, padding: '0.15rem 0.55rem', borderRadius: '9999px', background: role.colorDim, color: role.color, border: `1px solid ${role.color}35` }}>{role.level}</span>
                       </div>
-                      <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)' }}>{role.type}</div>
+                      <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>{role.type}</div>
                     </div>
                     <a href="#apply" style={{ padding: '0.5rem 1.25rem', borderRadius: '9999px', background: role.colorDim, color: role.color, fontSize: '0.78rem', fontWeight: 600, border: `1px solid ${role.color}30`, textDecoration: 'none', flexShrink: 0, transition: 'all 0.2s' }}>
                       Apply now
@@ -226,7 +226,7 @@ export default function CareersPage() {
                             <div style={{ width: '13px', height: '13px', flexShrink: 0, marginTop: '2px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                               <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)' }} />
                             </div>
-                            <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.35)', lineHeight: 1.5 }}>{r}</span>
+                            <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>{r}</span>
                           </div>
                         ))}
                       </div>
@@ -241,7 +241,7 @@ export default function CareersPage() {
           <div style={{ marginTop: '1.5rem', padding: '1.25rem 1.75rem', borderRadius: '14px', background: 'rgba(108,99,255,0.06)', border: '1px solid rgba(108,99,255,0.15)', display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
             <div style={{ flex: 1, minWidth: '200px' }}>
               <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#fff', marginBottom: '0.2rem' }}>Don&apos;t see your exact role?</div>
-              <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 }}>We always welcome open applications. If you believe you can add value to our team, send us your details and we will be in touch when the right opportunity arises.</div>
+              <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>We always welcome open applications. If you believe you can add value to our team, send us your details and we will be in touch when the right opportunity arises.</div>
             </div>
             <a href="#apply" style={{ padding: '0.55rem 1.25rem', borderRadius: '9999px', background: 'rgba(108,99,255,0.15)', color: '#a5a0ff', fontSize: '0.78rem', fontWeight: 600, border: '1px solid rgba(108,99,255,0.25)', textDecoration: 'none', flexShrink: 0 }}>
               Submit open application
@@ -259,13 +259,13 @@ export default function CareersPage() {
               <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(26px,3.5vw,44px)', lineHeight: 1.15, marginBottom: '1rem' }}>
                 Think you&apos;re a good fit?<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>Let&apos;s talk.</em>
               </h2>
-              <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem', lineHeight: 1.8, fontWeight: 300, marginBottom: '2.5rem' }}>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.8, fontWeight: 300, marginBottom: '2.5rem' }}>
                 We hire at every level — from candidates with just basic HTML, CSS, and JavaScript knowledge all the way to senior developers with years of Shopify experience. What matters most is your attitude, your hunger to learn, and your care for quality.
               </p>
 
               {/* What we look for */}
               <div style={{ marginBottom: '2.5rem' }}>
-                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '0.9rem' }}>What we look for in every candidate</p>
+                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.9rem' }}>What we look for in every candidate</p>
                 <div className="flex flex-col gap-2.5">
                   {[
                     'Reliability — you do what you say you will do',
@@ -284,7 +284,7 @@ export default function CareersPage() {
 
               {/* Process */}
               <div>
-                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '0.9rem' }}>Our hiring process</p>
+                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.9rem' }}>Our hiring process</p>
                 <div className="flex flex-col gap-3">
                   {[
                     { step: '01', title: 'Apply', desc: 'Fill in the form and attach your resume.' },
@@ -296,7 +296,7 @@ export default function CareersPage() {
                       <span style={{ fontSize: '0.65rem', fontWeight: 800, color: 'var(--accent)', minWidth: '28px', paddingTop: '2px' }}>{s.step}</span>
                       <div>
                         <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff', marginBottom: '0.15rem' }}>{s.title}</div>
-                        <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 }}>{s.desc}</div>
+                        <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>{s.desc}</div>
                       </div>
                     </div>
                   ))}
@@ -313,7 +313,7 @@ export default function CareersPage() {
                   </div>
                   <div>
                     <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>Apply to Miracle Websoft</div>
-                    <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>All levels welcome · Full-time · India</div>
+                    <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>All levels welcome · Full-time · India</div>
                   </div>
                 </div>
 

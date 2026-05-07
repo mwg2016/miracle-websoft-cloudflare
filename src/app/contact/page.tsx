@@ -100,7 +100,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
             ].map(s => (
               <div key={s.label} className="flex items-baseline gap-1.5">
                 <span style={{ fontFamily: 'var(--font-playfair),Georgia,serif', fontSize: '1.15rem', fontWeight: 700, color: '#fff' }}>{s.val}</span>
-                <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)' }}>{s.label}</span>
+                <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>{s.label}</span>
               </div>
             ))}
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
@@ -139,7 +139,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
               <div style={{ marginBottom: '2.5rem' }}>
                 {plan ? (
                   <>
-                    <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.9rem' }}>What happens after you submit</p>
+                    <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.9rem' }}>What happens after you submit</p>
                     <ol style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', listStyle: 'none', padding: 0, margin: 0 }}>
                       {[
                         { n: '1', t: 'Confirmation email — instant', d: 'You\'ll get a copy of your enquiry in your inbox right away.' },
@@ -159,7 +159,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                   </>
                 ) : (
                   <>
-                    <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.9rem' }}>What your free audit covers</p>
+                    <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.9rem' }}>What your free audit covers</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {auditItems.map(item => (
                         <div key={item} className="flex items-start gap-2.5">
@@ -174,7 +174,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
 
               {/* Founder intro video */}
               <div style={{ marginBottom: '2.5rem' }}>
-                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.9rem' }}>
+                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.9rem' }}>
                   ▶ A 60-second hello before you reach out
                 </p>
                 <FounderIntro caption="" />
@@ -182,7 +182,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
 
               {/* Video reviews */}
               <div style={{ marginBottom: '2.5rem' }}>
-                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.9rem' }}>
+                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.9rem' }}>
                   ▶ Watch real client reviews
                 </p>
                 <VideoTestimonialGrid videos={clientVideos.slice(0, 3)} theme="dark" />
@@ -190,7 +190,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
 
               {/* Reviews */}
               <div style={{ marginBottom: '2.5rem' }}>
-                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.9rem' }}>What clients say</p>
+                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.9rem' }}>What clients say</p>
                 <div className="flex flex-col gap-3">
                   {reviews.map((r, i) => (
                     <div key={i} style={{ padding: '1rem 1.25rem', borderRadius: '14px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
@@ -203,13 +203,13 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                         <span style={{ fontSize: '0.72rem', fontWeight: 600, color: 'rgba(255,255,255,0.5)' }}>{r.name}</span>
                         <span style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.25)' }}>·</span>
-                        <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)' }}>{r.context}</span>
+                        <span style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)' }}>{r.context}</span>
                       </div>
                     </div>
                   ))}
                 </div>
                 <a href={outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/')} target="_blank" rel="noopener noreferrer"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', marginTop: '0.75rem', fontSize: '0.78rem', color: 'rgba(255,255,255,0.35)' }}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', marginTop: '0.75rem', fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)' }}
                   className="hover:text-white transition-colors">
                   <ExternalLink size={11} /> Read all 600+ reviews on Upwork
                 </a>
@@ -217,7 +217,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
 
               {/* Platform badges */}
               <div>
-                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.9rem' }}>Verified on</p>
+                <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.9rem' }}>Verified on</p>
                 <div className="grid grid-cols-2 gap-2">
                   {platforms.map(p => (
                     <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer"
@@ -225,7 +225,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                       style={{ padding: '0.75rem 1rem', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', textDecoration: 'none' }}>
                       <div>
                         <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#fff', marginBottom: '1px' }}>{p.name}</div>
-                        <div style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.3)' }}>{p.sub}</div>
+                        <div style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.6)' }}>{p.sub}</div>
                       </div>
                       <span style={{ fontSize: '0.6rem', fontWeight: 700, padding: '0.15rem 0.5rem', borderRadius: '9999px', background: `${p.color}18`, color: p.color, border: `1px solid ${p.color}35`, flexShrink: 0, marginLeft: '0.5rem' }}>{p.badge}</span>
                     </a>
@@ -242,7 +242,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                 <MessageCircle size={18} style={{ color: '#25D366', flexShrink: 0 }} />
                 <div>
                   <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff', lineHeight: 1.2 }}>Prefer WhatsApp?</div>
-                  <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.4)' }}>Message Karam directly — usually replies within an hour</div>
+                  <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>Message Karam directly — usually replies within an hour</div>
                 </div>
                 <span style={{ marginLeft: 'auto', fontSize: '0.68rem', fontWeight: 700, padding: '0.2rem 0.6rem', borderRadius: '9999px', background: '#25D366', color: '#fff', flexShrink: 0 }}>Chat now</span>
               </a>
@@ -256,7 +256,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                   </div>
                   <div>
                     <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>{plan ? `Confirm your ${plan.name} plan` : 'Send Karam a message'}</div>
-                    <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)' }}>Founder · replies personally within 24 h</div>
+                    <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>Founder · replies personally within 24 h</div>
                   </div>
                 </div>
 

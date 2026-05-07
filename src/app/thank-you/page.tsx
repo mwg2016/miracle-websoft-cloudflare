@@ -168,9 +168,9 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
                       }}>
                         <Icon size={18} style={{ color: item.accent }} />
                       </div>
-                      <ArrowUpRight size={16} style={{ color: 'rgba(255,255,255,0.3)' }} />
+                      <ArrowUpRight size={16} style={{ color: 'rgba(255,255,255,0.6)' }} />
                     </div>
-                    <span style={{ fontSize: '0.66rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.5rem' }}>
+                    <span style={{ fontSize: '0.66rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.5rem' }}>
                       {item.eyebrow}
                     </span>
                     <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#fff', margin: '0 0 0.5rem' }}>{item.title}</h3>
@@ -234,7 +234,7 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
             borderRadius: 24,
             padding: 'clamp(1.5rem, 4vw, 2.5rem)',
           }}>
-            <p style={{ fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', margin: '0 0 1.75rem' }}>
+            <p style={{ fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', margin: '0 0 1.75rem' }}>
               What happens next
             </p>
             <ol style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem', listStyle: 'none', padding: 0, margin: 0 }}>
@@ -256,7 +256,7 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
                       }}>
                         <Icon size={15} style={{ color: '#6C63FF' }} />
                       </div>
-                      <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.08em' }}>
+                      <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.08em' }}>
                         STEP {i + 1}
                       </span>
                     </div>
@@ -300,9 +300,9 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
                     }}>
                       <Icon size={18} style={{ color: item.accent }} />
                     </div>
-                    <ArrowUpRight size={16} style={{ color: 'rgba(255,255,255,0.3)' }} />
+                    <ArrowUpRight size={16} style={{ color: 'rgba(255,255,255,0.6)' }} />
                   </div>
-                  <span style={{ fontSize: '0.66rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)', marginBottom: '0.5rem' }}>
+                  <span style={{ fontSize: '0.66rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.5rem' }}>
                     {item.eyebrow}
                   </span>
                   <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#fff', margin: '0 0 0.5rem' }}>{item.title}</h3>
@@ -316,7 +316,7 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
 
       <section style={{ padding: '0 0 7rem' }}>
         <div className="mw-container" style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.4)', marginBottom: '1.25rem' }}>
+          <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', marginBottom: '1.25rem' }}>
             Need to send another message or change something? Email{' '}
             <a href="mailto:karam@miraclewebsoft.com" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
               karam@miraclewebsoft.com

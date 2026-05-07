@@ -57,7 +57,7 @@ export default function BrandGrid({ brands }: { brands: Brand[] }) {
                   {client.category}
                 </span>
               </div>
-              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.48)', lineHeight: 1.5 }}>{client.desc}</p>
+              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>{client.desc}</p>
             </div>
             {client.href ? (
               <a

@@ -105,7 +105,7 @@ export default async function AdminLeads({ searchParams }: { searchParams: Promi
             return (
               <Card key={lead.id}>
                 <div style={{ display: 'grid', gridTemplateColumns: '120px 1fr auto', gap: '1rem', alignItems: 'start' }}>
-                  <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)' }}>
+                  <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)' }}>
                     <div style={{ fontVariantNumeric: 'tabular-nums', marginBottom: '0.25rem' }}>{fmtTime(lead.ts)}</div>
                     <span style={{
                       fontSize: '0.66rem', fontWeight: 600, padding: '0.18rem 0.5rem', borderRadius: 9999,
@@ -135,11 +135,11 @@ export default async function AdminLeads({ searchParams }: { searchParams: Promi
                         ↓ Resume ({String((lead.payload as Record<string, unknown>).resumeName ?? 'file')})
                       </a>
                     )}
-                    <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)', marginTop: '0.6rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.6rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       {originDetail(lead)}
                     </div>
                     {lead.origin?.page_history && lead.origin.page_history.length > 1 && (
-                      <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)', marginTop: '0.3rem', display: 'flex', alignItems: 'center', gap: '0.3rem', flexWrap: 'wrap' }}>
+                      <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.3rem', display: 'flex', alignItems: 'center', gap: '0.3rem', flexWrap: 'wrap' }}>
                         <span style={{ opacity: 0.7 }}>journey:</span>
                         {lead.origin.page_history.map((p, i, arr) => (
                           <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
@@ -151,7 +151,7 @@ export default async function AdminLeads({ searchParams }: { searchParams: Promi
                     )}
                   </div>
                   <details style={{ fontSize: '0.78rem' }}>
-                    <summary style={{ cursor: 'pointer', color: 'rgba(255,255,255,0.4)', listStyle: 'none', userSelect: 'none' }}>raw</summary>
+                    <summary style={{ cursor: 'pointer', color: 'rgba(255,255,255,0.6)', listStyle: 'none', userSelect: 'none' }}>raw</summary>
                     <pre style={{
                       marginTop: '0.5rem', maxWidth: 360, maxHeight: 300, overflow: 'auto',
                       background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.06)',

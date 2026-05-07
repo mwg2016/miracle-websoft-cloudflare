@@ -103,7 +103,7 @@ export default function PcBuilderPage() {
       >
         <div className="mw-container">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-            <Link href="/tools" style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.35)', textDecoration: 'none', fontWeight: 500 }}>
+            <Link href="/tools" style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontWeight: 500 }}>
               Tools
             </Link>
             <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.8rem' }}>/</span>
@@ -113,7 +113,7 @@ export default function PcBuilderPage() {
           <span className="mw-eyebrow">SHOPIFY APP</span>
           <h1 className="text-white mb-5" style={{ maxWidth: '700px' }}>
             Let customers build<br />
-            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>their perfect PC.</em>
+            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>their perfect PC.</em>
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.1rem', lineHeight: 1.75, maxWidth: '540px', marginBottom: '2.5rem' }}>
             Interactive PC configurator for Shopify stores. Real-time compatibility validation,
@@ -162,7 +162,7 @@ export default function PcBuilderPage() {
                 <div style={{ fontSize: '2rem', fontWeight: 800, color: '#fff', lineHeight: 1 }}>
                   {s.value}
                 </div>
-                <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.4)', marginTop: '0.35rem', fontWeight: 500 }}>{s.label}</div>
+                <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.35rem', fontWeight: 500 }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -174,8 +174,8 @@ export default function PcBuilderPage() {
         <div className="mw-container">
           <div className="mw-section-header">
             <span className="mw-eyebrow">FEATURES</span>
-            <h2 style={{ color: '#fff' }}>Everything your store needs<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>to sell PCs at scale.</em></h2>
-            <p style={{ color: 'rgba(255,255,255,0.45)', maxWidth: '480px', margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
+            <h2 style={{ color: '#fff' }}>Everything your store needs<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>to sell PCs at scale.</em></h2>
+            <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '480px', margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
               Built specifically for Shopify stores selling PC parts and electronics. No workarounds, no duct tape.
             </p>
           </div>
@@ -202,7 +202,7 @@ export default function PcBuilderPage() {
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '0.5rem' }}>
                   {f.title}
                 </h3>
-                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.65, margin: 0 }}>
+                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.65, margin: 0 }}>
                   {f.desc}
                 </p>
               </div>
@@ -219,7 +219,7 @@ export default function PcBuilderPage() {
               <span className="mw-eyebrow">WHY IT WORKS</span>
               <h2 style={{ color: '#fff', marginBottom: '1.5rem' }}>
                 Built for stores that sell<br />
-                <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>complete PC builds.</em>
+                <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>complete PC builds.</em>
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '2rem' }}>
                 Selling individual components is easy. Selling complete builds is hard — customers need
@@ -296,9 +296,9 @@ export default function PcBuilderPage() {
           <span className="mw-eyebrow">BUILT BY MIRACLE WEBSOFT</span>
           <h2 style={{ color: '#fff', marginBottom: '1rem' }}>
             We build Shopify apps.<br />
-            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>And everything around them.</em>
+            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>And everything around them.</em>
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: '480px', margin: '0 auto 2.5rem' }}>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: '480px', margin: '0 auto 2.5rem' }}>
             PC Builder is one of several tools we&apos;ve built and shipped. We&apos;re a Shopify development agency
             with 10+ years of experience — we build apps, stores, and custom tools for Shopify merchants.
           </p>

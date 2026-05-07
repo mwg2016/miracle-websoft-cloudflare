@@ -71,7 +71,7 @@ export default function ToolsSection() {
       <div className="mw-container">
         <div className="mw-section-header">
           <span className="mw-eyebrow">Built by Us</span>
-          <h2 style={{ color: '#fff' }}>Tools we&apos;ve shipped<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.4)' }}>used by thousands.</em></h2>
+          <h2 style={{ color: '#fff' }}>Tools we&apos;ve shipped<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>used by thousands.</em></h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
@@ -100,7 +100,7 @@ export default function ToolsSection() {
                   }}>
                     {tool.badge}
                   </span>
-                  <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.3)', fontWeight: 500 }}>
+                  <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>
                     {tool.tag}
                   </span>
                 </div>
@@ -133,6 +133,7 @@ export default function ToolsSection() {
                     href={tool.url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Try ${tool.title} free`}
                     style={{
                       display: 'inline-flex', alignItems: 'center', gap: '0.35rem',
                       background: tool.badgeColor, color: '#000',
@@ -146,6 +147,7 @@ export default function ToolsSection() {
                     href={tool.url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Visit ${tool.urlLabel}`}
                     style={{
                       display: 'inline-flex', alignItems: 'center', gap: '0.35rem',
                       border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.5)',

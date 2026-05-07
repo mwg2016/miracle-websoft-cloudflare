@@ -30,7 +30,7 @@ export default function PrivacyPage() {
         <div className="mb-8"><Breadcrumb items={[{ label: 'Privacy Policy' }]} /></div>
         <span className="mw-eyebrow">Legal</span>
         <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '0.5rem' }}>Privacy Policy</h1>
-        <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.85rem', marginBottom: '3rem' }}>Last updated: January 2025</p>
+        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', marginBottom: '3rem' }}>Last updated: January 2025</p>
         <div style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.9, fontSize: '0.95rem' }} className="flex flex-col gap-8">
           <section>
             <h2 style={{ color: '#fff', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem' }}>1. Information We Collect</h2>
@@ -58,7 +58,7 @@ export default function PrivacyPage() {
           </section>
         </div>
         <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-          <Link href="/terms" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem' }} className="hover:text-white transition-colors">View Terms of Service →</Link>
+          <Link href="/terms" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem' }} className="hover:text-white transition-colors">View Terms of Service →</Link>
         </div>
       </div>
     </div>

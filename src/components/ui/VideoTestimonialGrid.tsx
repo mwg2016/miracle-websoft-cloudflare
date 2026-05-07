@@ -64,7 +64,7 @@ export default function VideoTestimonialGrid({
                 <span
                   style={{
                     fontSize: '0.58rem',
-                    color: 'rgba(255,255,255,0.45)',
+                    color: 'rgba(255,255,255,0.6)',
                     textTransform: 'uppercase',
                     letterSpacing: '0.06em',
                     fontWeight: 600,
