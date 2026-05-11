@@ -66,7 +66,7 @@ export const universalPartnerFaqs: PartnerFaq[] = [
   {
     question: 'How do you know the lead came from me?',
     answer:
-      'Two ways. Either the customer mentions you on the contact form (we ask "how did you hear about us") or you send them via a unique partner link we give you (works like a tracking link — they click, we know).',
+      "Refer however suits you and your client — drop our contact form link, share our email or WhatsApp, hand over Karam's direct number, or just tell the client to mention you when they reach out. Then ping us (email, WhatsApp, whatever's quickest) saying you sent someone over. No tracking links, no unique URLs, no portal to log into. The relationship is trust-based and we reconcile monthly.",
   },
   {
     question: 'Do I need to sell anything?',
@@ -127,18 +127,18 @@ export const partners: Partner[] = [
     whatYouDo: [
       'Hand the co-branded one-pager to new clients during onboarding (or email it).',
       'Mention us when an existing client asks "do you know someone who builds websites?"',
-      'Send them via your unique partner link, or just tell them to mention your firm on the contact form.',
+      "Refer however you want — share our contact page, our email, our WhatsApp, or hand over Karam's number. Then just ping us so we know who to credit.",
     ],
     steps: [
       {
         n: '01',
         title: 'You sign up',
-        desc: 'Fill in the apply form. We send your partner link, your co-branded one-pager (2-day turnaround) and your partner-only contact for Karam.',
+        desc: "Fill in the apply form. We send your co-branded one-pager (2-day turnaround) and Karam's direct email + WhatsApp so you can reach us instantly when you have someone to refer.",
       },
       {
         n: '02',
         title: 'You refer',
-        desc: 'Hand the one-pager or send the link. No pitch needed — the page does the selling. We follow up within 24 hours.',
+        desc: "Hand the client our contact details — one-pager, email, WhatsApp, contact form, whatever fits. Ping us so we know to expect them. No pitch needed.",
       },
       {
         n: '03',
@@ -510,8 +510,8 @@ export const partners: Partner[] = [
       },
       {
         icon: 'badge',
-        title: 'Custom URL or QR code',
-        desc: 'Insert has your unique URL or QR. Customer scans it, lands on our site, signs up — we know it came from you.',
+        title: 'A simple insert with your shop named on it',
+        desc: 'Insert points the customer to our site (URL + QR to scan). It also says "mention [your shop] when you get in touch" — that\'s how attribution happens. No login, no portal, no tracking link.',
       },
       {
         icon: 'handshake',
@@ -528,7 +528,7 @@ export const partners: Partner[] = [
       {
         n: '01',
         title: 'You apply',
-        desc: 'Apply form below. We send 500 free inserts within 5 days, branded with your unique URL/QR.',
+        desc: 'Apply form below. We send 500 free inserts within 5 days — pre-printed with your shop name and a QR + URL to our site.',
       },
       {
         n: '02',
@@ -550,7 +550,7 @@ export const partners: Partner[] = [
       {
         question: 'Can I print my own inserts to match my store branding?',
         answer:
-          'Yes. If you\'d rather print yourself, we send you the design files (with your unique URL/QR embedded) and you handle the print run. Some printers prefer this for brand consistency. No fee difference.',
+          "Yes. If you'd rather print yourself we'll send you the design files (with your shop name + our QR/URL on them) and you handle the print run. Some printers prefer this for brand consistency. No fee difference.",
       },
     ],
     accentColor: '#fb923c',

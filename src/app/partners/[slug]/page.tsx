@@ -460,8 +460,9 @@ export default async function PartnerPage({ params }: Props) {
                   marginBottom: '2.5rem',
                 }}
               >
-                Fill in the form. We&apos;ll review and reply with terms, your unique referral link and the onboarding
-                kit specific to your partner type. No long forms, no contracts, no upfront commitment.
+                Fill in the form. We&apos;ll review and reply with terms, Karam&apos;s direct email + WhatsApp, and the
+                onboarding kit specific to your partner type. Refer however you like once you&apos;re in — no portal,
+                no tracking link, just a relationship.
               </p>
 
               <a
