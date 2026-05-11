@@ -9,6 +9,21 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'shopify-theme-detector-chrome-extension',
+    date: 'May 2026',
+    tag: 'Tools',
+    title: 'Shopify Theme Detector is now a free Chrome extension',
+    excerpt: 'We shipped a Chrome extension version of our Shopify Theme Detector. Pin it once, click any Shopify storefront and see the theme, apps, product count and collections instantly — no tab switching, no copy-pasting URLs.',
+    body: [
+      "We built a Chrome extension version of our Shopify Theme Detector and it is now live on the Chrome Web Store. It is free, takes one click and works on any Shopify storefront.",
+      "The web version at themedetectorapp.com already gets used thousands of times a month — mostly by agencies, freelancers and store owners who want to spy on what competitors are running. The feedback we kept getting was: this is great, but I have to copy the URL, paste it into your site and wait. Can I just click a button while I am already on the page? Now you can.",
+      "Install it from the Chrome Web Store, pin the icon to your toolbar, and any time you land on a Shopify store you click the icon and the popup tells you: which theme they are using (and which version), how many apps they have installed and which ones the extension recognises, plus a live product count and collection count pulled from the store's public endpoints.",
+      "Under the hood it is the same detection engine as the web tool — JS object inspection for the theme, script-signature matching for 65+ Shopify apps, and the public products.json and collections.json endpoints for the store data. No login, no API key, no data leaves your browser.",
+      "The extension is free forever. We built it as an extension of the existing tool, not a separate paid product. If you use the web version regularly, the extension is just a faster version of the same thing.",
+      "Need a Chrome extension built for your own product or workflow? We ship browser extensions in 5–7 days starting from $200. Whether it is a competitor research tool, an internal team utility, a productivity helper or a customer-facing add-on for your Shopify app — send us a quick message at miraclewebsoft.com/tools and we will scope it, price it and ship it. Same fixed-price, source-code-included model as everything else we build.",
+    ],
+  },
+  {
     slug: 'shopify-summer-2025-edition',
     date: 'May 2025',
     tag: 'Platform Updates',

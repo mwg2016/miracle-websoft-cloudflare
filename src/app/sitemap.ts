@@ -21,6 +21,7 @@ const industryslugs = [
 
 // Keep in sync with src/data/blogPosts.ts
 const blogSlugs = [
+  'shopify-theme-detector-chrome-extension',
   'shopify-summer-2025-edition',
   'shopify-may-2025-updates',
   'custom-shopify-section-with-ai',

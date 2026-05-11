@@ -6,6 +6,7 @@ import {
   ExternalLink, ArrowUpRight, ArrowRight,
   Zap, DollarSign, Calendar, CheckCircle2,
   Code2, Sparkles, Users, Cpu, ShoppingCart, BarChart2, Smartphone,
+  Chrome, Puzzle, MousePointerClick,
 } from 'lucide-react'
 import ContactForm from '@/components/contact/ContactForm'
 import { breadcrumb, itemList, renderJsonLd, softwareApplication, webPage } from '@/lib/jsonld'
@@ -45,6 +46,27 @@ const builtTools = [
       { icon: Search, label: 'App Detection', desc: 'Recognises 65+ apps via script signatures' },
       { icon: Package, label: 'Product Count', desc: 'Uses public products.json endpoint' },
       { icon: Grid3X3, label: 'Collections', desc: 'Counts published collections instantly' },
+    ],
+  },
+  {
+    badge: 'Chrome Extension',
+    badgeColor: '#fbbf24',
+    badgeBg: 'rgba(251,191,36,0.12)',
+    badgeBorder: 'rgba(251,191,36,0.3)',
+    accentGradient: 'linear-gradient(90deg, #f59e0b, #fbbf24)',
+    accentBorder: 'rgba(251,191,36,0.2)',
+    accentCardBg: 'rgba(251,191,36,0.03)',
+    title: 'Shopify Theme Detector — Chrome Extension',
+    url: 'https://chromewebstore.google.com/detail/shopify-theme-detector/ilmiphgaadpgclojkoghokmcfoehnlmn',
+    urlLabel: 'Chrome Web Store',
+    budget: 'Free',
+    timeline: '7 days',
+    desc: 'One-click Chrome extension that detects the Shopify theme, installed apps and store data on any storefront — straight from your browser toolbar. No tab switching, no pasting URLs.',
+    features: [
+      { icon: MousePointerClick, label: 'One-click Detect', desc: 'Theme + apps surface the moment you open the popup' },
+      { icon: Chrome, label: 'Toolbar Icon', desc: 'Pin once, works on every Shopify storefront you visit' },
+      { icon: Search, label: 'App Recognition', desc: 'Recognises 65+ Shopify apps via script signatures' },
+      { icon: Puzzle, label: 'Store Data', desc: 'Product count, collections and theme version at a glance' },
     ],
   },
   {
@@ -157,7 +179,7 @@ const processSteps = [
 const stats = [
   { value: '5–7', unit: 'days', label: 'Typical build time' },
   { value: '$200', unit: '+', label: 'Starting budget' },
-  { value: '4', unit: '', label: 'Live tools shipped' },
+  { value: '5', unit: '', label: 'Live tools shipped' },
   { value: '1000s', unit: '', label: 'Users across tools' },
 ]
 
