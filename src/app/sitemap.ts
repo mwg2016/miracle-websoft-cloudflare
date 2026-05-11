@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { jobs } from '@/data/jobs'
+import { cities, countries, type CountryCode } from '@/data/website-dev-cities'
+import { partners } from '@/data/partners'
 
 const BASE = 'https://miraclewebsoft.com'
 
@@ -78,6 +80,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/careers`,                                             priority: 0.6,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/tools`,                                               priority: 0.7,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/tools/pc-builder`,                                    priority: 0.65, changeFrequency: 'monthly' as const },
+    { url: `${BASE}/website-development`,                                 priority: 0.9,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/partners`,                                            priority: 0.85, changeFrequency: 'monthly' as const },
 
     // ── Partner pages (new) ──────────────────────────────────────────────────
     { url: `${BASE}/white-label`,                                         priority: 0.85, changeFrequency: 'monthly' as const },
@@ -125,6 +129,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/reviews`, priority: 0.85, changeFrequency: 'monthly' as const, lastModified: now },
   ]
 
+  const webdevCountryPages: MetadataRoute.Sitemap = (Object.keys(countries) as CountryCode[]).map((code) => ({
+    url: `${BASE}/website-development/${code}`,
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+    lastModified: now,
+  }))
+
+  const webdevCityPages: MetadataRoute.Sitemap = cities.map((c) => ({
+    url: `${BASE}/website-development/${c.country}/${c.slug}`,
+    priority: 0.65,
+    changeFrequency: 'monthly' as const,
+    lastModified: now,
+  }))
+
+  const partnerPages: MetadataRoute.Sitemap = partners.map((p) => ({
+    url: `${BASE}/partners/${p.slug}`,
+    priority: 0.75,
+    changeFrequency: 'monthly' as const,
+    lastModified: now,
+  }))
+
   return [
     ...core.map(p => ({ ...p, lastModified: now })),
     ...shopifyServicePages,
@@ -132,5 +157,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogPages,
     ...workIndex,
     ...workPages,
+    ...webdevCountryPages,
+    ...webdevCityPages,
+    ...partnerPages,
   ]
 }

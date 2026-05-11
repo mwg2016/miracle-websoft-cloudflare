@@ -49,6 +49,27 @@ export const PRICING_PLANS: Record<string, PricingPlan> = {
     priceLabel: 'Pro maintenance plan ($500/mo)',
     type: 'maintenance',
   },
+  'webdev-starter': {
+    slug: 'webdev-starter',
+    name: 'Starter Website',
+    price: '$299',
+    priceLabel: 'Starter Website ($299 — 5 pages, domain + hosting included)',
+    type: 'build',
+  },
+  'webdev-business': {
+    slug: 'webdev-business',
+    name: 'Business Website',
+    price: '$499',
+    priceLabel: 'Business Website ($499 — 10 pages + blog + SEO, domain + hosting included)',
+    type: 'build',
+  },
+  'webdev-ecommerce': {
+    slug: 'webdev-ecommerce',
+    name: 'E-commerce Website',
+    price: '$899',
+    priceLabel: 'E-commerce Website ($899 — online store up to 50 products, domain + hosting included)',
+    type: 'build',
+  },
 }
 
 export function getPlanBySlug(slug: string | null | undefined): PricingPlan | null {
