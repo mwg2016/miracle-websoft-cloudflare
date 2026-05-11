@@ -56,6 +56,38 @@ export interface Partner {
   iconKey: 'calculator' | 'scale' | 'graduation' | 'landmark' | 'palette' | 'printer' | 'building'
 }
 
+// Universal perks — available to every partner type, regardless of which page they land on.
+// Surfaces on the hub page and on every per-partner detail page.
+export interface UniversalPerk {
+  icon: 'handshake' | 'gift'
+  title: string
+  tagline: string
+  body: string[]
+}
+
+export const universalPerks: UniversalPerk[] = [
+  {
+    icon: 'handshake',
+    title: 'Want to bundle a website into your own service? Be our backend partner.',
+    tagline: 'We build, you sell under your brand. Flexible to whatever model works for you.',
+    body: [
+      "If you'd rather not just refer, you can bundle the website into your own service package. You charge your client whatever fits — your accounting fee plus a website, your branding project plus a website, your formation service plus a website. The website cost goes in your package, the client pays you.",
+      "We deliver under NDA for you at wholesale: Starter from $179, Business from $329, E-commerce from $599. You keep the margin (typically 50–80%) and the client never knows we exist. You're the brand of record.",
+      "No application, no exclusive deal, no minimum volume. Pick this model per-client if you want — refer one, white-label another, mix and match. We're flexible.",
+    ],
+  },
+  {
+    icon: 'gift',
+    title: 'Active partners get a free business website. Built and maintained on us.',
+    tagline: 'We build YOU a site too — and we keep it updated, indefinitely.',
+    body: [
+      "Once you've referred your first paying client, your own business gets a free website from us — same Starter or Business package we sell, no charge. Domain and hosting included for the first year.",
+      "We also maintain it free for as long as you stay an active partner: content updates, security patches, hosting renewal reminders, broken-link fixes. You send the changes, we make them. Usually within 48 hours.",
+      "Think of it as our way of saying thanks for being part of the network. Most partners use this for their own firm, studio or shop — it pays for itself many times over.",
+    ],
+  },
+]
+
 // Universal partner FAQs — appended to per-partner FAQs.
 export const universalPartnerFaqs: PartnerFaq[] = [
   {
@@ -87,6 +119,16 @@ export const universalPartnerFaqs: PartnerFaq[] = [
     question: 'Can I send referrals from outside the US, UK and Australia?',
     answer:
       "Yes — we work remotely with English-speaking clients globally. Pricing for non-US/UK/AU referrals defaults to USD. The referral fee structure is the same.",
+  },
+  {
+    question: "Can I bundle a website into my own package and have you build it for me?",
+    answer:
+      "Yes. We work as a backend partner for any partner type that wants this — accountants who add a 'website launch' line to their setup fee, lawyers who package 'LLC + website' for one price, branding studios who sell a complete brand-to-site package. You sell at whatever you like, we deliver at wholesale (Starter from $179, Business from $329, E-commerce from $599) under your brand, you keep the margin. Decide per-client — referral, white-label or pure backend. No contract, no exclusivity, fully flexible.",
+  },
+  {
+    question: 'Do I get anything for myself out of being a partner?',
+    answer:
+      "Yes — once you refer your first paying client, we build YOU a free website. Same Starter or Business package we sell to other small businesses, no charge, domain and 1 year of hosting included. And we keep it updated free for as long as you stay an active partner — content edits, security patches, broken-link fixes, hosting renewal, all on us. Send the changes, we ship them, usually within 48 hours.",
   },
 ]
 
@@ -130,9 +172,8 @@ export const partners: Partner[] = [
       },
     ],
     whatYouDo: [
-      'Hand the co-branded one-pager to new clients during onboarding (or email it).',
-      'Mention us when an existing client asks "do you know someone who builds websites?"',
-      "Refer however you want — share our contact page, our email, our WhatsApp, or hand over Karam's number. Then just ping us so we know who to credit.",
+      "Share the lead with us. WhatsApp, email, our contact form — whichever takes ten seconds for you.",
+      "That's it. We handle every conversation, every revision, every payment with the client. Your name comes up at sign-up so we credit you.",
     ],
     steps: [
       {
@@ -209,9 +250,8 @@ export const partners: Partner[] = [
       },
     ],
     whatYouDo: [
-      'Mention our service when filing is complete and the client asks "what\'s next?".',
-      'Choose your model: refer (we sell + deliver) or white-label (you sell, we deliver).',
-      'For white-label: send us the brief, we build under your brand, you handle billing.',
+      "Share the client with us. One WhatsApp message, one email — that's the entire job.",
+      "If you want us to deliver under your firm's brand (white-label), say so when you share — same effort, different model.",
     ],
     steps: [
       {
@@ -288,9 +328,8 @@ export const partners: Partner[] = [
       },
     ],
     whatYouDo: [
-      "Invite us to deliver a workshop for your cohort — 60 minutes, no sales pitch, all content.",
-      'Share the member discount code with your group.',
-      'Mention us as your "go-to web partner" when founders ask what to do about a website.',
+      "Share the founder with us when they need a website. WhatsApp, email, contact form — whatever's quickest.",
+      "Optional: invite us to run a free workshop for your full cohort. Not required, just available if it fits.",
     ],
     steps: [
       {
@@ -367,9 +406,8 @@ export const partners: Partner[] = [
       },
     ],
     whatYouDo: [
-      'Add us to your small business resources page or welcome packet for new business accounts.',
-      'Distribute the quarterly co-marketing assets through your normal small biz channels.',
-      'Brief your business banking staff so they can mention us when relevant.',
+      "Share the small business with us. A relationship manager passes us the contact, we take it from there.",
+      "Optional: if you want a co-branded landing page or marketing assets for institution-wide rollout, we build those at no cost. Otherwise, just keep sharing leads.",
     ],
     steps: [
       {
@@ -446,9 +484,8 @@ export const partners: Partner[] = [
       },
     ],
     whatYouDo: [
-      'When a logo client asks "do you build websites?", say yes — and hand them to us.',
-      'Send us your brand guidelines (logos, fonts, colours, voice) so we can build to spec.',
-      'Accept our referrals when our website clients need branding work.',
+      "Share the client with us when they ask about a website. WhatsApp, email — your choice.",
+      "Send your brand guidelines along with the lead so we build on-brand. After that, we run everything with the client direct.",
     ],
     steps: [
       {
@@ -525,25 +562,24 @@ export const partners: Partner[] = [
       },
     ],
     whatYouDo: [
-      'Put our printed insert into every business card order bag (or staple it to the receipt).',
-      'Optionally mention us when you see a logo on a new card order — totally up to you.',
-      'That\'s it. Really.',
+      "When a customer orders cards for a brand new business, share their contact with us. Or just tell them about us when handing the cards over — your call.",
+      "Optional: we'll ship you 500 free printed inserts you can drop in pickup bags. No requirement to use them — they're there if helpful, ignored if not.",
     ],
     steps: [
       {
         n: '01',
-        title: 'You ping us with your shipping address',
-        desc: 'WhatsApp, email or the form — just send your print shop name and where to ship inserts. We design and ship 500 free inserts within 5 days, pre-printed with your shop name. No sign-up, no form, no contract.',
+        title: 'You see a customer ordering cards for a new business',
+        desc: "New logo, first card order, often the founder is still in your store. That's the moment.",
       },
       {
         n: '02',
-        title: 'You drop them in bags',
-        desc: 'Your counter staff add one insert per business card order. Takes 2 seconds, no script.',
+        title: 'You share their contact (or just hand them our card)',
+        desc: "WhatsApp or email Karam the customer's name and contact. Or hand them a small card with our info — we'll ship 500 free if you want them, but you don't need to use them.",
       },
       {
         n: '03',
         title: 'You earn',
-        desc: 'Customers scan, mention your shop when they reach out, sign up over the next 2–6 weeks. You earn $50–$150 per converted lead. Monthly payouts.',
+        desc: 'When the customer signs up over the next 2–6 weeks, you earn $50–$150. Monthly payouts. We chase, we sell, we build — you just made the introduction.',
       },
     ],
     faqs: [
@@ -604,9 +640,8 @@ export const partners: Partner[] = [
       },
     ],
     whatYouDo: [
-      "Host us once a month for a 60-min workshop — we bring content, you bring members.",
-      'Share the workshop in your member newsletter / Slack / event calendar.',
-      'Put the printed poster on your community noticeboard.',
+      "Share the member's contact with us when they need a website. One WhatsApp message, done.",
+      "Optional extras: we'll come run a workshop, post a notice on your community board, or just stay out of your way. Pick what fits.",
     ],
     steps: [
       {

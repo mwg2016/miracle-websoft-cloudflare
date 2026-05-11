@@ -8,7 +8,7 @@ import {
 } from 'lucide-react'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import ContactForm from '@/components/contact/ContactForm'
-import { partners, getPartner, universalPartnerFaqs } from '@/data/partners'
+import { partners, getPartner, universalPartnerFaqs, universalPerks } from '@/data/partners'
 import { breadcrumb, faqPage, renderJsonLd, service, webPage } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
 
@@ -270,6 +270,81 @@ export default async function PartnerPage({ params }: Props) {
                   >
                     {b.desc}
                   </p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Universal perks — available to every partner */}
+      <section className="mw-section" style={{ background: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+        <div className="mw-container">
+          <div className="mw-section-header">
+            <span className="mw-eyebrow">PLUS — TWO MORE WAYS WE WORK WITH YOU</span>
+            <h2 style={{ color: '#fff' }}>
+              We&apos;re flexible.
+              <br />
+              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>
+                Beyond simple referrals.
+              </em>
+            </h2>
+            <p
+              style={{
+                color: 'rgba(255,255,255,0.6)',
+                maxWidth: '560px',
+                margin: '0 auto',
+                fontSize: '0.95rem',
+                lineHeight: 1.7,
+              }}
+            >
+              Two extra offers available to every {partner.shortName.toLowerCase()} working with us. Pick what fits,
+              ignore what doesn&apos;t.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {universalPerks.map((perk) => {
+              const Icon = perk.icon === 'gift' ? Gift : Handshake
+              return (
+                <div
+                  key={perk.title}
+                  style={{
+                    borderRadius: '16px',
+                    border: `1px solid ${partner.accentBorder}`,
+                    background: partner.accentBg,
+                    padding: '2rem',
+                  }}
+                >
+                  <div style={{ height: '3px', background: partner.accentGradient, margin: '-2rem -2rem 1.5rem' }} />
+                  <div
+                    style={{
+                      width: 44,
+                      height: 44,
+                      borderRadius: '12px',
+                      background: partner.accentBg,
+                      border: `1px solid ${partner.accentBorder}`,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: '1.25rem',
+                    }}
+                  >
+                    <Icon size={20} style={{ color: partner.accentColor }} />
+                  </div>
+                  <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff', marginBottom: '0.55rem', lineHeight: 1.35 }}>
+                    {perk.title}
+                  </h3>
+                  <p style={{ fontSize: '0.85rem', color: partner.accentColor, marginBottom: '1.25rem', fontWeight: 500 }}>
+                    {perk.tagline}
+                  </p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                    {perk.body.map((p, i) => (
+                      <p key={i} style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, margin: 0 }}>
+                        {p}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               )
             })}

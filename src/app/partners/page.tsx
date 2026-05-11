@@ -3,9 +3,9 @@ import Link from 'next/link'
 import {
   ArrowRight, ArrowDown, Calculator, Scale, GraduationCap, Landmark,
   Palette, Printer, Building2, DollarSign, Zap, Users, CheckCircle2,
-  Repeat, Sparkles,
+  Repeat, Sparkles, Gift, Handshake,
 } from 'lucide-react'
-import { partners, type Partner } from '@/data/partners'
+import { partners, universalPerks, type Partner } from '@/data/partners'
 import { breadcrumb, itemList, renderJsonLd, service, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
@@ -463,6 +463,81 @@ export default function PartnersHubPage() {
               essentially handing out a one-pager. Multiply by 5 years of compounding referrals and it becomes a real
               line item. No overhead, no risk.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Universal perks — backend partnership + free partner site */}
+      <section className="mw-section" style={{ background: '#0d0d0d' }}>
+        <div className="mw-container">
+          <div className="mw-section-header">
+            <span className="mw-eyebrow">PLUS — TWO MORE WAYS WE WORK WITH YOU</span>
+            <h2 style={{ color: '#fff' }}>
+              We&apos;re flexible.
+              <br />
+              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>
+                Pick the model that fits your business.
+              </em>
+            </h2>
+            <p
+              style={{
+                color: 'rgba(255,255,255,0.6)',
+                maxWidth: '560px',
+                margin: '0 auto',
+                fontSize: '0.95rem',
+                lineHeight: 1.7,
+              }}
+            >
+              Beyond straight referrals, here are two more offers available to every partner type — pick what works,
+              ignore what doesn&apos;t.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {universalPerks.map((perk) => {
+              const Icon = perk.icon === 'gift' ? Gift : Handshake
+              return (
+                <div
+                  key={perk.title}
+                  style={{
+                    borderRadius: '16px',
+                    border: '1px solid rgba(108,99,255,0.2)',
+                    background: 'rgba(108,99,255,0.04)',
+                    padding: '2rem',
+                  }}
+                >
+                  <div style={{ height: '3px', background: 'linear-gradient(90deg, #6c63ff, #a78bfa)', margin: '-2rem -2rem 1.5rem' }} />
+                  <div
+                    style={{
+                      width: 44,
+                      height: 44,
+                      borderRadius: '12px',
+                      background: 'rgba(108,99,255,0.15)',
+                      border: '1px solid rgba(108,99,255,0.3)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: '1.25rem',
+                    }}
+                  >
+                    <Icon size={20} style={{ color: 'var(--accent)' }} />
+                  </div>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#fff', marginBottom: '0.55rem', lineHeight: 1.35 }}>
+                    {perk.title}
+                  </h3>
+                  <p style={{ fontSize: '0.88rem', color: 'var(--accent)', marginBottom: '1.25rem', fontWeight: 500 }}>
+                    {perk.tagline}
+                  </p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                    {perk.body.map((p, i) => (
+                      <p key={i} style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, margin: 0 }}>
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
