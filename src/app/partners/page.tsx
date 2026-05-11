@@ -47,7 +47,7 @@ const journey = [
 const stats = [
   { value: '$150', unit: 'max', label: 'Per referral, paid monthly' },
   { value: '7', unit: '', label: 'Partner types covered' },
-  { value: '24h', unit: '', label: 'Onboarding turnaround' },
+  { value: '0', unit: '', label: 'Forms to fill before referring' },
   { value: '$0', unit: '', label: 'Cost to partner' },
 ]
 
@@ -137,9 +137,20 @@ export default function PartnersHubPage() {
                 textDecoration: 'none',
               }}
             >
-              Apply to partner
+              Send your first lead
             </Link>
           </div>
+
+          <p
+            style={{
+              marginTop: '1.5rem',
+              fontSize: '0.78rem',
+              color: 'rgba(255,255,255,0.45)',
+              fontWeight: 500,
+            }}
+          >
+            No sign-up · No contract · Just share the lead — get paid when they sign
+          </p>
         </div>
       </section>
 
@@ -501,11 +512,11 @@ export default function PartnersHubPage() {
         style={{ background: '#0a0a0a', padding: '5rem 0', borderTop: '1px solid rgba(255,255,255,0.06)' }}
       >
         <div className="mw-container" style={{ maxWidth: '720px', textAlign: 'center' }}>
-          <span className="mw-eyebrow">READY TO PARTNER?</span>
+          <span className="mw-eyebrow">READY TO REFER?</span>
           <h2 style={{ color: '#fff', marginBottom: '1rem' }}>
             Pick your partner type.
             <br />
-            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>Apply on the right page.</em>
+            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>Share a lead from the right page.</em>
           </h2>
           <p
             style={{
@@ -515,8 +526,8 @@ export default function PartnersHubPage() {
               marginBottom: '2.5rem',
             }}
           >
-            Each program has its own application form so we can tailor your onboarding (different kits, different
-            assets, different payout terms). Pick yours below — applications reviewed within 24 hours.
+            No application, no sign-up, no contract to sign. Each page below has a referral form pre-tagged for your
+            partner type — drop the lead&apos;s details there, or just WhatsApp Karam directly. We reply within 24 hours.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -540,7 +551,7 @@ export default function PartnersHubPage() {
                 >
                   <Icon size={16} style={{ color: p.accentColor }} />
                   <span style={{ fontSize: '0.88rem', fontWeight: 600, textAlign: 'left' }}>
-                    Apply as a {p.shortName}
+                    Refer as a {p.shortName}
                   </span>
                   <ArrowRight size={12} style={{ color: 'rgba(255,255,255,0.4)', marginLeft: 'auto' }} />
                 </Link>

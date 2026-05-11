@@ -59,9 +59,14 @@ export interface Partner {
 // Universal partner FAQs — appended to per-partner FAQs.
 export const universalPartnerFaqs: PartnerFaq[] = [
   {
+    question: "Do I need to sign up before I can refer someone?",
+    answer:
+      "No. There's no application, no portal, no contract to read. The moment you have a client who needs a website, send them our way (any channel) and ping us so we know to credit you. We collect your payout details (bank or PayPal) when your first referral converts — that's the only time we ask for anything from you.",
+  },
+  {
     question: 'When do I get paid?',
     answer:
-      "Monthly. We track conversions, send you a statement on the 1st of each month and pay out via bank transfer or PayPal. You see exactly which referrals converted and which package they bought.",
+      "Monthly. When your first referral signs, we collect your payout details and pay you on the 1st of the next month via bank transfer or PayPal. Every month after that, statement on the 1st, payout same day. You see exactly which referrals converted and which package they bought.",
   },
   {
     question: 'How do you know the lead came from me?',
@@ -132,18 +137,18 @@ export const partners: Partner[] = [
     steps: [
       {
         n: '01',
-        title: 'You sign up',
-        desc: "Fill in the apply form. We send your co-branded one-pager (2-day turnaround) and Karam's direct email + WhatsApp so you can reach us instantly when you have someone to refer.",
+        title: 'You see a client who needs a website',
+        desc: "A new client asks 'who builds websites?' or you spot one whose site is hurting their business. That's the moment.",
       },
       {
         n: '02',
-        title: 'You refer',
-        desc: "Hand the client our contact details — one-pager, email, WhatsApp, contact form, whatever fits. Ping us so we know to expect them. No pitch needed.",
+        title: 'You send them our way',
+        desc: "Share our contact page, email, WhatsApp or Karam's number — whichever fits. Then ping us (email or WhatsApp) with their name so we know to credit you. No form to fill, no portal to log into.",
       },
       {
         n: '03',
         title: 'You get paid',
-        desc: 'When a referral signs, we email you. Monthly statement on the 1st, payout via bank transfer or PayPal the same day.',
+        desc: 'When the client signs, we email you to confirm. Monthly statement on the 1st, payout via bank transfer or PayPal the same day. First payment = first referral. No sign-up, no waiting.',
       },
     ],
     faqs: [
@@ -211,18 +216,18 @@ export const partners: Partner[] = [
     steps: [
       {
         n: '01',
-        title: 'You apply + pick a model',
-        desc: 'Apply form below — tell us if you want referral or white-label. We send terms + onboarding within 48 hours.',
+        title: 'You have a freshly-formed client',
+        desc: "You've just filed their LLC and they're asking what's next. That's the moment — they have budget left, no website, no preferred vendor.",
       },
       {
         n: '02',
-        title: 'You sell',
-        desc: 'Add "Website" to your service menu. Closing rates are highest in the week after filing — your client is in spending mode.',
+        title: 'You pick a path on the fly',
+        desc: 'Either send them to us direct (referral, fastest) or send us a brief and we deliver under your firm\'s brand (white-label). Decide per-client — no upfront commitment to either model.',
       },
       {
         n: '03',
-        title: 'We deliver',
-        desc: 'Referral: we contact your client and run the project. White-label: we deliver to you under NDA, your client never sees us.',
+        title: 'You get paid',
+        desc: 'Referral: $50–$150 per project, monthly payout. White-label: pay our wholesale rate, bill your client whatever you like, keep the margin. No sign-up, no contract — just tell us when you have a lead.',
       },
     ],
     faqs: [
@@ -290,18 +295,18 @@ export const partners: Partner[] = [
     steps: [
       {
         n: '01',
-        title: 'You apply',
-        desc: 'Apply form below. Tell us about your cohort size and cadence. We come back within 48h with a workshop slot proposal.',
+        title: 'You spot a founder who needs a website',
+        desc: "Member, mentee, SCORE attendee — whoever in your cohort is asking about a site. That's the moment.",
       },
       {
         n: '02',
-        title: 'We deliver',
-        desc: 'Live 60-min workshop (Zoom or in-person). You introduce us, we run the content, members get their discount code at the end.',
+        title: 'You hand them over (or invite us for a workshop)',
+        desc: "Send the founder to our contact page, email or WhatsApp. Or — if you have a cohort big enough — ping us and we'll run a free 60-min workshop for the whole group instead. Either path works; no sign-up needed for either.",
       },
       {
         n: '03',
-        title: 'Members convert',
-        desc: 'Members who come to us mention your name on the form. We track everything and share quarterly results with you.',
+        title: 'They convert, you get paid',
+        desc: 'Founders who mention your name on the form (or who you ping us about) get a $50 discount and you earn $50/$75/$150. Monthly payouts. Workshop cohorts get the same code.',
       },
     ],
     faqs: [
@@ -369,18 +374,18 @@ export const partners: Partner[] = [
     steps: [
       {
         n: '01',
-        title: 'You apply',
-        desc: 'Apply form below. We schedule a 30-min call with your small biz team to design the partnership.',
+        title: 'You ping us when you have a small biz client',
+        desc: 'Account holder, loan applicant, business banking lead — anyone. WhatsApp or email Karam with the basics, we take it from there. (For institution-wide partnerships with co-branded assets, we set that up separately on a single 30-min call.)',
       },
       {
         n: '02',
-        title: 'We build your assets',
-        desc: 'Co-branded landing page + first set of co-marketing assets delivered within 2 weeks. Free to you.',
+        title: 'We deliver to your client',
+        desc: 'Your account holder gets a $50 discount we honour for any client you send. We deliver the site, you stay informed.',
       },
       {
         n: '03',
-        title: 'You promote, we deliver',
-        desc: 'Your account holders click through, get $50 off, we deliver their website. Quarterly review of conversions + revenue.',
+        title: 'You get paid (or your members do)',
+        desc: 'Two options: bank earns $50/$75/$150 referral fee per converted lead OR your account holder keeps the $50 discount and bank gets co-marketing assets in return. Pick per-lead, no contract.',
       },
     ],
     faqs: [
@@ -448,18 +453,18 @@ export const partners: Partner[] = [
     steps: [
       {
         n: '01',
-        title: 'You apply',
-        desc: 'Apply form. We review your portfolio and confirm fit (we partner with studios who care about craft, not template designers).',
+        title: 'You finish a logo, client asks about a website',
+        desc: 'Every project ends with this question. That\'s the moment.',
       },
       {
         n: '02',
-        title: 'We exchange',
-        desc: 'You start sending logo clients our way, we start sending website clients yours. Loose tracking spreadsheet shared between us.',
+        title: 'You send them to us, we send our clients to you',
+        desc: 'Ping us with the client\'s details (email or WhatsApp). When our website clients need branding, we ping you the same way. Loose tracking spreadsheet shared between us — no portal, no form, no sign-up.',
       },
       {
         n: '03',
         title: 'Quarterly review',
-        desc: 'Once a quarter, we look at the balance. If it\'s lopsided, we switch you to a paid referral structure so you\'re always net-positive.',
+        desc: 'Once a quarter we look at the balance. If you sent more than you received, we top up with a $50/$75/$150 paid referral fee so you\'re always net-positive. Pure exchange when it balances; paid when it doesn\'t.',
       },
     ],
     faqs: [
@@ -527,8 +532,8 @@ export const partners: Partner[] = [
     steps: [
       {
         n: '01',
-        title: 'You apply',
-        desc: 'Apply form below. We send 500 free inserts within 5 days — pre-printed with your shop name and a QR + URL to our site.',
+        title: 'You ping us with your shipping address',
+        desc: 'WhatsApp, email or the form — just send your print shop name and where to ship inserts. We design and ship 500 free inserts within 5 days, pre-printed with your shop name. No sign-up, no form, no contract.',
       },
       {
         n: '02',
@@ -538,7 +543,7 @@ export const partners: Partner[] = [
       {
         n: '03',
         title: 'You earn',
-        desc: 'Customers scan, sign up over the next 2–6 weeks (when they realise they need a website). You earn $50–$150 per project. Monthly payouts.',
+        desc: 'Customers scan, mention your shop when they reach out, sign up over the next 2–6 weeks. You earn $50–$150 per converted lead. Monthly payouts.',
       },
     ],
     faqs: [
@@ -606,18 +611,18 @@ export const partners: Partner[] = [
     steps: [
       {
         n: '01',
-        title: 'You apply',
-        desc: 'Apply form below. We confirm fit within 48h and schedule the first workshop.',
+        title: 'You ping us when a member needs a site (or invite us for a workshop)',
+        desc: "Two equally easy paths. Path A: a specific member needs a website — WhatsApp or email Karam with their details, no sign-up. Path B: you want a workshop for the whole community — same message, we schedule one within 48h. Pick whichever fits.",
       },
       {
         n: '02',
-        title: 'We run the workshop',
-        desc: '60-minute session, live at your space or virtual. No sales pitch — pure content. Members walk out with their $50-off code.',
+        title: 'We deliver',
+        desc: 'For Path A: we contact the member directly, build their site. For Path B: 60-min live session at your space or virtual, no sales pitch — pure content, $50-off code dropped at the end.',
       },
       {
         n: '03',
-        title: 'Members convert',
-        desc: 'Members redeem the code over the following weeks. We share quarterly results with your community team.',
+        title: 'You earn',
+        desc: 'Members who mention your space get $50 off and you earn $50/$75/$150 per converted lead. Or switch to "discount-only" mode if you\'d rather make it a member perk. Either way, no contract.',
       },
     ],
     faqs: [

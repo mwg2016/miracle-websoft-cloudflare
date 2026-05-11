@@ -65,7 +65,7 @@ export default async function PartnerPage({ params }: Props) {
   const url = `/partners/${partner.slug}`
   const allFaqs = [...partner.faqs, ...universalPartnerFaqs]
 
-  const waText = `Hi Karam, I'm interested in joining the Miracle Websoft partner program — ${partner.shortName}.`
+  const waText = `Hi Karam, I'm a ${partner.shortName.toLowerCase()} and I'd like to send you a lead — here are their details:`
   const whatsappUrl = outboundHref('whatsapp', `https://wa.me/916239269736?text=${encodeURIComponent(waText)}`)
 
   const jsonLd = renderJsonLd([
@@ -153,7 +153,7 @@ export default async function PartnerPage({ params }: Props) {
 
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Link href="#apply" className="mw-btn-primary">
-              Apply to partner <ArrowDown size={15} />
+              Send us a lead <ArrowDown size={15} />
             </Link>
             <Link
               href="#how-it-works"
@@ -173,6 +173,17 @@ export default async function PartnerPage({ params }: Props) {
               How it works
             </Link>
           </div>
+
+          <p
+            style={{
+              marginTop: '1.5rem',
+              fontSize: '0.78rem',
+              color: 'rgba(255,255,255,0.45)',
+              fontWeight: 500,
+            }}
+          >
+            No sign-up · No contract · Just share the lead, get paid when they sign
+          </p>
         </div>
       </section>
 
@@ -443,12 +454,12 @@ export default async function PartnerPage({ params }: Props) {
         <div className="mw-container">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_460px] gap-12 items-start">
             <div>
-              <span className="mw-eyebrow">APPLY TO PARTNER</span>
+              <span className="mw-eyebrow">SEND US A LEAD</span>
               <h2 style={{ color: '#fff', marginBottom: '1rem' }}>
-                Apply as a {partner.shortName.toLowerCase()}.
+                Got someone in mind?
                 <br />
                 <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>
-                  We respond within 24 hours.
+                  Share their details, we take it from here.
                 </em>
               </h2>
               <p
@@ -457,12 +468,23 @@ export default async function PartnerPage({ params }: Props) {
                   fontSize: '0.95rem',
                   lineHeight: 1.75,
                   maxWidth: '440px',
-                  marginBottom: '2.5rem',
+                  marginBottom: '1.5rem',
                 }}
               >
-                Fill in the form. We&apos;ll review and reply with terms, Karam&apos;s direct email + WhatsApp, and the
-                onboarding kit specific to your partner type. Refer however you like once you&apos;re in — no portal,
-                no tracking link, just a relationship.
+                No sign-up, no portal, no contract. Just share their details in the form (or WhatsApp them to Karam
+                directly). We&apos;ll follow up with them within 24 hours and credit you when they sign.
+              </p>
+              <p
+                style={{
+                  color: 'rgba(255,255,255,0.45)',
+                  fontSize: '0.85rem',
+                  lineHeight: 1.7,
+                  maxWidth: '440px',
+                  marginBottom: '2.5rem',
+                  fontStyle: 'italic',
+                }}
+              >
+                In the message field, just write something like: <span style={{ color: 'rgba(255,255,255,0.6)' }}>&quot;Referring [client name] for a website — their business is [X], contact them at [email/phone]. I&apos;m a {partner.shortName.toLowerCase()}.&quot;</span> That&apos;s enough.
               </p>
 
               <a
@@ -485,10 +507,10 @@ export default async function PartnerPage({ params }: Props) {
                 <MessageCircle size={18} style={{ color: '#25D366', flexShrink: 0 }} />
                 <div>
                   <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff', lineHeight: 1.2 }}>
-                    Prefer WhatsApp?
+                    Faster — just WhatsApp Karam
                   </div>
                   <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>
-                    Message Karam directly — replies within an hour
+                    Drop the lead&apos;s details in chat — replies within an hour
                   </div>
                 </div>
                 <span
@@ -549,7 +571,7 @@ export default async function PartnerPage({ params }: Props) {
                   </div>
                   <div>
                     <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>
-                      Applying as: {partner.shortName}
+                      Referring as: {partner.shortName}
                     </div>
                     <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>
                       {partner.partnershipBadge}
@@ -568,7 +590,7 @@ export default async function PartnerPage({ params }: Props) {
                     borderBottom: '1px solid rgba(255,255,255,0.06)',
                   }}
                 >
-                  24-hour reply · No commitment · No quotas
+                  No sign-up · No contract · Pay when they sign
                 </div>
                 <ContactForm />
               </div>
