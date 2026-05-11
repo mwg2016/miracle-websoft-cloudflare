@@ -3,12 +3,19 @@ import { outboundHref } from '@/lib/outbound'
 
 const serviceLinks = [
   { label: 'All Services', href: '/services' },
+  { label: 'Website Development for Small Business', href: '/website-development' },
   { label: 'Custom Shopify Development', href: '/services/shopify/development' },
   { label: 'Shopify App Development', href: '/services/shopify-app-development' },
   { label: 'WordPress Development', href: '/services/wordpress-development' },
   { label: 'Custom Web Development', href: '/services/custom-web-development' },
   { label: 'Shopify Migrations', href: '/services/shopify-migration' },
   { label: 'CRO & Speed Optimisation', href: '/services/shopify-cro-speed' },
+]
+
+const marketLinks = [
+  { label: 'USA — Website Development', href: '/website-development/us' },
+  { label: 'UK — Website Development', href: '/website-development/uk' },
+  { label: 'Australia — Website Development', href: '/website-development/au' },
 ]
 const industryLinks = [
   { label: "Women's Clothing & Boutiques", href: '/industries/womens-clothing-boutiques' },
@@ -28,6 +35,14 @@ const companyLinks = [
   { label: 'Contact', href: '/contact' },
   { label: 'White Label', href: '/white-label' },
   { label: 'Referral Program', href: '/referral' },
+  { label: 'Partner Program', href: '/partners' },
+]
+
+const partnerHighlights = [
+  { label: 'Accountants & CPAs', href: '/partners/accountants' },
+  { label: 'Business Formation Lawyers', href: '/partners/business-lawyers' },
+  { label: 'Branding Agencies', href: '/partners/branding-agencies' },
+  { label: 'Co-working Spaces', href: '/partners/coworking-spaces' },
 ]
 
 const socials = [
@@ -77,17 +92,28 @@ export default function Footer() {
 
       {/* Nav links */}
       <div className="mw-container" style={{ paddingTop: '4rem', paddingBottom: '4rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
           <div>
             <p className="mw-eyebrow">Services</p>
             <ul className="flex flex-col gap-3 mt-1">
               {serviceLinks.map(l => <li key={l.href}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">{l.label}</Link></li>)}
+            </ul>
+            <p className="mw-eyebrow mt-8">Markets</p>
+            <ul className="flex flex-col gap-3 mt-1">
+              {marketLinks.map(l => <li key={l.href}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">{l.label}</Link></li>)}
             </ul>
           </div>
           <div>
             <p className="mw-eyebrow">Industries</p>
             <ul className="flex flex-col gap-3 mt-1">
               {industryLinks.map(l => <li key={l.href}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">{l.label}</Link></li>)}
+            </ul>
+          </div>
+          <div>
+            <p className="mw-eyebrow">Partners</p>
+            <ul className="flex flex-col gap-3 mt-1">
+              <li><Link href="/partners" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', fontWeight: 600 }} className="transition-colors hover:text-white">Partner Program — All 7 types</Link></li>
+              {partnerHighlights.map(l => <li key={l.href}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">{l.label}</Link></li>)}
             </ul>
           </div>
           <div>
