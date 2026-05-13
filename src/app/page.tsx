@@ -11,6 +11,7 @@ import Testimonials from '@/components/home/Testimonials'
 import ClientPortfolio from '@/components/home/ClientPortfolio'
 import ToolsSection from '@/components/home/ToolsSection'
 import CtaBanner from '@/components/home/CtaBanner'
+import CitationsAndProfiles from '@/components/home/CitationsAndProfiles'
 import FaqSection from '@/components/ui/FaqSection'
 import RecentWork from '@/components/home/RecentWork'
 import { breadcrumb, faqPage, renderJsonLd, webPage } from '@/lib/jsonld'
@@ -78,6 +79,7 @@ export default function HomePage() {
       <ClientPortfolio />
       <TrustProfiles />
       <ToolsSection />
+      <CitationsAndProfiles />
       <FaqSection faqs={homeFaqs} heading="Questions about working with us" />
       <CtaBanner />
     </>

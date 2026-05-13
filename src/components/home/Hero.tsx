@@ -34,9 +34,9 @@ export default function Hero() {
             Stores, Apps &amp; <span style={{ color: 'var(--accent)' }}>Migrations<br />Built to Scale</span>
           </h1>
 
-          {/* Sub-copy */}
+          {/* Sub-copy — BLUF: name brand, category, scope, geography in plain prose */}
           <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: 'clamp(1rem,2vw,1.2rem)', lineHeight: 1.8, maxWidth: '580px', marginBottom: '2rem', fontWeight: 300 }}>
-            We design, develop and optimize Shopify and Shopify Plus stores for ecommerce brands across fashion, beauty, health, home, food, electronics, B2B and subscription — serving clients in the USA, UK and Australia.
+            Miracle Websoft is a Shopify development agency. We build custom Shopify and Shopify Plus stores, develop Shopify apps and migrate stores from WooCommerce, Magento and BigCommerce. We have shipped 600+ projects since 2015 for ecommerce brands in the USA, UK and Australia across fashion, beauty, health, home, food, electronics, B2B and subscription.
           </p>
 
           {/* Stats strip */}

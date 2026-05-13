@@ -20,17 +20,17 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://miraclewebsoft.com'),
-  title: { default: 'Shopify Agency for Clothing & Fashion Brands | Miracle Websoft', template: '%s | Miracle Websoft' },
-  description: 'We build high-converting Shopify stores for clothing, fashion and apparel brands. Custom development, app builds, migrations and CRO. 600+ projects. Top Rated Plus on Upwork. USA, UK and Australia.',
-  keywords: ['Shopify agency', 'clothing brands', 'fashion Shopify', 'Shopify development', 'Shopify migration', 'Shopify CRO', 'Shopify app development'],
+  title: { default: 'Miracle Websoft — Shopify Development Agency', template: '%s | Miracle Websoft' },
+  description: 'Miracle Websoft is a Shopify development agency. Custom Shopify and Shopify Plus stores, app development, migrations and CRO. 600+ projects since 2015. Top Rated Plus on Upwork. USA, UK and Australia.',
+  keywords: ['Miracle Websoft', 'Shopify development agency', 'Shopify Plus development', 'Shopify app development', 'Shopify migration agency', 'Shopify CRO agency'],
   authors: [{ name: 'Miracle Websoft', url: 'https://miraclewebsoft.com' }],
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://miraclewebsoft.com',
     siteName: 'Miracle Websoft',
-    title: 'Shopify Agency for Clothing & Fashion Brands | Miracle Websoft',
-    description: 'We build high-converting Shopify stores for clothing, fashion and apparel brands. 600+ projects. Top Rated Plus on Upwork.',
+    title: 'Miracle Websoft — Shopify Development Agency',
+    description: 'Miracle Websoft is a Shopify development agency. Custom Shopify and Shopify Plus stores, apps, migrations and CRO. 600+ projects since 2015.',
   },
   twitter: {
     card: 'summary_large_image',
@@ -46,17 +46,22 @@ const jsonLd = {
   '@graph': [
     // ── Organisation ──────────────────────────────────────────────────────────
     {
-      '@type': 'ProfessionalService',
+      '@type': ['Organization', 'ProfessionalService'],
       '@id': 'https://miraclewebsoft.com/#organization',
       name: 'Miracle Websoft',
+      alternateName: ['Miracle Websoft Pvt Ltd', 'Miracle Websoft Shopify Agency'],
+      legalName: 'Miracle Websoft',
       url: 'https://miraclewebsoft.com',
       logo: {
         '@type': 'ImageObject',
         url: 'https://miraclewebsoft.com/icon-512.png',
         width: 512,
         height: 512,
+        caption: 'Miracle Websoft logo',
       },
-      description: 'Specialist Shopify development agency for clothing, fashion and apparel brands. Custom development, app builds, migrations and CRO. Based in India, serving USA, UK and Australia.',
+      image: 'https://miraclewebsoft.com/icon-512.png',
+      slogan: 'Shopify development agency — custom stores, apps and migrations.',
+      description: 'Miracle Websoft is a Shopify development agency building custom Shopify and Shopify Plus stores, apps and migrations for ecommerce brands. Based in India, serving the USA, UK and Australia since 2015.',
       foundingDate: '2015',
       email: 'karam@miraclewebsoft.com',
       telephone: '+916239269736',
@@ -127,7 +132,7 @@ const jsonLd = {
       '@id': 'https://miraclewebsoft.com/#website',
       url: 'https://miraclewebsoft.com',
       name: 'Miracle Websoft',
-      description: 'Shopify agency for clothing and fashion brands — custom development, migrations, app development, and CRO.',
+      description: 'Miracle Websoft — Shopify development agency. Custom Shopify and Shopify Plus stores, apps, migrations and CRO.',
       publisher: { '@id': 'https://miraclewebsoft.com/#organization' },
       potentialAction: {
         '@type': 'SearchAction',
