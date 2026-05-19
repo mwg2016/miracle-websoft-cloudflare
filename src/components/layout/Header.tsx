@@ -92,7 +92,7 @@ export default function Header() {
       <div className="mw-container">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="font-bold text-lg text-white hover:opacity-80 transition-opacity" style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
+          <Link href="/" className="font-bold text-lg text-white hover:opacity-80 transition-opacity" style={{ fontFamily: 'var(--font-sans), system-ui, sans-serif' }}>
             Miracle<span style={{ color: 'var(--accent)' }}>Websoft</span>
           </Link>
 
@@ -177,10 +177,10 @@ export default function Header() {
 
           <div className="flex items-center gap-3">
             <Link href="/contact" className="sm:hidden text-xs font-medium" style={{ color: 'var(--accent)', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
-              Free Audit
+              Book a free audit
             </Link>
             <Link href="/contact" className="mw-btn-primary hidden sm:inline-flex text-xs px-4 py-2.5 sm:text-sm sm:px-5">
-              Get Free Audit
+              Book a free audit
             </Link>
             <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 text-white" aria-label="Toggle menu">
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -250,7 +250,7 @@ export default function Header() {
               )}
             </div>
 
-            <Link href="/contact" onClick={() => setMobileOpen(false)} className="mw-btn-primary mt-6 justify-center">Get Free Audit</Link>
+            <Link href="/contact" onClick={() => setMobileOpen(false)} className="mw-btn-primary mt-6 justify-center">Book a free audit</Link>
           </div>
         </div>
       )}

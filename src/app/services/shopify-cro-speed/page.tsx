@@ -124,7 +124,7 @@ export default function CROSpeedPage() {
             <div className="rounded-2xl p-6 flex flex-col justify-between" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
               <div>
                 <p style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '0.5rem' }}>What This Means in Revenue</p>
-                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '1.25rem', lineHeight: 1.4, fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
+                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '1.25rem', lineHeight: 1.4, fontFamily: 'var(--font-sans), system-ui, sans-serif' }}>
                   A 1% conversion lift pays for our entire CRO service in 30–60 days.
                 </h3>
                 <div className="flex flex-col gap-3">

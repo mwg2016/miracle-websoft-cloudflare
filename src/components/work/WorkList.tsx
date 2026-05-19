@@ -102,7 +102,7 @@ export default function WorkList() {
             {/* Title */}
             <h3
               className="mb-2"
-              style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', lineHeight: 1.4, fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+              style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', lineHeight: 1.4, fontFamily: 'var(--font-sans), system-ui, sans-serif' }}
             >
               {job.title}
             </h3>

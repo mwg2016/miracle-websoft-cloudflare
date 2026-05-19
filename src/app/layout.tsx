@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google'
 import Script from 'next/script'
 import { headers } from 'next/headers'
 import './globals.css'
@@ -9,8 +9,10 @@ import LeadTracker from '@/components/LeadTracker'
 import IntentRouter from '@/components/IntentRouter'
 import ClarityInit from '@/components/ClarityInit'
 import NavigationProgress from '@/components/layout/NavigationProgress'
+import StickyMobileCta from '@/components/layout/StickyMobileCta'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
+const geist = Geist({ subsets: ['latin'], variable: '--font-geist', display: 'swap' })
+const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono', display: 'swap' })
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap' })
 
 export const viewport: Viewport = {
@@ -175,7 +177,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const isAdmin = pathname.startsWith('/admin')
 
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable} ${playfair.variable}`}>
       <head>
         {/* Trusted Types default policy — must run before any script that touches innerHTML. */}
         <script
@@ -207,6 +209,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <>
             <Footer />
             <IntentRouter />
+            <StickyMobileCta />
           </>
         )}
 

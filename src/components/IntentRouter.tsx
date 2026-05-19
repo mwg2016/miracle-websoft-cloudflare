@@ -139,7 +139,7 @@ export default function IntentRouter() {
           cursor: pointer;
           font-size: 0.82rem;
           font-weight: 600;
-          font-family: var(--font-inter), system-ui, sans-serif;
+          font-family: var(--font-sans), system-ui, sans-serif;
           transition: transform 0.15s, box-shadow 0.15s;
         }
         .mw-intent-fab:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(108,99,255,0.55); }
@@ -170,7 +170,7 @@ export default function IntentRouter() {
           border-radius: 20px;
           box-shadow: 0 24px 64px rgba(0,0,0,0.6);
           padding: 1.35rem 1.35rem 1.5rem;
-          font-family: var(--font-inter), system-ui, sans-serif;
+          font-family: var(--font-sans), system-ui, sans-serif;
           animation: mw-intent-slide-up 0.22s ease-out;
         }
         @media (max-width: 640px) {

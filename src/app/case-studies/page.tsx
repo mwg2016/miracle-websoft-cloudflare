@@ -226,7 +226,7 @@ export default function CaseStudiesPage() {
                   </div>
 
                   {/* Title */}
-                  <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', lineHeight: 1.5, marginBottom: '1.25rem', fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
+                  <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', lineHeight: 1.5, marginBottom: '1.25rem', fontFamily: 'var(--font-sans), system-ui, sans-serif' }}>
                     {cs.title}
                   </h3>
 

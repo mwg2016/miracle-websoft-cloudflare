@@ -28,7 +28,7 @@ export default function ServiceResult({
         {/* Right — detail */}
         <div className="flex flex-col justify-center p-6 flex-1">
           <p style={{ fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '0.4rem' }}>Real project result</p>
-          <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', lineHeight: 1.5, marginBottom: '0.9rem', fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>{title}</h3>
+          <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', lineHeight: 1.5, marginBottom: '0.9rem', fontFamily: 'var(--font-sans), system-ui, sans-serif' }}>{title}</h3>
           <ul className="flex flex-col gap-1.5 mb-4">
             {bullets.map((b, i) => (
               <li key={i} className="flex gap-2">

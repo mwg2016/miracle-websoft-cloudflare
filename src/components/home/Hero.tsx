@@ -1,108 +1,144 @@
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
-
-const STATS = [
-  { value: '600+', label: 'Shopify Projects Delivered' },
-  { value: '10+',  label: 'Years in Ecommerce' },
-  { value: '99%',  label: 'Job Success on Upwork' },
-]
+import { ArrowRight, Sparkles } from 'lucide-react'
 
 export default function Hero() {
   return (
     <section
-      className="min-h-screen flex items-center relative overflow-hidden"
+      className="relative overflow-hidden mw-noise mw-grid"
       style={{
-        background: '#0a0a0a',
-        backgroundImage: 'radial-gradient(ellipse 80% 60% at 70% 40%, rgba(108,99,255,0.12) 0%, transparent 65%), radial-gradient(ellipse 50% 40% at 10% 90%, rgba(108,99,255,0.07) 0%, transparent 60%)',
+        background: 'var(--bg)',
+        backgroundImage:
+          'radial-gradient(ellipse 75% 55% at 78% 35%, rgba(108,99,255,0.16) 0%, transparent 65%), radial-gradient(ellipse 60% 45% at 8% 90%, rgba(108,99,255,0.08) 0%, transparent 60%)',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        paddingTop: '7rem',
+        paddingBottom: '4rem',
       }}
     >
-      {/* Subtle grid overlay */}
-      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
-
-      <div className="mw-container relative z-10 pt-24 pb-20">
-        <div className="max-w-4xl">
-
-          {/* Tag pill */}
-          <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full" style={{ background: 'rgba(108,99,255,0.12)', border: '1px solid rgba(108,99,255,0.25)' }}>
-            <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--accent)' }} />
-            <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 500 }}>Shopify Development Agency · Since 2015</span>
-          </div>
-
-          {/* Headline */}
-          <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.5rem', lineHeight: 1.1 }}>
-            High-Converting Shopify<br />
-            Stores, Apps &amp; <span style={{ color: 'var(--accent)' }}>Migrations<br />Built to Scale</span>
-          </h1>
-
-          {/* Sub-copy — BLUF: name brand, category, scope, geography in plain prose */}
-          <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: 'clamp(1rem,2vw,1.2rem)', lineHeight: 1.8, maxWidth: '580px', marginBottom: '2rem', fontWeight: 300 }}>
-            Miracle Websoft is a Shopify development agency. We build custom Shopify and Shopify Plus stores, develop Shopify apps and migrate stores from WooCommerce, Magento and BigCommerce. We have shipped 600+ projects since 2015 for ecommerce brands in the USA, UK and Australia across fashion, beauty, health, home, food, electronics, B2B and subscription.
-          </p>
-
-          {/* Stats strip */}
-          <div className="flex flex-wrap gap-x-8 gap-y-4 mb-8">
-            {STATS.map(({ value, label }) => (
-              <div key={label} className="flex flex-col">
-                <span style={{ fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 700, color: '#fff', lineHeight: 1, fontFamily: 'var(--font-inter), system-ui, sans-serif', letterSpacing: '-0.02em' }}>
-                  {value}
-                </span>
-                <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.50)', marginTop: '0.25rem', fontWeight: 400 }}>{label}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap gap-3 mb-3">
-            <Link href="/contact" className="mw-btn-primary text-sm px-7 py-3.5">
-              Book Your Free Strategy Call <ArrowRight size={15} />
-            </Link>
-            <Link href="/case-studies" className="mw-btn-outline text-sm px-7 py-3.5">
-              View Our Work
-            </Link>
-          </div>
-
-          <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', marginBottom: '2.5rem', letterSpacing: '0.01em' }}>
-            No commitment &nbsp;·&nbsp; 30-min call &nbsp;·&nbsp; Response within 24hrs
-          </p>
-
-          {/* Testimonial snippet */}
-          <div className="mb-8 px-5 py-4 rounded-2xl" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', maxWidth: '560px' }}>
-            <div className="flex gap-0.5 mb-2">
-              {[...Array(5)].map((_, i) => (
-                <span key={i} style={{ color: '#F59E0B', fontSize: '0.85rem' }}>★</span>
-              ))}
+      <div className="mw-container relative" style={{ zIndex: 2, width: '100%' }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'minmax(0, 1.55fr) minmax(0, 1fr)',
+            gap: '4rem',
+            alignItems: 'end',
+          }}
+          className="hero-grid"
+        >
+          {/* LEFT: editorial headline + CTAs */}
+          <div>
+            <div className="mw-rise mw-rise-1" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2.5rem' }}>
+              <span className="mw-num">/01 — Shopify Agency · Est. 2015</span>
             </div>
-            <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.65, fontStyle: 'italic', marginBottom: '0.6rem' }}>
-              "Had a great experience working with Karam. He developed new custom sections for my store and optimized existing ones. The work was clean, efficient, and exactly what I needed."
+
+            <h1
+              className="mw-rise mw-rise-2"
+              style={{
+                color: '#fff',
+                marginBottom: '2rem',
+                fontWeight: 500,
+              }}
+            >
+              Shopify stores<br />
+              that <span className="mw-italic mw-italic--accent">actually</span><br />
+              convert.
+            </h1>
+
+            <p
+              className="mw-rise mw-rise-3"
+              style={{
+                fontSize: 'clamp(1.05rem, 1.4vw, 1.25rem)',
+                color: 'var(--text-2)',
+                lineHeight: 1.55,
+                maxWidth: '560px',
+                marginBottom: '2.75rem',
+                fontWeight: 400,
+              }}
+            >
+              We build custom Shopify and Shopify Plus stores, migrate from WooCommerce, Magento and BigCommerce, and ship Shopify apps. 600+ projects across the USA, UK and Australia &mdash; since 2015.
             </p>
-            <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>
-              Verified Upwork Client &nbsp;·&nbsp; Top Rated Plus
+
+            <div className="mw-rise mw-rise-4" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1rem' }}>
+              <Link href="/contact" className="mw-btn-primary" style={{ fontSize: '0.95rem', padding: '1.05rem 1.85rem' }}>
+                Book a free audit <ArrowRight size={16} />
+              </Link>
+              <Link href="/work" className="mw-btn-outline" style={{ fontSize: '0.95rem', padding: '1.05rem 1.85rem' }}>
+                See selected work
+              </Link>
+            </div>
+            <p className="mw-rise mw-rise-5" style={{ fontSize: '0.78rem', color: 'var(--text-4)', fontFamily: 'var(--font-geist-mono), monospace', letterSpacing: '0.04em' }}>
+              48-hour written report &nbsp;·&nbsp; no commitment &nbsp;·&nbsp; reply within 24h
             </p>
           </div>
 
-          {/* Trust badges */}
-          <div className="flex flex-wrap gap-x-7 gap-y-3" style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '1.5rem' }}>
-            {[
-              { label: 'Officially Shopify Verified Partner', icon: '✓' },
-              { label: 'Top Rated Plus on Upwork', icon: '✓' },
-              { label: 'USA · UK · Australia', icon: '✓' },
-              { label: '600+ Stores Delivered', icon: '✓' },
-            ].map(item => (
-              <div key={item.label} className="flex items-center gap-2">
-                <span style={{ color: 'var(--accent)', fontSize: '0.82rem', fontWeight: 700, lineHeight: 1 }}>{item.icon}</span>
-                <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.78)', fontWeight: 500 }}>{item.label}</span>
+          {/* RIGHT: editorial proof card */}
+          <aside className="mw-rise mw-rise-3 hero-aside" style={{ alignSelf: 'end' }}>
+            <div
+              style={{
+                position: 'relative',
+                padding: '1.75rem',
+                borderRadius: '20px',
+                background: 'linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.015) 100%)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                backdropFilter: 'blur(8px)',
+                boxShadow: '0 24px 60px rgba(0,0,0,0.4)',
+              }}
+            >
+              {/* Accent corner notch */}
+              <div style={{ position: 'absolute', top: '-1px', right: '-1px', padding: '0.4rem 0.7rem', background: 'var(--accent)', color: '#fff', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', fontFamily: 'var(--font-geist-mono), monospace', borderTopRightRadius: '20px', borderBottomLeftRadius: '12px' }}>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><Sparkles size={11} /> Live</span>
               </div>
-            ))}
-          </div>
 
+              <div style={{ fontSize: '0.7rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-4)', fontFamily: 'var(--font-geist-mono), monospace', marginBottom: '1.25rem' }}>
+                Why brands hire us
+              </div>
+
+              {/* Stat stack */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
+                {[
+                  { v: '600+', l: 'Shopify projects delivered' },
+                  { v: '98%', l: 'Upwork job-success score' },
+                  { v: '4.9 ★', l: 'Across Clutch, Upwork, Trustpilot' },
+                  { v: '10 yrs', l: 'Shopify-only, since 2015' },
+                ].map((s) => (
+                  <div key={s.l} style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '1rem', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '1.1rem' }}>
+                    <div style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: 'clamp(1.6rem, 2.6vw, 2.1rem)', fontWeight: 500, color: '#fff', lineHeight: 1, letterSpacing: '-0.02em' }}>
+                      {s.v}
+                    </div>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-3)', textAlign: 'right', maxWidth: '180px', lineHeight: 1.4 }}>
+                      {s.l}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ marginTop: '1.25rem', display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
+                <span className="mw-pill mw-pill--accent" style={{ fontSize: '0.7rem', padding: '0.3rem 0.65rem' }}>Shopify Verified Partner</span>
+                <span className="mw-pill" style={{ fontSize: '0.7rem', padding: '0.3rem 0.65rem' }}>Top Rated Plus · Upwork</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        {/* Bottom marker — editorial */}
+        <div className="mw-rise mw-rise-6" style={{ marginTop: '5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '1.75rem' }}>
+          <span className="mw-num">USA · UK · AU · IN</span>
+          <span className="mw-num" style={{ color: 'var(--text-3)' }}>Scroll for selected work ↓</span>
         </div>
       </div>
 
-      {/* Scroll hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none">
-        <div style={{ width: '1px', height: '48px', background: 'linear-gradient(to bottom, rgba(108,99,255,0.7), transparent)' }} />
-        <span style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>scroll</span>
-      </div>
+      <style>{`
+        @media (max-width: 900px) {
+          .hero-grid {
+            grid-template-columns: 1fr !important;
+            gap: 3rem !important;
+          }
+          .hero-aside {
+            order: 2;
+          }
+        }
+      `}</style>
     </section>
   )
 }

@@ -67,7 +67,7 @@ export default function RecentWork() {
                 </div>
 
                 {/* Title */}
-                <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff', lineHeight: 1.4, marginBottom: '0.6rem', fontFamily: 'var(--font-inter), system-ui, sans-serif', flex: 1 }}>
+                <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff', lineHeight: 1.4, marginBottom: '0.6rem', fontFamily: 'var(--font-sans), system-ui, sans-serif', flex: 1 }}>
                   {job.title}
                 </h3>
 

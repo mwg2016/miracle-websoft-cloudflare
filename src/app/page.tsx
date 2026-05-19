@@ -1,17 +1,14 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/home/Hero'
-import ProblemSection from '@/components/home/ProblemSection'
-import IndustryGrid from '@/components/home/IndustryGrid'
+import LogoMarquee from '@/components/home/LogoMarquee'
+import AuditPitch from '@/components/home/AuditPitch'
 import ServicesOverview from '@/components/home/ServicesOverview'
-import StatsRow from '@/components/home/StatsRow'
 import WhyUs from '@/components/home/WhyUs'
 import ProcessSteps from '@/components/home/ProcessSteps'
-import TrustProfiles from '@/components/home/TrustProfiles'
 import Testimonials from '@/components/home/Testimonials'
 import ClientPortfolio from '@/components/home/ClientPortfolio'
-import ToolsSection from '@/components/home/ToolsSection'
-import CtaBanner from '@/components/home/CtaBanner'
 import CitationsAndProfiles from '@/components/home/CitationsAndProfiles'
+import CtaBanner from '@/components/home/CtaBanner'
 import FaqSection from '@/components/ui/FaqSection'
 import RecentWork from '@/components/home/RecentWork'
 import { breadcrumb, faqPage, renderJsonLd, webPage } from '@/lib/jsonld'
@@ -68,19 +65,16 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <Hero />
-      <ProblemSection />
-      <IndustryGrid />
+      <LogoMarquee />
+      <AuditPitch />
       <ServicesOverview />
-      <StatsRow />
-      <WhyUs />
+      <ClientPortfolio />
+      <RecentWork />
       <ProcessSteps />
       <Testimonials />
-      <RecentWork />
-      <ClientPortfolio />
-      <TrustProfiles />
-      <ToolsSection />
-      <CitationsAndProfiles />
+      <WhyUs />
       <FaqSection faqs={homeFaqs} heading="Questions about working with us" />
+      <CitationsAndProfiles />
       <CtaBanner />
     </>
   )

@@ -15,7 +15,7 @@ const inputStyle: React.CSSProperties = {
   color: '#fff',
   fontSize: '0.875rem',
   outline: 'none',
-  fontFamily: 'var(--font-inter), system-ui, sans-serif',
+  fontFamily: 'var(--font-sans), system-ui, sans-serif',
   transition: 'border-color 0.2s',
 }
 
@@ -210,7 +210,7 @@ export default function WhiteLabelForm() {
           cursor: state === 'sending' ? 'not-allowed' : 'pointer',
           boxShadow: state === 'sending' ? 'none' : '0 8px 28px rgba(108,99,255,0.35)',
           transition: 'all 0.2s',
-          fontFamily: 'var(--font-inter), system-ui, sans-serif',
+          fontFamily: 'var(--font-sans), system-ui, sans-serif',
         }}
       >
         {state === 'sending'
