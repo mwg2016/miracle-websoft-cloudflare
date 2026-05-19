@@ -5,7 +5,18 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 
-const DATA_DIR = path.join(process.cwd(), 'data')
+// Where leads/outbound/resumes live. Local dev and live production must never
+// share a path — local writes would clobber accumulated live data on the next
+// deploy or sync. Precedence:
+//   1. ADMIN_DATA_DIR env var — explicit absolute path (use for live to put
+//      data outside the project dir entirely, e.g. /var/lib/miraclewebsoft/data)
+//   2. <cwd>/data/<env>, where env is 'prod' in production and 'dev' otherwise
+//      — so the same working tree can run in either mode without collision.
+const DEFAULT_DATA_ROOT = path.join(process.cwd(), 'data')
+const ENV_BUCKET = process.env.NODE_ENV === 'production' ? 'prod' : 'dev'
+const DATA_DIR = process.env.ADMIN_DATA_DIR
+  ? path.resolve(process.env.ADMIN_DATA_DIR)
+  : path.join(DEFAULT_DATA_ROOT, ENV_BUCKET)
 
 export type Origin = {
   // First-touch (legacy + current)
@@ -64,9 +75,45 @@ export type OutboundRecord = {
   origin?: LeadRecord['origin']
 }
 
+let migrated = false
+async function migrateLegacyOnce() {
+  if (migrated) return
+  migrated = true
+  // Skip migration entirely when an explicit ADMIN_DATA_DIR is set — the
+  // operator is in control of where data lives.
+  if (process.env.ADMIN_DATA_DIR) return
+  // Only migrate when DATA_DIR is the env-scoped folder inside DEFAULT_DATA_ROOT.
+  if (path.dirname(DATA_DIR) !== DEFAULT_DATA_ROOT) return
+
+  async function exists(p: string) {
+    try { await fs.access(p); return true } catch { return false }
+  }
+
+  for (const name of ['leads.ndjson', 'outbound.ndjson']) {
+    const legacy = path.join(DEFAULT_DATA_ROOT, name)
+    const target = path.join(DATA_DIR, name)
+    if (await exists(legacy) && !(await exists(target))) {
+      try { await fs.rename(legacy, target) } catch { /* best-effort */ }
+    }
+  }
+
+  const legacyResumes = path.join(DEFAULT_DATA_ROOT, 'resumes')
+  const targetResumes = path.join(DATA_DIR, 'resumes')
+  try {
+    const legacyFiles = await fs.readdir(legacyResumes)
+    const targetFiles = await fs.readdir(targetResumes).catch(() => [] as string[])
+    if (legacyFiles.length > 0 && targetFiles.length === 0) {
+      for (const f of legacyFiles) {
+        try { await fs.rename(path.join(legacyResumes, f), path.join(targetResumes, f)) } catch { /* best-effort */ }
+      }
+    }
+  } catch { /* legacy resumes/ may not exist — fine */ }
+}
+
 async function ensureDir() {
   await fs.mkdir(DATA_DIR, { recursive: true })
   await fs.mkdir(path.join(DATA_DIR, 'resumes'), { recursive: true })
+  await migrateLegacyOnce()
 }
 
 function fileFor(kind: 'leads' | 'outbound'): string {

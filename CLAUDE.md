@@ -38,3 +38,10 @@ git remote set-url origin https://github.com/mwg2016/miracle-websoft.git
 - Tailwind v4: `@import "tailwindcss"` + `@theme {}` in globals.css — no `tailwind.config`
 - This is Next.js 16 — some APIs differ from older versions. Check `node_modules/next/dist/docs/` if unsure.
 - Contact form submissions go to `/api/contact` → Web3Forms. Set `WEB3FORMS_KEY` env var to activate email delivery.
+
+## Admin lead/outbound data storage
+- Files live under `data/<env>/` where env is `prod` (when `NODE_ENV=production`) or `dev`. PM2 sets prod automatically.
+- This keeps local and live separate: dev writes never touch `data/prod/leads.ndjson`.
+- On the live server, the first boot after upgrade auto-migrates legacy `data/leads.ndjson`, `data/outbound.ndjson` and `data/resumes/` into `data/prod/`. Idempotent — safe to run multiple times.
+- Set `ADMIN_DATA_DIR=/var/lib/miraclewebsoft/data` in env to put production data outside the project dir entirely (recommended long-term — survives full project re-clones).
+- All runtime data files are gitignored.

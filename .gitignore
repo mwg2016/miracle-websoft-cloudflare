@@ -7,6 +7,11 @@ node_modules/
 pm2-error.log
 pm2-out.log
 
-# Admin / runtime data — JSON logs and uploaded resumes
+# Admin / runtime data — never commit lead records or uploaded resumes.
+# Local writes to data/dev/, production writes to data/prod/ (or wherever
+# ADMIN_DATA_DIR points). The data/ folder itself is kept via .gitkeep.
+data/dev/
+data/prod/
+data/*.ndjson
 data/*.json
 data/resumes/
