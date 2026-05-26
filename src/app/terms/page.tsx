@@ -62,7 +62,7 @@ export default function TermsPage() {
           </section>
           <section>
             <h2 style={{ color: '#fff', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem' }}>8. Governing Law</h2>
-            <p>These terms are governed by the laws of India. Any disputes will be resolved in the courts of Himachal Pradesh, India.</p>
+            <p>These terms are governed by the laws of India. Any disputes will be resolved in the courts of Punjab, India.</p>
           </section>
           <section>
             <h2 style={{ color: '#fff', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem' }}>9. Contact</h2>
