@@ -72,7 +72,7 @@ const socialLinks = [
   },
   {
     label: 'X / Twitter',
-    href: 'https://x.com/miraclewebsoft',
+    href: 'https://x.com/KaramSingh35',
     color: '#fff',
     bg: 'rgba(255,255,255,0.06)',
     border: 'rgba(255,255,255,0.14)',

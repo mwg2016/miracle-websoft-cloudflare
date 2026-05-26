@@ -115,7 +115,7 @@ const jsonLd = {
         'https://in.linkedin.com/company/shopify-experts-miracle-websoft',
         'https://www.facebook.com/miraclewebsoft/',
         'https://www.instagram.com/miracle_websoft/',
-        'https://x.com/miraclewebsoft',
+        'https://x.com/KaramSingh35',
         'https://apps.shopify.com/partners/miracle-websoft1',
         'https://www.trustpilot.com/review/miraclewebsoft.com',
         'https://techbehemoths.com/company/miracle-websoft',

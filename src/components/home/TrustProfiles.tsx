@@ -69,7 +69,7 @@ const socials = [
   { name: 'LinkedIn', href: outboundHref('linkedin', 'https://in.linkedin.com/company/shopify-experts-miracle-websoft'), icon: LinkedInIcon },
   { name: 'Instagram', href: outboundHref('external', 'https://www.instagram.com/miracle_websoft/'), icon: InstagramIcon },
   { name: 'Facebook', href: outboundHref('external', 'https://www.facebook.com/miraclewebsoft/'), icon: FacebookIcon },
-  { name: 'X / Twitter', href: outboundHref('external', 'https://x.com/miraclewebsoft'), icon: XIcon },
+  { name: 'X / Twitter', href: outboundHref('external', 'https://x.com/KaramSingh35'), icon: XIcon },
   { name: 'GitHub', href: outboundHref('external', 'https://github.com/mwg2016'), icon: GitHubIcon },
 ]
 

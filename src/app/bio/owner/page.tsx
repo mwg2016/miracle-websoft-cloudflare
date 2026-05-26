@@ -64,7 +64,7 @@ const socialLinks = [
   },
   {
     label: 'X / Twitter',
-    href: outboundHref('external', 'https://x.com/miraclewebsoft'),
+    href: outboundHref('external', 'https://x.com/KaramSingh35'),
     color: '#fff',
     bg: 'rgba(255,255,255,0.07)',
     border: 'rgba(255,255,255,0.15)',
@@ -152,7 +152,7 @@ const jsonLd = renderJsonLd([
       'https://www.upwork.com/freelancers/~0108a0862ff3e2f2de',
       'https://www.instagram.com/miracle_websoft/',
       'https://www.facebook.com/miraclewebsoft/',
-      'https://x.com/miraclewebsoft',
+      'https://x.com/KaramSingh35',
     ],
     worksFor: { name: 'Miracle Websoft', url: 'https://miraclewebsoft.com' },
   }),
