@@ -1,5 +1,12 @@
 node_modules/
 .next/
+
+# Build artifacts — regenerated on every build, so they must not be tracked.
+# When tracked, each deploy's `git pull` aborts because the freshly built
+# copy differs from the committed one (the Next.js default ignores these too).
+next-env.d.ts
+*.tsbuildinfo
+
 .env
 .env.local
 .env*.local
