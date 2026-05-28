@@ -29,7 +29,7 @@ export default function HeroLocal({
     >
       <div className="mw-container">
         <span className="mw-eyebrow">{eyebrow}</span>
-        <h1 className="text-white mb-5" style={{ maxWidth: '760px' }}>
+        <h1 className="text-white mb-5 mw-hero-title" style={{ maxWidth: '760px' }}>
           {title}
           {titleAccent && (
             <>

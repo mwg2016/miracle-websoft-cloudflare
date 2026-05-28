@@ -147,7 +147,7 @@ export default function ShopifyDevelopmentPage() {
           </div>
           <div className="max-w-3xl">
             <span className="mw-eyebrow">CUSTOM SHOPIFY DEVELOPMENT</span>
-            <h1 style={{ color: '#fff', marginBottom: '1.25rem' }}>
+            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>
               Custom Shopify Stores Built to Convert — Not Templates, Not Shortcuts
             </h1>
             <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem', maxWidth: '580px', fontWeight: 300 }}>
@@ -162,7 +162,7 @@ export default function ShopifyDevelopmentPage() {
             </div>
             <div className="flex flex-wrap gap-3">
               <Link href="/contact" className="mw-btn-primary">
-                Get a Free Store Audit <ArrowRight size={16} />
+                Contact Us <ArrowRight size={16} />
               </Link>
               <Link href="/case-studies" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
                 See Our Work
@@ -347,7 +347,7 @@ export default function ShopifyDevelopmentPage() {
       <MidPageCta
         heading="Free store audit — we'll review your store and tell you what we'd build."
         sub="Whether you're starting from scratch or rebuilding a live store, we'll give you a clear plan and fixed price before you commit to anything."
-        btnLabel="Get a Free Audit"
+        btnLabel="Contact Us"
       />
 
       {/* Guarantees */}

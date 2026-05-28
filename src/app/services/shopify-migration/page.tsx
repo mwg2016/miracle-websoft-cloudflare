@@ -90,7 +90,7 @@ export default function MigrationPage() {
           </div>
           <div className="max-w-3xl">
             <span className="mw-eyebrow">SHOPIFY MIGRATION</span>
-            <h1 style={{ color: '#fff', marginBottom: '1.25rem' }}>Move to Shopify Without Losing a Single Customer, Order or Ranking</h1>
+            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>Move to Shopify Without Losing a Single Customer, Order or Ranking</h1>
             <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem', maxWidth: '580px', fontWeight: 300 }}>
               We migrate clothing brands from WooCommerce, Magento, BigCommerce and other platforms to Shopify — with a documented zero SEO loss record and a fixed price before we start.
             </p>

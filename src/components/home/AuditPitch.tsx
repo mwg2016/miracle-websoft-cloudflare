@@ -20,14 +20,14 @@ export default function AuditPitch() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1.2fr)',
-            gap: '5rem',
-            alignItems: 'start',
+            gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1.15fr)',
+            gap: '4rem',
+            alignItems: 'center',
           }}
           className="audit-grid"
         >
           {/* LEFT: the pitch */}
-          <div style={{ position: 'sticky', top: '6rem' }} className="audit-left">
+          <div className="audit-left">
             <span className="mw-eyebrow">/02 — The Audit</span>
             <h2 style={{ color: '#fff', marginBottom: '1.5rem' }}>
               A written report on<br />
@@ -66,7 +66,7 @@ export default function AuditPitch() {
             </div>
 
             <Link href="/contact" className="mw-btn-accent" style={{ fontSize: '0.95rem', padding: '1.05rem 1.85rem' }}>
-              Book a free audit <ArrowRight size={16} />
+              Contact Us <ArrowRight size={16} />
             </Link>
             <p style={{ marginTop: '0.85rem', fontSize: '0.78rem', color: 'var(--text-4)', fontFamily: 'var(--font-geist-mono), monospace', letterSpacing: '0.04em' }}>
               No commitment &nbsp;·&nbsp; reply within 24 h

@@ -48,7 +48,7 @@ export default function CtaBanner() {
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
           <Link href="/contact" className="mw-btn-primary" style={{ fontSize: '1rem', padding: '1.15rem 2rem' }}>
-            Book a free audit <ArrowRight size={17} />
+            Contact Us <ArrowRight size={17} />
           </Link>
           <Link
             href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%2C%20I%27d%20like%20to%20get%20a%20free%20Shopify%20store%20audit.')}

@@ -60,9 +60,23 @@ h2 { font-size: clamp(32px, 4.5vw, 60px); }
 h3 { font-size: clamp(18px, 2.2vw, 24px); }
 p  { line-height: 1.65; color: var(--text-2); font-weight: 400; }
 
+/* Inner-page hero headline — smaller than the global h1 so the CTA below it
+   stays in the first viewport (the global h1 reaches 92px and pushes CTAs
+   below the fold on category/service pages). Kept unlayered so it beats the
+   base h1 rule above (layered utilities would lose to it in Tailwind v4). */
+.mw-hero-title { font-size: clamp(32px, 4vw, 52px); line-height: 1.1; }
+
 em { font-style: italic; }
 
 ::selection { background: var(--accent); color: #fff; }
+
+/* Native <select> dropdown options render white-on-white on dark forms in some
+   browsers — force a dark popup with readable text. */
+select option,
+select optgroup {
+  background: #161616;
+  color: #fff;
+}
 
 /* Subtle film-grain noise — adds depth to large dark surfaces */
 .mw-noise::before {

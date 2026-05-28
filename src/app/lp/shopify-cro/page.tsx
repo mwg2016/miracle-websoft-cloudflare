@@ -405,7 +405,7 @@ export default function ShopifyCROLandingPage() {
 
               <div className="flex flex-wrap gap-3 items-center">
                 <a href="#lead-form" className="mw-btn-primary" style={{ background: '#10B981', borderColor: '#10B981', color: '#fff' }}>
-                  Get my free CRO audit <ArrowRight size={16} />
+                  Contact Us <ArrowRight size={16} />
                 </a>
                 <a href="#process" className="mw-btn-outline">
                   See the process
@@ -552,7 +552,7 @@ export default function ShopifyCROLandingPage() {
                       gap: '0.35rem',
                     }}
                   >
-                    Request this audit <ArrowRight size={13} />
+                    Contact Us <ArrowRight size={13} />
                   </a>
                 </div>
               )
@@ -649,7 +649,7 @@ export default function ShopifyCROLandingPage() {
               className="mw-btn-primary shrink-0"
               style={{ background: '#10B981', borderColor: '#10B981', color: '#fff' }}
             >
-              Get free audit <ArrowRight size={16} />
+              Contact Us <ArrowRight size={16} />
             </a>
           </div>
         </div>
@@ -1141,7 +1141,7 @@ export default function ShopifyCROLandingPage() {
               className="mw-btn-primary"
               style={{ background: '#fff', color: '#064E3B', borderColor: '#fff' }}
             >
-              Get my free CRO audit <ArrowRight size={16} />
+              Contact Us <ArrowRight size={16} />
             </a>
             <Link href="/case-studies" className="mw-btn-outline">
               See case studies

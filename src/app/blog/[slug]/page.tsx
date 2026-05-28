@@ -101,7 +101,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <h2 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#fff', marginBottom: '0.6rem' }}>Want us to implement this for your store?</h2>
             <p style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, marginBottom: '1.25rem' }}>We build, optimise and grow Shopify stores for fashion brands. Get a free audit and see exactly what we would change on your store.</p>
             <Link href="/contact" className="mw-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-              Get a free store audit <ArrowRight size={15} />
+              Contact Us <ArrowRight size={15} />
             </Link>
           </div>
 

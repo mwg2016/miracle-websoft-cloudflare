@@ -187,7 +187,7 @@ export default function WorkPage() {
                 Join 600+ brands who trusted Miracle Websoft with their Shopify store. Book a free 30-minute strategy call — no commitment required.
               </p>
               <a href="/contact" className="mw-btn-primary inline-flex text-sm px-8 py-4">
-                Book Your Free Strategy Call →
+                Contact Us →
               </a>
               <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '1rem', marginBottom: '1.25rem' }}>
                 99% Job Success · Top Rated Plus on Upwork · Response within 4–8 hrs

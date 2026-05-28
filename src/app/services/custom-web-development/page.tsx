@@ -145,7 +145,7 @@ export default function CustomWebDevelopmentPage() {
           </div>
           <div className="max-w-3xl">
             <span className="mw-eyebrow">CUSTOM WEB DEVELOPMENT</span>
-            <h1 style={{ color: '#fff', marginBottom: '1.5rem' }}>
+            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.5rem' }}>
               Custom Web Application<br />Development
               <em style={{ display: 'block', fontStyle: 'italic', color: 'rgba(255,255,255,0.6)', fontSize: '0.85em', marginTop: '0.25rem' }}>React · Node.js · Laravel</em>
             </h1>

@@ -263,7 +263,7 @@ export default function CaseStudiesPage() {
                 <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)' }}>Book a free 30-min call — we'll review your store and tell you exactly what's holding it back.</p>
               </div>
               <Link href="/contact" className="mw-btn-primary whitespace-nowrap text-sm">
-                Book Free Strategy Call <ArrowRight size={14} />
+                Contact Us <ArrowRight size={14} />
               </Link>
             </div>
           </div>
@@ -297,7 +297,7 @@ export default function CaseStudiesPage() {
                 Join 600+ brands who trusted Miracle Websoft. Book a free strategy call and get a personalised plan for your store in 30 minutes.
               </p>
               <Link href="/contact" className="mw-btn-primary inline-flex text-sm px-8 py-4">
-                Book Your Free Strategy Call <ArrowRight size={15} />
+                Contact Us <ArrowRight size={15} />
               </Link>
               <p style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.6)', marginTop: '1rem' }}>
                 No commitment · 30-min call · Response within 4–8 hrs · 99% Job Success on Upwork

@@ -119,7 +119,7 @@ export default function WordPressDevelopmentPage() {
           </div>
           <div className="max-w-3xl">
             <span className="mw-eyebrow">WORDPRESS DEVELOPMENT</span>
-            <h1 style={{ color: '#fff', marginBottom: '1.5rem' }}>
+            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.5rem' }}>
               WordPress Development<br />
               <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>Built properly. Built to last.</em>
             </h1>

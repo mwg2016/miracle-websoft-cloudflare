@@ -183,7 +183,7 @@ export default function ContactForm() {
           </span>
         ) : (
           <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
-            {selectedPlan ? `Confirm ${selectedPlan.name} & send` : 'Get my free audit'} <ArrowRight size={15} />
+            {selectedPlan ? `Confirm ${selectedPlan.name} & send` : 'Send Message'} <ArrowRight size={15} />
           </span>
         )}
       </button>

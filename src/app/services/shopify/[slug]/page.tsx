@@ -80,7 +80,7 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
           </div>
           <div className="max-w-3xl">
             <span className="mw-eyebrow">{svc.eyebrow}</span>
-            <h1 style={{ color: '#fff', marginBottom: '1.5rem' }}>{svc.h1}</h1>
+            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.5rem' }}>{svc.h1}</h1>
             <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: '600px', fontWeight: 300 }}>
               {svc.subtext}
             </p>

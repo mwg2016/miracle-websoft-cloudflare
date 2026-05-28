@@ -61,7 +61,7 @@ export default function Hero() {
 
             <div className="mw-rise mw-rise-4" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1rem' }}>
               <Link href="/contact" className="mw-btn-primary" style={{ fontSize: '0.95rem', padding: '1.05rem 1.85rem' }}>
-                Book a free audit <ArrowRight size={16} />
+                Contact Us <ArrowRight size={16} />
               </Link>
               <Link href="/work" className="mw-btn-outline" style={{ fontSize: '0.95rem', padding: '1.05rem 1.85rem' }}>
                 See selected work

@@ -337,7 +337,7 @@ export default async function JobPage({ params }: Props) {
                     Book a free 30-min call and we'll discuss your project.
                   </p>
                   <Link href="/contact" className="mw-btn-primary block text-center text-sm py-3">
-                    Book Free Strategy Call →
+                    Contact Us →
                   </Link>
                 </div>
               </div>

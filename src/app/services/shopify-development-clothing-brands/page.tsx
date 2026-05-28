@@ -97,7 +97,7 @@ export default function ShopifyDevelopmentPage() {
           </div>
           <div className="max-w-3xl">
             <span className="mw-eyebrow">SHOPIFY FOR FASHION BRANDS</span>
-            <h1 style={{ color: '#fff', marginBottom: '1.25rem' }}>Custom Shopify Stores Built for How Fashion Brands Actually Sell</h1>
+            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>Custom Shopify Stores Built for How Fashion Brands Actually Sell</h1>
             <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem', maxWidth: '580px', fontWeight: 300 }}>
               Not a template. Not a theme store. A store built around your brand, your product structure, and how your customers shop — on their phones, on Instagram, on TikTok.
             </p>
@@ -109,7 +109,7 @@ export default function ShopifyDevelopmentPage() {
               ))}
             </div>
             <Link href="/contact" className="mw-btn-primary">
-              Get a Free Store Audit <ArrowRight size={16} />
+              Contact Us <ArrowRight size={16} />
             </Link>
           </div>
         </div>

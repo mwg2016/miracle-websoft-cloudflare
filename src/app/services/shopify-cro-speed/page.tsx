@@ -82,7 +82,7 @@ export default function CROSpeedPage() {
           </div>
           <div className="max-w-3xl">
             <span className="mw-eyebrow">CRO & SPEED</span>
-            <h1 style={{ color: '#fff', marginBottom: '1.25rem' }}>Your Store Is Getting Traffic. We Make Sure More of It Converts.</h1>
+            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>Your Store Is Getting Traffic. We Make Sure More of It Converts.</h1>
             <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem', maxWidth: '580px', fontWeight: 300 }}>
               Average results across our CRO projects: <strong style={{ color: '#fff', fontWeight: 600 }}>42% conversion rate increase</strong> and a <strong style={{ color: '#fff', fontWeight: 600 }}>1.2s mobile load time</strong>. Guaranteed 90+ PageSpeed or we keep working.
             </p>
@@ -94,7 +94,7 @@ export default function CROSpeedPage() {
               ))}
             </div>
             <Link href="/contact" className="mw-btn-primary">
-              Get a free CRO audit <ArrowRight size={16} />
+              Contact Us <ArrowRight size={16} />
             </Link>
           </div>
         </div>
@@ -213,7 +213,7 @@ export default function CROSpeedPage() {
       <MidPageCta
         heading="See exactly what's slowing your store down — free."
         sub="We'll audit your store's speed and conversion blockers at no cost. You get a full written report either way."
-        btnLabel="Get Your Free CRO Audit"
+        btnLabel="Contact Us"
       />
 
       {/* Guarantees */}

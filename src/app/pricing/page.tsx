@@ -321,7 +321,7 @@ export default function PricingPage() {
           {/* Hero */}
           <div className="max-w-3xl mb-14">
             <span className="mw-eyebrow">Transparent pricing</span>
-            <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.5rem' }}>
+            <h1 className="mw-hero-title" style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.5rem' }}>
               Pick a package.<br />
               <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>Start in days, not weeks.</em>
             </h1>

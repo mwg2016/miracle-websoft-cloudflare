@@ -66,33 +66,46 @@ const jsonLd = renderJsonLd([
 
 export default function AboutPage() {
   return (
-    <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '8rem' }}>
+    <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '7rem' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <div className="mw-container" style={{ paddingBottom: '5rem' }}>
         <div className="mb-8"><Breadcrumb items={[{ label: 'About' }]} /></div>
 
-        {/* Hero */}
-        <div className="max-w-3xl mb-14">
-          <span className="mw-eyebrow">About Us</span>
-          <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.5rem' }}>
-            A Shopify agency built exclusively<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>for fashion brands.</em>
-          </h1>
-          <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.25rem', fontWeight: 300 }}>
-            Miracle Websoft is a Shopify development agency founded in 2015 by Karam Singh Mehra, based in Chandigarh, India. We serve clothing, fashion and apparel brands across the USA, UK and Australia — and we do one thing exceptionally well.
-          </p>
-          <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, fontWeight: 300 }}>
-            600+ Shopify projects. 98% job success on Upwork. Top Rated Plus status (top 3% globally). A team of 16 specialists who have worked with brands across every fashion vertical — from DTC activewear startups to luxury occasion wear labels.
-          </p>
-        </div>
+        {/* Hero — two-column layout to match the contact page (text + sticky card) */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 xl:gap-16 items-start mb-16">
+          <div>
+            <span className="mw-eyebrow">About Us</span>
+            <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.5rem' }}>
+              A Shopify agency built exclusively<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>for fashion brands.</em>
+            </h1>
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.25rem', fontWeight: 300 }}>
+              Miracle Websoft is a Shopify development agency founded in 2015 by Karam Singh Mehra, based in Chandigarh, India. We serve clothing, fashion and apparel brands across the USA, UK and Australia — and we do one thing exceptionally well.
+            </p>
+            <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, fontWeight: 300 }}>
+              600+ Shopify projects. 98% job success on Upwork. Top Rated Plus status (top 3% globally). A team of 16 specialists who have worked with brands across every fashion vertical — from DTC activewear startups to luxury occasion wear labels.
+            </p>
+          </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
-          {stats.map(s => (
-            <div key={s.label} className="mw-card" style={{ padding: '1.75rem', textAlign: 'center' }}>
-              <div style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: '2.2rem', fontWeight: 700, color: '#fff', marginBottom: '0.35rem' }}>{s.value}</div>
-              <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', fontWeight: 500, letterSpacing: '0.05em' }}>{s.label}</div>
+          {/* Sticky stats + CTA card */}
+          <div style={{ position: 'sticky', top: '7rem' }}>
+            <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '1.75rem' }}>
+              <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginBottom: '1.25rem' }}>By the numbers</p>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-5">
+                {stats.map(s => (
+                  <div key={s.label}>
+                    <div style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: '2rem', fontWeight: 700, color: '#fff', lineHeight: 1, marginBottom: '0.3rem' }}>{s.value}</div>
+                    <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.55)', fontWeight: 500, letterSpacing: '0.03em' }}>{s.label}</div>
+                  </div>
+                ))}
+              </div>
+              <Link href="/contact" className="mw-btn-primary justify-center w-full" style={{ marginTop: '1.75rem' }}>
+                Contact Us <ArrowRight size={15} />
+              </Link>
+              <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.4)', textAlign: 'center', marginTop: '0.75rem' }}>
+                Replies within 24 hours · no commitment
+              </p>
             </div>
-          ))}
+          </div>
         </div>
 
         {/* Values + Certifications */}

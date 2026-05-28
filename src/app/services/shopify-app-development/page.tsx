@@ -99,7 +99,7 @@ export default function AppDevelopmentPage() {
           </div>
           <div className="max-w-3xl">
             <span className="mw-eyebrow">SHOPIFY APP DEVELOPMENT</span>
-            <h1 style={{ color: '#fff', marginBottom: '1.25rem' }}>When the App Store Doesn&apos;t Have What You Need — We Build It</h1>
+            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>When the App Store Doesn&apos;t Have What You Need — We Build It</h1>
             <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem', maxWidth: '580px', fontWeight: 300 }}>
               Private apps, public apps and Shopify Functions built specifically for your store — not a generic plugin that almost fits. Replace $200/month third-party apps with a one-time custom build that&apos;s faster, leaner, and fully yours.
             </p>
@@ -242,7 +242,7 @@ export default function AppDevelopmentPage() {
       <MidPageCta
         heading="Got a paid app you want to replace? We'll scope it free."
         sub="Send us the apps you're currently paying for and we'll tell you which ones can be custom-built, what it costs, and how fast you'll break even."
-        btnLabel="Get a Free App Audit"
+        btnLabel="Contact Us"
       />
 
       {/* Guarantees */}

@@ -11,7 +11,7 @@ interface Props {
 export default function MidPageCta({
   heading,
   sub,
-  btnLabel = 'Book Your Free Strategy Call',
+  btnLabel = 'Contact Us',
   btnHref = '/contact',
 }: Props) {
   return (
