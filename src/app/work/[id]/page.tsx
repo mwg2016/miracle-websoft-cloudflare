@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { jobs, jobTitle, fixTypos } from '@/data/jobs'
+import { jobs, jobTitle, fixTypos, jobNarrative, workFaqs } from '@/data/jobs'
 import { outboundHref } from '@/lib/outbound'
+import FaqSection from '@/components/ui/FaqSection'
 
 const UPWORK_FREELANCER = outboundHref('upwork', 'https://www.upwork.com/freelancers/shopifydeveloperupwork')
 
@@ -87,12 +88,15 @@ function CaseStudySection({ title, body }: { title: string; body?: string }) {
 }
 
 function JsonLd({ job }: { job: (typeof jobs)[0] }) {
+  const cs = job.caseStudy
   const schema: Record<string, unknown>[] = [
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
       name: jobTitle(job),
-      description: job.description,
+      description: jobNarrative(job),
+      ...(job.tags.length ? { keywords: job.tags.join(', ') } : {}),
+      ...(cs?.screenshots?.length ? { image: cs.screenshots.map(s => `https://miraclewebsoft.com${s.src}`) } : {}),
       provider: {
         '@type': 'Organization',
         name: 'Miracle Websoft',
@@ -137,31 +141,9 @@ function JsonLd({ job }: { job: (typeof jobs)[0] }) {
     ],
   })
 
-  // FAQPage schema for AEO — common questions about this type of work
-  const faqItems = [
-    {
-      q: `What does "${job.category}" work include?`,
-      a: `${job.category} projects by Miracle Websoft include ${job.description}`,
-    },
-    {
-      q: 'Is this project verified on Upwork?',
-      a: 'Yes — all projects in this portfolio are verified engagements completed through Upwork with documented ratings and client feedback.',
-    },
-    {
-      q: 'Can Miracle Websoft do similar work for my store?',
-      a: `Yes. Karam Singh at Miracle Websoft specialises in ${job.category} and has completed 600+ verified Shopify projects. Book a free call at miraclewebsoft.com/contact.`,
-    },
-  ]
-
-  schema.push({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map(item => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: { '@type': 'Answer', text: item.a },
-    })),
-  })
+  // NOTE: the FAQPage schema for this project is emitted by the visible
+  // <FaqSection> at the bottom of the page (so on-page content and schema stay
+  // in sync). It is intentionally NOT duplicated here.
 
   return (
     <script
@@ -446,6 +428,9 @@ export default async function JobPage({ params }: Props) {
         )}
 
       </main>
+
+      {/* Project-specific FAQ — visible content + its FAQPage schema */}
+      <FaqSection faqs={workFaqs(job)} heading="Questions about this project" eyebrow="FAQ" />
     </>
   )
 }

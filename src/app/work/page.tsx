@@ -31,6 +31,7 @@ function JsonLd() {
           position: i + 1,
           name: jobTitle(job),
           description: job.description,
+          url: `https://miraclewebsoft.com/work/${job.id}`,
         })),
       },
       {

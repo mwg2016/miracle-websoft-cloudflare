@@ -69,6 +69,45 @@ export function jobTitle(job: Job): string {
   return t
 }
 
+/** The unique "what we did" narrative — description expanded with case-study detail when present. */
+export function jobNarrative(job: Job): string {
+  const cs = job.caseStudy
+  return cs ? [job.description, cs.approach, cs.outcome].filter(Boolean).join(' ') : fixTypos(job.description)
+}
+
+/**
+ * Project-specific Q&A for a job, used for BOTH the visible FAQ section and its
+ * FAQPage schema. Built from the job's own data so every page is unique
+ * (title/client → question, "what we did" → answer) — never templated.
+ */
+export function workFaqs(job: Job): { question: string; answer: string }[] {
+  const name = job.company || job.client
+  const cs = job.caseStudy
+  const faqs: { question: string; answer: string }[] = [
+    {
+      question: name ? `What did Miracle Websoft do for ${name}?` : `What was involved in this ${job.category.toLowerCase()} project?`,
+      answer: jobNarrative(job),
+    },
+  ]
+  if (cs?.challenge) {
+    faqs.push({ question: name ? `What did ${name} need?` : 'What problem did this project solve?', answer: cs.challenge })
+  }
+  if (cs?.outcome) {
+    faqs.push({ question: `What was the outcome of the ${job.category.toLowerCase()} work?`, answer: cs.outcome })
+  }
+  if (job.review) {
+    faqs.push({
+      question: name ? `What did ${name} say about the project?` : 'What did the client say about this project?',
+      answer: `${job.review}${job.rating ? ` (Rated ${job.rating.toFixed(1)}/5 by a verified Upwork client.)` : ''}`,
+    })
+  }
+  faqs.push({
+    question: 'Can Miracle Websoft build something similar for my store?',
+    answer: `Yes — Miracle Websoft specialises in ${job.category} and has delivered 600+ verified Shopify projects. Tell us what you need at miraclewebsoft.com/contact.`,
+  })
+  return faqs
+}
+
 export const jobs: Job[] = [
   {
     id: 'shopify-store-redesign-2026',
