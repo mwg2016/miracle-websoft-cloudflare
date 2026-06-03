@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://miraclewebsoft.com/contact' },
 }
 
-const WHATSAPP_URL = outboundHref('whatsapp', `https://wa.me/916239269736?text=${encodeURIComponent("Hi Karam, I'd like to get a free Shopify store audit for my clothing brand.")}`)
+const WHATSAPP_URL = outboundHref('whatsapp', `https://wa.me/916239269736?text=${encodeURIComponent("Hi Karam, I'd like to get a free Shopify store audit.")}`)
 
 const auditItems = [
   'Page speed & Core Web Vitals score',

@@ -55,7 +55,7 @@ export default function StickyMobileCta() {
         </div>
       </div>
       <a
-        href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%2C%20I%27d%20like%20to%20get%20a%20free%20Shopify%20store%20audit.')}
+        href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%20Karam%2C%20I%27d%20like%20to%20get%20a%20free%20Shopify%20store%20audit.')}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp us"

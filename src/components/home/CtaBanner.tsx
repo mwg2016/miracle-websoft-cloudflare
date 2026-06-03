@@ -51,7 +51,7 @@ export default function CtaBanner() {
             Contact Us <ArrowRight size={17} />
           </Link>
           <Link
-            href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%2C%20I%27d%20like%20to%20get%20a%20free%20Shopify%20store%20audit.')}
+            href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%20Karam%2C%20I%27d%20like%20to%20get%20a%20free%20Shopify%20store%20audit.')}
             target="_blank"
             rel="noopener noreferrer"
             className="mw-btn-outline"
