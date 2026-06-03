@@ -88,8 +88,8 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
               <a href="#get-quote" className="mw-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
                 Get a Free Proposal <ArrowRight size={16} />
               </a>
-              <Link href="/case-studies" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                View Case Studies
+              <Link href="/work" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                View Our Work
               </Link>
             </div>
           </div>

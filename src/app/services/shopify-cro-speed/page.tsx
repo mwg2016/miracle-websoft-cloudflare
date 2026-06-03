@@ -117,7 +117,7 @@ export default function CROSpeedPage() {
                 'Checkout flow rebuilt — 2-step to 1-page, cart abandonment dropped 28%',
               ]}
               duration="5-week project"
-              cta={{ label: 'See all results', href: '/case-studies' }}
+              cta={{ label: 'See all our work', href: '/work' }}
             />
 
             {/* ROI example */}

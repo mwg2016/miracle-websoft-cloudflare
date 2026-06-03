@@ -19,7 +19,7 @@ export default function IndustryHero({ industry }: Props) {
             <Link href="/contact" className="mw-btn-primary text-sm px-7 py-3.5">
               Contact Us <ArrowRight size={15} />
             </Link>
-            <Link href="/case-studies" className="mw-btn-outline text-sm px-7 py-3.5">
+            <Link href="/work" className="mw-btn-outline text-sm px-7 py-3.5">
               View Our Work
             </Link>
           </div>

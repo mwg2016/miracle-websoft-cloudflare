@@ -131,7 +131,7 @@ export default function ShopifyDevelopmentPage() {
               'Rebuilt mobile product pages with sticky ATC, image zoom and size guide modal',
             ]}
             duration="6-week build"
-            cta={{ label: 'See all case studies', href: '/case-studies' }}
+            cta={{ label: 'See all our work', href: '/work' }}
           />
         </div>
       </section>

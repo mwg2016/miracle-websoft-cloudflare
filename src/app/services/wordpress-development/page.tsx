@@ -130,8 +130,8 @@ export default function WordPressDevelopmentPage() {
               <a href="#get-quote" className="mw-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
                 Get a Free Proposal <ArrowRight size={16} />
               </a>
-              <Link href="/case-studies" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                View Case Studies
+              <Link href="/work" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                View Our Work
               </Link>
             </div>
           </div>
@@ -154,7 +154,7 @@ export default function WordPressDevelopmentPage() {
               'Mobile load time dropped from 8.4s to 2.1s — membership sign-up conversion up 31%',
             ]}
             duration="6-week build"
-            cta={{ label: 'See all case studies', href: '/case-studies' }}
+            cta={{ label: 'See all our work', href: '/work' }}
           />
         </div>
       </section>

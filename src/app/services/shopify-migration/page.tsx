@@ -126,7 +126,7 @@ export default function MigrationPage() {
               'Custom Shopify theme built to match the existing brand aesthetic',
             ]}
             duration="5-week project"
-            cta={{ label: 'See all case studies', href: '/case-studies' }}
+            cta={{ label: 'See all our work', href: '/work' }}
           />
         </div>
       </section>

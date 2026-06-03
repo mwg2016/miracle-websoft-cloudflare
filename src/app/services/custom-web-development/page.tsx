@@ -156,8 +156,8 @@ export default function CustomWebDevelopmentPage() {
               <a href="#get-quote" className="mw-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
                 Discuss Your Project <ArrowRight size={16} />
               </a>
-              <Link href="/case-studies" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                View Case Studies
+              <Link href="/work" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                View Our Work
               </Link>
             </div>
           </div>
@@ -180,7 +180,7 @@ export default function CustomWebDevelopmentPage() {
               'Role-based access control: Admin, Dispatcher, Driver — 3 permission levels, 40+ guarded routes',
             ]}
             duration="12-week build"
-            cta={{ label: 'See all case studies', href: '/case-studies' }}
+            cta={{ label: 'See all our work', href: '/work' }}
           />
         </div>
       </section>

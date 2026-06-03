@@ -106,7 +106,7 @@ export default function Testimonials() {
           ))}
         </div>
         <div className="flex flex-wrap gap-3">
-          <Link href="/case-studies" className="mw-btn-outline" style={{ fontSize: '0.875rem', padding: '0.65rem 1.5rem' }}>View case studies</Link>
+          <Link href="/work" className="mw-btn-outline" style={{ fontSize: '0.875rem', padding: '0.65rem 1.5rem' }}>View our work</Link>
           <a href={outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/')} target="_blank" rel="noopener noreferrer" className="mw-btn-outline" style={{ fontSize: '0.875rem', padding: '0.65rem 1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
             See all Upwork reviews <ExternalLink size={13} />
           </a>

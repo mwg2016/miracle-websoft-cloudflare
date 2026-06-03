@@ -1143,8 +1143,8 @@ export default function ShopifyCROLandingPage() {
             >
               Contact Us <ArrowRight size={16} />
             </a>
-            <Link href="/case-studies" className="mw-btn-outline">
-              See case studies
+            <Link href="/work" className="mw-btn-outline">
+              See our work
             </Link>
           </div>
 

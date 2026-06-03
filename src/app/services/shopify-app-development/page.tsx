@@ -134,7 +134,7 @@ export default function AppDevelopmentPage() {
                 'Removing 4 third-party scripts improved mobile PageSpeed from 54 to 88',
               ]}
               duration="4-week build"
-              cta={{ label: 'See all case studies', href: '/case-studies' }}
+              cta={{ label: 'See all our work', href: '/work' }}
             />
 
             {/* ROI callout */}

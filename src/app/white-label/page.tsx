@@ -289,7 +289,7 @@ export default function WhiteLabelPage() {
                 Get a Private Quote
                 <ArrowRight size={16} />
               </a>
-              <Link href="/case-studies" style={{
+              <Link href="/work" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
                 padding: '1rem 1.75rem',
                 background: 'rgba(255,255,255,0.05)',
@@ -551,7 +551,7 @@ export default function WhiteLabelPage() {
           </div>
 
           <div style={{ textAlign: 'center' }}>
-            <Link href="/case-studies" style={{
+            <Link href="/work" style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
               fontSize: '0.85rem', fontWeight: 600,
               color: 'rgba(255,255,255,0.5)',

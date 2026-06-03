@@ -164,7 +164,7 @@ export default function ShopifyDevelopmentPage() {
               <Link href="/contact" className="mw-btn-primary">
                 Contact Us <ArrowRight size={16} />
               </Link>
-              <Link href="/case-studies" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Link href="/work" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
                 See Our Work
               </Link>
             </div>
@@ -208,7 +208,7 @@ export default function ShopifyDevelopmentPage() {
                 'Checkout redesigned with one-click upsells — average order value up 18%',
               ]}
               duration="7-week build"
-              cta={{ label: 'See all case studies', href: '/case-studies' }}
+              cta={{ label: 'See all our work', href: '/work' }}
             />
 
             {/* ROI callout */}
