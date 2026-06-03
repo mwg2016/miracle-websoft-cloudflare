@@ -85,7 +85,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-wrap gap-3">
             <Link href="/contact" className="mw-btn-primary">Contact Us</Link>
-            <Link href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%20Karam%2C%20I%27d%20like%20to%20get%20a%20free%20Shopify%20store%20audit.')} target="_blank" rel="noopener noreferrer" className="mw-btn-outline">WhatsApp us</Link>
+            <Link href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%20Karam%2C%20how%20are%20you%3F%20I%20need%20help%20with%20Shopify.')} target="_blank" rel="noopener noreferrer" className="mw-btn-outline">WhatsApp us</Link>
           </div>
         </div>
       </div>
