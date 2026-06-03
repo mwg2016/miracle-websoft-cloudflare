@@ -137,12 +137,12 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                 </>
               ) : (
                 <>
-                  <span className="mw-eyebrow">Free audit — no commitment</span>
+                  <span className="mw-eyebrow">Let&apos;s talk Shopify</span>
                   <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(30px,4.5vw,52px)', lineHeight: 1.1, marginBottom: '1rem' }}>
-                    Find out what&apos;s stopping<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>your store from converting.</em>
+                    Tell us what you need —<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>we&apos;ll help you get there.</em>
                   </h1>
                   <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2rem', fontWeight: 300, maxWidth: '500px' }}>
-                    We review your Shopify store and send back a detailed written audit — specific issues, specific fixes, ranked by revenue impact. Completely free. No sales call unless you want one.
+                    Whether it&apos;s a new store, a redesign, a migration, or a fix you&apos;re stuck on — tell Karam what&apos;s going on and he&apos;ll reply personally with clear, practical next steps. No pressure, no sales pitch.
                   </p>
                 </>
               )}
@@ -171,7 +171,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                   </>
                 ) : (
                   <>
-                    <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.9rem' }}>What your free audit covers</p>
+                    <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.9rem' }}>What we can help with</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {auditItems.map(item => (
                         <div key={item} className="flex items-start gap-2.5">
@@ -248,17 +248,6 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
 
             {/* ── Right — Form (shown first on mobile so it's visible at a glance) ─ */}
             <div className="order-first lg:order-last" style={{ position: 'sticky', top: '7rem' }}>
-              {/* WhatsApp alternative */}
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
-                style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.9rem 1.25rem', borderRadius: '14px', background: 'rgba(37,211,102,0.08)', border: '1px solid rgba(37,211,102,0.2)', marginBottom: '1rem', textDecoration: 'none' }}>
-                <MessageCircle size={18} style={{ color: '#25D366', flexShrink: 0 }} />
-                <div>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff', lineHeight: 1.2 }}>Prefer WhatsApp?</div>
-                  <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>Message Karam directly — usually replies within an hour</div>
-                </div>
-                <span style={{ marginLeft: 'auto', fontSize: '0.68rem', fontWeight: 700, padding: '0.2rem 0.6rem', borderRadius: '9999px', background: '#25D366', color: '#fff', flexShrink: 0 }}>Chat now</span>
-              </a>
-
               {/* Form card */}
               <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '2rem' }}>
                 {/* Karam avatar + headline */}
@@ -273,7 +262,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                 </div>
 
                 <div style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginBottom: '1.25rem', paddingBottom: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                  {plan ? 'No payment yet · Proposal first · Fixed pricing' : 'Free audit included · No commitment · Fixed pricing'}
+                  {plan ? 'No payment yet · Proposal first · Fixed pricing' : 'No obligation · Reply within 24 h · Fixed-price quotes'}
                 </div>
 
                 <ContactForm />
