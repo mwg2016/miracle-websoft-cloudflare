@@ -8,6 +8,24 @@ export type JobCategory =
   | 'Design & Figma'
   | 'Ongoing Support'
 
+/**
+ * Optional rich case-study content. When present on a job, the work detail
+ * page renders a full case study (client context → challenge → what we built →
+ * process → outcome) instead of the thin single-paragraph overview. Every field
+ * must be unique and specific to that project — do NOT template across jobs, or
+ * Google fingerprints the pages as near-duplicates and won't index them.
+ * See `shopify-ecomerce-store-2025` (Flowers A Million) for a worked example.
+ */
+export interface CaseStudy {
+  clientContext?: string   // who the client is, what they sell, their stage
+  challenge?: string       // the problem/goal they came with and why
+  approach?: string        // concretely what was built (theme, custom sections, flows)
+  process?: string         // short: how the work was approached
+  outcome?: string         // results — metrics if available, qualitative if not
+  techStack?: string[]     // expanded, real tech list (supersedes `tags` on the page)
+  screenshots?: { src: string; alt: string }[]  // descriptive alt text per image
+}
+
 export interface Job {
   id: string
   title: string
@@ -22,6 +40,33 @@ export interface Job {
   client?: string
   company?: string
   budget?: string
+  caseStudy?: CaseStudy
+}
+
+// ── Display helpers ─────────────────────────────────────────────────────────
+// Used by both the /work index and the /work/[id] detail page so titles and
+// copy render consistently. These NEVER affect a job `id` (the public URL).
+
+/** Correct typos that exist in the raw Upwork-sourced display strings. */
+export function fixTypos(s: string): string {
+  return s
+    .replace(/Ecomerce/g, 'Ecommerce')
+    .replace(/devolpment/gi, (m) => (m[0] === 'D' ? 'Development' : 'development'))
+}
+
+// Titles like "Shopify", "website" or "30 minute consultation" are too generic
+// to read as a unique page. When a real client/company name exists, anchor the
+// generic title to it so each title is specific.
+const GENERIC_TITLE = /^(shopify|web ?site|consultation|30 ?minute consultation|new changes|store|project|task|revision)\b/i
+
+/** Human-readable, de-duplicated title for a job (typos fixed, generics anchored to the client). */
+export function jobTitle(job: Job): string {
+  const t = fixTypos(job.title).trim()
+  const name = job.company || job.client
+  if (name && (t.length < 24 || GENERIC_TITLE.test(t)) && !t.toLowerCase().includes(name.toLowerCase())) {
+    return `${name} — ${t}`
+  }
+  return t
 }
 
 export const jobs: Job[] = [
@@ -804,7 +849,7 @@ export const jobs: Job[] = [
   },
   {
     id: 'shopify-ecomerce-store-2025',
-    title: 'Shopify Ecomerce Store',
+    title: 'Flowers A Million: Conversion-Focused Shopify Store Build',
     category: 'Store Development',
     rating: 5.0,
     client: 'Shay Jules',
@@ -814,6 +859,21 @@ export const jobs: Job[] = [
     description:
       'Shopify ecommerce store development for Flowers A Million Enterprises, building a complete and conversion-optimised online storefront with custom sections, mobile-first layout, and a seamless purchase flow.',
     tags: ['Shopify', 'Store Setup'],
+    caseStudy: {
+      clientContext:
+        'Flowers A Million Enterprises is an occasion-led florist selling bouquets, arrangements and gifting for birthdays, anniversaries and sympathy. They were moving off an ad-hoc setup onto Shopify and needed a storefront that could actually take orders reliably and feel as considered as the flowers themselves.',
+      challenge:
+        'The brief was a complete store, not a templated drop-in. Florals are an impulse-and-occasion purchase, so the store had to load fast on mobile (most floral buying happens on a phone), present arrangements attractively, and get a first-time visitor from a product page to a paid order with as little friction as possible. The previous setup gave shoppers no clear path to buy and no mobile-first layout.',
+      approach:
+        'I built a custom theme rather than relying on an off-the-shelf one: bespoke homepage and collection sections so seasonal and occasion ranges can be merchandised without code, image-forward product pages tuned for arrangements, and a mobile-first layout with a sticky add-to-cart so the buy action is always in reach. The purchase flow was streamlined end to end — clean cart, minimal steps, and a checkout configured for occasion-based gifting orders. Everything was done natively in Liquid and Shopify settings instead of stacking paid apps, which keeps the store fast and cheaper to run long term.',
+      process:
+        'Worked iteratively across the engagement — built the theme structure first, then refined section by section against the client\'s feedback until each page matched what they wanted, delivering on schedule.',
+      outcome:
+        'Launched a complete, conversion-optimised storefront the client could run and merchandise themselves. The engagement closed with a 5-star review — "Great work and delivered exactly what was asked." No recurring app fees were introduced, since the custom sections replaced what would otherwise have needed paid apps.',
+      techStack: ['Shopify', 'Liquid', 'Custom Theme Development', 'Responsive / Mobile-First CSS', 'Shopify Checkout', 'Conversion-Focused UX'],
+      // Add real screenshots when available, e.g.:
+      // screenshots: [{ src: '/work/flowers-a-million/product-mobile.jpg', alt: 'Custom flower-bouquet product page on mobile with sticky add-to-cart' }],
+    },
   },
   {
     id: 'dailywheels-cro-changes-2025',

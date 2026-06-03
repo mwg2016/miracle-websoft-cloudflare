@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import { jobs, CATEGORIES, type JobCategory } from '@/data/jobs'
+import { jobs, jobTitle, fixTypos, CATEGORIES, type JobCategory } from '@/data/jobs'
 
 function StarRating({ rating }: { rating: number }) {
   const full = Math.floor(rating)
@@ -104,12 +104,12 @@ export default function WorkList() {
               className="mb-2"
               style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', lineHeight: 1.4, fontFamily: 'var(--font-sans), system-ui, sans-serif' }}
             >
-              {job.title}
+              {jobTitle(job)}
             </h3>
 
             {/* Description */}
             <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, marginBottom: '0.75rem', flex: 1 }}>
-              {job.description}
+              {fixTypos(job.description)}
             </p>
 
             {/* Review quote */}

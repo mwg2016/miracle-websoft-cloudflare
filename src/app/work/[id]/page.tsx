@@ -1,13 +1,25 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { jobs } from '@/data/jobs'
+import { jobs, jobTitle, fixTypos } from '@/data/jobs'
 import { outboundHref } from '@/lib/outbound'
 
 const UPWORK_FREELANCER = outboundHref('upwork', 'https://www.upwork.com/freelancers/shopifydeveloperupwork')
 
 interface Props {
   params: Promise<{ id: string }>
+}
+
+// Meta description is composed so it does NOT duplicate the on-page overview
+// (a self-duplicate adds no indexing value).
+function metaDescription(job: (typeof jobs)[0]): string {
+  const name = job.company || job.client
+  const lead = `${job.category}${name ? ` for ${name}` : ''} — verified Shopify project by Miracle Websoft, ${job.completedDate}. `
+  const room = Math.max(0, 158 - lead.length)
+  const detail = job.description.length > room
+    ? `${job.description.slice(0, Math.max(0, room - 1)).trimEnd()}…`
+    : job.description
+  return (lead + detail).slice(0, 160)
 }
 
 export async function generateStaticParams() {
@@ -19,8 +31,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const job = jobs.find(j => j.id === id)
   if (!job) return {}
 
-  const title = `${job.title} — Verified Shopify Project | Miracle Websoft`
-  const description = `${job.description.slice(0, 155)}…`
+  const title = `${jobTitle(job)} — Verified Shopify Project | Miracle Websoft`
+  const description = metaDescription(job)
 
   return {
     title,
@@ -60,12 +72,26 @@ function StarRating({ rating }: { rating: number }) {
   )
 }
 
+function CaseStudySection({ title, body }: { title: string; body?: string }) {
+  if (!body) return null
+  return (
+    <div style={{ marginBottom: '1.75rem' }}>
+      <h2 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff', marginBottom: '0.75rem', letterSpacing: '-0.01em' }}>
+        {title}
+      </h2>
+      <p style={{ color: 'rgba(255,255,255,0.65)', lineHeight: 1.85, fontSize: '1rem' }}>
+        {body}
+      </p>
+    </div>
+  )
+}
+
 function JsonLd({ job }: { job: (typeof jobs)[0] }) {
   const schema: Record<string, unknown>[] = [
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
-      name: job.title,
+      name: jobTitle(job),
       description: job.description,
       provider: {
         '@type': 'Organization',
@@ -107,7 +133,7 @@ function JsonLd({ job }: { job: (typeof jobs)[0] }) {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://miraclewebsoft.com' },
       { '@type': 'ListItem', position: 2, name: 'Work', item: 'https://miraclewebsoft.com/work' },
-      { '@type': 'ListItem', position: 3, name: job.title, item: `https://miraclewebsoft.com/work/${job.id}` },
+      { '@type': 'ListItem', position: 3, name: jobTitle(job), item: `https://miraclewebsoft.com/work/${job.id}` },
     ],
   })
 
@@ -151,6 +177,9 @@ export default async function JobPage({ params }: Props) {
   if (!job) notFound()
 
   const catColor = CATEGORY_COLORS[job.category] || '#6C63FF'
+  const displayTitle = jobTitle(job)
+  const cs = job.caseStudy
+  const techList = cs?.techStack?.length ? cs.techStack : job.tags
   const relatedJobs = jobs
     .filter(j => j.id !== job.id && j.category === job.category && j.rating >= 4.5)
     .slice(0, 3)
@@ -171,7 +200,7 @@ export default async function JobPage({ params }: Props) {
               <span>/</span>
               <Link href="/work" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>Work</Link>
               <span>/</span>
-              <span style={{ color: 'rgba(255,255,255,0.6)' }}>{job.title}</span>
+              <span style={{ color: 'rgba(255,255,255,0.6)' }}>{displayTitle}</span>
             </nav>
 
             {/* Category + Upwork badge */}
@@ -188,7 +217,7 @@ export default async function JobPage({ params }: Props) {
             </div>
 
             <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.25rem', maxWidth: '800px', lineHeight: 1.25 }}>
-              {job.title}
+              {displayTitle}
             </h1>
 
             {/* Rating */}
@@ -208,12 +237,6 @@ export default async function JobPage({ params }: Props) {
                 <span>
                   <span style={{ color: 'rgba(255,255,255,0.25)', marginRight: '0.4rem' }}>Client</span>
                   <span style={{ color: 'rgba(255,255,255,0.7)' }}>{job.company && job.company !== job.client ? job.company : job.client}</span>
-                </span>
-              )}
-              {job.budget && (
-                <span>
-                  <span style={{ color: 'rgba(255,255,255,0.25)', marginRight: '0.4rem' }}>Engagement</span>
-                  <span style={{ color: 'rgba(255,255,255,0.7)' }}>{job.budget}</span>
                 </span>
               )}
             </div>
@@ -243,8 +266,35 @@ export default async function JobPage({ params }: Props) {
                   Project Overview
                 </h2>
                 <p style={{ color: 'rgba(255,255,255,0.65)', lineHeight: 1.85, fontSize: '1rem', marginBottom: '2rem' }}>
-                  {job.description}
+                  {fixTypos(job.description)}
                 </p>
+
+                {/* Full case study (rendered when rich content is present) */}
+                {cs && (
+                  <div style={{ marginBottom: '1rem' }}>
+                    <CaseStudySection title="About the client" body={cs.clientContext} />
+                    <CaseStudySection title="The challenge" body={cs.challenge} />
+                    <CaseStudySection title="What we built" body={cs.approach} />
+                    <CaseStudySection title="Process" body={cs.process} />
+                    <CaseStudySection title="Outcome" body={cs.outcome} />
+
+                    {cs.screenshots && cs.screenshots.length > 0 && (
+                      <div className="grid gap-4 sm:grid-cols-2" style={{ margin: '0.5rem 0 1.75rem' }}>
+                        {cs.screenshots.map((shot) => (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            key={shot.src}
+                            src={shot.src}
+                            alt={shot.alt}
+                            loading="lazy"
+                            className="rounded-2xl w-full h-auto"
+                            style={{ border: '1px solid rgba(255,255,255,0.08)' }}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
 
                 {job.review && (
                   <div>
@@ -274,7 +324,7 @@ export default async function JobPage({ params }: Props) {
                     Skills & Technologies
                   </h2>
                   <div className="flex flex-wrap gap-2">
-                    {job.tags.map(tag => (
+                    {techList.map(tag => (
                       <span
                         key={tag}
                         className="px-3 py-2 rounded-xl"
@@ -370,10 +420,10 @@ export default async function JobPage({ params }: Props) {
                         {rel.category}
                       </span>
                       <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff', lineHeight: 1.4, marginBottom: '0.5rem' }}>
-                        {rel.title}
+                        {jobTitle(rel)}
                       </h3>
                       <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.55 }}>
-                        {rel.description.slice(0, 100)}…
+                        {fixTypos(rel.description).slice(0, 100)}…
                       </p>
                       <div className="flex items-center gap-1 mt-3">
                         {[...Array(5)].map((_, i) => (

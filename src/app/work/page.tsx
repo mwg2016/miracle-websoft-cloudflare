@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { jobs } from '@/data/jobs'
+import { jobs, jobTitle } from '@/data/jobs'
 import WorkList from '@/components/work/WorkList'
 import { outboundHref } from '@/lib/outbound'
 
@@ -29,7 +29,7 @@ function JsonLd() {
         itemListElement: jobs.map((job, i) => ({
           '@type': 'ListItem',
           position: i + 1,
-          name: job.title,
+          name: jobTitle(job),
           description: job.description,
         })),
       },
