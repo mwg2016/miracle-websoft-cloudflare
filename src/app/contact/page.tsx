@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Breadcrumb from '@/components/layout/Breadcrumb'
-import { CheckCircle2, ExternalLink, MessageCircle } from 'lucide-react'
+import { CheckCircle2, ExternalLink, MessageCircle, Mail, Linkedin } from 'lucide-react'
 import FaqSection from '@/components/ui/FaqSection'
 import ContactForm from '@/components/contact/ContactForm'
 import { breadcrumb, faqPage, renderJsonLd, webPage } from '@/lib/jsonld'
@@ -25,7 +25,9 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://miraclewebsoft.com/contact' },
 }
 
-const WHATSAPP_URL = outboundHref('whatsapp', `https://wa.me/916239269736?text=${encodeURIComponent("Hi Karam, I'd like to get a free Shopify store audit.")}`)
+const WHATSAPP_URL = outboundHref('whatsapp', `https://wa.me/916239269736?text=${encodeURIComponent('Hi Karam, how are you? I need help with Shopify.')}`)
+const EMAIL_URL = outboundHref('email', 'mailto:karam@miraclewebsoft.com?subject=Shopify%20help')
+const LINKEDIN_URL = outboundHref('linkedin', 'https://www.linkedin.com/in/ecommerce-experts/')
 
 const auditItems = [
   'Page speed & Core Web Vitals score',
@@ -103,10 +105,20 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                 <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>{s.label}</span>
               </div>
             ))}
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
-              style={{ marginLeft: 'auto', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.45rem 1rem', borderRadius: '9999px', background: '#25D366', color: '#fff', fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none' }}>
-              <MessageCircle size={14} /> WhatsApp us
-            </a>
+            <div style={{ marginLeft: 'auto', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.45rem 1rem', borderRadius: '9999px', background: '#25D366', color: '#fff', fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none' }}>
+                <MessageCircle size={14} /> WhatsApp us
+              </a>
+              <a href={EMAIL_URL}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.45rem 1rem', borderRadius: '9999px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.15)', color: '#fff', fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none' }}>
+                <Mail size={14} /> Email us
+              </a>
+              <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.45rem 1rem', borderRadius: '9999px', background: '#0A66C2', color: '#fff', fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none' }}>
+                <Linkedin size={14} /> LinkedIn
+              </a>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-12 xl:gap-16 items-start">
@@ -234,8 +246,8 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
               </div>
             </div>
 
-            {/* ── Right — Form ──────────────────────────────────── */}
-            <div style={{ position: 'sticky', top: '7rem' }}>
+            {/* ── Right — Form (shown first on mobile so it's visible at a glance) ─ */}
+            <div className="order-first lg:order-last" style={{ position: 'sticky', top: '7rem' }}>
               {/* WhatsApp alternative */}
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
                 style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.9rem 1.25rem', borderRadius: '14px', background: 'rgba(37,211,102,0.08)', border: '1px solid rgba(37,211,102,0.2)', marginBottom: '1rem', textDecoration: 'none' }}>
