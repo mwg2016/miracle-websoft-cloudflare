@@ -22,25 +22,25 @@ export default function Hero() {
         background: 'linear-gradient(135deg, #10100f 0%, #090909 48%, #101116 100%)',
         backgroundImage:
           'linear-gradient(135deg, rgba(16,185,129,0.08) 0%, transparent 38%), linear-gradient(315deg, rgba(108,99,255,0.12) 0%, transparent 42%)',
-        minHeight: '94vh',
+        minHeight: 'auto',
         display: 'flex',
         alignItems: 'center',
-        paddingTop: '7rem',
-        paddingBottom: '3.5rem',
+        paddingTop: '6.25rem',
+        paddingBottom: '2.75rem',
       }}
     >
       <div className="mw-container relative" style={{ zIndex: 2, width: '100%' }}>
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'minmax(0, 1.35fr) minmax(320px, 0.9fr)',
-            gap: '3.5rem',
-            alignItems: 'center',
+            gridTemplateColumns: 'minmax(0, 1.38fr) minmax(320px, 0.86fr)',
+            gap: '3rem',
+            alignItems: 'start',
           }}
           className="hero-grid"
         >
           <div>
-            <div className="mw-rise mw-rise-1" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.55rem', marginBottom: '1.75rem', padding: '0.45rem 0.85rem', borderRadius: '999px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <div className="mw-rise mw-rise-1" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.55rem', marginBottom: '1.35rem', padding: '0.42rem 0.8rem', borderRadius: '999px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
               <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#10B981', boxShadow: '0 0 16px rgba(16,185,129,0.75)' }} />
               <span style={{ color: 'rgba(255,255,255,0.74)', fontSize: '0.76rem', fontWeight: 600 }}>Friendly Shopify help from Karam and team</span>
             </div>
@@ -49,7 +49,7 @@ export default function Hero() {
               className="mw-rise mw-rise-2"
               style={{
                 color: '#fff',
-                marginBottom: '1.5rem',
+                marginBottom: '1.25rem',
                 fontWeight: 500,
                 maxWidth: '760px',
               }}
@@ -64,16 +64,16 @@ export default function Hero() {
               style={{
                 fontSize: 'clamp(1.02rem, 1.35vw, 1.2rem)',
                 color: 'var(--text-2)',
-                lineHeight: 1.68,
+                lineHeight: 1.64,
                 maxWidth: '620px',
-                marginBottom: '1.35rem',
+                marginBottom: '1.1rem',
                 fontWeight: 400,
               }}
             >
               If your site is slow, confusing on mobile, hard to update, or getting visitors who do not buy, we will help you understand what is wrong and what to fix first. No pressure, no confusing tech talk, just practical Shopify advice.
             </p>
 
-            <div className="mw-rise mw-rise-4" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.55rem', marginBottom: '2rem' }}>
+            <div className="mw-rise mw-rise-4" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.45rem' }}>
               {storeProblems.map((problem) => (
                 <span key={problem} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.48rem 0.72rem', borderRadius: '999px', background: 'rgba(255,255,255,0.055)', border: '1px solid rgba(255,255,255,0.09)', color: 'rgba(255,255,255,0.72)', fontSize: '0.8rem', lineHeight: 1 }}>
                   <CheckCircle2 size={13} style={{ color: '#10B981' }} />
@@ -95,7 +95,7 @@ export default function Hero() {
             </p>
           </div>
 
-          <aside className="mw-rise mw-rise-3 hero-aside">
+          <aside className="mw-rise mw-rise-3 hero-aside" style={{ paddingTop: '0.2rem' }}>
             <div
               style={{
                 position: 'relative',
@@ -167,7 +167,7 @@ export default function Hero() {
           </aside>
         </div>
 
-        <div className="mw-rise mw-rise-6 hero-trust-row" style={{ marginTop: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '1.4rem' }}>
+        <div className="mw-rise mw-rise-6 hero-trust-row" style={{ marginTop: '2.2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '1rem' }}>
           <span style={{ color: 'rgba(255,255,255,0.48)', fontSize: '0.78rem' }}>Serving Shopify merchants in the USA, UK, Australia and worldwide</span>
           <span style={{ color: 'rgba(255,255,255,0.48)', fontSize: '0.78rem' }}>No hard sell. Just clear next steps.</span>
         </div>
@@ -177,10 +177,11 @@ export default function Hero() {
         @media (max-width: 900px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 2.5rem !important;
+            gap: 2rem !important;
           }
           .hero-aside {
             order: 2;
+            padding-top: 0 !important;
           }
           .hero-trust-row {
             align-items: flex-start !important;
