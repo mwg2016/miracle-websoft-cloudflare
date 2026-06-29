@@ -48,10 +48,10 @@ export default function StickyMobileCta() {
     >
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ fontSize: '0.68rem', fontFamily: 'var(--font-geist-mono), monospace', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-4)', lineHeight: 1, marginBottom: 2 }}>
-          Reply within 24 h · free
+          Free store review
         </div>
         <div style={{ fontSize: '0.86rem', color: '#fff', fontWeight: 600, lineHeight: 1.15, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-          Talk to a Shopify expert
+          Improve my Shopify store
         </div>
       </div>
       <a
@@ -82,7 +82,7 @@ export default function StickyMobileCta() {
         className="mw-btn-primary"
         style={{ padding: '0.6rem 1rem', fontSize: '0.85rem', boxShadow: 'none' }}
       >
-        Contact <ArrowRight size={14} />
+        Start <ArrowRight size={14} />
       </Link>
 
       <style jsx>{`

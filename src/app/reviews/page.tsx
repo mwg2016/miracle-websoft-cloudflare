@@ -11,10 +11,11 @@ const UPWORK_FREELANCER = outboundHref('upwork', 'https://www.upwork.com/freelan
 export const metadata: Metadata = {
   title: 'Client Reviews — 23 Verified Shopify Developer Reviews | Miracle Websoft',
   description:
-    'Read verified client reviews for Miracle Websoft on Upwork. 23 five-star reviews from real Shopify store owners praising quality, speed, communication, and results. 99% Job Success Score.',
+    'Read verified client reviews for Miracle Websoft on Upwork. 23 five-star reviews from real Shopify store owners praising quality, speed, communication, and results. 98%+ Job Success Score.',
   openGraph: {
     title: 'Verified Client Reviews — Miracle Websoft Shopify Developer',
     description: '23 verified five-star Upwork reviews from real Shopify store owners. Read what clients say about working with Karam Singh at Miracle Websoft.',
+    url: 'https://miraclewebsoft.com/reviews',
     type: 'website',
   },
   alternates: {
@@ -47,7 +48,7 @@ function JsonLd() {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
       name: 'Miracle Websoft',
-      description: 'Shopify development agency by Karam Singh. 600+ verified projects, 99% job success, Top Rated Plus on Upwork.',
+      description: 'Shopify development agency by Karam Singh. 600+ verified projects, 98%+ job success, Top Rated Plus on Upwork.',
       url: 'https://miraclewebsoft.com',
       aggregateRating: {
         '@type': 'AggregateRating',
@@ -86,7 +87,7 @@ function JsonLd() {
           name: 'What do clients say about Miracle Websoft?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: `Clients consistently praise Miracle Websoft for quality, communication, and speed. The agency has ${reviewedJobs.length} verified reviews on Upwork with an average rating of ${avgRating}/5.0 and a 99% Job Success Score.`,
+            text: `Clients consistently praise Miracle Websoft for quality, communication, and speed. The agency has ${reviewedJobs.length} verified reviews on Upwork with an average rating of ${avgRating}/5.0 and a 98%+ Job Success Score.`,
           },
         },
         {
@@ -140,7 +141,7 @@ function StarRating({ rating, size = 'sm' }: { rating: number; size?: 'sm' | 'lg
 
 // Highlight key phrases in review text
 function ReviewText({ text }: { text: string }) {
-  return <p style={{ fontSize: '0.97rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.8, fontStyle: 'italic' }}>"{text}"</p>
+  return <p style={{ fontSize: '0.97rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.8, fontStyle: 'italic' }}>&ldquo;{text}&rdquo;</p>
 }
 
 export default function ReviewsPage() {
@@ -158,7 +159,7 @@ export default function ReviewsPage() {
   return (
     <>
       <JsonLd />
-      <main style={{ background: '#0a0a0a', minHeight: '100vh' }}>
+      <div style={{ background: '#0a0a0a', minHeight: '100vh' }}>
 
         {/* Hero */}
         <section
@@ -208,7 +209,7 @@ export default function ReviewsPage() {
                 { value: avgRating, label: 'Average Rating' },
                 { value: `${reviewedJobs.length}`, label: 'Verified Reviews' },
                 { value: `${fiveStarCount}`, label: '5-Star Reviews' },
-                { value: '99%', label: 'Job Success Score' },
+                { value: '98%+', label: 'Job Success Score' },
               ].map(({ value, label }) => (
                 <div key={label}>
                   <div style={{ fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 700, color: '#fff', lineHeight: 1 }}>{value}</div>
@@ -359,7 +360,7 @@ export default function ReviewsPage() {
                     <div className="flex-1 mb-4">
                       <blockquote style={{ margin: 0, padding: 0 }}>
                         <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.75, fontStyle: 'italic' }}>
-                          "{job.review}"
+                          &ldquo;{job.review}&rdquo;
                         </p>
                       </blockquote>
                     </div>
@@ -424,19 +425,19 @@ export default function ReviewsPage() {
                 Ready to join them?
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.60)', maxWidth: '480px', margin: '0 auto 2rem', lineHeight: 1.7 }}>
-                Join 600+ store owners who trusted Miracle Websoft with their Shopify store. Book a free 30-minute strategy call — no commitment required.
+                Join 600+ store owners who trusted Miracle Websoft with their Shopify store. Request a free store review and get practical next steps before you commit.
               </p>
               <Link href="/contact" className="mw-btn-primary inline-flex text-sm px-8 py-4">
-                Contact Us →
+                Get Free Store Review →
               </Link>
               <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '1rem' }}>
-                99% Job Success · Top Rated Plus on Upwork · Response within 4–8 hrs
+                98%+ Job Success · Top Rated Plus on Upwork · Response within 4–8 hrs
               </p>
             </div>
           </div>
         </section>
 
-      </main>
+      </div>
     </>
   )
 }

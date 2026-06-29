@@ -9,11 +9,11 @@ import ServiceResult from '@/components/services/ServiceResult'
 import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
-import { breadcrumb, faqPage, renderJsonLd, service } from '@/lib/jsonld'
+import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Shopify App Development — Private Apps, Functions & Integrations | Miracle Websoft',
-  description: 'Custom Shopify app development — private apps, public App Store apps, Shopify Functions and checkout extensions. Replace costly third-party apps with lean, custom-built alternatives.',
+  title: 'Custom Shopify App Development for Store Automation & Growth',
+  description: 'Custom Shopify app development for merchants who need private apps, unique features, automation, Shopify Functions or replacements for costly third-party apps.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/shopify-app-development' },
 }
 
@@ -84,7 +84,6 @@ const jsonLd = renderJsonLd([
     { name: 'Services', url: '/services' },
     { name: 'Shopify App Development', url: '/services/shopify-app-development' },
   ]),
-  faqPage(faqs),
 ])
 
 export default function AppDevelopmentPage() {
@@ -99,9 +98,9 @@ export default function AppDevelopmentPage() {
           </div>
           <div className="max-w-3xl">
             <span className="mw-eyebrow">SHOPIFY APP DEVELOPMENT</span>
-            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>When the App Store Doesn&apos;t Have What You Need — We Build It</h1>
+            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>When Shopify Apps Almost Fit, We Build the Exact Tool You Need</h1>
             <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem', maxWidth: '580px', fontWeight: 300 }}>
-              Private apps, public apps and Shopify Functions built specifically for your store — not a generic plugin that almost fits. Replace $200/month third-party apps with a one-time custom build that&apos;s faster, leaner, and fully yours.
+              If your team is doing manual work, stacking expensive apps, or losing sales because Shopify does not support your workflow out of the box, we build custom Shopify apps that fit your store, your operations and your customers.
             </p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 mb-8">
               {['Private & public Shopify apps', 'Shopify Functions (Plus)', 'Replace costly third-party apps', 'Fixed-price proposal'].map(t => (
@@ -111,7 +110,7 @@ export default function AppDevelopmentPage() {
               ))}
             </div>
             <Link href="/contact" className="mw-btn-primary">
-              Discuss your app <ArrowRight size={16} />
+              Scope My Custom Shopify App <ArrowRight size={16} />
             </Link>
           </div>
         </div>
@@ -142,7 +141,7 @@ export default function AppDevelopmentPage() {
               <div>
                 <p style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '0.5rem' }}>App Replacement ROI</p>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '1.25rem', lineHeight: 1.4 }}>
-                  A custom app pays for itself — and eliminates the annual cost forever.
+                  A custom app can reduce monthly app fees and remove friction from your operations.
                 </h3>
                 <div className="flex flex-col gap-3">
                   {[
@@ -173,8 +172,8 @@ export default function AppDevelopmentPage() {
         <div className="mw-container">
           <div style={{ marginBottom: '2.5rem' }}>
             <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>What We Build</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>Apps for every Shopify use case</h2>
-            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '500px', lineHeight: 1.7 }}>From simple admin tools to complex storefront apps with billing and App Store listing.</p>
+            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>Apps that solve real store problems</h2>
+            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '540px', lineHeight: 1.7 }}>From simple internal tools to complex customer-facing features, the best app is the one that saves time, improves customer experience or creates a sales path you could not offer before.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl">
             {apps.map((app, i) => (
@@ -240,9 +239,9 @@ export default function AppDevelopmentPage() {
 
       {/* Mid-page CTA */}
       <MidPageCta
-        heading="Got a paid app you want to replace? We'll scope it free."
-        sub="Send us the apps you're currently paying for and we'll tell you which ones can be custom-built, what it costs, and how fast you'll break even."
-        btnLabel="Contact Us"
+        heading="Paying for apps that still do not fit your store?"
+        sub="Send us your app stack and what you are trying to achieve. We will tell you what can be simplified, replaced or built custom."
+        btnLabel="Get an App Scope"
       />
 
       {/* Guarantees */}

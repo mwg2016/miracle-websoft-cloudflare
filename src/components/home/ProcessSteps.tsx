@@ -1,9 +1,9 @@
 const steps = [
-  { n: '01', title: 'Free store audit',         body: 'We analyse your current store — speed, conversion points, mobile experience and growth blockers. Detailed report, free, no strings.' },
-  { n: '02', title: 'Strategy & proposal',      body: 'Clear scope, timeline and fixed price. You know exactly what gets built and why before we start.' },
-  { n: '03', title: 'Design & build',           body: 'Built in staging. You review everything before it goes live. Regular updates throughout.' },
-  { n: '04', title: 'Launch & migrate',         body: 'We handle DNS, redirects, data migration, SEO preservation. Zero downtime, zero traffic loss.' },
-  { n: '05', title: 'Growth & optimisation',    body: 'Monthly performance reviews, A/B testing, new features as your brand scales.' },
+  { n: '01', title: 'Free store review',       body: 'We look at your store, goals and current blockers so the first conversation is grounded in what will actually move the business.' },
+  { n: '02', title: 'Clear action plan',       body: 'You get a practical recommendation, fixed price and timeline before work begins. No vague estimates or open-ended hourly billing.' },
+  { n: '03', title: 'Build in staging',        body: 'Your store, feature or migration is built away from the live site so customers can keep buying while work is in progress.' },
+  { n: '04', title: 'Launch with checks',      body: 'We handle redirects, tracking, QA, DNS, data checks and mobile testing so launch day is controlled and measurable.' },
+  { n: '05', title: 'Keep improving',          body: 'After launch, we can support ongoing CRO, speed, apps and feature work as your Shopify store grows.' },
 ]
 
 export default function ProcessSteps() {
@@ -13,8 +13,8 @@ export default function ProcessSteps() {
         <div className="mw-section-header">
           <span className="mw-eyebrow">/07 — Process</span>
           <h2 style={{ color: '#fff' }}>
-            From audit to launch,<br />
-            <span className="mw-italic mw-italic--accent">in five clear steps.</span>
+            What happens after<br />
+            <span className="mw-italic mw-italic--accent">you reach out.</span>
           </h2>
         </div>
 

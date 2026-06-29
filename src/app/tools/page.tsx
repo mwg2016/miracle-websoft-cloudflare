@@ -5,7 +5,7 @@ import {
   MessageCircle, Bot, Clock, Globe,
   ExternalLink, ArrowUpRight, ArrowRight,
   Zap, DollarSign, Calendar, CheckCircle2,
-  Code2, Sparkles, Users, Cpu, ShoppingCart, BarChart2, Smartphone,
+  Code2, Sparkles, Users, Cpu, ShoppingCart, BarChart2,
   Chrome, Puzzle, MousePointerClick,
 } from 'lucide-react'
 import ContactForm from '@/components/contact/ContactForm'
@@ -235,8 +235,8 @@ export default function ToolsPage() {
             <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>Fast. Affordable. Live.</em>
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.1rem', lineHeight: 1.75, maxWidth: '540px', marginBottom: '2.5rem' }}>
-            From idea to live product in 5–7 days. We've already shipped 3 tools used by thousands.
-            Tell us what you need — we'll price it, build it and launch it.
+            From idea to live product in 5–7 days. We&apos;ve already shipped 3 tools used by thousands.
+            Tell us what you need — we&apos;ll price it, build it and launch it.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a href="#get-quote" className="mw-btn-primary">
@@ -248,7 +248,7 @@ export default function ToolsPage() {
               padding: '0.65rem 1.4rem', borderRadius: '8px', fontWeight: 500,
               fontSize: '0.9rem', textDecoration: 'none',
             }}>
-              See what we've built
+              See what we&apos;ve built
             </a>
           </div>
         </div>
@@ -280,7 +280,7 @@ export default function ToolsPage() {
             <span className="mw-eyebrow">LIVE & SHIPPED</span>
             <h2 style={{ color: '#fff' }}>Tools we&apos;ve already<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>built and launched.</em></h2>
             <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '480px', margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
-              Every tool here was built in under 7 days on a tight budget. Proof that speed and quality aren't opposites.
+              Every tool here was built in under 7 days on a tight budget. Proof that speed and quality aren&apos;t opposites.
             </p>
           </div>
 

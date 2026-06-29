@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google'
 import Script from 'next/script'
 import { headers } from 'next/headers'
 import './globals.css'
@@ -11,21 +10,42 @@ import ClarityInit from '@/components/ClarityInit'
 import NavigationProgress from '@/components/layout/NavigationProgress'
 import StickyMobileCta from '@/components/layout/StickyMobileCta'
 
-const geist = Geist({ subsets: ['latin'], variable: '--font-geist', display: 'swap' })
-const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono', display: 'swap' })
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap' })
-
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
 }
 
+const defaultOgImage = {
+  url: '/opengraph-image',
+  width: 1200,
+  height: 630,
+  alt: 'Miracle Websoft - Shopify development agency for ecommerce brands',
+}
+
 export const metadata: Metadata = {
+  applicationName: 'Miracle Websoft',
   metadataBase: new URL('https://miraclewebsoft.com'),
   title: { default: 'Miracle Websoft — Shopify Development Agency', template: '%s | Miracle Websoft' },
   description: 'Miracle Websoft is a Shopify development agency. Custom Shopify and Shopify Plus stores, app development, migrations and CRO. 600+ projects since 2015. Top Rated Plus on Upwork. USA, UK and Australia.',
   keywords: ['Miracle Websoft', 'Shopify development agency', 'Shopify Plus development', 'Shopify app development', 'Shopify migration agency', 'Shopify CRO agency'],
   authors: [{ name: 'Miracle Websoft', url: 'https://miraclewebsoft.com' }],
+  creator: 'Karam Singh Mehra',
+  publisher: 'Miracle Websoft',
+  category: 'Shopify development services',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  manifest: '/manifest.webmanifest',
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-icon.png' }],
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -33,15 +53,46 @@ export const metadata: Metadata = {
     siteName: 'Miracle Websoft',
     title: 'Miracle Websoft — Shopify Development Agency',
     description: 'Miracle Websoft is a Shopify development agency. Custom Shopify and Shopify Plus stores, apps, migrations and CRO. 600+ projects since 2015.',
+    images: [defaultOgImage],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@miraclewebsoft',
     creator: '@miraclewebsoft',
+    title: 'Miracle Websoft — Shopify Development Agency',
+    description: 'Custom Shopify and Shopify Plus stores, apps, migrations and CRO. 600+ projects since 2015.',
+    images: [defaultOgImage.url],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
+  },
   alternates: { canonical: 'https://miraclewebsoft.com' },
 }
+
+const navigationItems = [
+  { name: 'Home', url: 'https://miraclewebsoft.com' },
+  { name: 'Services', url: 'https://miraclewebsoft.com/services' },
+  { name: 'Shopify Development', url: 'https://miraclewebsoft.com/services/shopify/development' },
+  { name: 'Shopify App Development', url: 'https://miraclewebsoft.com/services/shopify-app-development' },
+  { name: 'Shopify Migration', url: 'https://miraclewebsoft.com/services/shopify-migration' },
+  { name: 'CRO & Speed Optimisation', url: 'https://miraclewebsoft.com/services/shopify-cro-speed' },
+  { name: 'Industries', url: 'https://miraclewebsoft.com/industries' },
+  { name: 'Pricing', url: 'https://miraclewebsoft.com/pricing' },
+  { name: 'Work', url: 'https://miraclewebsoft.com/work' },
+  { name: 'Reviews', url: 'https://miraclewebsoft.com/reviews' },
+  { name: 'Case Studies', url: 'https://miraclewebsoft.com/case-studies' },
+  { name: 'Blog', url: 'https://miraclewebsoft.com/blog' },
+  { name: 'About', url: 'https://miraclewebsoft.com/about' },
+  { name: 'Contact', url: 'https://miraclewebsoft.com/contact' },
+]
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -67,6 +118,16 @@ const jsonLd = {
       foundingDate: '2015',
       email: 'karam@miraclewebsoft.com',
       telephone: '+916239269736',
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          contactType: 'sales',
+          email: 'karam@miraclewebsoft.com',
+          telephone: '+916239269736',
+          availableLanguage: ['English', 'Hindi', 'Punjabi'],
+          areaServed: ['US', 'GB', 'AU', 'IN'],
+        },
+      ],
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Chandigarh',
@@ -140,32 +201,27 @@ const jsonLd = {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://miraclewebsoft.com/blog?q={search_term_string}',
+          urlTemplate: 'https://miraclewebsoft.com/search?q={search_term_string}',
         },
         'query-input': 'required name=search_term_string',
       },
     },
 
-    // ── SiteNavigationElement — helps Google understand site structure ─────────
+    // ── Navigation ItemList — helps crawlers understand canonical site structure.
     {
       '@type': 'ItemList',
       '@id': 'https://miraclewebsoft.com/#navigation',
       name: 'Main Navigation',
-      itemListElement: [
-        { '@type': 'SiteLinksSearchBox', position: 1, url: 'https://miraclewebsoft.com', name: 'Miracle Websoft' },
-        { '@type': 'ListItem', position: 2,  item: { '@id': 'https://miraclewebsoft.com/services',                                     name: 'Services' } },
-        { '@type': 'ListItem', position: 3,  item: { '@id': 'https://miraclewebsoft.com/case-studies',                                  name: 'Case Studies' } },
-        { '@type': 'ListItem', position: 4,  item: { '@id': 'https://miraclewebsoft.com/about',                                         name: 'About' } },
-        { '@type': 'ListItem', position: 5,  item: { '@id': 'https://miraclewebsoft.com/blog',                                          name: 'Blog' } },
-        { '@type': 'ListItem', position: 6,  item: { '@id': 'https://miraclewebsoft.com/contact',                                       name: 'Contact' } },
-        { '@type': 'ListItem', position: 7,  item: { '@id': 'https://miraclewebsoft.com/careers',                                       name: 'Careers' } },
-        { '@type': 'ListItem', position: 8,  item: { '@id': 'https://miraclewebsoft.com/white-label',                                   name: 'White Label Development' } },
-        { '@type': 'ListItem', position: 9,  item: { '@id': 'https://miraclewebsoft.com/referral',                                      name: 'Referral Program' } },
-        { '@type': 'ListItem', position: 10, item: { '@id': 'https://miraclewebsoft.com/services/shopify/development',  name: 'Shopify Development' } },
-        { '@type': 'ListItem', position: 11, item: { '@id': 'https://miraclewebsoft.com/services/shopify-app-development',              name: 'Shopify App Development' } },
-        { '@type': 'ListItem', position: 12, item: { '@id': 'https://miraclewebsoft.com/services/shopify-migration',                    name: 'Shopify Migration' } },
-        { '@type': 'ListItem', position: 13, item: { '@id': 'https://miraclewebsoft.com/services/shopify-cro-speed',                    name: 'CRO & Speed Optimisation' } },
-      ],
+      itemListElement: navigationItems.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'WebPage',
+          '@id': item.url,
+          url: item.url,
+          name: item.name,
+        },
+      })),
     },
   ],
 }
@@ -177,7 +233,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const isAdmin = pathname.startsWith('/admin')
 
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable} ${playfair.variable}`}>
+    <html lang="en">
       <head>
         {/* Trusted Types default policy — must run before any script that touches innerHTML. */}
         <script
@@ -204,7 +260,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         </noscript>
         <LeadTracker />
         {!isAdmin && <Header />}
-        {isAdmin ? children : <main>{children}</main>}
+        {isAdmin ? children : <main id="main-content">{children}</main>}
         {!isAdmin && (
           <>
             <Footer />
@@ -214,11 +270,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         )}
 
         {/* ── Analytics (deferred – no render-blocking) ──────────────────── */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-YT1GLKW8L5" nonce={nonce} strategy="afterInteractive" />
-        <Script id="ga-init" nonce={nonce} strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YT1GLKW8L5');`}</Script>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18095762557" nonce={nonce} strategy="afterInteractive" />
-        <Script id="gads-init" nonce={nonce} strategy="afterInteractive">{`gtag('config','AW-18095762557');`}</Script>
-        <Script id="meta-pixel" nonce={nonce} strategy="afterInteractive">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','854778784223732');fbq('track','PageView');`}</Script>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-YT1GLKW8L5" nonce={nonce} strategy="lazyOnload" />
+        <Script id="ga-init" nonce={nonce} strategy="lazyOnload">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YT1GLKW8L5');`}</Script>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18095762557" nonce={nonce} strategy="lazyOnload" />
+        <Script id="gads-init" nonce={nonce} strategy="lazyOnload">{`gtag('config','AW-18095762557');`}</Script>
+        <Script id="meta-pixel" nonce={nonce} strategy="lazyOnload">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','854778784223732');fbq('track','PageView');`}</Script>
       </body>
     </html>
   )

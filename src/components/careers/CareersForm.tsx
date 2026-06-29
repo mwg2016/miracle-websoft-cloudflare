@@ -1,5 +1,5 @@
 'use client'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { ArrowRight, Loader2, Upload, X } from 'lucide-react'
 import { getEffectiveOrigin, trackLead } from '@/lib/analytics'
@@ -39,17 +39,7 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
     portfolio: '',
     message: '',
     _hp: '',
-    _source: '',
   })
-
-  useEffect(() => {
-    const source = {
-      ...getEffectiveOrigin(),
-      page: window.location.pathname,
-      referrer: document.referrer || 'direct',
-    }
-    setForm(f => ({ ...f, _source: JSON.stringify(source) }))
-  }, [])
   const [resume, setResume] = useState<File | null>(null)
   const [dragOver, setDragOver] = useState(false)
   const fileRef = useRef<HTMLInputElement>(null)
@@ -79,6 +69,11 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
     try {
       const fd = new FormData()
       Object.entries(form).forEach(([k, v]) => fd.append(k, v))
+      fd.append('_source', JSON.stringify({
+        ...getEffectiveOrigin(),
+        page: window.location.pathname,
+        referrer: document.referrer || 'direct',
+      }))
       if (resume) fd.append('resume', resume, resume.name)
 
       const res = await fetch('/api/careers', { method: 'POST', body: fd })
@@ -102,26 +97,26 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label style={labelStyle}>Full name *</label>
-          <input type="text" required placeholder="Alex Johnson"
+          <label htmlFor="careers-name" style={labelStyle}>Full name *</label>
+          <input id="careers-name" name="name" type="text" required placeholder="Alex Johnson" autoComplete="name"
             value={form.name} onChange={e => set('name', e.target.value)} style={inputStyle} />
         </div>
         <div>
-          <label style={labelStyle}>Email address *</label>
-          <input type="email" required placeholder="alex@gmail.com"
+          <label htmlFor="careers-email" style={labelStyle}>Email address *</label>
+          <input id="careers-email" name="email" type="email" required placeholder="alex@gmail.com" autoComplete="email"
             value={form.email} onChange={e => set('email', e.target.value)} style={inputStyle} />
         </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label style={labelStyle}>Phone number {optionalTag}</label>
-          <input type="tel" placeholder="+91 98765 43210"
+          <label htmlFor="careers-phone" style={labelStyle}>Phone number {optionalTag}</label>
+          <input id="careers-phone" name="phone" type="tel" placeholder="+91 98765 43210" autoComplete="tel"
             value={form.phone} onChange={e => set('phone', e.target.value)} style={inputStyle} />
         </div>
         <div>
-          <label style={labelStyle}>Position applying for *</label>
-          <select required value={form.position} onChange={e => set('position', e.target.value)}
+          <label htmlFor="careers-position" style={labelStyle}>Position applying for *</label>
+          <select id="careers-position" name="position" required value={form.position} onChange={e => set('position', e.target.value)}
             style={{ ...inputStyle, appearance: 'none' as const }}>
             <option value="">Select a role...</option>
             <option>Shopify Developer — Junior</option>
@@ -134,8 +129,8 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
       </div>
 
       <div>
-        <label style={labelStyle}>Years of experience *</label>
-        <select required value={form.experience} onChange={e => set('experience', e.target.value)}
+        <label htmlFor="careers-experience" style={labelStyle}>Years of experience *</label>
+        <select id="careers-experience" name="experience" required value={form.experience} onChange={e => set('experience', e.target.value)}
           style={{ ...inputStyle, appearance: 'none' as const }}>
           <option value="">Select experience level...</option>
           <option>Fresher — Basic HTML, CSS &amp; JavaScript</option>
@@ -147,14 +142,14 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
       </div>
 
       <div>
-        <label style={labelStyle}>Portfolio / GitHub URL {optionalTag}</label>
-        <input type="url" placeholder="https://github.com/yourprofile or your portfolio site"
+        <label htmlFor="careers-portfolio" style={labelStyle}>Portfolio / GitHub URL {optionalTag}</label>
+        <input id="careers-portfolio" name="portfolio" type="url" placeholder="https://github.com/yourprofile or your portfolio site" autoComplete="url"
           value={form.portfolio} onChange={e => set('portfolio', e.target.value)} style={inputStyle} />
       </div>
 
       <div>
-        <label style={labelStyle}>Cover letter / Tell us about yourself *</label>
-        <textarea rows={4} required
+        <label htmlFor="careers-message" style={labelStyle}>Cover letter / Tell us about yourself *</label>
+        <textarea id="careers-message" name="message" rows={4} required
           placeholder="Tell us about your skills, what projects you've worked on, and why you'd like to join Miracle Websoft..."
           value={form.message} onChange={e => set('message', e.target.value)}
           style={{ ...inputStyle, resize: 'none' }} />
@@ -162,8 +157,10 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
 
       {/* Resume upload */}
       <div>
-        <label style={labelStyle}>Resume / CV {optionalTag}</label>
+        <label htmlFor="careers-resume" style={labelStyle}>Resume / CV {optionalTag}</label>
         <input
+          id="careers-resume"
+          name="resume"
           ref={fileRef}
           type="file"
           accept=".pdf,.doc,.docx"

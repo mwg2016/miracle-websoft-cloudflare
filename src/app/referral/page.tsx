@@ -218,7 +218,7 @@ export default function ReferralPage() {
             {[
               { val: '20%', label: 'Commission' },
               { val: '600+', label: 'Projects done' },
-              { val: '98%', label: 'Success rate' },
+              { val: '98%+', label: 'Success rate' },
               { val: '10+', label: 'Years' },
             ].map(s => (
               <div key={s.label} style={{ textAlign: 'center' }}>

@@ -9,11 +9,11 @@ import ServiceResult from '@/components/services/ServiceResult'
 import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
-import { breadcrumb, faqPage, renderJsonLd, service } from '@/lib/jsonld'
+import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Shopify CRO and Speed Optimization for Fashion Brands | Miracle Websoft',
-  description: 'Average 42% conversion rate increase and 1.2s mobile load time. Free CRO audit for Shopify fashion brands. Guaranteed 90+ PageSpeed score.',
+  title: 'Shopify CRO & Speed Optimization for More Store Sales',
+  description: 'Improve Shopify speed, mobile experience, product pages and checkout conversion. CRO and Core Web Vitals optimization for merchants who want more sales from existing traffic.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/shopify-cro-speed' },
 }
 
@@ -67,7 +67,6 @@ const jsonLd = renderJsonLd([
     { name: 'Services', url: '/services' },
     { name: 'CRO & Speed Optimisation', url: '/services/shopify-cro-speed' },
   ]),
-  faqPage(faqs),
 ])
 
 export default function CROSpeedPage() {
@@ -82,9 +81,9 @@ export default function CROSpeedPage() {
           </div>
           <div className="max-w-3xl">
             <span className="mw-eyebrow">CRO & SPEED</span>
-            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>Your Store Is Getting Traffic. We Make Sure More of It Converts.</h1>
+            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>Your Store Is Getting Traffic. We Help More of It Turn Into Orders.</h1>
             <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem', maxWidth: '580px', fontWeight: 300 }}>
-              Average results across our CRO projects: <strong style={{ color: '#fff', fontWeight: 600 }}>42% conversion rate increase</strong> and a <strong style={{ color: '#fff', fontWeight: 600 }}>1.2s mobile load time</strong>. Guaranteed 90+ PageSpeed or we keep working.
+              Slow pages, confusing product pages, app bloat and checkout friction quietly waste ad spend. We identify what is stopping shoppers from buying, then fix speed and conversion issues in priority order.
             </p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 mb-8">
               {['42% avg conversion lift', '90+ PageSpeed guaranteed', 'No full rebuild needed', 'Fixed-price quote'].map(t => (
@@ -94,7 +93,7 @@ export default function CROSpeedPage() {
               ))}
             </div>
             <Link href="/contact" className="mw-btn-primary">
-              Contact Us <ArrowRight size={16} />
+              Get My Free CRO Review <ArrowRight size={16} />
             </Link>
           </div>
         </div>
@@ -123,9 +122,9 @@ export default function CROSpeedPage() {
             {/* ROI example */}
             <div className="rounded-2xl p-6 flex flex-col justify-between" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
               <div>
-                <p style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '0.5rem' }}>What This Means in Revenue</p>
+                <p style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '0.5rem' }}>Why CRO Matters</p>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '1.25rem', lineHeight: 1.4, fontFamily: 'var(--font-sans), system-ui, sans-serif' }}>
-                  A 1% conversion lift pays for our entire CRO service in 30–60 days.
+                  Even a small conversion lift can create meaningful revenue without increasing ad spend.
                 </h3>
                 <div className="flex flex-col gap-3">
                   {[
@@ -156,7 +155,7 @@ export default function CROSpeedPage() {
         <div className="mw-container">
           <div style={{ marginBottom: '1.5rem' }}>
             <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>Before & After</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(20px,2.5vw,28px)' }}>What your PageSpeed score looks like after we're done</h2>
+            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(20px,2.5vw,28px)' }}>What a cleaner, faster Shopify store can look like</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
             {/* Before */}
@@ -195,8 +194,8 @@ export default function CROSpeedPage() {
       <section style={{ paddingTop: '4rem', paddingBottom: '4rem', borderTop: '1px solid rgba(255,255,255,0.06)', marginTop: '3rem' }}>
         <div className="mw-container">
           <div style={{ marginBottom: '2.5rem' }}>
-            <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>What's Included</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>A complete CRO and speed programme</h2>
+            <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>What&apos;s Included</p>
+            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>A practical CRO and speed program</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl">
             {deliverables.map((item, i) => (
@@ -211,9 +210,9 @@ export default function CROSpeedPage() {
 
       {/* Mid-page CTA */}
       <MidPageCta
-        heading="See exactly what's slowing your store down — free."
-        sub="We'll audit your store's speed and conversion blockers at no cost. You get a full written report either way."
-        btnLabel="Contact Us"
+        heading="See exactly what is slowing buyers down."
+        sub="We will review your store's speed and conversion blockers and send practical next steps, whether you need quick fixes or a deeper CRO program."
+        btnLabel="Get My Free CRO Review"
       />
 
       {/* Guarantees */}

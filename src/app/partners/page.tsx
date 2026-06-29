@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
   ArrowRight, ArrowDown, Calculator, Scale, GraduationCap, Landmark,
-  Palette, Printer, Building2, DollarSign, Zap, Users, CheckCircle2,
+  Palette, Printer, Building2, DollarSign, Zap, CheckCircle2,
   Repeat, Sparkles, Gift, Handshake,
 } from 'lucide-react'
-import { partners, universalPerks, type Partner } from '@/data/partners'
+import { partners, universalPerks } from '@/data/partners'
 import { breadcrumb, itemList, renderJsonLd, service, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {

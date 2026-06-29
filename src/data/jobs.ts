@@ -41,6 +41,16 @@ export interface Job {
   company?: string
   budget?: string
   caseStudy?: CaseStudy
+  /**
+   * Developer-voice account of the work — written in the first person ("Here's
+   * how we approached it…"), 2–4 short paragraphs separated by blank lines.
+   * Grounded ONLY in this job's real description + tags; never invent specific
+   * technical claims. This is the page's primary unique content: it must read
+   * differently on every job, or Google fingerprints the pages as near-dupes and
+   * declines to index them. Rendered as the "How we built it" section and folded
+   * into the page narrative (meta description, Service schema, FAQ answer).
+   */
+  devNotes?: string
 }
 
 // ── Display helpers ─────────────────────────────────────────────────────────
@@ -72,7 +82,11 @@ export function jobTitle(job: Job): string {
 /** The unique "what we did" narrative — description expanded with case-study detail when present. */
 export function jobNarrative(job: Job): string {
   const cs = job.caseStudy
-  return cs ? [job.description, cs.approach, cs.outcome].filter(Boolean).join(' ') : fixTypos(job.description)
+  if (cs) return [job.description, cs.approach, cs.outcome].filter(Boolean).join(' ')
+  // devNotes is the richest unique source when there's no full case study —
+  // collapse its paragraphs into the one-line narrative used by schema/meta/FAQ.
+  const notes = job.devNotes ? fixTypos(job.devNotes).replace(/\s*\n+\s*/g, ' ').trim() : ''
+  return [fixTypos(job.description), notes].filter(Boolean).join(' ')
 }
 
 /**
@@ -118,6 +132,9 @@ export const jobs: Job[] = [
     completedDate: 'Feb 2026',
     description:
       'Complete Shopify store redesign for an established ecommerce brand. Rebuilt the theme from the ground up with a conversion-focused UI, improved product page layouts, sticky cart, and optimised checkout flow. Delivered across a 5-month engagement with ongoing revisions.',
+    devNotes: `Here's how we approached it. The brand already had an established store, so the goal wasn't a fresh start — it was a ground-up theme rebuild that kept what was working and fixed what wasn't. We rebuilt the theme in Liquid rather than patching the old one, which gave us a clean, maintainable codebase and full control over the markup behind every section.
+
+On the conversion side we reworked the product page layout, added a sticky add-to-cart so the buy button stays in reach as shoppers scroll long pages, and streamlined the checkout flow to cut friction at the most important step. Because it ran as a five-month engagement we shipped in stages and folded the client's revisions in as we went, so each round built on tested, live work rather than guesswork.`,
     tags: ['Shopify', 'Liquid', 'Theme Redesign', 'CRO'],
     featured: true,
   },
@@ -131,6 +148,9 @@ export const jobs: Job[] = [
     completedDate: 'Feb 2026',
     description:
       'Translated detailed Figma designs into a pixel-perfect Shopify theme for a dessert brand. Implemented responsive layouts, animated hero sections, custom product display components, and interactive collection pages that matched the client\'s mockups exactly.',
+    devNotes: `Here's how we approached it. The client came with detailed Figma mockups, so the job was translation, not interpretation — every spacing value, type choice and layout decision in the design had to survive the move into a live Shopify theme. We built the theme in Liquid section by section, checking each one against the mockup so the result was pixel-perfect rather than "close enough."
+
+The dessert brand leaned heavily on visuals, so we built animated hero sections and custom product-display components to show the products off, and made the collection pages interactive instead of static grids. Everything was built responsive from the start, so the polish held up from desktop down to the mobile screens where most of the brand's traffic actually lands.`,
     tags: ['Figma to Shopify', 'Liquid', 'Custom Theme', 'Responsive'],
     featured: true,
   },
@@ -165,6 +185,9 @@ export const jobs: Job[] = [
     completedDate: 'Mar 2026',
     description:
       'Developed multiple new custom Shopify sections and resolved existing theme bugs for an established fashion retailer. Delivered clean, reusable Liquid code that integrates seamlessly with the existing theme, including a dynamic announcement bar, lookbook section, and size guide modal.',
+    devNotes: `Here's how we approached it. This was work on an existing, established theme, so the priority was code that dropped in cleanly without destabilising what was already live. We built each new section as reusable Liquid with its own schema settings, so the retailer's team can reorder, restyle and reuse them from the theme editor without touching code.
+
+In practice that meant a dynamic announcement bar the client controls themselves, a lookbook section to merchandise outfits the way a fashion brand actually shops them, and a size-guide modal to cut the sizing questions that drive returns. Alongside the new sections we tracked down and fixed the existing theme bugs, so the store came out cleaner than it went in.`,
     tags: ['Custom Sections', 'Bug Fixes', 'Liquid', 'Fashion'],
     featured: true,
   },
@@ -188,6 +211,9 @@ export const jobs: Job[] = [
     completedDate: 'Sep 2025',
     description:
       'End-to-end Shopify store development for a growing DTC brand. Built custom sections, integrated Rebuy and Klaviyo, implemented conversion-focused product pages with advanced variant displays, and set up automated collection filtering and merchandising rules.',
+    devNotes: `Here's how we approached it. This was an end-to-end build for a growing DTC brand, so we owned the store from the theme outward. We built the storefront around custom sections rather than a stock theme, which let us tailor the product pages to the brand's catalogue — including advanced variant displays for products with more than the usual handful of options.
+
+To make the store earn its keep we integrated Rebuy for on-site upsells and cross-sells and Klaviyo for email capture and flows, so merchandising and retention were wired in from launch rather than bolted on later. We also set up automated collection filtering and merchandising rules, so collections keep organising themselves as the catalogue grows instead of needing manual upkeep.`,
     tags: ['Shopify', 'Custom Development', 'Rebuy', 'Klaviyo', 'DTC'],
     featured: true,
   },
@@ -200,6 +226,9 @@ export const jobs: Job[] = [
     completedDate: 'Jan 2026',
     description:
       'Full turnkey Shopify store setup for an eco-friendly fashion brand. Designed and built a custom theme reflecting the brand\'s sustainable values, with detailed product pages, collection filtering, sustainability badges, size guides, and a conversion-optimised checkout.',
+    devNotes: `Here's how we approached it. "Turnkey" meant the brand wanted to hand over their assets and get back a finished, ready-to-sell store — so we handled design and build together. We designed and built a custom theme around the brand's sustainable identity, so the look reinforced the eco positioning rather than fighting it with a generic template.
+
+On the storefront we built detailed product pages, collection filtering to help shoppers narrow a growing catalogue, and sustainability badges to surface the brand's eco credentials right where buying decisions happen. Size guides cut sizing uncertainty on the apparel, and we tuned the checkout for conversion so the finished store was ready to take orders on day one.`,
     tags: ['Shopify', 'Fashion', 'Eco Brand', 'Turnkey Setup', 'Custom Theme'],
     featured: true,
   },
@@ -441,6 +470,9 @@ export const jobs: Job[] = [
     completedDate: 'Apr 2025',
     description:
       'Built a complete Shopify store for an eyewear product brand. Implemented a custom virtual try-on section, lens customisation variant selector, product bundle builder, and a conversion-focused product page with prescription upload functionality.',
+    devNotes: `Here's how we approached it. Eyewear is a configuration-heavy product, so the build centred on giving shoppers a way to customise before they buy. We built a custom virtual try-on section and a lens-customisation selector wired into Shopify's variant system, so lens choices map to real purchasable variants rather than sitting outside the cart.
+
+On top of that we built a product bundle builder for multi-item purchases and added prescription-upload functionality straight on the product page, so customers who need corrective lenses can supply their details at the point of sale. The product page itself was built conversion-first, keeping all of that configuration legible instead of overwhelming.`,
     tags: ['Shopify', 'Store Development', 'Custom Sections', 'Product Configurator'],
   },
 

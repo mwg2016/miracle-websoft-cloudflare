@@ -3,7 +3,7 @@ import Link from 'next/link'
 import {
   ArrowRight, ArrowUpRight, CheckCircle2, Shield,
   Clock, Layers, Users, Zap, Code2, Globe, Palette,
-  ShoppingBag, TrendingUp, DollarSign, RefreshCw,
+  ShoppingBag, TrendingUp, RefreshCw,
   MessageSquare, GitBranch, Star,
 } from 'lucide-react'
 import WhiteLabelForm from '@/components/WhiteLabelForm'

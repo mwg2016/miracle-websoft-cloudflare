@@ -3,7 +3,7 @@ import Breadcrumb from '@/components/layout/Breadcrumb'
 import { CheckCircle2, ExternalLink, MessageCircle, Mail, Linkedin } from 'lucide-react'
 import FaqSection from '@/components/ui/FaqSection'
 import ContactForm from '@/components/contact/ContactForm'
-import { breadcrumb, faqPage, renderJsonLd, webPage } from '@/lib/jsonld'
+import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
 import { getPlanBySlug } from '@/lib/pricing'
 import FounderIntro from '@/components/ui/FounderIntro'
@@ -12,16 +12,16 @@ import { clientVideos } from '@/data/videos'
 
 const contactFaqs = [
   { question: 'How do I get started with Miracle Websoft?', answer: 'Fill in the contact form or message us on WhatsApp. We reply within 24 hours. If your project is a good fit, we schedule a 30-minute discovery call, then send a detailed proposal with clear scope, timeline, and fixed pricing. No vague estimates.' },
-  { question: 'What is included in the free store audit?', answer: 'A full review of your Shopify store covering: page speed and Core Web Vitals, mobile user experience, conversion rate blockers, product page quality, checkout flow analysis, and SEO health. Delivered as a written report with specific, prioritised recommendations — completely free, no strings attached.' },
+  { question: 'What is included in the free Shopify store review?', answer: 'A practical review of your Shopify store covering page speed, mobile buying experience, conversion blockers, product page clarity, checkout friction, app bloat and SEO health. You get specific, prioritized recommendations in plain English.' },
   { question: 'Do you work on a fixed price or hourly basis?', answer: 'Fixed price on all projects. We send a detailed proposal before any work begins. You know exactly what you are paying before we start. No hourly billing, no surprise invoices.' },
   { question: 'How long does it take to get a proposal?', answer: 'After our discovery call, we typically send a full proposal within 2–3 business days. For smaller projects or straightforward audits, it is often the same day.' },
   { question: 'Do you sign NDAs?', answer: 'Yes. We sign NDAs on request before any discovery or audit work begins. All client information is treated as strictly confidential.' },
-  { question: 'Do you work with brands outside the USA/UK/Australia?', answer: 'Yes — those are our primary markets but we work with fashion brands worldwide. All communication is in English. If your store sells internationally and you need Shopify Markets or multi-currency setup, that is something we handle regularly.' },
+  { question: 'Do you work with brands outside the USA/UK/Australia?', answer: 'Yes. Those are our primary markets, but we work with Shopify merchants worldwide. All communication is in English. If your store sells internationally and you need Shopify Markets, multi-currency, localization or cross-border setup, that is something we handle regularly.' },
 ]
 
 export const metadata: Metadata = {
-  title: 'Contact Us — Get Your Free Shopify Store Audit',
-  description: 'Get a free audit of your Shopify store. We will identify what is losing you money and show you how to fix it. Miracle Websoft — Top Rated Plus Shopify agency.',
+  title: 'Get a Free Shopify Store Review | Contact Miracle Websoft',
+  description: 'Tell us what is not working in your Shopify store. Get a practical review and fixed-price next steps from Miracle Websoft, a Top Rated Plus Shopify agency.',
   alternates: { canonical: 'https://miraclewebsoft.com/contact' },
 }
 
@@ -60,7 +60,7 @@ const reviews = [
 ]
 
 const platforms = [
-  { name: 'Upwork', badge: 'Top Rated Plus', sub: '600+ reviews · 98% JSS', href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/'), color: '#14a800' },
+  { name: 'Upwork', badge: 'Top Rated Plus', sub: '600+ reviews · 98%+ JSS', href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/'), color: '#14a800' },
   { name: 'Shopify Partners', badge: 'Verified Partner', sub: 'Official directory listing', href: outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1'), color: '#96bf48' },
   { name: 'Clutch', badge: 'Verified Reviews', sub: 'B2B ratings platform', href: outboundHref('external', 'https://clutch.co/profile/miracle-websoft'), color: '#e63329' },
   { name: 'DesignRush', badge: 'Top Agency', sub: 'Agency directory', href: outboundHref('external', 'https://www.designrush.com/agency/profile/miracle-websoft'), color: '#6c63ff' },
@@ -68,9 +68,9 @@ const platforms = [
 
 const jsonLd = renderJsonLd([
   webPage({
-    name: 'Contact Miracle Websoft — Free Shopify store audit',
+    name: 'Contact Miracle Websoft — Free Shopify store review',
     description:
-      'Get a free Shopify store audit. We identify what is losing you money and show you how to fix it. Response within 24 hours.',
+      'Get a free Shopify store review. We identify what is costing sales and show you the clearest path to fix it. Response within 24 hours.',
     url: 'https://miraclewebsoft.com/contact',
     type: 'ContactPage',
   }),
@@ -78,7 +78,6 @@ const jsonLd = renderJsonLd([
     { name: 'Home', url: '/' },
     { name: 'Contact', url: '/contact' },
   ]),
-  faqPage(contactFaqs),
 ])
 
 export default async function ContactPage({ searchParams }: { searchParams: Promise<{ package?: string }> }) {
@@ -95,7 +94,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-12" style={{ paddingBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
             {[
               { val: '600+', label: 'Shopify projects' },
-              { val: '98%', label: 'Job success on Upwork' },
+              { val: '98%+', label: 'Job success on Upwork' },
               { val: 'Top 3%', label: 'Globally on Upwork' },
               { val: '< 24 h', label: 'Response time' },
               { val: '10+', label: 'Years on Shopify' },
@@ -137,12 +136,12 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                 </>
               ) : (
                 <>
-                  <span className="mw-eyebrow">Let&apos;s talk Shopify</span>
+                  <span className="mw-eyebrow">Get a Shopify expert&apos;s view</span>
                   <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(30px,4.5vw,52px)', lineHeight: 1.1, marginBottom: '1rem' }}>
-                    Tell us what you need —<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>we&apos;ll help you get there.</em>
+                    Tell us what is not working —<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>we&apos;ll show you what to fix.</em>
                   </h1>
                   <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2rem', fontWeight: 300, maxWidth: '500px' }}>
-                    Whether it&apos;s a new store, a redesign, a migration, or a fix you&apos;re stuck on — tell Karam what&apos;s going on and he&apos;ll reply personally with clear, practical next steps. No pressure, no sales pitch.
+                    Whether you need more conversions, a faster store, a safer migration, a custom feature or a full rebuild, tell Karam what is happening and he will reply personally with clear next steps. No pressure, no generic sales pitch.
                   </p>
                 </>
               )}
@@ -171,7 +170,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                   </>
                 ) : (
                   <>
-                    <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.9rem' }}>What we can help with</p>
+                    <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.9rem' }}>What we will look for</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {auditItems.map(item => (
                         <div key={item} className="flex items-start gap-2.5">
@@ -256,7 +255,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                     <span style={{ fontWeight: 800, color: 'var(--accent)', fontSize: '1.1rem' }}>K</span>
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>{plan ? `Confirm your ${plan.name} plan` : 'Send Karam a message'}</div>
+                    <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>{plan ? `Confirm your ${plan.name} plan` : 'Request your Shopify plan'}</div>
                     <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>Founder · replies personally within 24 h</div>
                   </div>
                 </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowRight, MapPin } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import HeroLocal from '@/components/website-dev/HeroLocal'
 import StatsBar from '@/components/website-dev/StatsBar'

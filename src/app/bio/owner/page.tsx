@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { MapPin, Mail, Phone, Calendar, CreditCard, ArrowUpRight, CheckCircle2, Download } from 'lucide-react'
+import { MapPin, Mail, Phone, Calendar, CreditCard, ArrowUpRight, Download } from 'lucide-react'
 import { breadcrumb, person, renderJsonLd } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
 import YouTubeEmbed from '@/components/ui/YouTubeEmbed'
@@ -462,7 +462,7 @@ export default function OwnerBioPage() {
 
         <p style={{ textAlign: 'center', fontSize: '0.7rem', color: 'rgba(255,255,255,0.18)' }}>
           <Link href="/" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>miraclewebsoft.com</Link>
-          {' '}· Shopify Agency for Fashion Brands
+          {' '}· Shopify expert for growing stores
         </p>
       </div>
     </div>

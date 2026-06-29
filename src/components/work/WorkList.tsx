@@ -119,7 +119,7 @@ export default function WorkList() {
                 style={{ background: 'rgba(255,255,255,0.04)', borderLeft: '2px solid var(--accent)' }}
               >
                 <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.55, fontStyle: 'italic' }}>
-                  "{job.review}"
+                  &ldquo;{job.review}&rdquo;
                 </p>
               </blockquote>
             )}

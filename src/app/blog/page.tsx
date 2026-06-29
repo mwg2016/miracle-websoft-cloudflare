@@ -6,16 +6,16 @@ import { blogPosts } from '@/data/blogPosts'
 import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Blog — Shopify Tips for Fashion & Clothing Brands',
-  description: 'Shopify development tips, conversion tactics and growth strategies for clothing and fashion brands. Expert guides from Miracle Websoft.',
+  title: 'Blog — Shopify CRO, Speed & Growth Tips | Miracle Websoft',
+  description: 'Shopify development tips, conversion tactics, speed advice and growth strategies for merchants and DTC brands. Expert guides from Miracle Websoft.',
   alternates: { canonical: 'https://miraclewebsoft.com/blog' },
 }
 
 const jsonLd = renderJsonLd([
   webPage({
-    name: 'Miracle Websoft Blog — Shopify insights for fashion brands',
+    name: 'Miracle Websoft Blog — Shopify CRO, speed and growth insights',
     description:
-      'Development tips, conversion tactics and platform updates for Shopify fashion stores.',
+      'Development tips, conversion tactics, speed advice and platform updates for Shopify merchants.',
     url: 'https://miraclewebsoft.com/blog',
     type: 'CollectionPage',
   }),
@@ -42,8 +42,8 @@ export default function BlogPage() {
         <div className="mb-8"><Breadcrumb items={[{ label: 'Blog' }]} /></div>
         <div className="mb-12">
           <span className="mw-eyebrow">Blog</span>
-          <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff' }}>Shopify insights for<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>fashion brands.</em></h1>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.8, maxWidth: '480px', marginTop: '0.75rem', fontWeight: 300 }}>Development tips, conversion tactics and platform updates — written by the team that builds Shopify stores for clothing brands every day.</p>
+          <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff' }}>Shopify insights for<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>stores that need to grow.</em></h1>
+          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.8, maxWidth: '520px', marginTop: '0.75rem', fontWeight: 300 }}>Practical development, conversion, speed and platform advice for Shopify merchants who want a faster store and more qualified sales.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {blogPosts.map((post) => (

@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { ArrowRight, CheckCircle2, Loader2 } from 'lucide-react'
 import { getEffectiveOrigin, trackLead } from '@/lib/analytics'
@@ -34,16 +34,7 @@ interface Props {
 export default function ServiceContactForm({ service, heading, subtext }: Props) {
   const router = useRouter()
   const [state, setState] = useState<'idle' | 'sending' | 'error'>('idle')
-  const [form, setForm] = useState({ name: '', email: '', storeUrl: '', budget: '', message: '', _hp: '', _source: '' })
-
-  useEffect(() => {
-    const source = {
-      ...getEffectiveOrigin(),
-      page: window.location.pathname,
-      referrer: document.referrer || 'direct',
-    }
-    setForm(f => ({ ...f, _source: JSON.stringify(source) }))
-  }, [])
+  const [form, setForm] = useState({ name: '', email: '', storeUrl: '', budget: '', message: '', _hp: '' })
 
   function set(field: string, value: string) {
     setForm(f => ({ ...f, [field]: value }))
@@ -57,7 +48,15 @@ export default function ServiceContactForm({ service, heading, subtext }: Props)
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, service }),
+        body: JSON.stringify({
+          ...form,
+          service,
+          _source: JSON.stringify({
+            ...getEffectiveOrigin(),
+            page: window.location.pathname,
+            referrer: document.referrer || 'direct',
+          }),
+        }),
       })
       const data = await res.json()
       if (data.success) {
@@ -75,10 +74,10 @@ export default function ServiceContactForm({ service, heading, subtext }: Props)
     <div>
       <div style={{ marginBottom: '2rem' }}>
         <h2 style={{ fontSize: 'clamp(22px,3vw,32px)', fontWeight: 700, color: '#fff', marginBottom: '0.75rem', lineHeight: 1.2 }}>
-          {heading ?? 'Ready to get started?'}
+          {heading ?? 'Want a clear plan for your Shopify store?'}
         </h2>
         <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.7 }}>
-          {subtext ?? "Tell us about your project and we'll send you a tailored proposal within 24 hours."}
+          {subtext ?? "Tell us what is not working and we will reply with practical next steps, likely scope and a fixed-price path forward."}
         </p>
       </div>
 
@@ -89,26 +88,26 @@ export default function ServiceContactForm({ service, heading, subtext }: Props)
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label style={labelStyle}>Your name *</label>
-            <input type="text" required placeholder="Alex Smith"
+            <label htmlFor="service-contact-name" style={labelStyle}>Your name *</label>
+            <input id="service-contact-name" name="name" type="text" required placeholder="Alex Smith" autoComplete="name"
               value={form.name} onChange={e => set('name', e.target.value)} style={inputStyle} />
           </div>
           <div>
-            <label style={labelStyle}>Email address *</label>
-            <input type="email" required placeholder="alex@yourbusiness.com"
+            <label htmlFor="service-contact-email" style={labelStyle}>Email address *</label>
+            <input id="service-contact-email" name="email" type="email" required placeholder="alex@yourbusiness.com" autoComplete="email"
               value={form.email} onChange={e => set('email', e.target.value)} style={inputStyle} />
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label style={labelStyle}>Website URL {optTag}</label>
-            <input type="text" placeholder="yoursite.com"
+            <label htmlFor="service-contact-store-url" style={labelStyle}>Shopify store URL {optTag}</label>
+            <input id="service-contact-store-url" name="storeUrl" type="text" placeholder="yourstore.com or yourstore.myshopify.com" autoComplete="url"
               value={form.storeUrl} onChange={e => set('storeUrl', e.target.value)} style={inputStyle} />
           </div>
           <div>
-            <label style={labelStyle}>Estimated budget {optTag}</label>
-            <select value={form.budget} onChange={e => set('budget', e.target.value)}
+            <label htmlFor="service-contact-budget" style={labelStyle}>Estimated budget {optTag}</label>
+            <select id="service-contact-budget" name="budget" value={form.budget} onChange={e => set('budget', e.target.value)}
               style={{ ...inputStyle, appearance: 'none' as const }}>
               <option value="">Select a range…</option>
               <option>Under $3,000</option>
@@ -121,9 +120,9 @@ export default function ServiceContactForm({ service, heading, subtext }: Props)
         </div>
 
         <div>
-          <label style={labelStyle}>Tell us about your project *</label>
-          <textarea rows={4} required
-            placeholder="What do you need built? What's your timeline and any specific requirements?"
+          <label htmlFor="service-contact-message" style={labelStyle}>What do you want to improve? *</label>
+          <textarea id="service-contact-message" name="message" rows={4} required
+            placeholder="Example: our store is slow, mobile conversion is low, we need to migrate, or we need a custom feature Shopify apps cannot handle."
             value={form.message} onChange={e => set('message', e.target.value)}
             style={{ ...inputStyle, resize: 'none' }} />
         </div>
@@ -143,7 +142,7 @@ export default function ServiceContactForm({ service, heading, subtext }: Props)
             </span>
           ) : (
             <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
-              Send my project brief <ArrowRight size={15} />
+              Request My Shopify Plan <ArrowRight size={15} />
             </span>
           )}
         </button>

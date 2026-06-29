@@ -1,5 +1,5 @@
 'use client'
-import { useState, useRef } from 'react'
+import { cloneElement, isValidElement, useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { Send, Loader2, Shield } from 'lucide-react'
 import { getEffectiveOrigin, trackLead } from '@/lib/analytics'
@@ -29,11 +29,17 @@ const labelStyle: React.CSSProperties = {
   marginBottom: '0.45rem',
 }
 
+function fieldId(label: string) {
+  return `white-label-${label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`
+}
+
 function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
+  const child = isValidElement<{ id?: string }>(children) ? children : null
+  const id = child?.props.id ?? fieldId(label)
   return (
     <div>
-      <label style={labelStyle}>{label}{required && <span style={{ color: '#6C63FF', marginLeft: 3 }}>*</span>}</label>
-      {children}
+      <label htmlFor={id} style={labelStyle}>{label}{required && <span style={{ color: '#6C63FF', marginLeft: 3 }}>*</span>}</label>
+      {child ? cloneElement(child, { id }) : children}
     </div>
   )
 }

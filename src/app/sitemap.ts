@@ -2,62 +2,15 @@ import type { MetadataRoute } from 'next'
 import { jobs } from '@/data/jobs'
 import { cities, countries, type CountryCode } from '@/data/website-dev-cities'
 import { partners } from '@/data/partners'
+import { industries } from '@/data/industries'
+import { blogPosts } from '@/data/blogPosts'
+import shopifyServices from '@/data/shopify-services'
 
 const BASE = 'https://miraclewebsoft.com'
-
-// Keep these in sync with src/data/industries.ts
-const industryslugs = [
-  'womens-clothing-boutiques',
-  'activewear-athleisure',
-  'streetwear-urban-fashion',
-  'sustainable-ethical-fashion',
-  'gym-wear-fitness-apparel',
-  'yoga-wear-wellness',
-  'kids-children-clothing',
-  'plus-size-inclusive-apparel',
-  'sportswear-performance-apparel',
-  'menswear-casual-clothing',
-  'occasion-wear-luxury-fashion',
-  'online-boutiques-multi-brand',
-]
-
-// Keep in sync with src/data/blogPosts.ts
-const blogSlugs = [
-  'shopify-theme-detector-chrome-extension',
-  'shopify-summer-2025-edition',
-  'shopify-may-2025-updates',
-  'custom-shopify-section-with-ai',
-  'fashion-cart-abandonment',
-  'slow-shopify-store-cost',
-  'tiktok-shop-shopify-activewear',
-  'woocommerce-to-shopify-migration',
-  'shopify-product-drop-system',
-  'shopify-product-page-conversions',
-  'recently-viewed-products-shopify',
-  'ai-shopify-theme-sections-builder',
-  'custom-pc-builder-shopify',
-]
-
-// Keep in sync with src/data/shopify-services.ts
-const shopifyServiceSlugs = [
-  'development',
-  'fashion-apparel',
-  'beauty-cosmetics',
-  'health-wellness',
-  'home-decor',
-  'food-beverage',
-  'electronics',
-  'jewelry',
-  'sports-fitness',
-  'pets',
-  'b2b-wholesale',
-  'subscription-dtc',
-  'print-on-demand',
-]
+const LAST_MODIFIED = new Date('2026-06-29')
+const shopifyServiceSlugs = ['development', ...shopifyServices.map((service) => service.slug)]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date()
-
   const core: MetadataRoute.Sitemap = [
     // ── Tier 1: Homepage & highest-intent pages ──────────────────────────────
     { url: BASE,                                                          priority: 1.0, changeFrequency: 'weekly'  as const },
@@ -81,7 +34,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/tools`,                                               priority: 0.7,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/tools/pc-builder`,                                    priority: 0.65, changeFrequency: 'monthly' as const },
     { url: `${BASE}/website-development`,                                 priority: 0.9,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/industries`,                                          priority: 0.85, changeFrequency: 'monthly' as const },
     { url: `${BASE}/partners`,                                            priority: 0.85, changeFrequency: 'monthly' as const },
+    { url: `${BASE}/lp/shopify-cro`,                                      priority: 0.7,  changeFrequency: 'monthly' as const },
 
     // ── Partner pages (new) ──────────────────────────────────────────────────
     { url: `${BASE}/white-label`,                                         priority: 0.85, changeFrequency: 'monthly' as const },
@@ -100,58 +55,58 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE}/services/shopify/${slug}`,
     priority: 0.75,
     changeFrequency: 'monthly' as const,
-    lastModified: now,
+    lastModified: LAST_MODIFIED,
   }))
 
-  const industryPages: MetadataRoute.Sitemap = industryslugs.map(slug => ({
-    url: `${BASE}/industries/${slug}`,
+  const industryPages: MetadataRoute.Sitemap = industries.map(industry => ({
+    url: `${BASE}/industries/${industry.slug}`,
     priority: 0.75,
     changeFrequency: 'monthly' as const,
-    lastModified: now,
+    lastModified: LAST_MODIFIED,
   }))
 
-  const blogPages: MetadataRoute.Sitemap = blogSlugs.map(slug => ({
-    url: `${BASE}/blog/${slug}`,
+  const blogPages: MetadataRoute.Sitemap = blogPosts.map(post => ({
+    url: `${BASE}/blog/${post.slug}`,
     priority: 0.65,
     changeFrequency: 'yearly' as const,
-    lastModified: now,
+    lastModified: LAST_MODIFIED,
   }))
 
   const workPages: MetadataRoute.Sitemap = jobs.map(job => ({
     url: `${BASE}/work/${job.id}`,
     priority: 0.60,
     changeFrequency: 'yearly' as const,
-    lastModified: now,
+    lastModified: LAST_MODIFIED,
   }))
 
   const workIndex: MetadataRoute.Sitemap = [
-    { url: `${BASE}/work`,    priority: 0.85, changeFrequency: 'weekly'  as const, lastModified: now },
-    { url: `${BASE}/reviews`, priority: 0.85, changeFrequency: 'monthly' as const, lastModified: now },
+    { url: `${BASE}/work`,    priority: 0.85, changeFrequency: 'weekly'  as const, lastModified: LAST_MODIFIED },
+    { url: `${BASE}/reviews`, priority: 0.85, changeFrequency: 'monthly' as const, lastModified: LAST_MODIFIED },
   ]
 
   const webdevCountryPages: MetadataRoute.Sitemap = (Object.keys(countries) as CountryCode[]).map((code) => ({
     url: `${BASE}/website-development/${code}`,
     priority: 0.8,
     changeFrequency: 'monthly' as const,
-    lastModified: now,
+    lastModified: LAST_MODIFIED,
   }))
 
   const webdevCityPages: MetadataRoute.Sitemap = cities.map((c) => ({
     url: `${BASE}/website-development/${c.country}/${c.slug}`,
     priority: 0.65,
     changeFrequency: 'monthly' as const,
-    lastModified: now,
+    lastModified: LAST_MODIFIED,
   }))
 
   const partnerPages: MetadataRoute.Sitemap = partners.map((p) => ({
     url: `${BASE}/partners/${p.slug}`,
     priority: 0.75,
     changeFrequency: 'monthly' as const,
-    lastModified: now,
+    lastModified: LAST_MODIFIED,
   }))
 
   return [
-    ...core.map(p => ({ ...p, lastModified: now })),
+    ...core.map(p => ({ ...p, lastModified: LAST_MODIFIED })),
     ...shopifyServicePages,
     ...industryPages,
     ...blogPages,

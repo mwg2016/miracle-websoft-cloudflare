@@ -29,7 +29,7 @@ export default function Hero() {
           {/* LEFT: editorial headline + CTAs */}
           <div>
             <div className="mw-rise mw-rise-1" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2.5rem' }}>
-              <span className="mw-num">/01 — Shopify Agency · Est. 2015</span>
+              <span className="mw-num">/01 — For Shopify store owners ready to grow</span>
             </div>
 
             <h1
@@ -40,9 +40,9 @@ export default function Hero() {
                 fontWeight: 500,
               }}
             >
-              Shopify stores<br />
-              that <span className="mw-italic mw-italic--accent">actually</span><br />
-              convert.
+              Make your Shopify store<br />
+              faster, clearer and<br />
+              <span className="mw-italic mw-italic--accent">more profitable.</span>
             </h1>
 
             <p
@@ -56,19 +56,19 @@ export default function Hero() {
                 fontWeight: 400,
               }}
             >
-              We build custom Shopify and Shopify Plus stores, migrate from WooCommerce, Magento and BigCommerce, and ship Shopify apps. 600+ projects across the USA, UK and Australia &mdash; since 2015.
+              If your store is slow, hard to manage, or getting traffic that does not turn into sales, we help you fix the real blockers. Custom Shopify development, CRO, speed optimization, migrations and private apps from a Shopify specialist with 600+ projects delivered since 2015.
             </p>
 
             <div className="mw-rise mw-rise-4" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1rem' }}>
               <Link href="/contact" className="mw-btn-primary" style={{ fontSize: '0.95rem', padding: '1.05rem 1.85rem' }}>
-                Contact Us <ArrowRight size={16} />
+                Get Your Free Shopify Store Review <ArrowRight size={16} />
               </Link>
               <Link href="/work" className="mw-btn-outline" style={{ fontSize: '0.95rem', padding: '1.05rem 1.85rem' }}>
-                See selected work
+                See Revenue-Focused Work
               </Link>
             </div>
             <p className="mw-rise mw-rise-5" style={{ fontSize: '0.78rem', color: 'var(--text-4)', fontFamily: 'var(--font-geist-mono), monospace', letterSpacing: '0.04em' }}>
-              48-hour written report &nbsp;·&nbsp; no commitment &nbsp;·&nbsp; reply within 24h
+              Written recommendations &nbsp;·&nbsp; no pressure &nbsp;·&nbsp; reply within 24h
             </p>
           </div>
 
@@ -91,16 +91,16 @@ export default function Hero() {
               </div>
 
               <div style={{ fontSize: '0.7rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-4)', fontFamily: 'var(--font-geist-mono), monospace', marginBottom: '1.25rem' }}>
-                Why brands hire us
+                What merchants rely on us for
               </div>
 
               {/* Stat stack */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
                 {[
-                  { v: '600+', l: 'Shopify projects delivered' },
-                  { v: '98%', l: 'Upwork job-success score' },
-                  { v: '4.9 ★', l: 'Across Clutch, Upwork, Trustpilot' },
-                  { v: '10 yrs', l: 'Shopify-only, since 2015' },
+                  { v: '600+', l: 'Stores, fixes and Shopify projects delivered' },
+                  { v: '98%+', l: 'Upwork job-success score' },
+                  { v: '4.9 ★', l: 'Client review average across public profiles' },
+                  { v: '10+ yrs', l: 'Focused Shopify execution since 2015' },
                 ].map((s) => (
                   <div key={s.l} style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '1rem', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '1.1rem' }}>
                     <div style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: 'clamp(1.6rem, 2.6vw, 2.1rem)', fontWeight: 500, color: '#fff', lineHeight: 1, letterSpacing: '-0.02em' }}>
@@ -124,7 +124,7 @@ export default function Hero() {
         {/* Bottom marker — editorial */}
         <div className="mw-rise mw-rise-6" style={{ marginTop: '5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '1.75rem' }}>
           <span className="mw-num">USA · UK · AU · IN</span>
-          <span className="mw-num" style={{ color: 'var(--text-3)' }}>Scroll for selected work ↓</span>
+          <span className="mw-num" style={{ color: 'var(--text-3)' }}>Scroll to see how we improve stores ↓</span>
         </div>
       </div>
 

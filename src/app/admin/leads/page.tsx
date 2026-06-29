@@ -1,6 +1,6 @@
 import { readLeads, type LeadRecord } from '@/lib/admin/store'
 import { resolveSource, type ResolvedSource } from '@/lib/admin/source'
-import { Card, Empty, fmtTime, SectionTitle } from '../_components'
+import { Card, Empty, fmtTime } from '../_components'
 
 const BASIS_COLORS: Record<ResolvedSource['basis'], string> = {
   utm: '#10B981',

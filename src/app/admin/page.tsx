@@ -8,6 +8,8 @@ const ACCENTS = ['#6C63FF', '#10B981', '#F59E0B', '#EC4899', '#38BDF8', '#FB923C
 
 export default async function AdminDashboard() {
   const [leads, outbound] = await Promise.all([readLeads(), readOutbound()])
+  // Dynamic admin-only dashboard metrics intentionally depend on request time.
+  // eslint-disable-next-line react-hooks/purity
   const now = Date.now()
   const dayAgo = now - 24 * 60 * 60 * 1000
   const weekAgo = now - 7 * 24 * 60 * 60 * 1000

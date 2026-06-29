@@ -7,7 +7,7 @@ const services = [
     icon: Code2,
     tag: 'Build',
     title: 'Custom Shopify development',
-    body: 'Bespoke Shopify and Shopify Plus stores designed around how your customers shop. Fast, beautiful, conversion-focused — across every ecommerce vertical.',
+    body: 'New stores and redesigns built around how your customers browse, trust and buy. Clean design, fast pages and a buying journey that supports growth.',
     href: '/services/shopify/development',
     span: 7,
   },
@@ -16,7 +16,7 @@ const services = [
     icon: Puzzle,
     tag: 'Apps',
     title: 'Shopify app development',
-    body: 'Private apps and Shopify Functions for product drops, bundles, custom checkout logic and anything the App Store cannot do.',
+    body: 'Custom Shopify tools that remove manual work, replace expensive apps, support unique offers and make the store easier to run.',
     href: '/services/shopify-app-development',
     span: 5,
   },
@@ -25,7 +25,7 @@ const services = [
     icon: RefreshCw,
     tag: 'Migrate',
     title: 'Platform migrations',
-    body: 'From WooCommerce, Magento or any other platform. Zero data loss, zero SEO traffic drop, zero downtime.',
+    body: 'Move from WooCommerce, Magento, BigCommerce or a custom platform without risking orders, customers, product data or search traffic.',
     href: '/services/shopify-migration',
     span: 5,
   },
@@ -34,7 +34,7 @@ const services = [
     icon: TrendingUp,
     tag: 'Optimise',
     title: 'CRO &amp; speed optimisation',
-    body: 'Conversion rate audits, Core Web Vitals fixes and checkout optimisation. Average 42% conversion lift across our store builds.',
+    body: 'Fix slow pages, confusing product pages and checkout friction so more of your existing traffic becomes revenue.',
     href: '/services/shopify-cro-speed',
     span: 7,
   },
@@ -47,11 +47,11 @@ export default function ServicesOverview() {
         <div className="mw-section-header">
           <span className="mw-eyebrow">/04 — Services</span>
           <h2 style={{ color: '#fff' }}>
-            Four things, done<br />
-            <span className="mw-italic mw-italic--accent">deeply.</span>
+            Shopify services built<br />
+            around <span className="mw-italic mw-italic--accent">business outcomes.</span>
           </h2>
           <p style={{ color: 'var(--text-3)', marginTop: '1.25rem', maxWidth: '520px', fontSize: '1rem' }}>
-            We do Shopify only. No WordPress side projects, no generic web work — every engineer here ships Shopify five days a week.
+            You do not need a developer who simply completes tasks. You need a Shopify expert who understands revenue, buyer behavior, speed, SEO and the daily realities of running an ecommerce store.
           </p>
         </div>
 

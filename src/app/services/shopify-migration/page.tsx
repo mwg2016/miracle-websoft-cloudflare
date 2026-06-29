@@ -9,11 +9,11 @@ import ServiceResult from '@/components/services/ServiceResult'
 import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
-import { breadcrumb, faqPage, renderJsonLd, service } from '@/lib/jsonld'
+import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'WooCommerce to Shopify Migration | Magento to Shopify | Miracle Websoft',
-  description: 'Migrate to Shopify with zero data loss, zero SEO traffic drop and zero downtime. Fixed-price migrations from WooCommerce, Magento, BigCommerce and more.',
+  title: 'Move to Shopify Without Losing Orders, Customers or SEO',
+  description: 'Shopify migration service for merchants moving from WooCommerce, Magento, BigCommerce or custom platforms. Preserve products, orders, customers, URLs and SEO.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/shopify-migration' },
 }
 
@@ -75,7 +75,6 @@ const jsonLd = renderJsonLd([
     { name: 'Services', url: '/services' },
     { name: 'Shopify Migration', url: '/services/shopify-migration' },
   ]),
-  faqPage(faqs),
 ])
 
 export default function MigrationPage() {
@@ -90,9 +89,9 @@ export default function MigrationPage() {
           </div>
           <div className="max-w-3xl">
             <span className="mw-eyebrow">SHOPIFY MIGRATION</span>
-            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>Move to Shopify Without Losing a Single Customer, Order or Ranking</h1>
+            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>Move to Shopify Without Putting Your Sales at Risk</h1>
             <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem', maxWidth: '580px', fontWeight: 300 }}>
-              We migrate clothing brands from WooCommerce, Magento, BigCommerce and other platforms to Shopify — with a documented zero SEO loss record and a fixed price before we start.
+              Switching platforms can feel risky because your products, orders, customers, URLs, tracking and rankings all matter. We plan the move carefully so your team gets Shopify&apos;s easier management without a messy launch.
             </p>
             {/* Trust strip */}
             <div className="flex flex-wrap gap-x-6 gap-y-2 mb-8">
@@ -103,7 +102,7 @@ export default function MigrationPage() {
               ))}
             </div>
             <Link href="/contact" className="mw-btn-primary">
-              Get a migration quote <ArrowRight size={16} />
+              Get a Migration Plan <ArrowRight size={16} />
             </Link>
           </div>
         </div>
@@ -135,9 +134,9 @@ export default function MigrationPage() {
       <section style={{ paddingTop: '4rem', paddingBottom: '4rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="mw-container">
           <div style={{ marginBottom: '2.5rem' }}>
-            <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>What's Migrated</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>Everything. No exceptions.</h2>
-            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '500px', lineHeight: 1.7 }}>Every piece of your store's data comes with you. Nothing is left behind.</p>
+            <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>What&apos;s Migrated</p>
+            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>The data and SEO details that protect the business</h2>
+            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '560px', lineHeight: 1.7 }}>A good Shopify migration is more than moving products. It protects customer history, order records, redirects, tracking, content and the paths search engines already understand.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl">
             {included.map((item, i) => (
@@ -184,9 +183,9 @@ export default function MigrationPage() {
       {/* Mid-page CTA */}
       <div style={{ paddingTop: '3rem' }}>
         <MidPageCta
-          heading="Ready to make the move to Shopify?"
-          sub="Get a fixed-price migration quote in 24 hours. No commitment required."
-          btnLabel="Get a Migration Quote"
+          heading="Planning a move to Shopify?"
+          sub="Send your current platform and store URL. We will outline the safest migration path and what needs to be protected before launch."
+          btnLabel="Get My Migration Plan"
         />
       </div>
 

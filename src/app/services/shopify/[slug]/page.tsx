@@ -9,7 +9,7 @@ import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
 import shopifyServices, { getShopifyService } from '@/data/shopify-services'
-import { breadcrumb, faqPage, renderJsonLd, service } from '@/lib/jsonld'
+import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 type Params = { slug: string }
 
@@ -25,13 +25,19 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title: svc.metaTitle,
     description: svc.metaDescription,
     alternates: { canonical: `https://miraclewebsoft.com/services/shopify/${slug}` },
+    openGraph: {
+      title: svc.metaTitle,
+      description: svc.metaDescription,
+      url: `https://miraclewebsoft.com/services/shopify/${slug}`,
+      type: 'website',
+    },
   }
 }
 
 const shopifyGuarantees = [
-  { icon: '⚡', title: 'Sub-1.5s Mobile Load Time', body: 'Every build targets sub-1.5s mobile load time. We treat performance as a first-class concern — not something added after launch.' },
-  { icon: '🔒', title: 'Fixed-Price Before We Start', body: 'You get a detailed fixed-price proposal before a single line of code is written. No hourly billing, no surprise invoices at the end.' },
-  { icon: '🚀', title: 'Zero Downtime Launch', body: 'We manage the go-live process — DNS, SSL, post-launch QA and real-time monitoring. Your store transitions with no gap in availability.' },
+  { icon: '⚡', title: 'Built for Mobile Buyers', body: 'Your store is planned for the device most customers use first. Speed, layout, product clarity and checkout flow are treated as revenue issues.' },
+  { icon: '🔒', title: 'Fixed Price Before We Start', body: 'You get a detailed proposal before work begins. No open-ended hourly billing, no surprise invoice at the end.' },
+  { icon: '🚀', title: 'Launch Planned Carefully', body: 'We manage QA, redirects, tracking, DNS, SSL and post-launch checks so the store can go live without unnecessary disruption.' },
 ]
 
 const shopifyRelated = [
@@ -41,11 +47,11 @@ const shopifyRelated = [
 ]
 
 const whyReasons = [
-  { icon: TrendingUp, title: '10+ years on Shopify', body: 'We\'ve been building Shopify stores since 2015 — through every platform update, API change and feature release. Experience you can\'t fake.' },
-  { icon: DollarSign, title: 'Fixed-price proposals', body: 'You know exactly what you\'re paying before we start. No hourly billing, no change-order culture, no surprises at invoice.' },
-  { icon: Zap, title: 'Performance-first', body: 'Every store targets sub-1.5s mobile load times. Speed is a first-class concern, not an afterthought bolted on after launch.' },
-  { icon: Users, title: 'Direct access', body: 'You work directly with the developers and strategists building your store. No account managers, no handoffs, no telephone game.' },
-  { icon: Star, title: '600+ projects, 98% success', body: 'Top Rated Plus on Upwork with a 98% job success score across 600+ completed projects. The track record speaks for itself.' },
+  { icon: TrendingUp, title: '10+ years on Shopify', body: 'We have helped merchants through launches, redesigns, migrations, app builds and growth phases since 2015.' },
+  { icon: DollarSign, title: 'Business-first recommendations', body: 'We explain what will likely move revenue, what can wait and when a full rebuild is unnecessary.' },
+  { icon: Zap, title: 'Performance-first execution', body: 'Speed, app bloat, Core Web Vitals and mobile experience are handled as part of the store strategy.' },
+  { icon: Users, title: 'Direct access', body: 'You work with the people responsible for the outcome. Clear updates, practical decisions and no handoff-heavy process.' },
+  { icon: Star, title: '600+ projects, 98%+ success', body: 'Top Rated Plus on Upwork with a 98%+ job success score across 600+ completed projects.' },
 ]
 
 export default async function ShopifyServicePage({ params }: { params: Promise<Params> }) {
@@ -66,7 +72,6 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
       { name: 'Services', url: '/services' },
       { name: svc.h1, url },
     ]),
-    faqPage(svc.faqs),
   ])
 
   return (
@@ -76,7 +81,7 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
       <section className="pt-32 pb-20" style={{ background: '#0a0a0a', backgroundImage: 'radial-gradient(ellipse at 70% 50%, rgba(108,99,255,0.15) 0%, transparent 60%)' }}>
         <div className="mw-container">
           <div className="mb-6">
-            <Breadcrumb items={[{ label: 'Services', href: '/contact' }, { label: svc.h1 }]} />
+            <Breadcrumb items={[{ label: 'Services', href: '/services' }, { label: svc.h1 }]} />
           </div>
           <div className="max-w-3xl">
             <span className="mw-eyebrow">{svc.eyebrow}</span>
@@ -86,10 +91,10 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
             </p>
             <div className="flex flex-wrap gap-3">
               <a href="#get-quote" className="mw-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                Get a Free Proposal <ArrowRight size={16} />
+                Get My Shopify Plan <ArrowRight size={16} />
               </a>
               <Link href="/work" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                View Our Work
+                View Shopify Work
               </Link>
             </div>
           </div>
@@ -102,8 +107,8 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
           <div style={{ marginBottom: '3rem' }}>
             <span className="mw-eyebrow">COMMON CHALLENGES</span>
             <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(24px,3vw,36px)' }}>
-              What slows businesses down<br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>in this space.</em>
+              Problems that quietly cost<br />
+              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>sales in this category.</em>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -130,7 +135,7 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
           <div style={{ marginBottom: '3rem' }}>
             <span className="mw-eyebrow">WHAT&apos;S INCLUDED</span>
             <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(24px,3vw,36px)' }}>
-              Everything in every build
+              What we can build or improve
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl">
@@ -149,7 +154,7 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
         <div className="mw-container">
           <div className="mw-section-header">
             <span className="mw-eyebrow">WHY MIRACLE WEBSOFT</span>
-            <h2 style={{ color: '#fff' }}>Not a generic dev shop.<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>A Shopify specialist.</em></h2>
+            <h2 style={{ color: '#fff' }}>A Shopify partner for<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>store growth and execution.</em></h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {whyReasons.map((r, i) => {
@@ -171,8 +176,8 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
       {/* Mid-page CTA */}
       <MidPageCta
         heading={`Ready to build your ${svc.eyebrow.toLowerCase().replace('shopify for ', '').replace('shopify ', '')} Shopify store?`}
-        sub="Get a fixed-price proposal within 24 hours. No commitment required — we'll review your brief and recommend the right approach."
-        btnLabel="Get a Free Proposal"
+        sub="Send your store URL, goals and current blockers. We will review the situation and recommend the right next step."
+        btnLabel="Request My Shopify Plan"
         btnHref="/contact"
       />
 
@@ -190,20 +195,20 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
 
             {/* Left: trust signals */}
             <div>
-              <span className="mw-eyebrow">GET A FREE PROPOSAL</span>
+              <span className="mw-eyebrow">REQUEST A SHOPIFY PLAN</span>
               <h2 style={{ color: '#fff', fontSize: 'clamp(28px,4vw,44px)', marginBottom: '1.5rem', lineHeight: 1.15 }}>
-                Let&apos;s build your<br />
+                Let&apos;s improve your<br />
                 <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>Shopify store.</em>
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2.5rem', fontWeight: 300 }}>
-                Send us your project brief and we&apos;ll come back with a fixed-price proposal, timeline and recommended approach — within 24 hours.
+                Send your store URL, project brief or current challenge. We will reply with practical next steps, likely scope and a fixed-price path forward.
               </p>
 
               {/* Proof points */}
               <div className="flex flex-col gap-4">
                 {[
                   { stat: '600+', label: 'Shopify projects delivered' },
-                  { stat: '98%', label: 'Job success score on Upwork' },
+                  { stat: '98%+', label: 'Job success score on Upwork' },
                   { stat: '10+', label: 'Years on Shopify' },
                   { stat: '24h', label: 'Proposal turnaround time' },
                 ].map((p, i) => (

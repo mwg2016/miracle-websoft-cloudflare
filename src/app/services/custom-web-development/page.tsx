@@ -8,7 +8,7 @@ import ServiceResult from '@/components/services/ServiceResult'
 import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
-import { breadcrumb, faqPage, renderJsonLd, service } from '@/lib/jsonld'
+import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Custom Web Application Development — React, Node.js & Laravel | Miracle Websoft',
@@ -70,7 +70,7 @@ const whyUs = [
   { icon: ShieldCheck, title: 'Security from the start', body: 'OWASP Top 10, input validation, CSRF protection, secrets management, and proper authentication are defaults in every build — not extras.' },
   { icon: DollarSign, title: 'Fixed-price proposals', body: 'Scoped clearly, priced accurately, delivered as agreed. No hourly billing, no change-order surprises. You know what you\'re paying before we start.' },
   { icon: Users, title: 'Direct access to developers', body: 'You talk to the engineers building your product. No PMs translating requirements, no handoffs. Faster decisions, less miscommunication.' },
-  { icon: Star, title: '600+ projects, 10+ years', body: 'Top Rated Plus on Upwork with a 98% job success score. We\'ve built everything from internal tools to production SaaS platforms serving thousands of users.' },
+  { icon: Star, title: '600+ projects, 10+ years', body: 'Top Rated Plus on Upwork with a 98%+ job success score. We\'ve built everything from internal tools to production SaaS platforms serving thousands of users.' },
 ]
 
 const guarantees = [
@@ -129,7 +129,6 @@ const jsonLd = renderJsonLd([
     { name: 'Services', url: '/services' },
     { name: 'Custom Web Development', url: '/services/custom-web-development' },
   ]),
-  faqPage(faqs),
 ])
 
 export default function CustomWebDevelopmentPage() {
@@ -154,10 +153,10 @@ export default function CustomWebDevelopmentPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a href="#get-quote" className="mw-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                Discuss Your Project <ArrowRight size={16} />
+                Scope My Custom Project <ArrowRight size={16} />
               </a>
               <Link href="/work" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                View Our Work
+                View Project Work
               </Link>
             </div>
           </div>
@@ -269,9 +268,9 @@ export default function CustomWebDevelopmentPage() {
 
       {/* Mid-page CTA */}
       <MidPageCta
-        heading="Have a complex web application in mind?"
-        sub="Describe what you need to build — even roughly. We'll respond with a preliminary approach and fixed-price proposal within 24 hours."
-        btnLabel="Discuss Your Project"
+        heading="Have a custom workflow, portal or app in mind?"
+        sub="Describe what the business needs to do, even roughly. We will respond with a practical approach and fixed-price next step."
+        btnLabel="Scope My Project"
         btnHref="/contact"
       />
 
@@ -314,7 +313,7 @@ export default function CustomWebDevelopmentPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
             <div>
-              <span className="mw-eyebrow">GET A FREE PROPOSAL</span>
+              <span className="mw-eyebrow">REQUEST A PROJECT SCOPE</span>
               <h2 style={{ color: '#fff', fontSize: 'clamp(28px,4vw,44px)', marginBottom: '1.5rem', lineHeight: 1.15 }}>
                 Let&apos;s discuss<br />
                 <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>your project.</em>
@@ -326,7 +325,7 @@ export default function CustomWebDevelopmentPage() {
               <div className="flex flex-col gap-4">
                 {[
                   { stat: '600+', label: 'Projects delivered' },
-                  { stat: '98%', label: 'Job success score on Upwork' },
+                  { stat: '98%+', label: 'Job success score on Upwork' },
                   { stat: '10+', label: 'Years of full-stack experience' },
                   { stat: '24h', label: 'Proposal turnaround' },
                 ].map((p, i) => (

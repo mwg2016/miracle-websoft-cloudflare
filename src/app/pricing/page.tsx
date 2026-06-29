@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, Check, Sparkles, ShieldCheck, Clock, MessageCircle, ChevronRight } from 'lucide-react'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import FaqSection from '@/components/ui/FaqSection'
-import { breadcrumb, faqPage, renderJsonLd, webPage } from '@/lib/jsonld'
+import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
 
 export const metadata: Metadata = {
@@ -163,7 +163,7 @@ const howItWorks = [
 const trustPoints = [
   { icon: ShieldCheck, label: 'Fixed pricing — no surprise invoices' },
   { icon: Clock, label: '< 24 h response from the founder personally' },
-  { icon: Sparkles, label: '600+ Shopify projects · 98% job success' },
+  { icon: Sparkles, label: '600+ Shopify projects · 98%+ job success' },
 ]
 
 const pricingFaqs = [
@@ -205,7 +205,6 @@ const jsonLd = renderJsonLd([
     { name: 'Home', url: '/' },
     { name: 'Pricing', url: '/pricing' },
   ]),
-  faqPage(pricingFaqs),
 ])
 
 function PlanCard({ plan, badge }: { plan: Plan; badge: string }) {
@@ -303,7 +302,7 @@ function PlanCard({ plan, badge }: { plan: Plan; badge: string }) {
               }),
         }}
       >
-        Choose {plan.name} <ArrowRight size={14} />
+        Request {plan.name} <ArrowRight size={14} />
       </Link>
     </div>
   )
@@ -322,11 +321,11 @@ export default function PricingPage() {
           <div className="max-w-3xl mb-14">
             <span className="mw-eyebrow">Transparent pricing</span>
             <h1 className="mw-hero-title" style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.5rem' }}>
-              Pick a package.<br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>Start in days, not weeks.</em>
+              Choose a clear Shopify path.<br />
+              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>Then get a fixed-price plan.</em>
             </h1>
             <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.25rem', fontWeight: 300 }}>
-              Fixed prices, fixed timelines, no surprise invoices. Choose a plan below — we&apos;ll take you to a short form, you tell us about your brand, and Karam personally replies within 24 hours with next steps.
+              Use these packages as a starting point. Choose the closest fit, tell us about your store, and Karam personally replies within 24 hours with scope, timeline and next steps before any payment.
             </p>
             <div className="flex flex-wrap gap-x-5 gap-y-2 mt-6">
               {trustPoints.map((t, i) => (

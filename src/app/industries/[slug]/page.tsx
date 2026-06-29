@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { industries } from '@/data/industries'
 import type { Metadata } from 'next'
 import IndustryLayout from '@/components/industry/IndustryLayout'
-import { breadcrumb, faqPage, renderJsonLd, service } from '@/lib/jsonld'
+import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -20,6 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: industry.metaTitle,
     description: industry.metaDescription,
     alternates: { canonical: `https://miraclewebsoft.com/industries/${industry.slug}` },
+    openGraph: {
+      title: industry.metaTitle,
+      description: industry.metaDescription,
+      url: `https://miraclewebsoft.com/industries/${industry.slug}`,
+      type: 'website',
+    },
   }
 }
 
@@ -41,7 +47,6 @@ export default async function IndustryPage({ params }: Props) {
       { name: 'Industries', url: '/industries' },
       { name: industry.title, url },
     ]),
-    faqPage(industry.faqs),
   ])
 
   return (

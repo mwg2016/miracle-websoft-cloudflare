@@ -22,7 +22,7 @@ const industryLinks = [
   { label: 'Activewear & Athleisure', href: '/industries/activewear-athleisure' },
   { label: 'Streetwear & Urban Fashion', href: '/industries/streetwear-urban-fashion' },
   { label: 'Sustainable Fashion', href: '/industries/sustainable-ethical-fashion' },
-  { label: '+ View all industries', href: '/services' },
+  { label: '+ View all industry guides', href: '/industries' },
 ]
 const companyLinks = [
   { label: 'About', href: '/about' },
@@ -31,6 +31,7 @@ const companyLinks = [
   { label: 'Reviews', href: '/reviews' },
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Search', href: '/search' },
   { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },
   { label: 'White Label', href: '/white-label' },
@@ -75,17 +76,17 @@ export default function Footer() {
       <div className="mw-container" style={{ paddingTop: '6rem', paddingBottom: '5rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10">
           <div className="max-w-xl">
-            <p className="mw-eyebrow">START A PROJECT</p>
+            <p className="mw-eyebrow">START WITH A FREE REVIEW</p>
             <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: 'clamp(36px,5vw,60px)', lineHeight: 1.1, color: '#fff', marginBottom: '1.5rem' }}>
-              Let&apos;s build your<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>Shopify store.</em>
+              Let&apos;s improve your<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>Shopify store.</em>
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.7 }}>
-              Free audit included. We will show you exactly what your store is missing and how to fix it.
+              Tell us what is holding your store back. We will show you the clearest path to more speed, more trust and more qualified sales.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <Link href="/contact" className="mw-btn-primary">Contact Us</Link>
-            <Link href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%20Karam%2C%20how%20are%20you%3F%20I%20need%20help%20with%20Shopify.')} target="_blank" rel="noopener noreferrer" className="mw-btn-outline">WhatsApp us</Link>
+            <Link href="/contact" className="mw-btn-primary">Get Free Store Review</Link>
+            <Link href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%20Karam%2C%20how%20are%20you%3F%20I%20need%20help%20with%20Shopify.')} target="_blank" rel="noopener noreferrer" className="mw-btn-outline">Message Karam</Link>
           </div>
         </div>
       </div>
@@ -138,7 +139,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>
             <span className="font-bold text-white text-sm">Miracle<span style={{ color: 'var(--accent)' }}>Websoft</span></span>
-            <span>© 2025 All rights reserved.</span>
+            <span>© 2026 All rights reserved.</span>
           </div>
           {/* Social icons */}
           <div className="flex items-center gap-3">

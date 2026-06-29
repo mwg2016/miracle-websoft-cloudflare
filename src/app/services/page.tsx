@@ -10,8 +10,8 @@ import CtaBanner from '@/components/home/CtaBanner'
 import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'All Services | Miracle Websoft',
-  description: 'Full service offering from Miracle Websoft — Shopify development, app development, migrations, CRO, WordPress and custom web application development.',
+  title: 'Shopify Services for Growth, Speed & Conversions | Miracle Websoft',
+  description: 'Shopify development, CRO, speed optimization, migrations and custom apps for merchants who want faster stores, better customer experience and more qualified sales.',
   alternates: { canonical: 'https://miraclewebsoft.com/services' },
 }
 
@@ -23,26 +23,26 @@ const shopifyCore = [
   {
     icon: ShoppingBag,
     title: 'Custom Shopify Development',
-    desc: 'Bespoke Shopify stores built from scratch — no templates, no theme stores. Custom themes, complex integrations, Shopify Plus builds.',
+    desc: 'Build or rebuild your Shopify store around faster mobile shopping, clearer product pages and a buying journey that supports more sales.',
     href: '/services/shopify/development',
     badge: 'Most popular',
   },
   {
     icon: Sparkles,
     title: 'Shopify App Development',
-    desc: 'Private and public Shopify apps — custom admin tools, storefront extensions, Shopify Functions and third-party integrations.',
+    desc: 'Create custom Shopify features that automate manual work, replace expensive app subscriptions and support buying experiences standard apps cannot handle.',
     href: '/services/shopify-app-development',
   },
   {
     icon: ArrowLeftRight,
     title: 'Shopify Migrations',
-    desc: 'Zero-downtime migrations from WooCommerce, Magento, BigCommerce or any platform — SEO preserved, data intact.',
+    desc: 'Move to Shopify from WooCommerce, Magento, BigCommerce or another platform without risking orders, customers, products or SEO visibility.',
     href: '/services/shopify-migration',
   },
   {
     icon: Zap,
     title: 'CRO & Speed Optimisation',
-    desc: 'Sub-1.5s load times, Core Web Vitals improvements, A/B testing and conversion rate optimisation for existing Shopify stores.',
+    desc: 'Improve an existing Shopify store by fixing slow pages, confusing buying journeys, app bloat and checkout friction.',
     href: '/services/shopify-cro-speed',
   },
 ]
@@ -52,7 +52,7 @@ const shopifyIndustry = [
     icon: Shirt,
     title: 'Shopify for Clothing Brands',
     desc: 'Fashion-specific Shopify builds — size guides, fit tools, lookbooks, Instagram integration and mobile-first design.',
-    href: '/services/shopify/development',
+    href: '/services/shopify/fashion-apparel',
     badge: 'Speciality',
   },
   {
@@ -63,9 +63,15 @@ const shopifyIndustry = [
   },
   {
     icon: FlaskConical,
-    title: 'Shopify for Health & Beauty',
-    desc: 'Subscription boxes, ingredient transparency, quiz funnels, loyalty programmes and compliance-safe product pages.',
-    href: '/services/shopify/health-beauty',
+    title: 'Shopify for Beauty & Cosmetics',
+    desc: 'Shade matching, skincare quiz funnels, subscriptions, ingredient transparency and UGC-powered product pages.',
+    href: '/services/shopify/beauty-cosmetics',
+  },
+  {
+    icon: FlaskConical,
+    title: 'Shopify for Health & Wellness',
+    desc: 'Supplement subscriptions, compliant claims architecture, quiz funnels, lab-result display and replenishment flows.',
+    href: '/services/shopify/health-wellness',
   },
   {
     icon: Gem,
@@ -103,13 +109,13 @@ const otherServices = [
   {
     icon: Globe,
     title: 'WordPress Development',
-    desc: 'Custom WordPress themes, WooCommerce stores, membership & LMS platforms and corporate sites — built without page-builder bloat.',
+    desc: 'Business websites, WooCommerce stores and content platforms built cleanly when Shopify is not the right fit.',
     href: '/services/wordpress-development',
   },
   {
     icon: Code2,
     title: 'Custom Web Development',
-    desc: 'Bespoke web applications in React, Next.js, Node.js and Laravel — SaaS platforms, APIs, dashboards and marketplace systems.',
+    desc: 'Custom portals, dashboards, automations and web apps that solve business problems your ecommerce stack cannot solve on its own.',
     href: '/services/custom-web-development',
   },
 ]
@@ -136,7 +142,7 @@ function ServiceCard({ icon: Icon, title, desc, href, badge }: {
       <h3 style={{ fontSize: '0.975rem', fontWeight: 600, color: '#fff', marginBottom: '0.5rem', lineHeight: 1.3 }}>{title}</h3>
       <p style={{ fontSize: '0.825rem', color: 'rgba(255,255,255,0.62)', lineHeight: 1.75, fontWeight: 300, marginBottom: '1.1rem' }}>{desc}</p>
       <span style={{ fontSize: '0.78rem', color: accent, display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: 500 }}>
-        Learn more <ArrowRight size={12} />
+        See how this helps <ArrowRight size={12} />
       </span>
     </Link>
   )
@@ -160,7 +166,7 @@ const jsonLd = renderJsonLd([
   webPage({
     name: 'All Services — Miracle Websoft',
     description:
-      'Full service offering — Shopify development, app development, migrations, CRO, WordPress and custom web applications.',
+      'Shopify development, app development, migrations, CRO, WordPress and custom web applications for merchants and businesses that need measurable outcomes.',
     url: 'https://miraclewebsoft.com/services',
     type: 'CollectionPage',
   }),
@@ -190,13 +196,13 @@ export default function ServicesPage() {
           <div className="max-w-2xl">
             <span className="mw-eyebrow">ALL SERVICES</span>
             <h1 style={{ color: '#fff', marginBottom: '1.25rem' }}>
-              600+ Projects Delivered.<br />
-              <span style={{ color: 'var(--accent)' }}>Find the Right Service for Your Store.</span>
+              Choose the Shopify service<br />
+              <span style={{ color: 'var(--accent)' }}>that fixes the real business problem.</span>
             </h1>
             <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.05rem', lineHeight: 1.85, fontWeight: 300, maxWidth: '540px' }}>
-              From custom Shopify builds to migrations, apps, and speed optimisation. Not sure which service fits?{' '}
+              Whether you need more conversions, a faster store, a safer migration or a custom Shopify feature, start with the outcome you want. Not sure which service fits?{' '}
               <Link href="#find-service" style={{ color: accent, textDecoration: 'none' }}>Answer 3 quick questions below</Link>{' '}
-              and we&apos;ll point you to the right one.
+              and we will point you to the right path.
             </p>
           </div>
         </div>
@@ -208,7 +214,7 @@ export default function ServicesPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px" style={{ background: 'rgba(255,255,255,0.04)' }}>
             {[
               { stat: '600+', label: 'Projects delivered' },
-              { stat: '98%', label: 'Upwork job success' },
+              { stat: '98%+', label: 'Upwork job success' },
               { stat: '10+', label: 'Years on Shopify' },
               { stat: '24h', label: 'Proposal turnaround' },
             ].map((s, i) => (
@@ -231,23 +237,23 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               {
-                q: 'Starting from scratch or rebuilding?',
+                q: 'Launching, rebranding or replacing a theme that is holding you back?',
                 answer: 'You need Custom Shopify Development',
-                desc: 'A new store built around your brand, product structure, and customers.',
+                desc: 'A store built around your brand, products, mobile shoppers and conversion goals.',
                 href: '/services/shopify/development',
                 color: '#6C63FF',
               },
               {
-                q: 'Have an existing Shopify store that isn\'t converting?',
+                q: 'Getting traffic but not enough orders?',
                 answer: 'You need CRO & Speed Optimisation',
-                desc: 'We fix what\'s slowing your store down and increase conversions — no full rebuild.',
+                desc: 'We fix what slows shoppers down and improve conversion without rebuilding unless it is truly needed.',
                 href: '/services/shopify-cro-speed',
                 color: '#F59E0B',
               },
               {
-                q: 'On WooCommerce, Magento, or another platform?',
+                q: 'Stuck on WooCommerce, Magento, BigCommerce or a custom platform?',
                 answer: 'You need a Shopify Migration',
-                desc: 'Move to Shopify with zero data loss, zero SEO drop, and zero downtime.',
+                desc: 'Move to Shopify with a careful plan for products, customers, orders, redirects and launch day.',
                 href: '/services/shopify-migration',
                 color: '#10B981',
               },
@@ -258,7 +264,7 @@ export default function ServicesPage() {
                   <p style={{ fontWeight: 700, color: item.color, fontSize: '0.9rem', marginBottom: '0.4rem', lineHeight: 1.3 }}>{item.answer}</p>
                   <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.50)', lineHeight: 1.55, flex: 1 }}>{item.desc}</p>
                   <div className="flex items-center gap-1.5 mt-3" style={{ color: item.color, fontSize: '0.75rem', fontWeight: 600 }}>
-                    Learn more <ArrowRight size={11} />
+                    View the service <ArrowRight size={11} />
                   </div>
                 </div>
               </Link>
@@ -266,8 +272,8 @@ export default function ServicesPage() {
           </div>
           <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', marginTop: '1.25rem' }}>
             Still unsure?{' '}
-            <Link href="/contact" style={{ color: accent, textDecoration: 'none' }}>Send us a message</Link>
-            {' '}and we&apos;ll recommend the right approach for your situation — free.
+            <Link href="/contact" style={{ color: accent, textDecoration: 'none' }}>Request a free Shopify store review</Link>
+            {' '}and we will recommend the right approach for your situation.
           </p>
         </div>
       </section>
@@ -277,8 +283,8 @@ export default function ServicesPage() {
         <div className="mw-container">
           <SectionHeader
             eyebrow="SHOPIFY SERVICES"
-            title="Shopify development & optimisation"
-            sub="Core Shopify services — from new store builds and custom apps to migrations and conversion optimisation."
+            title="Shopify services that support revenue"
+            sub="From new builds and custom apps to migrations and conversion optimization, every service is planned around speed, customer experience and sales."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {shopifyCore.map((s, i) => <ServiceCard key={i} {...s} />)}
@@ -291,8 +297,8 @@ export default function ServicesPage() {
         <div className="mw-container">
           <SectionHeader
             eyebrow="SHOPIFY BY INDUSTRY"
-            title="Industry-specific Shopify builds"
-            sub="Every industry has different product structures, buying journeys and technical requirements. We specialise across all of them."
+            title="Industry-specific Shopify guidance"
+            sub="Every category has different buyer questions, product structures and trust signals. We use that context to build stronger shopping experiences."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {shopifyIndustry.map((s, i) => <ServiceCard key={i} {...s} />)}
@@ -306,7 +312,7 @@ export default function ServicesPage() {
           <SectionHeader
             eyebrow="WEB DEVELOPMENT"
             title="Beyond Shopify"
-            sub="When the project calls for WordPress, a custom React app, a Node.js API or a Laravel backend — we build those too."
+            sub="When your business needs a non-Shopify website, customer portal, dashboard or automation, we build that with the same conversion and performance focus."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
             {otherServices.map((s, i) => <ServiceCard key={i} {...s} />)}

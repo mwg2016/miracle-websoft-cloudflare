@@ -2,6 +2,7 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   output: 'standalone',
+  poweredByHeader: false,
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
@@ -26,10 +27,12 @@ const nextConfig: NextConfig = {
         source: '/:path*',
         headers: [
           { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
+          { key: 'X-DNS-Prefetch-Control', value: 'on' },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Cross-Origin-Opener-Policy', value: 'same-origin-allow-popups' },
           { key: 'X-Frame-Options', value: 'DENY' },
+          { key: 'X-Permitted-Cross-Domain-Policies', value: 'none' },
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), browsing-topics=(), interest-cohort=()' },
         ],
       },
@@ -60,13 +63,21 @@ const nextConfig: NextConfig = {
       { source: '/memori-sentimental', destination: '/case-studies', permanent: true },
       { source: '/animeal', destination: '/case-studies', permanent: true },
       { source: '/rxbar-packaging-redesign-a-bold-case-study-refresh-by-our-creative-studio', destination: '/case-studies', permanent: true },
+      { source: '/otaa', destination: '/case-studies', permanent: true },
+      { source: '/nieuwkoop-europe-website-data-integration-into-shopify-using-web-api', destination: '/case-studies', permanent: true },
 
       // ─── Blog ────────────────────────────────────────────────────────────
       { source: '/blog-website-setup', destination: '/blog', permanent: true },
       { source: '/how-to-show-recently-viewed-products-in-shopify-step-by-step-guide', destination: '/blog', permanent: true },
-      { source: '/built-a-custom-shopify-section-with-ai-no-code-needed-game-changer-for-store-owners', destination: '/blog', permanent: true },
+      { source: '/built-a-custom-shopify-section-with-ai-no-code-needed-game-changer-for-store-owners', destination: '/blog/custom-shopify-section-with-ai', permanent: true },
+      // Emoji-prefixed slugs arrive percent-encoded; match the readable suffix via regex so the encoding doesn't matter.
+      { source: '/:e(built-a-custom-shopify-section-with-ai-no-code-needed-.+-game-changer-for-store-owners)', destination: '/blog/custom-shopify-section-with-ai', permanent: true },
+      { source: '/:e(.+-shopify-summer-25-edition-what-store-owners-need-to-know-in-1-minute)', destination: '/blog/shopify-summer-2025-edition', permanent: true },
       { source: '/shopify-may-2025-updates-every-merchant-should-know', destination: '/blog', permanent: true },
-      { source: '/\uD83D\uDD25-shopify-may-2025-updates-every-merchant-should-know', destination: '/blog', permanent: true },
+      { source: '/:e(.+-shopify-may-2025-updates-every-merchant-should-know)', destination: '/blog', permanent: true },
+      { source: '/facebook-conversion-pixel-2', destination: '/blog', permanent: true },
+      { source: '/the-magazine', destination: '/blog', permanent: true },
+      { source: '/top-10-shopify-website-design-development-agencies-in-india-2026', destination: '/blog', permanent: true },
       { source: '/get-started-with-the-pc-builder-shopify-app-full-setup-walkthrough', destination: '/blog', permanent: true },
       { source: '/reimagining-sunchips-a-passion-project-by-miracle-websoft', destination: '/case-studies', permanent: true },
       { source: '/start-your-online-business-10000-only-free-server-and-domain', destination: '/blog', permanent: true },
@@ -114,6 +125,8 @@ const nextConfig: NextConfig = {
       { source: '/shop', destination: '/services/shopify/development', permanent: true },
       { source: '/expert-shopify-development-partner-for-digital-agencies', destination: '/services/shopify/development', permanent: true },
       { source: '/Expert', destination: '/services/shopify/development', permanent: true },
+      { source: '/install-and-setup-narrative-theme-in-shopify-at-affordable-price', destination: '/services/shopify/development', permanent: true },
+      { source: '/wordpress-blog-redesign-astra-and-enfold', destination: '/services/wordpress-development', permanent: true },
 
       // ─── Services → App Development ──────────────────────────────────────
       { source: '/ai-auto-post', destination: '/services/shopify-app-development', permanent: true },
@@ -168,8 +181,7 @@ const nextConfig: NextConfig = {
       { source: '/product-category/:path*', destination: '/services/shopify/development', permanent: true },
 
       // ─── Industries ──────────────────────────────────────────────────────
-      // Index page (no /industries/page.tsx exists)
-      { source: '/industries', destination: '/services', permanent: true },
+      // Index page now exists at /industries.
       // Slug mismatches — redirect to the correct industry page
       { source: '/industries/kidswear-childrens-clothing', destination: '/industries/kids-children-clothing', permanent: true },
       { source: '/industries/luxury-fashion', destination: '/industries/occasion-wear-luxury-fashion', permanent: true },
@@ -188,6 +200,7 @@ const nextConfig: NextConfig = {
       { source: '/wp-admin/:path*', destination: '/', permanent: true },
       { source: '/wp-content/:path*', destination: '/', permanent: true },
       { source: '/wp-login.php', destination: '/', permanent: true },
+      { source: '/:file(wp-.*\\.php)', destination: '/', permanent: true },
       { source: '/wp-sitemap-index.xsl', destination: '/', permanent: true },
       { source: '/xmlrpc.php', destination: '/', permanent: true },
       { source: '/feed', destination: '/blog', permanent: true },
@@ -245,6 +258,7 @@ const nextConfig: NextConfig = {
       // ─── Generic services / ecommerce → services hub ─────────────────────
       { source: '/our-services', destination: '/services', permanent: true },
       { source: '/services-page', destination: '/services', permanent: true },
+      { source: '/services-4', destination: '/services', permanent: true },
       { source: '/ecommerce', destination: '/services', permanent: true },
       { source: '/ecommerce-services', destination: '/services', permanent: true },
       { source: '/ecommerce-development', destination: '/services/shopify/development', permanent: true },

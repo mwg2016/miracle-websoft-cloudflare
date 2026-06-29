@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
 // Top progress bar that animates while the App Router fetches the next page.
@@ -15,18 +15,7 @@ export default function NavigationProgress() {
   const tailRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const safetyRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const start = () => {
-    if (activeRef.current) return
-    activeRef.current = true
-    setActive(true)
-    setProgress(8)
-    tickRef.current = setInterval(() => {
-      setProgress((p) => (p >= 88 ? p : p + (92 - p) * 0.06))
-    }, 220)
-    safetyRef.current = setTimeout(() => stop(), 12000)
-  }
-
-  const stop = () => {
+  const stop = useCallback(() => {
     if (!activeRef.current) return
     activeRef.current = false
     if (tickRef.current) { clearInterval(tickRef.current); tickRef.current = null }
@@ -36,7 +25,18 @@ export default function NavigationProgress() {
       setActive(false)
       setProgress(0)
     }, 220)
-  }
+  }, [])
+
+  const start = useCallback(() => {
+    if (activeRef.current) return
+    activeRef.current = true
+    setActive(true)
+    setProgress(8)
+    tickRef.current = setInterval(() => {
+      setProgress((p) => (p >= 88 ? p : p + (92 - p) * 0.06))
+    }, 220)
+    safetyRef.current = setTimeout(() => stop(), 12000)
+  }, [stop])
 
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
@@ -58,13 +58,16 @@ export default function NavigationProgress() {
     }
     document.addEventListener('click', onClick)
     return () => document.removeEventListener('click', onClick)
-  }, [])
+  }, [start])
 
   // Pathname changing means the server response committed.
   useEffect(() => {
-    if (activeRef.current) stop()
-    return () => { if (tailRef.current) clearTimeout(tailRef.current) }
-  }, [pathname])
+    const commitTimer = activeRef.current ? setTimeout(stop, 0) : null
+    return () => {
+      if (commitTimer) clearTimeout(commitTimer)
+      if (tailRef.current) clearTimeout(tailRef.current)
+    }
+  }, [pathname, stop])
 
   if (!active) return null
 

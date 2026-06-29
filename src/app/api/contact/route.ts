@@ -107,7 +107,7 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string) 
       `→ Shopify Partner Directory listing`,
       `   https://www.shopify.com/partners/directory/partner/miracle-websoft1`,
       ``,
-      `→ Case Studies — real results for fashion brands`,
+      `→ Case Studies — real Shopify results`,
       `   https://miraclewebsoft.com/case-studies`,
       ``,
       `→ Blog — Shopify tips for clothing brands`,
@@ -193,8 +193,8 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string) 
       ${[
         { label: 'Upwork Profile', sub: 'Top Rated Plus · 600+ verified reviews', url: 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/', badge: 'Top Rated Plus', badgeColor: '#14a800' },
         { label: 'Shopify Partner Directory', sub: 'Verified Shopify Partner since 2015', url: 'https://www.shopify.com/partners/directory/partner/miracle-websoft1', badge: 'Verified Partner', badgeColor: '#96bf48' },
-        { label: 'Case Studies', sub: 'Real results for fashion brands', url: 'https://miraclewebsoft.com/case-studies', badge: 'Read more', badgeColor: accentColor },
-        { label: 'Blog', sub: 'Shopify tips for clothing & fashion brands', url: 'https://miraclewebsoft.com/blog', badge: 'Read more', badgeColor: accentColor },
+        { label: 'Case Studies', sub: 'Real Shopify results', url: 'https://miraclewebsoft.com/case-studies', badge: 'Read more', badgeColor: accentColor },
+        { label: 'Blog', sub: 'Shopify CRO, speed and growth tips', url: 'https://miraclewebsoft.com/blog', badge: 'Read more', badgeColor: accentColor },
       ].map(l => `
         <tr><td style="padding:0 0 8px 0">
           <a href="${l.url}" target="_blank" style="display:block;padding:14px 18px;background:#f8f8fc;border-radius:10px;text-decoration:none;border:1px solid #ebebf5">

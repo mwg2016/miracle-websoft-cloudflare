@@ -10,22 +10,22 @@ import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
 
 export const metadata: Metadata = {
-  title: 'About Miracle Websoft — Shopify Agency for Fashion Brands',
-  description: 'Miracle Websoft is a Top Rated Plus Shopify agency on Upwork with 600+ projects and 98% job success. Based in India, serving USA, UK and Australia since 2015.',
+  title: 'About Miracle Websoft — Shopify Experts for Growing Stores',
+  description: 'Miracle Websoft is a Top Rated Plus Shopify agency on Upwork with 600+ projects and 98%+ job success. Based in India, serving Shopify merchants worldwide since 2015.',
   alternates: { canonical: 'https://miraclewebsoft.com/about' },
 }
 
 const values = [
-  'Fashion-only focus — we only work with clothing and apparel brands',
-  'Performance first — every store targets sub-1.5s mobile load times',
-  'Conversion built in — CRO thinking in every layout decision',
-  'Direct communication — you work with the people building your store',
-  'Zero-risk migrations — no data loss, no SEO traffic drop, ever',
+  'Shopify-first focus — stores, apps, migrations, speed and conversion work',
+  'Business outcomes first — technical decisions tied to revenue and customer experience',
+  'Performance matters — faster mobile pages, cleaner themes and fewer unnecessary scripts',
+  'Direct communication — you work with the people responsible for delivery',
+  'Careful migrations — product data, customers, orders, URLs and tracking protected',
 ]
 
 const stats = [
   { value: '600+', label: 'Projects Completed' },
-  { value: '98%', label: 'Upwork Job Success' },
+  { value: '98%+', label: 'Upwork Job Success' },
   { value: '10+', label: 'Years Experience' },
   { value: '16', label: 'Team Members' },
 ]
@@ -52,9 +52,9 @@ const testimonials = [
 
 const jsonLd = renderJsonLd([
   webPage({
-    name: 'About Miracle Websoft — Shopify agency for fashion brands',
+    name: 'About Miracle Websoft — Shopify experts for growing stores',
     description:
-      'Top Rated Plus Shopify agency on Upwork — 600+ projects, 98% job success, a 16-person team serving USA, UK and Australia since 2015.',
+      'Top Rated Plus Shopify agency on Upwork — 600+ projects, 98%+ job success, a 16-person team serving Shopify merchants worldwide since 2015.',
     url: 'https://miraclewebsoft.com/about',
     type: 'AboutPage',
   }),
@@ -76,13 +76,13 @@ export default function AboutPage() {
           <div>
             <span className="mw-eyebrow">About Us</span>
             <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.5rem' }}>
-              A Shopify agency built exclusively<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>for fashion brands.</em>
+              Shopify experts for stores<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>that need to grow.</em>
             </h1>
             <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.25rem', fontWeight: 300 }}>
-              Miracle Websoft is a Shopify development agency founded in 2015 by Karam Singh Mehra, based in Chandigarh, India. We serve clothing, fashion and apparel brands across the USA, UK and Australia — and we do one thing exceptionally well.
+              Miracle Websoft is a Shopify development agency founded in 2015 by Karam Singh Mehra, based in Chandigarh, India. We help Shopify merchants across the USA, UK, Australia and beyond improve speed, conversion, migrations, custom features and long-term store performance.
             </p>
             <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, fontWeight: 300 }}>
-              600+ Shopify projects. 98% job success on Upwork. Top Rated Plus status (top 3% globally). A team of 16 specialists who have worked with brands across every fashion vertical — from DTC activewear startups to luxury occasion wear labels.
+              600+ Shopify projects. 98%+ job success on Upwork. Top Rated Plus status. A team of 16 specialists who understand the practical problems merchants face: slow stores, app bloat, low mobile conversion, risky migrations and custom requirements that off-the-shelf apps cannot solve.
             </p>
           </div>
 
@@ -99,7 +99,7 @@ export default function AboutPage() {
                 ))}
               </div>
               <Link href="/contact" className="mw-btn-primary justify-center w-full" style={{ marginTop: '1.75rem' }}>
-                Contact Us <ArrowRight size={15} />
+                Get Free Store Review <ArrowRight size={15} />
               </Link>
               <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.4)', textAlign: 'center', marginTop: '0.75rem' }}>
                 Replies within 24 hours · no commitment
@@ -167,10 +167,10 @@ export default function AboutPage() {
                 My first attempts at running something on my own failed. The break came in an unexpected way. A friend who was sharing a room with me started bidding for freelance projects from our flat — he didn&apos;t have a laptop, so he used mine. I sat next to him in the evenings and watched how he wrote proposals, priced work, and handled clients. Eventually I made my own Upwork profile. Within a few days I landed my first job: ten dollars. He looked at me and said, <em style={{ color: 'rgba(255,255,255,0.85)' }}>&ldquo;You&apos;re lucky. It&apos;s hard to get hired on a new profile that fast.&rdquo;</em> I still remember that job more clearly than the larger ones — it was the first proof that a career could be built from a laptop in a small town.
               </p>
               <p style={{ marginBottom: '1.1rem' }}>
-                I kept freelancing in the evenings while holding down my full-time job. The month my Upwork earnings crossed my salary, I quit. For a long stretch I did everything alone — sales, scoping, development, support, invoicing. Hiring only started when I couldn&apos;t keep up. The team has grown around the same idea I started with: real custom Shopify work for fashion brands, priced honestly, built by the people you actually speak with.
+                I kept freelancing in the evenings while holding down my full-time job. The month my Upwork earnings crossed my salary, I quit. For a long stretch I did everything alone — sales, scoping, development, support, invoicing. Hiring only started when I couldn&apos;t keep up. The team has grown around the same idea I started with: useful Shopify work for real businesses, priced honestly, built by the people you actually speak with.
               </p>
               <p style={{ marginBottom: 0 }}>
-                Ten years in, that&apos;s still the company. Over $400,000 earned on Upwork, hundreds of brands shipped, and the same instinct that made me leave a stable job in the first place — that good work shouldn&apos;t be gated behind enterprise pricing.
+                Ten years in, that&apos;s still the company. Over $400,000 earned on Upwork, hundreds of stores and ecommerce projects shipped, and the same instinct that made me leave a stable job in the first place — that good technical work should help the business, not confuse the owner.
               </p>
               <p style={{ marginTop: '1.25rem', fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>— Karam</p>
             </div>
@@ -242,7 +242,7 @@ export default function AboutPage() {
 
       <div className="mw-container" style={{ paddingTop: '3rem', paddingBottom: '5rem' }}>
         <Link href="/contact" className="mw-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-          Work with us <ArrowRight size={16} />
+          Get Your Free Shopify Store Review <ArrowRight size={16} />
         </Link>
       </div>
     </div>

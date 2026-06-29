@@ -5,17 +5,17 @@ import { ArrowRight } from 'lucide-react'
 import FaqSection from '@/components/ui/FaqSection'
 import RecentWork from '@/components/home/RecentWork'
 import BrandGrid from '@/components/case-studies/BrandGrid'
-import { breadcrumb, faqPage, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
+import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Case Studies — Shopify Results for Fashion Brands | Miracle Websoft',
+  title: 'Case Studies — Shopify Results for Growing Stores | Miracle Websoft',
   description:
-    'Real results from 600+ Shopify projects. See how we have helped fashion brands improve conversion rates, cut cart abandonment, and migrate without losing SEO traffic.',
+    'Real results from 600+ Shopify projects. See how we have helped merchants improve conversion rates, cut cart abandonment, speed up stores and migrate without losing SEO traffic.',
   alternates: { canonical: 'https://miraclewebsoft.com/case-studies' },
 }
 
 const csFaqs = [
-  { question: 'How many Shopify projects has Miracle Websoft completed?', answer: 'Over 600 Shopify projects since 2015 — across custom builds, migrations, app development, and CRO. Our clients range from DTC fashion startups to established brands with thousands of SKUs and years of order history.' },
+  { question: 'How many Shopify projects has Miracle Websoft completed?', answer: 'Over 600 Shopify projects since 2015 — across custom builds, migrations, app development, and CRO. Our clients range from DTC startups to established brands with thousands of SKUs and years of order history.' },
   { question: 'Can I see specific client results?', answer: 'We share anonymised results on this page — average +48% conversion rate, -35% cart abandonment, and 1.1s mobile load times. We keep individual client names confidential unless the client has given explicit permission to be named. All results shown are real, verified metrics from completed projects.' },
   { question: 'What fashion verticals have you worked in?', answer: 'We have worked across women\'s clothing, activewear, streetwear, sustainable fashion, luxury fashion, swimwear, menswear, jewelry, accessories, fragrance, beauty, footwear, and home goods.' },
   { question: 'Do you show before/after comparisons?', answer: 'We can share before/after speed scores, conversion rate data, and design comparisons during our discovery call for projects similar to yours. This helps set realistic expectations for your specific situation.' },
@@ -133,7 +133,7 @@ const portfolioClients = [
 
 const jsonLd = renderJsonLd([
   webPage({
-    name: 'Case Studies — Shopify results for fashion brands',
+    name: 'Case Studies — Shopify results for growing stores',
     description:
       'Real results from 600+ Shopify projects — conversion lifts, migration success, speed and CRO outcomes.',
     url: 'https://miraclewebsoft.com/case-studies',
@@ -151,7 +151,6 @@ const jsonLd = renderJsonLd([
       description: `${cs.result} ${cs.resultLabel} — ${cs.tag}`,
     })),
   }),
-  faqPage(csFaqs),
 ])
 
 export default function CaseStudiesPage() {
@@ -169,13 +168,13 @@ export default function CaseStudiesPage() {
             <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style={{ background: 'rgba(108,99,255,0.10)', border: '1px solid rgba(108,99,255,0.22)' }}>
               <span style={{ color: 'var(--accent)', fontSize: '0.75rem', fontWeight: 700 }}>✓</span>
               <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.65)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 500 }}>
-                600+ Projects · 99% Job Success · Top Rated Plus on Upwork
+                600+ Projects · 98%+ Job Success · Top Rated Plus on Upwork
               </span>
             </div>
 
             <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.25rem', maxWidth: '680px' }}>
-              Real Results for Fashion<br />
-              <span style={{ color: 'var(--accent)' }}>Brands That Chose Shopify</span>
+              Real Shopify results<br />
+              <span style={{ color: 'var(--accent)' }}>from stores built to grow</span>
             </h1>
             <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 'clamp(1rem,2vw,1.1rem)', maxWidth: '540px', lineHeight: 1.8, marginBottom: '2.5rem', fontWeight: 300 }}>
               Every number on this page is from a real completed project — not estimates or industry averages. Browse verified results from 600+ Shopify builds, migrations, and optimisations.
@@ -259,11 +258,11 @@ export default function CaseStudiesPage() {
           <div className="mw-container">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl px-7 py-5" style={{ background: 'rgba(108,99,255,0.08)', border: '1px solid rgba(108,99,255,0.18)' }}>
               <div>
-                <p style={{ fontWeight: 600, color: '#fff', fontSize: '1rem', marginBottom: '0.25rem' }}>Want results like these for your brand?</p>
-                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)' }}>Book a free 30-min call — we'll review your store and tell you exactly what's holding it back.</p>
+                <p style={{ fontWeight: 600, color: '#fff', fontSize: '1rem', marginBottom: '0.25rem' }}>Want results like these for your store?</p>
+                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)' }}>Request a free store review and we will tell you what is holding back speed, conversion or growth.</p>
               </div>
               <Link href="/contact" className="mw-btn-primary whitespace-nowrap text-sm">
-                Contact Us <ArrowRight size={14} />
+                Get Free Store Review <ArrowRight size={14} />
               </Link>
             </div>
           </div>
@@ -275,7 +274,7 @@ export default function CaseStudiesPage() {
             <div className="mb-8">
               <p style={{ fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>Our Clients</p>
               <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '0.5rem' }}>
-                {portfolioClients.length}+ Brands We've Built on Shopify
+                {portfolioClients.length}+ Brands We&apos;ve Built on Shopify
               </h2>
               <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.6)', maxWidth: '500px', lineHeight: 1.7 }}>
                 From DTC fashion startups to established global brands across jewelry, beauty, sports, food, and more.
@@ -294,13 +293,13 @@ export default function CaseStudiesPage() {
                 Your brand could be next.
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.55)', maxWidth: '460px', margin: '0 auto 2rem', lineHeight: 1.75, fontSize: '0.95rem' }}>
-                Join 600+ brands who trusted Miracle Websoft. Book a free strategy call and get a personalised plan for your store in 30 minutes.
+                Join 600+ stores and ecommerce teams who trusted Miracle Websoft. Request a free review and get a practical plan for your store.
               </p>
               <Link href="/contact" className="mw-btn-primary inline-flex text-sm px-8 py-4">
-                Contact Us <ArrowRight size={15} />
+                Get My Shopify Plan <ArrowRight size={15} />
               </Link>
               <p style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.6)', marginTop: '1rem' }}>
-                No commitment · 30-min call · Response within 4–8 hrs · 99% Job Success on Upwork
+                No commitment · 30-min call · Response within 4–8 hrs · 98%+ Job Success on Upwork
               </p>
             </div>
           </div>

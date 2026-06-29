@@ -29,7 +29,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${post.title} | Miracle Websoft Blog`,
     description: post.excerpt,
     alternates: { canonical: `https://miraclewebsoft.com/blog/${post.slug}` },
-    openGraph: { title: post.title, description: post.excerpt, type: 'article' },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: `https://miraclewebsoft.com/blog/${post.slug}`,
+      type: 'article',
+      publishedTime: toIso(post.date),
+      authors: ['Karam Singh Mehra'],
+      tags: [post.tag, 'Shopify', 'Ecommerce'],
+    },
   }
 }
 
@@ -99,9 +107,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div style={{ background: 'rgba(108,99,255,0.06)', border: '1px solid rgba(108,99,255,0.15)', borderRadius: '20px', padding: '2rem', marginBottom: '3rem' }}>
             <p className="mw-eyebrow">Need help?</p>
             <h2 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#fff', marginBottom: '0.6rem' }}>Want us to implement this for your store?</h2>
-            <p style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, marginBottom: '1.25rem' }}>We build, optimise and grow Shopify stores for fashion brands. Get a free audit and see exactly what we would change on your store.</p>
+            <p style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, marginBottom: '1.25rem' }}>We build, optimize and improve Shopify stores for merchants who need better speed, conversion and customer experience. Get a free store review and see what we would change first.</p>
             <Link href="/contact" className="mw-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-              Contact Us <ArrowRight size={15} />
+              Get Free Store Review <ArrowRight size={15} />
             </Link>
           </div>
 

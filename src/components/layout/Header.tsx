@@ -4,10 +4,10 @@ import Link from 'next/link'
 import { ChevronDown, Menu, X } from 'lucide-react'
 
 const services = [
-  { label: 'Custom Shopify Development', href: '/services/shopify/development' },
-  { label: 'Shopify App Development', href: '/services/shopify-app-development' },
-  { label: 'Shopify Migrations', href: '/services/shopify-migration' },
-  { label: 'CRO & Speed Optimisation', href: '/services/shopify-cro-speed' },
+  { label: 'Build or Rebuild My Store', href: '/services/shopify/development' },
+  { label: 'Custom Shopify Apps', href: '/services/shopify-app-development' },
+  { label: 'Move to Shopify Safely', href: '/services/shopify-migration' },
+  { label: 'Improve Speed & Conversions', href: '/services/shopify-cro-speed' },
   { label: 'WordPress Development', href: '/services/wordpress-development' },
   { label: 'Custom Web Development', href: '/services/custom-web-development' },
 ]
@@ -40,6 +40,7 @@ const workItems = [
 const companyItems = [
   { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Search', href: '/search' },
   { label: 'Careers', href: '/careers' },
 ]
 
@@ -136,6 +137,10 @@ export default function Header() {
                       {i.label}
                     </Link>
                   ))}
+                  <div style={{ margin: '6px 8px 4px', borderTop: '1px solid rgba(255,255,255,0.08)' }} />
+                  <Link href="/industries" onClick={() => setIndustriesOpen(false)} className="block px-4 py-2.5 text-sm rounded-lg mx-1 font-medium" style={{ color: '#6c63ff' }} onMouseEnter={e => { (e.target as HTMLElement).style.background = 'rgba(108,99,255,0.08)' }} onMouseLeave={e => { (e.target as HTMLElement).style.background = 'transparent' }}>
+                    View all industry guides →
+                  </Link>
                 </div>
               )}
             </div>
@@ -177,10 +182,10 @@ export default function Header() {
 
           <div className="flex items-center gap-3">
             <Link href="/contact" className="sm:hidden text-xs font-medium" style={{ color: 'var(--accent)', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
-              Contact Us
+              Free Store Review
             </Link>
             <Link href="/contact" className="mw-btn-primary hidden sm:inline-flex text-xs px-4 py-2.5 sm:text-sm sm:px-5">
-              Contact Us
+              Free Store Review
             </Link>
             <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 text-white" aria-label="Toggle menu">
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -222,6 +227,7 @@ export default function Header() {
               {mobileIndustriesOpen && (
                 <div className="pl-4 py-2 flex flex-col gap-1">
                   {industries.map(i => <Link key={i.href} href={i.href} onClick={() => setMobileOpen(false)} className="py-2 text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>{i.label}</Link>)}
+                  <Link href="/industries" onClick={() => setMobileOpen(false)} className="py-2 text-sm font-medium" style={{ color: '#6c63ff' }}>View all industry guides →</Link>
                 </div>
               )}
             </div>
@@ -250,7 +256,7 @@ export default function Header() {
               )}
             </div>
 
-            <Link href="/contact" onClick={() => setMobileOpen(false)} className="mw-btn-primary mt-6 justify-center">Contact Us</Link>
+            <Link href="/contact" onClick={() => setMobileOpen(false)} className="mw-btn-primary mt-6 justify-center">Get Free Store Review</Link>
           </div>
         </div>
       )}

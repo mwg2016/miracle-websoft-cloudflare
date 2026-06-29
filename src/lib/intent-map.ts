@@ -59,7 +59,7 @@ export const KEYWORD_ROUTES: { id: string; keywords: string[]; path: string; lab
   { id: 'streetwear', keywords: ['streetwear', 'urban fashion', 'hype'],                                                     path: '/industries/streetwear-urban-fashion', label: 'Streetwear' },
   { id: 'jewelry',    keywords: ['jewelry', 'jewellery', 'ring', 'necklace'],                                                path: '/services/shopify/jewelry', label: 'Jewelry' },
   { id: 'electronics',keywords: ['electronics', 'gadgets', 'tech products'],                                                 path: '/services/shopify/electronics', label: 'Electronics' },
-  { id: 'beauty',     keywords: ['beauty', 'cosmetics', 'skincare', 'makeup'],                                               path: '/services/shopify/health-beauty', label: 'Beauty / skincare' },
+  { id: 'beauty',     keywords: ['beauty', 'cosmetics', 'skincare', 'makeup'],                                               path: '/services/shopify/beauty-cosmetics', label: 'Beauty / skincare' },
   { id: 'tiktok',     keywords: ['tiktok', 'tik tok', 'tiktok shop', 'social commerce'],                                     path: '/blog', label: 'Blog (TikTok guides)' },
   { id: 'bio',        keywords: ['owner bio', 'founder bio', 'about karam'],                                                 path: '/bio/owner', label: 'Founder bio' },
 ]

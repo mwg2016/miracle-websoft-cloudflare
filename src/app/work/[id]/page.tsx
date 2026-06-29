@@ -169,7 +169,7 @@ export default async function JobPage({ params }: Props) {
   return (
     <>
       <JsonLd job={job} />
-      <main style={{ background: '#0a0a0a', minHeight: '100vh' }}>
+      <div style={{ background: '#0a0a0a', minHeight: '100vh' }}>
 
         {/* Hero */}
         <section style={{ paddingTop: '7rem', paddingBottom: '3rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
@@ -251,6 +251,24 @@ export default async function JobPage({ params }: Props) {
                   {fixTypos(job.description)}
                 </p>
 
+                {/* Developer-voice account — primary unique content, rendered when present */}
+                {job.devNotes && (
+                  <div style={{ marginBottom: '2rem' }}>
+                    <h2 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff', marginBottom: '1rem', letterSpacing: '-0.01em' }}>
+                      How we built it
+                    </h2>
+                    {fixTypos(job.devNotes)
+                      .split(/\n{2,}/)
+                      .map(p => p.trim())
+                      .filter(Boolean)
+                      .map((para, i) => (
+                        <p key={i} style={{ color: 'rgba(255,255,255,0.65)', lineHeight: 1.85, fontSize: '1rem', marginBottom: '1rem' }}>
+                          {para}
+                        </p>
+                      ))}
+                  </div>
+                )}
+
                 {/* Full case study (rendered when rich content is present) */}
                 {cs && (
                   <div style={{ marginBottom: '1rem' }}>
@@ -288,7 +306,7 @@ export default async function JobPage({ params }: Props) {
                       style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderLeft: `3px solid ${catColor}` }}
                     >
                       <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.80)', lineHeight: 1.75, fontStyle: 'italic', marginBottom: '1rem' }}>
-                        "{job.review}"
+                        &ldquo;{job.review}&rdquo;
                       </p>
                       <footer style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>
                         — {job.client || 'Verified Upwork Client'} · {job.completedDate}
@@ -351,7 +369,7 @@ export default async function JobPage({ params }: Props) {
                   </p>
                   {[
                     { value: '600+', label: 'Projects Delivered' },
-                    { value: '99%', label: 'Job Success Score' },
+                    { value: '98%+', label: 'Job Success Score' },
                     { value: '10+', label: 'Years Experience' },
                     { value: '5.0', label: 'Avg. Client Rating' },
                   ].map(({ value, label }) => (
@@ -366,10 +384,10 @@ export default async function JobPage({ params }: Props) {
                 <div className="rounded-2xl p-5" style={{ background: 'rgba(108,99,255,0.08)', border: '1px solid rgba(108,99,255,0.20)' }}>
                   <p style={{ fontSize: '0.88rem', fontWeight: 600, color: '#fff', marginBottom: '0.5rem' }}>Need similar work?</p>
                   <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.50)', lineHeight: 1.6, marginBottom: '1rem' }}>
-                    Book a free 30-min call and we'll discuss your project.
+                    Book a free 30-min call and we&apos;ll discuss your project.
                   </p>
                   <Link href="/contact" className="mw-btn-primary block text-center text-sm py-3">
-                    Contact Us →
+                    Get Free Store Review →
                   </Link>
                 </div>
               </div>
@@ -427,7 +445,7 @@ export default async function JobPage({ params }: Props) {
           </section>
         )}
 
-      </main>
+      </div>
 
       {/* Project-specific FAQ — visible content + its FAQPage schema */}
       <FaqSection faqs={workFaqs(job)} heading="Questions about this project" eyebrow="FAQ" />

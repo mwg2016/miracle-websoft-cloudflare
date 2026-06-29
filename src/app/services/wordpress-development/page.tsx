@@ -8,7 +8,7 @@ import ServiceResult from '@/components/services/ServiceResult'
 import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
-import { breadcrumb, faqPage, renderJsonLd, service } from '@/lib/jsonld'
+import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'WordPress Website Development Services | Miracle Websoft',
@@ -44,7 +44,7 @@ const whyUs = [
   { icon: Zap, title: 'Performance-first development', body: 'We build WordPress sites without page builders. That means leaner code, faster load times, and stores that don\'t slow down as content grows.' },
   { icon: ShieldCheck, title: 'Security baked in', body: 'WordPress is the most-targeted CMS on the internet. We harden every build — hardened configs, limited attack surface, proper role management — from the start.' },
   { icon: DollarSign, title: 'Fixed-price proposals', body: 'Every project starts with a scoped proposal at a fixed price. No hourly surprises, no scope creep billing. You know what you\'re paying before we begin.' },
-  { icon: Star, title: '600+ projects delivered', body: 'A track record built across 600+ projects and 10+ years. Top Rated Plus on Upwork with a 98% job success score.' },
+  { icon: Star, title: '600+ projects delivered', body: 'A track record built across 600+ projects and 10+ years. Top Rated Plus on Upwork with a 98%+ job success score.' },
   { icon: Users, title: 'Direct team access', body: 'You work directly with the developers and strategists. No account managers, no ticketing systems, no handoffs.' },
 ]
 
@@ -104,7 +104,6 @@ const jsonLd = renderJsonLd([
     { name: 'Services', url: '/services' },
     { name: 'WordPress Development', url: '/services/wordpress-development' },
   ]),
-  faqPage(faqs),
 ])
 
 export default function WordPressDevelopmentPage() {
@@ -128,10 +127,10 @@ export default function WordPressDevelopmentPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a href="#get-quote" className="mw-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                Get a Free Proposal <ArrowRight size={16} />
+                Request a Fixed-Price Quote <ArrowRight size={16} />
               </a>
               <Link href="/work" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                View Our Work
+                View Project Work
               </Link>
             </div>
           </div>
@@ -208,9 +207,9 @@ export default function WordPressDevelopmentPage() {
 
       {/* Mid-page CTA */}
       <MidPageCta
-        heading="Want a WordPress site that actually loads fast?"
-        sub="No page builders, no bloated themes. Send us your requirements and we'll come back with a fixed-price proposal within 24 hours."
-        btnLabel="Get a Free Proposal"
+        heading="Need a WordPress site that supports leads or sales?"
+        sub="Send your requirements and we will reply with the cleanest path, likely scope and a fixed-price quote."
+        btnLabel="Request a Quote"
         btnHref="/contact"
       />
 
@@ -253,19 +252,19 @@ export default function WordPressDevelopmentPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
             <div>
-              <span className="mw-eyebrow">GET A FREE PROPOSAL</span>
+              <span className="mw-eyebrow">REQUEST A QUOTE</span>
               <h2 style={{ color: '#fff', fontSize: 'clamp(28px,4vw,44px)', marginBottom: '1.5rem', lineHeight: 1.15 }}>
                 Let&apos;s build your<br />
                 <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>WordPress site.</em>
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2.5rem', fontWeight: 300 }}>
-                Tell us what you need to build and we&apos;ll come back with a fixed-price proposal and timeline within 24 hours. No commitment required.
+                Tell us what the site needs to do for the business and we will reply with a fixed-price quote, timeline and recommended approach.
               </p>
 
               <div className="flex flex-col gap-4">
                 {[
                   { stat: '600+', label: 'Projects delivered' },
-                  { stat: '98%', label: 'Job success score on Upwork' },
+                  { stat: '98%+', label: 'Job success score on Upwork' },
                   { stat: '10+', label: 'Years of development experience' },
                   { stat: '24h', label: 'Proposal turnaround' },
                 ].map((p, i) => (

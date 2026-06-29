@@ -10,11 +10,11 @@ import ServiceResult from '@/components/services/ServiceResult'
 import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
-import { breadcrumb, faqPage, renderJsonLd, service } from '@/lib/jsonld'
+import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Custom Shopify Development Services | Miracle Websoft',
-  description: 'Expert custom Shopify development — bespoke themes, Shopify Plus builds, app integrations and migrations. 600+ projects delivered, sub-1.5s load time, fixed-price proposals. USA, UK, Australia.',
+  title: 'Custom Shopify Development for Faster, Higher-Converting Stores',
+  description: 'Custom Shopify development for merchants who need a faster, clearer, easier-to-manage store. Shopify builds, redesigns, Shopify Plus and integrations by Miracle Websoft.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/shopify/development' },
 }
 
@@ -132,7 +132,6 @@ const jsonLd = renderJsonLd([
     { name: 'Services', url: '/services' },
     { name: 'Custom Shopify Development', url: '/services/shopify/development' },
   ]),
-  faqPage(faqs),
 ])
 
 export default function ShopifyDevelopmentPage() {
@@ -148,10 +147,10 @@ export default function ShopifyDevelopmentPage() {
           <div className="max-w-3xl">
             <span className="mw-eyebrow">CUSTOM SHOPIFY DEVELOPMENT</span>
             <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>
-              Custom Shopify Stores Built to Convert — Not Templates, Not Shortcuts
+              Custom Shopify Stores Built to Sell, Scale and Stay Easy to Manage
             </h1>
             <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem', maxWidth: '580px', fontWeight: 300 }}>
-              600+ Shopify stores delivered across fashion, electronics, health, food and B2B. Every build is engineered around your brand, your product structure, and how your customers shop — not reverse-engineered from a theme store template.
+              If your store feels generic, loads slowly, limits your team or fails to turn traffic into orders, we build a Shopify experience around your customers, products and growth goals. Every decision is made for clearer buying, faster pages and easier day-to-day store management.
             </p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 mb-8">
               {['Custom theme, no templates', 'Sub-1.5s mobile load time', 'Shopify Plus capable', 'Fixed-price proposal'].map(t => (
@@ -162,10 +161,10 @@ export default function ShopifyDevelopmentPage() {
             </div>
             <div className="flex flex-wrap gap-3">
               <Link href="/contact" className="mw-btn-primary">
-                Contact Us <ArrowRight size={16} />
+                Get a Custom Shopify Quote <ArrowRight size={16} />
               </Link>
               <Link href="/work" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                See Our Work
+                See Shopify Work
               </Link>
             </div>
           </div>
@@ -179,7 +178,7 @@ export default function ShopifyDevelopmentPage() {
             {[
               { stat: '600+', label: 'Shopify projects' },
               { stat: '10+', label: 'Years on Shopify' },
-              { stat: '98%', label: 'Upwork job success' },
+              { stat: '98%+', label: 'Upwork job success' },
               { stat: '24h', label: 'Proposal turnaround' },
             ].map((s, i) => (
               <div key={i} style={{ background: '#080808', padding: '1.25rem 2rem', textAlign: 'center' }}>
@@ -247,8 +246,8 @@ export default function ShopifyDevelopmentPage() {
         <div className="mw-container">
           <div style={{ marginBottom: '2.5rem' }}>
             <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>What We Build</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>New stores, redesigns and Shopify Plus</h2>
-            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '520px', lineHeight: 1.7 }}>Whether you&apos;re launching from scratch, replacing a slow template, or scaling to enterprise — we&apos;ve built it.</p>
+            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>For launches, redesigns and serious Shopify growth</h2>
+            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '560px', lineHeight: 1.7 }}>Whether you are starting from zero, replacing a slow theme, or preparing for higher order volume, the goal is the same: a store that shoppers trust and your team can run confidently.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {buildTypes.map((type, i) => (
@@ -277,8 +276,8 @@ export default function ShopifyDevelopmentPage() {
         <div className="mw-container">
           <div style={{ marginBottom: '2.5rem' }}>
             <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>What&apos;s Included</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>Everything in every build</h2>
-            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '500px', lineHeight: 1.7 }}>Standard on every project — not optional extras you need to negotiate for.</p>
+            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>What every serious Shopify build should include</h2>
+            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '540px', lineHeight: 1.7 }}>The details below are not technical decoration. They are the foundation for a store that loads quickly, ranks properly, converts on mobile and stays flexible as the business grows.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl">
             {features.map((f, i) => (
@@ -296,8 +295,8 @@ export default function ShopifyDevelopmentPage() {
         <div className="mw-container">
           <div style={{ marginBottom: '2.5rem' }}>
             <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>Integrations</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>Your tech stack, connected properly</h2>
-            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '520px', lineHeight: 1.7 }}>We integrate with the tools your business runs on — not generic copy-paste connections, but proper implementations.</p>
+            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>Your store connected to the tools that run the business</h2>
+            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '540px', lineHeight: 1.7 }}>Email, reviews, fulfillment, support, ERP, analytics and payments should work together cleanly. We connect the stack so your team spends less time fighting systems and more time selling.</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             {integrations.map((item, i) => (
@@ -315,14 +314,15 @@ export default function ShopifyDevelopmentPage() {
         <div className="mw-container">
           <div style={{ marginBottom: '2.5rem' }}>
             <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>By Industry</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>Deep experience across every vertical</h2>
-            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '520px', lineHeight: 1.7 }}>Every industry has different buying journeys, product structures and technical requirements. We know them all.</p>
+            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>Build around how your customers actually buy</h2>
+            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '560px', lineHeight: 1.7 }}>Every industry has different buyer questions, product structures, trust signals and repeat-purchase patterns. We use that context when planning your Shopify store.</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {[
               { name: 'Fashion & Clothing', href: '/services/shopify/development#fashion', highlight: 'TikTok Shop, size guides, drops' },
               { name: 'Electronics', href: '/services/shopify/electronics', highlight: 'Spec comparison, B2B, high SKU' },
-              { name: 'Health & Beauty', href: '/services/shopify/health-beauty', highlight: 'Subscriptions, quiz funnels, loyalty' },
+              { name: 'Beauty & Cosmetics', href: '/services/shopify/beauty-cosmetics', highlight: 'Shade matching, subscriptions, quiz funnels' },
+              { name: 'Health & Wellness', href: '/services/shopify/health-wellness', highlight: 'Compliant claims, subscriptions, trust signals' },
               { name: 'Jewelry', href: '/services/shopify/jewelry', highlight: 'Engraving, ring sizers, luxury UX' },
               { name: 'Food & Beverage', href: '/services/shopify/food-beverage', highlight: 'Delivery, allergens, age gates' },
               { name: 'Home & Furniture', href: '/services/shopify/home-decor', highlight: 'Configurators, freight, swatches' },
@@ -345,9 +345,9 @@ export default function ShopifyDevelopmentPage() {
 
       {/* Mid-page CTA */}
       <MidPageCta
-        heading="Free store audit — we'll review your store and tell you what we'd build."
-        sub="Whether you're starting from scratch or rebuilding a live store, we'll give you a clear plan and fixed price before you commit to anything."
-        btnLabel="Contact Us"
+        heading="Free Shopify store review before you commit."
+        sub="Whether you are starting from scratch or rebuilding a live store, we will give you a clear plan and fixed price before you commit to anything."
+        btnLabel="Get My Store Review"
       />
 
       {/* Guarantees */}

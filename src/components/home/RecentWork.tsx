@@ -29,7 +29,7 @@ export default function RecentWork() {
               Recent Projects on Upwork
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.95rem' }}>
-              600+ completed · 99% Job Success · All verified
+              600+ completed · 98%+ Job Success · All verified
             </p>
           </div>
           <Link
@@ -74,7 +74,7 @@ export default function RecentWork() {
                 {/* Review */}
                 {job.review && (
                   <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.55, fontStyle: 'italic', marginBottom: '0.75rem' }}>
-                    "{job.review.length > 90 ? job.review.slice(0, 90) + '…' : job.review}"
+                    &ldquo;{job.review.length > 90 ? job.review.slice(0, 90) + '…' : job.review}&rdquo;
                   </p>
                 )}
 

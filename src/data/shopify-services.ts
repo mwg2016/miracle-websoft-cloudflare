@@ -77,8 +77,8 @@ const shopifyServices: ShopifyServiceData[] = [
         answer: 'We integrate with tax calculation platforms and can build duty estimators for international shipping. Shopify\'s built-in tax tools combined with apps like Avalara handle most needs; we advise on the right stack for your markets.',
       },
     ],
-    formHeading: 'Build your electronics store',
-    formSubtext: 'Tell us about your product catalogue and sales channels. We\'ll send you a tailored proposal within 24 hours.',
+    formHeading: 'Plan your electronics Shopify store',
+    formSubtext: 'Tell us about your catalogue, sales channels and biggest blockers. We will reply with a practical Shopify plan within 24 hours.',
   },
 
   {
@@ -142,8 +142,8 @@ const shopifyServices: ShopifyServiceData[] = [
         answer: 'Yes — bundle builders, "complete the routine" cross-sells, regimen kits and gift sets are core to beauty AOV. We build these as configurable bundles with discount logic that flows cleanly through to fulfilment.',
       },
     ],
-    formHeading: 'Build your beauty & cosmetics store',
-    formSubtext: 'Tell us about your brand, hero products and growth goals. We\'ll send you a tailored Shopify proposal within 24 hours.',
+    formHeading: 'Improve your beauty Shopify store',
+    formSubtext: 'Tell us about your brand, hero products and growth goals. We will reply with a tailored Shopify plan within 24 hours.',
   },
 
   {
@@ -207,8 +207,8 @@ const shopifyServices: ShopifyServiceData[] = [
         answer: 'Yes. We build Shopify Markets-based multi-region storefronts with country-specific compliance gating, tax handling and ingredient claim variations — so you can sell into the US, UK, EU, Australia and Canada without spinning up separate stores.',
       },
     ],
-    formHeading: 'Build your health & wellness store',
-    formSubtext: 'Tell us about your products, target markets and compliance setup. We\'ll send you a tailored Shopify proposal within 24 hours.',
+    formHeading: 'Plan your health & wellness Shopify store',
+    formSubtext: 'Tell us about your products, markets and compliance needs. We will reply with a practical Shopify plan within 24 hours.',
   },
 
   {
@@ -272,7 +272,7 @@ const shopifyServices: ShopifyServiceData[] = [
         answer: 'Yes. The tax treatment of precious metals and jewelry varies by country. We configure Shopify\'s tax rules correctly for your markets and integrate with specialist tax tools where needed.',
       },
     ],
-    formHeading: 'Build your jewelry store',
+    formHeading: 'Improve your jewelry Shopify store',
     formSubtext: 'Tell us about your brand and what you need. We\'ll send you a custom proposal within 24 hours.',
   },
 
@@ -337,7 +337,7 @@ const shopifyServices: ShopifyServiceData[] = [
         answer: 'Yes. We build corporate gift ordering — custom quantity pricing, personalised message cards, branded delivery packaging options, and PO/invoicing for business accounts.',
       },
     ],
-    formHeading: 'Build your food & beverage store',
+    formHeading: 'Plan your food & beverage Shopify store',
     formSubtext: 'Tell us about your products, channels and fulfilment setup. We\'ll send you a proposal within 24 hours.',
   },
 
@@ -402,7 +402,7 @@ const shopifyServices: ShopifyServiceData[] = [
         answer: 'Yes. We integrate Shopify with showroom POS systems, ERP platforms (NetSuite, SAP), and custom inventory and fulfilment systems via REST or GraphQL APIs.',
       },
     ],
-    formHeading: 'Build your home & furniture store',
+    formHeading: 'Improve your home & furniture Shopify store',
     formSubtext: 'Tell us about your product range and business goals. We\'ll send you a tailored proposal within 24 hours.',
   },
 
@@ -467,7 +467,7 @@ const shopifyServices: ShopifyServiceData[] = [
         answer: 'Yes. We integrate digital product delivery for training programmes, meal plans and guides — either via Shopify Digital Downloads or third-party platforms like Teachable or custom portals.',
       },
     ],
-    formHeading: 'Build your sports & fitness store',
+    formHeading: 'Plan your sports & fitness Shopify store',
     formSubtext: 'Tell us about your product range and audience. We\'ll send you a tailored Shopify proposal within 24 hours.',
   },
 
@@ -532,7 +532,7 @@ const shopifyServices: ShopifyServiceData[] = [
         answer: 'Yes. We integrate loyalty platforms (Smile.io, LoyaltyLion) with milestone rewards — first subscription, annual birthday rewards for their pet, referral bonuses — tailored to the long-term nature of the pet customer relationship.',
       },
     ],
-    formHeading: 'Build your pet supply store',
+    formHeading: 'Improve your pet supply Shopify store',
     formSubtext: 'Tell us about your products and customer base. We\'ll send you a custom Shopify proposal within 24 hours.',
   },
 
@@ -597,7 +597,7 @@ const shopifyServices: ShopifyServiceData[] = [
         answer: 'Women\'s clothing and boutiques, activewear and athleisure, streetwear, sustainable fashion, gym wear, yoga and wellness apparel, kids\' clothing, plus-size and inclusive fashion, sportswear, menswear, occasion and luxury wear, and multi-brand online boutiques. Each has a dedicated industry page with specific pain points and case studies.',
       },
     ],
-    formHeading: 'Build your fashion store',
+    formHeading: 'Improve your fashion Shopify store',
     formSubtext: 'Tell us about your brand, channels and growth goals. We\'ll send you a tailored Shopify proposal within 24 hours.',
   },
 
@@ -662,7 +662,7 @@ const shopifyServices: ShopifyServiceData[] = [
         answer: 'A focused B2B-only build typically runs 8–12 weeks. A combined B2B + DTC build with ERP integration runs 12–20 weeks depending on integration complexity. We provide a fixed-price proposal with a phased delivery plan before any work begins.',
       },
     ],
-    formHeading: 'Build your B2B Shopify store',
+    formHeading: 'Plan your B2B Shopify store',
     formSubtext: 'Tell us about your buyers, pricing structure and integrations. We\'ll send you a fixed-price Shopify Plus proposal within 24 hours.',
   },
 
@@ -727,7 +727,7 @@ const shopifyServices: ShopifyServiceData[] = [
         answer: 'Yes. We build build-a-box configurators (where subscribers choose their items each cycle) and curated box experiences (where you ship a themed selection). Both work on Shopify with the right subscription app and custom storefront logic.',
       },
     ],
-    formHeading: 'Build your subscription store',
+    formHeading: 'Improve your subscription Shopify store',
     formSubtext: 'Tell us about your product, current platform and subscriber goals. We\'ll send you a tailored Shopify proposal within 24 hours.',
   },
 
@@ -792,7 +792,7 @@ const shopifyServices: ShopifyServiceData[] = [
         answer: 'Yes. For brands using multiple POD suppliers (e.g. Printful for apparel, Gelato for posters), we build order routing logic that splits multi-product orders to the right supplier automatically, with combined customer-facing tracking.',
       },
     ],
-    formHeading: 'Build your print on demand store',
+    formHeading: 'Plan your print-on-demand Shopify store',
     formSubtext: 'Tell us about your suppliers, catalogue size and personalisation needs. We\'ll send you a tailored Shopify proposal within 24 hours.',
   },
 ]

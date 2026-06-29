@@ -8,11 +8,14 @@ const UPWORK_FREELANCER = outboundHref('upwork', 'https://www.upwork.com/freelan
 export const metadata: Metadata = {
   title: 'Verified Shopify Work History — 600+ Projects | Miracle Websoft',
   description:
-    'Browse 600+ verified Shopify projects by Miracle Websoft on Upwork. Store builds, migrations, Shopify Plus checkout, custom features, speed & CRO — all delivered with a 99% job success score.',
+    'Browse 600+ verified Shopify projects by Miracle Websoft on Upwork. Store builds, migrations, Shopify Plus checkout, custom features, speed & CRO — all delivered with a 98%+ job success score.',
   openGraph: {
     title: 'Verified Shopify Work History — 600+ Projects | Miracle Websoft',
-    description: '600+ Shopify projects verified on Upwork. 99% Job Success · Top Rated Plus · Shopify Verified Partner.',
+    description: '600+ Shopify projects verified on Upwork. 98%+ Job Success · Top Rated Plus · Shopify Verified Partner.',
+    url: 'https://miraclewebsoft.com/work',
+    type: 'website',
   },
+  alternates: { canonical: 'https://miraclewebsoft.com/work' },
 }
 
 // AEO / structured data
@@ -37,7 +40,7 @@ function JsonLd() {
       {
         '@type': 'LocalBusiness',
         name: 'Miracle Websoft',
-        description: 'Shopify development agency specialising in fashion and ecommerce brands. 600+ projects, 99% job success, Top Rated Plus on Upwork.',
+        description: 'Shopify development agency specialising in fashion and ecommerce brands. 600+ projects, 98%+ job success, Top Rated Plus on Upwork.',
         aggregateRating: {
           '@type': 'AggregateRating',
           ratingValue: '5.0',
@@ -80,7 +83,7 @@ export default function WorkPage() {
   return (
     <>
       <JsonLd />
-      <main style={{ background: '#0a0a0a', minHeight: '100vh' }}>
+      <div style={{ background: '#0a0a0a', minHeight: '100vh' }}>
 
         {/* Hero */}
         <section className="relative overflow-hidden" style={{ paddingTop: '7rem', paddingBottom: '4rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
@@ -101,14 +104,14 @@ export default function WorkPage() {
             </h1>
 
             <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 'clamp(1rem,2vw,1.15rem)', maxWidth: '580px', lineHeight: 1.8, marginBottom: '2.5rem', fontWeight: 300 }}>
-              A verified work history of Shopify store builds, migrations, custom features, Shopify Plus development, and ongoing support engagements — all completed through Upwork with a 99% job success score.
+              A verified work history of Shopify store builds, migrations, custom features, Shopify Plus development, and ongoing support engagements — all completed through Upwork with a 98%+ job success score.
             </p>
 
             {/* Stats row */}
             <div className="flex flex-wrap gap-8 mb-8">
               {[
                 { value: '600+', label: 'Projects Delivered' },
-                { value: '99%',  label: 'Job Success Score' },
+                { value: '98%+',  label: 'Job Success Score' },
                 { value: '10+',  label: 'Years Experience' },
                 { value: '5.0',  label: 'Avg. Client Rating' },
               ].map(({ value, label }) => (
@@ -188,10 +191,10 @@ export default function WorkPage() {
                 Join 600+ brands who trusted Miracle Websoft with their Shopify store. Book a free 30-minute strategy call — no commitment required.
               </p>
               <a href="/contact" className="mw-btn-primary inline-flex text-sm px-8 py-4">
-                Contact Us →
+                Get Free Store Review →
               </a>
               <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '1rem', marginBottom: '1.25rem' }}>
-                99% Job Success · Top Rated Plus on Upwork · Response within 4–8 hrs
+                98%+ Job Success · Top Rated Plus on Upwork · Response within 4–8 hrs
               </p>
               <a
                 href={UPWORK_FREELANCER}
@@ -207,7 +210,7 @@ export default function WorkPage() {
           </div>
         </section>
 
-      </main>
+      </div>
     </>
   )
 }

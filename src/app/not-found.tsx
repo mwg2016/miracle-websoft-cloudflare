@@ -16,7 +16,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link href="/" className="mw-btn-primary text-base px-8 py-4">Back to Home</Link>
           <Link href="/contact" className="mw-btn-outline text-base px-8 py-4" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-            Contact Us <ArrowRight size={16} />
+            Get Store Review <ArrowRight size={16} />
           </Link>
         </div>
         <div style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>

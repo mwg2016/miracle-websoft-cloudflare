@@ -19,7 +19,7 @@ const testimonials = [
     href: outboundHref('linkedin', 'https://in.linkedin.com/company/shopify-experts-miracle-websoft'),
   },
   {
-    quote: 'Top Rated Plus on Upwork — top 3% globally. 600+ jobs completed. 98% job success score. $500K+ earned. Our track record speaks for itself.',
+    quote: 'Top Rated Plus on Upwork — top 3% globally. 600+ jobs completed. 98%+ job success score. $500K+ earned. Our track record speaks for itself.',
     name: 'Miracle Websoft',
     source: 'Upwork Agency Profile',
     href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/'),
@@ -34,7 +34,7 @@ export default function Testimonials() {
         <div className="mb-10">
           <p className="mw-eyebrow">Client Reviews</p>
           <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(28px,4vw,44px)', lineHeight: 1.15 }}>
-            Trusted by brands<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>worldwide.</em>
+            Proof from merchants<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>who needed results.</em>
           </h2>
         </div>
         {/* Founder intro video — featured */}
@@ -106,7 +106,7 @@ export default function Testimonials() {
           ))}
         </div>
         <div className="flex flex-wrap gap-3">
-          <Link href="/work" className="mw-btn-outline" style={{ fontSize: '0.875rem', padding: '0.65rem 1.5rem' }}>View our work</Link>
+          <Link href="/work" className="mw-btn-outline" style={{ fontSize: '0.875rem', padding: '0.65rem 1.5rem' }}>View Shopify project examples</Link>
           <a href={outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/')} target="_blank" rel="noopener noreferrer" className="mw-btn-outline" style={{ fontSize: '0.875rem', padding: '0.65rem 1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
             See all Upwork reviews <ExternalLink size={13} />
           </a>

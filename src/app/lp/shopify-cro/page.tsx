@@ -80,7 +80,7 @@ const faqs = [
   {
     question: 'What does it cost?',
     answer:
-      'Fixed-price quotes — no hourly billing. A targeted speed + quick-win CRO sprint starts at $1,500. A full 90-day CRO program with PDP/checkout rebuild, A/B testing and monthly reporting starts around $4,500. We quote your exact scope after the free audit.',
+      'Fixed-price quotes — no hourly billing. A targeted speed + quick-win CRO sprint starts at $1,500. A full 90-day CRO program with PDP/checkout rebuild, A/B testing and monthly reporting starts around $4,500. We quote your exact scope after the free store review.',
   },
   {
     question: 'Why should I trust Miracle Websoft over a generic agency?',
@@ -405,7 +405,7 @@ export default function ShopifyCROLandingPage() {
 
               <div className="flex flex-wrap gap-3 items-center">
                 <a href="#lead-form" className="mw-btn-primary" style={{ background: '#10B981', borderColor: '#10B981', color: '#fff' }}>
-                  Contact Us <ArrowRight size={16} />
+                  Get My Free CRO Review <ArrowRight size={16} />
                 </a>
                 <a href="#process" className="mw-btn-outline">
                   See the process
@@ -552,7 +552,7 @@ export default function ShopifyCROLandingPage() {
                       gap: '0.35rem',
                     }}
                   >
-                    Contact Us <ArrowRight size={13} />
+                    Get a CRO Review <ArrowRight size={13} />
                   </a>
                 </div>
               )
@@ -641,7 +641,7 @@ export default function ShopifyCROLandingPage() {
                 Stop sending paid traffic to a leaky store.
               </h3>
               <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.94rem', maxWidth: '560px' }}>
-                Free audit, written by a senior Shopify dev, in 48 hours. No card. No sales call required.
+                Free store review focused on speed, buyer friction and revenue leaks. No card. No sales pressure.
               </p>
             </div>
             <a
@@ -649,7 +649,7 @@ export default function ShopifyCROLandingPage() {
               className="mw-btn-primary shrink-0"
               style={{ background: '#10B981', borderColor: '#10B981', color: '#fff' }}
             >
-              Contact Us <ArrowRight size={16} />
+              Get My Free CRO Review <ArrowRight size={16} />
             </a>
           </div>
         </div>
@@ -1141,7 +1141,7 @@ export default function ShopifyCROLandingPage() {
               className="mw-btn-primary"
               style={{ background: '#fff', color: '#064E3B', borderColor: '#fff' }}
             >
-              Contact Us <ArrowRight size={16} />
+              Get My Free CRO Review <ArrowRight size={16} />
             </a>
             <Link href="/work" className="mw-btn-outline">
               See our work

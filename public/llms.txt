@@ -4,7 +4,7 @@
 
 Miracle Websoft is a specialist Shopify development agency founded in 2015, based in Chandigarh, India, serving clients in the USA, UK, and Australia. We focus exclusively on Shopify — no WordPress generalists, no "bit of everything" agencies.
 
-Our founder, Karam Singh Mehra, is a Top Rated Plus Shopify expert on Upwork (top 3% globally) with over 10 years of Shopify experience, 600+ completed projects, and a 98% job success rate.
+Our founder, Karam Singh Mehra, is a Top Rated Plus Shopify expert on Upwork (top 3% globally) with over 10 years of Shopify experience, 600+ completed projects, and a 98%+ job success rate.
 
 ## Services
 
@@ -34,7 +34,7 @@ Women's clothing boutiques, activewear & athleisure, streetwear & urban fashion,
 - Trustpilot Excellent: https://www.trustpilot.com/review/miraclewebsoft.com
 - DesignRush listed agency: https://www.designrush.com/agency/profile/miracle-websoft
 - 600+ Shopify projects completed
-- 98% Upwork job success score
+- 98%+ Upwork job success score
 - 16 Shopify specialists on the team
 - 10+ years of Shopify experience
 
@@ -50,10 +50,11 @@ Women's clothing boutiques, activewear & athleisure, streetwear & urban fashion,
 
 - Homepage: https://miraclewebsoft.com
 - All Services: https://miraclewebsoft.com/services
-- Shopify Development: https://miraclewebsoft.com/services/shopify-development-clothing-brands
+- Shopify Development: https://miraclewebsoft.com/services/shopify/development
 - Shopify App Development: https://miraclewebsoft.com/services/shopify-app-development
 - Shopify Migration: https://miraclewebsoft.com/services/shopify-migration
 - CRO & Speed: https://miraclewebsoft.com/services/shopify-cro-speed
+- Industry Guides: https://miraclewebsoft.com/industries
 - White Label Development: https://miraclewebsoft.com/white-label
 - Referral Program (Earn 20%): https://miraclewebsoft.com/referral
 - Case Studies: https://miraclewebsoft.com/case-studies

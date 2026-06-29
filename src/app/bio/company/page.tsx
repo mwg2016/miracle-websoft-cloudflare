@@ -5,8 +5,8 @@ import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
 
 export const metadata: Metadata = {
-  title: 'Miracle Websoft — Shopify Agency for Fashion Brands',
-  description: 'Miracle Websoft is a Top Rated Plus Shopify agency specialising in clothing and fashion brands. 600+ projects, 98% job success, 16 team members.',
+  title: 'Miracle Websoft — Shopify Experts for Growing Stores',
+  description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 600+ projects, 98%+ job success, 16 team members.',
   alternates: { canonical: 'https://miraclewebsoft.com/bio/company' },
   robots: { index: true, follow: true },
 }
@@ -16,7 +16,7 @@ const PAYMENT_LINK = outboundHref('external', 'https://razorpay.com/export-link/
 
 const stats = [
   { value: '600+', label: 'Projects' },
-  { value: '98%', label: 'Success Rate' },
+  { value: '98%+', label: 'Success Rate' },
   { value: '10+', label: 'Years' },
   { value: '16', label: 'Specialists' },
 ]
@@ -153,7 +153,7 @@ const jsonLd = renderJsonLd([
   webPage({
     name: 'Miracle Websoft — Company bio',
     description:
-      'Miracle Websoft company profile — Top Rated Plus Shopify agency specialising in fashion brands. 600+ projects, 98% job success, 16 specialists.',
+      'Miracle Websoft company profile — Top Rated Plus Shopify agency for custom development, CRO, speed, apps and migrations. 600+ projects, 98%+ job success, 16 specialists.',
     url: 'https://miraclewebsoft.com/bio/company',
     type: 'AboutPage',
   }),
@@ -217,7 +217,7 @@ export default function CompanyBioPage() {
             Miracle Websoft
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', fontWeight: 300, marginBottom: '0.75rem' }}>
-            Fashion-focused Shopify development
+            Shopify development, CRO, speed, apps and migrations
           </p>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', color: 'rgba(255,255,255,0.25)', fontSize: '0.74rem', marginBottom: '1.5rem' }}>
             <MapPin size={11} />

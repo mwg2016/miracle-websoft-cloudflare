@@ -1,18 +1,18 @@
 import { Target, Zap, TrendingUp, ShieldCheck, Users, Sparkles } from 'lucide-react'
 
 const reasons = [
-  { icon: Target,      title: 'Shopify-only specialists', body: 'We do one thing — Shopify and Shopify Plus development. 10+ years, 600+ stores delivered across every ecommerce vertical.' },
-  { icon: Zap,         title: 'Performance-first',         body: 'Every store targets sub-1.5s mobile load times. Speed is the foundation of every decision we make.' },
-  { icon: TrendingUp,  title: 'Conversion built in',       body: 'CRO thinking is in every page layout, button placement and checkout flow — not an afterthought.' },
-  { icon: ShieldCheck, title: 'Zero-risk migrations',      body: 'Full product catalog, customer data, SEO URLs all preserved. Zero downtime, zero traffic loss — guaranteed.' },
-  { icon: Users,       title: 'Direct communication',      body: 'You work directly with the people building your store. No account managers, no handoffs.' },
-  { icon: Sparkles,    title: 'AI-augmented engineering',  body: 'We use the best AI tools alongside senior engineers to ship faster — without cutting corners on quality.' },
+  { icon: Target,      title: 'Shopify-specific judgment', body: 'You get advice from a team that has solved Shopify problems across 600+ projects, not a general web team learning on your store.' },
+  { icon: Zap,         title: 'Speed tied to revenue',      body: 'We treat load time as a sales problem. Faster pages reduce friction, improve mobile experience and support stronger SEO performance.' },
+  { icon: TrendingUp,  title: 'Conversion-first decisions', body: 'Every layout, app, product page and checkout improvement is judged by whether it helps customers understand, trust and buy.' },
+  { icon: ShieldCheck, title: 'Careful migration planning', body: 'Product data, customers, orders, redirects and tracking are mapped before launch so the move to Shopify does not disrupt sales.' },
+  { icon: Users,       title: 'Direct communication',       body: 'You work with the people responsible for the outcome. Clear updates, practical recommendations and no account-manager handoffs.' },
+  { icon: Sparkles,    title: 'Long-term store partner',    body: 'After launch, we can keep improving speed, features and conversion so your Shopify store continues to support growth.' },
 ]
 
 const stats = [
-  { value: '42%',  label: 'Average conversion rate uplift' },
-  { value: '1.2s', label: 'Median mobile LCP' },
-  { value: '31%',  label: 'Reduction in cart abandonment' },
+  { value: '42%',  label: 'Average conversion rate uplift reported across CRO work' },
+  { value: '1.2s', label: 'Median mobile LCP target achieved on optimized stores' },
+  { value: '31%',  label: 'Cart abandonment reduction reported after checkout fixes' },
   { value: '600+', label: 'Shopify projects shipped' },
 ]
 
@@ -30,8 +30,8 @@ export default function WhyUs() {
         <div className="mw-section-header">
           <span className="mw-eyebrow">/08 — Why Miracle Websoft</span>
           <h2 style={{ color: '#fff' }}>
-            Not a generic web shop.<br />
-            <span className="mw-italic mw-italic--accent">A Shopify specialist.</span>
+            A Shopify expert who<br />
+            <span className="mw-italic mw-italic--accent">thinks like a growth partner.</span>
           </h2>
         </div>
 

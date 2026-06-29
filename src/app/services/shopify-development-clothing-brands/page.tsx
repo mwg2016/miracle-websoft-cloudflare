@@ -10,7 +10,7 @@ import ServiceResult from '@/components/services/ServiceResult'
 import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
-import { breadcrumb, faqPage, renderJsonLd, service } from '@/lib/jsonld'
+import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Custom Shopify Development for Clothing Brands | Miracle Websoft',
@@ -82,7 +82,6 @@ const jsonLd = renderJsonLd([
     { name: 'Services', url: '/services' },
     { name: 'Shopify for Clothing Brands', url: '/services/shopify-development-clothing-brands' },
   ]),
-  faqPage(faqs),
 ])
 
 export default function ShopifyDevelopmentPage() {
@@ -109,7 +108,7 @@ export default function ShopifyDevelopmentPage() {
               ))}
             </div>
             <Link href="/contact" className="mw-btn-primary">
-              Contact Us <ArrowRight size={16} />
+              Get a Fashion Store Review <ArrowRight size={16} />
             </Link>
           </div>
         </div>
@@ -140,7 +139,7 @@ export default function ShopifyDevelopmentPage() {
       <section style={{ paddingTop: '4rem', paddingBottom: '4rem', borderTop: '1px solid rgba(255,255,255,0.06)', marginTop: '3rem' }}>
         <div className="mw-container">
           <div style={{ marginBottom: '2.5rem' }}>
-            <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>What's Included</p>
+            <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>What&apos;s Included</p>
             <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>Everything in every build</h2>
             <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '500px', lineHeight: 1.7 }}>Standard across every project — not optional extras.</p>
           </div>

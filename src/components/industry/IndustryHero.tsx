@@ -17,10 +17,10 @@ export default function IndustryHero({ industry }: Props) {
           <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 'clamp(1rem,1.8vw,1.15rem)', lineHeight: 1.8, maxWidth: '580px', marginBottom: '2.5rem', fontWeight: 300 }}>{industry.subtext}</p>
           <div className="flex flex-wrap gap-3">
             <Link href="/contact" className="mw-btn-primary text-sm px-7 py-3.5">
-              Contact Us <ArrowRight size={15} />
+              Get Free Store Review <ArrowRight size={15} />
             </Link>
             <Link href="/work" className="mw-btn-outline text-sm px-7 py-3.5">
-              View Our Work
+              View Shopify Work
             </Link>
           </div>
         </div>

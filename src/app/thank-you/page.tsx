@@ -79,9 +79,9 @@ const DEFAULT: typeof COPY[FormKey] = {
 }
 
 const EXPLORE = [
-  { icon: Briefcase, eyebrow: 'See our work', title: 'Case studies', desc: 'Real Shopify builds, migrations and CRO wins from clothing & fashion brands.', href: '/case-studies', accent: '#6C63FF' },
+  { icon: Briefcase, eyebrow: 'See our work', title: 'Case studies', desc: 'Real Shopify builds, migrations and CRO wins from stores across multiple categories.', href: '/case-studies', accent: '#6C63FF' },
   { icon: Sparkles, eyebrow: 'What we do', title: 'Services', desc: 'Custom development, app builds, migrations, CRO & speed work.', href: '/services', accent: '#10B981' },
-  { icon: BookOpen, eyebrow: 'Read & learn', title: 'Blog', desc: 'Shopify guides, fashion eCommerce playbooks and dev deep dives.', href: '/blog', accent: '#F59E0B' },
+  { icon: BookOpen, eyebrow: 'Read & learn', title: 'Blog', desc: 'Shopify CRO, speed, migration and development guides for store owners.', href: '/blog', accent: '#F59E0B' },
   { icon: Wrench, eyebrow: 'Free tool', title: 'PC Builder', desc: 'A working demo of a custom Shopify product configurator.', href: '/tools/pc-builder', accent: '#EC4899' },
 ]
 
