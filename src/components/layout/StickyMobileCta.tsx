@@ -48,14 +48,14 @@ export default function StickyMobileCta() {
     >
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ fontSize: '0.68rem', fontFamily: 'var(--font-geist-mono), monospace', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-4)', lineHeight: 1, marginBottom: 2 }}>
-          Free store review
+          Free consultation
         </div>
         <div style={{ fontSize: '0.86rem', color: '#fff', fontWeight: 600, lineHeight: 1.15, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-          Improve my Shopify store
+          Improve my growth system
         </div>
       </div>
       <a
-        href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%20Karam%2C%20how%20are%20you%3F%20I%20need%20help%20with%20Shopify.')}
+        href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%20Karam%2C%20how%20are%20you%3F%20I%20need%20help%20with%20my%20website%20or%20AI%20automation.')}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp us"

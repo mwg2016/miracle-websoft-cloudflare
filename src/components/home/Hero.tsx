@@ -1,17 +1,24 @@
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, MessageCircle, Sparkles, Star } from 'lucide-react'
 
-const storeProblems = [
-  'Slow mobile store',
-  'Traffic but few sales',
-  'Messy apps or theme',
-  'Migration to Shopify',
+const businessProblems = [
+  'Low conversion from paid traffic',
+  'Slow Shopify or web app performance',
+  'Manual operations ready for AI',
+  'Custom features no app can handle',
 ]
 
-const reviewSteps = [
-  'Send your store URL and tell us what feels stuck.',
-  'Karam reviews speed, product pages, apps and checkout friction.',
-  'You get clear next steps, even if you only need small fixes.',
+const consultationSteps = [
+  'Send your store, website or workflow challenge.',
+  'Karam reviews the growth, technical and automation opportunities.',
+  'You get a practical roadmap with clear priorities and fixed-price next steps.',
+]
+
+const heroStats = [
+  { value: '650+', label: 'projects completed' },
+  { value: '15k+', label: 'hours delivered' },
+  { value: '10+', label: 'years experience' },
+  { value: '24h', label: 'fast support' },
 ]
 
 export default function Hero() {
@@ -42,7 +49,7 @@ export default function Hero() {
           <div>
             <div className="mw-rise mw-rise-1" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.55rem', marginBottom: '1.35rem', padding: '0.42rem 0.8rem', borderRadius: '999px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
               <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#10B981', boxShadow: '0 0 16px rgba(16,185,129,0.75)' }} />
-              <span style={{ color: 'rgba(255,255,255,0.74)', fontSize: '0.76rem', fontWeight: 600 }}>Friendly Shopify help from Karam and team</span>
+              <span style={{ color: 'rgba(255,255,255,0.74)', fontSize: '0.76rem', fontWeight: 600 }}>Ecommerce growth, Shopify engineering and AI automation</span>
             </div>
 
             <h1
@@ -54,9 +61,9 @@ export default function Hero() {
                 maxWidth: '760px',
               }}
             >
-              Your Shopify store<br />
-              should feel easy<br />
-              <span className="mw-italic mw-italic--accent">to buy from.</span>
+              Build faster stores,<br />
+              stronger funnels and<br />
+              <span className="mw-italic mw-italic--accent">smarter operations.</span>
             </h1>
 
             <p
@@ -70,11 +77,11 @@ export default function Hero() {
                 fontWeight: 400,
               }}
             >
-              If your site is slow, confusing on mobile, hard to update, or getting visitors who do not buy, we will help you understand what is wrong and what to fix first. No pressure, no confusing tech talk, just practical Shopify advice.
+              Miracle Websoft helps ecommerce brands and growing businesses turn websites, Shopify stores and internal workflows into measurable growth systems. We combine Shopify development, CRO, performance engineering, custom web apps and AI automation under one technical partner.
             </p>
 
             <div className="mw-rise mw-rise-4" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.45rem' }}>
-              {storeProblems.map((problem) => (
+              {businessProblems.map((problem) => (
                 <span key={problem} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.48rem 0.72rem', borderRadius: '999px', background: 'rgba(255,255,255,0.055)', border: '1px solid rgba(255,255,255,0.09)', color: 'rgba(255,255,255,0.72)', fontSize: '0.8rem', lineHeight: 1 }}>
                   <CheckCircle2 size={13} style={{ color: '#10B981' }} />
                   {problem}
@@ -84,14 +91,14 @@ export default function Hero() {
 
             <div className="mw-rise mw-rise-4" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1rem' }}>
               <Link href="/contact" className="mw-btn-primary" style={{ fontSize: '0.95rem', padding: '1.05rem 1.85rem' }}>
-                Get a Free Store Review <ArrowRight size={16} />
+                Book Free Consultation <ArrowRight size={16} />
               </Link>
               <Link href="/work" className="mw-btn-outline" style={{ fontSize: '0.95rem', padding: '1.05rem 1.85rem' }}>
-                See Recent Shopify Work
+                View Our Work
               </Link>
             </div>
             <p className="mw-rise mw-rise-5" style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.48)', lineHeight: 1.6 }}>
-              You will hear back within 24 hours with honest next steps. If your store only needs a few quick fixes, we will tell you that.
+              Serving ecommerce brands and SMBs in the United States, Canada, United Kingdom, Australia and Europe.
             </p>
           </div>
 
@@ -117,7 +124,7 @@ export default function Hero() {
                     <Sparkles size={13} style={{ color: '#FBBF24' }} />
                   </div>
                   <p style={{ color: 'rgba(255,255,255,0.56)', fontSize: '0.78rem', lineHeight: 1.45 }}>
-                    Founder & Shopify expert. Replies personally.
+                    Founder. Ecommerce growth and AI technology partner.
                   </p>
                 </div>
               </div>
@@ -136,7 +143,7 @@ export default function Hero() {
                   What happens next
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.72rem' }}>
-                  {reviewSteps.map((step, i) => (
+                  {consultationSteps.map((step, i) => (
                     <div key={step} style={{ display: 'flex', gap: '0.65rem', alignItems: 'flex-start' }}>
                       <span style={{ width: 22, height: 22, borderRadius: '50%', background: 'rgba(16,185,129,0.13)', color: '#10B981', border: '1px solid rgba(16,185,129,0.25)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '0.68rem', fontWeight: 800 }}>
                         {i + 1}
@@ -148,27 +155,24 @@ export default function Hero() {
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem', marginBottom: '1rem' }}>
-                {[
-                  { v: '600+', l: 'Shopify projects' },
-                  { v: '98%+', l: 'Job success' },
-                ].map((s) => (
-                  <div key={s.l} style={{ padding: '0.85rem', borderRadius: '12px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                    <div style={{ color: '#fff', fontWeight: 800, fontSize: '1.15rem', lineHeight: 1 }}>{s.v}</div>
-                    <div style={{ color: 'rgba(255,255,255,0.48)', fontSize: '0.7rem', marginTop: '0.22rem' }}>{s.l}</div>
+                {heroStats.map((s) => (
+                  <div key={s.label} style={{ padding: '0.85rem', borderRadius: '12px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                    <div style={{ color: '#fff', fontWeight: 800, fontSize: '1.15rem', lineHeight: 1 }}>{s.value}</div>
+                    <div style={{ color: 'rgba(255,255,255,0.48)', fontSize: '0.7rem', marginTop: '0.22rem' }}>{s.label}</div>
                   </div>
                 ))}
               </div>
 
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
-                <span className="mw-pill mw-pill--accent" style={{ fontSize: '0.7rem', padding: '0.34rem 0.65rem' }}>Shopify Verified Partner</span>
-                <span className="mw-pill" style={{ fontSize: '0.7rem', padding: '0.34rem 0.65rem', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><MessageCircle size={11} /> Direct reply</span>
+                <span className="mw-pill mw-pill--accent" style={{ fontSize: '0.7rem', padding: '0.34rem 0.65rem' }}>Top Rated Shopify Experts</span>
+                <span className="mw-pill" style={{ fontSize: '0.7rem', padding: '0.34rem 0.65rem', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><MessageCircle size={11} /> Global clients</span>
               </div>
             </div>
           </aside>
         </div>
 
         <div className="mw-rise mw-rise-6 hero-trust-row" style={{ marginTop: '2.2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '1rem' }}>
-          <span style={{ color: 'rgba(255,255,255,0.48)', fontSize: '0.78rem' }}>Serving Shopify merchants in the USA, UK, Australia and worldwide</span>
+          <span style={{ color: 'rgba(255,255,255,0.48)', fontSize: '0.78rem' }}>Shopify development · CRO · speed optimization · AI automation · custom web apps</span>
           <span style={{ color: 'rgba(255,255,255,0.48)', fontSize: '0.78rem' }}>No hard sell. Just clear next steps.</span>
         </div>
       </div>

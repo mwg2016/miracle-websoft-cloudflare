@@ -5,9 +5,10 @@ import { partners } from '@/data/partners'
 import { industries } from '@/data/industries'
 import { blogPosts } from '@/data/blogPosts'
 import shopifyServices from '@/data/shopify-services'
+import { aiServices } from '@/data/ai-services'
 
 const BASE = 'https://miraclewebsoft.com'
-const LAST_MODIFIED = new Date('2026-06-29')
+const LAST_MODIFIED = new Date('2026-07-09')
 const shopifyServiceSlugs = ['development', ...shopifyServices.map((service) => service.slug)]
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -20,15 +21,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/services`,                                            priority: 0.9,  changeFrequency: 'monthly' as const },
 
     // ── Tier 2: Core service pages ───────────────────────────────────────────
+    { url: `${BASE}/services/ai`,                                         priority: 0.92, changeFrequency: 'monthly' as const },
+    { url: `${BASE}/services/shopify`,                                    priority: 0.92, changeFrequency: 'monthly' as const },
     { url: `${BASE}/services/shopify/development`,        priority: 0.9,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/services/shopify-app-development`,                    priority: 0.9,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/services/shopify-migration`,                          priority: 0.9,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/services/conversion-rate-optimization`,                priority: 0.9,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/services/shopify-speed-optimization`,                  priority: 0.9,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/services/shopify-cro-speed`,                          priority: 0.9,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/services/wordpress-development`,                      priority: 0.7,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/services/custom-web-development`,                     priority: 0.7,  changeFrequency: 'monthly' as const },
 
     // ── Tier 3: Company & content ────────────────────────────────────────────
     { url: `${BASE}/about`,                                               priority: 0.8,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/resources`,                                           priority: 0.8,  changeFrequency: 'weekly'  as const },
     { url: `${BASE}/blog`,                                                priority: 0.8,  changeFrequency: 'weekly'  as const },
     { url: `${BASE}/careers`,                                             priority: 0.6,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/tools`,                                               priority: 0.7,  changeFrequency: 'monthly' as const },
@@ -54,6 +60,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const shopifyServicePages: MetadataRoute.Sitemap = shopifyServiceSlugs.map(slug => ({
     url: `${BASE}/services/shopify/${slug}`,
     priority: 0.75,
+    changeFrequency: 'monthly' as const,
+    lastModified: LAST_MODIFIED,
+  }))
+
+  const aiServicePages: MetadataRoute.Sitemap = aiServices.map(service => ({
+    url: `${BASE}/services/ai/${service.slug}`,
+    priority: 0.8,
     changeFrequency: 'monthly' as const,
     lastModified: LAST_MODIFIED,
   }))
@@ -108,6 +121,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...core.map(p => ({ ...p, lastModified: LAST_MODIFIED })),
     ...shopifyServicePages,
+    ...aiServicePages,
     ...industryPages,
     ...blogPages,
     ...workIndex,

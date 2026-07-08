@@ -12,21 +12,32 @@ import { clientVideos } from '@/data/videos'
 
 const contactFaqs = [
   { question: 'How do I get started with Miracle Websoft?', answer: 'Fill in the contact form or message us on WhatsApp. We reply within 24 hours. If your project is a good fit, we schedule a 30-minute discovery call, then send a detailed proposal with clear scope, timeline, and fixed pricing. No vague estimates.' },
-  { question: 'What is included in the free Shopify store review?', answer: 'A practical review of your Shopify store covering page speed, mobile buying experience, conversion blockers, product page clarity, checkout friction, app bloat and SEO health. You get specific, prioritized recommendations in plain English.' },
+  { question: 'What is included in the free consultation?', answer: 'A practical review of your Shopify store, website, AI automation idea or custom software need. We look for the clearest business blocker, likely scope and next steps before recommending paid work.' },
   { question: 'Do you work on a fixed price or hourly basis?', answer: 'Fixed price on all projects. We send a detailed proposal before any work begins. You know exactly what you are paying before we start. No hourly billing, no surprise invoices.' },
   { question: 'How long does it take to get a proposal?', answer: 'After our discovery call, we typically send a full proposal within 2–3 business days. For smaller projects or straightforward audits, it is often the same day.' },
   { question: 'Do you sign NDAs?', answer: 'Yes. We sign NDAs on request before any discovery or audit work begins. All client information is treated as strictly confidential.' },
-  { question: 'Do you work with brands outside the USA/UK/Australia?', answer: 'Yes. Those are our primary markets, but we work with Shopify merchants worldwide. All communication is in English. If your store sells internationally and you need Shopify Markets, multi-currency, localization or cross-border setup, that is something we handle regularly.' },
+  { question: 'Do you work with brands outside the USA/UK/Australia?', answer: 'Yes. Our primary markets are the United States, Canada, United Kingdom, Australia and Europe. All communication is in English, and we work across time zones.' },
 ]
 
 export const metadata: Metadata = {
-  title: 'Get a Free Shopify Store Review | Contact Miracle Websoft',
-  description: 'Tell us what is not working in your Shopify store. Get a practical review and fixed-price next steps from Miracle Websoft, a Top Rated Plus Shopify agency.',
+  title: 'Book a Free Consultation | Contact Miracle Websoft',
+  description: 'Tell us what is not working in your Shopify store, website, AI workflow or custom software project. Get practical fixed-price next steps from Miracle Websoft.',
   alternates: { canonical: 'https://miraclewebsoft.com/contact' },
+  openGraph: {
+    title: 'Book a Free Consultation | Miracle Websoft',
+    description: 'Shopify development, CRO, speed optimization, AI automation and custom web development consultation.',
+    url: 'https://miraclewebsoft.com/contact',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Book a Free Consultation | Miracle Websoft',
+    description: 'Get practical next steps for Shopify, CRO, speed, AI automation or custom web development.',
+  },
 }
 
-const WHATSAPP_URL = outboundHref('whatsapp', `https://wa.me/916239269736?text=${encodeURIComponent('Hi Karam, how are you? I need help with Shopify.')}`)
-const EMAIL_URL = outboundHref('email', 'mailto:karam@miraclewebsoft.com?subject=Shopify%20help')
+const WHATSAPP_URL = outboundHref('whatsapp', `https://wa.me/916239269736?text=${encodeURIComponent('Hi Karam, how are you? I need help with Shopify, AI automation or a website project.')}`)
+const EMAIL_URL = outboundHref('email', 'mailto:karam@miraclewebsoft.com?subject=Project%20consultation')
 const LINKEDIN_URL = outboundHref('linkedin', 'https://www.linkedin.com/in/ecommerce-experts/')
 
 const auditItems = [
@@ -68,9 +79,9 @@ const platforms = [
 
 const jsonLd = renderJsonLd([
   webPage({
-    name: 'Contact Miracle Websoft — Free Shopify store review',
+    name: 'Contact Miracle Websoft - free consultation',
     description:
-      'Get a free Shopify store review. We identify what is costing sales and show you the clearest path to fix it. Response within 24 hours.',
+      'Book a free consultation for Shopify development, CRO, speed optimization, AI automation or custom web development. Response within 24 hours.',
     url: 'https://miraclewebsoft.com/contact',
     type: 'ContactPage',
   }),
@@ -93,11 +104,11 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
           {/* Top bar — quick trust strip */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-12" style={{ paddingBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
             {[
-              { val: '600+', label: 'Shopify projects' },
-              { val: '98%+', label: 'Job success on Upwork' },
+              { val: '650+', label: 'Projects completed' },
+              { val: '15k+', label: 'Hours delivered' },
               { val: 'Top 3%', label: 'Globally on Upwork' },
               { val: '< 24 h', label: 'Response time' },
-              { val: '10+', label: 'Years on Shopify' },
+              { val: '10+', label: 'Years experience' },
             ].map(s => (
               <div key={s.label} className="flex items-baseline gap-1.5">
                 <span style={{ fontFamily: 'var(--font-playfair),Georgia,serif', fontSize: '1.15rem', fontWeight: 700, color: '#fff' }}>{s.val}</span>
@@ -136,12 +147,12 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                 </>
               ) : (
                 <>
-                  <span className="mw-eyebrow">Get a Shopify expert&apos;s view</span>
+                  <span className="mw-eyebrow">Get a practical expert view</span>
                   <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(30px,4.5vw,52px)', lineHeight: 1.1, marginBottom: '1rem' }}>
                     Tell us what is not working —<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>we&apos;ll show you what to fix.</em>
                   </h1>
                   <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2rem', fontWeight: 300, maxWidth: '500px' }}>
-                    Whether you need more conversions, a faster store, a safer migration, a custom feature or a full rebuild, tell Karam what is happening and he will reply personally with clear next steps. No pressure, no generic sales pitch.
+                    Whether you need more conversions, a faster store, AI automation, a custom web application or a full rebuild, tell Karam what is happening and he will reply personally with clear next steps. No pressure, no generic sales pitch.
                   </p>
                 </>
               )}
@@ -255,7 +266,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
                     <span style={{ fontWeight: 800, color: 'var(--accent)', fontSize: '1.1rem' }}>K</span>
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>{plan ? `Confirm your ${plan.name} plan` : 'Request your Shopify plan'}</div>
+                    <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>{plan ? `Confirm your ${plan.name} plan` : 'Request your project plan'}</div>
                     <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>Founder · replies personally within 24 h</div>
                   </div>
                 </div>

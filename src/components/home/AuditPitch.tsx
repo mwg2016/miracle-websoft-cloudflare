@@ -1,13 +1,13 @@
 import Link from 'next/link'
-import { ArrowRight, Zap, ShoppingCart, Search, BarChart2, Smartphone, Lock } from 'lucide-react'
+import { ArrowRight, Bot, Code2, Search, BarChart2, Smartphone, Zap } from 'lucide-react'
 
 const checks = [
-  { icon: Zap,        title: 'Speed & Core Web Vitals',  body: 'Why your store feels slow on mobile, what affects rankings, and which fixes matter first.' },
-  { icon: Smartphone, title: 'Mobile buying experience', body: 'Where shoppers struggle to browse, compare, add to cart or complete checkout on a phone.' },
-  { icon: ShoppingCart, title: 'Cart & checkout flow',    body: 'The friction points causing shoppers to abandon, with a practical plan to reduce drop-off.' },
-  { icon: Search,     title: 'SEO & technical health',    body: 'Indexing issues, redirects, schema, internal links and Shopify-specific problems that hide revenue pages.' },
-  { icon: BarChart2,  title: 'Conversion blockers',       body: 'Product page, collection page and homepage issues that make buyers hesitate before ordering.' },
-  { icon: Lock,       title: 'Theme & app bloat',         body: 'Which apps, scripts and theme choices are slowing the store down or making it harder to manage.' },
+  { icon: Zap,        title: 'Speed & Core Web Vitals',  body: 'Why your store or website feels slow on mobile, what affects rankings, and which fixes matter first.' },
+  { icon: Smartphone, title: 'Mobile buying experience', body: 'Where shoppers struggle to browse, compare, add to cart, book or complete checkout on a phone.' },
+  { icon: BarChart2,  title: 'Conversion blockers',       body: 'Product page, landing page, homepage and checkout issues that make buyers hesitate before ordering.' },
+  { icon: Bot,        title: 'AI automation opportunities', body: 'Which repeat tasks, support workflows, reports or internal processes could be automated safely.' },
+  { icon: Code2,      title: 'Custom software gaps',      body: 'Where portals, dashboards, APIs or internal tools could replace manual work or disconnected SaaS tools.' },
+  { icon: Search,     title: 'SEO & technical health',    body: 'Indexing issues, redirects, schema, internal links and page structure problems that hide revenue pages.' },
 ]
 
 export default function AuditPitch() {
@@ -28,14 +28,14 @@ export default function AuditPitch() {
         >
           {/* LEFT: the pitch */}
           <div className="audit-left">
-            <span className="mw-eyebrow">/02 — Free Shopify Store Review</span>
+            <span className="mw-eyebrow">Free Consultation</span>
             <h2 style={{ color: '#fff', marginBottom: '1.5rem' }}>
               Find the problems<br />
-              costing your store<br />
-              <span className="mw-italic mw-italic--accent">sales every day.</span>
+              slowing growth<br />
+              <span className="mw-italic mw-italic--accent">and fix the right ones first.</span>
             </h2>
             <p style={{ color: 'var(--text-2)', fontSize: '1.05rem', lineHeight: 1.65, marginBottom: '2rem', maxWidth: '440px' }}>
-              Send your store URL and we will review it like a Shopify growth partner, not a generic developer. You get a clear written list of the issues hurting speed, trust, conversion and SEO, plus the order we would fix them in.
+              Send your store, website or workflow challenge and we will review it like a growth and technology partner. You get a clear written list of the issues hurting speed, conversion, operations or SEO, plus the order we would fix them in.
             </p>
 
             {/* deliverable card */}
@@ -51,10 +51,10 @@ export default function AuditPitch() {
               </p>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
                 {[
-                  'Written store review focused on revenue, speed and buyer friction',
+                  'Written review focused on revenue, speed, automation and buyer friction',
                   'Prioritized fix list so you know what to solve first',
-                  'Plain-English explanation of what is technical, what is UX and what is strategy',
-                  'Honest recommendation: improve the current store or rebuild only if needed',
+                  'Plain-English explanation of what is technical, what is UX and what is operations',
+                  'Honest recommendation: improve the current system or rebuild only if needed',
                   'Personal reply from Karam within 24 hours',
                 ].map((line) => (
                   <li key={line} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.7rem', color: 'var(--text-2)', fontSize: '0.92rem', lineHeight: 1.55 }}>
@@ -66,7 +66,7 @@ export default function AuditPitch() {
             </div>
 
             <Link href="/contact" className="mw-btn-accent" style={{ fontSize: '0.95rem', padding: '1.05rem 1.85rem' }}>
-              Get My Free Store Review <ArrowRight size={16} />
+              Book Free Consultation <ArrowRight size={16} />
             </Link>
             <p style={{ marginTop: '0.85rem', fontSize: '0.78rem', color: 'var(--text-4)', fontFamily: 'var(--font-geist-mono), monospace', letterSpacing: '0.04em' }}>
               No commitment &nbsp;·&nbsp; no sales pressure &nbsp;·&nbsp; reply within 24 h
@@ -76,7 +76,7 @@ export default function AuditPitch() {
           {/* RIGHT: the checks */}
           <div>
             <p style={{ fontFamily: 'var(--font-geist-mono), monospace', fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-4)', marginBottom: '1.5rem' }}>
-              We review the parts of your store that influence sales
+              We review the parts of your store, site or workflow that influence growth
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '0' }} className="audit-checks">
               {checks.map((c, i) => {

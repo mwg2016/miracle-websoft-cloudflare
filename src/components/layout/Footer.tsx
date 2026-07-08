@@ -3,13 +3,20 @@ import { outboundHref } from '@/lib/outbound'
 
 const serviceLinks = [
   { label: 'All Services', href: '/services' },
+  { label: 'AI Services', href: '/services/ai' },
+  { label: 'AI Business Automation', href: '/services/ai/ai-business-automation' },
+  { label: 'OpenAI Integrations', href: '/services/ai/openai-integrations' },
+  { label: 'Shopify Services', href: '/services/shopify' },
   { label: 'Website Development for Small Business', href: '/website-development' },
   { label: 'Custom Shopify Development', href: '/services/shopify/development' },
+  { label: 'Shopify Plus Development', href: '/services/shopify/shopify-plus-development' },
+  { label: 'Shopify Theme Customization', href: '/services/shopify/theme-customization' },
   { label: 'Shopify App Development', href: '/services/shopify-app-development' },
-  { label: 'WordPress Development', href: '/services/wordpress-development' },
-  { label: 'Custom Web Development', href: '/services/custom-web-development' },
   { label: 'Shopify Migrations', href: '/services/shopify-migration' },
-  { label: 'CRO & Speed Optimisation', href: '/services/shopify-cro-speed' },
+  { label: 'Conversion Rate Optimization', href: '/services/conversion-rate-optimization' },
+  { label: 'Shopify Speed Optimization', href: '/services/shopify-speed-optimization' },
+  { label: 'Custom Web Development', href: '/services/custom-web-development' },
+  { label: 'WordPress Development', href: '/services/wordpress-development' },
 ]
 
 const marketLinks = [
@@ -30,6 +37,7 @@ const companyLinks = [
   { label: 'Work', href: '/work' },
   { label: 'Reviews', href: '/reviews' },
   { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Resources', href: '/resources' },
   { label: 'Blog', href: '/blog' },
   { label: 'Search', href: '/search' },
   { label: 'Careers', href: '/careers' },
@@ -76,17 +84,17 @@ export default function Footer() {
       <div className="mw-container" style={{ paddingTop: '6rem', paddingBottom: '5rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10">
           <div className="max-w-xl">
-            <p className="mw-eyebrow">START WITH A FREE REVIEW</p>
+            <p className="mw-eyebrow">START WITH A FREE CONSULTATION</p>
             <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: 'clamp(36px,5vw,60px)', lineHeight: 1.1, color: '#fff', marginBottom: '1.5rem' }}>
-              Let&apos;s improve your<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>Shopify store.</em>
+              Let&apos;s improve your<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>growth system.</em>
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.7 }}>
-              Tell us what is holding your store back. We will show you the clearest path to more speed, more trust and more qualified sales.
+              Tell us what is holding back your store, website or operations. We will show you the clearest path to more speed, stronger conversions and smarter automation.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <Link href="/contact" className="mw-btn-primary">Get Free Store Review</Link>
-            <Link href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%20Karam%2C%20how%20are%20you%3F%20I%20need%20help%20with%20Shopify.')} target="_blank" rel="noopener noreferrer" className="mw-btn-outline">Message Karam</Link>
+            <Link href="/contact" className="mw-btn-primary">Book Free Consultation</Link>
+            <Link href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%20Karam%2C%20how%20are%20you%3F%20I%20need%20help%20with%20my%20website%20or%20AI%20automation.')} target="_blank" rel="noopener noreferrer" className="mw-btn-outline">Message Karam</Link>
           </div>
         </div>
       </div>
@@ -128,7 +136,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3 mt-1">
               <a href={outboundHref('email', 'mailto:karam@miraclewebsoft.com')} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">karam@miraclewebsoft.com</a>
               <a href={outboundHref('whatsapp', 'https://wa.me/916239269736')} target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">+91 6239 269736</a>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', lineHeight: 1.5 }}>India<br />Serving USA · UK · Australia</p>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', lineHeight: 1.5 }}>India<br />Serving USA · Canada · UK · Australia · Europe</p>
             </div>
           </div>
         </div>

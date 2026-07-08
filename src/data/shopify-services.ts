@@ -17,6 +17,330 @@ export type ShopifyServiceData = {
 
 const shopifyServices: ShopifyServiceData[] = [
   {
+    slug: 'shopify-plus-development',
+    metaTitle: 'Shopify Plus Development Agency | Miracle Websoft',
+    metaDescription: 'Shopify Plus development for growing ecommerce brands. Checkout extensions, Shopify Functions, B2B, Markets, APIs, integrations and enterprise architecture.',
+    eyebrow: 'SHOPIFY PLUS DEVELOPMENT',
+    h1: 'Shopify Plus Development for Brands Ready to Scale',
+    subtext: 'Shopify Plus should simplify growth, not create a bigger technical mess. We build Plus storefronts, checkout extensions, Functions, B2B workflows, integrations and expansion-store setups for brands that need reliable ecommerce infrastructure.',
+    features: [
+      'Shopify Plus storefront builds and redesigns',
+      'Checkout UI extensions and checkout extensibility',
+      'Shopify Functions for discounts, shipping and payment logic',
+      'B2B wholesale portals and company accounts',
+      'Shopify Markets and international expansion stores',
+      'ERP, CRM, 3PL and fulfilment integrations',
+      'Custom admin tools and private operational workflows',
+      'Migration planning from legacy checkout customizations',
+      'Performance, security and launch QA',
+      'Ongoing Plus support and feature development',
+    ],
+    challenges: [
+      {
+        title: 'Plus features are powerful but easy to overcomplicate',
+        body: 'Checkout extensibility, Functions, B2B and Markets need careful architecture. We help you use the right Plus capabilities without creating brittle custom logic.',
+      },
+      {
+        title: 'Enterprise ecommerce depends on integrations',
+        body: 'Growing brands rely on ERP, CRM, warehouse, tax, subscription and reporting systems. We build and test those connections so operations keep moving.',
+      },
+      {
+        title: 'Scaling exposes theme and app weaknesses',
+        body: 'A store that worked at lower volume can become slow, hard to maintain or fragile. We clean up theme structure, app dependencies and performance before growth breaks them.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you build Shopify Plus checkout extensions?',
+        answer: 'Yes. We build checkout UI extensions and Shopify Functions for discount logic, shipping rules, payment customization and checkout experiences supported by Shopify Plus.',
+      },
+      {
+        question: 'Can you help migrate from checkout.liquid?',
+        answer: 'Yes. We review the existing checkout.liquid customizations, map what can move to checkout extensions and Functions, then rebuild the supported parts safely.',
+      },
+      {
+        question: 'Do you handle B2B on Shopify Plus?',
+        answer: 'Yes. We build B2B company accounts, gated pricing, wholesale catalogs, payment terms, quote workflows and ERP integrations for Shopify Plus merchants.',
+      },
+      {
+        question: 'When should a brand consider Shopify Plus?',
+        answer: 'Plus usually makes sense when you need advanced checkout customization, B2B, higher API capacity, international expansion, automation, or operational requirements that standard Shopify cannot support cleanly.',
+      },
+    ],
+    formHeading: 'Plan your Shopify Plus project',
+    formSubtext: 'Tell us your current store, Plus goals and systems involved. We will reply with a practical architecture and scope.',
+  },
+  {
+    slug: 'theme-customization',
+    metaTitle: 'Shopify Theme Customization Services | Miracle Websoft',
+    metaDescription: 'Shopify theme customization for product pages, homepage sections, collection templates, landing pages, UX improvements and conversion-focused theme edits.',
+    eyebrow: 'SHOPIFY THEME CUSTOMIZATION',
+    h1: 'Shopify Theme Customization That Improves the Buying Experience',
+    subtext: 'You do not always need a full rebuild. We customize Shopify themes to improve product pages, collection pages, homepage sections, landing pages, navigation and conversion-critical user experience.',
+    features: [
+      'Custom Shopify sections and theme blocks',
+      'Homepage, product and collection page customization',
+      'Landing page templates for campaigns',
+      'Mobile layout and sticky add-to-cart improvements',
+      'Trust signals, size guides, tabs and accordions',
+      'Navigation, menu and collection filtering improvements',
+      'Theme settings and schema cleanup',
+      'Liquid, CSS and JavaScript fixes',
+      'Accessibility and responsive layout improvements',
+      'QA across mobile, tablet and desktop',
+    ],
+    challenges: [
+      {
+        title: 'Small theme issues create real buying friction',
+        body: 'Confusing product pages, weak mobile layouts and missing trust signals quietly reduce conversion. Targeted theme customization can fix those blockers quickly.',
+      },
+      {
+        title: 'Purchased themes often need brand-specific logic',
+        body: 'A premium theme is still generic. We add the sections, templates and settings your catalog, campaigns and customers actually need.',
+      },
+      {
+        title: 'Bad edits make themes harder to maintain',
+        body: 'We keep customizations organized, documented and editable in the Shopify theme editor where possible, instead of leaving hard-coded one-off patches.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can you customize an existing Shopify theme?',
+        answer: 'Yes. We customize existing themes, including Dawn and premium themes, with new sections, layout changes, product page features and conversion improvements.',
+      },
+      {
+        question: 'Do I need a full redesign?',
+        answer: 'Not always. If the current theme is technically sound, targeted customization can be faster and more cost-effective than a full rebuild.',
+      },
+      {
+        question: 'Can the changes be editable in the theme editor?',
+        answer: 'Where possible, yes. We expose content, colors, images and layout options through Shopify section schema so your team can manage them without code.',
+      },
+      {
+        question: 'How fast can theme customization be completed?',
+        answer: 'Small changes can take a few days. Larger product page, collection or landing page updates usually take 1-3 weeks depending on scope.',
+      },
+    ],
+    formHeading: 'Customize your Shopify theme',
+    formSubtext: 'Send your store URL and the theme changes you need. We will suggest the cleanest path.',
+  },
+  {
+    slug: 'custom-features',
+    metaTitle: 'Shopify Custom Feature Development | Miracle Websoft',
+    metaDescription: 'Shopify custom feature development for bundles, quizzes, configurators, product tools, portals, checkout logic, custom sections and unique buying flows.',
+    eyebrow: 'SHOPIFY CUSTOM FEATURES',
+    h1: 'Shopify Custom Features When Apps Cannot Handle the Workflow',
+    subtext: 'When standard Shopify apps are too slow, too limited or too expensive, we build custom features around your products, buyers and operations.',
+    features: [
+      'Bundle builders and product configurators',
+      'Product recommendation quizzes',
+      'Size guides, calculators and fit tools',
+      'Custom product options and personalization',
+      'Wholesale, gated pricing and customer portals',
+      'Recently viewed products and custom recommendations',
+      'Pre-order, waitlist and product drop systems',
+      'Custom cart, upsell and promotion logic',
+      'Metafield and metaobject-powered content systems',
+      'Admin tools for managing custom workflows',
+    ],
+    challenges: [
+      {
+        title: 'Apps rarely match the exact business model',
+        body: 'The app marketplace is useful, but many apps force your workflow into their model. Custom features let the store support the buying journey you actually need.',
+      },
+      {
+        title: 'Too many apps slow the storefront down',
+        body: 'Replacing heavy app stacks with lean custom code can improve performance, reduce subscription cost and simplify maintenance.',
+      },
+      {
+        title: 'Custom logic needs clean data architecture',
+        body: 'Good Shopify features depend on well-structured metafields, metaobjects, products, variants and integrations. We plan that before writing code.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What custom Shopify features can you build?',
+        answer: 'We build bundles, quizzes, configurators, size tools, custom options, portals, waitlists, product drops, recently viewed sections, upsells, custom cart logic and admin tools.',
+      },
+      {
+        question: 'Should we use an app or custom development?',
+        answer: 'Use an app when it cleanly solves the problem without slowing the store or creating operational issues. Choose custom development when the workflow is unique, performance-sensitive or strategically important.',
+      },
+      {
+        question: 'Can you replace an existing app with custom code?',
+        answer: 'Yes. We can audit an app, identify what functionality is actually needed and rebuild the core feature more cleanly when that makes business sense.',
+      },
+      {
+        question: 'Will custom features work with the Shopify admin?',
+        answer: 'Yes. We usually use Shopify metafields, metaobjects, theme settings or custom admin interfaces so your team can manage the feature after launch.',
+      },
+    ],
+    formHeading: 'Build a custom Shopify feature',
+    formSubtext: 'Describe the feature, app limitation or buying flow you need. We will scope the simplest reliable build.',
+  },
+  {
+    slug: 'app-integration',
+    metaTitle: 'Shopify App Integration Services | Miracle Websoft',
+    metaDescription: 'Shopify app integration services for Klaviyo, Gorgias, ReCharge, Yotpo, ERPs, CRMs, shipping, analytics, subscriptions and marketplaces.',
+    eyebrow: 'SHOPIFY APP INTEGRATION',
+    h1: 'Shopify App Integration Without Slowing the Store Down',
+    subtext: 'We integrate Shopify apps, marketing tools, support platforms, subscriptions, reviews, fulfilment, analytics, marketplaces, CRMs and ERPs so your stack works together cleanly.',
+    features: [
+      'Klaviyo, Attentive and email/SMS setup',
+      'Gorgias, Zendesk and customer support integration',
+      'ReCharge, Skio and subscription workflows',
+      'Yotpo, Judge.me and review integrations',
+      'ERP, CRM and inventory sync',
+      'Shipping, 3PL and fulfilment integrations',
+      'Analytics, pixels and server-side tracking',
+      'Marketplace and social commerce integrations',
+      'App performance and script cleanup',
+      'Testing, documentation and handover',
+    ],
+    challenges: [
+      {
+        title: 'Apps create value only when the workflow is connected',
+        body: 'Installing an app is the easy part. The value comes from correct data flow, customer segments, events, automations and operational handoffs.',
+      },
+      {
+        title: 'App bloat can hurt speed and conversion',
+        body: 'Too many apps inject scripts on every page. We integrate what you need and remove, defer or replace what is slowing the store down.',
+      },
+      {
+        title: 'Bad tracking creates bad decisions',
+        body: 'Marketing and analytics apps must be configured carefully so events, attribution and customer data are accurate enough to guide decisions.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Which Shopify apps do you integrate?',
+        answer: 'We integrate Klaviyo, Gorgias, ReCharge, Skio, Yotpo, Judge.me, Loop, ShipStation, TikTok, Meta, Google, ERPs, CRMs and many other Shopify apps and APIs.',
+      },
+      {
+        question: 'Can you clean up our current app stack?',
+        answer: 'Yes. We audit installed apps, identify unused or overlapping tools, review script impact and recommend what to keep, remove, replace or custom-build.',
+      },
+      {
+        question: 'Can you connect Shopify with our CRM or ERP?',
+        answer: 'Yes. We build API, webhook and middleware integrations between Shopify and CRMs, ERPs, inventory systems, warehouses and custom internal tools.',
+      },
+      {
+        question: 'Do you test integrations before launch?',
+        answer: 'Yes. We test event flow, customer data, order sync, error states, permissions, webhooks and real purchase scenarios before launch.',
+      },
+    ],
+    formHeading: 'Plan a Shopify integration',
+    formSubtext: 'Tell us which apps or systems need to connect and what data must move between them.',
+  },
+  {
+    slug: 'shopify-maintenance',
+    metaTitle: 'Shopify Maintenance and Support Services | Miracle Websoft',
+    metaDescription: 'Shopify maintenance and support for ecommerce brands. Theme updates, bug fixes, app checks, speed monitoring, product changes and ongoing improvements.',
+    eyebrow: 'SHOPIFY MAINTENANCE',
+    h1: 'Shopify Maintenance for Stores That Need Reliable Support',
+    subtext: 'A Shopify store is never really finished. We provide ongoing technical support, theme updates, bug fixes, performance checks, app reviews and growth improvements for live stores.',
+    features: [
+      'Theme, app and dependency updates',
+      'Bug fixes and urgent issue support',
+      'Product, collection and content updates',
+      'Speed and Core Web Vitals monitoring',
+      'App stack review and cleanup',
+      'Small feature and section development',
+      'Tracking, pixels and analytics checks',
+      'CRO recommendations and monthly improvements',
+      'Campaign, sale and launch support',
+      'Backup, QA and documentation practices',
+    ],
+    challenges: [
+      {
+        title: 'Live stores need ongoing technical ownership',
+        body: 'Apps change, themes age, campaigns launch and bugs appear. Without a responsible technical partner, small issues become revenue problems.',
+      },
+      {
+        title: 'Maintenance should improve the store, not only fix bugs',
+        body: 'We use support time to keep the store faster, cleaner and easier to manage while also handling urgent fixes and routine changes.',
+      },
+      {
+        title: 'Fast support matters during campaigns',
+        body: 'Product drops, sales and paid campaigns need quick technical help. We provide a reliable path for urgent fixes and planned support.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is included in Shopify maintenance?',
+        answer: 'Maintenance can include bug fixes, theme updates, app checks, speed monitoring, small development tasks, content changes, tracking checks and monthly improvement recommendations.',
+      },
+      {
+        question: 'Do you offer monthly Shopify support?',
+        answer: 'Yes. We offer monthly maintenance and support retainers for stores that need ongoing technical help and improvements.',
+      },
+      {
+        question: 'Can you support a store you did not build?',
+        answer: 'Yes. We first audit the theme, apps and store setup so we understand the risks before taking over ongoing support.',
+      },
+      {
+        question: 'How quickly do you respond?',
+        answer: 'Typical response is within 24 hours on business days. Urgent production issues are prioritized for active maintenance clients.',
+      },
+    ],
+    formHeading: 'Get Shopify maintenance support',
+    formSubtext: 'Send your store URL and tell us what kind of support you need each month.',
+  },
+  {
+    slug: 'api-private-apps',
+    metaTitle: 'Shopify API Development & Private Apps | Miracle Websoft',
+    metaDescription: 'Shopify API development and private apps for custom workflows, admin tools, integrations, webhooks, Storefront API, Admin API and automation.',
+    eyebrow: 'SHOPIFY API DEVELOPMENT',
+    h1: 'Shopify API Development and Private Apps for Custom Operations',
+    subtext: 'We build private Shopify apps, API integrations, webhooks, admin tools and automation workflows when your store needs custom logic beyond theme code or public apps.',
+    features: [
+      'Shopify Admin API and GraphQL development',
+      'Storefront API integrations',
+      'Private apps and custom admin tools',
+      'Webhook processors and background jobs',
+      'ERP, CRM and warehouse sync',
+      'Custom reporting and dashboards',
+      'Product, order, customer and inventory automation',
+      'Secure authentication and permissions',
+      'Rate limit handling and retry logic',
+      'Monitoring, logs and documentation',
+    ],
+    challenges: [
+      {
+        title: 'Operational workflows often need backend logic',
+        body: 'Some Shopify problems cannot be solved in Liquid. APIs, webhooks and private apps let the store connect to the systems that run the business.',
+      },
+      {
+        title: 'Unreliable integrations create expensive mistakes',
+        body: 'Order, inventory and customer sync must handle rate limits, failures, duplicates and retries. We build integrations for reliability, not only the happy path.',
+      },
+      {
+        title: 'Private tools need security and maintainability',
+        body: 'We build with permissions, secure secrets, logs and documentation so the app can be maintained after launch.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you build Shopify private apps?',
+        answer: 'Yes. We build private and custom Shopify apps for admin workflows, storefront features, integrations, reporting, automation and operational tools.',
+      },
+      {
+        question: 'Which Shopify APIs do you use?',
+        answer: 'We work with Shopify Admin API, Storefront API, GraphQL, webhooks, Functions and app extensions depending on the project.',
+      },
+      {
+        question: 'Can you sync Shopify with our internal system?',
+        answer: 'Yes. We build integrations with ERPs, CRMs, inventory systems, warehouses, accounting tools, marketplaces and custom databases.',
+      },
+      {
+        question: 'Can you maintain an existing private app?',
+        answer: 'Yes. We can audit an existing app, document how it works, fix bugs, update API versions and improve reliability.',
+      },
+    ],
+    formHeading: 'Scope a Shopify API project',
+    formSubtext: 'Tell us what Shopify needs to connect with or automate. We will recommend the safest architecture.',
+  },
+  {
     slug: 'electronics',
     metaTitle: 'Shopify Development for Electronics Stores | Miracle Websoft',
     metaDescription: 'Custom Shopify stores for electronics and tech brands. Complex product variants, spec comparison tables, B2B wholesale, and high-performance builds.',

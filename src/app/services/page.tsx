@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
   ArrowRight,
-  ShoppingBag, Cpu, Sparkles, Zap, ArrowLeftRight,
+  Bot, BrainCircuit, Gauge, MessageSquare, ShoppingBag, Cpu, Sparkles, Zap, ArrowLeftRight,
   Shirt, Dumbbell, PawPrint, FlaskConical, Gem, UtensilsCrossed, Sofa,
   Globe, Code2,
 } from 'lucide-react'
@@ -10,9 +10,20 @@ import CtaBanner from '@/components/home/CtaBanner'
 import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Shopify Services for Growth, Speed & Conversions | Miracle Websoft',
-  description: 'Shopify development, CRO, speed optimization, migrations and custom apps for merchants who want faster stores, better customer experience and more qualified sales.',
+  title: 'Ecommerce Growth, Shopify, AI & Web Development Services',
+  description: 'Shopify development, CRO, speed optimization, AI automation, OpenAI integrations and custom web development for ecommerce brands and growing businesses.',
   alternates: { canonical: 'https://miraclewebsoft.com/services' },
+  openGraph: {
+    title: 'Ecommerce Growth, Shopify, AI & Web Development Services | Miracle Websoft',
+    description: 'Shopify development, CRO, speed optimization, AI automation and custom web development for ecommerce brands and growing businesses.',
+    url: 'https://miraclewebsoft.com/services',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ecommerce Growth, Shopify, AI & Web Development Services | Miracle Websoft',
+    description: 'Shopify, CRO, performance, AI automation and custom web development services.',
+  },
 }
 
 const accent = '#6c63ff'
@@ -20,6 +31,13 @@ const accent = '#6c63ff'
 // ─── Service groups ───────────────────────────────────────────────────────────
 
 const shopifyCore = [
+  {
+    icon: ShoppingBag,
+    title: 'Shopify Services',
+    desc: 'Store development, Shopify Plus, theme customization, custom features, app integration, maintenance, APIs and private apps.',
+    href: '/services/shopify',
+    badge: 'Core',
+  },
   {
     icon: ShoppingBag,
     title: 'Custom Shopify Development',
@@ -40,10 +58,61 @@ const shopifyCore = [
     href: '/services/shopify-migration',
   },
   {
+    icon: Sparkles,
+    title: 'Shopify Custom Features',
+    desc: 'Build bundles, quizzes, product tools, configurators, portals and store logic that standard apps cannot handle.',
+    href: '/services/shopify/custom-features',
+  },
+]
+
+const growthServices = [
+  {
     icon: Zap,
-    title: 'CRO & Speed Optimisation',
-    desc: 'Improve an existing Shopify store by fixing slow pages, confusing buying journeys, app bloat and checkout friction.',
+    title: 'Conversion Rate Optimization',
+    desc: 'Improve buyer journeys with Microsoft Clarity review, heatmap analysis, product page optimization, checkout fixes and testing.',
+    href: '/services/conversion-rate-optimization',
+    badge: 'CRO',
+  },
+  {
+    icon: Gauge,
+    title: 'Shopify Speed Optimization',
+    desc: 'Improve Core Web Vitals, PageSpeed, LCP, CLS, INP, image delivery, app bloat and mobile performance.',
+    href: '/services/shopify-speed-optimization',
+    badge: 'Performance',
+  },
+  {
+    icon: Zap,
+    title: 'CRO & Speed Combined',
+    desc: 'A focused program for stores that need faster pages and clearer buying journeys in the same engagement.',
     href: '/services/shopify-cro-speed',
+  },
+]
+
+const aiCore = [
+  {
+    icon: BrainCircuit,
+    title: 'AI Services',
+    desc: 'AI business automation, workflow automation, OpenAI integrations, chatbots, internal tools, agents and consulting.',
+    href: '/services/ai',
+    badge: 'New',
+  },
+  {
+    icon: Bot,
+    title: 'AI Business Automation',
+    desc: 'Automate repetitive operations, reporting, support workflows and lead handling with practical AI systems.',
+    href: '/services/ai/ai-business-automation',
+  },
+  {
+    icon: Sparkles,
+    title: 'OpenAI Integrations',
+    desc: 'Add OpenAI-powered search, drafting, extraction, support or workflow features to your website, app or internal tool.',
+    href: '/services/ai/openai-integrations',
+  },
+  {
+    icon: MessageSquare,
+    title: 'AI Chatbots & Support',
+    desc: 'AI chatbots and customer support automation grounded in approved policies, product data and escalation rules.',
+    href: '/services/ai/ai-chatbots',
   },
 ]
 
@@ -107,16 +176,17 @@ const shopifyIndustry = [
 
 const otherServices = [
   {
-    icon: Globe,
-    title: 'WordPress Development',
-    desc: 'Business websites, WooCommerce stores and content platforms built cleanly when Shopify is not the right fit.',
-    href: '/services/wordpress-development',
-  },
-  {
     icon: Code2,
     title: 'Custom Web Development',
     desc: 'Custom portals, dashboards, automations and web apps that solve business problems your ecommerce stack cannot solve on its own.',
     href: '/services/custom-web-development',
+    badge: 'Software',
+  },
+  {
+    icon: Globe,
+    title: 'WordPress Development',
+    desc: 'Business websites, WooCommerce stores and content platforms built cleanly when Shopify is not the right fit.',
+    href: '/services/wordpress-development',
   },
 ]
 
@@ -166,7 +236,7 @@ const jsonLd = renderJsonLd([
   webPage({
     name: 'All Services — Miracle Websoft',
     description:
-      'Shopify development, app development, migrations, CRO, WordPress and custom web applications for merchants and businesses that need measurable outcomes.',
+      'Shopify development, CRO, performance optimization, AI automation, OpenAI integrations, WordPress and custom web applications for merchants and businesses that need measurable outcomes.',
     url: 'https://miraclewebsoft.com/services',
     type: 'CollectionPage',
   }),
@@ -176,7 +246,7 @@ const jsonLd = renderJsonLd([
   ]),
   itemList({
     name: 'Services offered by Miracle Websoft',
-    items: [...shopifyCore, ...shopifyIndustry, ...otherServices].map((s) => ({
+    items: [...shopifyCore, ...growthServices, ...aiCore, ...shopifyIndustry, ...otherServices].map((s) => ({
       name: s.title,
       url: s.href,
       description: s.desc,
@@ -196,11 +266,11 @@ export default function ServicesPage() {
           <div className="max-w-2xl">
             <span className="mw-eyebrow">ALL SERVICES</span>
             <h1 style={{ color: '#fff', marginBottom: '1.25rem' }}>
-              Choose the Shopify service<br />
+              Choose the growth service<br />
               <span style={{ color: 'var(--accent)' }}>that fixes the real business problem.</span>
             </h1>
             <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.05rem', lineHeight: 1.85, fontWeight: 300, maxWidth: '540px' }}>
-              Whether you need more conversions, a faster store, a safer migration or a custom Shopify feature, start with the outcome you want. Not sure which service fits?{' '}
+              Whether you need a better Shopify store, more conversions, faster pages, AI automation or custom business software, start with the outcome you want. Not sure which service fits?{' '}
               <Link href="#find-service" style={{ color: accent, textDecoration: 'none' }}>Answer 3 quick questions below</Link>{' '}
               and we will point you to the right path.
             </p>
@@ -213,8 +283,8 @@ export default function ServicesPage() {
         <div className="mw-container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px" style={{ background: 'rgba(255,255,255,0.04)' }}>
             {[
-              { stat: '600+', label: 'Projects delivered' },
-              { stat: '98%+', label: 'Upwork job success' },
+              { stat: '650+', label: 'Projects delivered' },
+              { stat: '15k+', label: 'Hours delivered' },
               { stat: '10+', label: 'Years on Shopify' },
               { stat: '24h', label: 'Proposal turnaround' },
             ].map((s, i) => (
@@ -238,23 +308,23 @@ export default function ServicesPage() {
             {[
               {
                 q: 'Launching, rebranding or replacing a theme that is holding you back?',
-                answer: 'You need Custom Shopify Development',
+                answer: 'You need Shopify Services',
                 desc: 'A store built around your brand, products, mobile shoppers and conversion goals.',
-                href: '/services/shopify/development',
+                href: '/services/shopify',
                 color: '#6C63FF',
               },
               {
                 q: 'Getting traffic but not enough orders?',
-                answer: 'You need CRO & Speed Optimisation',
+                answer: 'You need Conversion Rate Optimization',
                 desc: 'We fix what slows shoppers down and improve conversion without rebuilding unless it is truly needed.',
-                href: '/services/shopify-cro-speed',
+                href: '/services/conversion-rate-optimization',
                 color: '#F59E0B',
               },
               {
-                q: 'Stuck on WooCommerce, Magento, BigCommerce or a custom platform?',
-                answer: 'You need a Shopify Migration',
-                desc: 'Move to Shopify with a careful plan for products, customers, orders, redirects and launch day.',
-                href: '/services/shopify-migration',
+                q: 'Repeating manual work across tools, reports, support or operations?',
+                answer: 'You need AI Automation',
+                desc: 'We connect your systems and build practical AI workflows with human review where it matters.',
+                href: '/services/ai',
                 color: '#10B981',
               },
             ].map((item, i) => (
@@ -272,7 +342,7 @@ export default function ServicesPage() {
           </div>
           <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', marginTop: '1.25rem' }}>
             Still unsure?{' '}
-            <Link href="/contact" style={{ color: accent, textDecoration: 'none' }}>Request a free Shopify store review</Link>
+            <Link href="/contact" style={{ color: accent, textDecoration: 'none' }}>Book a free consultation</Link>
             {' '}and we will recommend the right approach for your situation.
           </p>
         </div>
@@ -288,6 +358,34 @@ export default function ServicesPage() {
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {shopifyCore.map((s, i) => <ServiceCard key={i} {...s} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* CRO and Performance */}
+      <section style={{ background: '#080808', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+        <div className="mw-container">
+          <SectionHeader
+            eyebrow="CRO & PERFORMANCE"
+            title="Improve conversions and speed"
+            sub="For stores with traffic but not enough orders, we fix friction through user journey analysis, Microsoft Clarity, heatmaps, checkout improvements, Core Web Vitals and PageSpeed optimization."
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {growthServices.map((s, i) => <ServiceCard key={i} {...s} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Services */}
+      <section style={{ background: '#0a0a0a', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+        <div className="mw-container">
+          <SectionHeader
+            eyebrow="AI SERVICES"
+            title="Automate work and build smarter tools"
+            sub="AI should save time, improve customer experience or make a workflow measurably better. We build AI automation, OpenAI integrations, chatbots and internal tools around real operations."
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {aiCore.map((s, i) => <ServiceCard key={i} {...s} />)}
           </div>
         </div>
       </section>

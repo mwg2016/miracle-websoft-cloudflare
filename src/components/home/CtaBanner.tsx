@@ -38,20 +38,20 @@ export default function CtaBanner() {
       </div>
 
       <div className="mw-container relative" style={{ zIndex: 1, textAlign: 'center' }}>
-        <span className="mw-eyebrow" style={{ justifyContent: 'center', display: 'inline-flex' }}>/12 — Start here</span>
+        <span className="mw-eyebrow" style={{ justifyContent: 'center', display: 'inline-flex' }}>Start here</span>
         <h2 style={{ color: '#fff', marginBottom: '1.5rem' }}>
           Let&apos;s find the fastest path<br />
-          to a <span className="mw-italic mw-italic--accent">better Shopify store.</span>
+          to a <span className="mw-italic mw-italic--accent">stronger growth system.</span>
         </h2>
         <p style={{ color: 'var(--text-2)', fontSize: '1.1rem', maxWidth: '560px', margin: '0 auto 3rem', lineHeight: 1.65 }}>
-          Send your store URL and tell us what is not working. Karam will reply personally with practical next steps, whether you need a small fix, a speed pass, a migration or a full rebuild.
+          Send your store, website or workflow challenge. Karam will reply personally with practical next steps, whether you need Shopify help, CRO, speed optimization, AI automation or custom software.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
           <Link href="/contact" className="mw-btn-primary" style={{ fontSize: '1rem', padding: '1.15rem 2rem' }}>
-            Get Your Free Shopify Store Review <ArrowRight size={17} />
+            Book Free Consultation <ArrowRight size={17} />
           </Link>
           <Link
-            href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%20Karam%2C%20how%20are%20you%3F%20I%20need%20help%20with%20Shopify.')}
+            href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%20Karam%2C%20how%20are%20you%3F%20I%20need%20help%20with%20my%20website%20or%20AI%20automation.')}
             target="_blank"
             rel="noopener noreferrer"
             className="mw-btn-outline"

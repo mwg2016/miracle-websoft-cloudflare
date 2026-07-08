@@ -1,9 +1,9 @@
 const steps = [
-  { n: '01', title: 'Free store review',       body: 'We look at your store, goals and current blockers so the first conversation is grounded in what will actually move the business.' },
+  { n: '01', title: 'Free consultation',       body: 'We look at your store, website, workflow and goals so the first conversation is grounded in what will actually move the business.' },
   { n: '02', title: 'Clear action plan',       body: 'You get a practical recommendation, fixed price and timeline before work begins. No vague estimates or open-ended hourly billing.' },
-  { n: '03', title: 'Build in staging',        body: 'Your store, feature or migration is built away from the live site so customers can keep buying while work is in progress.' },
-  { n: '04', title: 'Launch with checks',      body: 'We handle redirects, tracking, QA, DNS, data checks and mobile testing so launch day is controlled and measurable.' },
-  { n: '05', title: 'Keep improving',          body: 'After launch, we can support ongoing CRO, speed, apps and feature work as your Shopify store grows.' },
+  { n: '03', title: 'Build safely',            body: 'Stores, features, automations and web apps are built in controlled environments so live operations can continue while work is in progress.' },
+  { n: '04', title: 'Launch with checks',      body: 'We handle QA, tracking, redirects, data checks, integrations, mobile testing and launch monitoring so release day is controlled.' },
+  { n: '05', title: 'Keep improving',          body: 'After launch, we can support ongoing CRO, speed, Shopify improvements, AI workflow tuning and custom development.' },
 ]
 
 export default function ProcessSteps() {
@@ -11,7 +11,7 @@ export default function ProcessSteps() {
     <section className="mw-section" style={{ background: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
       <div className="mw-container">
         <div className="mw-section-header">
-          <span className="mw-eyebrow">/07 — Process</span>
+          <span className="mw-eyebrow">Process</span>
           <h2 style={{ color: '#fff' }}>
             What happens after<br />
             <span className="mw-italic mw-italic--accent">you reach out.</span>

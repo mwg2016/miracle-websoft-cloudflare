@@ -10,22 +10,22 @@ import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
 
 export const metadata: Metadata = {
-  title: 'About Miracle Websoft — Shopify Experts for Growing Stores',
-  description: 'Miracle Websoft is a Top Rated Plus Shopify agency on Upwork with 600+ projects and 98%+ job success. Based in India, serving Shopify merchants worldwide since 2015.',
+  title: 'About Miracle Websoft — Ecommerce Growth & AI Technology Agency',
+  description: 'Miracle Websoft is an ecommerce growth and AI technology agency with 650+ projects and 15,000+ hours delivered. Shopify, CRO, speed, AI and custom web development.',
   alternates: { canonical: 'https://miraclewebsoft.com/about' },
 }
 
 const values = [
-  'Shopify-first focus — stores, apps, migrations, speed and conversion work',
+  'Ecommerce-first focus - Shopify, CRO, speed, AI automation and custom web development',
   'Business outcomes first — technical decisions tied to revenue and customer experience',
   'Performance matters — faster mobile pages, cleaner themes and fewer unnecessary scripts',
   'Direct communication — you work with the people responsible for delivery',
-  'Careful migrations — product data, customers, orders, URLs and tracking protected',
+  'Careful implementation - data, tracking, APIs, workflows and launch details protected',
 ]
 
 const stats = [
-  { value: '600+', label: 'Projects Completed' },
-  { value: '98%+', label: 'Upwork Job Success' },
+  { value: '650+', label: 'Projects Completed' },
+  { value: '15k+', label: 'Hours Delivered' },
   { value: '10+', label: 'Years Experience' },
   { value: '16', label: 'Team Members' },
 ]
@@ -52,9 +52,9 @@ const testimonials = [
 
 const jsonLd = renderJsonLd([
   webPage({
-    name: 'About Miracle Websoft — Shopify experts for growing stores',
+    name: 'About Miracle Websoft - ecommerce growth and AI technology agency',
     description:
-      'Top Rated Plus Shopify agency on Upwork — 600+ projects, 98%+ job success, a 16-person team serving Shopify merchants worldwide since 2015.',
+      'Ecommerce growth and AI technology agency with 650+ projects, 15,000+ hours delivered and a 16-person team serving global clients since 2015.',
     url: 'https://miraclewebsoft.com/about',
     type: 'AboutPage',
   }),
@@ -76,13 +76,13 @@ export default function AboutPage() {
           <div>
             <span className="mw-eyebrow">About Us</span>
             <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.5rem' }}>
-              Shopify experts for stores<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>that need to grow.</em>
+              Ecommerce growth and AI<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>technology partner.</em>
             </h1>
             <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.25rem', fontWeight: 300 }}>
-              Miracle Websoft is a Shopify development agency founded in 2015 by Karam Singh Mehra, based in Chandigarh, India. We help Shopify merchants across the USA, UK, Australia and beyond improve speed, conversion, migrations, custom features and long-term store performance.
+              Miracle Websoft is an ecommerce growth and AI technology agency founded in 2015 by Karam Singh Mehra, based in Chandigarh, India. We help businesses across the USA, Canada, UK, Australia and Europe build Shopify stores, improve conversion, increase performance, automate operations with AI and develop custom software.
             </p>
             <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, fontWeight: 300 }}>
-              600+ Shopify projects. 98%+ job success on Upwork. Top Rated Plus status. A team of 16 specialists who understand the practical problems merchants face: slow stores, app bloat, low mobile conversion, risky migrations and custom requirements that off-the-shelf apps cannot solve.
+              650+ projects completed. 15,000+ hours delivered. Top Rated Plus status on Upwork. A team of 16 specialists who understand the practical problems businesses face: slow stores, low mobile conversion, manual operations, disconnected systems and custom requirements that off-the-shelf tools cannot solve.
             </p>
           </div>
 
@@ -99,7 +99,7 @@ export default function AboutPage() {
                 ))}
               </div>
               <Link href="/contact" className="mw-btn-primary justify-center w-full" style={{ marginTop: '1.75rem' }}>
-                Get Free Store Review <ArrowRight size={15} />
+                Book Free Consultation <ArrowRight size={15} />
               </Link>
               <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.4)', textAlign: 'center', marginTop: '0.75rem' }}>
                 Replies within 24 hours · no commitment
@@ -242,7 +242,7 @@ export default function AboutPage() {
 
       <div className="mw-container" style={{ paddingTop: '3rem', paddingBottom: '5rem' }}>
         <Link href="/contact" className="mw-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-          Get Your Free Shopify Store Review <ArrowRight size={16} />
+          Book Free Consultation <ArrowRight size={16} />
         </Link>
       </div>
     </div>

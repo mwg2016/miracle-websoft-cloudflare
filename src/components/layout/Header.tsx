@@ -4,10 +4,13 @@ import Link from 'next/link'
 import { ChevronDown, Menu, X } from 'lucide-react'
 
 const services = [
+  { label: 'AI Services', href: '/services/ai' },
+  { label: 'Shopify Services', href: '/services/shopify' },
   { label: 'Build or Rebuild My Store', href: '/services/shopify/development' },
   { label: 'Custom Shopify Apps', href: '/services/shopify-app-development' },
   { label: 'Move to Shopify Safely', href: '/services/shopify-migration' },
-  { label: 'Improve Speed & Conversions', href: '/services/shopify-cro-speed' },
+  { label: 'Conversion Rate Optimization', href: '/services/conversion-rate-optimization' },
+  { label: 'Shopify Speed Optimization', href: '/services/shopify-speed-optimization' },
   { label: 'WordPress Development', href: '/services/wordpress-development' },
   { label: 'Custom Web Development', href: '/services/custom-web-development' },
 ]
@@ -39,6 +42,7 @@ const workItems = [
 
 const companyItems = [
   { label: 'About', href: '/about' },
+  { label: 'Resources', href: '/resources' },
   { label: 'Blog', href: '/blog' },
   { label: 'Search', href: '/search' },
   { label: 'Careers', href: '/careers' },
@@ -182,10 +186,10 @@ export default function Header() {
 
           <div className="flex items-center gap-3">
             <Link href="/contact" className="sm:hidden text-xs font-medium" style={{ color: 'var(--accent)', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
-              Free Store Review
+              Free Consultation
             </Link>
             <Link href="/contact" className="mw-btn-primary hidden sm:inline-flex text-xs px-4 py-2.5 sm:text-sm sm:px-5">
-              Free Store Review
+              Free Consultation
             </Link>
             <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 text-white" aria-label="Toggle menu">
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -256,7 +260,7 @@ export default function Header() {
               )}
             </div>
 
-            <Link href="/contact" onClick={() => setMobileOpen(false)} className="mw-btn-primary mt-6 justify-center">Get Free Store Review</Link>
+            <Link href="/contact" onClick={() => setMobileOpen(false)} className="mw-btn-primary mt-6 justify-center">Book Free Consultation</Link>
           </div>
         </div>
       )}

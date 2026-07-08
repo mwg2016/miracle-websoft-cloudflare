@@ -1,42 +1,60 @@
 import Link from 'next/link'
-import { Code2, Puzzle, RefreshCw, TrendingUp, ArrowUpRight } from 'lucide-react'
+import { Bot, Code2, Gauge, Puzzle, RefreshCw, TrendingUp, ArrowUpRight } from 'lucide-react'
 
 const services = [
   {
     n: '01',
     icon: Code2,
     tag: 'Build',
-    title: 'Custom Shopify development',
-    body: 'New stores and redesigns built around how your customers browse, trust and buy. Clean design, fast pages and a buying journey that supports growth.',
-    href: '/services/shopify/development',
-    span: 7,
+    title: 'Shopify development',
+    body: 'Custom Shopify and Shopify Plus stores, theme customization, integrations and features built around how customers browse, trust and buy.',
+    href: '/services/shopify',
+    span: 4,
   },
   {
     n: '02',
-    icon: Puzzle,
-    tag: 'Apps',
-    title: 'Shopify app development',
-    body: 'Custom Shopify tools that remove manual work, replace expensive apps, support unique offers and make the store easier to run.',
-    href: '/services/shopify-app-development',
-    span: 5,
+    icon: TrendingUp,
+    tag: 'Convert',
+    title: 'CRO services',
+    body: 'User journey analysis, Microsoft Clarity review, heatmaps, checkout optimization and A/B testing for more revenue from existing traffic.',
+    href: '/services/conversion-rate-optimization',
+    span: 4,
   },
   {
     n: '03',
-    icon: RefreshCw,
-    tag: 'Migrate',
-    title: 'Platform migrations',
-    body: 'Move from WooCommerce, Magento, BigCommerce or a custom platform without risking orders, customers, product data or search traffic.',
-    href: '/services/shopify-migration',
-    span: 5,
+    icon: Gauge,
+    tag: 'Speed',
+    title: 'Performance optimization',
+    body: 'Core Web Vitals, Shopify speed optimization, PageSpeed improvements and performance audits for faster mobile shopping.',
+    href: '/services/shopify-speed-optimization',
+    span: 4,
   },
   {
     n: '04',
-    icon: TrendingUp,
-    tag: 'Optimise',
-    title: 'CRO &amp; speed optimisation',
-    body: 'Fix slow pages, confusing product pages and checkout friction so more of your existing traffic becomes revenue.',
-    href: '/services/shopify-cro-speed',
-    span: 7,
+    icon: Bot,
+    tag: 'AI',
+    title: 'AI automation',
+    body: 'AI business automation, OpenAI integrations, chatbots, internal tools, AI agents and content workflows for leaner operations.',
+    href: '/services/ai',
+    span: 4,
+  },
+  {
+    n: '05',
+    icon: Puzzle,
+    tag: 'Software',
+    title: 'Custom web development',
+    body: 'Business websites, custom web applications, CRM tools, admin panels, client portals and API integrations.',
+    href: '/services/custom-web-development',
+    span: 6,
+  },
+  {
+    n: '06',
+    icon: RefreshCw,
+    tag: 'Migrate',
+    title: 'Shopify migrations',
+    body: 'Move from WooCommerce, Magento, BigCommerce or a custom platform without risking orders, customers, product data or SEO visibility.',
+    href: '/services/shopify-migration',
+    span: 6,
   },
 ]
 
@@ -45,20 +63,20 @@ export default function ServicesOverview() {
     <section className="mw-section" style={{ background: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
       <div className="mw-container">
         <div className="mw-section-header">
-          <span className="mw-eyebrow">/04 — Services</span>
+          <span className="mw-eyebrow">Services</span>
           <h2 style={{ color: '#fff' }}>
-            Shopify services built<br />
-            around <span className="mw-italic mw-italic--accent">business outcomes.</span>
+            Ecommerce growth and AI services<br />
+            built around <span className="mw-italic mw-italic--accent">business outcomes.</span>
           </h2>
           <p style={{ color: 'var(--text-3)', marginTop: '1.25rem', maxWidth: '520px', fontSize: '1rem' }}>
-            You do not need a developer who simply completes tasks. You need a Shopify expert who understands revenue, buyer behavior, speed, SEO and the daily realities of running an ecommerce store.
+            You do not need a vendor who simply completes tickets. You need a technical partner who understands revenue, buyer behavior, speed, SEO, automation and the daily reality of running a growing business.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {services.map((s) => {
             const Icon = s.icon
-            const spanClass = s.span === 7 ? 'md:col-span-7' : 'md:col-span-5'
+            const spanClass = s.span === 7 ? 'md:col-span-7' : s.span === 6 ? 'md:col-span-6' : 'md:col-span-4'
             return (
               <Link
                 key={s.href}

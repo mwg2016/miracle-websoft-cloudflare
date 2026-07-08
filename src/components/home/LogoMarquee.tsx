@@ -6,6 +6,9 @@ const brands = [
   { name: 'Momifa',           flag: '🇺🇸' },
   { name: 'Esparda',          flag: '🇮🇳' },
   { name: 'Shopify Plus',     flag: '◆' },
+  { name: 'AI Automation',    flag: '◆' },
+  { name: '650+ Projects',    flag: '✓' },
+  { name: '15,000+ Hours',    flag: '✓' },
   { name: 'Verified Partner', flag: '✓' },
   { name: 'Top Rated · Upwork', flag: '★' },
   { name: 'Clutch · 4.9',     flag: '★' },
@@ -47,7 +50,7 @@ export default function LogoMarquee() {
             textAlign: 'center',
           }}
         >
-          Trusted by brands across <span style={{ color: 'var(--text-2)' }}>USA · UK · Australia · EU</span>
+          Trusted by brands across <span style={{ color: 'var(--text-2)' }}>USA · Canada · UK · Australia · Europe</span>
         </p>
       </div>
       <div className="marquee-track">

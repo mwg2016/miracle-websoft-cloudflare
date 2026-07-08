@@ -29,9 +29,25 @@ interface Props {
   service: string
   heading?: string
   subtext?: string
+  urlLabel?: string
+  urlPlaceholder?: string
+  messageLabel?: string
+  messagePlaceholder?: string
+  buttonLabel?: string
+  proofPoints?: string[]
 }
 
-export default function ServiceContactForm({ service, heading, subtext }: Props) {
+export default function ServiceContactForm({
+  service,
+  heading,
+  subtext,
+  urlLabel = 'Shopify store URL',
+  urlPlaceholder = 'yourstore.com or yourstore.myshopify.com',
+  messageLabel = 'What do you want to improve?',
+  messagePlaceholder = 'Example: our store is slow, mobile conversion is low, we need to migrate, or we need a custom feature Shopify apps cannot handle.',
+  buttonLabel = 'Request My Shopify Plan',
+  proofPoints = ['Responds within 24 hours', '650+ projects delivered', 'Fixed-price proposals'],
+}: Props) {
   const router = useRouter()
   const [state, setState] = useState<'idle' | 'sending' | 'error'>('idle')
   const [form, setForm] = useState({ name: '', email: '', storeUrl: '', budget: '', message: '', _hp: '' })
@@ -101,8 +117,8 @@ export default function ServiceContactForm({ service, heading, subtext }: Props)
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="service-contact-store-url" style={labelStyle}>Shopify store URL {optTag}</label>
-            <input id="service-contact-store-url" name="storeUrl" type="text" placeholder="yourstore.com or yourstore.myshopify.com" autoComplete="url"
+            <label htmlFor="service-contact-store-url" style={labelStyle}>{urlLabel} {optTag}</label>
+            <input id="service-contact-store-url" name="storeUrl" type="text" placeholder={urlPlaceholder} autoComplete="url"
               value={form.storeUrl} onChange={e => set('storeUrl', e.target.value)} style={inputStyle} />
           </div>
           <div>
@@ -120,9 +136,9 @@ export default function ServiceContactForm({ service, heading, subtext }: Props)
         </div>
 
         <div>
-          <label htmlFor="service-contact-message" style={labelStyle}>What do you want to improve? *</label>
+          <label htmlFor="service-contact-message" style={labelStyle}>{messageLabel} *</label>
           <textarea id="service-contact-message" name="message" rows={4} required
-            placeholder="Example: our store is slow, mobile conversion is low, we need to migrate, or we need a custom feature Shopify apps cannot handle."
+            placeholder={messagePlaceholder}
             value={form.message} onChange={e => set('message', e.target.value)}
             style={{ ...inputStyle, resize: 'none' }} />
         </div>
@@ -142,13 +158,13 @@ export default function ServiceContactForm({ service, heading, subtext }: Props)
             </span>
           ) : (
             <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
-              Request My Shopify Plan <ArrowRight size={15} />
+              {buttonLabel} <ArrowRight size={15} />
             </span>
           )}
         </button>
 
         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          {['Responds within 24 hours', '600+ projects delivered', 'Fixed-price proposals'].map((t, i) => (
+          {proofPoints.map((t, i) => (
             <span key={i} style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
               <CheckCircle2 size={11} style={{ color: '#10B981' }} /> {t}
             </span>

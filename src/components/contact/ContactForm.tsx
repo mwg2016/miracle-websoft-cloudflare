@@ -36,7 +36,7 @@ export default function ContactForm() {
   const prefillMessage = selectedPlan
     ? selectedPlan.type === 'build'
       ? `Hi Karam, I'd like to start with the ${selectedPlan.name} package (${selectedPlan.price}). Please review my store/brand details below and send next steps for the discovery call.\n\nA bit about my brand: `
-      : `Hi Karam, I'd like to sign up for the ${selectedPlan.name} maintenance plan (${selectedPlan.price}). Here's a bit about my Shopify store and what I'd want help with each month: `
+      : `Hi Karam, I'd like to sign up for the ${selectedPlan.name} maintenance plan (${selectedPlan.price}). Here's a bit about my website or Shopify store and what I'd want help with each month: `
     : ''
   const [state, setState] = useState<'idle' | 'sending' | 'error'>('idle')
   const [form, setForm] = useState({
@@ -132,8 +132,8 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="contact-store-url" style={labelStyle}>Your Shopify store URL {optionalTag}</label>
-        <input id="contact-store-url" name="storeUrl" type="text" placeholder="yourstore.com or yourstore.myshopify.com" autoComplete="url"
+        <label htmlFor="contact-store-url" style={labelStyle}>Website, store or workflow URL {optionalTag}</label>
+        <input id="contact-store-url" name="storeUrl" type="text" placeholder="yourstore.com, yourstore.myshopify.com or tool name" autoComplete="url"
           value={form.storeUrl} onChange={e => set('storeUrl', e.target.value)} style={inputStyle} />
       </div>
 
@@ -147,14 +147,18 @@ export default function ContactForm() {
             <option>Build or redesign a Shopify store</option>
             <option>Custom Shopify app or feature</option>
             <option>Move my store to Shopify</option>
-            <option>CRO &amp; speed optimization</option>
-            <option>Free Shopify store review</option>
+            <option>Conversion rate optimization</option>
+            <option>Shopify speed optimization</option>
+            <option>AI business automation</option>
+            <option>OpenAI integration or AI chatbot</option>
+            <option>Custom web application or portal</option>
+            <option>Free consultation</option>
           </select>
         </div>
       )}
 
       <div>
-        <label htmlFor="contact-message" style={labelStyle}>Tell us about your brand *</label>
+        <label htmlFor="contact-message" style={labelStyle}>Tell us about your business challenge *</label>
         <textarea id="contact-message" name="message" rows={3} required
           placeholder="What do you sell, what is your biggest challenge right now, and what result would make this project successful?"
           value={form.message} onChange={e => set('message', e.target.value)}
@@ -176,7 +180,7 @@ export default function ContactForm() {
           </span>
         ) : (
           <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
-            {selectedPlan ? `Confirm ${selectedPlan.name} & send` : 'Get My Shopify Plan'} <ArrowRight size={15} />
+            {selectedPlan ? `Confirm ${selectedPlan.name} & send` : 'Book Free Consultation'} <ArrowRight size={15} />
           </span>
         )}
       </button>

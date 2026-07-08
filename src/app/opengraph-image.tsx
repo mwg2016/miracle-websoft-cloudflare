@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'Miracle Websoft - Shopify development agency for ecommerce brands'
+export const alt = 'Miracle Websoft - Ecommerce growth and AI technology agency'
 export const size = {
   width: 1200,
   height: 630,
@@ -52,7 +52,7 @@ export default function Image() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <span style={{ fontSize: 34, fontWeight: 800, letterSpacing: 0 }}>Miracle Websoft</span>
-              <span style={{ fontSize: 20, color: 'rgba(255,255,255,0.68)' }}>Shopify development agency since 2015</span>
+              <span style={{ fontSize: 20, color: 'rgba(255,255,255,0.68)' }}>Ecommerce growth and AI technology agency</span>
             </div>
           </div>
           <div
@@ -67,25 +67,25 @@ export default function Image() {
               background: 'rgba(16,185,129,0.10)',
             }}
           >
-            600+ projects
+            650+ projects
           </div>
         </div>
 
         <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', maxWidth: 880 }}>
           <div style={{ color: '#A7A3FF', fontSize: 24, fontWeight: 800, letterSpacing: 3, textTransform: 'uppercase', marginBottom: 22 }}>
-            Custom Shopify stores, apps, migrations and CRO
+            Shopify, CRO, speed, AI automation and custom software
           </div>
           <div style={{ fontSize: 74, lineHeight: 1.03, fontWeight: 850, letterSpacing: 0 }}>
-            Build a faster, higher-converting Shopify store.
+            Build faster stores and smarter operations.
           </div>
         </div>
 
         <div style={{ position: 'relative', display: 'flex', gap: 18, color: 'rgba(255,255,255,0.72)', fontSize: 24 }}>
           <span>Top Rated Plus on Upwork</span>
           <span style={{ color: 'rgba(255,255,255,0.28)' }}>-</span>
-          <span>Shopify Verified Partner</span>
+          <span>15,000+ hours delivered</span>
           <span style={{ color: 'rgba(255,255,255,0.28)' }}>-</span>
-          <span>USA, UK, Australia</span>
+          <span>USA, Canada, UK, Australia, Europe</span>
         </div>
       </div>
     ),

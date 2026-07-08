@@ -11,7 +11,7 @@ const platforms = [
     description: 'Top 3% of all Shopify agencies globally',
     stats: [
       { icon: Star, value: '98%+', label: 'Job Success Score' },
-      { icon: CheckCircle2, value: '600+', label: 'Projects Completed' },
+      { icon: CheckCircle2, value: '650+', label: 'Projects Completed' },
       { icon: TrendingUp, value: '$500K+', label: 'Total Earned' },
       { icon: Clock, value: '10+ yrs', label: 'Experience' },
     ],

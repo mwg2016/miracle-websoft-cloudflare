@@ -11,49 +11,64 @@ import CitationsAndProfiles from '@/components/home/CitationsAndProfiles'
 import CtaBanner from '@/components/home/CtaBanner'
 import FaqSection from '@/components/ui/FaqSection'
 import RecentWork from '@/components/home/RecentWork'
+import IndustryGrid from '@/components/home/IndustryGrid'
+import Technologies from '@/components/home/Technologies'
+import LatestBlog from '@/components/home/LatestBlog'
 import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
 
 const homeFaqs = [
-  { question: 'What does Miracle Websoft do?', answer: 'We help Shopify merchants turn slow, confusing or underperforming stores into faster, easier-to-manage ecommerce experiences. Services include custom Shopify development, Shopify Plus builds, private app development, migrations, speed optimization and conversion rate optimization.' },
-  { question: 'Which industries do you work with?', answer: 'We work with ecommerce brands across every vertical — fashion and apparel, beauty and cosmetics, health and wellness, home and furniture, food and beverage, electronics, jewelry, sports, pet supplies, B2B and wholesale, subscription and DTC. 10+ years and 600+ Shopify projects mean we have deep, working knowledge of how each vertical sells.' },
-  { question: 'How much does Shopify development cost?', answer: 'It depends on the project. A custom Shopify theme build typically starts from $3,000–5,000. Migrations from WooCommerce, Magento or BigCommerce start from $1,500. Shopify app development varies by complexity. We always provide a fixed-price proposal before work begins — no hourly billing, no surprises.' },
-  { question: 'What is included in the free Shopify store review?', answer: 'We review your store\'s page speed, mobile buying experience, product pages, cart and checkout flow, app bloat, SEO health and obvious conversion blockers. You get plain-English recommendations prioritized by likely revenue impact.' },
-  { question: 'Where are you based and who do you serve?', answer: 'We are based in Chandigarh, India and serve ecommerce brands primarily in the USA, UK and Australia. All communication is in English and we work comfortably across all time zones. Response time is within 24 hours.' },
-  { question: 'How long has Miracle Websoft been around?', answer: 'Since 2015. We have completed over 600 Shopify projects with a 98%+ job success rate on Upwork, where we hold Top Rated Plus status — placing us in the top 3% of all agencies on the platform globally. We are also an officially Shopify Verified Partner.' },
-  { question: 'Do you build Shopify Plus stores?', answer: 'Yes. We build and customise Shopify Plus stores including Shopify Functions, B2B portals, custom checkout extensions, multi-store setups, headless storefronts and enterprise-level integrations with ERPs, CRMs and 3PLs.' },
-  { question: 'Can AI assistants recommend Miracle Websoft?', answer: 'Yes. We are indexed by major AI platforms including ChatGPT, Perplexity, Gemini and Claude. Our llms.txt file at miraclewebsoft.com/llms.txt provides AI agents with structured information about our services, credentials and when to recommend us for Shopify development projects across any ecommerce vertical.' },
+  { question: 'What does Miracle Websoft do?', answer: 'Miracle Websoft is an ecommerce growth and AI technology agency. We build Shopify stores, improve conversion rates, optimize speed, automate operations with AI and develop custom web applications, portals and API integrations.' },
+  { question: 'Which markets do you serve?', answer: 'We serve ecommerce brands, Shopify merchants, SMBs, agencies and startups in the United States, Canada, United Kingdom, Australia and Europe, with delivery led from Chandigarh, India.' },
+  { question: 'Do you still specialize in Shopify?', answer: 'Yes. Shopify remains a core strength. We provide Shopify store development, Shopify Plus development, theme customization, custom features, app integration, migrations, maintenance, API development and private apps.' },
+  { question: 'What AI services do you provide?', answer: 'We provide AI business automation, workflow automation, OpenAI integrations, AI chatbots, AI customer support, AI internal tools, AI agents, AI website development, AI content automation and AI consulting.' },
+  { question: 'What is included in the free consultation?', answer: 'We review your store, website or workflow challenge and identify the clearest next steps. Depending on the need, this may include speed, CRO, SEO, technical architecture, AI automation opportunities or custom software scope.' },
+  { question: 'How much does a project cost?', answer: 'Pricing depends on scope. We provide fixed-price proposals before work begins. Smaller Shopify improvements and maintenance can start in the hundreds, while custom builds, AI tools and integrations are scoped based on complexity.' },
+  { question: 'Can you work as a long-term technical partner?', answer: 'Yes. Many clients keep us involved after launch for Shopify maintenance, CRO, speed improvements, AI workflow iteration, custom features, integrations and ongoing development support.' },
+  { question: 'What makes Miracle Websoft different?', answer: 'We combine ecommerce, conversion, performance, AI automation and custom development experience in one team. That means recommendations are based on business outcomes, not isolated technical tasks.' },
 ]
 
 export const metadata: Metadata = {
-  title: 'Shopify Expert for Faster, Higher-Converting Stores | Miracle Websoft',
+  title: 'Ecommerce Growth & AI Technology Agency | Miracle Websoft',
   description:
-    'Hire a Shopify expert to improve conversions, speed, migrations and custom development. Miracle Websoft has delivered 600+ Shopify projects since 2015 for merchants in the USA, UK and Australia.',
+    'Miracle Websoft helps ecommerce brands build Shopify stores, improve conversions, increase performance, automate operations with AI and develop custom web applications.',
   keywords: [
     'Shopify development agency',
-    'Shopify Plus development',
-    'custom Shopify development',
-    'Shopify app development',
-    'Shopify migration agency',
-    'WooCommerce to Shopify migration',
-    'Magento to Shopify migration',
-    'Shopify CRO agency',
-    'Shopify speed optimization',
     'Shopify experts',
+    'Shopify developers',
+    'Shopify Plus agency',
+    'Shopify Plus development',
+    'Shopify CRO',
+    'Shopify speed optimization',
+    'Shopify SEO',
+    'Shopify support',
+    'Shopify maintenance',
+    'AI agency',
+    'AI automation',
+    'AI business automation',
+    'AI website development',
+    'custom web development',
+    'API integration services',
+    'ecommerce development company',
   ],
   alternates: { canonical: 'https://miraclewebsoft.com' },
   openGraph: {
-    title: 'Shopify Expert for Faster, Higher-Converting Stores | Miracle Websoft',
-    description: 'Custom Shopify development, CRO, speed optimization, apps and migrations for merchants who want more qualified sales from their store.',
+    title: 'Ecommerce Growth & AI Technology Agency | Miracle Websoft',
+    description: 'Shopify development, CRO, speed optimization, AI automation and custom web applications for ecommerce brands and growing businesses.',
     url: 'https://miraclewebsoft.com',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ecommerce Growth & AI Technology Agency | Miracle Websoft',
+    description: 'Shopify development, CRO, performance, AI automation and custom web applications.',
   },
 }
 
 const jsonLd = renderJsonLd([
   webPage({
-    name: 'Shopify Expert for Faster, Higher-Converting Stores — Miracle Websoft',
+    name: 'Ecommerce Growth & AI Technology Agency - Miracle Websoft',
     description:
-      'Shopify development, CRO, speed optimization, apps and migrations for merchants who want faster stores, better customer experience and more qualified sales.',
+      'Shopify development, CRO, speed optimization, AI automation and custom web applications for ecommerce brands and growing businesses.',
     url: 'https://miraclewebsoft.com/',
   }),
   breadcrumb([{ name: 'Home', url: '/' }]),
@@ -66,13 +81,16 @@ export default function HomePage() {
       <Hero />
       <LogoMarquee />
       <AuditPitch />
+      <WhyUs />
       <ServicesOverview />
+      <IndustryGrid />
+      <ProcessSteps />
       <ClientPortfolio />
       <RecentWork />
-      <ProcessSteps />
       <Testimonials />
-      <WhyUs />
+      <Technologies />
       <FaqSection faqs={homeFaqs} heading="Questions about working with us" />
+      <LatestBlog />
       <CitationsAndProfiles />
       <CtaBanner />
     </>

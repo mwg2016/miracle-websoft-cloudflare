@@ -2,10 +2,10 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Miracle Websoft - Shopify Development Agency',
+    name: 'Miracle Websoft - Ecommerce Growth & AI Technology Agency',
     short_name: 'Miracle Websoft',
     description:
-      'Shopify development agency building custom stores, Shopify Plus builds, apps, migrations, CRO, and speed optimization for ecommerce brands.',
+      'Ecommerce growth and AI technology agency for Shopify development, CRO, speed optimization, AI automation and custom web development.',
     start_url: '/',
     scope: '/',
     display: 'standalone',

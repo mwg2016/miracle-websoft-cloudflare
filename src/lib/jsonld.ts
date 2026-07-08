@@ -59,8 +59,8 @@ export function service(args: {
     url: args.url.startsWith('http') ? args.url : `${SITE_URL}${args.url}`,
     ...(args.serviceType ? { serviceType: args.serviceType } : {}),
     provider: PUBLISHER_REF,
-    areaServed: (args.areaServed ?? ['United States', 'United Kingdom', 'Australia', 'India']).map(
-      (name) => ({ '@type': 'Country', name })
+    areaServed: (args.areaServed ?? ['United States', 'Canada', 'United Kingdom', 'Australia', 'Europe', 'India']).map(
+      (name) => ({ '@type': name === 'Europe' ? 'Place' : 'Country', name })
     ),
   }
 }
