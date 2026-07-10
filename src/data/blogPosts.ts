@@ -195,7 +195,7 @@ export const blogPosts: BlogPost[] = [
       "7. Return and exchange policy visible on the product page — not just in the footer. A clear '30-day free returns' badge near the add-to-cart button directly addresses purchase anxiety.",
       "8. Related products that are actually related — same style or similar occasion, not just same collection. Manual curation or a well-configured recommendation app outperforms random 'you may also like' significantly.",
       "9. Scarcity signal when stock is genuinely low. 'Only 3 left in this size' is honest and effective when true. Do not fake this — customers notice.",
-      "10. Page speed. A product page that loads in under 1.5 seconds on mobile performs materially better than one that takes 3+ seconds. Everything else on this list is secondary to a fast page.",
+      "10. Page speed. A product page that loads in under 1.5 seconds on mobile performs materially better than one that takes 3+ seconds.  Everything else on this list is secondary to a fast page.",
     ],
   },
   {
