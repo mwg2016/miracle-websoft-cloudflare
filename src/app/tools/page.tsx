@@ -98,7 +98,7 @@ const builtTools = [
     accentGradient: 'linear-gradient(90deg, #0284c7, #38bdf8)',
     accentBorder: 'rgba(56,189,248,0.2)',
     accentCardBg: 'rgba(56,189,248,0.03)',
-    title: 'PC Builder',
+    title: 'Miracle PC Builder',
     url: 'https://apps.shopify.com/pc-builder-mw',
     urlLabel: 'pcbuilderapp.com',
     dedicatedPage: '/tools/pc-builder',

@@ -11,11 +11,11 @@ import { outboundHref } from '@/lib/outbound'
 const PC_BUILDER_OUTBOUND = outboundHref('shopify_apps', 'https://apps.shopify.com/pc-builder-mw')
 
 export const metadata: Metadata = {
-  title: 'PC Builder App for Shopify — Interactive PC Configurator | Miracle Websoft',
+  title: 'Miracle PC Builder App for Shopify — Interactive PC Configurator | Miracle Websoft',
   description: 'Let customers build compatible PCs step by step and checkout in one click. Real-time compatibility validation, AI-powered fill, bundle checkout. Built for Shopify.',
   alternates: { canonical: 'https://miraclewebsoft.com/tools/pc-builder' },
   openGraph: {
-    title: 'PC Builder App for Shopify | Miracle Websoft',
+    title: 'Miracle PC Builder App for Shopify | Miracle Websoft',
     description: 'Interactive PC configurator for Shopify stores. Real-time compatibility, bundle checkout, AI-powered fill.',
     url: 'https://miraclewebsoft.com/tools/pc-builder',
     type: 'website',
@@ -74,7 +74,7 @@ const stats = [
 
 const jsonLd = renderJsonLd([
   softwareApplication({
-    name: 'PC Builder — Shopify App',
+    name: 'Miracle PC Builder — Shopify App',
     description:
       'Interactive PC configurator for Shopify stores. Real-time compatibility validation, AI-powered fill and one-click bundle checkout.',
     url: 'https://apps.shopify.com/pc-builder-mw',
@@ -85,7 +85,7 @@ const jsonLd = renderJsonLd([
   breadcrumb([
     { name: 'Home', url: '/' },
     { name: 'Tools', url: '/tools' },
-    { name: 'PC Builder', url: '/tools/pc-builder' },
+    { name: 'Miracle PC Builder', url: '/tools/pc-builder' },
   ]),
 ])
 
@@ -107,7 +107,7 @@ export default function PcBuilderPage() {
               Tools
             </Link>
             <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.8rem' }}>/</span>
-            <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', fontWeight: 500 }}>PC Builder</span>
+            <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', fontWeight: 500 }}>Miracle PC Builder</span>
           </div>
 
           <span className="mw-eyebrow">SHOPIFY APP</span>
@@ -224,7 +224,7 @@ export default function PcBuilderPage() {
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '2rem' }}>
                 Selling individual components is easy. Selling complete builds is hard — customers need
                 to know parts are compatible, and adding 8–12 products to a cart is friction that kills conversions.
-                PC Builder solves both problems in one widget.
+                Miracle PC Builder solves both problems in one widget.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
                 {[
@@ -299,7 +299,7 @@ export default function PcBuilderPage() {
             <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>And everything around them.</em>
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: '480px', margin: '0 auto 2.5rem' }}>
-            PC Builder is one of several tools we&apos;ve built and shipped. We&apos;re a Shopify development agency
+            Miracle PC Builder is one of several tools we&apos;ve built and shipped. We&apos;re a Shopify development agency
             with 10+ years of experience — we build apps, stores, and custom tools for Shopify merchants.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -309,7 +309,7 @@ export default function PcBuilderPage() {
               rel="noopener noreferrer"
               className="mw-btn-primary"
             >
-              Install PC Builder <ExternalLink size={15} />
+              Install Miracle PC Builder <ExternalLink size={15} />
             </Link>
             <Link href="/contact" style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.4rem',

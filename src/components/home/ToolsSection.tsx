@@ -52,7 +52,7 @@ const tools = [
     accentBorder: 'rgba(56,189,248,0.2)',
     accentBg: 'linear-gradient(135deg, rgba(56,189,248,0.06) 0%, rgba(56,189,248,0.01) 100%)',
     tag: '14-day free trial',
-    title: 'PC Builder',
+    title: 'Miracle PC Builder',
     desc: 'Interactive PC configurator for Shopify stores. Lets customers build compatible PCs step by step and checkout in one click — with real-time compatibility validation.',
     url: outboundHref('shopify_apps', 'https://apps.shopify.com/pc-builder-mw'),
     urlLabel: 'pcbuilderapp.com',
