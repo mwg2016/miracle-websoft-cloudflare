@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowLeft, ArrowRight, CalendarDays } from 'lucide-react'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import { blogPosts, getPost } from '@/data/blogPosts'
 import { article, breadcrumb, renderJsonLd } from '@/lib/jsonld'
@@ -12,9 +12,13 @@ const MONTHS: Record<string, string> = {
 }
 
 function toIso(date: string): string {
-  const [m, y] = date.trim().split(' ')
-  const mm = MONTHS[m] ?? '01'
-  return `${y}-${mm}-01`
+  const parts = date.trim().split(/\s+/)
+  const hasDay = parts.length === 3
+  const day = hasDay ? parts[0].padStart(2, '0') : '01'
+  const month = hasDay ? parts[1] : parts[0]
+  const year = hasDay ? parts[2] : parts[1]
+  const mm = MONTHS[month] ?? '01'
+  return `${year}-${mm}-${day}`
 }
 
 export function generateStaticParams() {
@@ -77,9 +81,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* Header */}
           <div className="mb-10">
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex flex-wrap items-center gap-3 mb-5">
               <span style={{ fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '0.25rem 0.65rem', borderRadius: '9999px', background: 'rgba(108,99,255,0.15)', color: 'var(--accent)' }}>{post.tag}</span>
-              <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>{post.date}</span>
+              <time
+                dateTime={toIso(post.date)}
+                className="inline-flex items-center gap-1.5"
+                style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}
+              >
+                <CalendarDays size={13} aria-hidden="true" />
+                Published {post.date}
+              </time>
             </div>
             <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(26px,4vw,42px)', lineHeight: 1.2, marginBottom: '1.5rem' }}>{post.title}</h1>
             <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, fontWeight: 300, borderLeft: '2px solid var(--accent)', paddingLeft: '1.25rem' }}>{post.excerpt}</p>

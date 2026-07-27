@@ -10,7 +10,7 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "shopify-store-traffic-no-sales-conversion-checklist",
-    date: "July 2026",
+    date: "27 July 2026",
     tag: "Shopify conversion",
     title: "Shopify Traffic, No Sales? 12 Checks to Boost Conversions NOW!",
     excerpt: "Is your Shopify store a bustling highway with no exits? You're getting traffic, but the cash register stays silent. It's a common, frustrating problem for many online entrepreneurs. Don't despair! This comprehensive guide reveals 12 critical areas to audit and optimize, transforming your high-traffic store into a high-converting sales machine. From user experience to pricing strategy, we'll uncover why visitors aren't buying and how to fix it, ensuring your efforts translate into tangible",
@@ -70,7 +70,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "custom-shopify-development-vs-ready-made-apps",
-    date: "July 2026",
+    date: "22 July 2026",
     tag: "Shopify Development",
     title: "Custom Shopify Development vs. Ready-Made Apps: The Ultimate Guide to Scaling Your E-commerce Business",
     excerpt: "Navigating the world of Shopify can be daunting, especially when deciding between bespoke solutions and off-the-shelf applications. This comprehensive guide breaks down the critical differences between custom Shopify development and ready-made apps, helping you understand which path aligns best with your business goals, budget, and long-term vision. Learn how to optimize your e-commerce platform for scalability, unique features, and competitive advantage. Make an informed choice that propels",
@@ -128,7 +128,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "shopify-editions-spring-2026-guide",
-    date: "July 2026",
+    date: "16 July 2026",
     tag: "Shopify",
     title: "Shopify Editions Spring 2026: Your Ultimate Guide to the Latest Innovations",
     excerpt: "Get ready to dive into the future of ecommerce with Shopify Editions Spring 2026! This comprehensive guide breaks down all the exciting new features, from groundbreaking AI advancements to powerful merchant tools and enhanced customer experiences. We'll explore how these updates will empower your online store, streamline operations, and help you connect with customers like never before. Don't miss out on understanding the innovations shaping the next era of online retail.",
@@ -164,7 +164,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-ai-reduces-cart-abandonment-shopify",
-    date: "July 2026",
+    date: "9 July 2026",
     tag: "AI",
     title: "Stop Losing Sales: How AI Helps Reduce Cart Abandonment on Your Shopify Store",
     excerpt: "Cart abandonment is a major headache for Shopify store owners, costing billions in lost revenue. But what if there was a smarter way to bring those customers back? Enter Artificial Intelligence. This blog post dives deep into how AI is revolutionizing the fight against abandoned carts, offering personalized solutions from predictive analytics to smart chatbots and dynamic pricing. Get ready to transform your Shopify store's recovery strategy and boost your bottom line.",
@@ -199,7 +199,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "ai-boost-shopify-seo-organic-traffic",
-    date: "July 2026",
+    date: "3 July 2026",
     tag: "Shopify SEO",
     title: "Unlock Shopify SEO Success: How AI Can Skyrocket Your Organic Traffic",
     excerpt: "Ever wondered how to get more eyes on your Shopify store without spending a fortune on ads? The answer might just be AI! Artificial intelligence is no longer a futuristic concept; it's a powerful tool that can transform your Shopify SEO strategy, helping you rank higher, attract more organic traffic, and ultimately, boost your sales. Let's dive into how AI can become your secret weapon for e-commerce success.",
@@ -234,7 +234,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'shopify-theme-detector-chrome-extension',
-    date: 'May 2026',
+    date: '19 May 2026',
     tag: 'Tools',
     title: 'Shopify Theme Detector is now a free Chrome extension',
     excerpt: 'We shipped a Chrome extension version of our Shopify Theme Detector. Pin it once, click any Shopify storefront and see the theme, apps, product count and collections instantly — no tab switching, no copy-pasting URLs.',
@@ -249,7 +249,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'shopify-summer-2025-edition',
-    date: 'May 2025',
+    date: '28 May 2025',
     tag: 'Platform Updates',
     title: 'Shopify Summer 2025 Edition — what store owners need to know',
     excerpt: "The key changes from Shopify's Summer 2025 release that affect clothing and fashion brands. New checkout features, Markets updates, and developer tools.",
@@ -264,7 +264,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'shopify-may-2025-updates',
-    date: 'May 2025',
+    date: '12 May 2025',
     tag: 'Platform Updates',
     title: 'Shopify May 2025 updates every merchant should know',
     excerpt: 'Monthly roundup of Shopify platform updates — new APIs, storefront changes, and what they mean for your fashion store.',
@@ -279,7 +279,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'custom-shopify-section-with-ai',
-    date: 'April 2025',
+    date: '23 April 2025',
     tag: 'AI & No-Code',
     title: 'Built a custom Shopify section with AI — no code needed',
     excerpt: 'How we used AI to build a fully custom Shopify section without writing a single line of code. A game changer for store owners who want custom features fast.',
@@ -294,7 +294,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'fashion-cart-abandonment',
-    date: 'March 2025',
+    date: '14 March 2025',
     tag: 'Conversion',
     title: 'Why 77% of fashion shoppers abandon their cart — and how to stop it',
     excerpt: 'Cart abandonment in fashion runs higher than almost any other ecommerce vertical. Here is why it happens and the Shopify changes that fix it.',
@@ -309,7 +309,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'slow-shopify-store-cost',
-    date: 'February 2025',
+    date: '26 February 2025',
     tag: 'Speed',
     title: 'The real cost of a slow Shopify store for clothing brands',
     excerpt: 'Every extra second of load time costs you sales. We break down the exact numbers for fashion ecommerce and what to do about it.',
@@ -324,7 +324,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'tiktok-shop-shopify-activewear',
-    date: 'February 2025',
+    date: '8 February 2025',
     tag: 'TikTok',
     title: 'How to set up TikTok Shop on Shopify for activewear brands',
     excerpt: 'A step-by-step guide to connecting TikTok Shop to Shopify, syncing your catalog and making sure orders flow correctly.',
@@ -339,7 +339,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'woocommerce-to-shopify-migration',
-    date: 'January 2025',
+    date: '21 January 2025',
     tag: 'Migration',
     title: 'WooCommerce to Shopify: the complete migration guide for fashion brands',
     excerpt: 'Everything you need to know about migrating from WooCommerce to Shopify — what data transfers, what does not, and how to protect your SEO.',
@@ -354,7 +354,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'shopify-product-drop-system',
-    date: 'January 2025',
+    date: '7 January 2025',
     tag: 'Product Drops',
     title: 'How to set up a product drop system on Shopify',
     excerpt: 'Waitlists, countdown timers, pre-orders and sell-out handling. Here is how to build the infrastructure for a successful Shopify drop.',
@@ -369,7 +369,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'shopify-product-page-conversions',
-    date: 'December 2024',
+    date: '19 December 2024',
     tag: 'CRO',
     title: '10 Shopify product page changes that increase fashion conversions',
     excerpt: 'Small changes to your product pages can make a big difference. Here are the ten highest-impact improvements for clothing brand stores.',
@@ -389,7 +389,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'recently-viewed-products-shopify',
-    date: 'November 2024',
+    date: '13 November 2024',
     tag: 'Shopify Tips',
     title: 'How to show recently viewed products in Shopify (step-by-step guide)',
     excerpt: 'Recently viewed products keep shoppers engaged and lift average order value. Here is exactly how to add this feature to your Shopify store.',
@@ -404,7 +404,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'ai-shopify-theme-sections-builder',
-    date: 'October 2024',
+    date: '24 October 2024',
     tag: 'Apps',
     title: 'AI Shopify theme sections builder — build custom sections without a developer',
     excerpt: "How our AI-powered sections builder lets you create fully custom Shopify theme sections without touching code.",
@@ -419,7 +419,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'custom-pc-builder-shopify',
-    date: 'September 2024',
+    date: '9 September 2024',
     tag: 'Apps',
     title: 'Custom Miracle PC Builder for Shopify — sell configurable products the right way',
     excerpt: 'How the Shopify Miracle PC Builder app handles complex product configurations, compatibility logic and custom pricing — all without apps that slow your store down.',
