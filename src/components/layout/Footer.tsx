@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { outboundHref } from '@/lib/outbound'
 
@@ -146,7 +147,15 @@ export default function Footer() {
       <div className="mw-container" style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem' }}>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>
-            <span className="font-bold text-white text-sm">Miracle<span style={{ color: 'var(--accent)' }}>Websoft</span></span>
+            <Link href="/" aria-label="Miracle Websoft home" className="shrink-0 transition-opacity hover:opacity-80">
+              <Image
+                src="/miracle-websoft-logo.png"
+                alt="Miracle Websoft"
+                width={78}
+                height={32}
+                className="h-7 w-auto"
+              />
+            </Link>
             <span>© 2026 All rights reserved.</span>
           </div>
           {/* Social icons */}
