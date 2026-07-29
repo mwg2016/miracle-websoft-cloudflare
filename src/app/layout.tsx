@@ -290,6 +290,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {/* ── Analytics (deferred – no render-blocking) ──────────────────── */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-YT1GLKW8L5" nonce={nonce} strategy="lazyOnload" />
         <Script id="ga-init" nonce={nonce} strategy="lazyOnload">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YT1GLKW8L5');`}</Script>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-XSC29WRYZV" nonce={nonce} strategy="lazyOnload" />
+        <Script id="ga-init-2" nonce={nonce} strategy="lazyOnload">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XSC29WRYZV');`}</Script>
         <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18095762557" nonce={nonce} strategy="lazyOnload" />
         <Script id="gads-init" nonce={nonce} strategy="lazyOnload">{`gtag('config','AW-18095762557');`}</Script>
         <Script id="meta-pixel" nonce={nonce} strategy="lazyOnload">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','854778784223732');fbq('track','PageView');`}</Script>
