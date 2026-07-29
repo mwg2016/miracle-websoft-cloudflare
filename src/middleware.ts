@@ -96,5 +96,5 @@ export async function middleware(req: NextRequest) {
 export const config = {
   // Match everything except Next internals + static files. We set x-pathname
   // on every request and only auth-gate the admin paths above.
-  matcher: ['/((?!_next/static|_next/image|favicon.ico|icon.png|icon.svg|apple-icon.png).*)'],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|icon.png|apple-icon.png).*)'],
 }

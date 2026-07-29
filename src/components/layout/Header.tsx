@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ChevronDown, Menu, X } from 'lucide-react'
 
@@ -97,8 +98,15 @@ export default function Header() {
       <div className="mw-container">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="font-bold text-lg text-white hover:opacity-80 transition-opacity" style={{ fontFamily: 'var(--font-sans), system-ui, sans-serif' }}>
-            Miracle<span style={{ color: 'var(--accent)' }}>Websoft</span>
+          <Link href="/" aria-label="Miracle Websoft home" className="flex shrink-0 items-center hover:opacity-80 transition-opacity">
+            <Image
+              src="/miracle-websoft-logo.png"
+              alt="Miracle Websoft"
+              width={126}
+              height={52}
+              priority
+              className="h-9 w-auto md:h-11"
+            />
           </Link>
 
           {/* Desktop Nav */}

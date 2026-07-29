@@ -1,4 +1,6 @@
 import { ImageResponse } from 'next/og'
+import { readFile } from 'node:fs/promises'
+import path from 'node:path'
 
 export const alt = 'Miracle Websoft - Ecommerce growth and AI technology agency'
 export const size = {
@@ -7,7 +9,10 @@ export const size = {
 }
 export const contentType = 'image/png'
 
-export default function Image() {
+export default async function Image() {
+  const logo = await readFile(path.join(process.cwd(), 'public', 'miracle-websoft-logo.png'))
+  const logoSrc = `data:image/png;base64,${logo.toString('base64')}`
+
   return new ImageResponse(
     (
       <div
@@ -35,21 +40,14 @@ export default function Image() {
         />
         <div style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
-            <div
-              style={{
-                width: 58,
-                height: 58,
-                borderRadius: 14,
-                background: '#6C63FF',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 30,
-                fontWeight: 800,
-              }}
-            >
-              M
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={logoSrc}
+              alt=""
+              width="116"
+              height="48"
+              style={{ width: 116, height: 48, objectFit: 'contain' }}
+            />
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <span style={{ fontSize: 34, fontWeight: 800, letterSpacing: 0 }}>Miracle Websoft</span>
               <span style={{ fontSize: 20, color: 'rgba(255,255,255,0.68)' }}>Ecommerce growth and AI technology agency</span>

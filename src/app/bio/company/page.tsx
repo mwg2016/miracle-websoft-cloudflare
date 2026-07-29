@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin, Mail, Phone, Calendar, CreditCard, ArrowUpRight, CheckCircle2, Download } from 'lucide-react'
 import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
@@ -194,14 +195,14 @@ export default function CompanyBioPage() {
         }}>
           {/* Logo */}
           <div style={{
-            width: 80, height: 80, borderRadius: 22,
-            background: 'linear-gradient(135deg, rgba(108,99,255,0.3) 0%, rgba(16,185,129,0.15) 100%)',
-            border: '1px solid rgba(108,99,255,0.35)',
+            width: 148, height: 72, borderRadius: 18,
+            background: 'rgba(10,10,10,0.72)',
+            border: '1px solid rgba(153,195,70,0.28)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             margin: '0 auto 1.25rem',
-            boxShadow: '0 0 0 3px rgba(108,99,255,0.12), 0 8px 32px rgba(108,99,255,0.2)',
+            boxShadow: '0 0 0 3px rgba(153,195,70,0.08), 0 8px 32px rgba(153,195,70,0.12)',
           }}>
-            <span style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontWeight: 700, color: '#fff', fontSize: '1.6rem', letterSpacing: '-0.02em' }}>MW</span>
+            <Image src="/miracle-websoft-logo.png" alt="Miracle Websoft" width={120} height={50} style={{ width: 120, height: 'auto' }} />
           </div>
 
           {/* Badge */}

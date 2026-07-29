@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import LogoutButton from './LogoutButton'
 
@@ -24,7 +25,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       }}>
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0.85rem 1.5rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
           <Link href="/admin" style={{ textDecoration: 'none', color: '#fff', fontWeight: 700, fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <span>Miracle<span style={{ color: '#6C63FF' }}>Websoft</span></span>
+            <Image src="/miracle-websoft-logo.png" alt="Miracle Websoft" width={78} height={32} style={{ width: 70, height: 'auto' }} />
             <span style={{ fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', padding: '2px 8px', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 9999 }}>
               Admin
             </span>
