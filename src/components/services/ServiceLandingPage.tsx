@@ -41,29 +41,53 @@ export default function ServiceLandingPage({
           <div className="mb-6">
             <Breadcrumb items={breadcrumbItems} />
           </div>
-          <div className="max-w-3xl">
-            <span className="mw-eyebrow">{data.eyebrow}</span>
-            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>
-              {data.h1}
-            </h1>
-            <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.08rem', lineHeight: 1.8, marginBottom: '1.5rem', maxWidth: '640px', fontWeight: 300 }}>
-              {data.subtext}
-            </p>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 mb-8">
-              {data.benefits.slice(0, 4).map((benefit) => (
-                <span key={benefit} className="flex items-center gap-1.5" style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.62)', fontWeight: 500 }}>
-                  <CheckCircle2 size={13} style={{ color: '#10B981' }} /> {benefit}
-                </span>
-              ))}
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-10 items-end">
+            <div className="max-w-3xl">
+              <span className="mw-eyebrow">{data.eyebrow}</span>
+              <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.1rem' }}>
+                {data.h1}
+              </h1>
+              <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.05rem', lineHeight: 1.72, marginBottom: '1.35rem', maxWidth: '680px', fontWeight: 300 }}>
+                {data.subtext}
+              </p>
+              <div className="flex flex-wrap gap-x-5 gap-y-2 mb-7">
+                {data.benefits.slice(0, 4).map((benefit) => (
+                  <span key={benefit} className="flex items-center gap-1.5" style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.62)', fontWeight: 500 }}>
+                    <CheckCircle2 size={13} style={{ color: '#10B981' }} /> {benefit}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <a href="#get-quote" className="mw-btn-primary">
+                  {primaryCtaLabel} <ArrowRight size={16} />
+                </a>
+                <Link href={secondaryCtaHref} className="mw-btn-outline">
+                  {secondaryCtaLabel}
+                </Link>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <a href="#get-quote" className="mw-btn-primary">
-                {primaryCtaLabel} <ArrowRight size={16} />
+
+            <aside className="mw-card" style={{ padding: '1.25rem' }} aria-label="Service engagement path">
+              <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: accent, fontWeight: 700, marginBottom: '0.8rem' }}>
+                How this starts
+              </p>
+              <div className="flex flex-col">
+                {data.process.slice(0, 3).map((step, index) => (
+                  <div key={step.title} className="flex gap-3" style={{ padding: '0.85rem 0', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+                    <span style={{ width: 28, height: 28, borderRadius: 999, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: `${accent}18`, border: `1px solid ${accent}30`, color: accent, fontSize: '0.72rem', fontWeight: 800, flexShrink: 0 }}>
+                      {index + 1}
+                    </span>
+                    <span>
+                      <span style={{ display: 'block', color: '#fff', fontSize: '0.88rem', fontWeight: 700, lineHeight: 1.35 }}>{step.title}</span>
+                      <span style={{ display: 'block', color: 'rgba(255,255,255,0.5)', fontSize: '0.74rem', lineHeight: 1.5, marginTop: '0.2rem' }}>{step.body}</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <a href="#get-quote" className="mw-btn-outline justify-center w-full" style={{ marginTop: '0.8rem', padding: '0.78rem 1rem', fontSize: '0.82rem' }}>
+                Send details <ArrowRight size={14} />
               </a>
-              <Link href={secondaryCtaHref} className="mw-btn-outline">
-                {secondaryCtaLabel}
-              </Link>
-            </div>
+            </aside>
           </div>
         </div>
       </section>

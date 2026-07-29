@@ -136,29 +136,52 @@ export default function ShopifyServicesPage() {
           <div className="mb-6">
             <Breadcrumb items={[{ label: 'Services', href: '/services' }, { label: 'Shopify Services' }]} />
           </div>
-          <div className="max-w-3xl">
-            <span className="mw-eyebrow">Shopify Services</span>
-            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>
-              Shopify Development, Optimization and Long-Term Support
-            </h1>
-            <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.08rem', lineHeight: 1.8, marginBottom: '1.5rem', maxWidth: '650px', fontWeight: 300 }}>
-              Miracle Websoft helps Shopify merchants build faster stores, improve conversions, add custom features, integrate business systems and maintain a stronger ecommerce platform over time.
-            </p>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 mb-8">
-              {['650+ projects completed', '15,000+ hours delivered', 'Top Rated Shopify Experts', 'Global clients'].map((item) => (
-                <span key={item} className="flex items-center gap-1.5" style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.62)', fontWeight: 500 }}>
-                  <CheckCircle2 size={13} style={{ color: '#10B981' }} /> {item}
-                </span>
-              ))}
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-10 items-end">
+            <div className="max-w-3xl">
+              <span className="mw-eyebrow">Shopify Services</span>
+              <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.1rem' }}>
+                Shopify Development, Optimization and Long-Term Support
+              </h1>
+              <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.05rem', lineHeight: 1.72, marginBottom: '1.35rem', maxWidth: '680px', fontWeight: 300 }}>
+                Miracle Websoft helps Shopify merchants build faster stores, improve conversions, add custom features, integrate business systems and maintain a stronger ecommerce platform over time.
+              </p>
+              <div className="flex flex-wrap gap-x-5 gap-y-2 mb-7">
+                {['650+ projects completed', '15,000+ hours delivered', 'Top Rated Shopify Experts', 'Global clients'].map((item) => (
+                  <span key={item} className="flex items-center gap-1.5" style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.62)', fontWeight: 500 }}>
+                    <CheckCircle2 size={13} style={{ color: '#10B981' }} /> {item}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/contact" className="mw-btn-primary">
+                  Book Free Consultation <ArrowRight size={16} />
+                </Link>
+                <Link href="/work" className="mw-btn-outline">
+                  View Our Work
+                </Link>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/contact" className="mw-btn-primary">
-                Book Free Consultation <ArrowRight size={16} />
-              </Link>
-              <Link href="/work" className="mw-btn-outline">
-                View Our Work
-              </Link>
-            </div>
+
+            <aside className="mw-card" style={{ padding: '1.25rem' }} aria-label="Shopify service shortcuts">
+              <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 700, marginBottom: '0.8rem' }}>
+                Choose by need
+              </p>
+              <div className="flex flex-col">
+                {[
+                  { label: 'Launch or redesign', href: '/services/shopify/development', detail: 'Custom store build, theme, UX and launch support' },
+                  { label: 'Add a custom feature', href: '/services/shopify/custom-features', detail: 'Bundles, quizzes, configurators and private workflows' },
+                  { label: 'Maintain and improve', href: '/services/shopify/shopify-maintenance', detail: 'Ongoing support, speed, app checks and fixes' },
+                ].map((item) => (
+                  <Link key={item.href} href={item.href} className="group flex items-center justify-between gap-4" style={{ padding: '0.85rem 0', textDecoration: 'none', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+                    <span>
+                      <span style={{ display: 'block', color: '#fff', fontSize: '0.9rem', fontWeight: 650, lineHeight: 1.35 }}>{item.label}</span>
+                      <span style={{ display: 'block', color: 'rgba(255,255,255,0.5)', fontSize: '0.74rem', lineHeight: 1.45, marginTop: '0.2rem' }}>{item.detail}</span>
+                    </span>
+                    <ArrowRight size={15} style={{ color: 'var(--accent)', flexShrink: 0 }} />
+                  </Link>
+                ))}
+              </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -171,8 +194,8 @@ export default function ShopifyServicesPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {shopifyServices.map(({ icon: Icon, ...item }) => (
-              <Link key={item.href} href={item.href} className="mw-card group" style={{ padding: '1.5rem', minHeight: 220, textDecoration: 'none' }}>
-                <div className="flex items-start justify-between gap-3 mb-5">
+              <Link key={item.href} href={item.href} className="mw-card group" style={{ padding: '1.35rem', minHeight: 190, textDecoration: 'none' }}>
+                <div className="flex items-start justify-between gap-3 mb-4">
                   <span style={{ width: 42, height: 42, borderRadius: 12, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(108,99,255,0.12)', border: '1px solid rgba(108,99,255,0.22)' }}>
                     <Icon size={18} style={{ color: 'var(--accent)' }} />
                   </span>

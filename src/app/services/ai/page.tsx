@@ -99,10 +99,10 @@ export default function AiServicesPage() {
               <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>
                 Practical AI Automation for Ecommerce and Growing Businesses
               </h1>
-              <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.08rem', lineHeight: 1.8, marginBottom: '1.5rem', maxWidth: '660px', fontWeight: 300 }}>
+              <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.05rem', lineHeight: 1.72, marginBottom: '1.35rem', maxWidth: '680px', fontWeight: 300 }}>
                 Miracle Websoft helps teams use AI where it creates measurable value: faster support, cleaner operations, smarter internal tools, better content workflows and connected business systems.
               </p>
-              <div className="flex flex-wrap gap-3 mb-8">
+              <div className="flex flex-wrap gap-3 mb-7">
                 <Link href="/contact" className="mw-btn-primary">
                   Book Free Consultation <ArrowRight size={16} />
                 </Link>
@@ -112,14 +112,14 @@ export default function AiServicesPage() {
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 max-w-3xl">
                 {useCases.map((item) => (
-                  <div key={item} style={{ padding: '0.8rem 0.9rem', borderRadius: 12, background: 'rgba(255,255,255,0.045)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                  <div key={item} style={{ padding: '0.68rem 0.8rem', borderRadius: 10, background: 'rgba(255,255,255,0.045)', border: '1px solid rgba(255,255,255,0.08)' }}>
                     <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.68)', lineHeight: 1.35 }}>{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <aside className="mw-card" style={{ padding: '1.5rem' }}>
+            <aside className="mw-card" style={{ padding: '1.25rem' }}>
               <div style={{ width: 48, height: 48, borderRadius: 12, background: 'rgba(108,99,255,0.14)', border: '1px solid rgba(108,99,255,0.28)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
                 <BrainCircuit size={22} style={{ color: 'var(--accent)' }} />
               </div>
@@ -149,16 +149,16 @@ export default function AiServicesPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {aiServices.map((item, index) => (
-              <Link key={item.slug} href={`/services/ai/${item.slug}`} className="mw-card group" style={{ padding: '1.75rem', textDecoration: 'none' }}>
-                <div className="flex items-start justify-between gap-4 mb-5">
+              <Link key={item.slug} href={`/services/ai/${item.slug}`} className="mw-card group" style={{ padding: '1.35rem', textDecoration: 'none' }}>
+                <div className="flex items-start justify-between gap-4 mb-4">
                   <span style={{ width: 42, height: 42, borderRadius: 12, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: index % 2 === 0 ? 'rgba(108,99,255,0.12)' : 'rgba(16,185,129,0.10)', border: '1px solid rgba(255,255,255,0.10)' }}>
                     {index % 2 === 0 ? <Bot size={18} style={{ color: 'var(--accent)' }} /> : <Workflow size={18} style={{ color: '#10B981' }} />}
                   </span>
                   <ArrowRight size={16} style={{ color: 'rgba(255,255,255,0.35)' }} className="group-hover:text-white transition-colors" />
                 </div>
-                <p style={{ fontSize: '0.67rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 700, marginBottom: '0.6rem' }}>{item.eyebrow}</p>
-                <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#fff', lineHeight: 1.3, marginBottom: '0.7rem' }}>{item.h1}</h3>
-                <p style={{ fontSize: '0.84rem', color: 'rgba(255,255,255,0.56)', lineHeight: 1.65 }}>{item.subtext}</p>
+                <p style={{ fontSize: '0.65rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 700, marginBottom: '0.5rem' }}>{item.eyebrow}</p>
+                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', lineHeight: 1.3, marginBottom: '0.6rem' }}>{item.h1}</h3>
+                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.56)', lineHeight: 1.62 }}>{item.subtext}</p>
               </Link>
             ))}
           </div>
@@ -173,7 +173,7 @@ export default function AiServicesPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {principles.map((item, index) => (
-              <div key={item.title} className="mw-card" style={{ padding: '2rem' }}>
+              <div key={item.title} className="mw-card" style={{ padding: '1.5rem' }}>
                 <span style={{ display: 'inline-flex', width: 34, height: 34, borderRadius: '50%', alignItems: 'center', justifyContent: 'center', background: 'rgba(108,99,255,0.14)', border: '1px solid rgba(108,99,255,0.28)', color: 'var(--accent)', fontSize: '0.78rem', fontWeight: 800, marginBottom: '1.1rem' }}>
                   {String(index + 1).padStart(2, '0')}
                 </span>

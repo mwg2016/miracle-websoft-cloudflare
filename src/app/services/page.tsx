@@ -200,19 +200,23 @@ function ServiceCard({ icon: Icon, title, desc, href, badge }: {
   badge?: string
 }) {
   return (
-    <Link href={href} className="group block mw-card" style={{ padding: '1.75rem', textDecoration: 'none', position: 'relative', transition: 'border-color 0.25s' }}>
-      {badge && (
-        <span style={{ position: 'absolute', top: '1.25rem', right: '1.25rem', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', padding: '3px 8px', borderRadius: '4px', background: `${accent}18`, color: accent, border: `1px solid ${accent}30` }}>
-          {badge}
-        </span>
-      )}
-      <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(108,99,255,0.1)', border: '1px solid rgba(108,99,255,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.1rem', transition: 'background 0.2s' }}>
-        <Icon size={17} style={{ color: accent }} />
+    <Link href={href} className="group mw-card h-full" style={{ padding: '1.35rem', textDecoration: 'none', display: 'flex', flexDirection: 'column' }}>
+      <div className="flex items-start justify-between gap-3" style={{ marginBottom: '1rem' }}>
+        <div style={{ width: 38, height: 38, borderRadius: 10, background: 'rgba(108,99,255,0.1)', border: '1px solid rgba(108,99,255,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'background 0.2s' }}>
+          <Icon size={17} style={{ color: accent }} />
+        </div>
+        {badge ? (
+          <span style={{ fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.08em', padding: '3px 7px', borderRadius: 999, background: `${accent}16`, color: accent, border: `1px solid ${accent}28`, whiteSpace: 'nowrap' }}>
+            {badge}
+          </span>
+        ) : (
+          <ArrowRight size={15} style={{ color: 'rgba(255,255,255,0.32)' }} className="group-hover:text-white transition-colors" />
+        )}
       </div>
       <h3 style={{ fontSize: '0.975rem', fontWeight: 600, color: '#fff', marginBottom: '0.5rem', lineHeight: 1.3 }}>{title}</h3>
-      <p style={{ fontSize: '0.825rem', color: 'rgba(255,255,255,0.62)', lineHeight: 1.75, fontWeight: 300, marginBottom: '1.1rem' }}>{desc}</p>
-      <span style={{ fontSize: '0.78rem', color: accent, display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: 500 }}>
-        See how this helps <ArrowRight size={12} />
+      <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.62)', lineHeight: 1.65, fontWeight: 300, marginBottom: '1rem', flex: 1 }}>{desc}</p>
+      <span style={{ fontSize: '0.76rem', color: accent, display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontWeight: 600, marginTop: 'auto' }}>
+        Open service <ArrowRight size={12} />
       </span>
     </Link>
   )
@@ -222,10 +226,12 @@ function ServiceCard({ icon: Icon, title, desc, href, badge }: {
 
 function SectionHeader({ eyebrow, title, sub }: { eyebrow: string; title: string; sub?: string }) {
   return (
-    <div style={{ marginBottom: '2.5rem' }}>
-      <span className="mw-eyebrow">{eyebrow}</span>
-      <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)', marginBottom: sub ? '0.6rem' : 0 }}>{title}</h2>
-      {sub && <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.6)', fontWeight: 300, maxWidth: '520px', lineHeight: 1.7 }}>{sub}</p>}
+    <div className="grid grid-cols-1 lg:grid-cols-[0.72fr_1fr] gap-5 items-end" style={{ marginBottom: '2rem' }}>
+      <div>
+        <span className="mw-eyebrow">{eyebrow}</span>
+        <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,34px)', marginBottom: 0 }}>{title}</h2>
+      </div>
+      {sub && <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.6)', fontWeight: 300, maxWidth: '620px', lineHeight: 1.65, marginBottom: '0.2rem' }}>{sub}</p>}
     </div>
   )
 }
@@ -263,17 +269,38 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="pt-32 pb-16" style={{ background: '#0a0a0a', backgroundImage: 'radial-gradient(ellipse at 65% 45%, rgba(108,99,255,0.14) 0%, transparent 58%)' }}>
         <div className="mw-container">
-          <div className="max-w-2xl">
-            <span className="mw-eyebrow">ALL SERVICES</span>
-            <h1 style={{ color: '#fff', marginBottom: '1.25rem' }}>
-              Choose the growth service<br />
-              <span style={{ color: 'var(--accent)' }}>that fixes the real business problem.</span>
-            </h1>
-            <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.05rem', lineHeight: 1.85, fontWeight: 300, maxWidth: '540px' }}>
-              Whether you need a better Shopify store, more conversions, faster pages, AI automation or custom business software, start with the outcome you want. Not sure which service fits?{' '}
-              <Link href="#find-service" style={{ color: accent, textDecoration: 'none' }}>Answer 3 quick questions below</Link>{' '}
-              and we will point you to the right path.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-10 items-end">
+            <div className="max-w-3xl">
+              <span className="mw-eyebrow">ALL SERVICES</span>
+              <h1 style={{ color: '#fff', marginBottom: '1.1rem' }}>
+                Choose the growth service<br />
+                <span style={{ color: 'var(--accent)' }}>that fixes the real business problem.</span>
+              </h1>
+              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.04rem', lineHeight: 1.75, fontWeight: 300, maxWidth: '640px' }}>
+                Whether you need a better Shopify store, more conversions, faster pages, AI automation or custom business software, start with the outcome you want. Not sure which service fits?{' '}
+                <Link href="#find-service" style={{ color: accent, textDecoration: 'none' }}>Answer 3 quick questions below</Link>{' '}
+                and we will point you to the right path.
+              </p>
+            </div>
+
+            <aside className="mw-card" style={{ padding: '1.25rem' }} aria-label="Recommended service paths">
+              <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', fontWeight: 700, marginBottom: '0.9rem' }}>Start here</p>
+              <div className="flex flex-col">
+                {[
+                  { label: 'Build or improve a Shopify store', href: '/services/shopify', detail: 'Development, migrations, custom apps' },
+                  { label: 'Increase sales from existing traffic', href: '/services/conversion-rate-optimization', detail: 'CRO, speed, checkout and product pages' },
+                  { label: 'Automate manual business work', href: '/services/ai', detail: 'OpenAI integrations and workflow automation' },
+                ].map((item) => (
+                  <Link key={item.href} href={item.href} className="group flex items-center justify-between gap-4" style={{ padding: '0.85rem 0', textDecoration: 'none', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+                    <span>
+                      <span style={{ display: 'block', color: '#fff', fontSize: '0.9rem', fontWeight: 650, lineHeight: 1.35 }}>{item.label}</span>
+                      <span style={{ display: 'block', color: 'rgba(255,255,255,0.5)', fontSize: '0.74rem', lineHeight: 1.45, marginTop: '0.2rem' }}>{item.detail}</span>
+                    </span>
+                    <ArrowRight size={15} style={{ color: accent, flexShrink: 0 }} />
+                  </Link>
+                ))}
+              </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -288,14 +315,33 @@ export default function ServicesPage() {
               { stat: '10+', label: 'Years on Shopify' },
               { stat: '24h', label: 'Proposal turnaround' },
             ].map((s, i) => (
-              <div key={i} style={{ background: '#080808', padding: '1.5rem 2rem', textAlign: 'center' }}>
-                <div style={{ fontSize: '1.75rem', fontWeight: 800, color: '#fff', lineHeight: 1 }}>{s.stat}</div>
+              <div key={i} style={{ background: '#080808', padding: '1rem 1.25rem', textAlign: 'center' }}>
+                <div style={{ fontSize: '1.55rem', fontWeight: 800, color: '#fff', lineHeight: 1 }}>{s.stat}</div>
                 <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.35rem' }}>{s.label}</div>
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      <nav aria-label="Service categories" style={{ background: '#0a0a0a', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+        <div className="mw-container">
+          <div className="flex gap-2 overflow-x-auto" style={{ paddingTop: '0.9rem', paddingBottom: '0.9rem' }}>
+            {[
+              { label: 'Find service', href: '#find-service' },
+              { label: 'Shopify', href: '#shopify-services' },
+              { label: 'CRO & speed', href: '#cro-performance' },
+              { label: 'AI automation', href: '#ai-services' },
+              { label: 'Industries', href: '#industry-shopify' },
+              { label: 'Web development', href: '#web-development' },
+            ].map((item) => (
+              <Link key={item.href} href={item.href} className="shrink-0" style={{ textDecoration: 'none', color: 'rgba(255,255,255,0.72)', border: '1px solid rgba(255,255,255,0.10)', background: 'rgba(255,255,255,0.035)', borderRadius: 999, padding: '0.55rem 0.85rem', fontSize: '0.78rem', fontWeight: 600 }}>
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </nav>
 
       {/* Which service do I need? */}
       <section id="find-service" style={{ background: '#080808', paddingTop: '4rem', paddingBottom: '4rem', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
@@ -349,7 +395,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Shopify Core Services */}
-      <section style={{ background: '#0a0a0a', paddingTop: '5rem', paddingBottom: '5rem' }}>
+      <section id="shopify-services" style={{ background: '#0a0a0a', paddingTop: '5rem', paddingBottom: '5rem' }}>
         <div className="mw-container">
           <SectionHeader
             eyebrow="SHOPIFY SERVICES"
@@ -363,7 +409,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CRO and Performance */}
-      <section style={{ background: '#080808', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+      <section id="cro-performance" style={{ background: '#080808', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="mw-container">
           <SectionHeader
             eyebrow="CRO & PERFORMANCE"
@@ -377,7 +423,7 @@ export default function ServicesPage() {
       </section>
 
       {/* AI Services */}
-      <section style={{ background: '#0a0a0a', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+      <section id="ai-services" style={{ background: '#0a0a0a', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="mw-container">
           <SectionHeader
             eyebrow="AI SERVICES"
@@ -391,7 +437,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Shopify by Industry */}
-      <section style={{ background: '#080808', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+      <section id="industry-shopify" style={{ background: '#080808', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="mw-container">
           <SectionHeader
             eyebrow="SHOPIFY BY INDUSTRY"
@@ -405,7 +451,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Other Services */}
-      <section style={{ background: '#0a0a0a', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+      <section id="web-development" style={{ background: '#0a0a0a', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="mw-container">
           <SectionHeader
             eyebrow="WEB DEVELOPMENT"

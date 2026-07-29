@@ -83,20 +83,41 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
           <div className="mb-6">
             <Breadcrumb items={[{ label: 'Services', href: '/services' }, { label: svc.h1 }]} />
           </div>
-          <div className="max-w-3xl">
-            <span className="mw-eyebrow">{svc.eyebrow}</span>
-            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.5rem' }}>{svc.h1}</h1>
-            <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: '600px', fontWeight: 300 }}>
-              {svc.subtext}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <a href="#get-quote" className="mw-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                Get My Shopify Plan <ArrowRight size={16} />
-              </a>
-              <Link href="/work" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                View Shopify Work
-              </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-10 items-end">
+            <div className="max-w-3xl">
+              <span className="mw-eyebrow">{svc.eyebrow}</span>
+              <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.1rem' }}>{svc.h1}</h1>
+              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.05rem', lineHeight: 1.72, marginBottom: '1.35rem', maxWidth: '680px', fontWeight: 300 }}>
+                {svc.subtext}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a href="#get-quote" className="mw-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                  Get My Shopify Plan <ArrowRight size={16} />
+                </a>
+                <Link href="/work" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                  View Shopify Work
+                </Link>
+              </div>
             </div>
+
+            <aside className="mw-card" style={{ padding: '1.25rem' }} aria-label="Shopify project starting points">
+              <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 700, marginBottom: '0.8rem' }}>
+                First we review
+              </p>
+              <div className="flex flex-col">
+                {svc.challenges.slice(0, 3).map((item, index) => (
+                  <div key={item.title} className="flex gap-3" style={{ padding: '0.85rem 0', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+                    <span style={{ width: 28, height: 28, borderRadius: 999, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(108,99,255,0.14)', border: '1px solid rgba(108,99,255,0.26)', color: 'var(--accent)', fontSize: '0.72rem', fontWeight: 800, flexShrink: 0 }}>
+                      {index + 1}
+                    </span>
+                    <span>
+                      <span style={{ display: 'block', color: '#fff', fontSize: '0.88rem', fontWeight: 700, lineHeight: 1.35 }}>{item.title}</span>
+                      <span style={{ display: 'block', color: 'rgba(255,255,255,0.5)', fontSize: '0.74rem', lineHeight: 1.5, marginTop: '0.2rem' }}>{item.body}</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </aside>
           </div>
         </div>
       </section>

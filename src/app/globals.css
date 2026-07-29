@@ -284,6 +284,60 @@ select optgroup {
   }
 }
 
+/* Services pages: denser, easier to scan layouts without affecting the rest of
+   the site. Many service routes use inline section padding, so these scoped
+   rules intentionally win inside /services only. */
+.mw-services-scope > section,
+.mw-services-scope .mw-section {
+  padding-top: clamp(3rem, 5vw, 4.25rem) !important;
+  padding-bottom: clamp(3rem, 5vw, 4.25rem) !important;
+}
+
+.mw-services-scope > section:first-of-type {
+  padding-top: clamp(6.5rem, 11vw, 8rem) !important;
+  padding-bottom: clamp(3.25rem, 6vw, 4.75rem) !important;
+}
+
+.mw-services-scope section[id="get-quote"] {
+  padding-bottom: clamp(4rem, 6vw, 5rem) !important;
+}
+
+.mw-services-scope .mw-section-header,
+.mw-services-scope section > .mw-container > div[style*="margin-bottom: 3rem"],
+.mw-services-scope section > .mw-container > div[style*="margin-bottom: 2.5rem"] {
+  margin-bottom: clamp(1.5rem, 3vw, 2rem) !important;
+}
+
+.mw-services-scope .mw-card {
+  border-radius: 12px;
+  background: rgba(255,255,255,0.035);
+}
+
+.mw-services-scope .rounded-2xl {
+  border-radius: 12px;
+}
+
+.mw-services-scope .mw-card:hover {
+  transform: translateY(-2px);
+}
+
+.mw-services-scope .mw-eyebrow {
+  margin-bottom: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .mw-services-scope > section,
+  .mw-services-scope .mw-section {
+    padding-top: 2.75rem !important;
+    padding-bottom: 2.75rem !important;
+  }
+
+  .mw-services-scope > section:first-of-type {
+    padding-top: 5.75rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
+
 /* Editorial italic accent used on headings */
 .mw-italic {
   font-style: italic;
