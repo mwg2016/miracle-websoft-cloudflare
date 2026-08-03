@@ -10,7 +10,7 @@ export type BlogPost = {
 export const blogPosts: BlogPost[] = [
   {
     slug: "custom-shopify-app-vs-third-party-app-guide",
-    date: "August 2, 2026",
+    date: "August 2, 2026" ,
     tag: "Shopify apps",
     title: "Custom Shopify App vs Third-Party: The Ultimate Guide to Choosing Your Best Fit",
     excerpt: "Navigating the world of Shopify apps can be daunting. Should you invest in a bespoke custom solution tailored to your exact needs, or opt for a readily available third-party app from the Shopify App Store? This comprehensive guide dives deep into the pros and cons of each, exploring factors like cost, flexibility, scalability, maintenance, and integration. Discover which option aligns best with your business goals, budget, and long-term vision for your e-commerce store, ensuring you make an",
