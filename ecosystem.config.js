@@ -21,6 +21,15 @@ function loadEnvLocal() {
   }
 }
 
+const envLocal = loadEnvLocal()
+const defaultAdminDataDir = path.join(
+  process.env.HOME || __dirname,
+  '.local',
+  'share',
+  'miraclewebsoft',
+  'data',
+)
+
 module.exports = {
   apps: [
     {
@@ -29,7 +38,8 @@ module.exports = {
       env: {
         PORT: 3200,
         NODE_ENV: 'production',
-        ...loadEnvLocal(),
+        ...envLocal,
+        ADMIN_DATA_DIR: process.env.ADMIN_DATA_DIR || envLocal.ADMIN_DATA_DIR || defaultAdminDataDir,
       },
     },
   ],

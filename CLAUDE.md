@@ -9,9 +9,21 @@ Next.js 16 App Router · Tailwind CSS v4 · TypeScript · `output: standalone` �
 
 ## Deploy
 ```bash
+mkdir -p ~/.local/share/miraclewebsoft/data/resumes
+if [ -d data/prod ]; then
+  cp -n data/prod/*.ndjson ~/.local/share/miraclewebsoft/data/ 2>/dev/null || true
+  cp -rn data/prod/resumes/. ~/.local/share/miraclewebsoft/data/resumes/ 2>/dev/null || true
+fi
+git fetch origin main
+git reset --hard origin/main
+git clean -fd -e .env.local -e data/
+npm ci
+rm -rf .next
 npm run build
+rm -rf .next/standalone/public .next/standalone/.next/static
+cp -r public .next/standalone/
+mkdir -p .next/standalone/.next
 cp -r .next/static .next/standalone/.next/static
-cp -r public .next/standalone/public
 pm2 restart miraclewebsoft
 # If process doesn't exist yet:
 # pm2 start ecosystem.config.js
@@ -40,8 +52,10 @@ git remote set-url origin https://github.com/mwg2016/miracle-websoft.git
 - Contact form submissions go to `/api/contact` → Web3Forms. Set `WEB3FORMS_KEY` env var to activate email delivery.
 
 ## Admin lead/outbound data storage
-- Files live under `data/<env>/` where env is `prod` (when `NODE_ENV=production`) or `dev`. PM2 sets prod automatically.
+- Files live under `ADMIN_DATA_DIR` when set. PM2 defaults this to `~/.local/share/miraclewebsoft/data` so production writes stay outside the Git checkout.
+- Without `ADMIN_DATA_DIR`, files live under `data/<env>/` where env is `prod` (when `NODE_ENV=production`) or `dev`.
 - This keeps local and live separate: dev writes never touch `data/prod/leads.ndjson`.
-- On the live server, the first boot after upgrade auto-migrates legacy `data/leads.ndjson`, `data/outbound.ndjson` and `data/resumes/` into `data/prod/`. Idempotent — safe to run multiple times.
-- Set `ADMIN_DATA_DIR=/var/lib/miraclewebsoft/data` in env to put production data outside the project dir entirely (recommended long-term — survives full project re-clones).
+- The deploy script copies existing `data/prod` records into the PM2 default data directory on first deploy, without overwriting newer files.
+- Without `ADMIN_DATA_DIR`, the first boot after upgrade auto-migrates legacy `data/leads.ndjson`, `data/outbound.ndjson` and `data/resumes/` into `data/prod/`. Idempotent — safe to run multiple times.
+- Set `ADMIN_DATA_DIR=/var/lib/miraclewebsoft/data` in `.env.local` to use a different production data path.
 - All runtime data files are gitignored.

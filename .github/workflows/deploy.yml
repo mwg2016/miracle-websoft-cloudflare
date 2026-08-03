@@ -20,15 +20,30 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            set -e
+            set -eu
             export PATH=/home/miraclewebsoft/.nvm/versions/node/v22.22.1/bin:$PATH
             export PM2_HOME=/home/miraclewebsoft/.pm2
-            git config --global --add safe.directory /home/miraclewebsoft/htdocs/miraclewebsoft.com
-            cd /home/miraclewebsoft/htdocs/miraclewebsoft.com
-            git pull --rebase --autostash origin main
+            APP_DIR=/home/miraclewebsoft/htdocs/miraclewebsoft.com
+
+            git config --global --add safe.directory "$APP_DIR"
+            cd "$APP_DIR"
+
+            mkdir -p /home/miraclewebsoft/.local/share/miraclewebsoft/data/resumes
+            if [ -d data/prod ]; then
+              cp -n data/prod/*.ndjson /home/miraclewebsoft/.local/share/miraclewebsoft/data/ 2>/dev/null || true
+              cp -rn data/prod/resumes/. /home/miraclewebsoft/.local/share/miraclewebsoft/data/resumes/ 2>/dev/null || true
+            fi
+
+            git fetch origin main
+            git reset --hard origin/main
+            git clean -fd -e .env.local -e data/
+
             npm ci
+            rm -rf .next
             npm run build
+            rm -rf .next/standalone/public .next/standalone/.next/static
             cp -r public .next/standalone/
+            mkdir -p .next/standalone/.next
             cp -r .next/static .next/standalone/.next/static
             pm2 startOrReload ecosystem.config.js --update-env
             pm2 save
