@@ -12,7 +12,7 @@ function clientIp(req: Request): string {
 
 export async function POST(req: Request) {
   const ip = clientIp(req)
-  const rate = await checkRate(ip)
+  const rate = checkRate(ip)
   if (!rate.allowed) {
     return NextResponse.json(
       { ok: false, error: `Too many attempts. Try again in ${Math.ceil((rate.retryAfterSec ?? 0) / 60)} min.` },
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: 'Wrong password' }, { status: 401 })
   }
 
-  await resetRate(ip)
+  resetRate(ip)
   const token = await signSession(secret)
 
   const res = NextResponse.json({ ok: true })

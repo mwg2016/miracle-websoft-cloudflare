@@ -28,7 +28,6 @@
     "last 2 Edge versions"
   ],
   "devDependencies": {
-    "@cloudflare/workers-types": "^5.20260804.1",
     "@opennextjs/cloudflare": "^1.0.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",

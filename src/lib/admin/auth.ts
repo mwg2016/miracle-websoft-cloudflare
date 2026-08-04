@@ -11,7 +11,6 @@
 // from middleware/edge code. Use src/lib/admin/cookie.ts for edge-safe HMAC.
 
 import { scryptSync, timingSafeEqual } from 'node:crypto'
-import { getCloudflareContext } from '@opennextjs/cloudflare'
 
 export function verifyPassword(password: string): boolean {
   const stored = process.env.ADMIN_PASSWORD_HASH
@@ -28,30 +27,28 @@ export function verifyPassword(password: string): boolean {
   }
 }
 
-// KV-backed rate limiter — a Worker has no shared process memory across
-// isolates, so an in-memory Map (the old approach on a single PM2 process)
-// would reset on every request and never actually limit anything.
-const WINDOW_SEC = 15 * 60
+// In-memory rate limiter — no database, so this only limits within a single
+// Worker isolate and resets whenever Cloudflare recycles it. Not a strong
+// guarantee, but the password (ADMIN_PASSWORD_HASH) is the real gate; this
+// just slows down casual brute-forcing within one isolate's lifetime.
+const ATTEMPTS = new Map<string, { count: number; firstAt: number }>()
+const WINDOW_MS = 15 * 60 * 1000
 const MAX_ATTEMPTS = 5
 
-export async function checkRate(ip: string): Promise<{ allowed: boolean; retryAfterSec?: number }> {
-  const { env } = await getCloudflareContext({ async: true })
-  const kv = (env as unknown as CloudflareEnv).LEADS_KV
-  const key = `ratelimit:admin-login:${ip}`
+export function checkRate(ip: string): { allowed: boolean; retryAfterSec?: number } {
   const now = Date.now()
-  const raw = await kv.get(key)
-  const entry = raw ? (JSON.parse(raw) as { count: number; firstAt: number }) : { count: 0, firstAt: now }
-
+  const entry = ATTEMPTS.get(ip)
+  if (!entry || now - entry.firstAt > WINDOW_MS) {
+    ATTEMPTS.set(ip, { count: 1, firstAt: now })
+    return { allowed: true }
+  }
   if (entry.count >= MAX_ATTEMPTS) {
-    return { allowed: false, retryAfterSec: Math.ceil((entry.firstAt + WINDOW_SEC * 1000 - now) / 1000) }
+    return { allowed: false, retryAfterSec: Math.ceil((entry.firstAt + WINDOW_MS - now) / 1000) }
   }
   entry.count += 1
-  const remainingTtl = Math.max(60, Math.ceil((entry.firstAt + WINDOW_SEC * 1000 - now) / 1000))
-  await kv.put(key, JSON.stringify(entry), { expirationTtl: remainingTtl })
   return { allowed: true }
 }
 
-export async function resetRate(ip: string) {
-  const { env } = await getCloudflareContext({ async: true })
-  await (env as unknown as CloudflareEnv).LEADS_KV.delete(`ratelimit:admin-login:${ip}`)
+export function resetRate(ip: string) {
+  ATTEMPTS.delete(ip)
 }

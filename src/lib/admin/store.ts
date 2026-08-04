@@ -1,17 +1,9 @@
-// Cloudflare KV-backed event store (leads/outbound). Workers have no
-// persistent filesystem, so records live in KV keyed as
-// `lead:<isoTimestamp>:<id>` / `outbound:<isoTimestamp>:<id>` — the ISO
-// timestamp prefix sorts lexicographically, so KV's prefix `list()` returns
-// records in chronological order with no separate index to keep in sync.
-// Resumes are not stored anywhere — they go out only as an email attachment
-// on the careers notification (src/app/api/careers/route.ts).
-
-import { getCloudflareContext } from '@opennextjs/cloudflare'
-
-async function cf() {
-  const { env } = await getCloudflareContext({ async: true })
-  return env as unknown as CloudflareEnv
-}
+// No database, by design — leads/outbound clicks are not persisted anywhere.
+// Every form submission already goes out as an email (src/lib/email.ts), so
+// appendLead/appendOutbound are intentionally no-ops and the admin dashboard
+// (src/app/admin/**) always reads back empty. Resumes are never stored
+// either — they go out only as an email attachment on the careers
+// notification (src/app/api/careers/route.ts).
 
 export type Origin = {
   // First-touch (legacy + current)
@@ -72,42 +64,19 @@ export type OutboundRecord = {
 
 export async function appendLead(record: Omit<LeadRecord, 'id' | 'ts'> & { id?: string }): Promise<LeadRecord> {
   const { id, ...rest } = record
-  const full: LeadRecord = { id: id ?? crypto.randomUUID(), ts: new Date().toISOString(), ...rest }
-  const { LEADS_KV } = await cf()
-  await LEADS_KV.put(`lead:${full.ts}:${full.id}`, JSON.stringify(full))
-  return full
+  return { id: id ?? crypto.randomUUID(), ts: new Date().toISOString(), ...rest }
 }
 
 export async function appendOutbound(record: Omit<OutboundRecord, 'id' | 'ts'>): Promise<OutboundRecord> {
-  const full: OutboundRecord = { id: crypto.randomUUID(), ts: new Date().toISOString(), ...record }
-  const { LEADS_KV } = await cf()
-  await LEADS_KV.put(`outbound:${full.ts}:${full.id}`, JSON.stringify(full))
-  return full
-}
-
-async function readAllByPrefix<T>(prefix: string): Promise<T[]> {
-  const { LEADS_KV } = await cf()
-  const out: T[] = []
-  let cursor: string | undefined
-  for (;;) {
-    const page = await LEADS_KV.list({ prefix, cursor, limit: 1000 })
-    const values = await Promise.all(page.keys.map(k => LEADS_KV.get(k.name)))
-    for (const raw of values) {
-      if (!raw) continue
-      try { out.push(JSON.parse(raw) as T) } catch { /* skip corrupt record */ }
-    }
-    if (page.list_complete) break
-    cursor = page.cursor
-  }
-  return out
+  return { id: crypto.randomUUID(), ts: new Date().toISOString(), ...record }
 }
 
 export async function readLeads(): Promise<LeadRecord[]> {
-  return readAllByPrefix<LeadRecord>('lead:')
+  return []
 }
 
 export async function readOutbound(): Promise<OutboundRecord[]> {
-  return readAllByPrefix<OutboundRecord>('outbound:')
+  return []
 }
 
 // Helpers for the dashboard.
