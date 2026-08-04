@@ -127,13 +127,10 @@ export default async function AdminLeads({ searchParams }: { searchParams: Promi
                         {message}
                       </div>
                     )}
-                    {lead.form === 'careers' && typeof (lead.payload as Record<string, unknown>).resumeStored === 'string' && (
-                      <a
-                        href={`/api/admin/resume/${(lead.payload as Record<string, unknown>).resumeStored}`}
-                        style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.78rem', color: '#a78bfa', background: 'rgba(108,99,255,0.1)', border: '1px solid rgba(108,99,255,0.25)', padding: '0.3rem 0.7rem', borderRadius: 8, textDecoration: 'none', marginTop: '0.4rem' }}
-                      >
-                        ↓ Resume ({String((lead.payload as Record<string, unknown>).resumeName ?? 'file')})
-                      </a>
+                    {lead.form === 'careers' && typeof (lead.payload as Record<string, unknown>).resumeName === 'string' && (
+                      <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.4rem' }}>
+                        📎 Resume sent by email: {String((lead.payload as Record<string, unknown>).resumeName)}
+                      </div>
                     )}
                     <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.6rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       {originDetail(lead)}

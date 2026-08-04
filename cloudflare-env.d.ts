@@ -3,7 +3,6 @@
 /// <reference types="@cloudflare/workers-types" />
 interface CloudflareEnv {
   LEADS_KV: KVNamespace
-  RESUMES_R2: R2Bucket
   ASSETS: Fetcher
   RESEND_API_KEY?: string
   RESEND_FROM_EMAIL?: string

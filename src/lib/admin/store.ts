@@ -1,10 +1,10 @@
-// Cloudflare KV/R2-backed event store (leads/outbound/resumes). Workers have
-// no persistent filesystem, so records live in KV keyed as
+// Cloudflare KV-backed event store (leads/outbound). Workers have no
+// persistent filesystem, so records live in KV keyed as
 // `lead:<isoTimestamp>:<id>` / `outbound:<isoTimestamp>:<id>` — the ISO
 // timestamp prefix sorts lexicographically, so KV's prefix `list()` returns
 // records in chronological order with no separate index to keep in sync.
-// Resume binaries go to R2 (KV values are capped at 25MB and aren't meant
-// for file storage).
+// Resumes are not stored anywhere — they go out only as an email attachment
+// on the careers notification (src/app/api/careers/route.ts).
 
 import { getCloudflareContext } from '@opennextjs/cloudflare'
 
@@ -108,21 +108,6 @@ export async function readLeads(): Promise<LeadRecord[]> {
 
 export async function readOutbound(): Promise<OutboundRecord[]> {
   return readAllByPrefix<OutboundRecord>('outbound:')
-}
-
-export async function saveResume(filename: string, buf: Buffer, leadId: string): Promise<string> {
-  const safe = filename.replace(/[^a-zA-Z0-9._-]+/g, '_').slice(0, 80)
-  const stored = `${leadId}_${safe}`
-  const { RESUMES_R2 } = await cf()
-  await RESUMES_R2.put(stored, buf)
-  return stored
-}
-
-export async function getResume(stored: string): Promise<ArrayBuffer | null> {
-  const { RESUMES_R2 } = await cf()
-  const obj = await RESUMES_R2.get(stored)
-  if (!obj) return null
-  return obj.arrayBuffer()
 }
 
 // Helpers for the dashboard.

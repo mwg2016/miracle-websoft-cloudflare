@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server'
 import { sendEmail } from '@/lib/email'
-import { appendLead, saveResume } from '@/lib/admin/store'
+import { appendLead } from '@/lib/admin/store'
 import { parseClientOrigin } from '@/lib/admin/origin'
 
 function clientIp(req: NextRequest): string {
@@ -226,21 +226,14 @@ export async function POST(req: NextRequest) {
       ]
     }
 
-    // Pre-generate the lead ID so we can name the resume file after it,
-    // then persist resume + append the lead with that same id.
-    const leadId = crypto.randomUUID()
-    let resumeStored: string | undefined
-    if (resumeFile && resumeBuffer) {
-      try { resumeStored = await saveResume(resumeFile.name, resumeBuffer, leadId) }
-      catch (e) { console.error('[careers] saveResume', e) }
-    }
+    // Resume isn't stored anywhere — it only goes out as the email attachment
+    // above. The lead record just notes the filename for reference.
     await appendLead({
-      id: leadId,
       form: 'careers',
       ip: clientIp(req),
       userAgent: req.headers.get('user-agent') ?? undefined,
       origin: parseClientOrigin(sourceRaw),
-      payload: { name, email, phone, position, experience, portfolio, message, resumeName: resumeFile?.name, resumeStored },
+      payload: { name, email, phone, position, experience, portfolio, message, resumeName: resumeFile?.name },
     }).catch(err => console.error('[careers] appendLead', err))
 
     await Promise.all([
