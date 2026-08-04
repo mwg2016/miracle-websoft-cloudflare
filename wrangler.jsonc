@@ -14,8 +14,7 @@
 	"kv_namespaces": [
 		{
 			"binding": "LEADS_KV",
-			"id": "6203b2353d324ca39aa36e38e7c4311d",
-			"remote": true
+			"id": "6203b2353d324ca39aa36e38e7c4311d"
 		}
 	]
 }
