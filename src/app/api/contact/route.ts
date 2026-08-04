@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server'
-import nodemailer from 'nodemailer'
+import { sendEmail } from '@/lib/email'
 import { appendLead } from '@/lib/admin/store'
 import { parseClientOrigin } from '@/lib/admin/origin'
 
@@ -8,16 +8,6 @@ function clientIp(req: NextRequest): string {
   if (fwd) return fwd.split(',')[0].trim()
   return req.headers.get('x-real-ip') ?? 'unknown'
 }
-
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-})
 
 // ─── Parse source tracking data ───────────────────────────────────────────────
 function parseSource(raw: string) {
@@ -51,11 +41,11 @@ function sourceHtmlRows(src: ReturnType<typeof parseSource>): string {
 }
 
 // ─── Notification email to Karam ─────────────────────────────────────────────
-function buildNotificationEmail(name: string, email: string, storeUrl: string, service: string, message: string, sourceRaw: string, budget?: string) {
+function buildNotificationEmail(name: string, email: string, storeUrl: string | undefined, service: string | undefined, message: string, sourceRaw: string, budget?: string) {
   const src = parseSource(sourceRaw)
   return {
-    from: `"Miracle Websoft Site" <${process.env.SMTP_USER}>`,
-    to: process.env.SMTP_USER,
+    from: `"Miracle Websoft Site" <${process.env.RESEND_FROM_EMAIL}>`,
+    to: process.env.ADMIN_NOTIFY_EMAIL as string,
     replyTo: email,
     subject: `New enquiry from ${name} — ${service || 'website form'}`,
     text: [`Name: ${name}`, `Email: ${email}`, `Store URL: ${storeUrl || '—'}`, `Service: ${service || '—'}`, budget ? `Budget: ${budget}` : '', ``, `Message:`, message, ``, ...sourceTextLines(src)].filter(l => l !== '').join('\n'),
@@ -81,12 +71,12 @@ function buildNotificationEmail(name: string, email: string, storeUrl: string, s
 }
 
 // ─── Confirmation email to the person who submitted ───────────────────────────
-function buildConfirmationEmail(name: string, toEmail: string, service: string) {
+function buildConfirmationEmail(name: string, toEmail: string, service: string | undefined) {
   const accentColor = '#6c63ff'
   const first = name.split(' ')[0]
 
   return {
-    from: `"Karam Singh — Miracle Websoft" <${process.env.SMTP_USER}>`,
+    from: `"Karam Singh — Miracle Websoft" <${process.env.RESEND_FROM_EMAIL}>`,
     to: toEmail,
     subject: `Got your message, ${first} — we'll review your store shortly`,
     text: [
@@ -254,7 +244,10 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string) 
 // ─── Route handler ─────────────────────────────────────────────────────────────
 export async function POST(req: NextRequest) {
   try {
-    const data = await req.json()
+    const data = await req.json() as {
+      name?: string; email?: string; storeUrl?: string; service?: string
+      message?: string; budget?: string; _source?: string; _hp?: unknown
+    }
 
     // Honeypot — bots fill this hidden field, humans don't
     if (data._hp) {
@@ -270,8 +263,8 @@ export async function POST(req: NextRequest) {
     // Send both emails in parallel + record the lead for admin
     const isServiceSubmission = Boolean(budget) // ServiceContactForm includes a budget field; ContactForm does not.
     await Promise.all([
-      transporter.sendMail(buildNotificationEmail(name, email, storeUrl, service, message, _source || '', budget)),
-      transporter.sendMail(buildConfirmationEmail(name, email, service)),
+      sendEmail(buildNotificationEmail(name, email, storeUrl, service, message, _source || '', budget)),
+      sendEmail(buildConfirmationEmail(name, email, service)),
       appendLead({
         form: isServiceSubmission ? 'services' : 'contact',
         ip: clientIp(req),

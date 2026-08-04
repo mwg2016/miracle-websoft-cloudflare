@@ -12,7 +12,7 @@ function clientIp(req: Request): string {
 
 export async function POST(req: Request) {
   const ip = clientIp(req)
-  const rate = checkRate(ip)
+  const rate = await checkRate(ip)
   if (!rate.allowed) {
     return NextResponse.json(
       { ok: false, error: `Too many attempts. Try again in ${Math.ceil((rate.retryAfterSec ?? 0) / 60)} min.` },
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
 
   let password = ''
   try {
-    const body = await req.json()
+    const body = await req.json() as { password?: string }
     password = String(body.password ?? '')
   } catch {
     return NextResponse.json({ ok: false, error: 'Bad request' }, { status: 400 })
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: 'Wrong password' }, { status: 401 })
   }
 
-  resetRate(ip)
+  await resetRate(ip)
   const token = await signSession(secret)
 
   const res = NextResponse.json({ ok: true })

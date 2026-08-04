@@ -17,7 +17,7 @@ export default function LoginForm({ next }: { next?: string }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password }),
       })
-      const data = await res.json()
+      const data = await res.json() as { ok?: boolean; error?: string }
       if (data.ok) {
         window.location.href = next && next.startsWith('/admin') ? next : '/admin'
       } else {

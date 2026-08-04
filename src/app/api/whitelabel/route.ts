@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server'
-import nodemailer from 'nodemailer'
+import { sendEmail } from '@/lib/email'
 import { appendLead } from '@/lib/admin/store'
 import { parseClientOrigin } from '@/lib/admin/origin'
 
@@ -9,21 +9,11 @@ function clientIp(req: NextRequest): string {
   return req.headers.get('x-real-ip') ?? 'unknown'
 }
 
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-})
-
 function buildNotification(d: Record<string, string>) {
   const { companyName, contactName, email, website, engagementType, volume, description, ndaRequired } = d
   return {
-    from: `"Miracle Websoft Site" <${process.env.SMTP_USER}>`,
-    to: process.env.SMTP_USER,
+    from: `"Miracle Websoft Site" <${process.env.RESEND_FROM_EMAIL}>`,
+    to: process.env.ADMIN_NOTIFY_EMAIL as string,
     replyTo: email,
     subject: `White Label enquiry — ${companyName} (${engagementType || 'enquiry'})`,
     html: `
@@ -58,7 +48,7 @@ function buildNotification(d: Record<string, string>) {
 function buildConfirmation(contactName: string, toEmail: string, companyName: string, ndaRequired: string) {
   const first = contactName.split(' ')[0]
   return {
-    from: `"Karam Singh — Miracle Websoft" <${process.env.SMTP_USER}>`,
+    from: `"Karam Singh — Miracle Websoft" <${process.env.RESEND_FROM_EMAIL}>`,
     to: toEmail,
     subject: `White label enquiry received, ${first} — we'll be in touch within 24 hours`,
     html: `
@@ -103,7 +93,7 @@ function buildConfirmation(contactName: string, toEmail: string, companyName: st
 
 export async function POST(req: NextRequest) {
   try {
-    const data = await req.json()
+    const data = await req.json() as Record<string, string>
     if (data._hp) return Response.json({ success: true })
 
     const { companyName, contactName, email } = data
@@ -112,8 +102,8 @@ export async function POST(req: NextRequest) {
     }
 
     await Promise.all([
-      transporter.sendMail(buildNotification(data)),
-      transporter.sendMail(buildConfirmation(contactName, email, companyName, data.ndaRequired)),
+      sendEmail(buildNotification(data)),
+      sendEmail(buildConfirmation(contactName, email, companyName, data.ndaRequired)),
       appendLead({
         form: 'white_label',
         ip: clientIp(req),

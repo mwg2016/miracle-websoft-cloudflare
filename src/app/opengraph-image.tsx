@@ -1,6 +1,5 @@
 import { ImageResponse } from 'next/og'
-import { readFile } from 'node:fs/promises'
-import path from 'node:path'
+import { LOGO_PNG_BASE64 } from '@/lib/logo-base64'
 
 export const alt = 'Miracle Websoft - Ecommerce growth and AI technology agency'
 export const size = {
@@ -10,8 +9,7 @@ export const size = {
 export const contentType = 'image/png'
 
 export default async function Image() {
-  const logo = await readFile(path.join(process.cwd(), 'public', 'miracle-websoft-logo.png'))
-  const logoSrc = `data:image/png;base64,${logo.toString('base64')}`
+  const logoSrc = `data:image/png;base64,${LOGO_PNG_BASE64}`
 
   return new ImageResponse(
     (

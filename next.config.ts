@@ -1,13 +1,15 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  output: 'standalone',
   poweredByHeader: false,
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   images: {
-    unoptimized: false,
+    // The OpenNext Cloudflare adapter doesn't run Next's Node-based sharp
+    // optimizer inside the Worker. Serve originals directly; revisit with a
+    // Cloudflare Images loader if optimization becomes worth the setup.
+    unoptimized: true,
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'image.thum.io' },
@@ -306,3 +308,9 @@ const nextConfig: NextConfig = {
 }
 
 export default nextConfig
+
+// Proxies Cloudflare bindings (KV/R2/env) into `next dev`, backed by local
+// miniflare emulation, so src/lib/admin/store.ts's getCloudflareContext()
+// calls resolve during local development too.
+import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare'
+initOpenNextCloudflareForDev()

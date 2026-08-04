@@ -69,7 +69,7 @@ export default function ReferralForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...data, _source }),
       })
-      const json = await res.json()
+      const json = await res.json() as { success?: boolean; error?: string }
       if (json.success) {
         trackLead('lead_form_submit', { form: 'referral', project_type: data.projectType || '(unspecified)' })
         formRef.current?.reset()

@@ -68,7 +68,7 @@ export default function ContactForm() {
           }),
         }),
       })
-      const data = await res.json()
+      const data = await res.json() as { success?: boolean }
       if (data.success) {
         trackLead('lead_form_submit', { form: 'contact', service: form.service || '(unspecified)' })
         router.push('/thank-you?form=contact')

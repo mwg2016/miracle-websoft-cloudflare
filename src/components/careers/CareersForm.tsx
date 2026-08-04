@@ -77,7 +77,7 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
       if (resume) fd.append('resume', resume, resume.name)
 
       const res = await fetch('/api/careers', { method: 'POST', body: fd })
-      const data = await res.json()
+      const data = await res.json() as { success?: boolean }
       if (data.success) {
         trackLead('lead_form_submit', { form: 'careers', position: form.position || '(unspecified)' })
         router.push('/thank-you?form=careers')

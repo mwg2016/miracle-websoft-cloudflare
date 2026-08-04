@@ -1,22 +1,17 @@
-// JSON-file event store. Append-only; one record per line (NDJSON), so a
-// concurrent fs.appendFile can't corrupt earlier records the way a single
-// JSON-array rewrite could. We read line-by-line on the read side.
+// Cloudflare KV/R2-backed event store (leads/outbound/resumes). Workers have
+// no persistent filesystem, so records live in KV keyed as
+// `lead:<isoTimestamp>:<id>` / `outbound:<isoTimestamp>:<id>` — the ISO
+// timestamp prefix sorts lexicographically, so KV's prefix `list()` returns
+// records in chronological order with no separate index to keep in sync.
+// Resume binaries go to R2 (KV values are capped at 25MB and aren't meant
+// for file storage).
 
-import { promises as fs } from 'node:fs'
-import path from 'node:path'
+import { getCloudflareContext } from '@opennextjs/cloudflare'
 
-// Where leads/outbound/resumes live. Local dev and live production must never
-// share a path — local writes would clobber accumulated live data on the next
-// deploy or sync. Precedence:
-//   1. ADMIN_DATA_DIR env var — explicit absolute path (use for live to put
-//      data outside the project dir entirely, e.g. /var/lib/miraclewebsoft/data)
-//   2. <cwd>/data/<env>, where env is 'prod' in production and 'dev' otherwise
-//      — so the same working tree can run in either mode without collision.
-const DEFAULT_DATA_ROOT = path.join(process.cwd(), 'data')
-const ENV_BUCKET = process.env.NODE_ENV === 'production' ? 'prod' : 'dev'
-const DATA_DIR = process.env.ADMIN_DATA_DIR
-  ? path.resolve(process.env.ADMIN_DATA_DIR)
-  : path.join(DEFAULT_DATA_ROOT, ENV_BUCKET)
+async function cf() {
+  const { env } = await getCloudflareContext({ async: true })
+  return env as unknown as CloudflareEnv
+}
 
 export type Origin = {
   // First-touch (legacy + current)
@@ -75,100 +70,59 @@ export type OutboundRecord = {
   origin?: LeadRecord['origin']
 }
 
-let migrated = false
-async function migrateLegacyOnce() {
-  if (migrated) return
-  migrated = true
-  // Skip migration entirely when an explicit ADMIN_DATA_DIR is set — the
-  // operator is in control of where data lives.
-  if (process.env.ADMIN_DATA_DIR) return
-  // Only migrate when DATA_DIR is the env-scoped folder inside DEFAULT_DATA_ROOT.
-  if (path.dirname(DATA_DIR) !== DEFAULT_DATA_ROOT) return
-
-  async function exists(p: string) {
-    try { await fs.access(p); return true } catch { return false }
-  }
-
-  for (const name of ['leads.ndjson', 'outbound.ndjson']) {
-    const legacy = path.join(DEFAULT_DATA_ROOT, name)
-    const target = path.join(DATA_DIR, name)
-    if (await exists(legacy) && !(await exists(target))) {
-      try { await fs.rename(legacy, target) } catch { /* best-effort */ }
-    }
-  }
-
-  const legacyResumes = path.join(DEFAULT_DATA_ROOT, 'resumes')
-  const targetResumes = path.join(DATA_DIR, 'resumes')
-  try {
-    const legacyFiles = await fs.readdir(legacyResumes)
-    const targetFiles = await fs.readdir(targetResumes).catch(() => [] as string[])
-    if (legacyFiles.length > 0 && targetFiles.length === 0) {
-      for (const f of legacyFiles) {
-        try { await fs.rename(path.join(legacyResumes, f), path.join(targetResumes, f)) } catch { /* best-effort */ }
-      }
-    }
-  } catch { /* legacy resumes/ may not exist — fine */ }
-}
-
-async function ensureDir() {
-  await fs.mkdir(DATA_DIR, { recursive: true })
-  await fs.mkdir(path.join(DATA_DIR, 'resumes'), { recursive: true })
-  await migrateLegacyOnce()
-}
-
-function fileFor(kind: 'leads' | 'outbound'): string {
-  return path.join(DATA_DIR, `${kind}.ndjson`)
-}
-
 export async function appendLead(record: Omit<LeadRecord, 'id' | 'ts'> & { id?: string }): Promise<LeadRecord> {
-  await ensureDir()
   const { id, ...rest } = record
   const full: LeadRecord = { id: id ?? crypto.randomUUID(), ts: new Date().toISOString(), ...rest }
-  await fs.appendFile(fileFor('leads'), JSON.stringify(full) + '\n', 'utf8')
+  const { LEADS_KV } = await cf()
+  await LEADS_KV.put(`lead:${full.ts}:${full.id}`, JSON.stringify(full))
   return full
 }
 
 export async function appendOutbound(record: Omit<OutboundRecord, 'id' | 'ts'>): Promise<OutboundRecord> {
-  await ensureDir()
   const full: OutboundRecord = { id: crypto.randomUUID(), ts: new Date().toISOString(), ...record }
-  await fs.appendFile(fileFor('outbound'), JSON.stringify(full) + '\n', 'utf8')
+  const { LEADS_KV } = await cf()
+  await LEADS_KV.put(`outbound:${full.ts}:${full.id}`, JSON.stringify(full))
   return full
 }
 
-async function readAll<T>(file: string): Promise<T[]> {
-  try {
-    const raw = await fs.readFile(file, 'utf8')
-    return raw
-      .split('\n')
-      .filter(Boolean)
-      .map(line => {
-        try { return JSON.parse(line) as T } catch { return null }
-      })
-      .filter((x): x is T => x !== null)
-  } catch (err) {
-    if ((err as NodeJS.ErrnoException).code === 'ENOENT') return []
-    throw err
+async function readAllByPrefix<T>(prefix: string): Promise<T[]> {
+  const { LEADS_KV } = await cf()
+  const out: T[] = []
+  let cursor: string | undefined
+  for (;;) {
+    const page = await LEADS_KV.list({ prefix, cursor, limit: 1000 })
+    const values = await Promise.all(page.keys.map(k => LEADS_KV.get(k.name)))
+    for (const raw of values) {
+      if (!raw) continue
+      try { out.push(JSON.parse(raw) as T) } catch { /* skip corrupt record */ }
+    }
+    if (page.list_complete) break
+    cursor = page.cursor
   }
+  return out
 }
 
 export async function readLeads(): Promise<LeadRecord[]> {
-  return readAll<LeadRecord>(fileFor('leads'))
+  return readAllByPrefix<LeadRecord>('lead:')
 }
 
 export async function readOutbound(): Promise<OutboundRecord[]> {
-  return readAll<OutboundRecord>(fileFor('outbound'))
+  return readAllByPrefix<OutboundRecord>('outbound:')
 }
 
 export async function saveResume(filename: string, buf: Buffer, leadId: string): Promise<string> {
-  await ensureDir()
   const safe = filename.replace(/[^a-zA-Z0-9._-]+/g, '_').slice(0, 80)
   const stored = `${leadId}_${safe}`
-  await fs.writeFile(path.join(DATA_DIR, 'resumes', stored), buf)
+  const { RESUMES_R2 } = await cf()
+  await RESUMES_R2.put(stored, buf)
   return stored
 }
 
-export function resumePath(stored: string): string {
-  return path.join(DATA_DIR, 'resumes', stored)
+export async function getResume(stored: string): Promise<ArrayBuffer | null> {
+  const { RESUMES_R2 } = await cf()
+  const obj = await RESUMES_R2.get(stored)
+  if (!obj) return null
+  return obj.arrayBuffer()
 }
 
 // Helpers for the dashboard.

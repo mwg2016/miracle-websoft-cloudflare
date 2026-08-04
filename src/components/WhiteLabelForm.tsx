@@ -71,7 +71,7 @@ export default function WhiteLabelForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...data, _source }),
       })
-      const json = await res.json()
+      const json = await res.json() as { success?: boolean; error?: string }
       if (json.success) {
         trackLead('lead_form_submit', { form: 'white_label', engagement_type: data.engagementType || '(unspecified)' })
         formRef.current?.reset()

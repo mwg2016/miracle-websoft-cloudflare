@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server'
-import nodemailer from 'nodemailer'
+import { sendEmail } from '@/lib/email'
 import { appendLead, saveResume } from '@/lib/admin/store'
 import { parseClientOrigin } from '@/lib/admin/origin'
 
@@ -8,16 +8,6 @@ function clientIp(req: NextRequest): string {
   if (fwd) return fwd.split(',')[0].trim()
   return req.headers.get('x-real-ip') ?? 'unknown'
 }
-
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-})
 
 // ─── Parse source tracking data ───────────────────────────────────────────────
 function parseSource(raw: string) {
@@ -63,8 +53,8 @@ function buildNotificationEmail(
 ) {
   const src = parseSource(sourceRaw)
   return {
-    from: `"Miracle Websoft Site" <${process.env.SMTP_USER}>`,
-    to: process.env.SMTP_USER,
+    from: `"Miracle Websoft Site" <${process.env.RESEND_FROM_EMAIL}>`,
+    to: process.env.ADMIN_NOTIFY_EMAIL as string,
     replyTo: email,
     subject: `New job application — ${position} — ${name}`,
     text: [
@@ -110,7 +100,7 @@ function buildConfirmationEmail(name: string, toEmail: string, position: string)
   const first = name.split(' ')[0]
 
   return {
-    from: `"Karam Singh — Miracle Websoft" <${process.env.SMTP_USER}>`,
+    from: `"Karam Singh — Miracle Websoft" <${process.env.RESEND_FROM_EMAIL}>`,
     to: toEmail,
     subject: `Application received, ${first} — we'll be in touch`,
     text: [
@@ -254,8 +244,8 @@ export async function POST(req: NextRequest) {
     }).catch(err => console.error('[careers] appendLead', err))
 
     await Promise.all([
-      transporter.sendMail(notifEmail),
-      transporter.sendMail(confirmEmail),
+      sendEmail(notifEmail),
+      sendEmail(confirmEmail),
     ])
 
     return Response.json({ success: true })
