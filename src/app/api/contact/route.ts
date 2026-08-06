@@ -44,7 +44,7 @@ function sourceHtmlRows(src: ReturnType<typeof parseSource>): string {
 function buildNotificationEmail(name: string, email: string, storeUrl: string | undefined, service: string | undefined, message: string, sourceRaw: string, budget?: string) {
   const src = parseSource(sourceRaw)
   return {
-    from: `"Miracle Websoft Site" <${process.env.RESEND_FROM_EMAIL}>`,
+    from: `"Miracle Websoft Site" <${process.env.BREVO_FROM_EMAIL}>`,
     to: process.env.ADMIN_NOTIFY_EMAIL as string,
     replyTo: email,
     subject: `New enquiry from ${name} — ${service || 'website form'}`,
@@ -76,7 +76,7 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string |
   const first = name.split(' ')[0]
 
   return {
-    from: `"Karam Singh — Miracle Websoft" <${process.env.RESEND_FROM_EMAIL}>`,
+    from: `"Karam Singh — Miracle Websoft" <${process.env.BREVO_FROM_EMAIL}>`,
     to: toEmail,
     subject: `Got your message, ${first} — we'll review your store shortly`,
     text: [

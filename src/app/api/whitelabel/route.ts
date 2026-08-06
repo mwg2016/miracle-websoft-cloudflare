@@ -12,7 +12,7 @@ function clientIp(req: NextRequest): string {
 function buildNotification(d: Record<string, string>) {
   const { companyName, contactName, email, website, engagementType, volume, description, ndaRequired } = d
   return {
-    from: `"Miracle Websoft Site" <${process.env.RESEND_FROM_EMAIL}>`,
+    from: `"Miracle Websoft Site" <${process.env.BREVO_FROM_EMAIL}>`,
     to: process.env.ADMIN_NOTIFY_EMAIL as string,
     replyTo: email,
     subject: `White Label enquiry — ${companyName} (${engagementType || 'enquiry'})`,
@@ -48,7 +48,7 @@ function buildNotification(d: Record<string, string>) {
 function buildConfirmation(contactName: string, toEmail: string, companyName: string, ndaRequired: string) {
   const first = contactName.split(' ')[0]
   return {
-    from: `"Karam Singh — Miracle Websoft" <${process.env.RESEND_FROM_EMAIL}>`,
+    from: `"Karam Singh — Miracle Websoft" <${process.env.BREVO_FROM_EMAIL}>`,
     to: toEmail,
     subject: `White label enquiry received, ${first} — we'll be in touch within 24 hours`,
     html: `

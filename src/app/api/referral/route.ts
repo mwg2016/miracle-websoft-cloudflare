@@ -13,7 +13,7 @@ function buildNotification(d: Record<string, string>) {
   const { referrerName, referrerEmail, referrerPhone, referrerRole,
           clientName, clientEmail, clientPhone, projectType, budget, notes } = d
   return {
-    from: `"Miracle Websoft Site" <${process.env.RESEND_FROM_EMAIL}>`,
+    from: `"Miracle Websoft Site" <${process.env.BREVO_FROM_EMAIL}>`,
     to: process.env.ADMIN_NOTIFY_EMAIL as string,
     replyTo: referrerEmail,
     subject: `New referral from ${referrerName} — ${clientName} (${projectType || 'Shopify project'})`,
@@ -50,7 +50,7 @@ function buildNotification(d: Record<string, string>) {
 function buildConfirmation(name: string, toEmail: string) {
   const first = name.split(' ')[0]
   return {
-    from: `"Karam Singh — Miracle Websoft" <${process.env.RESEND_FROM_EMAIL}>`,
+    from: `"Karam Singh — Miracle Websoft" <${process.env.BREVO_FROM_EMAIL}>`,
     to: toEmail,
     subject: `Thanks for referring a client, ${first} — we're on it`,
     html: `

@@ -53,7 +53,7 @@ function buildNotificationEmail(
 ) {
   const src = parseSource(sourceRaw)
   return {
-    from: `"Miracle Websoft Site" <${process.env.RESEND_FROM_EMAIL}>`,
+    from: `"Miracle Websoft Site" <${process.env.BREVO_FROM_EMAIL}>`,
     to: process.env.ADMIN_NOTIFY_EMAIL as string,
     replyTo: email,
     subject: `New job application — ${position} — ${name}`,
@@ -100,7 +100,7 @@ function buildConfirmationEmail(name: string, toEmail: string, position: string)
   const first = name.split(' ')[0]
 
   return {
-    from: `"Karam Singh — Miracle Websoft" <${process.env.RESEND_FROM_EMAIL}>`,
+    from: `"Karam Singh — Miracle Websoft" <${process.env.BREVO_FROM_EMAIL}>`,
     to: toEmail,
     subject: `Application received, ${first} — we'll be in touch`,
     text: [
