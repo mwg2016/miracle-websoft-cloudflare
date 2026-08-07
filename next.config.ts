@@ -2,6 +2,7 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  trailingSlash: false,
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
@@ -50,6 +51,7 @@ const nextConfig: NextConfig = {
       { source: '/who-we-are', destination: '/about', permanent: true },
       { source: '/founder-story-karam-sing', destination: '/about', permanent: true },
       { source: '/awards-and-achievements', destination: '/about', permanent: true },
+      { source: '/karam-singh-web-developer', destination: '/bio/owner', permanent: true },
 
       // ─── Contact ─────────────────────────────────────────────────────────
       { source: '/contact-us', destination: '/contact', permanent: true },
@@ -69,6 +71,7 @@ const nextConfig: NextConfig = {
       { source: '/nieuwkoop-europe-website-data-integration-into-shopify-using-web-api', destination: '/case-studies', permanent: true },
 
       // ─── Blog ────────────────────────────────────────────────────────────
+      { source: '/blog-2', destination: '/blog', permanent: true },
       { source: '/blog-website-setup', destination: '/blog', permanent: true },
       { source: '/how-to-show-recently-viewed-products-in-shopify-step-by-step-guide', destination: '/blog', permanent: true },
       { source: '/built-a-custom-shopify-section-with-ai-no-code-needed-game-changer-for-store-owners', destination: '/blog/custom-shopify-section-with-ai', permanent: true },
