@@ -191,8 +191,23 @@ function buildConfirmationEmail(name: string, toEmail: string, position: string)
   }
 }
 
+const MAX_RESUME_BYTES = 5 * 1024 * 1024 // keep in sync with CareersForm.tsx client check
+const MAX_REQUEST_BYTES = MAX_RESUME_BYTES + 256 * 1024 // resume + other form fields
+const ALLOWED_RESUME_TYPES = new Set([
+  'application/pdf',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+])
+
 export async function POST(req: NextRequest) {
   try {
+    // Reject oversized bodies before they're buffered into memory — an
+    // unbounded upload here is a resource-limit / OOM risk on Workers.
+    const contentLength = Number(req.headers.get('content-length') ?? 0)
+    if (contentLength > MAX_REQUEST_BYTES) {
+      return Response.json({ success: false, error: 'Request too large' }, { status: 413 })
+    }
+
     const fd = await req.formData()
 
     // Honeypot
@@ -212,6 +227,15 @@ export async function POST(req: NextRequest) {
 
     if (!name || !email || !position || !experience || !message) {
       return Response.json({ success: false, error: 'Missing required fields' }, { status: 400 })
+    }
+
+    if (resumeFile && resumeFile.size > 0) {
+      if (resumeFile.size > MAX_RESUME_BYTES) {
+        return Response.json({ success: false, error: 'Resume must be under 5 MB' }, { status: 413 })
+      }
+      if (resumeFile.type && !ALLOWED_RESUME_TYPES.has(resumeFile.type)) {
+        return Response.json({ success: false, error: 'Resume must be a PDF or Word document' }, { status: 400 })
+      }
     }
 
     const notifEmail = buildNotificationEmail(name, email, phone, position, experience, portfolio, message, sourceRaw, resumeFile?.name)
