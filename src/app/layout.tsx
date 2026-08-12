@@ -27,7 +27,6 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://miraclewebsoft.com'),
   title: { default: 'Miracle Websoft — Ecommerce Growth & AI Technology Agency', template: '%s | Miracle Websoft' },
   description: 'Miracle Websoft is an ecommerce growth and AI technology agency. Shopify development, CRO, speed optimization, AI automation, OpenAI integrations and custom web development for global clients.',
-  keywords: ['Miracle Websoft', 'ecommerce growth agency', 'Shopify development agency', 'Shopify Plus agency', 'Shopify CRO', 'Shopify speed optimization', 'AI agency', 'AI automation', 'AI business automation', 'custom web development', 'API integration services'],
   authors: [{ name: 'Miracle Websoft', url: 'https://miraclewebsoft.com' }],
   creator: 'Karam Singh Mehra',
   publisher: 'Miracle Websoft',

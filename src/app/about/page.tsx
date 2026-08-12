@@ -13,6 +13,17 @@ export const metadata: Metadata = {
   title: 'About Miracle Websoft — Ecommerce Growth & AI Technology Agency',
   description: 'Miracle Websoft is an ecommerce growth and AI technology agency with 650+ projects and 15,000+ hours delivered. Shopify, CRO, speed, AI and custom web development.',
   alternates: { canonical: 'https://miraclewebsoft.com/about' },
+  openGraph: {
+    title: 'About Miracle Websoft — Ecommerce Growth & AI Technology Agency',
+    description: 'Miracle Websoft is an ecommerce growth and AI technology agency with 650+ projects and 15,000+ hours delivered. Shopify, CRO, speed, AI and custom web development.',
+    url: 'https://miraclewebsoft.com/about',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Miracle Websoft — Ecommerce Growth & AI Technology Agency',
+    description: 'Miracle Websoft is an ecommerce growth and AI technology agency with 650+ projects and 15,000+ hours delivered. Shopify, CRO, speed, AI and custom web development.',
+  },
 }
 
 const values = [

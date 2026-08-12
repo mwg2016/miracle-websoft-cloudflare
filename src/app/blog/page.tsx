@@ -9,6 +9,17 @@ export const metadata: Metadata = {
   title: 'Blog — Shopify, CRO, Speed, AI & Ecommerce Growth',
   description: 'Shopify development tips, CRO tactics, speed advice, AI automation ideas and ecommerce growth guides from Miracle Websoft.',
   alternates: { canonical: 'https://miraclewebsoft.com/blog' },
+  openGraph: {
+    title: 'Blog — Shopify, CRO, Speed, AI & Ecommerce Growth',
+    description: 'Shopify development tips, CRO tactics, speed advice, AI automation ideas and ecommerce growth guides from Miracle Websoft.',
+    url: 'https://miraclewebsoft.com/blog',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog — Shopify, CRO, Speed, AI & Ecommerce Growth',
+    description: 'Shopify development tips, CRO tactics, speed advice, AI automation ideas and ecommerce growth guides from Miracle Websoft.',
+  },
 }
 
 const categories = [

@@ -8,6 +8,17 @@ export const metadata: Metadata = {
   title: 'Terms of Service — Miracle Websoft',
   description: 'Terms of service for Miracle Websoft Shopify development agency.',
   alternates: { canonical: 'https://miraclewebsoft.com/terms' },
+  openGraph: {
+    title: 'Terms of Service — Miracle Websoft',
+    description: 'Terms of service for Miracle Websoft Shopify development agency.',
+    url: 'https://miraclewebsoft.com/terms',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms of Service — Miracle Websoft',
+    description: 'Terms of service for Miracle Websoft Shopify development agency.',
+  },
 }
 
 const jsonLd = renderJsonLd([

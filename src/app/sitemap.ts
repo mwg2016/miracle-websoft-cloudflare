@@ -9,7 +9,8 @@ import { aiServices } from '@/data/ai-services'
 
 const BASE = 'https://miraclewebsoft.com'
 const LAST_MODIFIED = new Date('2026-07-09')
-const shopifyServiceSlugs = ['development', ...shopifyServices.map((service) => service.slug)]
+// 'development' is deliberately excluded — it already has an explicit Tier 2 entry above.
+const shopifyServiceSlugs = shopifyServices.map((service) => service.slug)
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const core: MetadataRoute.Sitemap = [
@@ -31,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/services/shopify-cro-speed`,                          priority: 0.9,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/services/wordpress-development`,                      priority: 0.7,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/services/custom-web-development`,                     priority: 0.7,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/services/shopify-development-clothing-brands`,        priority: 0.75, changeFrequency: 'monthly' as const },
 
     // ── Tier 3: Company & content ────────────────────────────────────────────
     { url: `${BASE}/about`,                                               priority: 0.8,  changeFrequency: 'monthly' as const },

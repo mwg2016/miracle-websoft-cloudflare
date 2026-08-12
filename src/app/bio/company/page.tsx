@@ -10,6 +10,17 @@ export const metadata: Metadata = {
   description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 600+ projects, 98%+ job success, 16 team members.',
   alternates: { canonical: 'https://miraclewebsoft.com/bio/company' },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: 'Miracle Websoft — Shopify Experts for Growing Stores',
+    description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 600+ projects, 98%+ job success, 16 team members.',
+    url: 'https://miraclewebsoft.com/bio/company',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Miracle Websoft — Shopify Experts for Growing Stores',
+    description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 600+ projects, 98%+ job success, 16 team members.',
+  },
 }
 
 const MEETING_LINK = outboundHref('calendly', 'https://calendly.com/karam-4my/15-mints-discussion?month=2026-03')

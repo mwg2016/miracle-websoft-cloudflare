@@ -14,6 +14,17 @@ export const metadata: Metadata = {
   description: 'Refer a Shopify client to Miracle Websoft and earn 20% of the project value. No cap, no limits. Join our referral partner program today.',
   alternates: { canonical: 'https://miraclewebsoft.com/referral' },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: 'Earn 20% Commission — Shopify Referral Program | Miracle Websoft',
+    description: 'Refer a Shopify client to Miracle Websoft and earn 20% of the project value. No cap, no limits. Join our referral partner program today.',
+    url: 'https://miraclewebsoft.com/referral',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Earn 20% Commission — Shopify Referral Program | Miracle Websoft',
+    description: 'Refer a Shopify client to Miracle Websoft and earn 20% of the project value. No cap, no limits. Join our referral partner program today.',
+  },
 }
 
 const steps = [

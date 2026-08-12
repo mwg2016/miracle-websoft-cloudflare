@@ -14,6 +14,17 @@ export const metadata: Metadata = {
   title: 'Custom Web Application Development — React, Node.js & Laravel | Miracle Websoft',
   description: 'Bespoke web application development using React, Next.js, Node.js and Laravel. SaaS apps, dashboards, APIs and marketplace platforms — built from scratch.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/custom-web-development' },
+  openGraph: {
+    title: 'Custom Web Application Development — React, Node.js & Laravel | Miracle Websoft',
+    description: 'Bespoke web application development using React, Next.js, Node.js and Laravel. SaaS apps, dashboards, APIs and marketplace platforms — built from scratch.',
+    url: 'https://miraclewebsoft.com/services/custom-web-development',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Custom Web Application Development — React, Node.js & Laravel | Miracle Websoft',
+    description: 'Bespoke web application development using React, Next.js, Node.js and Laravel. SaaS apps, dashboards, APIs and marketplace platforms — built from scratch.',
+  },
 }
 
 const techStack = [

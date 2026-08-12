@@ -11,6 +11,17 @@ export const metadata: Metadata = {
   description:
     'Transparent, fixed-price Shopify packages. Builds from $600. Monthly maintenance from $99/mo. Pick a plan, fill the form, and we reply within 24 hours.',
   alternates: { canonical: 'https://miraclewebsoft.com/pricing' },
+  openGraph: {
+    title: 'Pricing — Shopify Build & Maintenance Packages | Miracle Websoft',
+    description: 'Transparent, fixed-price Shopify packages. Builds from $600. Monthly maintenance from $99/mo. Pick a plan, fill the form, and we reply within 24 hours.',
+    url: 'https://miraclewebsoft.com/pricing',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pricing — Shopify Build & Maintenance Packages | Miracle Websoft',
+    description: 'Transparent, fixed-price Shopify packages. Builds from $600. Monthly maintenance from $99/mo. Pick a plan, fill the form, and we reply within 24 hours.',
+  },
 }
 
 const WHATSAPP_URL = outboundHref(

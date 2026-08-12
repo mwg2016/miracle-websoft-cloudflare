@@ -14,6 +14,17 @@ export const metadata: Metadata = {
   description: 'Silent Shopify partner for agencies. We build under your brand — per project, hourly, or monthly retainer. NDA always signed. 600+ projects delivered.',
   alternates: { canonical: 'https://miraclewebsoft.com/white-label' },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: 'White Label Shopify Development — Miracle Websoft',
+    description: 'Silent Shopify partner for agencies. We build under your brand — per project, hourly, or monthly retainer. NDA always signed. 600+ projects delivered.',
+    url: 'https://miraclewebsoft.com/white-label',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'White Label Shopify Development — Miracle Websoft',
+    description: 'Silent Shopify partner for agencies. We build under your brand — per project, hourly, or monthly retainer. NDA always signed. 600+ projects delivered.',
+  },
 }
 
 const models = [

@@ -11,6 +11,17 @@ export const metadata: Metadata = {
   description: 'Karam Singh Mehra is the founder of Miracle Websoft, a Top Rated Plus Shopify agency on Upwork. 10+ years of Shopify expertise, 600+ projects delivered.',
   alternates: { canonical: 'https://miraclewebsoft.com/bio/owner' },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: 'Karam Singh Mehra — Shopify Expert & Founder | Miracle Websoft',
+    description: 'Karam Singh Mehra is the founder of Miracle Websoft, a Top Rated Plus Shopify agency on Upwork. 10+ years of Shopify expertise, 600+ projects delivered.',
+    url: 'https://miraclewebsoft.com/bio/owner',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Karam Singh Mehra — Shopify Expert & Founder | Miracle Websoft',
+    description: 'Karam Singh Mehra is the founder of Miracle Websoft, a Top Rated Plus Shopify agency on Upwork. 10+ years of Shopify expertise, 600+ projects delivered.',
+  },
 }
 
 const MEETING_LINK = outboundHref('calendly', 'https://calendly.com/karam-4my/15-mints-discussion?month=2026-03')

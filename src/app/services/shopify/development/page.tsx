@@ -16,6 +16,17 @@ export const metadata: Metadata = {
   title: 'Custom Shopify Development for Faster, Higher-Converting Stores',
   description: 'Custom Shopify development for merchants who need a faster, clearer, easier-to-manage store. Shopify builds, redesigns, Shopify Plus and integrations by Miracle Websoft.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/shopify/development' },
+  openGraph: {
+    title: 'Custom Shopify Development for Faster, Higher-Converting Stores',
+    description: 'Custom Shopify development for merchants who need a faster, clearer, easier-to-manage store. Shopify builds, redesigns, Shopify Plus and integrations by Miracle Websoft.',
+    url: 'https://miraclewebsoft.com/services/shopify/development',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Custom Shopify Development for Faster, Higher-Converting Stores',
+    description: 'Custom Shopify development for merchants who need a faster, clearer, easier-to-manage store. Shopify builds, redesigns, Shopify Plus and integrations by Miracle Websoft.',
+  },
 }
 
 const features = [

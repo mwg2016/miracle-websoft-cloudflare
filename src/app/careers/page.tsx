@@ -8,6 +8,17 @@ export const metadata: Metadata = {
   title: 'Careers — Join Miracle Websoft | Shopify Developer Jobs',
   description: 'We are always looking for talented Shopify developers to join our team — from freshers with basic HTML/CSS/JS to senior developers with deep Liquid and app dev experience.',
   alternates: { canonical: 'https://miraclewebsoft.com/careers' },
+  openGraph: {
+    title: 'Careers — Join Miracle Websoft | Shopify Developer Jobs',
+    description: 'We are always looking for talented Shopify developers to join our team — from freshers with basic HTML/CSS/JS to senior developers with deep Liquid and app dev experience.',
+    url: 'https://miraclewebsoft.com/careers',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Careers — Join Miracle Websoft | Shopify Developer Jobs',
+    description: 'We are always looking for talented Shopify developers to join our team — from freshers with basic HTML/CSS/JS to senior developers with deep Liquid and app dev experience.',
+  },
 }
 
 const openRoles = [
