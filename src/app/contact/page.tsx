@@ -257,7 +257,11 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
             </div>
 
             {/* ── Right — Form (shown first on mobile so it's visible at a glance) ─ */}
-            <div className="order-first lg:order-last" style={{ position: 'sticky', top: '7rem' }}>
+            {/* sticky only at lg+, where it shares a row with the taller left column;
+                on mobile each column is its own grid row so sticky has no slack to
+                move within — some mobile browsers mis-render that as a fixed overlay,
+                so it's kept static below lg entirely. */}
+            <div className="order-first lg:order-last lg:sticky lg:top-28">
               {/* Form card */}
               <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '2rem' }}>
                 {/* Karam avatar + headline */}
