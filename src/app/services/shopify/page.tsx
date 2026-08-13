@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   title: 'Shopify Services by Top Rated Shopify Experts',
   description:
     'Shopify services for ecommerce brands: store development, Shopify Plus, theme customization, custom features, app integration, migration, maintenance, API and private apps.',
-  alternates: { canonical: 'https://miraclewebsoft.com/services/shopify' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/services/shopify' },
   openGraph: {
     title: 'Shopify Services by Top Rated Shopify Experts | Miracle Websoft',
     description:
       'Shopify development, Shopify Plus, theme customization, custom features, app integration, migration, maintenance, APIs and private apps.',
-    url: 'https://miraclewebsoft.com/services/shopify',
+    url: 'https://www.miraclewebsoft.com/services/shopify',
     type: 'website',
   },
   twitter: {
@@ -101,7 +101,7 @@ const jsonLd = renderJsonLd([
     name: 'Shopify Services - Miracle Websoft',
     description:
       'Shopify development, Shopify Plus, theme customization, custom features, app integration, migrations, maintenance, APIs and private apps.',
-    url: 'https://miraclewebsoft.com/services/shopify',
+    url: 'https://www.miraclewebsoft.com/services/shopify',
   }),
   service({
     name: 'Shopify Services',

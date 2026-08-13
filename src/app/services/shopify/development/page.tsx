@@ -15,11 +15,11 @@ import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 export const metadata: Metadata = {
   title: 'Custom Shopify Development for Faster, Higher-Converting Stores',
   description: 'Custom Shopify development for merchants who need a faster, clearer, easier-to-manage store. Shopify builds, redesigns, Shopify Plus and integrations by Miracle Websoft.',
-  alternates: { canonical: 'https://miraclewebsoft.com/services/shopify/development' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/services/shopify/development' },
   openGraph: {
     title: 'Custom Shopify Development for Faster, Higher-Converting Stores',
     description: 'Custom Shopify development for merchants who need a faster, clearer, easier-to-manage store. Shopify builds, redesigns, Shopify Plus and integrations by Miracle Websoft.',
-    url: 'https://miraclewebsoft.com/services/shopify/development',
+    url: 'https://www.miraclewebsoft.com/services/shopify/development',
     type: 'website',
   },
   twitter: {

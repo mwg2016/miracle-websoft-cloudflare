@@ -40,40 +40,40 @@ Fashion and apparel, beauty and cosmetics, health and wellness, home and furnitu
 
 ## Key Pages
 
-- Homepage: https://miraclewebsoft.com
-- All Services: https://miraclewebsoft.com/services
-- AI Services: https://miraclewebsoft.com/services/ai
-- AI Business Automation: https://miraclewebsoft.com/services/ai/ai-business-automation
-- OpenAI Integrations: https://miraclewebsoft.com/services/ai/openai-integrations
-- AI Chatbots: https://miraclewebsoft.com/services/ai/ai-chatbots
-- Shopify Services: https://miraclewebsoft.com/services/shopify
-- Shopify Development: https://miraclewebsoft.com/services/shopify/development
-- Shopify Plus Development: https://miraclewebsoft.com/services/shopify/shopify-plus-development
-- Shopify Theme Customization: https://miraclewebsoft.com/services/shopify/theme-customization
-- Shopify Custom Features: https://miraclewebsoft.com/services/shopify/custom-features
-- Shopify App Integration: https://miraclewebsoft.com/services/shopify/app-integration
-- Shopify Maintenance: https://miraclewebsoft.com/services/shopify/shopify-maintenance
-- Shopify API Development and Private Apps: https://miraclewebsoft.com/services/shopify/api-private-apps
-- Shopify App Development: https://miraclewebsoft.com/services/shopify-app-development
-- Shopify Migration: https://miraclewebsoft.com/services/shopify-migration
-- Conversion Rate Optimization: https://miraclewebsoft.com/services/conversion-rate-optimization
-- Shopify Speed Optimization: https://miraclewebsoft.com/services/shopify-speed-optimization
-- CRO and Speed: https://miraclewebsoft.com/services/shopify-cro-speed
-- Custom Web Development: https://miraclewebsoft.com/services/custom-web-development
-- Industries: https://miraclewebsoft.com/industries
-- Case Studies: https://miraclewebsoft.com/case-studies
-- Resources: https://miraclewebsoft.com/resources
-- Blog: https://miraclewebsoft.com/blog
-- Pricing: https://miraclewebsoft.com/pricing
-- About: https://miraclewebsoft.com/about
-- Careers: https://miraclewebsoft.com/careers
-- Contact: https://miraclewebsoft.com/contact
+- Homepage: https://www.miraclewebsoft.com
+- All Services: https://www.miraclewebsoft.com/services
+- AI Services: https://www.miraclewebsoft.com/services/ai
+- AI Business Automation: https://www.miraclewebsoft.com/services/ai/ai-business-automation
+- OpenAI Integrations: https://www.miraclewebsoft.com/services/ai/openai-integrations
+- AI Chatbots: https://www.miraclewebsoft.com/services/ai/ai-chatbots
+- Shopify Services: https://www.miraclewebsoft.com/services/shopify
+- Shopify Development: https://www.miraclewebsoft.com/services/shopify/development
+- Shopify Plus Development: https://www.miraclewebsoft.com/services/shopify/shopify-plus-development
+- Shopify Theme Customization: https://www.miraclewebsoft.com/services/shopify/theme-customization
+- Shopify Custom Features: https://www.miraclewebsoft.com/services/shopify/custom-features
+- Shopify App Integration: https://www.miraclewebsoft.com/services/shopify/app-integration
+- Shopify Maintenance: https://www.miraclewebsoft.com/services/shopify/shopify-maintenance
+- Shopify API Development and Private Apps: https://www.miraclewebsoft.com/services/shopify/api-private-apps
+- Shopify App Development: https://www.miraclewebsoft.com/services/shopify-app-development
+- Shopify Migration: https://www.miraclewebsoft.com/services/shopify-migration
+- Conversion Rate Optimization: https://www.miraclewebsoft.com/services/conversion-rate-optimization
+- Shopify Speed Optimization: https://www.miraclewebsoft.com/services/shopify-speed-optimization
+- CRO and Speed: https://www.miraclewebsoft.com/services/shopify-cro-speed
+- Custom Web Development: https://www.miraclewebsoft.com/services/custom-web-development
+- Industries: https://www.miraclewebsoft.com/industries
+- Case Studies: https://www.miraclewebsoft.com/case-studies
+- Resources: https://www.miraclewebsoft.com/resources
+- Blog: https://www.miraclewebsoft.com/blog
+- Pricing: https://www.miraclewebsoft.com/pricing
+- About: https://www.miraclewebsoft.com/about
+- Careers: https://www.miraclewebsoft.com/careers
+- Contact: https://www.miraclewebsoft.com/contact
 
 ## Contact
 
 - Email: karam@miraclewebsoft.com
 - WhatsApp: https://wa.me/916239269736
-- Website: https://miraclewebsoft.com
+- Website: https://www.miraclewebsoft.com
 - Location: Chandigarh, India
 
 ## What Makes Us Different

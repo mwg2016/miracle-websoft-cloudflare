@@ -13,11 +13,11 @@ const PC_BUILDER_OUTBOUND = outboundHref('shopify_apps', 'https://apps.shopify.c
 export const metadata: Metadata = {
   title: 'Miracle PC Builder App for Shopify — Interactive PC Configurator | Miracle Websoft',
   description: 'Let customers build compatible PCs step by step and checkout in one click. Real-time compatibility validation, AI-powered fill, bundle checkout. Built for Shopify.',
-  alternates: { canonical: 'https://miraclewebsoft.com/tools/pc-builder' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/tools/pc-builder' },
   openGraph: {
     title: 'Miracle PC Builder App for Shopify | Miracle Websoft',
     description: 'Interactive PC configurator for Shopify stores. Real-time compatibility, bundle checkout, AI-powered fill.',
-    url: 'https://miraclewebsoft.com/tools/pc-builder',
+    url: 'https://www.miraclewebsoft.com/tools/pc-builder',
     type: 'website',
   },
 }

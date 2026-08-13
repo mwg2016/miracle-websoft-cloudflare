@@ -12,11 +12,11 @@ import { outboundHref } from '@/lib/outbound'
 export const metadata: Metadata = {
   title: 'About Miracle Websoft — Ecommerce Growth & AI Technology Agency',
   description: 'Miracle Websoft is an ecommerce growth and AI technology agency with 650+ projects and 15,000+ hours delivered. Shopify, CRO, speed, AI and custom web development.',
-  alternates: { canonical: 'https://miraclewebsoft.com/about' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/about' },
   openGraph: {
     title: 'About Miracle Websoft — Ecommerce Growth & AI Technology Agency',
     description: 'Miracle Websoft is an ecommerce growth and AI technology agency with 650+ projects and 15,000+ hours delivered. Shopify, CRO, speed, AI and custom web development.',
-    url: 'https://miraclewebsoft.com/about',
+    url: 'https://www.miraclewebsoft.com/about',
     type: 'website',
   },
   twitter: {
@@ -66,7 +66,7 @@ const jsonLd = renderJsonLd([
     name: 'About Miracle Websoft - ecommerce growth and AI technology agency',
     description:
       'Ecommerce growth and AI technology agency with 650+ projects, 15,000+ hours delivered and a 16-person team serving global clients since 2015.',
-    url: 'https://miraclewebsoft.com/about',
+    url: 'https://www.miraclewebsoft.com/about',
     type: 'AboutPage',
   }),
   breadcrumb([

@@ -12,11 +12,11 @@ import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 export const metadata: Metadata = {
   title: 'Ecommerce Growth, Shopify, AI & Web Development Services',
   description: 'Shopify development, CRO, speed optimization, AI automation, OpenAI integrations and custom web development for ecommerce brands and growing businesses.',
-  alternates: { canonical: 'https://miraclewebsoft.com/services' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/services' },
   openGraph: {
     title: 'Ecommerce Growth, Shopify, AI & Web Development Services | Miracle Websoft',
     description: 'Shopify development, CRO, speed optimization, AI automation and custom web development for ecommerce brands and growing businesses.',
-    url: 'https://miraclewebsoft.com/services',
+    url: 'https://www.miraclewebsoft.com/services',
     type: 'website',
   },
   twitter: {
@@ -243,7 +243,7 @@ const jsonLd = renderJsonLd([
     name: 'All Services — Miracle Websoft',
     description:
       'Shopify development, CRO, performance optimization, AI automation, OpenAI integrations, WordPress and custom web applications for merchants and businesses that need measurable outcomes.',
-    url: 'https://miraclewebsoft.com/services',
+    url: 'https://www.miraclewebsoft.com/services',
     type: 'CollectionPage',
   }),
   breadcrumb([

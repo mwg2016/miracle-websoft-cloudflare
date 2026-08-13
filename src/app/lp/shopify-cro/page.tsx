@@ -35,13 +35,13 @@ export const metadata: Metadata = {
   title: 'Shopify CRO Services — Boost Conversions, Cut Bounce, Lift Revenue | Miracle Websoft',
   description:
     'Shopify CRO services that turn your existing traffic into more customers. Free conversion audit, 90+ PageSpeed guarantee, fixed-price quotes. 600+ Shopify stores, 10+ years.',
-  alternates: { canonical: 'https://miraclewebsoft.com/lp/shopify-cro' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/lp/shopify-cro' },
   robots: { index: true, follow: true },
   openGraph: {
     title: 'Shopify CRO Services — Boost Conversions, Cut Bounce, Lift Revenue',
     description:
       'Free conversion audit for your Shopify store. 42% average lift, 90+ PageSpeed guaranteed.',
-    url: 'https://miraclewebsoft.com/lp/shopify-cro',
+    url: 'https://www.miraclewebsoft.com/lp/shopify-cro',
     type: 'website',
   },
 }

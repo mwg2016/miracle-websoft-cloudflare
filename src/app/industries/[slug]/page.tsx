@@ -19,11 +19,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: industry.metaTitle,
     description: industry.metaDescription,
-    alternates: { canonical: `https://miraclewebsoft.com/industries/${industry.slug}` },
+    alternates: { canonical: `https://www.miraclewebsoft.com/industries/${industry.slug}` },
     openGraph: {
       title: industry.metaTitle,
       description: industry.metaDescription,
-      url: `https://miraclewebsoft.com/industries/${industry.slug}`,
+      url: `https://www.miraclewebsoft.com/industries/${industry.slug}`,
       type: 'website',
     },
   }

@@ -14,11 +14,11 @@ import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 export const metadata: Metadata = {
   title: 'Shopify CRO & Speed Optimization for More Store Sales',
   description: 'Improve Shopify speed, mobile experience, product pages and checkout conversion. CRO and Core Web Vitals optimization for merchants who want more sales from existing traffic.',
-  alternates: { canonical: 'https://miraclewebsoft.com/services/shopify-cro-speed' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/services/shopify-cro-speed' },
   openGraph: {
     title: 'Shopify CRO & Speed Optimization for More Store Sales',
     description: 'Improve Shopify speed, mobile experience, product pages and checkout conversion. CRO and Core Web Vitals optimization for merchants who want more sales from existing traffic.',
-    url: 'https://miraclewebsoft.com/services/shopify-cro-speed',
+    url: 'https://www.miraclewebsoft.com/services/shopify-cro-speed',
     type: 'website',
   },
   twitter: {

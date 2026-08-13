@@ -12,12 +12,12 @@ import { breadcrumb, faqPage, renderJsonLd, webPage } from '@/lib/jsonld'
 export const metadata: Metadata = {
   title: 'Earn 20% Commission — Shopify Referral Program | Miracle Websoft',
   description: 'Refer a Shopify client to Miracle Websoft and earn 20% of the project value. No cap, no limits. Join our referral partner program today.',
-  alternates: { canonical: 'https://miraclewebsoft.com/referral' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/referral' },
   robots: { index: true, follow: true },
   openGraph: {
     title: 'Earn 20% Commission — Shopify Referral Program | Miracle Websoft',
     description: 'Refer a Shopify client to Miracle Websoft and earn 20% of the project value. No cap, no limits. Join our referral partner program today.',
-    url: 'https://miraclewebsoft.com/referral',
+    url: 'https://www.miraclewebsoft.com/referral',
     type: 'website',
   },
   twitter: {
@@ -142,7 +142,7 @@ const jsonLd = renderJsonLd([
     name: 'Referral Program — Earn 20% Commission',
     description:
       'Refer a Shopify client to Miracle Websoft and earn 20% of the project value. No cap, no limits.',
-    url: 'https://miraclewebsoft.com/referral',
+    url: 'https://www.miraclewebsoft.com/referral',
   }),
   breadcrumb([
     { name: 'Home', url: '/' },

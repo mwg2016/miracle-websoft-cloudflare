@@ -13,4 +13,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://miraclewebsoft.com/sitemap.xml
+Sitemap: https://www.miraclewebsoft.com/sitemap.xml

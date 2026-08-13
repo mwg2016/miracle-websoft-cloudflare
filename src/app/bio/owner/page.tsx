@@ -9,12 +9,12 @@ import { clientVideos, founderIntro } from '@/data/videos'
 export const metadata: Metadata = {
   title: 'Karam Singh Mehra — Shopify Expert & Founder | Miracle Websoft',
   description: 'Karam Singh Mehra is the founder of Miracle Websoft, a Top Rated Plus Shopify agency on Upwork. 10+ years of Shopify expertise, 600+ projects delivered.',
-  alternates: { canonical: 'https://miraclewebsoft.com/bio/owner' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/bio/owner' },
   robots: { index: true, follow: true },
   openGraph: {
     title: 'Karam Singh Mehra — Shopify Expert & Founder | Miracle Websoft',
     description: 'Karam Singh Mehra is the founder of Miracle Websoft, a Top Rated Plus Shopify agency on Upwork. 10+ years of Shopify expertise, 600+ projects delivered.',
-    url: 'https://miraclewebsoft.com/bio/owner',
+    url: 'https://www.miraclewebsoft.com/bio/owner',
     type: 'website',
   },
   twitter: {
@@ -153,11 +153,11 @@ function StarRating({ rating, count }: { rating: number; count: string }) {
 const jsonLd = renderJsonLd([
   person({
     name: 'Karam Singh Mehra',
-    url: 'https://miraclewebsoft.com/bio/owner',
+    url: 'https://www.miraclewebsoft.com/bio/owner',
     jobTitle: 'Founder & Lead Shopify Expert',
     description:
       'Founder of Miracle Websoft — 10+ years of Shopify expertise, 600+ projects delivered. Top Rated Plus on Upwork.',
-    image: 'https://miraclewebsoft.com/icon-512.png',
+    image: 'https://www.miraclewebsoft.com/icon-512.png',
     sameAs: [
       'https://www.linkedin.com/in/ecommerce-experts/',
       'https://www.upwork.com/freelancers/~0108a0862ff3e2f2de',
@@ -165,7 +165,7 @@ const jsonLd = renderJsonLd([
       'https://www.facebook.com/miraclewebsoft/',
       'https://x.com/KaramSingh35',
     ],
-    worksFor: { name: 'Miracle Websoft', url: 'https://miraclewebsoft.com' },
+    worksFor: { name: 'Miracle Websoft', url: 'https://www.miraclewebsoft.com' },
   }),
   breadcrumb([
     { name: 'Home', url: '/' },

@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   title: 'Case Studies — Shopify Results for Growing Stores | Miracle Websoft',
   description:
     'Real results from 600+ Shopify projects. See how we have helped merchants improve conversion rates, cut cart abandonment, speed up stores and migrate without losing SEO traffic.',
-  alternates: { canonical: 'https://miraclewebsoft.com/case-studies' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/case-studies' },
   openGraph: {
     title: 'Case Studies — Shopify Results for Growing Stores | Miracle Websoft',
     description: 'Real results from 600+ Shopify projects. See how we have helped merchants improve conversion rates, cut cart abandonment, speed up stores and migrate without losing SEO traffic.',
-    url: 'https://miraclewebsoft.com/case-studies',
+    url: 'https://www.miraclewebsoft.com/case-studies',
     type: 'website',
   },
   twitter: {
@@ -147,7 +147,7 @@ const jsonLd = renderJsonLd([
     name: 'Case Studies — Shopify results for growing stores',
     description:
       'Real results from 600+ Shopify projects — conversion lifts, migration success, speed and CRO outcomes.',
-    url: 'https://miraclewebsoft.com/case-studies',
+    url: 'https://www.miraclewebsoft.com/case-studies',
     type: 'CollectionPage',
   }),
   breadcrumb([

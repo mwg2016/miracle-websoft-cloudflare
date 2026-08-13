@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Verified Client Reviews — Miracle Websoft Shopify Developer',
     description: '23 verified five-star Upwork reviews from real Shopify store owners. Read what clients say about working with Karam Singh at Miracle Websoft.',
-    url: 'https://miraclewebsoft.com/reviews',
+    url: 'https://www.miraclewebsoft.com/reviews',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://miraclewebsoft.com/reviews',
+    canonical: 'https://www.miraclewebsoft.com/reviews',
   },
 }
 
@@ -49,7 +49,7 @@ function JsonLd() {
       '@type': 'LocalBusiness',
       name: 'Miracle Websoft',
       description: 'Shopify development agency by Karam Singh. 600+ verified projects, 98%+ job success, Top Rated Plus on Upwork.',
-      url: 'https://miraclewebsoft.com',
+      url: 'https://www.miraclewebsoft.com',
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: avgRating,
@@ -113,8 +113,8 @@ function JsonLd() {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://miraclewebsoft.com' },
-        { '@type': 'ListItem', position: 2, name: 'Reviews', item: 'https://miraclewebsoft.com/reviews' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.miraclewebsoft.com' },
+        { '@type': 'ListItem', position: 2, name: 'Reviews', item: 'https://www.miraclewebsoft.com/reviews' },
       ],
     },
   ]

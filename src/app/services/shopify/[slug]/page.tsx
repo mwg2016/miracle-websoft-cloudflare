@@ -24,11 +24,11 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return {
     title: svc.metaTitle,
     description: svc.metaDescription,
-    alternates: { canonical: `https://miraclewebsoft.com/services/shopify/${slug}` },
+    alternates: { canonical: `https://www.miraclewebsoft.com/services/shopify/${slug}` },
     openGraph: {
       title: svc.metaTitle,
       description: svc.metaDescription,
-      url: `https://miraclewebsoft.com/services/shopify/${slug}`,
+      url: `https://www.miraclewebsoft.com/services/shopify/${slug}`,
       type: 'website',
     },
   }

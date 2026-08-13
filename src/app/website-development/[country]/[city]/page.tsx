@@ -31,11 +31,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Website Development in ${city.name} for Small Business — ${country.currencySymbol}${starter}+ All-In | Miracle Websoft`,
     description: `Done-for-you website development for ${city.name} small businesses. Domain (${country.tld}), hosting, design and SEO included from ${country.currencySymbol}${starter}. Live in 7 days.`,
-    alternates: { canonical: `https://miraclewebsoft.com/website-development/${country.slug}/${city.slug}` },
+    alternates: { canonical: `https://www.miraclewebsoft.com/website-development/${country.slug}/${city.slug}` },
     openGraph: {
       title: `Website Development in ${city.name} — Small Business Packages`,
       description: `All-in-one website packages for ${city.name} businesses. Domain, hosting and design included from ${country.currencySymbol}${starter}.`,
-      url: `https://miraclewebsoft.com/website-development/${country.slug}/${city.slug}`,
+      url: `https://www.miraclewebsoft.com/website-development/${country.slug}/${city.slug}`,
       type: 'website',
     },
   }

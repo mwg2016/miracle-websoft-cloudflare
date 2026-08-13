@@ -22,11 +22,11 @@ const contactFaqs = [
 export const metadata: Metadata = {
   title: 'Book a Free Consultation | Contact Miracle Websoft',
   description: 'Tell us what is not working in your Shopify store, website, AI workflow or custom software project. Get practical fixed-price next steps from Miracle Websoft.',
-  alternates: { canonical: 'https://miraclewebsoft.com/contact' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/contact' },
   openGraph: {
     title: 'Book a Free Consultation | Miracle Websoft',
     description: 'Shopify development, CRO, speed optimization, AI automation and custom web development consultation.',
-    url: 'https://miraclewebsoft.com/contact',
+    url: 'https://www.miraclewebsoft.com/contact',
     type: 'website',
   },
   twitter: {
@@ -82,7 +82,7 @@ const jsonLd = renderJsonLd([
     name: 'Contact Miracle Websoft - free consultation',
     description:
       'Book a free consultation for Shopify development, CRO, speed optimization, AI automation or custom web development. Response within 24 hours.',
-    url: 'https://miraclewebsoft.com/contact',
+    url: 'https://www.miraclewebsoft.com/contact',
     type: 'ContactPage',
   }),
   breadcrumb([

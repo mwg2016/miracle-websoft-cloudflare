@@ -7,11 +7,11 @@ import { outboundHref } from '@/lib/outbound'
 export const metadata: Metadata = {
   title: 'Privacy Policy — Miracle Websoft',
   description: 'Privacy policy for Miracle Websoft — how we collect, use and protect your data.',
-  alternates: { canonical: 'https://miraclewebsoft.com/privacy' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/privacy' },
   openGraph: {
     title: 'Privacy Policy — Miracle Websoft',
     description: 'Privacy policy for Miracle Websoft — how we collect, use and protect your data.',
-    url: 'https://miraclewebsoft.com/privacy',
+    url: 'https://www.miraclewebsoft.com/privacy',
     type: 'website',
   },
   twitter: {
@@ -25,7 +25,7 @@ const jsonLd = renderJsonLd([
   webPage({
     name: 'Privacy Policy — Miracle Websoft',
     description: 'How Miracle Websoft collects, uses and protects your data.',
-    url: 'https://miraclewebsoft.com/privacy',
+    url: 'https://www.miraclewebsoft.com/privacy',
   }),
   breadcrumb([
     { name: 'Home', url: '/' },

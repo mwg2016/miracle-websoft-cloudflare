@@ -12,12 +12,12 @@ import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 export const metadata: Metadata = {
   title: 'White Label Shopify Development — Miracle Websoft',
   description: 'Silent Shopify partner for agencies. We build under your brand — per project, hourly, or monthly retainer. NDA always signed. 600+ projects delivered.',
-  alternates: { canonical: 'https://miraclewebsoft.com/white-label' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/white-label' },
   robots: { index: true, follow: true },
   openGraph: {
     title: 'White Label Shopify Development — Miracle Websoft',
     description: 'Silent Shopify partner for agencies. We build under your brand — per project, hourly, or monthly retainer. NDA always signed. 600+ projects delivered.',
-    url: 'https://miraclewebsoft.com/white-label',
+    url: 'https://www.miraclewebsoft.com/white-label',
     type: 'website',
   },
   twitter: {

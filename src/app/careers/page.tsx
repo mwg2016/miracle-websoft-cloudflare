@@ -7,11 +7,11 @@ import { breadcrumb, jobPosting, renderJsonLd, webPage } from '@/lib/jsonld'
 export const metadata: Metadata = {
   title: 'Careers — Join Miracle Websoft | Shopify Developer Jobs',
   description: 'We are always looking for talented Shopify developers to join our team — from freshers with basic HTML/CSS/JS to senior developers with deep Liquid and app dev experience.',
-  alternates: { canonical: 'https://miraclewebsoft.com/careers' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/careers' },
   openGraph: {
     title: 'Careers — Join Miracle Websoft | Shopify Developer Jobs',
     description: 'We are always looking for talented Shopify developers to join our team — from freshers with basic HTML/CSS/JS to senior developers with deep Liquid and app dev experience.',
-    url: 'https://miraclewebsoft.com/careers',
+    url: 'https://www.miraclewebsoft.com/careers',
     type: 'website',
   },
   twitter: {
@@ -124,7 +124,7 @@ const jsonLd = renderJsonLd([
     name: 'Careers — Miracle Websoft',
     description:
       'Shopify developer jobs at Miracle Websoft — Junior, Mid-level, Senior and Theme Developer roles. Full-time, remote-friendly, based out of Chandigarh, India.',
-    url: 'https://miraclewebsoft.com/careers',
+    url: 'https://www.miraclewebsoft.com/careers',
   }),
   breadcrumb([
     { name: 'Home', url: '/' },

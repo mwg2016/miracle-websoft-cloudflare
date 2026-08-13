@@ -15,11 +15,11 @@ import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 export const metadata: Metadata = {
   title: 'Custom Shopify Development for Clothing Brands | Miracle Websoft',
   description: 'Bespoke Shopify and Shopify Plus stores for clothing and fashion brands. Mobile-first, sub-1.5s load times, TikTok & Instagram Shop ready. USA, UK, Australia.',
-  alternates: { canonical: 'https://miraclewebsoft.com/services/shopify-development-clothing-brands' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/services/shopify-development-clothing-brands' },
   openGraph: {
     title: 'Custom Shopify Development for Clothing Brands | Miracle Websoft',
     description: 'Bespoke Shopify and Shopify Plus stores for clothing and fashion brands. Mobile-first, sub-1.5s load times, TikTok & Instagram Shop ready. USA, UK, Australia.',
-    url: 'https://miraclewebsoft.com/services/shopify-development-clothing-brands',
+    url: 'https://www.miraclewebsoft.com/services/shopify-development-clothing-brands',
     type: 'website',
   },
   twitter: {

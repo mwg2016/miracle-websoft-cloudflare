@@ -14,11 +14,11 @@ import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 export const metadata: Metadata = {
   title: 'Move to Shopify Without Losing Orders, Customers or SEO',
   description: 'Shopify migration service for merchants moving from WooCommerce, Magento, BigCommerce or custom platforms. Preserve products, orders, customers, URLs and SEO.',
-  alternates: { canonical: 'https://miraclewebsoft.com/services/shopify-migration' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/services/shopify-migration' },
   openGraph: {
     title: 'Move to Shopify Without Losing Orders, Customers or SEO',
     description: 'Shopify migration service for merchants moving from WooCommerce, Magento, BigCommerce or custom platforms. Preserve products, orders, customers, URLs and SEO.',
-    url: 'https://miraclewebsoft.com/services/shopify-migration',
+    url: 'https://www.miraclewebsoft.com/services/shopify-migration',
     type: 'website',
   },
   twitter: {

@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: 'Resources for Shopify, AI Automation & Ecommerce Growth',
   description:
     'Miracle Websoft resources for Shopify development, CRO, speed optimization, AI automation, ecommerce growth, tools, tutorials and case studies.',
-  alternates: { canonical: 'https://miraclewebsoft.com/resources' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/resources' },
   openGraph: {
     title: 'Resources for Shopify, AI Automation & Ecommerce Growth | Miracle Websoft',
     description: 'Guides, tools, tutorials and case studies for Shopify, CRO, speed, AI automation and ecommerce growth.',
-    url: 'https://miraclewebsoft.com/resources',
+    url: 'https://www.miraclewebsoft.com/resources',
     type: 'website',
   },
   twitter: {
@@ -69,7 +69,7 @@ const jsonLd = renderJsonLd([
   webPage({
     name: 'Resources - Miracle Websoft',
     description: 'Guides, tools, tutorials and case studies for Shopify, AI automation and ecommerce growth.',
-    url: 'https://miraclewebsoft.com/resources',
+    url: 'https://www.miraclewebsoft.com/resources',
     type: 'CollectionPage',
   }),
   breadcrumb([

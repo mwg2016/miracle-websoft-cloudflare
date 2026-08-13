@@ -9,7 +9,7 @@ import shopifyServices from '@/data/shopify-services'
 export const metadata: Metadata = {
   title: 'Search Miracle Websoft',
   description: 'Search Miracle Websoft services, Shopify industry guides, case studies, tools, partner pages and blog posts.',
-  alternates: { canonical: 'https://miraclewebsoft.com/search' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/search' },
   robots: { index: false, follow: true },
 }
 

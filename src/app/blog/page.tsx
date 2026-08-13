@@ -8,11 +8,11 @@ import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 export const metadata: Metadata = {
   title: 'Blog — Shopify, CRO, Speed, AI & Ecommerce Growth',
   description: 'Shopify development tips, CRO tactics, speed advice, AI automation ideas and ecommerce growth guides from Miracle Websoft.',
-  alternates: { canonical: 'https://miraclewebsoft.com/blog' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/blog' },
   openGraph: {
     title: 'Blog — Shopify, CRO, Speed, AI & Ecommerce Growth',
     description: 'Shopify development tips, CRO tactics, speed advice, AI automation ideas and ecommerce growth guides from Miracle Websoft.',
-    url: 'https://miraclewebsoft.com/blog',
+    url: 'https://www.miraclewebsoft.com/blog',
     type: 'website',
   },
   twitter: {
@@ -39,7 +39,7 @@ const jsonLd = renderJsonLd([
     name: 'Miracle Websoft Blog - Shopify, CRO, speed, AI and ecommerce growth insights',
     description:
       'Development tips, conversion tactics, speed advice, AI automation ideas and ecommerce growth guides.',
-    url: 'https://miraclewebsoft.com/blog',
+    url: 'https://www.miraclewebsoft.com/blog',
     type: 'CollectionPage',
   }),
   breadcrumb([

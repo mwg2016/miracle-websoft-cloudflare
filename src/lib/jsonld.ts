@@ -1,7 +1,7 @@
 // Shared JSON-LD schema builders.
 // All URLs are absolute — required for crawlers to resolve unambiguously.
 
-export const SITE_URL = 'https://miraclewebsoft.com'
+export const SITE_URL = 'https://www.miraclewebsoft.com'
 export const ORG_ID = `${SITE_URL}/#organization`
 export const WEBSITE_ID = `${SITE_URL}/#website`
 

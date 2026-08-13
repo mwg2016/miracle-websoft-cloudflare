@@ -32,11 +32,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${post.title} | Miracle Websoft Blog`,
     description: post.excerpt,
-    alternates: { canonical: `https://miraclewebsoft.com/blog/${post.slug}` },
+    alternates: { canonical: `https://www.miraclewebsoft.com/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://miraclewebsoft.com/blog/${post.slug}`,
+      url: `https://www.miraclewebsoft.com/blog/${post.slug}`,
       type: 'article',
       publishedTime: toIso(post.date),
       authors: ['Karam Singh Mehra'],

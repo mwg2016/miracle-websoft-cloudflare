@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: 'Pricing — Shopify Build & Maintenance Packages | Miracle Websoft',
   description:
     'Transparent, fixed-price Shopify packages. Builds from $600. Monthly maintenance from $99/mo. Pick a plan, fill the form, and we reply within 24 hours.',
-  alternates: { canonical: 'https://miraclewebsoft.com/pricing' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com/pricing' },
   openGraph: {
     title: 'Pricing — Shopify Build & Maintenance Packages | Miracle Websoft',
     description: 'Transparent, fixed-price Shopify packages. Builds from $600. Monthly maintenance from $99/mo. Pick a plan, fill the form, and we reply within 24 hours.',
-    url: 'https://miraclewebsoft.com/pricing',
+    url: 'https://www.miraclewebsoft.com/pricing',
     type: 'website',
   },
   twitter: {
@@ -209,7 +209,7 @@ const jsonLd = renderJsonLd([
     name: 'Pricing — Miracle Websoft Shopify packages',
     description:
       'Transparent fixed pricing for Shopify builds and monthly maintenance. From $600 to launch a store and $99/month to keep it healthy.',
-    url: 'https://miraclewebsoft.com/pricing',
+    url: 'https://www.miraclewebsoft.com/pricing',
     type: 'WebPage',
   }),
   breadcrumb([
