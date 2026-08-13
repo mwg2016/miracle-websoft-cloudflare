@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { ChevronDown, Menu, X } from 'lucide-react'
 
 const services = [
@@ -50,6 +51,7 @@ const companyItems = [
 ]
 
 export default function Header() {
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
@@ -73,10 +75,19 @@ export default function Header() {
   }
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    const boundary = document.querySelector('[data-hero-boundary]')
+
+    if (!boundary) {
+      const onScroll = () => setScrolled(window.scrollY > 40)
+      onScroll()
+      window.addEventListener('scroll', onScroll)
+      return () => window.removeEventListener('scroll', onScroll)
+    }
+
+    const observer = new IntersectionObserver(([entry]) => setScrolled(!entry.isIntersecting))
+    observer.observe(boundary)
+    return () => observer.disconnect()
+  }, [pathname])
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {

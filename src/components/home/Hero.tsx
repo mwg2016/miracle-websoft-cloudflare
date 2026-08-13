@@ -3,18 +3,7 @@
 import { useEffect, useRef, useState, type PointerEvent } from 'react'
 import Link from 'next/link'
 import { motion, animate, useInView, useMotionValue, useReducedMotion, useSpring, useTransform } from 'framer-motion'
-import {
-  ArrowRight,
-  BarChart3,
-  CheckCircle2,
-  Gauge,
-  PackageCheck,
-  ShieldCheck,
-  ShoppingBag,
-  Star,
-  TrendingUp,
-  Zap,
-} from 'lucide-react'
+import { ArrowRight, Gauge, PackageCheck, ShoppingBag, Star, Zap } from 'lucide-react'
 
 const metrics = [
   { value: 650, suffix: '+', label: 'Shopify Projects' },
@@ -349,28 +338,7 @@ export default function Hero() {
         <DashboardIllustration />
       </div>
 
-      <div className="mws-hero-proof-strip" aria-label="Shopify services">
-        <span>
-          <ShieldCheck size={15} />
-          Shopify Plus
-        </span>
-        <span>
-          <TrendingUp size={15} />
-          CRO builds
-        </span>
-        <span>
-          <Zap size={15} />
-          Speed optimization
-        </span>
-        <span>
-          <BarChart3 size={15} />
-          Store analytics
-        </span>
-        <span>
-          <CheckCircle2 size={15} />
-          Long-term support
-        </span>
-      </div>
+      <span data-hero-boundary aria-hidden="true" style={{ position: 'absolute', bottom: 0, left: 0, width: 1, height: 1, pointerEvents: 'none' }} />
 
       <style>{`
         .mws-shopify-hero {
@@ -1143,32 +1111,6 @@ export default function Hero() {
           bottom: 4.1rem;
         }
 
-        .mws-hero-proof-strip {
-          position: relative;
-          z-index: 1;
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: center;
-          gap: 0.7rem;
-          max-width: 1120px;
-          margin: 1.5rem auto 0;
-          padding: 0 1.5rem;
-        }
-
-        .mws-hero-proof-strip span {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.42rem;
-          color: #a1a1aa;
-          font-size: 0.78rem;
-          font-weight: 750;
-        }
-
-        .mws-hero-proof-strip svg {
-          color: #60a5fa;
-        }
-
         @keyframes mws-gradient-text {
           0%, 100% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
@@ -1400,11 +1342,6 @@ export default function Hero() {
           .mws-floating-card-bottom {
             left: 0.6rem;
             bottom: 0.8rem;
-          }
-
-          .mws-hero-proof-strip {
-            justify-content: flex-start;
-            margin-top: 0.3rem;
           }
         }
 

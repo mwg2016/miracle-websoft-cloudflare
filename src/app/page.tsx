@@ -3,17 +3,11 @@ import Hero from '@/components/home/Hero'
 import LogoMarquee from '@/components/home/LogoMarquee'
 import AuditPitch from '@/components/home/AuditPitch'
 import ServicesOverview from '@/components/home/ServicesOverview'
-import WhyUs from '@/components/home/WhyUs'
 import ProcessSteps from '@/components/home/ProcessSteps'
 import Testimonials from '@/components/home/Testimonials'
-import ClientPortfolio from '@/components/home/ClientPortfolio'
-import CitationsAndProfiles from '@/components/home/CitationsAndProfiles'
 import CtaBanner from '@/components/home/CtaBanner'
 import FaqSection from '@/components/ui/FaqSection'
 import RecentWork from '@/components/home/RecentWork'
-import IndustryGrid from '@/components/home/IndustryGrid'
-import Technologies from '@/components/home/Technologies'
-import LatestBlog from '@/components/home/LatestBlog'
 import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
 
 const homeFaqs = [
@@ -50,11 +44,11 @@ export const metadata: Metadata = {
     'API integration services',
     'ecommerce development company',
   ],
-  alternates: { canonical: 'https://miraclewebsoft.com' },
+  alternates: { canonical: 'https://www.miraclewebsoft.com' },
   openGraph: {
     title: 'Ecommerce Growth & AI Technology Agency | Miracle Websoft',
     description: 'Shopify development, CRO, speed optimization, AI automation and custom web applications for ecommerce brands and growing businesses.',
-    url: 'https://miraclewebsoft.com',
+    url: 'https://www.miraclewebsoft.com',
     type: 'website',
   },
   twitter: {
@@ -69,7 +63,7 @@ const jsonLd = renderJsonLd([
     name: 'Ecommerce Growth & AI Technology Agency - Miracle Websoft',
     description:
       'Shopify development, CRO, speed optimization, AI automation and custom web applications for ecommerce brands and growing businesses.',
-    url: 'https://miraclewebsoft.com/',
+    url: 'https://www.miraclewebsoft.com/',
   }),
   breadcrumb([{ name: 'Home', url: '/' }]),
 ])
@@ -80,18 +74,12 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <Hero />
       <LogoMarquee />
-      <AuditPitch />
-      <WhyUs />
       <ServicesOverview />
-      <IndustryGrid />
+      <AuditPitch />
       <ProcessSteps />
-      <ClientPortfolio />
       <RecentWork />
       <Testimonials />
-      <Technologies />
       <FaqSection faqs={homeFaqs} heading="Questions about working with us" />
-      <LatestBlog />
-      <CitationsAndProfiles />
       <CtaBanner />
     </>
   )
