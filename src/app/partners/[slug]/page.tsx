@@ -46,11 +46,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: partner.metaTitle,
     description: partner.metaDescription,
-    alternates: { canonical: `https://www.miraclewebsoft.com/partners/${partner.slug}` },
+    alternates: { canonical: `https://miraclewebsoft.com/partners/${partner.slug}` },
     openGraph: {
       title: partner.metaTitle,
       description: partner.metaDescription,
-      url: `https://www.miraclewebsoft.com/partners/${partner.slug}`,
+      url: `https://miraclewebsoft.com/partners/${partner.slug}`,
       type: 'website',
     },
   }

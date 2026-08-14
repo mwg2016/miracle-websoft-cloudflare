@@ -57,8 +57,21 @@ function applySecurityHeaders(response: NextResponse, csp: string) {
   return response
 }
 
+// www and the apex currently serve the site independently on Cloudflare; force
+// the apex as the single canonical host so search engines stop seeing duplicates.
+const WWW_HOST = 'www.miraclewebsoft.com'
+const APEX_HOST = 'miraclewebsoft.com'
+
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
+
+  if (req.nextUrl.hostname === WWW_HOST) {
+    const url = req.nextUrl.clone()
+    url.hostname = APEX_HOST
+    url.port = ''
+    return NextResponse.redirect(url, 301)
+  }
+
   const nonce = generateNonce()
   const csp = buildCsp(nonce)
 

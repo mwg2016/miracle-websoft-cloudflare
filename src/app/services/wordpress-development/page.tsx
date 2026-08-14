@@ -13,11 +13,11 @@ import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 export const metadata: Metadata = {
   title: 'WordPress Website Development Services | Miracle Websoft',
   description: 'Professional WordPress development — custom themes, WooCommerce stores, membership sites and corporate websites. Fast, secure and built to convert.',
-  alternates: { canonical: 'https://www.miraclewebsoft.com/services/wordpress-development' },
+  alternates: { canonical: 'https://miraclewebsoft.com/services/wordpress-development' },
   openGraph: {
     title: 'WordPress Website Development Services | Miracle Websoft',
     description: 'Professional WordPress development — custom themes, WooCommerce stores, membership sites and corporate websites. Fast, secure and built to convert.',
-    url: 'https://www.miraclewebsoft.com/services/wordpress-development',
+    url: 'https://miraclewebsoft.com/services/wordpress-development',
     type: 'website',
   },
   twitter: {

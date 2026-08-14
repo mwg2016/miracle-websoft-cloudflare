@@ -98,17 +98,17 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string |
       `   https://www.shopify.com/partners/directory/partner/miracle-websoft1`,
       ``,
       `→ Case Studies — real Shopify results`,
-      `   https://www.miraclewebsoft.com/case-studies`,
+      `   https://miraclewebsoft.com/case-studies`,
       ``,
       `→ Blog — Shopify tips for clothing brands`,
-      `   https://www.miraclewebsoft.com/blog`,
+      `   https://miraclewebsoft.com/blog`,
       ``,
       `If you have any questions in the meantime, just reply to this email — it comes straight to me.`,
       ``,
       `— Karam Singh Mehra`,
       `Founder, Miracle Websoft`,
       `Shopify Expert since 2015 · Top Rated Plus on Upwork`,
-      `https://www.miraclewebsoft.com`,
+      `https://miraclewebsoft.com`,
     ].join('\n'),
     html: `
 <!DOCTYPE html>
@@ -183,8 +183,8 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string |
       ${[
         { label: 'Upwork Profile', sub: 'Top Rated Plus · 600+ verified reviews', url: 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/', badge: 'Top Rated Plus', badgeColor: '#14a800' },
         { label: 'Shopify Partner Directory', sub: 'Verified Shopify Partner since 2015', url: 'https://www.shopify.com/partners/directory/partner/miracle-websoft1', badge: 'Verified Partner', badgeColor: '#96bf48' },
-        { label: 'Case Studies', sub: 'Real Shopify results', url: 'https://www.miraclewebsoft.com/case-studies', badge: 'Read more', badgeColor: accentColor },
-        { label: 'Blog', sub: 'Shopify CRO, speed and growth tips', url: 'https://www.miraclewebsoft.com/blog', badge: 'Read more', badgeColor: accentColor },
+        { label: 'Case Studies', sub: 'Real Shopify results', url: 'https://miraclewebsoft.com/case-studies', badge: 'Read more', badgeColor: accentColor },
+        { label: 'Blog', sub: 'Shopify CRO, speed and growth tips', url: 'https://miraclewebsoft.com/blog', badge: 'Read more', badgeColor: accentColor },
       ].map(l => `
         <tr><td style="padding:0 0 8px 0">
           <a href="${l.url}" target="_blank" style="display:block;padding:14px 18px;background:#f8f8fc;border-radius:10px;text-decoration:none;border:1px solid #ebebf5">
@@ -225,9 +225,9 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string |
   <!-- Footer -->
   <tr><td style="padding:20px 0;text-align:center">
     <p style="margin:0 0 8px;font-size:12px;color:#aaa">
-      <a href="https://www.miraclewebsoft.com" style="color:#aaa;text-decoration:none">miraclewebsoft.com</a> &nbsp;·&nbsp;
-      <a href="https://www.miraclewebsoft.com/case-studies" style="color:#aaa;text-decoration:none">Case Studies</a> &nbsp;·&nbsp;
-      <a href="https://www.miraclewebsoft.com/blog" style="color:#aaa;text-decoration:none">Blog</a>
+      <a href="https://miraclewebsoft.com" style="color:#aaa;text-decoration:none">miraclewebsoft.com</a> &nbsp;·&nbsp;
+      <a href="https://miraclewebsoft.com/case-studies" style="color:#aaa;text-decoration:none">Case Studies</a> &nbsp;·&nbsp;
+      <a href="https://miraclewebsoft.com/blog" style="color:#aaa;text-decoration:none">Blog</a>
     </p>
     <p style="margin:0;font-size:11px;color:#ccc">You received this because you submitted a contact form on miraclewebsoft.com.</p>
   </td></tr>

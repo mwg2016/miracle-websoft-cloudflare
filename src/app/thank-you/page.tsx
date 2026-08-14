@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Thank You',
   description: 'Your message has been received. We\'ll be in touch within 24 hours.',
   robots: { index: false, follow: false },
-  alternates: { canonical: 'https://www.miraclewebsoft.com/thank-you' },
+  alternates: { canonical: 'https://miraclewebsoft.com/thank-you' },
 }
 
 type FormKey = 'contact' | 'services' | 'careers' | 'referral' | 'white_label'

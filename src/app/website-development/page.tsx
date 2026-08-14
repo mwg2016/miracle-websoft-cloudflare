@@ -15,12 +15,12 @@ export const metadata: Metadata = {
   title: 'Website Development for Small Business — $299 All-In | Miracle Websoft',
   description:
     'Website development for small businesses across the US, UK and Australia. Domain + hosting + design + SEO from $299. Live in 7 days. We handle everything.',
-  alternates: { canonical: 'https://www.miraclewebsoft.com/website-development' },
+  alternates: { canonical: 'https://miraclewebsoft.com/website-development' },
   openGraph: {
     title: 'Website Development for Small Business — $299 All-In',
     description:
       'Done-for-you websites for small businesses across the US, UK and AU. Domain + hosting + design included. Live in 7 days.',
-    url: 'https://www.miraclewebsoft.com/website-development',
+    url: 'https://miraclewebsoft.com/website-development',
     type: 'website',
   },
 }
@@ -36,7 +36,7 @@ const jsonLd = renderJsonLd([
     name: 'Website Development for Small Business — Miracle Websoft',
     description:
       'Done-for-you website packages for small businesses across the US, UK and Australia. Domain + hosting + design + SEO included from $299.',
-    url: 'https://www.miraclewebsoft.com/website-development',
+    url: 'https://miraclewebsoft.com/website-development',
     type: 'CollectionPage',
   }),
   service({

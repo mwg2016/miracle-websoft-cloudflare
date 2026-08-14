@@ -44,11 +44,11 @@ export const metadata: Metadata = {
     'API integration services',
     'ecommerce development company',
   ],
-  alternates: { canonical: 'https://www.miraclewebsoft.com' },
+  alternates: { canonical: 'https://miraclewebsoft.com' },
   openGraph: {
     title: 'Ecommerce Growth & AI Technology Agency | Miracle Websoft',
     description: 'Shopify development, CRO, speed optimization, AI automation and custom web applications for ecommerce brands and growing businesses.',
-    url: 'https://www.miraclewebsoft.com',
+    url: 'https://miraclewebsoft.com',
     type: 'website',
   },
   twitter: {
@@ -63,7 +63,7 @@ const jsonLd = renderJsonLd([
     name: 'Ecommerce Growth & AI Technology Agency - Miracle Websoft',
     description:
       'Shopify development, CRO, speed optimization, AI automation and custom web applications for ecommerce brands and growing businesses.',
-    url: 'https://www.miraclewebsoft.com/',
+    url: 'https://miraclewebsoft.com/',
   }),
   breadcrumb([{ name: 'Home', url: '/' }]),
 ])

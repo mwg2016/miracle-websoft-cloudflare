@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: 'Shopify CRO Agency for Higher Ecommerce Conversions',
   description:
     'Shopify CRO services for ecommerce brands. User journey analysis, Microsoft Clarity review, heatmaps, checkout, product page, homepage and A/B testing.',
-  alternates: { canonical: 'https://www.miraclewebsoft.com/services/conversion-rate-optimization' },
+  alternates: { canonical: 'https://miraclewebsoft.com/services/conversion-rate-optimization' },
   openGraph: {
     title: 'Shopify CRO Agency for Higher Ecommerce Conversions | Miracle Websoft',
     description:
       'Conversion rate optimization for Shopify and ecommerce stores, including Clarity reviews, heatmap analysis, product page optimization and checkout improvements.',
-    url: 'https://www.miraclewebsoft.com/services/conversion-rate-optimization',
+    url: 'https://miraclewebsoft.com/services/conversion-rate-optimization',
     type: 'website',
   },
   twitter: {

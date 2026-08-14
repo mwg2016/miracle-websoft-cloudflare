@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: 'Shopify Speed Optimization & Core Web Vitals Service',
   description:
     'Shopify speed optimization for faster mobile stores. Improve Core Web Vitals, PageSpeed, LCP, CLS, INP, app bloat, images and theme performance.',
-  alternates: { canonical: 'https://www.miraclewebsoft.com/services/shopify-speed-optimization' },
+  alternates: { canonical: 'https://miraclewebsoft.com/services/shopify-speed-optimization' },
   openGraph: {
     title: 'Shopify Speed Optimization & Core Web Vitals Service | Miracle Websoft',
     description:
       'Improve Shopify PageSpeed, Core Web Vitals, LCP, CLS, INP, mobile performance, image weight, app bloat and theme performance.',
-    url: 'https://www.miraclewebsoft.com/services/shopify-speed-optimization',
+    url: 'https://miraclewebsoft.com/services/shopify-speed-optimization',
     type: 'website',
   },
   twitter: {

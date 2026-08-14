@@ -12,10 +12,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Verified Shopify Work History — 600+ Projects | Miracle Websoft',
     description: '600+ Shopify projects verified on Upwork. 98%+ Job Success · Top Rated Plus · Shopify Verified Partner.',
-    url: 'https://www.miraclewebsoft.com/work',
+    url: 'https://miraclewebsoft.com/work',
     type: 'website',
   },
-  alternates: { canonical: 'https://www.miraclewebsoft.com/work' },
+  alternates: { canonical: 'https://miraclewebsoft.com/work' },
 }
 
 // AEO / structured data
@@ -34,7 +34,7 @@ function JsonLd() {
           position: i + 1,
           name: jobTitle(job),
           description: job.description,
-          url: `https://www.miraclewebsoft.com/work/${job.id}`,
+          url: `https://miraclewebsoft.com/work/${job.id}`,
         })),
       },
       {

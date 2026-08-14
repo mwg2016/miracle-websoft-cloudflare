@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: 'Shopify Industry Guides for Fashion & Apparel Brands',
   description:
     "Explore Shopify development guides for women's clothing, activewear, streetwear, sustainable fashion, kidswear, plus-size apparel, menswear, luxury fashion and online boutiques.",
-  alternates: { canonical: 'https://www.miraclewebsoft.com/industries' },
+  alternates: { canonical: 'https://miraclewebsoft.com/industries' },
   openGraph: {
     title: 'Shopify Industry Guides | Miracle Websoft',
     description:
       'Industry-specific Shopify development guidance for fashion, apparel, activewear, streetwear, kidswear, plus-size, menswear and boutique ecommerce brands.',
-    url: 'https://www.miraclewebsoft.com/industries',
+    url: 'https://miraclewebsoft.com/industries',
     type: 'website',
   },
 }
@@ -41,7 +41,7 @@ const jsonLd = renderJsonLd([
     name: 'Shopify Industry Guides - Miracle Websoft',
     description:
       'Collection of industry-specific Shopify development guides for fashion and apparel ecommerce brands.',
-    url: 'https://www.miraclewebsoft.com/industries',
+    url: 'https://miraclewebsoft.com/industries',
     type: 'CollectionPage',
   }),
   breadcrumb([

@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: 'AI Services for Ecommerce & Business Automation',
   description:
     'AI agency for ecommerce brands and SMBs. AI business automation, OpenAI integrations, AI chatbots, customer support, internal tools, agents and AI websites.',
-  alternates: { canonical: 'https://www.miraclewebsoft.com/services/ai' },
+  alternates: { canonical: 'https://miraclewebsoft.com/services/ai' },
   openGraph: {
     title: 'AI Services for Ecommerce & Business Automation | Miracle Websoft',
     description:
       'Practical AI automation, OpenAI integrations, chatbots, internal tools and AI agents for ecommerce brands and growing businesses.',
-    url: 'https://www.miraclewebsoft.com/services/ai',
+    url: 'https://miraclewebsoft.com/services/ai',
     type: 'website',
   },
   twitter: {
@@ -32,7 +32,7 @@ const jsonLd = renderJsonLd([
     name: 'AI Services - Miracle Websoft',
     description:
       'AI automation, OpenAI integrations, AI chatbots, customer support automation, internal tools, AI agents, AI website development and AI consulting.',
-    url: 'https://www.miraclewebsoft.com/services/ai',
+    url: 'https://miraclewebsoft.com/services/ai',
   }),
   service({
     name: 'AI Services',

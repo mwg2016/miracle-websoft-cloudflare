@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   title: 'Partner Program — Refer Web Clients & Get Paid | Miracle Websoft',
   description:
     'Partner with us if you serve small businesses — accountants, lawyers, coaches, banks, branding agencies, printers, co-working spaces. Earn $50–$150 per converted referral. Monthly payouts.',
-  alternates: { canonical: 'https://www.miraclewebsoft.com/partners' },
+  alternates: { canonical: 'https://miraclewebsoft.com/partners' },
   openGraph: {
     title: 'Partner Program — Refer Web Clients & Get Paid',
     description:
       "If your business serves small businesses, you're a website referral waiting to happen. Earn $50–$150 per project.",
-    url: 'https://www.miraclewebsoft.com/partners',
+    url: 'https://miraclewebsoft.com/partners',
     type: 'website',
   },
 }
@@ -56,7 +56,7 @@ const jsonLd = renderJsonLd([
     name: 'Partner Program — Miracle Websoft',
     description:
       'Channel partner program for accountants, lawyers, coaches, banks, branding agencies, printers and co-working spaces. Refer small business web clients and earn $50–$150 per converted project.',
-    url: 'https://www.miraclewebsoft.com/partners',
+    url: 'https://miraclewebsoft.com/partners',
     type: 'CollectionPage',
   }),
   service({
@@ -75,7 +75,7 @@ const jsonLd = renderJsonLd([
     description: 'Channel partner types we work with — each with a dedicated partnership model.',
     items: partners.map((p) => ({
       name: p.shortName,
-      url: `https://www.miraclewebsoft.com/partners/${p.slug}`,
+      url: `https://miraclewebsoft.com/partners/${p.slug}`,
       description: p.firstTouchAngle,
     })),
   }),

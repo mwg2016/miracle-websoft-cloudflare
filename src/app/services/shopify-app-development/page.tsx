@@ -14,11 +14,11 @@ import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 export const metadata: Metadata = {
   title: 'Custom Shopify App Development for Store Automation & Growth',
   description: 'Custom Shopify app development for merchants who need private apps, unique features, automation, Shopify Functions or replacements for costly third-party apps.',
-  alternates: { canonical: 'https://www.miraclewebsoft.com/services/shopify-app-development' },
+  alternates: { canonical: 'https://miraclewebsoft.com/services/shopify-app-development' },
   openGraph: {
     title: 'Custom Shopify App Development for Store Automation & Growth',
     description: 'Custom Shopify app development for merchants who need private apps, unique features, automation, Shopify Functions or replacements for costly third-party apps.',
-    url: 'https://www.miraclewebsoft.com/services/shopify-app-development',
+    url: 'https://miraclewebsoft.com/services/shopify-app-development',
     type: 'website',
   },
   twitter: {

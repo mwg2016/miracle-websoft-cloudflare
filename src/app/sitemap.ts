@@ -7,7 +7,7 @@ import { blogPosts } from '@/data/blogPosts'
 import shopifyServices from '@/data/shopify-services'
 import { aiServices } from '@/data/ai-services'
 
-const BASE = 'https://www.miraclewebsoft.com'
+const BASE = 'https://miraclewebsoft.com'
 const LAST_MODIFIED = new Date('2026-07-09')
 // 'development' is deliberately excluded — it already has an explicit Tier 2 entry above.
 const shopifyServiceSlugs = shopifyServices.map((service) => service.slug)

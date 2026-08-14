@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const data = getAiService(slug)
   if (!data) return {}
 
-  const url = `https://www.miraclewebsoft.com/services/ai/${slug}`
+  const url = `https://miraclewebsoft.com/services/ai/${slug}`
   return {
     title: data.metaTitle,
     description: data.metaDescription,

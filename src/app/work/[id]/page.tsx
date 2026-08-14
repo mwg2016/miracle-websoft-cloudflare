@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'article',
     },
     alternates: {
-      canonical: `https://www.miraclewebsoft.com/work/${id}`,
+      canonical: `https://miraclewebsoft.com/work/${id}`,
     },
   }
 }
@@ -96,16 +96,16 @@ function JsonLd({ job }: { job: (typeof jobs)[0] }) {
       name: jobTitle(job),
       description: jobNarrative(job),
       ...(job.tags.length ? { keywords: job.tags.join(', ') } : {}),
-      ...(cs?.screenshots?.length ? { image: cs.screenshots.map(s => `https://www.miraclewebsoft.com${s.src}`) } : {}),
+      ...(cs?.screenshots?.length ? { image: cs.screenshots.map(s => `https://miraclewebsoft.com${s.src}`) } : {}),
       provider: {
         '@type': 'Organization',
         name: 'Miracle Websoft',
-        url: 'https://www.miraclewebsoft.com',
+        url: 'https://miraclewebsoft.com',
         founder: { '@type': 'Person', name: 'Karam Singh' },
       },
       serviceType: job.category,
       areaServed: 'Worldwide',
-      url: `https://www.miraclewebsoft.com/work/${job.id}`,
+      url: `https://miraclewebsoft.com/work/${job.id}`,
     },
   ]
 
@@ -125,7 +125,7 @@ function JsonLd({ job }: { job: (typeof jobs)[0] }) {
       itemReviewed: {
         '@type': 'LocalBusiness',
         name: 'Miracle Websoft',
-        url: 'https://www.miraclewebsoft.com',
+        url: 'https://miraclewebsoft.com',
       },
     })
   }
@@ -135,9 +135,9 @@ function JsonLd({ job }: { job: (typeof jobs)[0] }) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.miraclewebsoft.com' },
-      { '@type': 'ListItem', position: 2, name: 'Work', item: 'https://www.miraclewebsoft.com/work' },
-      { '@type': 'ListItem', position: 3, name: jobTitle(job), item: `https://www.miraclewebsoft.com/work/${job.id}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://miraclewebsoft.com' },
+      { '@type': 'ListItem', position: 2, name: 'Work', item: 'https://miraclewebsoft.com/work' },
+      { '@type': 'ListItem', position: 3, name: jobTitle(job), item: `https://miraclewebsoft.com/work/${job.id}` },
     ],
   })
 

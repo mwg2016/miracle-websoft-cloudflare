@@ -17,11 +17,11 @@ const WHATSAPP_URL = outboundHref('whatsapp', `https://wa.me/916239269736?text=$
 export const metadata: Metadata = {
   title: 'Custom Tool Development — Fast & Affordable | Miracle Websoft',
   description: 'We build digital tools, SaaS apps and web products in 5–7 days. From $200. See our live tools and get a quote for your idea.',
-  alternates: { canonical: 'https://www.miraclewebsoft.com/tools' },
+  alternates: { canonical: 'https://miraclewebsoft.com/tools' },
   openGraph: {
     title: 'Custom Tool Development — Fast & Affordable | Miracle Websoft',
     description: 'We build digital tools in 5–7 days from $200. See our live tools.',
-    url: 'https://www.miraclewebsoft.com/tools',
+    url: 'https://miraclewebsoft.com/tools',
     type: 'website',
   },
 }
@@ -121,7 +121,7 @@ const builtTools = [
     accentBorder: 'rgba(251,146,60,0.15)',
     accentCardBg: 'rgba(251,146,60,0.03)',
     title: 'miraclewebsoft.com',
-    url: 'https://www.miraclewebsoft.com',
+    url: 'https://miraclewebsoft.com',
     urlLabel: 'miraclewebsoft.com',
     budget: '$200',
     timeline: '5 days',
@@ -188,7 +188,7 @@ const jsonLd = renderJsonLd([
     name: 'Custom Tool Development — Miracle Websoft',
     description:
       'We build digital tools, SaaS apps and web products in 5–7 days starting from $200. See our live tools and get a quote.',
-    url: 'https://www.miraclewebsoft.com/tools',
+    url: 'https://miraclewebsoft.com/tools',
     type: 'CollectionPage',
   }),
   breadcrumb([
@@ -209,7 +209,7 @@ const jsonLd = renderJsonLd([
       const dedicated = (t as { dedicatedPage?: string }).dedicatedPage
       return {
         name: t.title,
-        url: dedicated ? `https://www.miraclewebsoft.com${dedicated}` : t.url,
+        url: dedicated ? `https://miraclewebsoft.com${dedicated}` : t.url,
         description: t.desc,
       }
     }),

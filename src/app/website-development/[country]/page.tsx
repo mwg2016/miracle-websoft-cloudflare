@@ -28,11 +28,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Website Development for Small Business in ${country.shortName} — ${country.currencySymbol}${country.code === 'au' ? 449 : country.code === 'uk' ? 249 : 299}+ | Miracle Websoft`,
     description: `Done-for-you website development for ${country.adjective.toLowerCase()} small businesses. Domain (${country.tld}), hosting, design, SEO and content included. Live in 7–14 days.`,
-    alternates: { canonical: `https://www.miraclewebsoft.com/website-development/${country.slug}` },
+    alternates: { canonical: `https://miraclewebsoft.com/website-development/${country.slug}` },
     openGraph: {
       title: `Website Development for ${country.shortName} Small Businesses`,
       description: `All-in-one website packages from ${country.currencySymbol}${country.code === 'au' ? 449 : country.code === 'uk' ? 249 : 299}. Domain, hosting and design included.`,
-      url: `https://www.miraclewebsoft.com/website-development/${country.slug}`,
+      url: `https://miraclewebsoft.com/website-development/${country.slug}`,
       type: 'website',
     },
   }
@@ -45,7 +45,7 @@ export default async function CountryPage({ params }: Props) {
 
   const cities = citiesInCountry(country.code)
   const url = `/website-development/${country.slug}`
-  const fullUrl = `https://www.miraclewebsoft.com${url}`
+  const fullUrl = `https://miraclewebsoft.com${url}`
 
   const jsonLd = renderJsonLd([
     webPage({
