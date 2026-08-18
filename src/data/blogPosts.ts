@@ -1,13 +1,66 @@
+export type BodyBlock = string | { h2: string } | { h3: string }
+
 export type BlogPost = {
   slug: string
   date: string
   tag: string
   title: string
   excerpt: string
-  body: string[]
+  body: BodyBlock[]
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "what-does-shopify-development-agency-do",
+    date: "August 18, 2026",
+    tag: "Shopify development",
+    title: "What Does a Shopify Development Agency Actually Do?",
+    excerpt: "Learn what a Shopify development agency does, from store builds and themes to custom features, migrations, conversion gains, and ongoing technical support.",
+    body: [
+      "Choosing the right ecommerce partner can shape how well an online store grows. A Shopify development agency plans and builds stores around goals and needs. Its work covers design, code, store setup, useful tools, and technical support. Therefore, brands use these teams when simple settings cannot support their plans. Skilled developers can improve an existing shop without replacing everything that works.",
+      "They solve limits that affect products, customer journeys, sales tools, or daily tasks. Moreover, agencies bring wider skills than one person managing a basic setup. Their role extends beyond launching pages and adding products to a shop.",
+      "This guide explains their work and when help becomes a smart choice.",
+      { h2: "What Is a Shopify Development Agency?" },
+      "A specialist agency helps businesses create stores that match their sales and technical needs. Unlike basic setup work, professional development starts with products, customers, goals, and store requirements. Therefore, developers consider how shoppers browse products and complete important actions across the site. They also plan how staff will manage products, orders, content, and connected business tools. Moreover, experienced teams can improve existing stores when current systems restrict useful changes.",
+      "Their Shopify development services may cover design work, custom code, integrations, testing, and support. As a result, businesses gain technical skills without building a large internal development team. This approach becomes useful when simple templates cannot support more complex ecommerce requirements. Ultimately, the agency turns business needs into practical store features that customers can use.",
+      { h2: "What Does a Shopify Development Agency Do?" },
+      "An agency handles technical work that helps merchants create and improve their online stores. However, each project requires different solutions because products and business models often vary greatly. Some merchants need complete stores, while others need focused improvements within existing systems. Therefore, developers first understand the problem before choosing themes, apps, code, or integrations.",
+      { h3: "Shopify Store Development" },
+      "Store development creates the main structure customers use while browsing and buying products. Developers organize products and collections so shoppers can find relevant items with less effort. They also create clear navigation that connects important pages throughout the customer journey. Moreover, mobile layouts need simple controls because smaller screens provide less browsing space. Developers configure key store settings around payments, shipping, products, taxes, and business requirements. Therefore, custom Shopify development creates a stronger base when standard setup options feel limiting.",
+      { h3: "Shopify Theme Development" },
+      "Themes control how shoppers see products, content, navigation, and other important store elements. However, ready themes may not match every brand or support every required layout. Developers adjust templates and sections so the design fits specific products and customer needs. They can also create new sections when normal theme settings provide too little control. Moreover, Shopify Liquid allows developers to shape templates beyond standard editor options. Careful theme work keeps branding clear while making future content changes easier for merchants.",
+      { h3: "Custom Functionality and App Integrations" },
+      "Growing stores often need features that normal theme settings cannot provide on their own. Therefore, developers can build custom functionality around unique products, pricing rules, or customer actions. Existing apps may also solve some needs without requiring new code from developers. However, teams must check whether each app fits the store and existing technical setup. Developers can connect outside systems when information must move between different business tools.",
+      "For example, API integrations can connect inventory systems, customer tools, or shipping software. This approach helps businesses choose suitable technology without adding tools they do not need.",
+      { h3: "Shopify Store Migrations" },
+      "Businesses sometimes change platforms because older systems become difficult to manage or improve. However, Shopify migration involves more than copying products into a new store. Developers may transfer customer records, orders, collections, images, content, and other useful information. They also review existing features before choosing suitable replacements within the new platform. Moreover, old page addresses need careful handling when search engines already know them.",
+      "Testing then checks products, customer data, store functions, and important buying paths before launch. Therefore, careful migration planning reduces problems that could affect customers after the platform changes.",
+      { h3: "Conversion Optimization" },
+      "Technical development can also remove problems that make purchasing harder for potential customers. For example, unclear navigation may prevent shoppers from reaching suitable products quickly enough. Poor mobile layouts can also make product choices or cart actions difficult to complete. Therefore, conversion rate optimization often includes technical changes that create smoother shopping journeys. Developers can improve page layouts and cart actions when store code creates unnecessary friction. However, useful changes should follow customer behavior and store data instead of random trends.",
+      { h3: "Technical Support" },
+      "Online stores continue changing as businesses add products, apps, campaigns, and new requirements. Therefore, reliable technical support helps merchants solve problems without disrupting normal store operations. Developers can fix theme errors, broken functions, app conflicts, and unexpected display issues. Moreover, they can test important updates before those changes affect real customers. Regular support also helps businesses add useful improvements as their needs continue growing. As a result, merchants gain dependable technical help without managing every development issue internally.",
+      { h2: "How Does a Shopify Development Agency Work on a Project?" },
+      "A strong project starts with understanding the business before developers begin changing store code. First, the agency reviews products, customers, goals, current problems, and required store functions. This discovery stage helps developers separate essential requirements from ideas that add little value. Next, the team plans store structure and chooses suitable technical solutions for each requirement. Developers then build pages, features, integrations, and other approved parts within the project scope.",
+      "Meanwhile, testing checks how those changes work across important devices and customer journeys. Teams review product pages, forms, cart actions, payments, and other important store functions. They also fix issues found during testing before moving completed work into production. After launch, developers watch important functions and address unexpected problems that require attention. Finally, ongoing support can handle future improvements as products and business requirements change.",
+      { h2: "When Should You Hire a Shopify Development Agency?" },
+      "A simple store may not need agency support during its earliest business stage. However, expert help becomes useful when technical needs start limiting important business plans. New stores with unusual products may require layouts or functions beyond standard theme options. Likewise, established stores may need custom systems that connect sales with other business tools. An agency can also help when several apps create conflicts or confusing customer experiences.",
+      "Migration provides another strong reason because valuable store data needs careful planning and testing. Moreover, merchants should consider help when technical issues start hurting important customer journeys. Slow development can also delay improvements when internal teams lack enough technical knowledge. Businesses with regular development needs may benefit from having reliable specialists available over time. Therefore, agency support makes sense when technical limits begin blocking useful business improvements.",
+      { h2: "What Should You Look for in a Shopify Development Agency?" },
+      "Start by checking whether the agency has strong experience with real ecommerce development projects. Relevant work shows whether developers understand stores beyond simple design and basic setup. Next, review whether their skills match the technical needs of your planned project. A strong team should understand themes, apps, integrations, testing, and customer buying journeys.",
+      "Moreover, developers should explain technical choices using clear language that business owners can understand. Ask how the team tests important functions before changes reach the live store. Good communication also matters because unclear updates can create delays during complex development work. Likewise, reliable teams should define project scope and expected results before starting major tasks. Ongoing support may matter when your store requires regular changes after the first launch.",
+      { h2: "Conclusion" },
+      "Choosing the right development partner depends on your store goals and technical needs. A skilled team should solve useful problems without making store management harder later. Therefore, look for proven experience, clear communication, careful testing, and practical technical advice. Good development should support customers while giving your business room for future growth. Moreover, the right partner can handle complex work when internal resources remain limited. Miracle Websoft helps ecommerce brands build and improve stores around clear business requirements. Its team focuses on useful solutions rather than adding complexity without a reason. When your store needs expert support, book a free consultation today.",
+      { h2: "Frequently Asked Questions" },
+      { h3: "What Services Does a Shopify Development Agency Provide?" },
+      "Most agencies handle store development, theme work, custom features, integrations, migrations, and technical support. Moreover, some teams improve customer journeys when technical problems make shopping difficult. Exact services depend on the agency skills and the needs of each project.",
+      { h3: "Can a Shopify Agency Improve an Existing Store?" },
+      "Yes, an agency can improve specific areas without replacing an entire existing ecommerce store. Developers can review themes, apps, navigation, functions, and current technical problems. Therefore, merchants can keep useful parts while improving areas that restrict customers or growth.",
+      { h3: "Can a Shopify Agency Build Custom Functionality?" },
+      "Yes, experienced developers can create special features when standard tools cannot meet business requirements. For example, unique products may require different choices, rules, or customer actions. However, good developers first check whether simpler existing options can solve the same problem.",
+      { h3: "Does a Shopify Development Agency Provide Ongoing Support?" },
+      "Many agencies continue helping merchants after new features or complete stores reach customers. Support may include fixes, updates, testing, app issues, and future store improvements. Therefore, businesses should discuss ongoing needs and support terms before choosing their development partner.",
+    ],
+  },
   {
     slug: "custom-shopify-app-vs-third-party-app-guide",
     date: "August 2, 2026" ,

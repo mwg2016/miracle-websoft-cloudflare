@@ -61,7 +61,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       url: `/blog/${post.slug}`,
       datePublished: toIso(post.date),
       tag: post.tag,
-      body: post.body,
+      body: post.body.map((b) => (typeof b === 'string' ? b : 'h2' in b ? b.h2 : b.h3)),
     }),
     breadcrumb([
       { name: 'Home', url: '/' },
@@ -109,9 +109,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* Body */}
           <div className="flex flex-col gap-5 mb-14">
-            {post.body.map((para, i) => (
-              <p key={i} style={{ fontSize: '0.975rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.85, fontWeight: 300 }}>{para}</p>
-            ))}
+            {post.body.map((block, i) => {
+              if (typeof block === 'string') {
+                return (
+                  <p key={i} style={{ fontSize: '0.975rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.85, fontWeight: 300 }}>{block}</p>
+                )
+              }
+              if ('h2' in block) {
+                return (
+                  <h2 key={i} style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(20px,2.6vw,28px)', lineHeight: 1.3, marginTop: '0.5rem' }}>{block.h2}</h2>
+                )
+              }
+              return (
+                <h3 key={i} style={{ color: '#fff', fontSize: 'clamp(17px,2vw,20px)', fontWeight: 600, lineHeight: 1.4, marginTop: '0.25rem' }}>{block.h3}</h3>
+              )
+            })}
           </div>
 
           {/* CTA */}
