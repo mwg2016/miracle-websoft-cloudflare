@@ -13,19 +13,19 @@ import RelatedServices from '@/components/services/RelatedServices'
 import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Custom Shopify Development for Faster, Higher-Converting Stores',
-  description: 'Custom Shopify development for merchants who need a faster, clearer, easier-to-manage store. Shopify builds, redesigns, Shopify Plus and integrations by Miracle Websoft.',
+  title: 'Custom Shopify Store Development | Miracle Websoft',
+  description: 'Launch or rebuild a custom Shopify store with mobile first UX, fast performance, conversion focused pages, integrations and Shopify Plus capabilities.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/shopify/development' },
   openGraph: {
-    title: 'Custom Shopify Development for Faster, Higher-Converting Stores',
-    description: 'Custom Shopify development for merchants who need a faster, clearer, easier-to-manage store. Shopify builds, redesigns, Shopify Plus and integrations by Miracle Websoft.',
+    title: 'Custom Shopify Store Development | Miracle Websoft',
+    description: 'Launch or rebuild a custom Shopify store with mobile first UX, fast performance, conversion focused pages, integrations and Shopify Plus capabilities.',
     url: 'https://miraclewebsoft.com/services/shopify/development',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Custom Shopify Development for Faster, Higher-Converting Stores',
-    description: 'Custom Shopify development for merchants who need a faster, clearer, easier-to-manage store. Shopify builds, redesigns, Shopify Plus and integrations by Miracle Websoft.',
+    title: 'Custom Shopify Store Development | Miracle Websoft',
+    description: 'Launch or rebuild a custom Shopify store with mobile first UX, fast performance, conversion focused pages, integrations and Shopify Plus capabilities.',
   },
 }
 

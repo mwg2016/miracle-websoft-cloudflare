@@ -26,12 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const country = countries[countrySlug as CountryCode]
   if (!country) return {}
   return {
-    title: `Website Development for Small Business in ${country.shortName} — ${country.currencySymbol}${country.code === 'au' ? 449 : country.code === 'uk' ? 249 : 299}+ | Miracle Websoft`,
-    description: `Done-for-you website development for ${country.adjective.toLowerCase()} small businesses. Domain (${country.tld}), hosting, design, SEO and content included. Live in 7–14 days.`,
+    title: country.metaTitle,
+    description: country.metaDescription,
     alternates: { canonical: `https://miraclewebsoft.com/website-development/${country.slug}` },
     openGraph: {
-      title: `Website Development for ${country.shortName} Small Businesses`,
-      description: `All-in-one website packages from ${country.currencySymbol}${country.code === 'au' ? 449 : country.code === 'uk' ? 249 : 299}. Domain, hosting and design included.`,
+      title: country.metaTitle,
+      description: country.metaDescription,
       url: `https://miraclewebsoft.com/website-development/${country.slug}`,
       type: 'website',
     },

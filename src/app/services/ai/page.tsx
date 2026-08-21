@@ -8,22 +8,22 @@ import { aiHubFaqs, aiServices } from '@/data/ai-services'
 import { breadcrumb, itemList, renderJsonLd, service, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'AI Services for Ecommerce & Business Automation',
+  title: 'AI Automation Services for Business | Miracle Websoft',
   description:
-    'AI agency for ecommerce brands and SMBs. AI business automation, OpenAI integrations, AI chatbots, customer support, internal tools, agents and AI websites.',
+    'Automate real business workflows with AI agents, OpenAI integrations, chatbots, internal tools and connected systems built around measurable outcomes.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/ai' },
   openGraph: {
-    title: 'AI Services for Ecommerce & Business Automation | Miracle Websoft',
+    title: 'AI Automation Services for Business | Miracle Websoft',
     description:
-      'Practical AI automation, OpenAI integrations, chatbots, internal tools and AI agents for ecommerce brands and growing businesses.',
+      'Automate real business workflows with AI agents, OpenAI integrations, chatbots, internal tools and connected systems built around measurable outcomes.',
     url: 'https://miraclewebsoft.com/services/ai',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Services for Ecommerce & Business Automation | Miracle Websoft',
+    title: 'AI Automation Services for Business | Miracle Websoft',
     description:
-      'AI business automation, OpenAI integrations, chatbots, internal tools and AI agents for practical business workflows.',
+      'Automate real business workflows with AI agents, OpenAI integrations, chatbots, internal tools and connected systems built around measurable outcomes.',
   },
 }
 

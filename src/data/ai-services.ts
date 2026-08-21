@@ -70,8 +70,8 @@ const defaultRelated = [
 export const aiServices: ServiceLandingData[] = [
   {
     slug: 'ai-business-automation',
-    metaTitle: 'AI Business Automation Agency for Ecommerce & SMBs',
-    metaDescription: 'AI business automation for ecommerce brands and small businesses. Automate support, reporting, operations, lead handling and internal workflows.',
+    metaTitle: 'AI Business Automation Services | Miracle Websoft',
+    metaDescription: 'Automate repetitive business work with practical AI systems for operations, reporting, lead handling, customer support and connected internal workflows.',
     eyebrow: 'AI BUSINESS AUTOMATION',
     h1: 'AI Business Automation That Removes Manual Work',
     subtext: 'We design and build practical AI automations for teams that are stuck copying data, answering repeat questions, preparing reports or moving work between tools by hand.',
@@ -138,7 +138,7 @@ export const aiServices: ServiceLandingData[] = [
   {
     slug: 'ai-workflow-automation',
     metaTitle: 'AI Workflow Automation Services | Miracle Websoft',
-    metaDescription: 'AI workflow automation services for ecommerce and business operations. Connect tools, automate decisions and reduce manual handoffs.',
+    metaDescription: 'Automate multi step workflows across your business tools with AI, integrations, approvals and reliable processes designed around measurable efficiency.',
     eyebrow: 'AI WORKFLOW AUTOMATION',
     h1: 'AI Workflow Automation for Busy Operations Teams',
     subtext: 'We automate multi-step business workflows across apps, APIs and databases so tasks move faster with fewer mistakes and clearer ownership.',
@@ -204,8 +204,8 @@ export const aiServices: ServiceLandingData[] = [
   },
   {
     slug: 'openai-integrations',
-    metaTitle: 'OpenAI Integration Services for Websites, Apps & Workflows',
-    metaDescription: 'OpenAI integration services for ecommerce, websites, internal tools, CRMs and business workflows. Build practical AI features with guardrails.',
+    metaTitle: 'OpenAI Integration Services for Business | Miracle Websoft',
+    metaDescription: 'Integrate OpenAI into websites, apps and internal workflows for search, extraction, drafting, support and structured automation using your business data.',
     eyebrow: 'OPENAI INTEGRATIONS',
     h1: 'OpenAI Integrations for Websites, Apps and Internal Tools',
     subtext: 'We integrate OpenAI into real business software: customer support assistants, content workflows, data extraction, internal search, reporting and custom AI features.',
@@ -271,8 +271,8 @@ export const aiServices: ServiceLandingData[] = [
   },
   {
     slug: 'ai-chatbots',
-    metaTitle: 'AI Chatbot Development for Ecommerce and Business Websites',
-    metaDescription: 'Custom AI chatbot development for Shopify stores, ecommerce brands and business websites. Support, lead capture and product guidance.',
+    metaTitle: 'Custom AI Chatbot Development Services | Miracle Websoft',
+    metaDescription: 'Build AI chatbots connected to approved business knowledge, customer data and escalation rules for useful sales, service and internal conversations.',
     eyebrow: 'AI CHATBOTS',
     h1: 'AI Chatbots That Answer, Qualify and Escalate Correctly',
     subtext: 'We build AI chatbots for ecommerce and business websites that use your approved content, understand common questions and hand off to humans when needed.',
@@ -338,8 +338,8 @@ export const aiServices: ServiceLandingData[] = [
   },
   {
     slug: 'ai-customer-support',
-    metaTitle: 'AI Customer Support Automation for Ecommerce Brands',
-    metaDescription: 'AI customer support automation for ecommerce brands. Triage tickets, draft replies, classify issues and reduce repetitive support work.',
+    metaTitle: 'AI Customer Support Automation Services | Miracle Websoft',
+    metaDescription: 'Automate ticket triage, response drafts, conversation summaries and support escalation using AI connected to your helpdesk, policies and ecommerce data.',
     eyebrow: 'AI CUSTOMER SUPPORT',
     h1: 'AI Customer Support Automation for Faster Replies',
     subtext: 'We help ecommerce and service teams use AI to triage tickets, draft replies, summarize conversations and surface the issues that need human attention.',
@@ -405,8 +405,8 @@ export const aiServices: ServiceLandingData[] = [
   },
   {
     slug: 'ai-internal-tools',
-    metaTitle: 'AI Internal Tools for Teams, Dashboards and Operations',
-    metaDescription: 'Build AI internal tools for business operations, ecommerce teams, support, sales, reporting and workflow automation.',
+    metaTitle: 'Custom AI Internal Tools for Business | Miracle Websoft',
+    metaDescription: 'Build secure AI powered internal tools that help teams search information, summarize data, automate tasks and complete operational work more efficiently.',
     eyebrow: 'AI INTERNAL TOOLS',
     h1: 'AI Internal Tools Your Team Can Use Every Day',
     subtext: 'We build private AI-powered dashboards, portals and workflow tools for teams that need faster decisions, cleaner data and less manual admin.',
@@ -472,8 +472,8 @@ export const aiServices: ServiceLandingData[] = [
   },
   {
     slug: 'ai-agents',
-    metaTitle: 'AI Agent Development for Business Workflows',
-    metaDescription: 'AI agent development for business workflows, ecommerce operations, research, reporting and multi-step task automation.',
+    metaTitle: 'Custom AI Agent Development Services | Miracle Websoft',
+    metaDescription: 'Build AI agents that complete defined business tasks across connected tools with clear rules, approvals, monitoring and human oversight where needed.',
     eyebrow: 'AI AGENTS',
     h1: 'AI Agents for Controlled Multi-Step Business Tasks',
     subtext: 'We build AI agents that can follow a defined process, use tools, check data and hand work back to humans when the task leaves approved boundaries.',
@@ -539,8 +539,8 @@ export const aiServices: ServiceLandingData[] = [
   },
   {
     slug: 'ai-website-development',
-    metaTitle: 'AI Website Development Services for Modern Businesses',
-    metaDescription: 'AI website development for businesses that need chat, personalization, search, content workflows and smart internal tools.',
+    metaTitle: 'AI Website Development Services | Miracle Websoft',
+    metaDescription: 'Build websites and web applications with useful AI features including intelligent search, assistants, content workflows and custom business integrations.',
     eyebrow: 'AI WEBSITE DEVELOPMENT',
     h1: 'AI Website Development for Smarter Customer Experiences',
     subtext: 'We build websites and web applications with AI features that help visitors find answers, compare options, get recommendations and take the next step faster.',
@@ -606,8 +606,8 @@ export const aiServices: ServiceLandingData[] = [
   },
   {
     slug: 'ai-content-automation',
-    metaTitle: 'AI Content Automation for Ecommerce and Marketing Teams',
-    metaDescription: 'AI content automation for product descriptions, SEO briefs, blog workflows, email drafts and ecommerce content operations.',
+    metaTitle: 'AI Content Automation Services | Miracle Websoft',
+    metaDescription: 'Automate repetitive ecommerce and marketing content workflows using approved source data, structured AI generation, review steps and connected systems.',
     eyebrow: 'AI CONTENT AUTOMATION',
     h1: 'AI Content Automation Without Losing Brand Control',
     subtext: 'We build AI-assisted content workflows for ecommerce and marketing teams that need faster output, better structure and approval controls.',
@@ -673,8 +673,8 @@ export const aiServices: ServiceLandingData[] = [
   },
   {
     slug: 'ai-consulting',
-    metaTitle: 'AI Consulting for Ecommerce Brands and Small Businesses',
-    metaDescription: 'AI consulting for ecommerce brands, startups and SMBs. Identify practical automation opportunities, choose tools and plan AI implementation.',
+    metaTitle: 'AI Consulting Services for Business | Miracle Websoft',
+    metaDescription: 'Identify practical AI opportunities, prioritize workflows and create a clear implementation plan based on business value, risk, data and technical needs.',
     eyebrow: 'AI CONSULTING',
     h1: 'AI Consulting for Practical Business Implementation',
     subtext: 'We help businesses identify where AI will actually save time, improve customer experience or increase revenue, then turn the best opportunities into a clear implementation plan.',

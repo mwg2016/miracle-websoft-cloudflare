@@ -7,22 +7,22 @@ import FaqSection from '@/components/ui/FaqSection'
 import { breadcrumb, itemList, renderJsonLd, service, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Shopify Services by Top Rated Shopify Experts',
+  title: 'Shopify Experts for Development & Growth | Miracle Websoft',
   description:
-    'Shopify services for ecommerce brands: store development, Shopify Plus, theme customization, custom features, app integration, migration, maintenance, API and private apps.',
+    'Improve your Shopify store with custom development, migrations, integrations, CRO, speed optimization and ongoing technical support from Shopify experts.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/shopify' },
   openGraph: {
-    title: 'Shopify Services by Top Rated Shopify Experts | Miracle Websoft',
+    title: 'Shopify Experts for Development & Growth | Miracle Websoft',
     description:
-      'Shopify development, Shopify Plus, theme customization, custom features, app integration, migration, maintenance, APIs and private apps.',
+      'Improve your Shopify store with custom development, migrations, integrations, CRO, speed optimization and ongoing technical support from Shopify experts.',
     url: 'https://miraclewebsoft.com/services/shopify',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shopify Services by Top Rated Shopify Experts | Miracle Websoft',
+    title: 'Shopify Experts for Development & Growth | Miracle Websoft',
     description:
-      'Shopify development, Shopify Plus, custom features, integrations, migrations, maintenance and API development.',
+      'Improve your Shopify store with custom development, migrations, integrations, CRO, speed optimization and ongoing technical support from Shopify experts.',
   },
 }
 

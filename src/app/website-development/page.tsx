@@ -12,14 +12,14 @@ import { countries, citiesInCountry } from '@/data/website-dev-cities'
 import { breadcrumb, faqPage, renderJsonLd, service, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Website Development for Small Business — $299 All-In | Miracle Websoft',
+  title: 'Small Business Web Development | Miracle Websoft',
   description:
-    'Website development for small businesses across the US, UK and Australia. Domain + hosting + design + SEO from $299. Live in 7 days. We handle everything.',
+    'Build a professional small business website focused on speed, usability, lead generation and easy management with experienced web development support.',
   alternates: { canonical: 'https://miraclewebsoft.com/website-development' },
   openGraph: {
-    title: 'Website Development for Small Business — $299 All-In',
+    title: 'Small Business Web Development | Miracle Websoft',
     description:
-      'Done-for-you websites for small businesses across the US, UK and AU. Domain + hosting + design included. Live in 7 days.',
+      'Build a professional small business website focused on speed, usability, lead generation and easy management with experienced web development support.',
     url: 'https://miraclewebsoft.com/website-development',
     type: 'website',
   },

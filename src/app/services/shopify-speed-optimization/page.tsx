@@ -4,30 +4,30 @@ import type { ServiceLandingData } from '@/data/ai-services'
 import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Shopify Speed Optimization & Core Web Vitals Service',
+  title: 'Speed Up Your Shopify Store | Miracle Websoft',
   description:
-    'Shopify speed optimization for faster mobile stores. Improve Core Web Vitals, PageSpeed, LCP, CLS, INP, app bloat, images and theme performance.',
+    'Improve Shopify PageSpeed and Core Web Vitals by reducing app bloat, optimizing images and scripts, and fixing performance issues on revenue pages.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/shopify-speed-optimization' },
   openGraph: {
-    title: 'Shopify Speed Optimization & Core Web Vitals Service | Miracle Websoft',
+    title: 'Speed Up Your Shopify Store | Miracle Websoft',
     description:
-      'Improve Shopify PageSpeed, Core Web Vitals, LCP, CLS, INP, mobile performance, image weight, app bloat and theme performance.',
+      'Improve Shopify PageSpeed and Core Web Vitals by reducing app bloat, optimizing images and scripts, and fixing performance issues on revenue pages.',
     url: 'https://miraclewebsoft.com/services/shopify-speed-optimization',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shopify Speed Optimization & Core Web Vitals Service | Miracle Websoft',
+    title: 'Speed Up Your Shopify Store | Miracle Websoft',
     description:
-      'Shopify speed optimization for PageSpeed, Core Web Vitals, LCP, CLS, INP, app bloat, images and theme performance.',
+      'Improve Shopify PageSpeed and Core Web Vitals by reducing app bloat, optimizing images and scripts, and fixing performance issues on revenue pages.',
   },
 }
 
 const speedData: ServiceLandingData = {
   slug: 'shopify-speed-optimization',
-  metaTitle: 'Shopify Speed Optimization & Core Web Vitals Service',
+  metaTitle: 'Speed Up Your Shopify Store | Miracle Websoft',
   metaDescription:
-    'Shopify speed optimization for faster mobile stores. Improve Core Web Vitals, PageSpeed, LCP, CLS, INP, app bloat, images and theme performance.',
+    'Improve Shopify PageSpeed and Core Web Vitals by reducing app bloat, optimizing images and scripts, and fixing performance issues on revenue pages.',
   eyebrow: 'SHOPIFY SPEED OPTIMIZATION',
   h1: 'Shopify Speed Optimization for Faster Mobile Shopping',
   subtext:

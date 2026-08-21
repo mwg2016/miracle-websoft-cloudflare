@@ -10,19 +10,19 @@ import CtaBanner from '@/components/home/CtaBanner'
 import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Ecommerce Growth, Shopify, AI & Web Development Services',
-  description: 'Shopify development, CRO, speed optimization, AI automation, OpenAI integrations and custom web development for ecommerce brands and growing businesses.',
+  title: 'Shopify, AI & Ecommerce Growth Services | Miracle Websoft',
+  description: 'Explore Shopify development, CRO, store speed, AI automation and custom web services designed to improve ecommerce revenue, operations and growth.',
   alternates: { canonical: 'https://miraclewebsoft.com/services' },
   openGraph: {
-    title: 'Ecommerce Growth, Shopify, AI & Web Development Services | Miracle Websoft',
-    description: 'Shopify development, CRO, speed optimization, AI automation and custom web development for ecommerce brands and growing businesses.',
+    title: 'Shopify, AI & Ecommerce Growth Services | Miracle Websoft',
+    description: 'Explore Shopify development, CRO, store speed, AI automation and custom web services designed to improve ecommerce revenue, operations and growth.',
     url: 'https://miraclewebsoft.com/services',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ecommerce Growth, Shopify, AI & Web Development Services | Miracle Websoft',
-    description: 'Shopify, CRO, performance, AI automation and custom web development services.',
+    title: 'Shopify, AI & Ecommerce Growth Services | Miracle Websoft',
+    description: 'Explore Shopify development, CRO, store speed, AI automation and custom web services designed to improve ecommerce revenue, operations and growth.',
   },
 }
 

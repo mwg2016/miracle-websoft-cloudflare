@@ -27,14 +27,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const country = countries[countrySlug as CountryCode]
   const city = getCity(countrySlug, citySlug)
   if (!country || !city) return {}
-  const starter = webDevPackages[0].pricesByCountry[country.code]
   return {
-    title: `Website Development in ${city.name} for Small Business — ${country.currencySymbol}${starter}+ All-In | Miracle Websoft`,
-    description: `Done-for-you website development for ${city.name} small businesses. Domain (${country.tld}), hosting, design and SEO included from ${country.currencySymbol}${starter}. Live in 7 days.`,
+    title: city.metaTitle,
+    description: city.metaDescription,
     alternates: { canonical: `https://miraclewebsoft.com/website-development/${country.slug}/${city.slug}` },
     openGraph: {
-      title: `Website Development in ${city.name} — Small Business Packages`,
-      description: `All-in-one website packages for ${city.name} businesses. Domain, hosting and design included from ${country.currencySymbol}${starter}.`,
+      title: city.metaTitle,
+      description: city.metaDescription,
       url: `https://miraclewebsoft.com/website-development/${country.slug}/${city.slug}`,
       type: 'website',
     },

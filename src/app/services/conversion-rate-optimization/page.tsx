@@ -4,30 +4,30 @@ import type { ServiceLandingData } from '@/data/ai-services'
 import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Shopify CRO Agency for Higher Ecommerce Conversions',
+  title: 'Shopify CRO Agency to Increase Sales | Miracle Websoft',
   description:
-    'Shopify CRO services for ecommerce brands. User journey analysis, Microsoft Clarity review, heatmaps, checkout, product page, homepage and A/B testing.',
+    'Increase Shopify conversions with analytics, Clarity, heatmaps, product page improvements, cart fixes, checkout optimization and structured testing.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/conversion-rate-optimization' },
   openGraph: {
-    title: 'Shopify CRO Agency for Higher Ecommerce Conversions | Miracle Websoft',
+    title: 'Shopify CRO Agency to Increase Sales | Miracle Websoft',
     description:
-      'Conversion rate optimization for Shopify and ecommerce stores, including Clarity reviews, heatmap analysis, product page optimization and checkout improvements.',
+      'Increase Shopify conversions with analytics, Clarity, heatmaps, product page improvements, cart fixes, checkout optimization and structured testing.',
     url: 'https://miraclewebsoft.com/services/conversion-rate-optimization',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shopify CRO Agency for Higher Ecommerce Conversions | Miracle Websoft',
+    title: 'Shopify CRO Agency to Increase Sales | Miracle Websoft',
     description:
-      'CRO audits, user journey analysis, Microsoft Clarity review, heatmap analysis, checkout optimization and A/B testing.',
+      'Increase Shopify conversions with analytics, Clarity, heatmaps, product page improvements, cart fixes, checkout optimization and structured testing.',
   },
 }
 
 const croData: ServiceLandingData = {
   slug: 'conversion-rate-optimization',
-  metaTitle: 'Shopify CRO Agency for Higher Ecommerce Conversions',
+  metaTitle: 'Shopify CRO Agency to Increase Sales | Miracle Websoft',
   metaDescription:
-    'Shopify CRO services for ecommerce brands. User journey analysis, Microsoft Clarity review, heatmaps, checkout, product page, homepage and A/B testing.',
+    'Increase Shopify conversions with analytics, Clarity, heatmaps, product page improvements, cart fixes, checkout optimization and structured testing.',
   eyebrow: 'SHOPIFY CRO',
   h1: 'Conversion Rate Optimization for Stores That Need More Revenue From Existing Traffic',
   subtext:

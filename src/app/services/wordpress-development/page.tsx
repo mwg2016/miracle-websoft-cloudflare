@@ -11,19 +11,19 @@ import RelatedServices from '@/components/services/RelatedServices'
 import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'WordPress Website Development Services | Miracle Websoft',
-  description: 'Professional WordPress development — custom themes, WooCommerce stores, membership sites and corporate websites. Fast, secure and built to convert.',
+  title: 'WordPress Development Services | Miracle Websoft',
+  description: 'Build a fast, manageable WordPress website or WooCommerce experience with clean development, responsive design and functionality tailored to your business.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/wordpress-development' },
   openGraph: {
-    title: 'WordPress Website Development Services | Miracle Websoft',
-    description: 'Professional WordPress development — custom themes, WooCommerce stores, membership sites and corporate websites. Fast, secure and built to convert.',
+    title: 'WordPress Development Services | Miracle Websoft',
+    description: 'Build a fast, manageable WordPress website or WooCommerce experience with clean development, responsive design and functionality tailored to your business.',
     url: 'https://miraclewebsoft.com/services/wordpress-development',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'WordPress Website Development Services | Miracle Websoft',
-    description: 'Professional WordPress development — custom themes, WooCommerce stores, membership sites and corporate websites. Fast, secure and built to convert.',
+    title: 'WordPress Development Services | Miracle Websoft',
+    description: 'Build a fast, manageable WordPress website or WooCommerce experience with clean development, responsive design and functionality tailored to your business.',
   },
 }
 

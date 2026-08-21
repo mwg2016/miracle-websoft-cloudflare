@@ -10,20 +10,20 @@ import WhiteLabelForm from '@/components/WhiteLabelForm'
 import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'White Label Shopify Development — Miracle Websoft',
-  description: 'Silent Shopify partner for agencies. We build under your brand — per project, hourly, or monthly retainer. NDA always signed. 600+ projects delivered.',
+  title: 'White Label Shopify Team for Agencies | Miracle Websoft',
+  description: 'Scale your agency with NDA protected white label Shopify development, migrations, apps, CRO, speed optimization and flexible ongoing technical support.',
   alternates: { canonical: 'https://miraclewebsoft.com/white-label' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'White Label Shopify Development — Miracle Websoft',
-    description: 'Silent Shopify partner for agencies. We build under your brand — per project, hourly, or monthly retainer. NDA always signed. 600+ projects delivered.',
+    title: 'White Label Shopify Team for Agencies | Miracle Websoft',
+    description: 'Scale your agency with NDA protected white label Shopify development, migrations, apps, CRO, speed optimization and flexible ongoing technical support.',
     url: 'https://miraclewebsoft.com/white-label',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'White Label Shopify Development — Miracle Websoft',
-    description: 'Silent Shopify partner for agencies. We build under your brand — per project, hourly, or monthly retainer. NDA always signed. 600+ projects delivered.',
+    title: 'White Label Shopify Team for Agencies | Miracle Websoft',
+    description: 'Scale your agency with NDA protected white label Shopify development, migrations, apps, CRO, speed optimization and flexible ongoing technical support.',
   },
 }
 

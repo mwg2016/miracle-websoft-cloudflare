@@ -32,15 +32,15 @@ import { clientVideos, founderIntro } from '@/data/videos'
 import { breadcrumb, faqPage, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Shopify CRO Services — Boost Conversions, Cut Bounce, Lift Revenue | Miracle Websoft',
+  title: 'Shopify CRO Services | Miracle Websoft',
   description:
-    'Shopify CRO services that turn your existing traffic into more customers. Free conversion audit, 90+ PageSpeed guarantee, fixed-price quotes. 600+ Shopify stores, 10+ years.',
+    'Turn more Shopify traffic into orders with conversion analysis, product page improvements, cart and checkout fixes, speed optimization and testing.',
   alternates: { canonical: 'https://miraclewebsoft.com/lp/shopify-cro' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Shopify CRO Services — Boost Conversions, Cut Bounce, Lift Revenue',
+    title: 'Shopify CRO Services | Miracle Websoft',
     description:
-      'Free conversion audit for your Shopify store. 42% average lift, 90+ PageSpeed guaranteed.',
+      'Turn more Shopify traffic into orders with conversion analysis, product page improvements, cart and checkout fixes, speed optimization and testing.',
     url: 'https://miraclewebsoft.com/lp/shopify-cro',
     type: 'website',
   },

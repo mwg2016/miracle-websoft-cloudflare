@@ -22,9 +22,9 @@ const homeFaqs = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Ecommerce Growth & AI Technology Agency | Miracle Websoft',
+  title: 'Shopify Growth & AI Automation Agency | Miracle Websoft',
   description:
-    'Miracle Websoft helps ecommerce brands build Shopify stores, improve conversions, increase performance, automate operations with AI and develop custom web applications.',
+    'Grow your ecommerce business with custom Shopify development, CRO, speed optimization, AI automation and scalable web solutions from Miracle Websoft.',
   keywords: [
     'Shopify development agency',
     'Shopify experts',
@@ -46,15 +46,15 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://miraclewebsoft.com' },
   openGraph: {
-    title: 'Ecommerce Growth & AI Technology Agency | Miracle Websoft',
-    description: 'Shopify development, CRO, speed optimization, AI automation and custom web applications for ecommerce brands and growing businesses.',
+    title: 'Shopify Growth & AI Automation Agency | Miracle Websoft',
+    description: 'Grow your ecommerce business with custom Shopify development, CRO, speed optimization, AI automation and scalable web solutions from Miracle Websoft.',
     url: 'https://miraclewebsoft.com',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ecommerce Growth & AI Technology Agency | Miracle Websoft',
-    description: 'Shopify development, CRO, performance, AI automation and custom web applications.',
+    title: 'Shopify Growth & AI Automation Agency | Miracle Websoft',
+    description: 'Grow your ecommerce business with custom Shopify development, CRO, speed optimization, AI automation and scalable web solutions from Miracle Websoft.',
   },
 }
 

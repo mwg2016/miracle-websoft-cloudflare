@@ -12,19 +12,19 @@ import RelatedServices from '@/components/services/RelatedServices'
 import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Shopify CRO & Speed Optimization for More Store Sales',
-  description: 'Improve Shopify speed, mobile experience, product pages and checkout conversion. CRO and Core Web Vitals optimization for merchants who want more sales from existing traffic.',
+  title: 'Shopify CRO & Speed Optimization Services | Miracle Websoft',
+  description: 'Improve Shopify speed and conversion together by fixing Core Web Vitals, app bloat, product page friction, cart issues and checkout abandonment.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/shopify-cro-speed' },
   openGraph: {
-    title: 'Shopify CRO & Speed Optimization for More Store Sales',
-    description: 'Improve Shopify speed, mobile experience, product pages and checkout conversion. CRO and Core Web Vitals optimization for merchants who want more sales from existing traffic.',
+    title: 'Shopify CRO & Speed Optimization Services | Miracle Websoft',
+    description: 'Improve Shopify speed and conversion together by fixing Core Web Vitals, app bloat, product page friction, cart issues and checkout abandonment.',
     url: 'https://miraclewebsoft.com/services/shopify-cro-speed',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shopify CRO & Speed Optimization for More Store Sales',
-    description: 'Improve Shopify speed, mobile experience, product pages and checkout conversion. CRO and Core Web Vitals optimization for merchants who want more sales from existing traffic.',
+    title: 'Shopify CRO & Speed Optimization Services | Miracle Websoft',
+    description: 'Improve Shopify speed and conversion together by fixing Core Web Vitals, app bloat, product page friction, cart issues and checkout abandonment.',
   },
 }
 

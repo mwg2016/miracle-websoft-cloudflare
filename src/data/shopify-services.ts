@@ -18,8 +18,8 @@ export type ShopifyServiceData = {
 const shopifyServices: ShopifyServiceData[] = [
   {
     slug: 'shopify-plus-development',
-    metaTitle: 'Shopify Plus Development Agency | Miracle Websoft',
-    metaDescription: 'Shopify Plus development for growing ecommerce brands. Checkout extensions, Shopify Functions, B2B, Markets, APIs, integrations and enterprise architecture.',
+    metaTitle: 'Shopify Plus Development Services | Miracle Websoft',
+    metaDescription: 'Scale on Shopify Plus with B2B, checkout extensions, Functions, Markets, expansion stores, custom apps and enterprise system integrations.',
     eyebrow: 'SHOPIFY PLUS DEVELOPMENT',
     h1: 'Shopify Plus Development for Brands Ready to Scale',
     subtext: 'Shopify Plus should simplify growth, not create a bigger technical mess. We build Plus storefronts, checkout extensions, Functions, B2B workflows, integrations and expansion-store setups for brands that need reliable ecommerce infrastructure.',
@@ -73,7 +73,7 @@ const shopifyServices: ShopifyServiceData[] = [
   {
     slug: 'theme-customization',
     metaTitle: 'Shopify Theme Customization Services | Miracle Websoft',
-    metaDescription: 'Shopify theme customization for product pages, homepage sections, collection templates, landing pages, UX improvements and conversion-focused theme edits.',
+    metaDescription: 'Customize Shopify themes with new sections, product and collection templates, mobile UX, cart improvements and clean Liquid development for your brand.',
     eyebrow: 'SHOPIFY THEME CUSTOMIZATION',
     h1: 'Shopify Theme Customization That Improves the Buying Experience',
     subtext: 'You do not always need a full rebuild. We customize Shopify themes to improve product pages, collection pages, homepage sections, landing pages, navigation and conversion-critical user experience.',
@@ -126,8 +126,8 @@ const shopifyServices: ShopifyServiceData[] = [
   },
   {
     slug: 'custom-features',
-    metaTitle: 'Shopify Custom Feature Development | Miracle Websoft',
-    metaDescription: 'Shopify custom feature development for bundles, quizzes, configurators, product tools, portals, checkout logic, custom sections and unique buying flows.',
+    metaTitle: 'Custom Shopify Features & Functionality | Miracle Websoft',
+    metaDescription: 'Build custom Shopify bundles, quizzes, configurators, portals and buying workflows when standard themes or third party apps cannot meet your requirements.',
     eyebrow: 'SHOPIFY CUSTOM FEATURES',
     h1: 'Shopify Custom Features When Apps Cannot Handle the Workflow',
     subtext: 'When standard Shopify apps are too slow, too limited or too expensive, we build custom features around your products, buyers and operations.',
@@ -181,7 +181,7 @@ const shopifyServices: ShopifyServiceData[] = [
   {
     slug: 'app-integration',
     metaTitle: 'Shopify App Integration Services | Miracle Websoft',
-    metaDescription: 'Shopify app integration services for Klaviyo, Gorgias, ReCharge, Yotpo, ERPs, CRMs, shipping, analytics, subscriptions and marketplaces.',
+    metaDescription: 'Connect Shopify with Klaviyo, Gorgias, ReCharge, Yotpo, ERPs, CRMs, fulfillment, analytics and custom APIs for smoother ecommerce operations.',
     eyebrow: 'SHOPIFY APP INTEGRATION',
     h1: 'Shopify App Integration Without Slowing the Store Down',
     subtext: 'We integrate Shopify apps, marketing tools, support platforms, subscriptions, reviews, fulfilment, analytics, marketplaces, CRMs and ERPs so your stack works together cleanly.',
@@ -234,8 +234,8 @@ const shopifyServices: ShopifyServiceData[] = [
   },
   {
     slug: 'shopify-maintenance',
-    metaTitle: 'Shopify Maintenance and Support Services | Miracle Websoft',
-    metaDescription: 'Shopify maintenance and support for ecommerce brands. Theme updates, bug fixes, app checks, speed monitoring, product changes and ongoing improvements.',
+    metaTitle: 'Shopify Maintenance & Support Services | Miracle Websoft',
+    metaDescription: 'Keep your Shopify store reliable with ongoing theme updates, bug fixes, app checks, speed monitoring, product changes and technical development support.',
     eyebrow: 'SHOPIFY MAINTENANCE',
     h1: 'Shopify Maintenance for Stores That Need Reliable Support',
     subtext: 'A Shopify store is never really finished. We provide ongoing technical support, theme updates, bug fixes, performance checks, app reviews and growth improvements for live stores.',
@@ -288,8 +288,8 @@ const shopifyServices: ShopifyServiceData[] = [
   },
   {
     slug: 'api-private-apps',
-    metaTitle: 'Shopify API Development & Private Apps | Miracle Websoft',
-    metaDescription: 'Shopify API development and private apps for custom workflows, admin tools, integrations, webhooks, Storefront API, Admin API and automation.',
+    metaTitle: 'Shopify API & Private App Development | Miracle Websoft',
+    metaDescription: 'Build Shopify API integrations, private apps, admin tools, webhooks and custom automations that connect your store with unique business workflows.',
     eyebrow: 'SHOPIFY API DEVELOPMENT',
     h1: 'Shopify API Development and Private Apps for Custom Operations',
     subtext: 'We build private Shopify apps, API integrations, webhooks, admin tools and automation workflows when your store needs custom logic beyond theme code or public apps.',

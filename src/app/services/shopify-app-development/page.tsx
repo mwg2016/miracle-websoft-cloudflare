@@ -12,19 +12,19 @@ import RelatedServices from '@/components/services/RelatedServices'
 import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Custom Shopify App Development for Store Automation & Growth',
-  description: 'Custom Shopify app development for merchants who need private apps, unique features, automation, Shopify Functions or replacements for costly third-party apps.',
+  title: 'Custom Shopify App Developers | Miracle Websoft',
+  description: 'Build custom Shopify apps, Functions and private tools that replace costly apps, automate store workflows and support unique ecommerce experiences.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/shopify-app-development' },
   openGraph: {
-    title: 'Custom Shopify App Development for Store Automation & Growth',
-    description: 'Custom Shopify app development for merchants who need private apps, unique features, automation, Shopify Functions or replacements for costly third-party apps.',
+    title: 'Custom Shopify App Developers | Miracle Websoft',
+    description: 'Build custom Shopify apps, Functions and private tools that replace costly apps, automate store workflows and support unique ecommerce experiences.',
     url: 'https://miraclewebsoft.com/services/shopify-app-development',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Custom Shopify App Development for Store Automation & Growth',
-    description: 'Custom Shopify app development for merchants who need private apps, unique features, automation, Shopify Functions or replacements for costly third-party apps.',
+    title: 'Custom Shopify App Developers | Miracle Websoft',
+    description: 'Build custom Shopify apps, Functions and private tools that replace costly apps, automate store workflows and support unique ecommerce experiences.',
   },
 }
 

@@ -11,19 +11,19 @@ import RelatedServices from '@/components/services/RelatedServices'
 import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Custom Web Application Development — React, Node.js & Laravel | Miracle Websoft',
-  description: 'Bespoke web application development using React, Next.js, Node.js and Laravel. SaaS apps, dashboards, APIs and marketplace platforms — built from scratch.',
+  title: 'Custom Web App Development Company | Miracle Websoft',
+  description: 'Build scalable SaaS platforms, dashboards, portals, APIs and marketplaces with custom React, Next.js, Node.js and Laravel development.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/custom-web-development' },
   openGraph: {
-    title: 'Custom Web Application Development — React, Node.js & Laravel | Miracle Websoft',
-    description: 'Bespoke web application development using React, Next.js, Node.js and Laravel. SaaS apps, dashboards, APIs and marketplace platforms — built from scratch.',
+    title: 'Custom Web App Development Company | Miracle Websoft',
+    description: 'Build scalable SaaS platforms, dashboards, portals, APIs and marketplaces with custom React, Next.js, Node.js and Laravel development.',
     url: 'https://miraclewebsoft.com/services/custom-web-development',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Custom Web Application Development — React, Node.js & Laravel | Miracle Websoft',
-    description: 'Bespoke web application development using React, Next.js, Node.js and Laravel. SaaS apps, dashboards, APIs and marketplace platforms — built from scratch.',
+    title: 'Custom Web App Development Company | Miracle Websoft',
+    description: 'Build scalable SaaS platforms, dashboards, portals, APIs and marketplaces with custom React, Next.js, Node.js and Laravel development.',
   },
 }
 
