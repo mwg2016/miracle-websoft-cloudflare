@@ -1,10 +1,30 @@
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, CalendarDays } from 'lucide-react'
 import Breadcrumb from '@/components/layout/Breadcrumb'
-import { blogPosts, getPost } from '@/data/blogPosts'
+import { blogPosts, getPost, type BodyLink } from '@/data/blogPosts'
 import { article, breadcrumb, renderJsonLd } from '@/lib/jsonld'
+
+function renderTextWithLinks(text: string, links: BodyLink[]) {
+  const nodes: ReactNode[] = []
+  let remaining = text
+  let key = 0
+  for (const link of links) {
+    const idx = remaining.indexOf(link.text)
+    if (idx === -1) continue
+    if (idx > 0) nodes.push(remaining.slice(0, idx))
+    nodes.push(
+      <Link key={key++} href={link.href} style={{ color: 'var(--accent)', textDecoration: 'underline', textUnderlineOffset: '2px' }}>
+        {link.text}
+      </Link>
+    )
+    remaining = remaining.slice(idx + link.text.length)
+  }
+  if (remaining) nodes.push(remaining)
+  return nodes
+}
 
 const MONTHS: Record<string, string> = {
   January: '01', February: '02', March: '03', April: '04', May: '05', June: '06',
@@ -61,7 +81,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       url: `/blog/${post.slug}`,
       datePublished: toIso(post.date),
       tag: post.tag,
-      body: post.body.map((b) => (typeof b === 'string' ? b : 'h2' in b ? b.h2 : b.h3)),
+      body: post.body.map((b) => (typeof b === 'string' ? b : 'h2' in b ? b.h2 : 'h3' in b ? b.h3 : 'p' in b ? b.p : b.table.headers.join(' '))),
     }),
     breadcrumb([
       { name: 'Home', url: '/' },
@@ -120,8 +140,39 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   <h2 key={i} style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(20px,2.6vw,28px)', lineHeight: 1.3, marginTop: '0.5rem' }}>{block.h2}</h2>
                 )
               }
+              if ('h3' in block) {
+                return (
+                  <h3 key={i} style={{ color: '#fff', fontSize: 'clamp(17px,2vw,20px)', fontWeight: 600, lineHeight: 1.4, marginTop: '0.25rem' }}>{block.h3}</h3>
+                )
+              }
+              if ('p' in block) {
+                return (
+                  <p key={i} style={{ fontSize: '0.975rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.85, fontWeight: 300 }}>
+                    {renderTextWithLinks(block.p, block.links)}
+                  </p>
+                )
+              }
               return (
-                <h3 key={i} style={{ color: '#fff', fontSize: 'clamp(17px,2vw,20px)', fontWeight: 600, lineHeight: 1.4, marginTop: '0.25rem' }}>{block.h3}</h3>
+                <div key={i} style={{ overflowX: 'auto', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+                    <thead>
+                      <tr>
+                        {block.table.headers.map((h, hi) => (
+                          <th key={hi} style={{ textAlign: 'left', padding: '0.75rem 1rem', color: '#fff', fontWeight: 600, background: 'rgba(108,99,255,0.1)', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>{h}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {block.table.rows.map((row, ri) => (
+                        <tr key={ri}>
+                          {row.map((cell, ci) => (
+                            <td key={ci} style={{ padding: '0.75rem 1rem', color: 'rgba(255,255,255,0.65)', borderBottom: '1px solid rgba(255,255,255,0.06)', fontWeight: 300 }}>{cell}</td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               )
             })}
           </div>
