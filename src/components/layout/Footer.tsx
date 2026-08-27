@@ -137,7 +137,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3 mt-1">
               <a href={outboundHref('email', 'mailto:karam@miraclewebsoft.com')} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">karam@miraclewebsoft.com</a>
               <a href={outboundHref('whatsapp', 'https://wa.me/916239269736')} target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">+91 6239 269736</a>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', lineHeight: 1.5 }}>1st Floor, #607, Gagan Chowk, near Dasu Ram Tyres,<br />Chaju Majri, Rajpura, Punjab 140401</p>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', lineHeight: 1.5 }}>Miracle Websoft, 1st Floor, #607, Gagan Chowk, near Dasu Ram Tyres,<br />Chaju Majri, Rajpura, Punjab 140401</p>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', lineHeight: 1.5 }}>India<br />Serving USA · Canada · UK · Australia · Europe</p>
             </div>
           </div>
