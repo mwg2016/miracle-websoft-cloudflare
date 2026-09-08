@@ -25,7 +25,7 @@ const clients: PortfolioStore[] = [
     accent: '#8B7355',
   },
   {
-    name: 'OTAA',
+    name: 'Australian clothing brand',
     url: 'https://www.otaa.com',
     displayUrl: 'otaa.com',
     category: "Men's Accessories",

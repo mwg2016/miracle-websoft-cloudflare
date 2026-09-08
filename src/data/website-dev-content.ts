@@ -124,7 +124,7 @@ export const realCases: RealCase[] = [
   },
   {
     type: 'real',
-    name: 'OTAA',
+    name: 'Australian clothing brand',
     url: 'https://www.otaa.com',
     blurb:
       'Australian-founded mens accessories brand with 16,500+ reviews. Custom Shopify build, multi-currency, multi-region.',

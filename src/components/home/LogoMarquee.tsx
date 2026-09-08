@@ -1,6 +1,6 @@
 const brands = [
   { name: 'Farmers Atelier', flag: '🇦🇹' },
-  { name: 'OTAA',             flag: '🇦🇺' },
+  { name: 'Australian clothing brand', flag: '🇦🇺' },
   { name: 'Shirtonomy',       flag: '🇸🇪' },
   { name: 'Buddha Trends',    flag: '🇺🇸' },
   { name: 'Momifa',           flag: '🇺🇸' },

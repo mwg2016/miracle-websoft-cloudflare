@@ -94,7 +94,7 @@ const portfolioClients = [
   { name: 'Marco Dal Maso',      category: 'Jewelry',          desc: 'Handcrafted luxury jewelry from Italy',                                href: 'https://marcodalmasojewelry.com' },
   { name: 'Jeweladi',            category: 'Jewelry',          desc: 'Timeless gold-filled jewelry for everyday wear',                       href: null },
   { name: 'Alpha Rings',         category: 'Jewelry',          desc: "Premium men's wedding bands crafted for strength and style",           href: null },
-  { name: 'OTAA',                category: 'Accessories',      desc: "Australia's premier destination for men's accessories — 16,500+ reviews", href: 'https://otaa.com' },
+  { name: 'Australian clothing brand', category: 'Accessories', desc: "Australia's premier destination for men's accessories — 16,500+ reviews", href: 'https://otaa.com' },
   { name: 'Dark Hampton',        category: 'Accessories',      desc: 'Luxury scarves designed in New Zealand',                              href: null },
   { name: 'Kimeze',              category: 'Eyewear',          desc: 'Luxury eyewear crafted for Black features',                           href: 'https://kimeze.com' },
   // Fashion & Apparel
