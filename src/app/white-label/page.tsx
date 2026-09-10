@@ -92,7 +92,7 @@ const services = [
 
 const portfolio = [
   { name: 'Corridor NYC', category: 'Menswear', location: 'USA', desc: 'Full theme rebuild + custom product builder', result: '+31% mobile CVR', href: 'https://corridornyc.com' },
-  { name: 'OTAA', category: 'Accessories', location: 'Australia', desc: 'Store migration + new collections architecture', result: '0% SEO drop', href: 'https://otaa.com' },
+  { name: 'Australian clothing brand', category: 'Accessories', location: 'Australia', desc: 'Store migration + new collections architecture', result: '0% SEO drop', href: 'https://otaa.com' },
   { name: 'Klarity London', category: 'Fine Jewelry', location: 'UK', desc: 'Custom configurator + Shopify app integration', result: '1.2s load time', href: 'https://klarity.london' },
   { name: 'VKTRY', category: 'Sports', location: 'USA', desc: 'Custom landing pages + checkout optimisation', result: '+44% conversion', href: 'https://vktry.com' },
   { name: 'Afnan Perfumes', category: 'Fragrance', location: 'UK', desc: 'WooCommerce → Shopify migration, 5k+ SKUs', result: 'Full migration', href: 'https://afnanperfumes.co.uk' },
