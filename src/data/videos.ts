@@ -27,14 +27,6 @@ export const clientVideos: VideoTestimonial[] = [
     aspect: '16/9',
   },
   {
-    videoId: '0JIg21Q1IjE',
-    title: 'Shopify client review — design, dev and conversion lift',
-    speaker: 'Verified Shopify Client',
-    metric: 'Design + dev · CRO lift',
-    category: 'Design & CRO',
-    aspect: '16/9',
-  },
-  {
     videoId: 'c_Ves6zel5E',
     title: 'Shopify client review — communication and delivery',
     speaker: 'Verified Shopify Client',
