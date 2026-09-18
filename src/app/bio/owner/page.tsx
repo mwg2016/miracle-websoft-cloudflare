@@ -266,7 +266,7 @@ export default function OwnerBioPage() {
 
         {/* CTA buttons */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '0.75rem' }}>
-          <a href={MEETING_LINK} target="_blank" rel="noopener noreferrer" style={{
+          <a href="/karam-mehra.vcf" download="Karam-Singh-Mehra.vcf" style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.6rem',
             padding: '1rem 1.5rem',
             background: 'linear-gradient(135deg, #6C63FF 0%, #5245d8 100%)',
@@ -275,9 +275,8 @@ export default function OwnerBioPage() {
             textDecoration: 'none',
             boxShadow: '0 8px 28px rgba(108,99,255,0.4)',
           }}>
-            <Calendar size={17} />
-            Book a Free 15-Min Call
-            <ArrowUpRight size={14} style={{ opacity: 0.8 }} />
+            <Download size={17} />
+            Save Contact
           </a>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
             <a href={PAYMENT_LINK} target="_blank" rel="noopener noreferrer" style={{
@@ -291,7 +290,7 @@ export default function OwnerBioPage() {
               <CreditCard size={15} />
               Pay Invoice
             </a>
-            <a href="/karam-mehra.vcf" download="Karam-Singh-Mehra.vcf" style={{
+            <a href={MEETING_LINK} target="_blank" rel="noopener noreferrer" style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
               padding: '0.9rem',
               background: 'rgba(108,99,255,0.08)',
@@ -299,8 +298,8 @@ export default function OwnerBioPage() {
               borderRadius: 14, border: '1px solid rgba(108,99,255,0.22)',
               textDecoration: 'none',
             }}>
-              <Download size={15} />
-              Save Contact
+              <Calendar size={15} />
+              Book a Free 15-Min Call
             </a>
           </div>
         </div>
