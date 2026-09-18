@@ -299,7 +299,7 @@ export default function OwnerBioPage() {
               textDecoration: 'none',
             }}>
               <Calendar size={15} />
-              Book a Free 15-Min Call
+              Book a Call
             </a>
           </div>
         </div>
