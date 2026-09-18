@@ -295,6 +295,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Script id="gads-init" nonce={nonce} strategy="lazyOnload">{`gtag('config','AW-18095762557');`}</Script>
         <Script id="meta-pixel" nonce={nonce} strategy="lazyOnload">{`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','854778784223732');fbq('track','PageView');`}</Script>
         <Script id="apollo-tracker" nonce={nonce} strategy="lazyOnload">{`function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"6a7572935d7872001c54845e"})},document.head.appendChild(o)}initApollo();`}</Script>
+        <Script id="oaiq-pixel" nonce={nonce} strategy="lazyOnload">{`!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,'script','https://bzrcdn.openai.com/sdk/oaiq.min.js');oaiq('init',{pixelId:'1MmPCBVoGAXwy9hBswfkHo',debug:true});`}</Script>
       </body>
     </html>
   )

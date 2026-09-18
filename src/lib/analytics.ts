@@ -43,6 +43,7 @@ declare global {
     gtag?: (...args: unknown[]) => void
     clarity?: (...args: unknown[]) => void
     fbq?: (...args: unknown[]) => void
+    oaiq?: (...args: unknown[]) => void
     __mwOrigin?: Origin
   }
 }
@@ -186,5 +187,12 @@ export function trackLead(event: string, params: LeadParams = {}) {
   try {
     window.fbq?.('trackCustom', event, payload)
     if (event === 'lead_form_submit') window.fbq?.('track', 'Lead', payload)
+  } catch {}
+  try {
+    // Form submits and outbound WhatsApp/call/email clicks (routed via /thank-you)
+    // both represent the visitor actually reaching out — report both as "contacted".
+    if (event === 'lead_form_submit' || event === 'outbound_click') {
+      window.oaiq?.('measure', 'custom', { type: 'custom' }, { custom_event_name: 'contacted' })
+    }
   } catch {}
 }
