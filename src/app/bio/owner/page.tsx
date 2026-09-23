@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { MapPin, Mail, Phone, Calendar, CreditCard, ArrowUpRight, Download } from 'lucide-react'
+import { MapPin, Mail, Phone, Calendar, MessageCircle, ArrowUpRight, Download } from 'lucide-react'
 import { breadcrumb, person, renderJsonLd } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
 import YouTubeEmbed from '@/components/ui/YouTubeEmbed'
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 }
 
 const MEETING_LINK = outboundHref('calendly', 'https://calendly.com/karam-4my/15-mints-discussion?month=2026-03')
-const PAYMENT_LINK = outboundHref('external', 'https://razorpay.com/export-link/@miraclewebsoft')
+const WHATSAPP_LINK = outboundHref('whatsapp', `https://wa.me/919530835358?text=${encodeURIComponent('Hi Karam, I found your profile and would like to discuss a project.')}`)
 
 const skills = [
   'Shopify Development', 'Shopify App Dev', 'Theme Customisation',
@@ -266,7 +266,7 @@ export default function OwnerBioPage() {
 
         {/* CTA buttons */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '0.75rem' }}>
-          <a href="/karam-mehra.vcf" download="Karam-Singh-Mehra.vcf" style={{
+          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.6rem',
             padding: '1rem 1.5rem',
             background: 'linear-gradient(135deg, #6C63FF 0%, #5245d8 100%)',
@@ -275,20 +275,20 @@ export default function OwnerBioPage() {
             textDecoration: 'none',
             boxShadow: '0 8px 28px rgba(108,99,255,0.4)',
           }}>
-            <Download size={17} />
-            Save Contact
+            <MessageCircle size={17} />
+            WhatsApp Message
           </a>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
-            <a href={PAYMENT_LINK} target="_blank" rel="noopener noreferrer" style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
-              padding: '0.9rem',
+          <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '0.5rem' }}>
+            <a href="/karam-mehra.vcf" download="Karam-Singh-Mehra.vcf" style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem',
+              padding: '0.7rem 0.9rem',
               background: 'rgba(255,255,255,0.05)',
-              color: 'rgba(255,255,255,0.8)', fontWeight: 600, fontSize: '0.83rem',
+              color: 'rgba(255,255,255,0.8)', fontWeight: 600, fontSize: '0.75rem',
               borderRadius: 14, border: '1px solid rgba(255,255,255,0.12)',
-              textDecoration: 'none',
+              textDecoration: 'none', whiteSpace: 'nowrap',
             }}>
-              <CreditCard size={15} />
-              Pay Invoice
+              <Download size={13} />
+              Save Contact
             </a>
             <a href={MEETING_LINK} target="_blank" rel="noopener noreferrer" style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',

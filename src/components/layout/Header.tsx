@@ -38,6 +38,7 @@ const industries = [
 
 const workItems = [
   { label: 'Recent Work', href: '/work' },
+  { label: 'Portfolio', href: '/my-portfolio' },
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'Reviews', href: '/reviews' },
 ]
