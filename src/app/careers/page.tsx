@@ -3,21 +3,26 @@ import Breadcrumb from '@/components/layout/Breadcrumb'
 import { CheckCircle2, Code2, Layers, Zap, Users } from 'lucide-react'
 import CareersForm from '@/components/careers/CareersForm'
 import { breadcrumb, jobPosting, renderJsonLd, webPage } from '@/lib/jsonld'
+import { HIRING_OPEN } from '@/lib/careers'
+
+const metaDescription = HIRING_OPEN
+  ? 'We are always looking for talented Shopify developers to join our team — from freshers with basic HTML/CSS/JS to senior developers with deep Liquid and app dev experience.'
+  : 'Miracle Websoft is not hiring right now. Check back later for Shopify developer openings.'
 
 export const metadata: Metadata = {
   title: 'Careers — Join Miracle Websoft | Shopify Developer Jobs',
-  description: 'We are always looking for talented Shopify developers to join our team — from freshers with basic HTML/CSS/JS to senior developers with deep Liquid and app dev experience.',
+  description: metaDescription,
   alternates: { canonical: 'https://miraclewebsoft.com/careers' },
   openGraph: {
     title: 'Careers — Join Miracle Websoft | Shopify Developer Jobs',
-    description: 'We are always looking for talented Shopify developers to join our team — from freshers with basic HTML/CSS/JS to senior developers with deep Liquid and app dev experience.',
+    description: metaDescription,
     url: 'https://miraclewebsoft.com/careers',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Careers — Join Miracle Websoft | Shopify Developer Jobs',
-    description: 'We are always looking for talented Shopify developers to join our team — from freshers with basic HTML/CSS/JS to senior developers with deep Liquid and app dev experience.',
+    description: metaDescription,
   },
 }
 
@@ -130,7 +135,7 @@ const jsonLd = renderJsonLd([
     { name: 'Home', url: '/' },
     { name: 'Careers', url: '/careers' },
   ]),
-  ...openRoles.map((r) =>
+  ...(HIRING_OPEN ? openRoles : []).map((r) =>
     jobPosting({
       title: r.title,
       description: `${r.description} Experience level: ${r.level}. Requirements: ${r.requirements.join('; ')}. Nice to have: ${r.niceToHave.join('; ')}.`,
@@ -154,16 +159,18 @@ export default function CareersPage() {
 
         {/* Hero */}
         <div style={{ maxWidth: '720px', marginBottom: '5rem' }}>
-          <span className="mw-eyebrow">We&apos;re hiring</span>
+          <span className="mw-eyebrow">{HIRING_OPEN ? <>We&apos;re hiring</> : 'Not hiring right now'}</span>
           <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(30px,4.5vw,54px)', lineHeight: 1.1, marginBottom: '1.25rem' }}>
             Join a team that ships<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>great Shopify work.</em>
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1.05rem', lineHeight: 1.8, fontWeight: 300, marginBottom: '1.5rem' }}>
-            We are Miracle Websoft — a Shopify-specialist agency with 10+ years experience, 600+ completed projects, and a Top Rated Plus badge on Upwork. We work with fashion and clothing brands worldwide, and we are always looking for good developers to grow with us.
+            We are Miracle Websoft — a Shopify-specialist agency with 10+ years experience, 600+ completed projects, and a Top Rated Plus badge on Upwork. We work with fashion and clothing brands worldwide{HIRING_OPEN ? ', and we are always looking for good developers to grow with us' : ''}.
           </p>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.8, fontWeight: 300 }}>
-            Whether you are just starting out with basic HTML/CSS/JS, or you are an experienced Shopify developer — if you are talented, hard-working, and care about quality, we want to hear from you.
-          </p>
+          {HIRING_OPEN && (
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.8, fontWeight: 300 }}>
+              Whether you are just starting out with basic HTML/CSS/JS, or you are an experienced Shopify developer — if you are talented, hard-working, and care about quality, we want to hear from you.
+            </p>
+          )}
         </div>
 
         {/* Perks row */}
@@ -179,6 +186,18 @@ export default function CareersPage() {
           </div>
         </div>
 
+        {!HIRING_OPEN && (
+          <div style={{ maxWidth: '720px', padding: '1.75rem 2rem', borderRadius: '20px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,2.6vw,32px)', lineHeight: 1.2, marginBottom: '0.75rem' }}>
+              We&apos;re not hiring at the moment.
+            </h2>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.92rem', lineHeight: 1.8, fontWeight: 300, margin: 0 }}>
+              All positions are currently filled and we are not accepting applications. Please check back on this page later — we will list new openings here as soon as they come up.
+            </p>
+          </div>
+        )}
+
+        {HIRING_OPEN && (<>
         {/* Open Roles */}
         <div style={{ marginBottom: '6rem' }}>
           <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Open roles</p>
@@ -344,6 +363,7 @@ export default function CareersPage() {
 
           </div>
         </div>
+        </>)}
 
       </div>
     </div>

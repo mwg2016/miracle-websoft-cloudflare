@@ -2,6 +2,7 @@ import { NextRequest } from 'next/server'
 import { sendEmail } from '@/lib/email'
 import { appendLead } from '@/lib/admin/store'
 import { parseClientOrigin } from '@/lib/admin/origin'
+import { HIRING_OPEN } from '@/lib/careers'
 
 function clientIp(req: NextRequest): string {
   const fwd = req.headers.get('x-forwarded-for')
@@ -200,6 +201,10 @@ const ALLOWED_RESUME_TYPES = new Set([
 ])
 
 export async function POST(req: NextRequest) {
+  if (!HIRING_OPEN) {
+    return Response.json({ success: false, error: 'We are not accepting applications right now' }, { status: 403 })
+  }
+
   try {
     // Reject oversized bodies before they're buffered into memory — an
     // unbounded upload here is a resource-limit / OOM risk on Workers.
