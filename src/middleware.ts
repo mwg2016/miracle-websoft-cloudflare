@@ -18,12 +18,15 @@ const GOOGLE_REGIONAL = [
   'com.pk', 'com.bd', 'lk',
 ].map((tld) => `https://www.google.${tld}`).join(' ')
 
+const isDev = process.env.NODE_ENV !== 'production'
+
 function buildCsp(nonce: string) {
   return [
     "default-src 'self'",
     // 'strict-dynamic' lets nonce'd scripts load further scripts; modern browsers
     // ignore the host-source list when strict-dynamic is present, older ones use it.
-    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https:`,
+    // React needs eval() in development for callstack reconstruction.
+    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https:${isDev ? " 'unsafe-eval'" : ''}`,
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "img-src 'self' data: blob: https:",
     "font-src 'self' https: data:",
@@ -36,7 +39,8 @@ function buildCsp(nonce: string) {
     "frame-ancestors 'none'",
     "require-trusted-types-for 'script'",
     "trusted-types * 'allow-duplicates'",
-    "upgrade-insecure-requests",
+    // Local dev runs on plain http; upgrading would point assets at https://localhost.
+    ...(isDev ? [] : ["upgrade-insecure-requests"]),
   ].join('; ')
 }
 
