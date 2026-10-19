@@ -6,7 +6,7 @@ interface Tab {
   label: string
 }
 
-export default function StickyTabs({ tabs }: { tabs: Tab[] }) {
+export default function StickyTabs({ tabs, accent = '#10B981' }: { tabs: Tab[]; accent?: string }) {
   const [active, setActive] = useState<string>(tabs[0]?.id ?? '')
   const railRef = useRef<HTMLDivElement | null>(null)
 
@@ -64,7 +64,7 @@ export default function StickyTabs({ tabs }: { tabs: Tab[] }) {
                   fontWeight: 600,
                   color: isActive ? '#fff' : 'rgba(255,255,255,0.6)',
                   whiteSpace: 'nowrap',
-                  borderBottom: isActive ? '2px solid #10B981' : '2px solid transparent',
+                  borderBottom: isActive ? `2px solid ${accent}` : '2px solid transparent',
                   transition: 'color 0.2s, border-color 0.2s',
                   textDecoration: 'none',
                 }}

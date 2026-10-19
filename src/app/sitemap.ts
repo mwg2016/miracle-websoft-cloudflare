@@ -45,6 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/industries`,                                          priority: 0.85, changeFrequency: 'monthly' as const },
     { url: `${BASE}/partners`,                                            priority: 0.85, changeFrequency: 'monthly' as const },
     { url: `${BASE}/lp/shopify-cro`,                                      priority: 0.7,  changeFrequency: 'monthly' as const },
+    { url: `${BASE}/black-friday-sale-setup`,                             priority: 0.85, changeFrequency: 'weekly'  as const },
 
     // ── Partner pages (new) ──────────────────────────────────────────────────
     { url: `${BASE}/white-label`,                                         priority: 0.85, changeFrequency: 'monthly' as const },
