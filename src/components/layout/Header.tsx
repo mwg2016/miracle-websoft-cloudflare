@@ -2,8 +2,8 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { ChevronDown, Menu, X } from 'lucide-react'
+import { usePathname, useRouter } from 'next/navigation'
+import { ChevronDown, Menu, Search, X } from 'lucide-react'
 
 const services = [
   { label: 'AI Services', href: '/services/ai' },
@@ -53,7 +53,12 @@ const companyItems = [
 
 export default function Header() {
   const pathname = usePathname()
+  const router = useRouter()
   const [scrolled, setScrolled] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [suggestions, setSuggestions] = useState<{ title: string; href: string; type: string }[]>([])
+  const [activeSuggestion, setActiveSuggestion] = useState(-1)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [industriesOpen, setIndustriesOpen] = useState(false)
@@ -67,13 +72,71 @@ export default function Header() {
   const industriesRef = useRef<HTMLDivElement>(null)
   const workRef = useRef<HTMLDivElement>(null)
   const companyRef = useRef<HTMLDivElement>(null)
+  const searchRef = useRef<HTMLDivElement>(null)
+  const searchInputRef = useRef<HTMLInputElement>(null)
 
   function closeAllDesktop() {
     setServicesOpen(false)
     setIndustriesOpen(false)
     setWorkOpen(false)
     setCompanyOpen(false)
+    setSearchOpen(false)
   }
+
+  function toggleSearch() {
+    const next = !searchOpen
+    closeAllDesktop()
+    setMobileOpen(false)
+    setSearchOpen(next)
+  }
+
+  function goTo(href: string) {
+    setSearchOpen(false)
+    setSearchQuery('')
+    setSuggestions([])
+    router.push(href)
+  }
+
+  function handleSearch(e: React.FormEvent) {
+    e.preventDefault()
+    if (activeSuggestion >= 0 && suggestions[activeSuggestion]) return goTo(suggestions[activeSuggestion].href)
+    const q = searchQuery.trim()
+    if (!q) return
+    goTo(`/search?q=${encodeURIComponent(q)}`)
+  }
+
+  function handleSearchKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (!suggestions.length) return
+    if (e.key === 'ArrowDown') {
+      e.preventDefault()
+      setActiveSuggestion(i => (i + 1) % suggestions.length)
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault()
+      setActiveSuggestion(i => (i <= 0 ? suggestions.length : i) - 1)
+    }
+  }
+
+  // Live suggestions while typing (debounced; stale requests are aborted).
+  useEffect(() => {
+    const q = searchQuery.trim()
+    if (q.length < 2) return
+    const controller = new AbortController()
+    const t = setTimeout(() => {
+      fetch(`/api/search?q=${encodeURIComponent(q)}`, { signal: controller.signal })
+        .then(res => (res.ok ? res.json() : { results: [] }))
+        .then(data => setSuggestions(data.results ?? []))
+        .catch(() => {})
+    }, 150)
+    return () => { clearTimeout(t); controller.abort() }
+  }, [searchQuery])
+
+  useEffect(() => {
+    if (!searchOpen) return
+    searchInputRef.current?.focus()
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setSearchOpen(false) }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [searchOpen])
 
   useEffect(() => {
     const boundary = document.querySelector('[data-hero-boundary]')
@@ -96,6 +159,7 @@ export default function Header() {
       if (industriesRef.current && !industriesRef.current.contains(e.target as Node)) setIndustriesOpen(false)
       if (workRef.current && !workRef.current.contains(e.target as Node)) setWorkOpen(false)
       if (companyRef.current && !companyRef.current.contains(e.target as Node)) setCompanyOpen(false)
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) setSearchOpen(false)
     }
     document.addEventListener('mousedown', handleClick)
     return () => document.removeEventListener('mousedown', handleClick)
@@ -202,9 +266,68 @@ export default function Header() {
                 </div>
               )}
             </div>
+
+            <Link href="/black-friday-sale-setup" className="text-sm font-semibold px-4 py-2 rounded-full transition hover:brightness-110" style={{ background: '#FBBF24', color: '#000', boxShadow: '0 0 18px rgba(251,191,36,0.35)' }}>
+              Black Friday Setup
+            </Link>
           </nav>
 
           <div className="flex items-center gap-3">
+            <div ref={searchRef} className="relative">
+              <button onClick={toggleSearch} className="flex items-center p-2 transition-colors" style={{ color: searchOpen ? '#fff' : 'rgba(255,255,255,0.7)' }} onMouseEnter={e => (e.currentTarget.style.color = '#fff')} onMouseLeave={e => (e.currentTarget.style.color = searchOpen ? '#fff' : 'rgba(255,255,255,0.7)')} aria-label="Search the site" aria-expanded={searchOpen}>
+                <Search size={18} />
+              </button>
+              {searchOpen && (
+                <form onSubmit={handleSearch} role="search" className="absolute top-full right-0 mt-3 rounded-2xl p-2 z-50" style={{ width: 'min(22rem, calc(100vw - 2rem))', background: '#161616', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 24px 48px rgba(0,0,0,0.6)' }}>
+                  <div className="flex items-center gap-2">
+                    <Search size={15} className="shrink-0 ml-2" style={{ color: 'rgba(255,255,255,0.45)' }} />
+                    <input
+                      ref={searchInputRef}
+                      type="search"
+                      value={searchQuery}
+                      onChange={e => {
+                        setSearchQuery(e.target.value)
+                        setActiveSuggestion(-1)
+                        if (e.target.value.trim().length < 2) setSuggestions([])
+                      }}
+                      onKeyDown={handleSearchKeyDown}
+                      placeholder="Search the site…"
+                      aria-label="Search the site"
+                      aria-controls="header-search-suggestions"
+                      aria-activedescendant={activeSuggestion >= 0 ? `header-search-suggestion-${activeSuggestion}` : undefined}
+                      autoComplete="off"
+                      className="flex-1 min-w-0 bg-transparent py-2 text-sm text-white outline-none placeholder:text-white/30"
+                    />
+                    <button type="submit" className="mw-btn-primary shrink-0 text-xs px-4 py-2">
+                      Search
+                    </button>
+                  </div>
+                  {suggestions.length > 0 && (
+                    <div id="header-search-suggestions" role="listbox" className="mt-2 pt-2" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+                      {suggestions.map((s, i) => (
+                        <Link
+                          key={s.href}
+                          id={`header-search-suggestion-${i}`}
+                          role="option"
+                          aria-selected={i === activeSuggestion}
+                          href={s.href}
+                          onClick={e => { e.preventDefault(); goTo(s.href) }}
+                          onMouseEnter={() => setActiveSuggestion(i)}
+                          className="block px-3 py-2 rounded-lg transition-colors"
+                          style={{ background: i === activeSuggestion ? 'rgba(255,255,255,0.06)' : 'transparent' }}
+                        >
+                          <span className="block text-sm truncate" style={{ color: i === activeSuggestion ? '#fff' : 'rgba(255,255,255,0.7)' }}>{s.title}</span>
+                          <span className="block" style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>{s.type}</span>
+                        </Link>
+                      ))}
+                      <button type="button" onClick={() => goTo(`/search?q=${encodeURIComponent(searchQuery.trim())}`)} onMouseEnter={() => setActiveSuggestion(-1)} className="block w-full text-left px-3 py-2 text-sm rounded-lg font-medium cursor-pointer" style={{ color: '#6c63ff' }}>
+                        See all results for “{searchQuery.trim()}” →
+                      </button>
+                    </div>
+                  )}
+                </form>
+              )}
+            </div>
             <Link href="/contact" className="sm:hidden text-xs font-medium" style={{ color: 'var(--accent)', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
               Free Consultation
             </Link>
@@ -279,6 +402,8 @@ export default function Header() {
                 </div>
               )}
             </div>
+
+            <Link href="/black-friday-sale-setup" onClick={() => setMobileOpen(false)} className="mt-4 py-3 text-base font-semibold text-center rounded-full" style={{ background: '#FBBF24', color: '#000', boxShadow: '0 0 18px rgba(251,191,36,0.35)' }}>Black Friday Setup</Link>
 
             <Link href="/contact" onClick={() => setMobileOpen(false)} className="mw-btn-primary mt-6 justify-center">Book Free Consultation</Link>
           </div>

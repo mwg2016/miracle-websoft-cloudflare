@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Search } from 'lucide-react'
-import { blogPosts } from '@/data/blogPosts'
-import { industries } from '@/data/industries'
-import { partners } from '@/data/partners'
-import shopifyServices from '@/data/shopify-services'
+import { redirect } from 'next/navigation'
+import { searchSite, popularPages, directMatch } from '@/lib/site-search'
 
 export const metadata: Metadata = {
   title: 'Search Miracle Websoft',
@@ -15,108 +13,13 @@ export const metadata: Metadata = {
 
 type SearchParams = Promise<{ q?: string }>
 
-type Result = {
-  title: string
-  description: string
-  href: string
-  type: string
-}
-
-const coreResults: Result[] = [
-  {
-    title: 'Custom Shopify Development',
-    description: 'Custom Shopify and Shopify Plus stores, theme builds, integrations, product pages, checkout extensions and CRO-ready storefronts.',
-    href: '/services/shopify/development',
-    type: 'Service',
-  },
-  {
-    title: 'Shopify App Development',
-    description: 'Private and public Shopify apps, custom admin workflows, Storefront API builds, Shopify Functions and app integrations.',
-    href: '/services/shopify-app-development',
-    type: 'Service',
-  },
-  {
-    title: 'Shopify Migration',
-    description: 'WooCommerce, Magento, BigCommerce and custom platform migrations to Shopify with SEO URL mapping and data protection.',
-    href: '/services/shopify-migration',
-    type: 'Service',
-  },
-  {
-    title: 'CRO and Speed Optimisation',
-    description: 'Core Web Vitals, PageSpeed, Shopify speed optimization, product-page conversion and checkout improvement.',
-    href: '/services/shopify-cro-speed',
-    type: 'Service',
-  },
-  {
-    title: 'Pricing',
-    description: 'Fixed-price Shopify development packages, migration pricing, CRO packages and website development tiers.',
-    href: '/pricing',
-    type: 'Pricing',
-  },
-  {
-    title: 'Work',
-    description: 'Browse 600+ verified Shopify projects completed by Miracle Websoft and Karam Singh Mehra.',
-    href: '/work',
-    type: 'Portfolio',
-  },
-  {
-    title: 'Reviews',
-    description: 'Verified Shopify developer reviews, Upwork client feedback, video testimonials and trust signals.',
-    href: '/reviews',
-    type: 'Reviews',
-  },
-  {
-    title: 'Contact',
-    description: 'Request a free Shopify store audit or send project details directly to Miracle Websoft.',
-    href: '/contact',
-    type: 'Contact',
-  },
-]
-
-const indexedResults: Result[] = [
-  ...coreResults,
-  ...shopifyServices.map((service) => ({
-    title: service.h1,
-    description: service.metaDescription,
-    href: `/services/shopify/${service.slug}`,
-    type: 'Shopify vertical',
-  })),
-  ...industries.map((industry) => ({
-    title: industry.h1,
-    description: industry.metaDescription,
-    href: `/industries/${industry.slug}`,
-    type: 'Industry guide',
-  })),
-  ...blogPosts.map((post) => ({
-    title: post.title,
-    description: post.excerpt,
-    href: `/blog/${post.slug}`,
-    type: post.tag,
-  })),
-  ...partners.map((partner) => ({
-    title: partner.metaTitle,
-    description: partner.metaDescription,
-    href: `/partners/${partner.slug}`,
-    type: 'Partner program',
-  })),
-]
-
-function scoreResult(result: Result, terms: string[]) {
-  const haystack = `${result.title} ${result.description} ${result.type}`.toLowerCase()
-  return terms.reduce((score, term) => score + (haystack.includes(term) ? 1 : 0), 0)
-}
-
 export default async function SearchPage({ searchParams }: { searchParams: SearchParams }) {
   const params = await searchParams
   const query = (params.q ?? '').trim()
-  const terms = query.toLowerCase().split(/\s+/).filter(Boolean)
-  const results = terms.length
-    ? indexedResults
-        .map((result) => ({ result, score: scoreResult(result, terms) }))
-        .filter((item) => item.score > 0)
-        .sort((a, b) => b.score - a.score || a.result.title.localeCompare(b.result.title))
-        .map((item) => item.result)
-    : coreResults
+  // A query that clearly names one page goes straight to it.
+  const direct = query ? directMatch(query) : null
+  if (direct) redirect(direct)
+  const results = query ? searchSite(query) : popularPages()
 
   return (
     <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '7rem', paddingBottom: '5rem' }}>
@@ -137,6 +40,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Searc
             <div style={{ position: 'relative', flex: 1 }}>
               <Search size={17} style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: 'rgba(255,255,255,0.45)' }} />
               <input
+                key={query}
                 id="site-search"
                 name="q"
                 type="search"

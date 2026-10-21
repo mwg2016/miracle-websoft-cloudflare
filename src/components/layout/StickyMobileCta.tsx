@@ -5,7 +5,8 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { outboundHref } from '@/lib/outbound'
 
-const HIDDEN_PREFIXES = ['/contact', '/admin', '/thank-you']
+// /black-friday-sale-setup has its own sticky Upwork bar in the same spot.
+const HIDDEN_PREFIXES = ['/contact', '/admin', '/thank-you', '/black-friday-sale-setup']
 
 export default function StickyMobileCta() {
   const pathname = usePathname()

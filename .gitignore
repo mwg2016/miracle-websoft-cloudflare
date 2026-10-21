@@ -24,3 +24,7 @@ data/prod/
 data/*.ndjson
 data/*.json
 data/resumes/
+
+# Site-search index — generated from the pages by `npm run search-index`
+# (runs automatically before `dev` and `build`).
+src/data/search-index.generated.json

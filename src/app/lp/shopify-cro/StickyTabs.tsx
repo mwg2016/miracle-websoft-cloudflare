@@ -6,7 +6,21 @@ interface Tab {
   label: string
 }
 
-export default function StickyTabs({ tabs, accent = '#10B981' }: { tabs: Tab[]; accent?: string }) {
+export default function StickyTabs({
+  tabs,
+  accent = '#10B981',
+  background = 'rgba(6,78,59,0.96)',
+  border = 'rgba(16,185,129,0.25)',
+  activeColor = '#fff',
+  inactiveColor = 'rgba(255,255,255,0.6)',
+}: {
+  tabs: Tab[]
+  accent?: string
+  background?: string
+  border?: string
+  activeColor?: string
+  inactiveColor?: string
+}) {
   const [active, setActive] = useState<string>(tabs[0]?.id ?? '')
   const railRef = useRef<HTMLDivElement | null>(null)
 
@@ -37,10 +51,10 @@ export default function StickyTabs({ tabs, accent = '#10B981' }: { tabs: Tab[]; 
         position: 'sticky',
         top: 0,
         zIndex: 30,
-        background: 'rgba(6,78,59,0.96)',
+        background,
         backdropFilter: 'blur(10px)',
-        borderTop: '1px solid rgba(16,185,129,0.25)',
-        borderBottom: '1px solid rgba(16,185,129,0.25)',
+        borderTop: `1px solid ${border}`,
+        borderBottom: `1px solid ${border}`,
       }}
     >
       <div className="mw-container" style={{ paddingTop: 0, paddingBottom: 0 }}>
@@ -62,7 +76,7 @@ export default function StickyTabs({ tabs, accent = '#10B981' }: { tabs: Tab[]; 
                   padding: '0.95rem 1.1rem',
                   fontSize: '0.82rem',
                   fontWeight: 600,
-                  color: isActive ? '#fff' : 'rgba(255,255,255,0.6)',
+                  color: isActive ? activeColor : inactiveColor,
                   whiteSpace: 'nowrap',
                   borderBottom: isActive ? `2px solid ${accent}` : '2px solid transparent',
                   transition: 'color 0.2s, border-color 0.2s',

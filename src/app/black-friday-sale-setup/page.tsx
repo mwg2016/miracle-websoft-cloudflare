@@ -12,7 +12,6 @@ import {
   ShoppingCart,
   Zap,
   BarChart3,
-  Megaphone,
   LayoutTemplate,
   ShieldCheck,
   Timer,
@@ -26,6 +25,8 @@ import ServiceContactForm from '@/components/services/ServiceContactForm'
 import FaqAccordionClient from '@/components/ui/FaqAccordionClient'
 import StickyTabs from '@/app/lp/shopify-cro/StickyTabs'
 import Countdown from './Countdown'
+import UpworkStickyCta, { UPWORK_URL } from './UpworkCta'
+import { timeLeftLabel } from './blackFriday'
 import { breadcrumb, faqPage, renderJsonLd, service, SITE_URL } from '@/lib/jsonld'
 
 const PAGE_URL = `${SITE_URL}/black-friday-sale-setup`
@@ -78,50 +79,42 @@ const contactChannels = [
 
 const included = [
   {
-    icon: Tag,
-    title: 'Discounts & offer logic',
-    desc: 'Sitewide %, tiered spend-and-save, BOGO, free gifts, bundles and VIP early-access codes — configured, stacked correctly and tested.',
+    icon: Palette,
+    title: 'Banners & announcement bars',
+    desc: 'Hero, collection and mobile banners plus a sale bar, matched to your brand.',
   },
   {
     icon: LayoutTemplate,
-    title: 'Sale landing page & collections',
-    desc: 'A dedicated Black Friday page, sale collections, countdown timers, announcement bar and homepage takeover — scheduled to go live on time.',
+    title: 'Sale landing / offer pages',
+    desc: 'A dedicated Black Friday page that showcases your deals and converts.',
   },
   {
-    icon: Palette,
-    title: 'Banner & creative design',
-    desc: 'Hero banners, mobile banners, announcement bars, email headers and social posts/stories — in your brand style, sized for every placement.',
+    icon: Tag,
+    title: 'Discount & coupon setup',
+    desc: 'Codes, auto-discounts, BOGO and tiered offers, all tested before launch.',
   },
   {
     icon: Mail,
-    title: 'Email campaigns, written & sent',
-    desc: 'Full sequence from teaser to last-chance: copy, design, segmentation, scheduling and sending in Klaviyo, Shopify Email, Mailchimp or Omnisend.',
+    title: 'Email & SMS campaigns',
+    desc: 'Teaser to last-chance sequence, written, designed and scheduled.',
+  },
+  {
+    icon: Timer,
+    title: 'Countdown timers',
+    desc: 'Store-wide and product-page timers that create real urgency.',
   },
   {
     icon: ShoppingCart,
-    title: 'Cart & checkout boost',
-    desc: 'Free-shipping progress bar, cart upsells, trust badges and a friction check on checkout so the extra traffic actually converts.',
+    title: 'Checkout testing & optimization',
+    desc: 'Every discount and payment path tested, with friction removed.',
   },
-  {
-    icon: Zap,
-    title: 'Speed & load readiness',
-    desc: 'Image compression, app cleanup and script review so the store stays fast when sale traffic spikes.',
-  },
-  {
-    icon: BarChart3,
-    title: 'Tracking & reporting',
-    desc: 'GA4, Meta pixel and conversion tracking verified before launch, plus a simple sales report after the weekend.',
-  },
-  {
-    icon: Megaphone,
-    title: 'Ad & social creatives',
-    desc: 'Ready-to-upload creatives for Meta, Google and Instagram/TikTok, matching your banners and offer.',
-  },
-  {
-    icon: LifeBuoy,
-    title: 'Launch-day monitoring',
-    desc: 'A developer on standby through Black Friday to Cyber Monday to fix anything — fast.',
-  },
+]
+
+const addOns = [
+  { icon: LifeBuoy, label: 'Launch-day monitoring' },
+  { icon: Zap, label: 'Speed check' },
+  { icon: Tag, label: 'Automatic discounts stacked right' },
+  { icon: BarChart3, label: 'Pixels & GA4 firing' },
 ]
 
 const emailSequence = [
@@ -246,10 +239,9 @@ const faqs = [
 
 const navTabs = [
   { id: 'included', label: "What's Included" },
-  { id: 'banners', label: 'Banner Design' },
-  { id: 'emails', label: 'Email Campaigns' },
+  { id: 'banners', label: 'Banners' },
+  { id: 'emails', label: 'Email & SMS' },
   { id: 'how-it-works', label: 'How It Works' },
-  { id: 'checklist', label: 'Checklist' },
   { id: 'faq', label: 'FAQs' },
 ]
 
@@ -525,8 +517,8 @@ export default function BlackFridaySaleSetupPage() {
                 <a href="#lead-form" className="mw-btn-primary" style={{ background: GOLD, borderColor: GOLD, color: '#000' }}>
                   Get My Black Friday Plan <ArrowRight size={16} />
                 </a>
-                <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="mw-btn-outline">
-                  <MessageCircle size={16} /> WhatsApp us now
+                <a href={UPWORK_URL} target="_blank" rel="noopener noreferrer" data-upwork-cta className="mw-btn-primary bf-upwork-pulse" style={{ background: GOLD, borderColor: GOLD, color: '#000' }}>
+                  Book Service <ArrowRight size={16} />
                 </a>
               </div>
 
@@ -579,64 +571,77 @@ export default function BlackFridaySaleSetupPage() {
         </div>
       </section>
 
-      {/* ─── CONTACT STRIP ───────────────────────────────────────────────── */}
-      <section style={{ background: '#0a0a0a', padding: '2.5rem 0', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-        <div className="mw-container">
-          <p className="text-center" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', marginBottom: '1.25rem' }}>
-            Prefer to talk? Reach us whichever way is easiest — a real person replies.
-          </p>
-          <ContactButtons center />
-        </div>
-      </section>
-
-      <StickyTabs tabs={navTabs} accent={GOLD} />
-
-      {/* ─── AT A GLANCE (concise summary for readers & AI answers) ──────── */}
-      <section style={{ background: '#0a0a0a', paddingTop: '4rem' }}>
-        <div className="mw-container">
-          <div
-            className="rounded-2xl grid grid-cols-1 md:grid-cols-4 gap-6"
-            style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', padding: '1.75rem' }}
-          >
-            {[
-              { k: 'What', v: 'End-to-end Black Friday & Cyber Monday sale setup' },
-              { k: 'For', v: 'Shopify, WooCommerce & any ecommerce brand' },
-              { k: 'Includes', v: 'Discounts, sale pages, banners, emails, ads, tracking, support' },
-              { k: 'Start', v: 'Ideally 6 weeks before — rush setups available' },
-            ].map((i) => (
-              <div key={i.k}>
-                <div style={{ fontSize: '0.7rem', color: GOLD, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' }}>{i.k}</div>
-                <div style={{ color: '#fff', fontSize: '0.95rem', marginTop: '0.35rem', lineHeight: 1.5 }}>{i.v}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StickyTabs tabs={navTabs} accent="#fff" background="#FBB605" border="#FBB605" activeColor="#000" inactiveColor="#000" />
 
       {/* ─── WHAT'S INCLUDED ─────────────────────────────────────────────── */}
-      <section id="included" style={{ paddingTop: '5rem', paddingBottom: '4rem', background: '#0a0a0a', scrollMarginTop: '5rem' }}>
+      <section id="included" style={{ paddingTop: '4rem', paddingBottom: '4rem', background: '#0a0a0a', scrollMarginTop: '5rem' }}>
         <div className="mw-container">
-          <SectionHead
-            eyebrow="EVERYTHING IN ONE PLACE"
-            title="Everything your Black Friday sale needs"
-            sub="Take the full package or pick only the parts you need. Either way, one team handles it — no juggling a designer, an email agency and a developer."
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {included.map((f) => {
-              const Icon = f.icon
-              return (
-                <div key={f.title} className="mw-card" style={{ padding: '1.5rem' }}>
-                  <span
-                    className="flex items-center justify-center"
-                    style={{ width: 42, height: 42, borderRadius: 10, background: 'rgba(251,191,36,0.12)', color: GOLD, marginBottom: '1rem' }}
+          <div className="rounded-2xl" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', padding: '1.75rem' }}>
+            <p className="flex items-center gap-2" style={{ fontSize: '0.7rem', color: GOLD, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+              <Sparkles size={14} /> What&apos;s included
+            </p>
+            <h2 style={{ color: '#fff', fontSize: 'clamp(1.35rem, 3vw, 1.75rem)', marginTop: '0.5rem', marginBottom: '0.5rem', letterSpacing: '-0.01em' }}>
+              6 Black Friday essentials. One fixed price.
+            </h2>
+
+            {/* 3×2 on desktop, 2 columns on tablet, 1 on mobile; #2A2A2A line between rows */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8">
+              {included.map((f) => {
+                const Icon = f.icon
+                return (
+                  <div
+                    key={f.title}
+                    className="py-6 border-t border-[#2A2A2A] [&:nth-child(-n+1)]:border-t-0 sm:[&:nth-child(-n+2)]:border-t-0 lg:[&:nth-child(-n+3)]:border-t-0"
                   >
-                    <Icon size={20} />
+                    <Icon size={24} strokeWidth={1.75} style={{ color: GOLD, marginBottom: '0.75rem' }} />
+                    <h3 style={{ fontSize: '0.72rem', color: GOLD, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.4rem' }}>
+                      {f.title}
+                    </h3>
+                    <p style={{ color: '#fff', fontSize: '0.95rem', lineHeight: 1.5 }}>{f.desc}</p>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Add-ons */}
+            <div className="flex flex-wrap items-center gap-2 py-5" style={{ borderTop: '1px solid #2A2A2A' }}>
+              <span style={{ fontSize: '0.7rem', color: GOLD, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginRight: '0.35rem' }}>
+                Add-ons
+              </span>
+              {addOns.map((a) => {
+                const Icon = a.icon
+                return (
+                  <span
+                    key={a.label}
+                    className="inline-flex items-center gap-1.5 rounded-full"
+                    style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)', background: 'rgba(255,255,255,0.04)', border: '1px solid #2A2A2A', padding: '0.3rem 0.75rem' }}
+                  >
+                    <Icon size={13} style={{ color: GOLD }} /> {a.label}
                   </span>
-                  <h3 style={{ color: '#fff', fontSize: '1.05rem', marginBottom: '0.5rem' }}>{f.title}</h3>
-                  <p style={{ fontSize: '0.88rem', lineHeight: 1.65 }}>{f.desc}</p>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
+
+            {/* Info strip */}
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pt-5" style={{ borderTop: '1px solid #2A2A2A' }}>
+              <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                <span style={{ color: GOLD, fontWeight: 700 }}>For:</span>{' '}Shopify, WooCommerce &amp; any store
+                <span style={{ color: 'rgba(255,255,255,0.3)' }}> · </span>
+                <span style={{ color: GOLD, fontWeight: 700 }}>Delivery:</span>{' '}5–7 days, rush available
+                <span style={{ color: 'rgba(255,255,255,0.3)' }}> · </span>
+                <strong style={{ color: '#fff' }}>Book now: {timeLeftLabel(new Date())}</strong>
+              </p>
+              <a
+                href={UPWORK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-upwork-cta
+                className="mw-btn-primary bf-upwork-pulse shrink-0 self-start md:self-auto"
+                style={{ background: GOLD, borderColor: GOLD, color: '#000' }}
+              >
+                Buy on Upwork <ArrowRight size={16} />
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -885,6 +890,8 @@ export default function BlackFridaySaleSetupPage() {
           <ContactButtons center />
         </div>
       </section>
+
+      <UpworkStickyCta />
     </>
   )
 }

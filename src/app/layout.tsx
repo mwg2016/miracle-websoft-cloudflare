@@ -5,7 +5,6 @@ import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import LeadTracker from '@/components/LeadTracker'
-import IntentRouter from '@/components/IntentRouter'
 import ClarityInit from '@/components/ClarityInit'
 import NavigationProgress from '@/components/layout/NavigationProgress'
 import StickyMobileCta from '@/components/layout/StickyMobileCta'
@@ -288,7 +287,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {!isAdmin && (
           <>
             <Footer />
-            <IntentRouter />
             <StickyMobileCta />
           </>
         )}

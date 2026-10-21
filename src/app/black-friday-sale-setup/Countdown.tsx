@@ -1,19 +1,6 @@
 'use client'
 import { useSyncExternalStore } from 'react'
-
-// Black Friday = the day after the 4th Thursday of November.
-function blackFridayFor(year: number) {
-  const nov1 = new Date(year, 10, 1)
-  const firstThursday = 1 + ((4 - nov1.getDay() + 7) % 7)
-  return new Date(year, 10, firstThursday + 21 + 1)
-}
-
-function nextBlackFriday(now: Date) {
-  const thisYear = blackFridayFor(now.getFullYear())
-  // Keep counting to this year's date until Cyber Monday has passed.
-  const cyberMondayEnd = new Date(thisYear.getTime() + 4 * 86400000)
-  return now < cyberMondayEnd ? thisYear : blackFridayFor(now.getFullYear() + 1)
-}
+import { nextBlackFriday } from './blackFriday'
 
 function subscribe(onTick: () => void) {
   const id = setInterval(onTick, 1000)
