@@ -28,9 +28,9 @@ npm run cf:deploy    # build + wrangler deploy
 
 ## Push to GitHub
 ```bash
-git remote set-url origin https://mwg2016:<TOKEN>@github.com/mwg2016/miracle-websoft.git
+git remote set-url origin https://mwg2016:<TOKEN>@github.com/mwg2016/miracle-websoft-cloudflare.git
 git push origin main
-git remote set-url origin https://github.com/mwg2016/miracle-websoft.git
+git remote set-url origin https://github.com/mwg2016/miracle-websoft-cloudflare.git
 ```
 
 ## Key notes
