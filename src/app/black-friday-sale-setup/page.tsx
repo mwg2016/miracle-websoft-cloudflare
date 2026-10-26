@@ -26,13 +26,13 @@ import FaqAccordionClient from '@/components/ui/FaqAccordionClient'
 import StickyTabs from '@/app/lp/shopify-cro/StickyTabs'
 import Countdown from './Countdown'
 import UpworkStickyCta, { UPWORK_URL } from './UpworkCta'
-import { timeLeftLabel } from './blackFriday'
+import { nextBlackFriday, timeLeftLabel } from './blackFriday'
 import { breadcrumb, faqPage, renderJsonLd, service, SITE_URL } from '@/lib/jsonld'
 
 const PAGE_URL = `${SITE_URL}/black-friday-sale-setup`
 const TITLE = 'Black Friday Sale Setup for Ecommerce Stores — Done For You'
 const DESCRIPTION =
-  'End-to-end Black Friday & Cyber Monday sale setup for Shopify, WooCommerce and any ecommerce brand: discounts, sale pages, banner design, email campaigns, speed checks and launch-day support.'
+  'End-to-end Black Friday sale setup for Shopify, WooCommerce and any ecommerce brand: discounts, sale pages, banner design, email campaigns, speed checks and launch-day support.'
 
 export const metadata: Metadata = {
   title: { absolute: `${TITLE} | Miracle Websoft` },
@@ -40,11 +40,10 @@ export const metadata: Metadata = {
   keywords: [
     'Black Friday sale setup',
     'Black Friday Shopify setup',
-    'BFCM store preparation',
+    'Black Friday store preparation',
     'Black Friday email campaign',
     'Black Friday banner design',
-    'Cyber Monday sale setup',
-    'Shopify BFCM agency',
+    'Shopify Black Friday agency',
     'WooCommerce Black Friday',
   ],
   alternates: { canonical: PAGE_URL },
@@ -117,17 +116,32 @@ const addOns = [
   { icon: BarChart3, label: 'Pixels & GA4 firing' },
 ]
 
+// Each send is paired with the store changes (banners, pages, discounts, timers) that switch on alongside it.
 const emailSequence = [
-  { when: '2–3 weeks before', name: 'Teaser + VIP list sign-up', goal: 'Build anticipation, grow the early-access list' },
-  { when: '1 week before', name: 'Sneak peek of deals', goal: 'Show the offer, push wishlists' },
-  { when: '1 day before', name: 'VIP early access', goal: 'Reward subscribers, start sales early' },
-  { when: 'Black Friday AM', name: 'Sale is live', goal: 'Biggest send of the year — clear offer, one CTA' },
-  { when: 'Black Friday PM', name: 'Best-sellers / selling fast', goal: 'Social proof and urgency to non-openers' },
-  { when: 'Saturday–Sunday', name: 'Weekend reminder', goal: 'Bring back clickers who did not buy' },
-  { when: 'Cyber Monday', name: 'Cyber Monday offer', goal: 'Fresh angle or bonus to restart momentum' },
-  { when: 'Monday night', name: 'Last chance — hours left', goal: 'Final urgency push before the deal ends' },
-  { when: 'After the sale', name: 'Thank you + post-purchase', goal: 'Reviews, cross-sell, turn buyers into repeat customers' },
+  { when: '10 days before', channel: 'Email', name: 'Sale teaser', goal: 'Let subscribers know the sale is coming', live: 'Teaser announcement bar' },
+  { when: '7 days before', channel: 'Email + SMS', name: 'Early access opens', goal: 'Subscribers get first pick of the deals', live: 'Early-access discount codes' },
+  { when: 'Black Friday', channel: 'Email + SMS', name: 'The sale is live', goal: 'Clear offer, one button to shop', live: 'Banners, sale page, discounts & countdown timers' },
+  { when: 'Close (+48 hrs)', channel: 'Email + SMS', name: 'Last chance', goal: 'Final reminder before the sale ends', live: 'Countdown to close, checkout tested with every discount' },
 ]
+
+const quickAnswers = [
+  { q: 'Can you design banners?', a: 'Yes' },
+  { q: 'Can you schedule everything?', a: 'Yes' },
+  { q: 'Will setup affect my live store?', a: 'No' },
+]
+
+const shortDate = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+
+// Best-time phases, computed from the upcoming Black Friday so the dates never go stale.
+function salePhases(now: Date) {
+  const day = 86400000
+  const bf = nextBlackFriday(now)
+  return [
+    { label: 'Early access', when: `${shortDate(new Date(bf.getTime() - 10 * day))}–${shortDate(new Date(bf.getTime() - 7 * day))}`, note: 'Start 7–10 days before Black Friday' },
+    { label: 'Main sale', when: shortDate(bf), note: 'Black Friday — everything goes live' },
+    { label: 'Close', when: shortDate(new Date(bf.getTime() + 2 * day)), note: '48 hrs after Black Friday' },
+  ]
+}
 
 const steps = [
   {
@@ -178,7 +192,7 @@ const faqs = [
   {
     question: 'What does your Black Friday sale setup service include?',
     answer:
-      'Everything needed to run a Black Friday and Cyber Monday sale end to end: offer and discount configuration, a sale landing page and collections, countdown timers and announcement bars, banner and social creative design, a full email campaign sequence (written, designed, segmented and sent), cart and checkout improvements, speed checks, tracking verification and launch-day monitoring with a post-sale report.',
+      'Everything needed to run a Black Friday sale end to end: offer and discount configuration, a sale landing page and collections, countdown timers and announcement bars, banner and social creative design, a full email campaign sequence (written, designed, segmented and sent), cart and checkout improvements, speed checks, tracking verification and launch-day monitoring with a post-sale report.',
   },
   {
     question: 'Which ecommerce platforms do you support?',
@@ -198,7 +212,7 @@ const faqs = [
   {
     question: 'Do you write and send the email campaigns for us?',
     answer:
-      'Yes. We write the copy, design the emails, segment your list (VIPs, past buyers, engaged subscribers), schedule the sends and monitor results. We work in Klaviyo, Shopify Email, Mailchimp, Omnisend and most other email platforms. A typical BFCM sequence is 7–9 emails from teaser to last chance and thank-you.',
+      'Yes. We write the copy, design the emails, segment your list (VIPs, past buyers, engaged subscribers), schedule the sends and monitor results. We work in Klaviyo, Shopify Email, Mailchimp, Omnisend and most other email platforms. A typical Black Friday sequence is 7–8 emails from teaser to last chance and thank-you.',
   },
   {
     question: 'Will my live store be affected while you build the sale?',
@@ -213,7 +227,7 @@ const faqs = [
   {
     question: 'Can you set up the sale to start and end automatically?',
     answer:
-      'Yes. Discounts, banners, announcement bars, countdown timers and theme changes are scheduled to switch on and off automatically, including the transition from Black Friday to Cyber Monday offers and back to normal pricing afterwards.',
+      'Yes. Discounts, banners, announcement bars, countdown timers and theme changes are scheduled to switch on and off automatically — including the switch back to normal pricing when the sale ends.',
   },
   {
     question: 'Will my store handle the extra Black Friday traffic?',
@@ -233,7 +247,7 @@ const faqs = [
   {
     question: 'How do I contact you quickly?',
     answer:
-      'WhatsApp is fastest: +91 62392 69736. You can also book a 15-minute call, email karam@miraclewebsoft.com, or fill the form on this page — we reply within 24 hours, usually much sooner during BFCM season.',
+      'WhatsApp is fastest: +91 62392 69736. You can also book a 15-minute call, email karam@miraclewebsoft.com, or fill the form on this page — we reply within 24 hours, usually much sooner during Black Friday season.',
   },
 ]
 
@@ -250,13 +264,13 @@ const jsonLd = renderJsonLd([
     name: 'Black Friday Sale Setup for Ecommerce Stores',
     description: DESCRIPTION,
     url: '/black-friday-sale-setup',
-    serviceType: 'Ecommerce Black Friday and Cyber Monday campaign setup',
+    serviceType: 'Ecommerce Black Friday campaign setup',
   }),
   {
     '@context': 'https://schema.org',
     '@type': 'HowTo',
     name: 'How to set up a Black Friday sale with Miracle Websoft',
-    description: 'Four steps from first contact to a live Black Friday and Cyber Monday sale.',
+    description: 'Four steps from first contact to a live Black Friday sale.',
     step: steps.map((s, i) => ({
       '@type': 'HowToStep',
       position: i + 1,
@@ -427,7 +441,7 @@ function BannerShowcase() {
           className="flex flex-col items-center justify-between text-center"
           style={{ aspectRatio: '9 / 12', padding: '10% 8%', background: `linear-gradient(180deg, #1e1b4b 0%, #000 70%)` }}
         >
-          <div style={{ color: '#A5B4FC', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.3em' }}>CYBER MONDAY</div>
+          <div style={{ color: '#A5B4FC', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.3em' }}>BLACK FRIDAY</div>
           <div style={{ ...display, color: '#fff', fontSize: 'clamp(2rem, 6vw, 3rem)' }}>
             Last<br />Chance<br /><span style={{ color: GOLD }}>Deals</span>
           </div>
@@ -443,7 +457,7 @@ function BannerShowcase() {
           className="flex flex-col justify-end"
           style={{ aspectRatio: '9 / 12', padding: '10% 8%', background: `radial-gradient(circle at 50% 25%, rgba(251,191,36,0.35), transparent 50%), #070707` }}
         >
-          <div style={{ ...display, color: GOLD, fontSize: 'clamp(2.6rem, 8vw, 3.6rem)' }}>BFCM</div>
+          <div style={{ ...display, color: GOLD, fontSize: 'clamp(2rem, 6vw, 2.8rem)' }}>Black<br />Friday</div>
           <div style={{ ...display, color: '#fff', fontSize: '1.3rem', marginTop: '0.3rem' }}>Spend more,<br />save more</div>
           <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.75rem', marginTop: '0.6rem' }}>$100 → 15% · $200 → 25% · $300 → 35%</div>
           <span style={{ marginTop: '0.9rem', background: '#fff', color: '#000', fontWeight: 800, fontSize: '0.72rem', padding: '0.6rem', borderRadius: 8, textAlign: 'center' }}>
@@ -484,11 +498,10 @@ export default function BlackFridaySaleSetupPage() {
                   letterSpacing: '0.04em',
                 }}
               >
-                <Sparkles size={12} /> BLACK FRIDAY & CYBER MONDAY · DONE FOR YOU
+                <Sparkles size={12} /> BLACK FRIDAY SALE SETUP · DONE FOR YOU
               </div>
-              <h1 style={{ color: '#fff', marginBottom: '1.25rem', letterSpacing: '-0.02em' }}>
-                Your Complete Black Friday Sale,{' '}
-                <span style={{ color: GOLD }}>Set Up End to End</span> — So You Can Just Sell.
+              <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem', letterSpacing: '-0.02em' }}>
+                Your Complete Black Friday Setup — <span style={{ color: GOLD }}>Done Before the Rush Hits.</span>
               </h1>
               <p
                 style={{
@@ -514,7 +527,7 @@ export default function BlackFridaySaleSetupPage() {
               </div>
 
               <div className="flex flex-wrap gap-3 items-center">
-                <a href="#lead-form" className="mw-btn-primary" style={{ background: GOLD, borderColor: GOLD, color: '#000' }}>
+                <a href="#emails" className="mw-btn-primary" style={{ background: GOLD, borderColor: GOLD, color: '#000' }}>
                   Get My Black Friday Plan <ArrowRight size={16} />
                 </a>
                 <a href={UPWORK_URL} target="_blank" rel="noopener noreferrer" data-upwork-cta className="mw-btn-primary bf-upwork-pulse" style={{ background: GOLD, borderColor: GOLD, color: '#000' }}>
@@ -563,7 +576,7 @@ export default function BlackFridaySaleSetupPage() {
                 urlLabel="Store URL"
                 urlPlaceholder="yourstore.com"
                 messageLabel="What do you need help with?"
-                messagePlaceholder="Example: full BFCM setup — 30% off sitewide, banners, 6 emails in Klaviyo. Sale starts Nov 27."
+                messagePlaceholder="Example: full Black Friday setup — 30% off sitewide, banners, 6 emails in Klaviyo. Sale starts Nov 27."
                 buttonLabel="Get My Black Friday Plan"
               />
             </div>
@@ -664,14 +677,39 @@ export default function BlackFridaySaleSetupPage() {
           <SectionHead
             eyebrow="EMAIL CAMPAIGNS — WRITTEN, DESIGNED & SENT"
             title="Your Black Friday email calendar, handled"
-            sub="We write, design, segment and schedule every email in your platform — Klaviyo, Shopify Email, Mailchimp, Omnisend and more. Here's the sequence we typically run."
+            sub="Your email and SMS campaigns set up and scheduled in your platform — Klaviyo, Shopify Email, Mailchimp, Omnisend and more — timed with the banners, sale page, discounts and countdown timers going live on your store."
           />
           <div className="max-w-4xl mx-auto">
+            {/* Best time to run the sale */}
+            <div className="rounded-2xl" style={{ background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.25)', padding: '1.25rem 1.25rem 1rem', marginBottom: '1.5rem' }}>
+              <p className="flex items-center gap-2" style={{ fontSize: '0.7rem', color: GOLD, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.9rem' }}>
+                <CalendarClock size={14} /> Best time to run your sale
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {salePhases(new Date()).map((p, i) => (
+                  <div key={p.label} className="flex items-start gap-3">
+                    <span
+                      className="flex items-center justify-center shrink-0"
+                      style={{ width: 26, height: 26, borderRadius: 999, background: GOLD, color: '#000', fontWeight: 800, fontSize: '0.75rem' }}
+                    >
+                      {i + 1}
+                    </span>
+                    <span>
+                      <span className="block" style={{ color: '#fff', fontWeight: 600, fontSize: '0.92rem' }}>
+                        {p.label} <span style={{ color: GOLD }}>· {p.when}</span>
+                      </span>
+                      <span className="block" style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>{p.note}</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <ol className="flex flex-col gap-2.5" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {emailSequence.map((e, i) => (
                 <li
                   key={e.name}
-                  className="grid grid-cols-[auto_1fr] sm:grid-cols-[auto_170px_1fr] gap-x-4 gap-y-1 items-center mw-card"
+                  className="grid grid-cols-[auto_1fr] sm:grid-cols-[auto_150px_1fr] gap-x-4 gap-y-1 items-center mw-card"
                   style={{ padding: '1rem 1.25rem' }}
                 >
                   <span
@@ -680,17 +718,47 @@ export default function BlackFridaySaleSetupPage() {
                   >
                     {i + 1}
                   </span>
-                  <span style={{ color: GOLD, fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.04em' }}>{e.when}</span>
+                  <span className="flex flex-col gap-1">
+                    <span style={{ color: GOLD, fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.04em' }}>{e.when}</span>
+                    <span className="self-start" style={{ fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.06em', color: '#fff', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 999, padding: '0.1rem 0.5rem' }}>
+                      {e.channel.toUpperCase()}
+                    </span>
+                  </span>
                   <span className="col-start-2 sm:col-start-auto">
                     <span style={{ color: '#fff', fontWeight: 600, fontSize: '0.93rem' }}>{e.name}</span>
                     <span style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.83rem' }}> — {e.goal}</span>
+                    <span className="flex items-center gap-1.5" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.78rem', marginTop: '0.3rem' }}>
+                      <Zap size={12} className="shrink-0" style={{ color: GOLD }} /> On your store: {e.live}
+                    </span>
                   </span>
                 </li>
               ))}
             </ol>
+
+            {/* Quick answers */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3" style={{ marginTop: '1.5rem' }}>
+              {quickAnswers.map((qa) => (
+                <div key={qa.q} className="mw-card flex items-center justify-between gap-3" style={{ padding: '0.85rem 1.1rem' }}>
+                  <span style={{ color: '#fff', fontSize: '0.88rem', fontWeight: 500 }}>{qa.q}</span>
+                  <span
+                    className="shrink-0"
+                    style={{ fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.06em', padding: '0.2rem 0.6rem', borderRadius: 6, background: qa.a === 'Yes' ? 'rgba(16,185,129,0.15)' : 'rgba(251,191,36,0.14)', color: qa.a === 'Yes' ? '#10B981' : GOLD }}
+                  >
+                    {qa.a.toUpperCase()}
+                  </span>
+                </div>
+              ))}
+            </div>
+
             <p className="text-center" style={{ fontSize: '0.85rem', marginTop: '1.25rem' }}>
-              Plus abandoned-cart and browse-abandon flows tuned for the sale, and SMS if you use it.
+              Everything is built on a draft theme and scheduled — nothing touches your live store until you approve it.
             </p>
+
+            <div className="flex justify-center" style={{ marginTop: '1.5rem' }}>
+              <a href={UPWORK_URL} target="_blank" rel="noopener noreferrer" data-upwork-cta className="mw-btn-primary bf-upwork-pulse" style={{ background: GOLD, borderColor: GOLD, color: '#000' }}>
+                Book Service on Upwork <ArrowRight size={16} />
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -880,7 +948,7 @@ export default function BlackFridaySaleSetupPage() {
             in November.
           </p>
           <div className="flex flex-wrap gap-3 justify-center" style={{ marginBottom: '2.5rem' }}>
-            <a href="#lead-form" className="mw-btn-primary" style={{ background: GOLD, color: '#000', borderColor: GOLD }}>
+            <a href="#emails" className="mw-btn-primary" style={{ background: GOLD, color: '#000', borderColor: GOLD }}>
               Get My Black Friday Plan <ArrowRight size={16} />
             </a>
             <Link href="/work" className="mw-btn-outline">
