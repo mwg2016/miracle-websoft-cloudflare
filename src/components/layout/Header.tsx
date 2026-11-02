@@ -328,10 +328,8 @@ export default function Header() {
                 </form>
               )}
             </div>
-            <Link href="/contact" className="sm:hidden text-xs font-medium" style={{ color: 'var(--accent)', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
-              Free Consultation
-            </Link>
-            <Link href="/contact" className="mw-btn-primary hidden sm:inline-flex text-xs px-4 py-2.5 sm:text-sm sm:px-5">
+            {/* Hidden on phones — the menu drawer already has "Book Free Consultation" */}
+            <Link href="/contact" className="mw-btn-primary hidden sm:inline-flex whitespace-nowrap text-sm px-5 py-2.5">
               Free Consultation
             </Link>
             <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 text-white" aria-label="Toggle menu">
