@@ -35,6 +35,8 @@ interface Props {
   messagePlaceholder?: string
   buttonLabel?: string
   proofPoints?: string[]
+  /** Shows a fixed price in place of the budget dropdown, and sends it as the budget. */
+  fixedPrice?: string
 }
 
 export default function ServiceContactForm({
@@ -47,10 +49,11 @@ export default function ServiceContactForm({
   messagePlaceholder = 'Example: our store is slow, mobile conversion is low, we need to migrate, or we need a custom feature Shopify apps cannot handle.',
   buttonLabel = 'Request My Shopify Plan',
   proofPoints = ['Responds within 24 hours', '650+ projects delivered', 'Fixed-price proposals'],
+  fixedPrice,
 }: Props) {
   const router = useRouter()
   const [state, setState] = useState<'idle' | 'sending' | 'error'>('idle')
-  const [form, setForm] = useState({ name: '', email: '', storeUrl: '', budget: '', message: '', _hp: '' })
+  const [form, setForm] = useState({ name: '', email: '', storeUrl: '', budget: fixedPrice ?? '', message: '', _hp: '' })
 
   function set(field: string, value: string) {
     setForm(f => ({ ...f, [field]: value }))
@@ -121,6 +124,15 @@ export default function ServiceContactForm({
             <input id="service-contact-store-url" name="storeUrl" type="text" placeholder={urlPlaceholder} autoComplete="url"
               value={form.storeUrl} onChange={e => set('storeUrl', e.target.value)} style={inputStyle} />
           </div>
+          {fixedPrice ? (
+          <div>
+            <span style={labelStyle}>Price</span>
+            <div style={{ ...inputStyle, display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
+              <span style={{ fontWeight: 700 }}>{fixedPrice}</span>
+              <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)' }}>fixed price</span>
+            </div>
+          </div>
+          ) : (
           <div>
             <label htmlFor="service-contact-budget" style={labelStyle}>Estimated budget {optTag}</label>
             <select id="service-contact-budget" name="budget" value={form.budget} onChange={e => set('budget', e.target.value)}
@@ -133,6 +145,7 @@ export default function ServiceContactForm({
               <option>Not sure yet</option>
             </select>
           </div>
+          )}
         </div>
 
         <div>

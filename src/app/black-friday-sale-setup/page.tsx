@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   ArrowRight,
@@ -11,7 +12,6 @@ import {
   Palette,
   ShoppingCart,
   Zap,
-  BarChart3,
   LayoutTemplate,
   ShieldCheck,
   Timer,
@@ -19,7 +19,6 @@ import {
   ClipboardList,
   Rocket,
   Search,
-  LifeBuoy,
 } from 'lucide-react'
 import ServiceContactForm from '@/components/services/ServiceContactForm'
 import FaqAccordionClient from '@/components/ui/FaqAccordionClient'
@@ -32,7 +31,7 @@ import { breadcrumb, faqPage, renderJsonLd, service, SITE_URL } from '@/lib/json
 const PAGE_URL = `${SITE_URL}/black-friday-sale-setup`
 const TITLE = 'Black Friday Sale Setup for Ecommerce Stores — Done For You'
 const DESCRIPTION =
-  'End-to-end Black Friday sale setup for Shopify, WooCommerce and any ecommerce brand: discounts, sale pages, banner design, email campaigns, speed checks and launch-day support.'
+  'Done-for-you Black Friday sale setup for Shopify, WooCommerce and any ecommerce store: banners, sale page, discounts, email & SMS campaigns, countdown timers and checkout testing. $150 fixed, delivered in 2 days.'
 
 export const metadata: Metadata = {
   title: { absolute: `${TITLE} | Miracle Websoft` },
@@ -109,13 +108,6 @@ const included = [
   },
 ]
 
-const addOns = [
-  { icon: LifeBuoy, label: 'Launch-day monitoring' },
-  { icon: Zap, label: 'Speed check' },
-  { icon: Tag, label: 'Automatic discounts stacked right' },
-  { icon: BarChart3, label: 'Pixels & GA4 firing' },
-]
-
 // Each send is paired with the store changes (banners, pages, discounts, timers) that switch on alongside it.
 const emailSequence = [
   { when: '10 days before', channel: 'Email', name: 'Sale teaser', goal: 'Let subscribers know the sale is coming', live: 'Teaser announcement bar' },
@@ -148,7 +140,7 @@ const steps = [
     icon: MessageCircle,
     title: 'Tell us about your store',
     you: 'Fill the form, WhatsApp us or book a 15-minute call. Share your store URL and what you want to offer.',
-    we: 'We review your store and reply within 24 hours with a plan and a fixed-price quote.',
+    we: 'We review your store and reply within 24 hours with your Black Friday sale plan.',
   },
   {
     icon: ClipboardList,
@@ -166,7 +158,7 @@ const steps = [
     icon: Rocket,
     title: 'Launch & relax',
     you: 'Nothing. Watch the orders come in.',
-    we: 'We switch the sale on at the exact time, send the campaigns, monitor the store and send you a results report.',
+    we: 'Everything is scheduled, so the sale, banners, timers and campaigns switch on at the exact time you chose.',
   },
 ]
 
@@ -180,74 +172,43 @@ const needFromYou = [
 ]
 
 const timeline = [
-  { when: '6+ weeks out', what: 'Ideal start — plan offer, design, build, full email sequence', tone: 'Best' },
-  { when: '3–5 weeks out', what: 'Comfortable — full setup with time for revisions', tone: 'Great' },
-  { when: '1–2 weeks out', what: 'Express — core setup: discounts, banners, sale page, key emails', tone: 'Still possible' },
-  { when: 'Under 1 week', what: 'Rush — essentials only. Message us on WhatsApp right now', tone: 'Contact now' },
+  { when: '2+ weeks out', what: 'Ideal — ready well before early access starts', tone: 'Best' },
+  { when: '10–14 days out', what: 'Ready in 2 days, just in time for early access', tone: 'Great' },
+  { when: '3–9 days out', what: 'Ready before Black Friday — shorter or no early access', tone: 'Still possible' },
+  { when: 'Under 3 days', what: 'Message us on WhatsApp right now', tone: 'Contact now' },
 ]
 
 const platforms = ['Shopify', 'Shopify Plus', 'WooCommerce', 'BigCommerce', 'Magento / Adobe Commerce', 'Wix & Squarespace', 'Custom stores']
 
 const faqs = [
   {
-    question: 'What does your Black Friday sale setup service include?',
+    question: 'What does your Black Friday sale setup include?',
     answer:
-      'Everything needed to run a Black Friday sale end to end: offer and discount configuration, a sale landing page and collections, countdown timers and announcement bars, banner and social creative design, a full email campaign sequence (written, designed, segmented and sent), cart and checkout improvements, speed checks, tracking verification and launch-day monitoring with a post-sale report.',
+      'Six essentials: Black Friday banners and announcement bars, a sale landing / offer page, discount or coupon setup, email and SMS campaign setup, countdown timers for urgency, and checkout testing and optimization.',
   },
   {
-    question: 'Which ecommerce platforms do you support?',
+    question: 'Can you design the Black Friday banners?',
     answer:
-      'Shopify and Shopify Plus are our specialty, and we also set up Black Friday sales on WooCommerce, BigCommerce, Magento / Adobe Commerce, Wix, Squarespace and custom-built stores.',
+      'Yes. We design your hero, collection and mobile banners plus the announcement bar, all matched to your brand colours and fonts.',
   },
   {
-    question: 'How early should I start preparing for Black Friday?',
+    question: 'Can you schedule everything?',
     answer:
-      'Ideally 6 weeks before Black Friday, which leaves time to plan the offer, design creatives, build pages and warm up your email list. 3–5 weeks is comfortable. With 1–2 weeks we can still deliver the core setup, and under a week we offer a rush essentials package — contact us on WhatsApp straight away.',
+      'Yes. Discounts, banners, announcement bars, countdown timers and your email and SMS campaigns are scheduled to switch on and off automatically, including the switch back to normal pricing when the sale ends.',
   },
   {
-    question: 'Do you design the Black Friday banners?',
-    answer:
-      'Yes. We design desktop and mobile hero banners, announcement bars, collection banners, email headers, Instagram/Facebook posts and stories, and ad creatives — all matched to your brand and sized correctly for each placement. You get the source files too.',
-  },
-  {
-    question: 'Do you write and send the email campaigns for us?',
-    answer:
-      'Yes. We write the copy, design the emails, segment your list (VIPs, past buyers, engaged subscribers), schedule the sends and monitor results. We work in Klaviyo, Shopify Email, Mailchimp, Omnisend and most other email platforms. A typical Black Friday sequence is 7–8 emails from teaser to last chance and thank-you.',
-  },
-  {
-    question: 'Will my live store be affected while you build the sale?',
+    question: 'Will the setup affect my live store?',
     answer:
       'No. We build on a duplicate/draft theme and scheduled campaigns. Nothing goes live until you approve it, and the switch happens at the exact start time you choose.',
   },
   {
-    question: 'How much does a Black Friday sale setup cost?',
-    answer:
-      'Every store is different, so we give a fixed-price quote after a quick look at your store — no hourly billing and no surprises. You can choose the full end-to-end setup or just the parts you need, such as banners only or emails only.',
+    question: 'How much does it cost?',
+    answer: '$150, fixed price, for the complete Black Friday setup, including 1 revision. No hourly billing and no surprises.',
   },
   {
-    question: 'Can you set up the sale to start and end automatically?',
+    question: 'When should I book?',
     answer:
-      'Yes. Discounts, banners, announcement bars, countdown timers and theme changes are scheduled to switch on and off automatically — including the switch back to normal pricing when the sale ends.',
-  },
-  {
-    question: 'Will my store handle the extra Black Friday traffic?',
-    answer:
-      'We run a speed and readiness check before the sale — compressing images, removing unused apps and scripts, and testing the checkout on mobile — so pages stay fast under load. A developer is on standby through the weekend to fix anything quickly.',
-  },
-  {
-    question: 'What do I need to provide to get started?',
-    answer:
-      'Your store URL, collaborator access, the offer you want to run (discount, products and dates), your logo and brand colours, and access to your email platform. If you are unsure about the offer, we will recommend one based on your margins and past sales.',
-  },
-  {
-    question: 'Can you help decide what discount or offer to run?',
-    answer:
-      'Yes. We recommend offer structures that protect your margins — for example tiered spend-and-save, gift-with-purchase, bundles or early access for subscribers — rather than defaulting to a deep sitewide discount.',
-  },
-  {
-    question: 'How do I contact you quickly?',
-    answer:
-      'WhatsApp is fastest: +91 62392 69736. You can also book a 15-minute call, email karam@miraclewebsoft.com, or fill the form on this page — we reply within 24 hours, usually much sooner during Black Friday season.',
+      'At least 2 weeks before Black Friday. Delivery takes 2 days, plus 1 revision, so everything is ready well before early access starts 7–10 days before the sale. Closer than that? Message us on WhatsApp and we will fit you in.',
   },
 ]
 
@@ -327,10 +288,17 @@ function ContactButtons({ center = false }: { center?: boolean }) {
 
 /* ─── Banner mockups — pure CSS so they stay crisp and weightless ──────── */
 
-function BannerFrame({ label, size, children }: { label: string; size: string; children: React.ReactNode }) {
+// With `ratio`, the frame keeps that shape on mobile but stretches to its grid row's height on desktop,
+// so tall banners line up with their neighbours (children should be a `fill` Image).
+function BannerFrame({ label, size, ratio, children }: { label: string; size: string; ratio?: string; children: React.ReactNode }) {
   return (
-    <figure style={{ margin: 0 }}>
-      <div style={{ borderRadius: 14, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.10)' }}>{children}</div>
+    <figure className={ratio ? 'flex flex-col h-full' : undefined} style={{ margin: 0 }}>
+      <div
+        className={ratio ? 'relative aspect-[var(--ar)] lg:aspect-auto lg:flex-1 lg:min-h-0' : undefined}
+        style={{ borderRadius: 14, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.10)', ...(ratio ? ({ '--ar': ratio } as React.CSSProperties) : {}) }}
+      >
+        {children}
+      </div>
       <figcaption className="flex justify-between gap-2" style={{ marginTop: '0.6rem', fontSize: '0.8rem' }}>
         <span style={{ color: '#fff', fontWeight: 600 }}>{label}</span>
         <span style={{ color: 'rgba(255,255,255,0.45)' }}>{size}</span>
@@ -339,60 +307,24 @@ function BannerFrame({ label, size, children }: { label: string; size: string; c
   )
 }
 
-const display: React.CSSProperties = { fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 0.95, textTransform: 'uppercase' }
-
 function BannerShowcase() {
+  // 8:3 hero beside a 1:1 post — 8fr / 3fr columns make them the same height.
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-[8fr_3fr] gap-6">
       {/* Desktop hero */}
-      <div className="lg:col-span-2">
+      <div>
         <BannerFrame label="Website hero banner" size="1920 × 800 · desktop">
-          <div
-            className="flex items-center justify-between gap-4"
-            style={{
-              aspectRatio: '1920 / 800',
-              padding: '6% 7%',
-              background: `radial-gradient(circle at 85% 50%, rgba(239,68,68,0.45), transparent 55%), linear-gradient(120deg, #050505 40%, #1c0a0a)`,
-            }}
-          >
-            <div>
-              <div style={{ color: GOLD, fontSize: 'clamp(0.55rem, 1.2vw, 0.8rem)', fontWeight: 700, letterSpacing: '0.25em' }}>
-                THIS WEEKEND ONLY
-              </div>
-              <div style={{ ...display, color: '#fff', fontSize: 'clamp(1.6rem, 5vw, 3.6rem)', marginTop: '0.4rem' }}>
-                Black<br />Friday
-              </div>
-              <span
-                className="inline-block"
-                style={{ marginTop: '0.9rem', background: GOLD, color: '#000', fontWeight: 800, fontSize: 'clamp(0.55rem, 1.1vw, 0.8rem)', padding: '0.5em 1.2em', borderRadius: 999 }}
-              >
-                SHOP THE SALE →
-              </span>
-            </div>
-            <div className="text-right">
-              <div style={{ ...display, color: GOLD, fontSize: 'clamp(2.2rem, 8vw, 6rem)' }}>50%</div>
-              <div style={{ ...display, color: '#fff', fontSize: 'clamp(0.9rem, 2.4vw, 1.8rem)' }}>Off everything</div>
-            </div>
-          </div>
+          <Image src="/black-friday/hero-desktop.webp" alt="Black Friday sneaker sale website hero banner — up to 70% off" width={1600} height={600} style={{ display: 'block', width: '100%', height: 'auto' }} />
         </BannerFrame>
       </div>
 
       {/* Instagram post */}
       <BannerFrame label="Social post" size="1080 × 1080 · Instagram / Facebook">
-        <div
-          className="flex flex-col items-center justify-center text-center"
-          style={{ aspectRatio: '1 / 1', background: GOLD, padding: '10%' }}
-        >
-          <div style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.3em', color: '#000' }}>BLACK FRIDAY</div>
-          <div style={{ ...display, color: '#000', fontSize: 'clamp(3rem, 9vw, 5rem)', margin: '0.4rem 0' }}>40%<br />Off</div>
-          <div style={{ background: '#000', color: GOLD, fontWeight: 800, fontSize: '0.72rem', padding: '0.45rem 1rem', borderRadius: 999 }}>
-            CODE: BF40
-          </div>
-        </div>
+        <Image src="/black-friday/social-post.webp" alt="Black Friday 40% off social post with code BF40" width={1000} height={1000} style={{ display: 'block', width: '100%', height: 'auto' }} />
       </BannerFrame>
 
       {/* Announcement bar */}
-      <div className="lg:col-span-3">
+      <div className="lg:col-span-2">
         <BannerFrame label="Announcement bar + countdown" size="Full width · all pages">
           <div
             className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-center"
@@ -405,66 +337,30 @@ function BannerShowcase() {
         </BannerFrame>
       </div>
 
+      {/* Columns sized so the tall story / mobile banners roughly match the email + collection stack */}
+      <div className="lg:col-span-2 grid grid-cols-1 lg:grid-cols-[1fr_0.55fr_0.66fr] gap-6">
       <div className="flex flex-col gap-6">
       {/* Email header */}
       <BannerFrame label="Email header" size="600 × 300 · Klaviyo / Mailchimp">
-        <div
-          className="flex flex-col justify-center"
-          style={{ aspectRatio: '2 / 1', padding: '8%', background: `linear-gradient(135deg, #111 0%, #2a0d0d 100%)` }}
-        >
-          <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.2em' }}>VIP EARLY ACCESS</div>
-          <div style={{ ...display, color: '#fff', fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', marginTop: '0.35rem' }}>
-            You&apos;re in <span style={{ color: GOLD }}>first.</span>
-          </div>
-          <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.75rem', marginTop: '0.5rem' }}>Shop Black Friday 24 hours before everyone else.</div>
-        </div>
+        <Image src="/black-friday/email-header.webp" alt="VIP early access Black Friday email header" width={1000} height={500} style={{ display: 'block', width: '100%', height: 'auto' }} />
       </BannerFrame>
 
       {/* Collection banner */}
       <BannerFrame label="Collection banner" size="1600 × 500 · sale collection">
-        <div
-          className="flex items-center justify-between gap-3"
-          style={{ aspectRatio: '16 / 7', padding: '6% 8%', background: `linear-gradient(90deg, ${RED} 0%, #7f1d1d 100%)` }}
-        >
-          <div>
-            <div style={{ ...display, color: '#fff', fontSize: 'clamp(1.3rem, 3.5vw, 1.9rem)' }}>Black Friday<br />Best-Sellers</div>
-            <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.72rem', marginTop: '0.4rem' }}>Free gift on orders over $150</div>
-          </div>
-          <div style={{ ...display, color: GOLD, fontSize: 'clamp(1.8rem, 5vw, 2.6rem)' }}>-30%</div>
-        </div>
+        <Image src="/black-friday/collection-banner.webp" alt="Black Friday best-sellers collection banner — 30% off headphones" width={1000} height={367} style={{ display: 'block', width: '100%', height: 'auto' }} />
       </BannerFrame>
       </div>
 
       {/* Story */}
-      <BannerFrame label="Story / Reel cover" size="1080 × 1920 · IG / TikTok">
-        <div
-          className="flex flex-col items-center justify-between text-center"
-          style={{ aspectRatio: '9 / 12', padding: '10% 8%', background: `linear-gradient(180deg, #1e1b4b 0%, #000 70%)` }}
-        >
-          <div style={{ color: '#A5B4FC', fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.3em' }}>BLACK FRIDAY</div>
-          <div style={{ ...display, color: '#fff', fontSize: 'clamp(2rem, 6vw, 3rem)' }}>
-            Last<br />Chance<br /><span style={{ color: GOLD }}>Deals</span>
-          </div>
-          <div style={{ border: '1px solid rgba(255,255,255,0.4)', color: '#fff', fontSize: '0.72rem', fontWeight: 700, padding: '0.5rem 1.1rem', borderRadius: 999 }}>
-            SWIPE UP · SHOP NOW
-          </div>
-        </div>
+      <BannerFrame label="Story / Reel cover" size="1080 × 1920 · IG / TikTok" ratio="800 / 1421">
+        <Image src="/black-friday/story.webp" alt="Black Friday last chance deals story / reel cover" fill sizes="(min-width: 1024px) 300px, 100vw" style={{ objectFit: 'cover' }} />
       </BannerFrame>
 
       {/* Mobile banner */}
-      <BannerFrame label="Mobile hero banner" size="750 × 1000 · mobile">
-        <div
-          className="flex flex-col justify-end"
-          style={{ aspectRatio: '9 / 12', padding: '10% 8%', background: `radial-gradient(circle at 50% 25%, rgba(251,191,36,0.35), transparent 50%), #070707` }}
-        >
-          <div style={{ ...display, color: GOLD, fontSize: 'clamp(2rem, 6vw, 2.8rem)' }}>Black<br />Friday</div>
-          <div style={{ ...display, color: '#fff', fontSize: '1.3rem', marginTop: '0.3rem' }}>Spend more,<br />save more</div>
-          <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.75rem', marginTop: '0.6rem' }}>$100 → 15% · $200 → 25% · $300 → 35%</div>
-          <span style={{ marginTop: '0.9rem', background: '#fff', color: '#000', fontWeight: 800, fontSize: '0.72rem', padding: '0.6rem', borderRadius: 8, textAlign: 'center' }}>
-            SHOP NOW
-          </span>
-        </div>
+      <BannerFrame label="Mobile hero banner" size="750 × 1000 · mobile" ratio="800 / 1179">
+        <Image src="/black-friday/hero-mobile.webp" alt="Black Friday spend more, save more mobile hero banner" fill sizes="(min-width: 1024px) 360px, 100vw" style={{ objectFit: 'cover' }} />
       </BannerFrame>
+      </div>
     </div>
   )
 }
@@ -514,9 +410,9 @@ export default function BlackFridaySaleSetupPage() {
                 }}
               >
                 Discounts, sale pages, <strong style={{ color: '#fff', fontWeight: 600 }}>banner design</strong>,{' '}
-                <strong style={{ color: '#fff', fontWeight: 600 }}>email campaigns written and sent</strong>, speed
-                checks and launch-day support — for Shopify, WooCommerce and any ecommerce brand. One team, one
-                fixed price, one place to reach us.
+                <strong style={{ color: '#fff', fontWeight: 600 }}>email &amp; SMS campaigns</strong>, countdown timers
+                and checkout testing — for Shopify, WooCommerce and any ecommerce brand. One team,{' '}
+                <strong style={{ color: '#fff', fontWeight: 600 }}>$150 fixed</strong>, delivered in 2 days.
               </p>
 
               <div style={{ marginBottom: '1.75rem' }}>
@@ -572,12 +468,13 @@ export default function BlackFridaySaleSetupPage() {
               <ServiceContactForm
                 service="Black Friday Sale Setup (LP)"
                 heading="Get your Black Friday sale plan"
-                subtext="Tell us your store and offer. We reply with a launch plan and a fixed-price quote — no obligation."
+                subtext="Tell us your store and offer. We reply with your launch plan — $150 fixed, delivered in 2 days."
                 urlLabel="Store URL"
                 urlPlaceholder="yourstore.com"
                 messageLabel="What do you need help with?"
                 messagePlaceholder="Example: full Black Friday setup — 30% off sitewide, banners, 6 emails in Klaviyo. Sale starts Nov 27."
                 buttonLabel="Get My Black Friday Plan"
+                fixedPrice="$150"
               />
             </div>
           </div>
@@ -594,7 +491,7 @@ export default function BlackFridaySaleSetupPage() {
               <Sparkles size={14} /> What&apos;s included
             </p>
             <h2 style={{ color: '#fff', fontSize: 'clamp(1.35rem, 3vw, 1.75rem)', marginTop: '0.5rem', marginBottom: '0.5rem', letterSpacing: '-0.01em' }}>
-              6 Black Friday essentials. One fixed price.
+              6 Black Friday essentials. One price: $150.
             </h2>
 
             {/* 3×2 on desktop, 2 columns on tablet, 1 on mobile; #2A2A2A line between rows */}
@@ -616,31 +513,12 @@ export default function BlackFridaySaleSetupPage() {
               })}
             </div>
 
-            {/* Add-ons */}
-            <div className="flex flex-wrap items-center gap-2 py-5" style={{ borderTop: '1px solid #2A2A2A' }}>
-              <span style={{ fontSize: '0.7rem', color: GOLD, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginRight: '0.35rem' }}>
-                Add-ons
-              </span>
-              {addOns.map((a) => {
-                const Icon = a.icon
-                return (
-                  <span
-                    key={a.label}
-                    className="inline-flex items-center gap-1.5 rounded-full"
-                    style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.85)', background: 'rgba(255,255,255,0.04)', border: '1px solid #2A2A2A', padding: '0.3rem 0.75rem' }}
-                  >
-                    <Icon size={13} style={{ color: GOLD }} /> {a.label}
-                  </span>
-                )
-              })}
-            </div>
-
             {/* Info strip */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pt-5" style={{ borderTop: '1px solid #2A2A2A' }}>
               <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.9rem', lineHeight: 1.6 }}>
                 <span style={{ color: GOLD, fontWeight: 700 }}>For:</span>{' '}Shopify, WooCommerce &amp; any store
                 <span style={{ color: 'rgba(255,255,255,0.3)' }}> · </span>
-                <span style={{ color: GOLD, fontWeight: 700 }}>Delivery:</span>{' '}5–7 days, rush available
+                <span style={{ color: GOLD, fontWeight: 700 }}>Delivery:</span>{' '}2 days, 1 revision
                 <span style={{ color: 'rgba(255,255,255,0.3)' }}> · </span>
                 <strong style={{ color: '#fff' }}>Book now: {timeLeftLabel(new Date())}</strong>
               </p>
@@ -888,40 +766,12 @@ export default function BlackFridaySaleSetupPage() {
         style={{ paddingTop: '5rem', paddingBottom: '5rem', background: '#070707', borderTop: '1px solid rgba(255,255,255,0.05)', scrollMarginTop: '5rem' }}
       >
         <div className="mw-container">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10">
-            <div>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center">
               <p className="mw-eyebrow" style={{ color: GOLD }}>FREQUENTLY ASKED</p>
               <h2 style={{ color: '#fff', marginBottom: '2rem' }}>Black Friday setup questions, answered</h2>
-              <FaqAccordionClient faqs={faqs} />
             </div>
-            <div>
-              <div
-                className="lg:sticky rounded-2xl"
-                style={{
-                  top: '6rem',
-                  background: 'linear-gradient(160deg, rgba(251,191,36,0.10) 0%, rgba(255,255,255,0.04) 100%)',
-                  border: '1px solid rgba(251,191,36,0.25)',
-                  padding: '1.75rem',
-                }}
-              >
-                <div
-                  className="inline-flex items-center gap-2 mb-3 px-2.5 py-1"
-                  style={{ background: 'rgba(251,191,36,0.18)', borderRadius: '999px', fontSize: '0.66rem', color: GOLD, fontWeight: 700, letterSpacing: '0.08em' }}
-                >
-                  STILL HAVE QUESTIONS?
-                </div>
-                <ServiceContactForm
-                  service="Black Friday Sale Setup (LP - FAQ sidebar)"
-                  heading="Ask us anything"
-                  subtext="Drop your store URL and question. We reply within 24 hours — usually much faster."
-                  urlLabel="Store URL"
-                  urlPlaceholder="yourstore.com"
-                  messageLabel="Your question"
-                  messagePlaceholder="Example: can you set up just the banners and emails?"
-                  buttonLabel="Send My Question"
-                />
-              </div>
-            </div>
+            <FaqAccordionClient faqs={faqs} />
           </div>
         </div>
       </section>
@@ -944,11 +794,11 @@ export default function BlackFridaySaleSetupPage() {
             Make this your biggest sales weekend yet.
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '1.05rem', maxWidth: '600px', margin: '0 auto 2rem', lineHeight: 1.75 }}>
-            Offer, pages, banners, emails and launch support — handled by one team at a fixed price. Slots fill up fast
+            Banners, sale page, discounts, emails &amp; SMS, timers and checkout — handled by one team for $150, delivered in 2 days. Slots fill up fast
             in November.
           </p>
           <div className="flex flex-wrap gap-3 justify-center" style={{ marginBottom: '2.5rem' }}>
-            <a href="#emails" className="mw-btn-primary" style={{ background: GOLD, color: '#000', borderColor: GOLD }}>
+            <a href={UPWORK_URL} target="_blank" rel="noopener noreferrer" data-upwork-cta className="mw-btn-primary bf-upwork-pulse" style={{ background: GOLD, color: '#000', borderColor: GOLD }}>
               Get My Black Friday Plan <ArrowRight size={16} />
             </a>
             <Link href="/work" className="mw-btn-outline">
