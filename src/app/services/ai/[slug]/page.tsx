@@ -66,6 +66,15 @@ export default async function AiServicePage({ params }: { params: Promise<Params
           { label: 'AI Services', href: '/services/ai' },
           { label: data.h1 },
         ]}
+        primaryCta={{ label: 'Book a 15-min call', href: '/book' }}
+        secondaryCta={{ label: 'Send a written brief', href: '#get-quote' }}
+        midCta={{
+          heading: 'Not sure it is worth automating yet?',
+          sub: 'Walk us through the workflow on a 15-minute call. We will tell you honestly whether AI helps, and what a first version would cost.',
+          btnLabel: 'Book a 15-min call',
+          btnHref: '/book',
+          secondary: { label: 'or send a written brief', href: '#get-quote' },
+        }}
       />
     </>
   )

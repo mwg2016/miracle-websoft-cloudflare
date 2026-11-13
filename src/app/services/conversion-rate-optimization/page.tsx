@@ -151,9 +151,7 @@ export default function ConversionRateOptimizationPage() {
           { label: 'Services', href: '/services' },
           { label: 'Conversion Rate Optimization' },
         ]}
-        primaryCtaLabel="Get Free CRO Review"
-        secondaryCtaLabel="View CRO & Speed Page"
-        secondaryCtaHref="/services/shopify-cro-speed"
+        deliverablesIntro="Every recommendation comes from your own analytics and session recordings, ranked by likely revenue impact, and we implement it rather than handing over a slide deck."
         urlLabel="Store URL"
         urlPlaceholder="yourstore.com or yourstore.myshopify.com"
         messageLabel="What conversion problem should we review?"

@@ -25,12 +25,12 @@ const verticals: Vertical[] = [
 
 export default function IndustryGrid() {
   return (
-    <section className="mw-section" style={{ background: '#0a0a0a' }}>
+    <section className="mw-section" style={{ background: 'var(--bg)' }}>
       <div className="mw-container">
         <div className="mw-section-header">
           <span className="mw-eyebrow">Industries We Serve</span>
-          <h2 style={{ color: '#fff' }}>Shopify experts across<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>every ecommerce vertical.</em></h2>
-          <p style={{ color: 'rgba(255,255,255,0.6)', marginTop: '1rem', fontSize: '0.95rem', fontWeight: 300, maxWidth: '640px' }}>
+          <h2 style={{ color: 'var(--text-1)' }}>Shopify experts across<br /><em style={{ fontStyle: 'italic', color: 'rgb(var(--ink-rgb) / 0.5)' }}>every ecommerce vertical.</em></h2>
+          <p style={{ color: 'rgb(var(--ink-rgb) / 0.6)', marginTop: '1rem', fontSize: '0.95rem', fontWeight: 300, maxWidth: '640px' }}>
             10+ years building Shopify and Shopify Plus stores across fashion, beauty, health, home, food, electronics, B2B and subscription. Deep niche expertise where it matters — full coverage where you need it.
           </p>
         </div>
@@ -46,19 +46,19 @@ export default function IndustryGrid() {
                 style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', minHeight: '180px' }}
               >
                 <div className="flex items-start justify-between mb-4">
-                  <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(108,99,255,0.12)', border: '1px solid rgba(108,99,255,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgb(224 79 37 / 0.12)', border: '1px solid rgb(224 79 37 / 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Icon size={20} style={{ color: 'var(--accent)' }} />
                   </div>
-                  <ArrowUpRight size={16} style={{ color: 'rgba(255,255,255,0.2)', transition: 'all 0.2s' }} className="group-hover:text-white" />
+                  <ArrowUpRight size={16} style={{ color: 'rgb(var(--ink-rgb) / 0.2)', transition: 'all 0.2s' }} className="group-hover:text-[var(--text-1)]" />
                 </div>
-                <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#fff', marginBottom: '0.5rem', lineHeight: 1.3 }}>{v.title}</h3>
-                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, fontWeight: 300 }}>{v.desc}</p>
+                <h3 style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-1)', marginBottom: '0.5rem', lineHeight: 1.3 }}>{v.title}</h3>
+                <p style={{ fontSize: '0.82rem', color: 'rgb(var(--ink-rgb) / 0.5)', lineHeight: 1.7, fontWeight: 300 }}>{v.desc}</p>
               </Link>
             )
           })}
         </div>
 
-        <p style={{ textAlign: 'center', marginTop: '2.5rem', color: 'rgba(255,255,255,0.6)', fontSize: '0.875rem' }}>
+        <p style={{ textAlign: 'center', marginTop: '2.5rem', color: 'rgb(var(--ink-rgb) / 0.6)', fontSize: '0.875rem' }}>
           Not sure which fits? <Link href="/contact" style={{ color: 'var(--accent)', fontWeight: 500 }}>Tell us about your store →</Link>
         </p>
       </div>

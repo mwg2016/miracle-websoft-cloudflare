@@ -21,8 +21,8 @@ export default function LogoMarquee() {
     <section
       style={{
         background: 'var(--bg-deep)',
-        borderTop: '1px solid rgba(255,255,255,0.05)',
-        borderBottom: '1px solid rgba(255,255,255,0.05)',
+        borderTop: '1px solid rgb(var(--ink-rgb) / 0.05)',
+        borderBottom: '1px solid rgb(var(--ink-rgb) / 0.05)',
         paddingTop: '2rem',
         paddingBottom: '2rem',
         position: 'relative',

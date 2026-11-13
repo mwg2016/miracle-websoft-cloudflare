@@ -18,46 +18,34 @@ export default function ReferralCalculator() {
   const pct = ((value - 500) / (25000 - 500)) * 100
 
   return (
-    <div style={{
-      background: 'linear-gradient(145deg, rgba(108,99,255,0.08) 0%, rgba(16,185,129,0.04) 100%)',
-      border: '1px solid rgba(108,99,255,0.2)',
-      borderRadius: 24,
-      padding: '2.5rem 2rem',
-      maxWidth: 560,
-      margin: '0 auto',
-    }}>
-      <p style={{ margin: '0 0 1.5rem', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(108,99,255,0.7)', textAlign: 'center' }}>
-        Earnings Calculator
-      </p>
+    <div className="audit-form-card">
+      <p className="mw-num" style={{ marginBottom: '1.5rem' }}>EARNINGS CALCULATOR</p>
 
-      {/* Commission display */}
-      <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-        <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', marginBottom: '0.35rem' }}>
-          On a <span style={{ color: 'rgba(255,255,255,0.7)', fontWeight: 600 }}>${fmt(value)}</span> project, you earn
+      <div style={{ paddingBottom: '1.5rem', marginBottom: '1.75rem', borderBottom: '1px solid var(--border)' }}>
+        <div style={{ fontSize: '0.95rem', color: 'var(--text-2)', marginBottom: '0.5rem' }}>
+          On a <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>${fmt(value)}</strong> project, you earn
         </div>
         <div style={{
           fontFamily: 'var(--font-playfair), Georgia, serif',
-          fontSize: 'clamp(2.8rem, 8vw, 4rem)',
-          fontWeight: 700,
-          color: '#10B981',
+          fontSize: 'clamp(3rem, 8vw, 4.5rem)',
+          fontWeight: 400,
+          letterSpacing: '-0.03em',
+          color: 'var(--forest)',
           lineHeight: 1,
-          marginBottom: '0.3rem',
-        }}>
+        }} aria-live="polite">
           ${fmt(commission)}
         </div>
-        <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>20% commission · paid after client invoice clears</div>
+        <div style={{ fontSize: '0.85rem', color: 'var(--text-3)', marginTop: '0.5rem' }}>20% commission, paid after the client invoice clears</div>
       </div>
 
-      {/* Slider */}
       <div style={{ marginBottom: '1.5rem' }}>
-        <div style={{ position: 'relative', paddingBottom: '0.5rem' }}>
+        <div style={{ position: 'relative', height: 24, display: 'flex', alignItems: 'center' }}>
           <div style={{
             position: 'absolute', top: '50%', left: 0, right: 0,
-            height: 4, borderRadius: 9999,
-            background: `linear-gradient(to right, #6C63FF ${pct}%, rgba(255,255,255,0.1) ${pct}%)`,
+            height: 2,
+            background: `linear-gradient(to right, var(--text-1) ${pct}%, var(--border-hover) ${pct}%)`,
             transform: 'translateY(-50%)',
             pointerEvents: 'none',
-            zIndex: 0,
           }} />
           <input
             type="range"
@@ -65,65 +53,70 @@ export default function ReferralCalculator() {
             max={25000}
             step={500}
             value={value}
+            aria-label="Project value in US dollars"
             onChange={e => setValue(Number(e.target.value))}
+            className="ref-range"
             style={{
               width: '100%',
               WebkitAppearance: 'none',
               appearance: 'none',
-              height: 4,
+              height: 24,
               background: 'transparent',
-              outline: 'none',
               cursor: 'pointer',
               position: 'relative',
-              zIndex: 1,
+              margin: 0,
             }}
           />
         </div>
         <style>{`
-          input[type='range']::-webkit-slider-thumb {
+          .ref-range::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 22px; height: 22px;
+            width: 20px; height: 20px;
             border-radius: 50%;
-            background: #6C63FF;
-            border: 3px solid #fff;
-            box-shadow: 0 0 0 3px rgba(108,99,255,0.3), 0 4px 12px rgba(108,99,255,0.4);
+            background: var(--accent);
+            border: 3px solid var(--bg-raised);
+            box-shadow: 0 0 0 1px var(--accent);
             cursor: pointer;
           }
-          input[type='range']::-moz-range-thumb {
-            width: 22px; height: 22px;
+          .ref-range::-moz-range-thumb {
+            width: 20px; height: 20px;
             border-radius: 50%;
-            background: #6C63FF;
-            border: 3px solid #fff;
-            box-shadow: 0 0 0 3px rgba(108,99,255,0.3);
+            background: var(--accent);
+            border: 3px solid var(--bg-raised);
+            box-shadow: 0 0 0 1px var(--accent);
             cursor: pointer;
           }
         `}</style>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '0.5rem' }}>
-          <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.25)' }}>$500</span>
-          <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.25)' }}>$25,000+</span>
+        <div className="mw-num" style={{ display: 'flex', justifyContent: 'space-between', marginTop: '0.4rem' }}>
+          <span>$500</span>
+          <span>$25,000+</span>
         </div>
       </div>
 
-      {/* Preset buttons */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem' }}>
-        {PRESETS.map(p => (
-          <button
-            key={p.value}
-            onClick={() => setValue(p.value)}
-            style={{
-              padding: '0.5rem 0.25rem',
-              borderRadius: 10,
-              border: `1px solid ${value === p.value ? 'rgba(108,99,255,0.5)' : 'rgba(255,255,255,0.08)'}`,
-              background: value === p.value ? 'rgba(108,99,255,0.15)' : 'rgba(255,255,255,0.03)',
-              color: value === p.value ? 'rgba(180,175,255,0.9)' : 'rgba(255,255,255,0.35)',
-              fontSize: '0.72rem', fontWeight: 600,
-              cursor: 'pointer',
-              transition: 'all 0.15s',
-            }}
-          >
-            {p.label}
-          </button>
-        ))}
+      <div className="grid grid-cols-2 sm:grid-cols-4" style={{ gap: '0.5rem' }}>
+        {PRESETS.map(p => {
+          const active = value === p.value
+          return (
+            <button
+              key={p.value}
+              type="button"
+              onClick={() => setValue(p.value)}
+              aria-pressed={active}
+              style={{
+                padding: '0.6rem 0.25rem',
+                borderRadius: 6,
+                border: `1px solid ${active ? 'var(--text-1)' : 'var(--border-hover)'}`,
+                background: active ? 'var(--text-1)' : 'transparent',
+                color: active ? 'var(--bg)' : 'var(--text-2)',
+                fontSize: '0.8rem', fontWeight: 500,
+                cursor: 'pointer',
+                transition: 'background 0.15s, color 0.15s, border-color 0.15s',
+              }}
+            >
+              {p.label}
+            </button>
+          )
+        })}
       </div>
     </div>
   )

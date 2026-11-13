@@ -1,9 +1,10 @@
 import type { MetadataRoute } from 'next'
-import { jobs } from '@/data/jobs'
-import { cities, countries, type CountryCode } from '@/data/website-dev-cities'
+import { jobs, isIndexableJob } from '@/data/jobs'
+import { countries, type CountryCode } from '@/data/website-dev-cities'
 import { partners } from '@/data/partners'
 import { industries } from '@/data/industries'
 import { blogPosts } from '@/data/blogPosts'
+import { blogDateToIso } from '@/lib/blog-date'
 import shopifyServices from '@/data/shopify-services'
 import { aiServices } from '@/data/ai-services'
 
@@ -17,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Tier 1: Homepage & highest-intent pages ──────────────────────────────
     { url: BASE,                                                          priority: 1.0, changeFrequency: 'weekly'  as const },
     { url: `${BASE}/contact`,                                             priority: 0.95, changeFrequency: 'monthly' as const },
+    { url: `${BASE}/free-store-audit`,                                    priority: 0.95, changeFrequency: 'monthly' as const },
+    { url: `${BASE}/book`,                                                priority: 0.8,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/pricing`,                                             priority: 0.95, changeFrequency: 'monthly' as const },
     { url: `${BASE}/case-studies`,                                        priority: 0.9,  changeFrequency: 'weekly'  as const },
     { url: `${BASE}/services`,                                            priority: 0.9,  changeFrequency: 'monthly' as const },
@@ -39,12 +42,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/resources`,                                           priority: 0.8,  changeFrequency: 'weekly'  as const },
     { url: `${BASE}/blog`,                                                priority: 0.8,  changeFrequency: 'weekly'  as const },
     { url: `${BASE}/careers`,                                             priority: 0.6,  changeFrequency: 'monthly' as const },
-    { url: `${BASE}/tools`,                                               priority: 0.7,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/tools/pc-builder`,                                    priority: 0.65, changeFrequency: 'monthly' as const },
+    { url: `${BASE}/tools`,                                               priority: 0.7,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/website-development`,                                 priority: 0.9,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/industries`,                                          priority: 0.85, changeFrequency: 'monthly' as const },
     { url: `${BASE}/partners`,                                            priority: 0.85, changeFrequency: 'monthly' as const },
-    { url: `${BASE}/lp/shopify-cro`,                                      priority: 0.7,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/black-friday-sale-setup`,                             priority: 0.85, changeFrequency: 'weekly'  as const },
 
     // ── Partner pages (new) ──────────────────────────────────────────────────
@@ -85,10 +87,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE}/blog/${post.slug}`,
     priority: 0.65,
     changeFrequency: 'yearly' as const,
-    lastModified: LAST_MODIFIED,
+    lastModified: new Date(blogDateToIso(post.date)),
   }))
 
-  const workPages: MetadataRoute.Sitemap = jobs.map(job => ({
+  const workPages: MetadataRoute.Sitemap = jobs.filter(isIndexableJob).map(job => ({
     url: `${BASE}/work/${job.id}`,
     priority: 0.60,
     changeFrequency: 'yearly' as const,
@@ -107,12 +109,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: LAST_MODIFIED,
   }))
 
-  const webdevCityPages: MetadataRoute.Sitemap = cities.map((c) => ({
-    url: `${BASE}/website-development/${c.country}/${c.slug}`,
-    priority: 0.65,
-    changeFrequency: 'monthly' as const,
-    lastModified: LAST_MODIFIED,
-  }))
 
   const partnerPages: MetadataRoute.Sitemap = partners.map((p) => ({
     url: `${BASE}/partners/${p.slug}`,
@@ -130,7 +126,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...workIndex,
     ...workPages,
     ...webdevCountryPages,
-    ...webdevCityPages,
     ...partnerPages,
   ]
 }

@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server'
+import { NextRequest, after } from 'next/server'
 import { sendEmail } from '@/lib/email'
 import { appendLead } from '@/lib/admin/store'
 import { parseClientOrigin } from '@/lib/admin/origin'
@@ -101,7 +101,6 @@ export async function POST(req: NextRequest) {
 
     await Promise.all([
       sendEmail(buildNotification(data)),
-      sendEmail(buildConfirmation(referrerName, referrerEmail)),
       appendLead({
         form: 'referral',
         ip: clientIp(req),
@@ -110,6 +109,10 @@ export async function POST(req: NextRequest) {
         payload: data,
       }).catch(err => console.error('[referral] appendLead', err)),
     ])
+
+    // The visitor's confirmation is a courtesy: send it after responding so a
+    // rejected address (typo, bounce) never turns a delivered lead into an error.
+    after(() => sendEmail(buildConfirmation(referrerName, referrerEmail)).catch(err => console.error('[referral] confirmation', err)))
 
     return Response.json({ success: true })
   } catch (err) {

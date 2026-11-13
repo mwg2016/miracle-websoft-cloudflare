@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import {
-  Cpu, ShoppingCart, Sparkles, BarChart2,
-  Shield, Smartphone, Palette, Zap,
-  ArrowRight, ExternalLink, CheckCircle2,
-} from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { breadcrumb, renderJsonLd, softwareApplication } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
 
@@ -24,42 +20,34 @@ export const metadata: Metadata = {
 
 const features = [
   {
-    icon: Shield,
     title: 'Compatibility Engine',
     desc: 'Real-time part validation across CPU socket, RAM speed, power draw and form factor. Customers can only build PCs that actually work — eliminating returns and support tickets.',
   },
   {
-    icon: ShoppingCart,
     title: 'Bundle Checkout',
     desc: 'The full PC build — every component — gets added to cart in a single click. No friction, no missed items. Customers go from configurator to checkout instantly.',
   },
   {
-    icon: Sparkles,
     title: 'AI-Powered Fill',
     desc: 'Auto-populate component data, specifications and compatibility notes using AI. Save hours of manual product setup and keep your catalogue accurate.',
   },
   {
-    icon: BarChart2,
     title: 'Order Analytics',
     desc: 'Track builds created, configurations saved, conversion rates and average order value per widget. Know exactly how the configurator is impacting your revenue.',
   },
   {
-    icon: Zap,
     title: 'Lightning Fast',
     desc: 'Lazy-loaded widget with zero performance impact on your store. Your Shopify speed scores stay intact while your customers get a rich interactive experience.',
   },
   {
-    icon: Palette,
     title: 'Deep Customisation',
     desc: 'Configure colours, layout, step names and widget behaviour to match your brand. Drop it into any Shopify page as a native section block — no developer needed.',
   },
   {
-    icon: Smartphone,
     title: 'Mobile Optimised',
     desc: 'Fully responsive design across all devices. Customers can configure and buy a full PC build from their phone just as easily as from a desktop.',
   },
   {
-    icon: Cpu,
     title: 'Theme Embedding',
     desc: 'Embed the builder into any Shopify page as a section block using the native theme editor. Works with every Shopify theme — no code required.',
   },
@@ -89,236 +77,128 @@ const jsonLd = renderJsonLd([
   ]),
 ])
 
+const whyPoints = [
+  'Real-time compatibility stops incompatible builds before checkout',
+  'One-click bundle add-to-cart removes multi-product friction',
+  'AI fills component data so setup takes minutes, not days',
+  '40% higher average order value reported by stores using the app',
+  'Lazy-loaded widget, so page speed is unaffected',
+]
+
+const useCases = [
+  'PC parts & electronics Shopify stores',
+  'Custom PC build services selling online',
+  'Computer hardware retailers on Shopify',
+  'Gaming gear stores with build bundles',
+]
+
 export default function PcBuilderPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
+
       {/* Hero */}
-      <section
-        className="pt-32 pb-20"
-        style={{
-          background: '#0a0a0a',
-          backgroundImage: 'radial-gradient(ellipse at 60% 40%, rgba(56,189,248,0.15) 0%, transparent 55%), radial-gradient(ellipse at 20% 80%, rgba(2,132,199,0.07) 0%, transparent 50%)',
-        }}
-      >
+      <section style={{ paddingTop: 'clamp(8rem, 12vw, 9.5rem)', paddingBottom: '4rem' }}>
         <div className="mw-container">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-            <Link href="/tools" style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontWeight: 500 }}>
-              Tools
-            </Link>
-            <span style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.8rem' }}>/</span>
-            <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', fontWeight: 500 }}>Miracle PC Builder</span>
-          </div>
-
-          <span className="mw-eyebrow">SHOPIFY APP</span>
-          <h1 className="text-white mb-5" style={{ maxWidth: '700px' }}>
-            Let customers build<br />
-            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>their perfect PC.</em>
-          </h1>
-          <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.1rem', lineHeight: 1.75, maxWidth: '540px', marginBottom: '2.5rem' }}>
-            Interactive PC configurator for Shopify stores. Real-time compatibility validation,
-            AI-powered component fill and bundle checkout — live in 15 minutes, no developer needed.
-          </p>
-
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <Link
-              href={PC_BUILDER_OUTBOUND}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mw-btn-primary"
-            >
-              Install on Shopify <ExternalLink size={15} />
-            </Link>
-            <Link
-              href={outboundHref('external', 'https://pcbuilderapp.com/')}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-                border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.65)',
-                padding: '0.65rem 1.4rem', borderRadius: '8px', fontWeight: 500,
-                fontSize: '0.9rem', textDecoration: 'none',
-              }}
-            >
-              View website
-            </Link>
-          </div>
-
-          <p style={{ marginTop: '1.25rem', fontSize: '0.78rem', color: 'rgba(255,255,255,0.25)' }}>
-            14-day free trial · No credit card required · Shopify Certified
-          </p>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section style={{ background: '#111', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="mw-container">
-          <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: 0 }}>
-            {stats.map((s, i) => (
-              <div key={i} style={{
-                padding: '1.75rem 1.5rem', textAlign: 'center',
-                borderRight: i < 3 ? '1px solid rgba(255,255,255,0.06)' : undefined,
-              }}>
-                <div style={{ fontSize: '2rem', fontWeight: 800, color: '#fff', lineHeight: 1 }}>
-                  {s.value}
-                </div>
-                <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.35rem', fontWeight: 500 }}>{s.label}</div>
+          <nav aria-label="Breadcrumb" className="mw-num" style={{ marginBottom: '1.75rem' }}>
+            <Link href="/tools" style={{ color: 'var(--text-3)' }}>Tools</Link>
+            <span style={{ margin: '0 0.5rem' }}>/</span>
+            <span style={{ color: 'var(--text-2)' }}>Miracle PC Builder</span>
+          </nav>
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-end">
+            <div>
+              <p className="mw-eyebrow">Shopify app · by Miracle Websoft</p>
+              <h1 className="mw-hero-title" style={{ fontSize: 'clamp(38px, 5vw, 64px)', maxWidth: '14ch' }}>
+                Let customers build <span className="mw-mark">their own PC</span> on your store.
+              </h1>
+              <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '48ch' }}>
+                An interactive PC configurator for Shopify. Real-time compatibility checks, AI-assisted component data and one-click bundle checkout, live in about 15 minutes with no developer.
+              </p>
+              <div className="flex flex-wrap gap-3" style={{ marginTop: '2rem' }}>
+                <Link href={PC_BUILDER_OUTBOUND} target="_blank" rel="noopener noreferrer" className="mw-btn-accent">
+                  Install on Shopify <ArrowUpRight size={16} />
+                </Link>
+                <Link href={outboundHref('external', 'https://pcbuilderapp.com/')} target="_blank" rel="noopener noreferrer" className="mw-btn-outline">
+                  View pcbuilderapp.com
+                </Link>
               </div>
-            ))}
+              <p className="mw-num" style={{ marginTop: '1.25rem', color: 'var(--text-3)' }}>
+                $9.99/mo · 14-day free trial · No credit card required
+              </p>
+            </div>
+            <dl className="audit-facts" style={{ gridTemplateColumns: 'repeat(2, 1fr)', marginTop: 0 }}>
+              {stats.map((s, i) => (
+                <div key={s.label} style={i === 2 ? { paddingLeft: 0, borderLeft: 0, borderTop: '1px solid var(--border)' } : i === 3 ? { borderTop: '1px solid var(--border)' } : undefined}>
+                  <dt>{s.label}</dt>
+                  <dd>{s.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="mw-section" style={{ background: '#0a0a0a' }}>
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="mw-container">
-          <div className="mw-section-header">
-            <span className="mw-eyebrow">FEATURES</span>
-            <h2 style={{ color: '#fff' }}>Everything your store needs<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>to sell PCs at scale.</em></h2>
-            <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '480px', margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
-              Built specifically for Shopify stores selling PC parts and electronics. No workarounds, no duct tape.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {features.map((f) => (
-              <div
-                key={f.title}
-                style={{
-                  background: 'rgba(56,189,248,0.03)',
-                  border: '1px solid rgba(56,189,248,0.12)',
-                  borderRadius: '14px',
-                  padding: '1.75rem',
-                }}
-              >
-                <div style={{
-                  width: 40, height: 40, borderRadius: '10px',
-                  background: 'rgba(56,189,248,0.1)', border: '1px solid rgba(56,189,248,0.2)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  marginBottom: '1rem',
-                }}>
-                  <f.icon size={18} style={{ color: '#38bdf8' }} />
-                </div>
-                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '0.5rem' }}>
-                  {f.title}
-                </h3>
-                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.65, margin: 0 }}>
-                  {f.desc}
-                </p>
-              </div>
+          <p className="mw-eyebrow">Features</p>
+          <h2 style={{ maxWidth: '18ch', marginBottom: '1rem' }}>Everything a store needs to sell complete builds.</h2>
+          <p style={{ maxWidth: '52ch', marginBottom: '3rem' }}>
+            Built specifically for Shopify stores selling PC parts and electronics.
+          </p>
+          <ol className="grid sm:grid-cols-2 lg:grid-cols-4" style={{ borderTop: '1px solid var(--text-1)' }}>
+            {features.map((f, i) => (
+              <li key={f.title} style={{ padding: '1.5rem 1.5rem 1.75rem 0', borderBottom: '1px solid var(--border)' }}>
+                <span className="mw-num">{String(i + 1).padStart(2, '0')}</span>
+                <h3 style={{ margin: '0.9rem 0 0.5rem' }}>{f.title}</h3>
+                <p style={{ fontSize: '0.92rem' }}>{f.desc}</p>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
       {/* Why it works */}
-      <section className="mw-section" style={{ background: '#0d0d0d' }}>
-        <div className="mw-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="mw-eyebrow">WHY IT WORKS</span>
-              <h2 style={{ color: '#fff', marginBottom: '1.5rem' }}>
-                Built for stores that sell<br />
-                <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>complete PC builds.</em>
-              </h2>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '2rem' }}>
-                Selling individual components is easy. Selling complete builds is hard — customers need
-                to know parts are compatible, and adding 8–12 products to a cart is friction that kills conversions.
-                Miracle PC Builder solves both problems in one widget.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
-                {[
-                  'Real-time compatibility stops incompatible builds before checkout',
-                  'One-click bundle add-to-cart eliminates multi-product friction',
-                  'AI fills component data so setup takes minutes, not days',
-                  '40% higher average order value reported by stores using the app',
-                  'Zero impact on page speed — lazy-loaded widget architecture',
-                ].map((point) => (
-                  <div key={point} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
-                    <CheckCircle2 size={15} style={{ color: '#38bdf8', flexShrink: 0, marginTop: '2px' }} />
-                    <span style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>{point}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+      <section className="mw-section" style={{ background: 'var(--bg-deep)' }}>
+        <div className="mw-container grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-start">
+          <div>
+            <p className="mw-eyebrow">Why it works</p>
+            <h2 style={{ maxWidth: '16ch', marginBottom: '1.5rem' }}>Built for stores that sell complete PC builds.</h2>
+            <p style={{ fontSize: '1.02rem', maxWidth: '52ch' }}>
+              Selling individual components is easy. Selling complete builds is hard: customers need to know the parts are compatible, and adding 8–12 products to a cart is friction that kills conversions. Miracle PC Builder solves both in one widget.
+            </p>
+            <ul className="offer-list">
+              {whyPoints.map((pt) => <li key={pt}>{pt}</li>)}
+            </ul>
+          </div>
 
-            <div style={{
-              background: 'rgba(56,189,248,0.04)',
-              border: '1px solid rgba(56,189,248,0.15)',
-              borderRadius: '20px',
-              padding: '2.5rem',
-            }}>
-              <div style={{ height: '3px', background: 'linear-gradient(90deg, #0284c7, #38bdf8)', borderRadius: '2px', marginBottom: '2rem' }} />
-              <div style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#38bdf8', marginBottom: '1rem' }}>
-                Perfect for
-              </div>
-              {[
-                'PC parts & electronics Shopify stores',
-                'Custom PC build services selling online',
-                'Computer hardware retailers on Shopify',
-                'Gaming gear stores with build bundles',
-              ].map((use) => (
-                <div key={use} style={{
-                  display: 'flex', alignItems: 'center', gap: '0.6rem',
-                  padding: '0.85rem 0',
-                  borderBottom: '1px solid rgba(255,255,255,0.05)',
-                }}>
-                  <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#38bdf8', flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.65)' }}>{use}</span>
-                </div>
+          <div className="mw-card" style={{ padding: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
+            <p className="mw-num" style={{ textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>Made for</p>
+            <ul>
+              {useCases.map((u) => (
+                <li key={u} style={{ padding: '0.85rem 0', borderBottom: '1px solid var(--border)', color: 'var(--text-1)' }}>{u}</li>
               ))}
-              <div style={{ marginTop: '2rem' }}>
-                <Link
-                  href={PC_BUILDER_OUTBOUND}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
-                    background: '#38bdf8', color: '#000',
-                    padding: '0.8rem 1.5rem', borderRadius: '10px',
-                    fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none',
-                  }}
-                >
-                  Install on Shopify — Free Trial <ArrowRight size={15} />
-                </Link>
-                <p style={{ textAlign: 'center', marginTop: '0.75rem', fontSize: '0.72rem', color: 'rgba(255,255,255,0.25)' }}>
-                  14-day free trial · No credit card required
-                </p>
-              </div>
-            </div>
+            </ul>
+            <Link href={PC_BUILDER_OUTBOUND} target="_blank" rel="noopener noreferrer" className="mw-btn-accent" style={{ width: '100%', marginTop: '1.75rem' }}>
+              Start the 14-day free trial <ArrowUpRight size={16} />
+            </Link>
+            <p className="mw-num" style={{ textAlign: 'center', marginTop: '0.75rem', color: 'var(--text-3)' }}>No credit card required</p>
           </div>
         </div>
       </section>
 
       {/* Built by MW */}
-      <section style={{ background: '#0a0a0a', padding: '5rem 0', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="mw-container" style={{ textAlign: 'center' }}>
-          <span className="mw-eyebrow">BUILT BY MIRACLE WEBSOFT</span>
-          <h2 style={{ color: '#fff', marginBottom: '1rem' }}>
-            We build Shopify apps.<br />
-            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>And everything around them.</em>
-          </h2>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: '480px', margin: '0 auto 2.5rem' }}>
-            Miracle PC Builder is one of several tools we&apos;ve built and shipped. We&apos;re a Shopify development agency
-            with 10+ years of experience — we build apps, stores, and custom tools for Shopify merchants.
-          </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link
-              href={PC_BUILDER_OUTBOUND}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mw-btn-primary"
-            >
-              Install Miracle PC Builder <ExternalLink size={15} />
-            </Link>
-            <Link href="/contact" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-              border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.65)',
-              padding: '0.65rem 1.4rem', borderRadius: '8px', fontWeight: 500,
-              fontSize: '0.9rem', textDecoration: 'none',
-            }}>
-              Talk to us about your store
-            </Link>
+      <section style={{ padding: 'clamp(3.5rem, 6vw, 5rem) 0' }}>
+        <div className="mw-container flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div>
+            <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', maxWidth: '20ch' }}>We build Shopify apps, and the stores around them.</h2>
+            <p style={{ marginTop: '1rem', maxWidth: '52ch' }}>
+              PC Builder is one of several tools we&apos;ve shipped. Since 2015 we&apos;ve built apps, stores and custom tools for Shopify merchants.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3 shrink-0">
+            <Link href="/services/shopify-app-development" className="mw-btn-primary">Talk to us about an app</Link>
+            <Link href="/tools" className="mw-btn-outline">All our tools</Link>
           </div>
         </div>
       </section>

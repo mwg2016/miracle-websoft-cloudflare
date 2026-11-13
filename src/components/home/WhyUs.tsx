@@ -1,106 +1,69 @@
-import { Target, Zap, TrendingUp, ShieldCheck, Users, Sparkles } from 'lucide-react'
-
 const reasons = [
-  { icon: Target,      title: 'Business-first technical judgment', body: 'You get recommendations tied to revenue, operations and customer experience, not isolated development tasks.' },
-  { icon: Zap,         title: 'Performance tied to outcomes',      body: 'We treat load time, Core Web Vitals and app bloat as sales and SEO problems, not cosmetic technical scores.' },
-  { icon: TrendingUp,  title: 'Conversion-first decisions', body: 'Every layout, feature, automation and workflow improvement is judged by whether it helps customers understand, trust or buy.' },
-  { icon: ShieldCheck, title: 'Careful implementation planning', body: 'Store launches, migrations, APIs and AI automations are mapped before build so data, tracking and operations stay controlled.' },
-  { icon: Users,       title: 'Direct communication',       body: 'You work with the people responsible for the outcome. Clear updates, practical recommendations and no account-manager handoffs.' },
-  { icon: Sparkles,    title: 'Long-term technology partner',    body: 'After launch, we can keep improving Shopify, CRO, speed, AI workflows and custom software as the business grows.' },
+  { title: 'Business-first technical judgment', body: 'You get recommendations tied to revenue, operations and customer experience, not isolated development tasks.' },
+  { title: 'Performance tied to outcomes', body: 'We treat load time, Core Web Vitals and app bloat as sales and SEO problems, not cosmetic technical scores.' },
+  { title: 'Conversion-first decisions', body: 'Every layout, feature, automation and workflow improvement is judged by whether it helps customers understand, trust or buy.' },
+  { title: 'Careful implementation planning', body: 'Store launches, migrations, APIs and AI automations are mapped before build so data, tracking and operations stay controlled.' },
+  { title: 'Direct communication', body: 'You work with the people responsible for the outcome. Clear updates, practical recommendations and no account-manager handoffs.' },
+  { title: 'Long-term technology partner', body: 'After launch, we can keep improving Shopify, CRO, speed, AI workflows and custom software as the business grows.' },
 ]
 
 const stats = [
-  { value: '650+', label: 'Projects completed across ecommerce, web and automation' },
-  { value: '15k+', label: 'Hours delivered for global clients' },
-  { value: '10+',  label: 'Years of Shopify and web development experience' },
-  { value: '24h',  label: 'Typical response time for new enquiries' },
+  { value: '650+', label: 'Projects completed' },
+  { value: '15k+', label: 'Hours delivered' },
+  { value: '2015', label: 'Building since' },
+  { value: '4.9', label: 'Rating on Clutch' },
 ]
 
 export default function WhyUs() {
   return (
-    <section
-      className="mw-section relative mw-noise"
-      style={{
-        background: '#080808',
-        backgroundImage: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(108,99,255,0.08) 0%, transparent 70%)',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-      }}
-    >
-      <div className="mw-container relative" style={{ zIndex: 1 }}>
-        <div className="mw-section-header">
-          <span className="mw-eyebrow">Why Miracle Websoft</span>
-          <h2 style={{ color: '#fff' }}>
-            A technical team that<br />
-            <span className="mw-italic mw-italic--accent">thinks like a growth partner.</span>
-          </h2>
+    <section className="mw-section" style={{ background: 'var(--bg-deep)' }}>
+      <div className="mw-container">
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-end" style={{ marginBottom: '3.5rem' }}>
+          <div>
+            <p className="mw-eyebrow">Why Miracle Websoft</p>
+            <h2 style={{ maxWidth: '16ch' }}>A technical team that thinks like a growth partner.</h2>
+          </div>
+          <dl className="whyus-stats">
+            {stats.map(s => (
+              <div key={s.label}>
+                <dt>{s.label}</dt>
+                <dd>{s.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
 
-        {/* Big stats band */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
-            gap: 0,
-            border: '1px solid rgba(255,255,255,0.08)',
-            borderRadius: '16px',
-            overflow: 'hidden',
-            marginBottom: '4rem',
-            background: 'rgba(255,255,255,0.015)',
-          }}
-          className="whyus-stats"
-        >
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              style={{
-                padding: '2.25rem 1.5rem',
-                borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
-              }}
-            >
-              <div style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: 'clamp(2.4rem, 4.5vw, 3.6rem)', fontWeight: 500, color: '#fff', lineHeight: 1, letterSpacing: '-0.025em', marginBottom: '0.5rem' }}>
-                {s.value}
+        <ol className="whyus-list">
+          {reasons.map((r, i) => (
+            <li key={r.title}>
+              <span className="mw-num">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{r.title}</h3>
+                <p>{r.body}</p>
               </div>
-              <p style={{ fontSize: '0.78rem', color: 'var(--text-3)', lineHeight: 1.5, fontFamily: 'var(--font-geist-mono), monospace', letterSpacing: '0.04em' }}>
-                {s.label}
-              </p>
-            </div>
+            </li>
           ))}
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {reasons.map((r, i) => {
-            const Icon = r.icon
-            return (
-              <div key={i} className="mw-card" style={{ padding: '2rem', position: 'relative' }}>
-                <span style={{ position: 'absolute', top: '1.25rem', right: '1.5rem', fontFamily: 'var(--font-geist-mono), monospace', fontSize: '0.7rem', color: 'var(--text-4)', letterSpacing: '0.08em' }}>
-                  0{i + 1}
-                </span>
-                <div style={{ width: '44px', height: '44px', borderRadius: '11px', background: 'rgba(108,99,255,0.12)', border: '1px solid rgba(108,99,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                  <Icon size={20} style={{ color: 'var(--accent)' }} />
-                </div>
-                <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#fff', marginBottom: '0.6rem', letterSpacing: '-0.01em' }}>{r.title}</h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-3)', lineHeight: 1.65 }}>{r.body}</p>
-              </div>
-            )
-          })}
-        </div>
+        </ol>
       </div>
 
       <style>{`
+        .whyus-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--text-1); }
+        .whyus-stats > div { padding: 1rem 1rem 0 0; }
+        .whyus-stats > div + div { padding-left: 1rem; border-left: 1px solid var(--border); }
+        .whyus-stats dt { font-family: var(--font-geist-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-4); }
+        .whyus-stats dd { font-family: var(--font-playfair); font-size: clamp(1.9rem, 3.4vw, 2.75rem); letter-spacing: -0.03em; color: var(--text-1); line-height: 1.1; margin-top: 0.3rem; }
+        .whyus-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 2.5rem; border-top: 1px solid var(--border); }
+        .whyus-list li { display: grid; grid-template-columns: 2.25rem 1fr; gap: 0.5rem; padding: 1.75rem 0; border-bottom: 1px solid var(--border); }
+        .whyus-list h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+        .whyus-list p { font-size: 0.92rem; }
         @media (max-width: 900px) {
-          .whyus-stats {
-            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-          }
-          .whyus-stats > div {
-            border-right: 1px solid rgba(255,255,255,0.06) !important;
-            border-bottom: 1px solid rgba(255,255,255,0.06) !important;
-          }
-          .whyus-stats > div:nth-child(2n) {
-            border-right: none !important;
-          }
-          .whyus-stats > div:nth-child(n+3) {
-            border-bottom: none !important;
-          }
+          .whyus-list { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 640px) {
+          .whyus-stats { grid-template-columns: 1fr 1fr; }
+          .whyus-stats > div:nth-child(3) { padding-left: 0; border-left: 0; }
+          .whyus-stats > div:nth-child(n+3) { border-top: 1px solid var(--border); margin-top: 1rem; }
+          .whyus-list { grid-template-columns: 1fr; }
         }
       `}</style>
     </section>

@@ -31,7 +31,7 @@ function buildCsp(nonce: string) {
     "img-src 'self' data: blob: https:",
     "font-src 'self' https: data:",
     `connect-src 'self' ${GOOGLE_REGIONAL} https://www.googleadservices.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.doubleclick.net https://www.googletagmanager.com https://*.googletagmanager.com https://*.facebook.com https://*.facebook.net https://*.clarity.ms https://c.bing.com https://*.apollo.io https://aplo-evnt.com https://*.aplo-evnt.com https://bzrcdn.openai.com https://bzr.openai.com`,
-    "frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.googletagmanager.com https://td.doubleclick.net https://*.facebook.com",
+    "frame-src https://calendly.com https://www.youtube.com https://www.youtube-nocookie.com https://www.googletagmanager.com https://td.doubleclick.net https://*.facebook.com",
     "media-src 'self' https:",
     "object-src 'none'",
     "base-uri 'self'",

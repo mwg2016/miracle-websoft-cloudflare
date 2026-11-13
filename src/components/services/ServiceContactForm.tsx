@@ -6,24 +6,23 @@ import { getEffectiveOrigin, trackLead } from '@/lib/analytics'
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
-  background: 'rgba(255,255,255,0.05)',
-  border: '1px solid rgba(255,255,255,0.1)',
-  borderRadius: '10px',
+  background: 'var(--bg-raised)',
+  border: '1px solid var(--border-hover)',
+  borderRadius: '6px',
   padding: '0.75rem 1rem',
-  fontSize: '0.875rem',
-  color: '#fff',
-  outline: 'none',
+  fontSize: '0.9rem',
+  color: 'var(--text-1)',
 }
 
 const labelStyle: React.CSSProperties = {
   display: 'block',
-  fontSize: '0.78rem',
+  fontSize: '0.82rem',
   fontWeight: 500,
-  color: 'rgba(255,255,255,0.6)',
+  color: 'var(--text-2)',
   marginBottom: '0.4rem',
 }
 
-const optTag = <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.2)', fontWeight: 400, marginLeft: '4px' }}>(optional)</span>
+const optTag = <span style={{ fontSize: '0.68rem', color: 'var(--text-4)', fontWeight: 400, marginLeft: '4px' }}>(optional)</span>
 
 interface Props {
   service: string
@@ -92,10 +91,10 @@ export default function ServiceContactForm({
   return (
     <div>
       <div style={{ marginBottom: '2rem' }}>
-        <h2 style={{ fontSize: 'clamp(22px,3vw,32px)', fontWeight: 700, color: '#fff', marginBottom: '0.75rem', lineHeight: 1.2 }}>
+        <h2 style={{ fontSize: 'clamp(24px,2.6vw,32px)', color: 'var(--text-1)', marginBottom: '0.75rem', lineHeight: 1.15 }}>
           {heading ?? 'Want a clear plan for your Shopify store?'}
         </h2>
-        <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.7 }}>
+        <p style={{ fontSize: '0.95rem', color: 'var(--text-2)', lineHeight: 1.65 }}>
           {subtext ?? "Tell us what is not working and we will reply with practical next steps, likely scope and a fixed-price path forward."}
         </p>
       </div>
@@ -109,12 +108,12 @@ export default function ServiceContactForm({
           <div>
             <label htmlFor="service-contact-name" style={labelStyle}>Your name *</label>
             <input id="service-contact-name" name="name" type="text" required placeholder="Alex Smith" autoComplete="name"
-              value={form.name} onChange={e => set('name', e.target.value)} style={inputStyle} />
+              value={form.name} onChange={e => set('name', e.target.value)} className="mw-field" />
           </div>
           <div>
             <label htmlFor="service-contact-email" style={labelStyle}>Email address *</label>
             <input id="service-contact-email" name="email" type="email" required placeholder="alex@yourbusiness.com" autoComplete="email"
-              value={form.email} onChange={e => set('email', e.target.value)} style={inputStyle} />
+              value={form.email} onChange={e => set('email', e.target.value)} className="mw-field" />
           </div>
         </div>
 
@@ -122,21 +121,21 @@ export default function ServiceContactForm({
           <div>
             <label htmlFor="service-contact-store-url" style={labelStyle}>{urlLabel} {optTag}</label>
             <input id="service-contact-store-url" name="storeUrl" type="text" placeholder={urlPlaceholder} autoComplete="url"
-              value={form.storeUrl} onChange={e => set('storeUrl', e.target.value)} style={inputStyle} />
+              value={form.storeUrl} onChange={e => set('storeUrl', e.target.value)} className="mw-field" />
           </div>
           {fixedPrice ? (
           <div>
             <span style={labelStyle}>Price</span>
             <div style={{ ...inputStyle, display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
               <span style={{ fontWeight: 700 }}>{fixedPrice}</span>
-              <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)' }}>fixed price</span>
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-3)' }}>fixed price</span>
             </div>
           </div>
           ) : (
           <div>
             <label htmlFor="service-contact-budget" style={labelStyle}>Estimated budget {optTag}</label>
             <select id="service-contact-budget" name="budget" value={form.budget} onChange={e => set('budget', e.target.value)}
-              style={{ ...inputStyle, appearance: 'none' as const }}>
+              className="mw-field">
               <option value="">Select a range…</option>
               <option>Under $3,000</option>
               <option>$3,000 – $8,000</option>
@@ -153,18 +152,18 @@ export default function ServiceContactForm({
           <textarea id="service-contact-message" name="message" rows={4} required
             placeholder={messagePlaceholder}
             value={form.message} onChange={e => set('message', e.target.value)}
-            style={{ ...inputStyle, resize: 'none' }} />
+            className="mw-field" style={{ resize: 'vertical' }} />
         </div>
 
         {state === 'error' && (
-          <p style={{ fontSize: '0.8rem', color: '#f87171', textAlign: 'center' }}>
+          <p style={{ fontSize: '0.8rem', color: '#B3261E', textAlign: 'center' }}>
             Something went wrong. Email us at{' '}
-            <a href="mailto:karam@miraclewebsoft.com" style={{ color: '#f87171' }}>karam@miraclewebsoft.com</a>
+            <a href="mailto:karam@miraclewebsoft.com" style={{ color: '#B3261E', textDecoration: 'underline' }}>karam@miraclewebsoft.com</a>
           </p>
         )}
 
         <button type="submit" disabled={state === 'sending'} className="mw-btn-primary justify-center w-full"
-          style={{ padding: '0.9rem', opacity: state === 'sending' ? 0.7 : 1 }}>
+          style={{ minHeight: 52, opacity: state === 'sending' ? 0.7 : 1 }}>
           {state === 'sending' ? (
             <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
               <Loader2 size={15} style={{ animation: 'spin 1s linear infinite' }} /> Sending…
@@ -178,8 +177,8 @@ export default function ServiceContactForm({
 
         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           {proofPoints.map((t, i) => (
-            <span key={i} style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <CheckCircle2 size={11} style={{ color: '#10B981' }} /> {t}
+            <span key={i} style={{ fontSize: '0.72rem', color: 'var(--text-3)', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+              <CheckCircle2 size={12} style={{ color: 'var(--forest)' }} /> {t}
             </span>
           ))}
         </div>

@@ -151,10 +151,7 @@ export default function ShopifySpeedOptimizationPage() {
           { label: 'Services', href: '/services' },
           { label: 'Shopify Speed Optimization' },
         ]}
-        accent="#10B981"
-        primaryCtaLabel="Get Free Speed Review"
-        secondaryCtaLabel="View CRO & Speed Page"
-        secondaryCtaHref="/services/shopify-cro-speed"
+        deliverablesIntro="We measure before and after on your real templates, fix the causes rather than chasing a score, and hand over a short report of what changed."
         urlLabel="Shopify store URL"
         urlPlaceholder="yourstore.com or yourstore.myshopify.com"
         messageLabel="What speed problem should we review?"

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { MapPin } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import HeroLocal from '@/components/website-dev/HeroLocal'
 import StatsBar from '@/components/website-dev/StatsBar'
@@ -11,6 +11,7 @@ import ReferencesGrid from '@/components/website-dev/ReferencesGrid'
 import CityFaq, { getPageFaqs } from '@/components/website-dev/CityFaq'
 import QuoteSection from '@/components/website-dev/QuoteSection'
 import { countries, citiesInCountry, type CountryCode } from '@/data/website-dev-cities'
+import { webDevPackages } from '@/data/website-dev-packages'
 import { breadcrumb, faqPage, itemList, renderJsonLd, service, webPage } from '@/lib/jsonld'
 
 interface Props {
@@ -50,13 +51,13 @@ export default async function CountryPage({ params }: Props) {
   const jsonLd = renderJsonLd([
     webPage({
       name: `Website Development for Small Business in ${country.shortName}`,
-      description: `All-in-one website development packages for ${country.adjective.toLowerCase()} small businesses. Domain, hosting, design and SEO included.`,
+      description: `All-in-one website development packages for ${country.adjective} small businesses. Domain, hosting, design and SEO included.`,
       url,
       type: 'CollectionPage',
     }),
     service({
       name: `Small business website development in ${country.shortName}`,
-      description: `Done-for-you websites for ${country.adjective.toLowerCase()} small businesses. Domain, hosting, design, content and SEO included.`,
+      description: `Done-for-you websites for ${country.adjective} small businesses. Domain, hosting, design, content and SEO included.`,
       url,
       serviceType: 'Website development',
       areaServed: [country.shortName === 'USA' ? 'United States' : country.shortName === 'UK' ? 'United Kingdom' : 'Australia'],
@@ -78,128 +79,97 @@ export default async function CountryPage({ params }: Props) {
     faqPage(getPageFaqs()),
   ])
 
+  const fromPrice = `${country.currencySymbol}${webDevPackages[0].pricesByCountry[country.code].toLocaleString()}`
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
 
-      <div style={{ background: '#0a0a0a', paddingTop: '7rem', paddingBottom: '0.5rem' }}>
-        <div className="mw-container">
+      <HeroLocal
+        top={
           <Breadcrumb
             items={[
               { label: 'Website Development', href: '/website-development' },
               { label: country.shortName },
             ]}
           />
-        </div>
-      </div>
-
-      <HeroLocal
-        eyebrow={`WEBSITE DEVELOPMENT — ${country.shortName}`}
-        title={`Websites for ${country.adjective.toLowerCase()} small businesses.`}
-        titleAccent={`Live in 7 days. From ${country.currencySymbol}${country.code === 'au' ? 449 : country.code === 'uk' ? 249 : 299}.`}
-        subtext={`We build complete websites for small businesses across ${country.name}. Prices in ${country.currency}, ${country.tld} domain included, ${country.paymentLocal.toLowerCase()} payment integration ready. Done-for-you — you don't touch a thing technical.`}
+        }
+        eyebrow={`Website development · ${country.shortName}`}
+        title={`Websites for ${country.adjective} small businesses.`}
+        titleAccent={`Live in 7 days, from ${fromPrice}.`}
+        fromPrice={fromPrice}
+        subtext={`We build complete websites for small businesses across ${country.name}. Prices in ${country.currency}, ${country.tld} domain included, ${country.paymentLocal} payments ready. Done for you: you don't touch anything technical.`}
       />
 
       <StatsBar />
 
       <HandHoldingSection />
 
-      <section id="packages" className="mw-section" style={{ background: '#0a0a0a' }}>
+      <section id="packages" className="mw-section" style={{ borderTop: '1px solid var(--border)', scrollMarginTop: '5rem' }}>
         <div className="mw-container">
-          <div className="mw-section-header">
-            <span className="mw-eyebrow">PACKAGES — {country.currency}</span>
-            <h2 style={{ color: '#fff' }}>
-              Pricing for {country.adjective.toLowerCase()}
-              <br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>small businesses.</em>
-            </h2>
-            <p
-              style={{
-                color: 'rgba(255,255,255,0.6)',
-                maxWidth: '500px',
-                margin: '0 auto',
-                fontSize: '0.95rem',
-                lineHeight: 1.7,
-              }}
-            >
-              All prices below are in {country.currency}. Domain ({country.tld}) and 1 year of hosting included.
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4" style={{ marginBottom: '2.5rem' }}>
+            <div>
+              <p className="mw-eyebrow">Packages · {country.currency}</p>
+              <h2 style={{ maxWidth: '16ch' }}>Pricing for {country.adjective} small businesses.</h2>
+            </div>
+            <p style={{ maxWidth: '42ch', fontSize: '0.95rem' }}>
+              All prices are in {country.currency}. Domain ({country.tld}) and one year of hosting included.
             </p>
           </div>
 
           <PackageTiers country={country.code} />
 
-          <p style={{ textAlign: 'center', marginTop: '2rem', fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)' }}>
-            Fixed-price in {country.currency} · You own the {country.tld} domain · Free 30–90 day post-launch support
+          <p className="mw-num" style={{ marginTop: '1.5rem', textTransform: 'uppercase' }}>
+            Fixed price in {country.currency} · You own the {country.tld} domain · 30–90 days free post-launch support
           </p>
         </div>
       </section>
 
-      {/* City list */}
-      <section className="mw-section" style={{ background: '#0d0d0d' }}>
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="mw-container">
-          <div className="mw-section-header">
-            <span className="mw-eyebrow">CITIES WE SERVE — {country.shortName}</span>
-            <h2 style={{ color: '#fff' }}>
-              Pick your city
-              <br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>for local context.</em>
-            </h2>
-            <p
-              style={{
-                color: 'rgba(255,255,255,0.6)',
-                maxWidth: '500px',
-                margin: '0 auto',
-                fontSize: '0.95rem',
-                lineHeight: 1.7,
-              }}
-            >
-              Each city page covers the local business landscape, neighbourhood-level examples and pricing in{' '}
-              {country.currency}.
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4" style={{ marginBottom: '2.5rem' }}>
+            <div>
+              <p className="mw-eyebrow">Cities we serve · {country.shortName}</p>
+              <h2 style={{ maxWidth: '16ch' }}>Pick your city for local context.</h2>
+            </div>
+            <p style={{ maxWidth: '42ch', fontSize: '0.95rem' }}>
+              Each city page covers the local business landscape, neighbourhood-level examples and pricing in {country.currency}.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-            {cities.map((c) => (
-              <Link
-                key={c.slug}
-                href={`${url}/${c.slug}`}
-                style={{
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  background: 'rgba(255,255,255,0.02)',
-                  borderRadius: '12px',
-                  padding: '1rem 1.1rem',
-                  textDecoration: 'none',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.25rem',
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  <MapPin size={11} style={{ color: 'var(--accent)' }} />
-                  <span style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff' }}>{c.name}</span>
-                </div>
-                <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.45)', paddingLeft: '1.15rem' }}>
-                  {c.region}
-                </span>
-              </Link>
+          <ul className="wd-cities">
+            {cities.map((c, i) => (
+              <li key={c.slug}>
+                <Link href={`${url}/${c.slug}`}>
+                  <span className="mw-num">{String(i + 1).padStart(2, '0')}</span>
+                  <span>
+                    <span className="wd-city-name">{c.name}</span>
+                    <span className="wd-city-region">{c.region}</span>
+                  </span>
+                  <ArrowRight size={16} className="svc-arrow" aria-hidden />
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
 
-          <p
-            style={{
-              textAlign: 'center',
-              marginTop: '2rem',
-              fontSize: '0.82rem',
-              color: 'rgba(255,255,255,0.4)',
-            }}
-          >
-            More {country.shortName} cities being added each week. Not in the list?{' '}
-            <Link href="#get-quote" style={{ color: 'var(--accent)' }}>
+          <p style={{ marginTop: '1.5rem', fontSize: '0.93rem', color: 'var(--text-3)' }}>
+            Not in the list? We work remotely across {country.name}.{' '}
+            <Link href="#get-quote" style={{ color: 'var(--text-1)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
               Get a quote anyway
-            </Link>{' '}
-            — we deliver remotely across the country.
+            </Link>
+            .
           </p>
         </div>
+        <style>{`
+          .wd-cities { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2.5rem; border-top: 1px solid var(--text-1); }
+          .wd-cities li { border-bottom: 1px solid var(--border); }
+          .wd-cities a { display: grid; grid-template-columns: 2.5rem 1fr 1.25rem; align-items: baseline; padding: 1.1rem 0.25rem; transition: background 0.15s ease; }
+          .wd-cities a:hover { background: var(--bg-raised); }
+          .wd-cities a:hover .svc-arrow { color: var(--accent); }
+          .wd-city-name { font-family: var(--font-playfair); font-size: 1.35rem; letter-spacing: -0.02em; color: var(--text-1); margin-right: 0.75rem; }
+          .wd-city-region { font-size: 0.85rem; color: var(--text-3); }
+          @media (max-width: 700px) { .wd-cities { grid-template-columns: 1fr; } }
+        `}</style>
       </section>
 
       <ReferencesGrid />

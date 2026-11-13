@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server'
+import { NextRequest, after } from 'next/server'
 import { sendEmail } from '@/lib/email'
 import { appendLead } from '@/lib/admin/store'
 import { parseClientOrigin } from '@/lib/admin/origin'
@@ -265,10 +265,11 @@ export async function POST(req: NextRequest) {
       payload: { name, email, phone, position, experience, portfolio, message, resumeName: resumeFile?.name },
     }).catch(err => console.error('[careers] appendLead', err))
 
-    await Promise.all([
-      sendEmail(notifEmail),
-      sendEmail(confirmEmail),
-    ])
+    await sendEmail(notifEmail)
+
+    // The applicant's confirmation is a courtesy: send it after responding so a
+    // rejected address (typo, bounce) never turns a delivered application into an error.
+    after(() => sendEmail(confirmEmail).catch(err => console.error('[careers] confirmation', err)))
 
     return Response.json({ success: true })
   } catch (err) {

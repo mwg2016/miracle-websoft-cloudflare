@@ -1,11 +1,9 @@
 import type { Metadata } from 'next'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2, ExternalLink, Star, Award } from 'lucide-react'
-import TrustProfiles from '@/components/home/TrustProfiles'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import FounderIntro from '@/components/ui/FounderIntro'
-import VideoTestimonialGrid from '@/components/ui/VideoTestimonialGrid'
-import { clientVideos } from '@/data/videos'
+import { jobs, jobTitle } from '@/data/jobs'
 import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
 
@@ -27,39 +25,26 @@ export const metadata: Metadata = {
 }
 
 const values = [
-  'Ecommerce-first focus - Shopify, CRO, speed, AI automation and custom web development',
-  'Business outcomes first — technical decisions tied to revenue and customer experience',
-  'Performance matters — faster mobile pages, cleaner themes and fewer unnecessary scripts',
-  'Direct communication — you work with the people responsible for delivery',
-  'Careful implementation - data, tracking, APIs, workflows and launch details protected',
+  { t: 'Ecommerce first', d: 'Shopify builds, CRO and speed work are most of what we do, every week, for brands in the US, UK, Canada, Australia and Europe.' },
+  { t: 'Outcomes over output', d: 'Technical decisions are tied to revenue and customer experience, not to how many features we can bill.' },
+  { t: 'Performance matters', d: 'Faster mobile pages, cleaner themes and fewer unnecessary scripts. Every build is checked on a real phone.' },
+  { t: 'You talk to the people doing the work', d: 'No account-manager layer. Karam scopes every project and the developers are in the same thread.' },
+  { t: 'Careful launches', d: 'Data, tracking, URLs, apps and integrations are protected through every migration and release.' },
 ]
 
-const stats = [
-  { value: '650+', label: 'Projects Completed' },
-  { value: '15k+', label: 'Hours Delivered' },
-  { value: '10+', label: 'Years Experience' },
-  { value: '16', label: 'Team Members' },
+const facts = [
+  { dt: 'Founded', dd: '2015' },
+  { dt: 'Projects', dd: '650+' },
+  { dt: 'Hours delivered', dd: '15,000+' },
+  { dt: 'In-house team', dd: '16' },
 ]
 
-const certifications = [
-  { name: 'Shopify Verified Partner', year: '2024', issuer: 'Shopify' },
-  { name: 'Shopify Foundations Certified', year: '2023', issuer: 'Shopify' },
-  { name: 'Upwork Top Rated Plus', year: '2020', issuer: 'Upwork' },
+const credentials = [
+  { name: 'Shopify Partner', sub: 'Official partner directory', href: outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1') },
+  { name: 'Upwork Top Rated Plus', sub: '98% job success · since 2020', href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/') },
+  { name: 'Clutch', sub: '4.9 rating · verified reviews', href: outboundHref('external', 'https://clutch.co/profile/miracle-websoft') },
+  { name: 'Shopify Foundations', sub: 'Certified · 2023', href: null },
 ]
-
-const testimonials = [
-  {
-    quote: 'I am happy to recommend Karam Singh, who runs a Shopify agency and is an expert Shopify developer. He has strong knowledge of Shopify development and always delivers quality work.',
-    name: 'Satinder Singh',
-    source: 'LinkedIn Recommendation',
-  },
-  {
-    quote: 'Karam helped me out tremendously by recommending and installing a new theme and main page layout for my site. Very professional and responsive.',
-    name: 'Susan D.',
-    source: 'LinkedIn Recommendation',
-  },
-]
-
 
 const jsonLd = renderJsonLd([
   webPage({
@@ -76,186 +61,143 @@ const jsonLd = renderJsonLd([
 ])
 
 export default function AboutPage() {
+  const reviews = jobs.filter(j => j.review && j.rating === 5 && j.review.length > 90).slice(3, 6)
   return (
-    <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '7rem' }}>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
-      <div className="mw-container" style={{ paddingBottom: '5rem' }}>
-        <div className="mb-8"><Breadcrumb items={[{ label: 'About' }]} /></div>
 
-        {/* Hero — two-column layout to match the contact page (text + sticky card) */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 xl:gap-16 items-start mb-16">
-          <div>
-            <span className="mw-eyebrow">About Us</span>
-            <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.5rem' }}>
-              Ecommerce growth and AI<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>technology partner.</em>
-            </h1>
-            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.25rem', fontWeight: 300 }}>
-              Miracle Websoft is an ecommerce growth and AI technology agency founded in 2015 by Karam Singh Mehra, based in Chandigarh, India. We help businesses across the USA, Canada, UK, Australia and Europe build Shopify stores, improve conversion, increase performance, automate operations with AI and develop custom software.
-            </p>
-            <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, fontWeight: 300 }}>
-              650+ projects completed. 15,000+ hours delivered. Top Rated Plus status on Upwork. A team of 16 specialists who understand the practical problems businesses face: slow stores, low mobile conversion, manual operations, disconnected systems and custom requirements that off-the-shelf tools cannot solve.
-            </p>
-          </div>
-
-          {/* Sticky stats + CTA card */}
-          <div style={{ position: 'sticky', top: '7rem' }}>
-            <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '1.75rem' }}>
-              <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', marginBottom: '1.25rem' }}>By the numbers</p>
-              <div className="grid grid-cols-2 gap-x-4 gap-y-5">
-                {stats.map(s => (
-                  <div key={s.label}>
-                    <div style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: '2rem', fontWeight: 700, color: '#fff', lineHeight: 1, marginBottom: '0.3rem' }}>{s.value}</div>
-                    <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.55)', fontWeight: 500, letterSpacing: '0.03em' }}>{s.label}</div>
-                  </div>
-                ))}
-              </div>
-              <Link href="/contact" className="mw-btn-primary justify-center w-full" style={{ marginTop: '1.75rem' }}>
-                Book Free Consultation <ArrowRight size={15} />
-              </Link>
-              <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.4)', textAlign: 'center', marginTop: '0.75rem' }}>
-                Replies within 24 hours · no commitment
+      <section style={{ paddingTop: 'clamp(7.5rem, 11vw, 9rem)', paddingBottom: '4rem' }}>
+        <div className="mw-container">
+          <div className="mb-8"><Breadcrumb items={[{ label: 'About' }]} /></div>
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-20 items-end">
+            <div>
+              <p className="mw-eyebrow">About Miracle Websoft</p>
+              <h1 className="mw-hero-title" style={{ maxWidth: '17ch' }}>
+                A Shopify studio built by <span className="mw-mark">the person you talk to.</span>
+              </h1>
+              <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '54ch' }}>
+                Miracle Websoft is a Shopify development and CRO agency founded in 2015 by Karam Singh Mehra. A 16-person in-house team in India builds, fixes and speeds up stores for brands across the USA, Canada, UK, Australia and Europe.
+              </p>
+              <p style={{ marginTop: '1rem', color: 'var(--text-3)', maxWidth: '54ch' }}>
+                We also take on custom web development and AI automation when a client needs it, but ecommerce is the core: slow stores, low mobile conversion, migrations, and the custom features apps can&apos;t do.
               </p>
             </div>
+            <dl className="stats">
+              {facts.map(f => <div key={f.dt}><dt>{f.dt}</dt><dd>{f.dd}</dd></div>)}
+            </dl>
           </div>
         </div>
+      </section>
 
-        {/* Values + Certifications */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-14">
-          <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: '2rem' }}>
-            <h2 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#fff', marginBottom: '1.25rem' }}>What we stand for</h2>
-            <ul className="flex flex-col gap-3">
-              {values.map((v, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <CheckCircle2 size={15} className="shrink-0 mt-0.5" style={{ color: '#10B981' }} />
-                  <span style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.6)' }}>{v}</span>
-                </li>
-              ))}
-            </ul>
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="mw-container grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-20">
+          <div>
+            <p className="mw-eyebrow">How we work</p>
+            <h2 style={{ maxWidth: '14ch' }}>What we hold ourselves to.</h2>
           </div>
-          <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: '2rem' }}>
-            <h2 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#fff', marginBottom: '1.25rem' }}>Certifications</h2>
-            <div className="flex flex-col gap-3">
-              {certifications.map(c => (
-                <div key={c.name} className="flex items-start gap-3">
-                  <Award size={15} className="shrink-0 mt-0.5" style={{ color: 'var(--accent)' }} />
-                  <div>
-                    <div style={{ fontSize: '0.875rem', fontWeight: 500, color: '#fff' }}>{c.name}</div>
-                    <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>{c.issuer} · {c.year}</div>
-                  </div>
+          <ol className="leaks">
+            {values.map((v, i) => (
+              <li key={v.t}>
+                <span className="mw-num">0{i + 1}</span>
+                <div>
+                  <h3>{v.t}</h3>
+                  <p style={{ color: 'var(--text-3)' }}>{v.d}</p>
                 </div>
-              ))}
-            </div>
-            <div style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-              <h3 style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff', marginBottom: '0.6rem' }}>Languages spoken</h3>
-              <div className="flex gap-2 flex-wrap">
-                {['English', 'Hindi', 'Punjabi'].map(l => (
-                  <span key={l} style={{ fontSize: '0.75rem', padding: '0.25rem 0.65rem', borderRadius: '9999px', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.6)' }}>{l}</span>
-                ))}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="mw-section" style={{ background: 'var(--bg-deep)' }}>
+        <div className="mw-container">
+          <p className="mw-eyebrow">The founder</p>
+          <h2 style={{ maxWidth: '20ch', marginBottom: '3rem' }}>From a ten-dollar first job to 650+ projects.</h2>
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-start">
+            <div className="lg:sticky lg:top-28">
+              <FounderIntro />
+              <div style={{ marginTop: '1.5rem', borderTop: '1px solid var(--text-1)', paddingTop: '1rem' }}>
+                <div style={{ fontWeight: 600, color: 'var(--text-1)' }}>Karam Singh Mehra</div>
+                <div style={{ fontSize: '0.9rem', color: 'var(--text-3)' }}>Founder &amp; lead Shopify developer · Top Rated Plus · Shopify Partner</div>
+                <div className="flex gap-5" style={{ marginTop: '0.75rem', fontSize: '0.9rem' }}>
+                  <a href={outboundHref('upwork', 'https://www.upwork.com/freelancers/~0108a0862ff3e2f2de')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1" style={{ color: 'var(--text-1)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>Upwork <ArrowUpRight size={13} /></a>
+                  <a href={outboundHref('linkedin', 'https://www.linkedin.com/in/ecommerce-experts/')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1" style={{ color: 'var(--text-1)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>LinkedIn <ArrowUpRight size={13} /></a>
+                  <Link href="/bio/owner" style={{ color: 'var(--text-1)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>Full bio</Link>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Founder */}
-        <div className="mb-14">
-          <p className="mw-eyebrow">The Founder</p>
-          <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)', marginBottom: '1.5rem' }}>Meet the person<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>behind the work.</em></h2>
-
-          {/* Founder intro video */}
-          <div style={{ maxWidth: '720px', marginBottom: '2rem' }}>
-            <FounderIntro />
-          </div>
-
-          <div style={{ maxWidth: '720px', marginBottom: '2rem' }}>
-            <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.02rem', lineHeight: 1.85, fontWeight: 300 }}>
-              <p style={{ marginBottom: '1.1rem' }}>
+            <div className="about-story" style={{ fontSize: '1.05rem', lineHeight: 1.8, color: 'var(--text-2)', maxWidth: '62ch' }}>
+              <p >
                 I grew up in a small village in India where &ldquo;IT&rdquo; meant data entry or a call-center job — that was the only kind of computer work anyone around me had heard of. After school I found a six-month course in website development and took it. That led to my first job at a small web company, then a second one where I could go deeper into programming.
               </p>
-              <p style={{ marginBottom: '1.1rem' }}>
+              <p >
                 What I noticed working there was that most clients walking in were quietly pushed toward pre-built templates, because real custom work felt out of budget. That gap bothered me, and it&apos;s the gap this company was built to fill.
               </p>
-              <p style={{ marginBottom: '1.1rem' }}>
-                My first attempts at running something on my own failed. The break came in an unexpected way. A friend who was sharing a room with me started bidding for freelance projects from our flat — he didn&apos;t have a laptop, so he used mine. I sat next to him in the evenings and watched how he wrote proposals, priced work, and handled clients. Eventually I made my own Upwork profile. Within a few days I landed my first job: ten dollars. He looked at me and said, <em style={{ color: 'rgba(255,255,255,0.85)' }}>&ldquo;You&apos;re lucky. It&apos;s hard to get hired on a new profile that fast.&rdquo;</em> I still remember that job more clearly than the larger ones — it was the first proof that a career could be built from a laptop in a small town.
+              <p >
+                My first attempts at running something on my own failed. The break came in an unexpected way. A friend who was sharing a room with me started bidding for freelance projects from our flat — he didn&apos;t have a laptop, so he used mine. I sat next to him in the evenings and watched how he wrote proposals, priced work, and handled clients. Eventually I made my own Upwork profile. Within a few days I landed my first job: ten dollars. He looked at me and said, <em>&ldquo;You&apos;re lucky. It&apos;s hard to get hired on a new profile that fast.&rdquo;</em> I still remember that job more clearly than the larger ones — it was the first proof that a career could be built from a laptop in a small town.
               </p>
-              <p style={{ marginBottom: '1.1rem' }}>
+              <p >
                 I kept freelancing in the evenings while holding down my full-time job. The month my Upwork earnings crossed my salary, I quit. For a long stretch I did everything alone — sales, scoping, development, support, invoicing. Hiring only started when I couldn&apos;t keep up. The team has grown around the same idea I started with: useful Shopify work for real businesses, priced honestly, built by the people you actually speak with.
               </p>
-              <p style={{ marginBottom: 0 }}>
+              <p >
                 Ten years in, that&apos;s still the company. Over $400,000 earned on Upwork, hundreds of stores and ecommerce projects shipped, and the same instinct that made me leave a stable job in the first place — that good technical work should help the business, not confuse the owner.
               </p>
-              <p style={{ marginTop: '1.25rem', fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>— Karam</p>
-            </div>
-          </div>
-
-          <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: '2rem', maxWidth: '560px' }}>
-            <div className="flex items-start gap-4">
-              <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'rgba(108,99,255,0.15)', border: '1px solid rgba(108,99,255,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <span style={{ fontWeight: 700, color: 'var(--accent)', fontSize: '1.3rem' }}>K</span>
-              </div>
-              <div>
-                <div style={{ fontWeight: 700, color: '#fff', fontSize: '1.05rem', marginBottom: '0.2rem' }}>Karam Singh Mehra</div>
-                <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', marginBottom: '0.75rem' }}>Founder & Lead Shopify Expert</div>
-                <div className="flex items-center gap-1.5 mb-3">
-                  <Star size={11} style={{ color: '#14a800' }} />
-                  <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>Top Rated Plus · Shopify Verified Partner · 10+ years</span>
-                </div>
-                <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, fontWeight: 300, marginBottom: '1rem' }}>
-                  Personally leads every project — clients work directly with him, not an account manager. Based in Chandigarh, India.
-                </p>
-                <div className="flex gap-3">
-                  <a href={outboundHref('upwork', 'https://www.upwork.com/freelancers/~0108a0862ff3e2f2de')} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', padding: '0.3rem 0.75rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9999px' }} className="hover:text-white hover:border-white/30 transition-all">
-                    <ExternalLink size={11} /> Upwork
-                  </a>
-                  <a href={outboundHref('linkedin', 'https://www.linkedin.com/in/ecommerce-experts/')} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', padding: '0.3rem 0.75rem', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '9999px' }} className="hover:text-white hover:border-white/30 transition-all">
-                    <ExternalLink size={11} /> LinkedIn
-                  </a>
-                </div>
-              </div>
+              <p style={{ fontFamily: 'var(--font-playfair)', fontSize: '1.25rem', color: 'var(--text-1)' }}>— Karam</p>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Testimonials */}
-        <div className="mb-14">
-          <p className="mw-eyebrow">Client Feedback</p>
-          <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)', marginBottom: '1.5rem' }}>What clients say</h2>
-
-          {/* Video reviews */}
-          <div className="mb-6">
-            <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '0.85rem' }}>
-              ▶ On-camera reviews
-            </p>
-            <VideoTestimonialGrid videos={clientVideos.slice(0, 3)} theme="dark" />
+      <section className="mw-section">
+        <div className="mw-container">
+          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-20" style={{ marginBottom: '4.5rem' }}>
+            <div>
+              <p className="mw-eyebrow">Credentials</p>
+              <h2 style={{ maxWidth: '14ch' }}>Checked by someone other than us.</h2>
+              <p style={{ marginTop: '1rem', color: 'var(--text-3)' }}>Languages spoken: English, Hindi, Punjabi.</p>
+            </div>
+            <div className="about-creds">
+              {credentials.map(c => c.href ? (
+                <a key={c.name} href={c.href} target="_blank" rel="noopener noreferrer">
+                  <span><b>{c.name}</b><span>{c.sub}</span></span>
+                  <ArrowUpRight size={16} />
+                </a>
+              ) : (
+                <div key={c.name}><span><b>{c.name}</b><span>{c.sub}</span></span></div>
+              ))}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {testimonials.map((t, i) => (
-              <div key={i} className="mw-card" style={{ padding: '2rem' }}>
-                <div style={{ fontSize: '2rem', color: 'var(--accent)', lineHeight: 1, marginBottom: '1rem', fontFamily: 'Georgia, serif' }}>&ldquo;</div>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.8, marginBottom: '1.25rem', fontWeight: 300, fontStyle: 'italic' }}>{t.quote}</p>
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '1rem' }}>
-                  <div style={{ fontWeight: 600, color: '#fff', fontSize: '0.85rem' }}>{t.name}</div>
-                  <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>{t.source}</div>
-                </div>
-              </div>
+          <p className="mw-eyebrow">From store owners we&apos;ve worked with</p>
+          <div className="reviews" style={{ marginTop: '1.5rem' }}>
+            {reviews.map(r => (
+              <figure key={r.id} className="review">
+                <div className="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <blockquote>&ldquo;{r.review}&rdquo;</blockquote>
+                <figcaption>
+                  <Link href={`/work/${r.id}`} className="review-project">{jobTitle(r)}</Link>
+                  <span className="mw-num">Upwork · {r.completedDate}</span>
+                </figcaption>
+              </figure>
             ))}
           </div>
-          <div style={{ marginTop: '1rem' }}>
-            <a href={outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/')} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)' }} className="hover:text-white transition-colors">
-              <ExternalLink size={12} /> Read 600+ reviews on Upwork
-            </a>
+          <div className="flex flex-wrap gap-3" style={{ marginTop: '2.5rem' }}>
+            <Link href="/free-store-audit" className="mw-btn-accent">Get a free store teardown <ArrowRight size={15} /></Link>
+            <Link href="/reviews" className="mw-btn-outline">Read all reviews</Link>
           </div>
         </div>
+      </section>
 
-      </div>
-
-      <TrustProfiles />
-
-      <div className="mw-container" style={{ paddingTop: '3rem', paddingBottom: '5rem' }}>
-        <Link href="/contact" className="mw-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-          Book Free Consultation <ArrowRight size={16} />
-        </Link>
-      </div>
-    </div>
+      <style dangerouslySetInnerHTML={{ __html: `
+.about-story p + p { margin-top: 1.1rem; }
+.about-story em { color: var(--text-1); }
+.about-creds { border-top: 1px solid var(--text-1); }
+.about-creds > * { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; padding: 1.1rem 0; border-bottom: 1px solid var(--border); }
+.about-creds a:hover { background: var(--bg-raised); }
+.about-creds b { display: block; font-family: var(--font-playfair); font-weight: 400; font-size: 1.3rem; color: var(--text-1); }
+.about-creds span span { font-size: 0.9rem; color: var(--text-3); }
+.about-creds svg { color: var(--text-4); }
+` }} />
+    </>
   )
 }

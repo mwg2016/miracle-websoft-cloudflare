@@ -88,8 +88,8 @@ export default function NavigationProgress() {
         style={{
           height: '100%',
           width: `${progress}%`,
-          background: '#6C63FF',
-          boxShadow: '0 0 8px rgba(108,99,255,0.65), 0 0 4px rgba(108,99,255,0.45)',
+          background: '#E04F25',
+          boxShadow: '0 0 8px rgb(224 79 37 / 0.65), 0 0 4px rgb(224 79 37 / 0.45)',
           transition: 'width 0.22s ease-out',
         }}
       />

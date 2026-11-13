@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import { headers } from 'next/headers'
+import { Fraunces, Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -9,7 +10,13 @@ import ClarityInit from '@/components/ClarityInit'
 import NavigationProgress from '@/components/layout/NavigationProgress'
 import StickyMobileCta from '@/components/layout/StickyMobileCta'
 
+// Self-hosted by next/font at build time — no runtime request to Google.
+const display = Fraunces({ subsets: ['latin'], axes: ['opsz', 'SOFT'], style: ['normal', 'italic'], variable: '--font-display', display: 'swap' })
+const sans = Geist({ subsets: ['latin'], variable: '--font-sans-loaded', display: 'swap' })
+const mono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono-loaded', display: 'swap' })
+
 export const viewport: Viewport = {
+  themeColor: '#F4F1EA',
   width: 'device-width',
   initialScale: 1,
 }
@@ -18,14 +25,14 @@ const defaultOgImage = {
   url: '/opengraph-image',
   width: 1200,
   height: 630,
-  alt: 'Miracle Websoft - Ecommerce growth and AI technology agency',
+  alt: 'Miracle Websoft - Shopify development and CRO agency',
 }
 
 export const metadata: Metadata = {
   applicationName: 'Miracle Websoft',
   metadataBase: new URL('https://miraclewebsoft.com'),
-  title: { default: 'Miracle Websoft — Ecommerce Growth & AI Technology Agency', template: '%s | Miracle Websoft' },
-  description: 'Miracle Websoft is an ecommerce growth and AI technology agency. Shopify development, CRO, speed optimization, AI automation, OpenAI integrations and custom web development for global clients.',
+  title: { default: 'Miracle Websoft — Shopify Development & CRO Agency', template: '%s' }, // page titles already carry the brand; a '%s | Miracle Websoft' suffix doubled it
+  description: 'Shopify development, conversion rate optimisation and speed work for ecommerce brands. 650+ Shopify projects since 2015. Get a free video teardown of your store.',
   authors: [{ name: 'Miracle Websoft', url: 'https://miraclewebsoft.com' }],
   creator: 'Karam Singh Mehra',
   publisher: 'Miracle Websoft',
@@ -49,16 +56,16 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://miraclewebsoft.com',
     siteName: 'Miracle Websoft',
-    title: 'Miracle Websoft — Ecommerce Growth & AI Technology Agency',
-    description: 'Shopify development, CRO, speed optimization, AI automation and custom web development for ecommerce brands and growing businesses.',
+    title: 'Miracle Websoft — Shopify Development & CRO Agency',
+    description: 'Shopify development, conversion rate optimisation and speed work for ecommerce brands. Get a free video teardown of your store.',
     images: [defaultOgImage],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@miraclewebsoft',
     creator: '@miraclewebsoft',
-    title: 'Miracle Websoft — Ecommerce Growth & AI Technology Agency',
-    description: 'Shopify development, CRO, speed optimization, AI automation and custom web development.',
+    title: 'Miracle Websoft — Shopify Development & CRO Agency',
+    description: 'Shopify development, CRO and speed work for ecommerce brands. Get a free video teardown of your store.',
     images: [defaultOgImage.url],
   },
   robots: {
@@ -249,7 +256,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const isAdmin = pathname.startsWith('/admin')
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <head>
         {/* Trusted Types default policy — must run before any script that touches innerHTML. */}
         <script
@@ -257,6 +264,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           dangerouslySetInnerHTML={{
             __html: "if(window.trustedTypes&&trustedTypes.createPolicy){try{trustedTypes.createPolicy('default',{createHTML:s=>s,createScript:s=>s,createScriptURL:s=>s})}catch(e){}}",
           }}
+        />
+        {/* gtag queue stub — GA's loader is lazy, so events fired before it loads (e.g. a fast
+            form submit) would otherwise be silently dropped. ga-init redefines it identically. */}
+        <script
+          nonce={nonce}
+          dangerouslySetInnerHTML={{ __html: 'window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments)};' }}
         />
         {/* OpenAI pixel — single setup script per page. */}
         <script

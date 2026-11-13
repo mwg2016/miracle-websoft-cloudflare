@@ -16,16 +16,16 @@ export default function VideoTestimonialGrid({
   metricColor,
 }: Props) {
   const bg =
-    cardBg ?? (theme === 'green' ? 'rgba(0,0,0,0.32)' : 'rgba(255,255,255,0.03)')
-  const border = theme === 'green' ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.08)'
-  const accent = metricColor ?? '#10B981'
+    cardBg ?? (theme === 'green' ? 'rgb(23 21 15 / 0.12)' : 'var(--bg-raised)')
+  const border = theme === 'green' ? 'rgb(var(--ink-rgb) / 0.12)' : 'var(--border)'
+  const accent = metricColor ?? 'var(--forest)'
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {videos.map((v) => (
         <div
           key={v.videoId}
-          className="rounded-2xl overflow-hidden flex flex-col"
+          className="rounded-lg overflow-hidden flex flex-col"
           style={{
             background: bg,
             border: `1px solid ${border}`,
@@ -42,7 +42,7 @@ export default function VideoTestimonialGrid({
               <div className="flex items-center gap-1.5 min-w-0">
                 <div className="flex items-center gap-0.5 shrink-0">
                   {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} size={9} style={{ color: '#FBBF24', fill: '#FBBF24' }} />
+                    <Star key={i} size={9} style={{ color: 'var(--accent)', fill: 'var(--accent)' }} />
                   ))}
                 </div>
                 {v.metric && (
@@ -64,7 +64,7 @@ export default function VideoTestimonialGrid({
                 <span
                   style={{
                     fontSize: '0.58rem',
-                    color: 'rgba(255,255,255,0.6)',
+                    color: 'var(--text-3)',
                     textTransform: 'uppercase',
                     letterSpacing: '0.06em',
                     fontWeight: 600,

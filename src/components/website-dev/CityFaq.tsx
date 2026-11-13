@@ -12,59 +12,35 @@ export default function CityFaq({ extraFaqs }: Props) {
   const faqs = getPageFaqs(extraFaqs)
 
   return (
-    <section className="mw-section" style={{ background: '#0d0d0d' }}>
-      <div className="mw-container" style={{ maxWidth: '820px' }}>
-        <div className="mw-section-header">
-          <span className="mw-eyebrow">FAQS</span>
-          <h2 style={{ color: '#fff' }}>
-            The questions every small business owner asks
-            <br />
-            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>before they sign up.</em>
+    <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
+      <div className="mw-container grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16">
+        <div>
+          <p className="mw-eyebrow">FAQ</p>
+          <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', maxWidth: '14ch' }}>
+            What small business owners ask before they sign up.
           </h2>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+        <div style={{ borderTop: '1px solid var(--text-1)' }}>
           {faqs.map((faq, i) => (
-            <details
-              key={i}
-              style={{
-                background: 'rgba(255,255,255,0.02)',
-                border: '1px solid rgba(255,255,255,0.07)',
-                borderRadius: '12px',
-                padding: '1.25rem 1.5rem',
-              }}
-            >
-              <summary
-                style={{
-                  cursor: 'pointer',
-                  fontSize: '0.95rem',
-                  fontWeight: 600,
-                  color: '#fff',
-                  listStyle: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  gap: '1rem',
-                }}
-              >
+            <details key={i} className="wd-faq">
+              <summary>
                 <span>{faq.question}</span>
-                <span style={{ color: 'var(--accent)', fontSize: '1.3rem', fontWeight: 300, flexShrink: 0 }}>+</span>
+                <span aria-hidden className="wd-faq-icon">+</span>
               </summary>
-              <p
-                style={{
-                  fontSize: '0.88rem',
-                  color: 'rgba(255,255,255,0.6)',
-                  lineHeight: 1.75,
-                  marginTop: '0.85rem',
-                  margin: '0.85rem 0 0 0',
-                }}
-              >
-                {faq.answer}
-              </p>
+              <p>{faq.answer}</p>
             </details>
           ))}
         </div>
       </div>
+      <style>{`
+        .wd-faq { border-bottom: 1px solid var(--border); }
+        .wd-faq summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.2rem 0; font-size: 1rem; font-weight: 500; color: var(--text-1); }
+        .wd-faq summary::-webkit-details-marker { display: none; }
+        .wd-faq-icon { font-size: 1.3rem; font-weight: 300; color: var(--text-3); transition: transform 0.2s ease; flex-shrink: 0; }
+        .wd-faq[open] .wd-faq-icon { transform: rotate(45deg); color: var(--text-1); }
+        .wd-faq p { padding: 0 0 1.35rem; max-width: 62ch; }
+      `}</style>
     </section>
   )
 }

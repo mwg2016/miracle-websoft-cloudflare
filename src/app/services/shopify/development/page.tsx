@@ -1,15 +1,12 @@
 import type { Metadata } from 'next'
-import Breadcrumb from '@/components/layout/Breadcrumb'
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import WhyUs from '@/components/home/WhyUs'
-import ClientPortfolio from '@/components/home/ClientPortfolio'
-import CtaBanner from '@/components/home/CtaBanner'
+import { ArrowUpRight } from 'lucide-react'
 import FaqSection from '@/components/ui/FaqSection'
 import ServiceResult from '@/components/services/ServiceResult'
 import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
+import ServiceHero, { HeroScope, NumberedList, SectionHead } from '@/components/services/ServiceHero'
 import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
@@ -31,7 +28,7 @@ export const metadata: Metadata = {
 
 const features = [
   'Custom theme design built from scratch — no templates',
-  'Mobile-first build — sub-1.5s load time target',
+  'Mobile-first build with an agreed speed budget',
   'Shopify Plus builds and enterprise architecture',
   'Custom app and third-party integration development',
   'Complex product variant & catalogue architecture',
@@ -47,22 +44,19 @@ const features = [
 const buildTypes = [
   {
     title: 'New Store Builds',
-    badge: 'Most common',
-    color: '#6C63FF',
+    price: 'From $600',
     desc: 'Your store built from a blank canvas. Custom theme, navigation, product architecture and checkout — designed around your brand and how your customers actually shop.',
     examples: ['Custom theme from scratch', 'Brand-aligned design system', 'Product structure planning', 'Launch-day checklist included'],
   },
   {
     title: 'Store Redesigns',
-    badge: 'High ROI',
-    color: '#F59E0B',
+    price: 'From $1,000',
     desc: 'Your live store rebuilt for speed, conversion and mobile. We keep your URL structure, SEO rankings and customer data intact — only the experience improves.',
     examples: ['Full theme replacement', 'Product & collection pages', 'Checkout flow rebuild', 'SEO preserved throughout'],
   },
   {
     title: 'Shopify Plus Builds',
-    badge: 'Enterprise',
-    color: '#10B981',
+    price: 'Fixed quote',
     desc: 'For stores doing $1M+ per year. Custom checkout extensibility, Shopify Functions, B2B wholesale channels, Launchpad automation and dedicated performance engineering.',
     examples: ['Custom checkout extensions', 'Shopify Functions (discounts, shipping)', 'B2B wholesale portals', 'Expansion stores & markets'],
   },
@@ -86,7 +80,7 @@ const integrations = [
 const faqs = [
   {
     question: 'How much does a custom Shopify store cost?',
-    answer: 'Custom Shopify theme builds start from $3,000–$5,000 for a focused build. Projects with custom apps, third-party integrations or Shopify Plus features range from $10,000–$30,000+. We always provide a detailed fixed-price proposal before any work begins — no hourly billing.',
+    answer: 'A Basic Store build is $600 and an Advanced Store is $1,000. Custom development starts at $1,500, and projects with custom apps, integrations or Shopify Plus features are quoted after a short scoping call. You always get a fixed-price proposal before any work begins, with no hourly billing.',
   },
   {
     question: 'Do you use themes or build from scratch?',
@@ -119,9 +113,10 @@ const faqs = [
 ]
 
 const guarantees = [
-  { icon: '⚡', title: 'Sub-1.5s Mobile Load Time', body: 'Every build targets sub-1.5s mobile load time. We treat performance as a first-class engineering concern — not an afterthought bolted on after launch.' },
-  { icon: '🔒', title: 'Fixed-Price Before We Start', body: 'You get a detailed fixed-price proposal before a single line of code is written. No hourly billing, no surprise invoices, no scope creep charges.' },
-  { icon: '📱', title: 'Mobile-First, Always', body: 'We design and build for mobile first. 70–80% of Shopify traffic is mobile — your store is engineered for the device your customers actually use.' },
+  { title: 'A speed budget, agreed up front', body: 'We set a mobile performance target with you before the build and test against it before launch, not after.' },
+  { title: 'Fixed price before we start', body: 'A detailed fixed-price proposal before a line of code is written. No hourly billing, no surprise invoices.' },
+  { title: 'Mobile first, always', body: 'Most Shopify traffic is on a phone, so that is where we design and test first.' },
+  { title: 'A planned launch', body: 'QA across devices, redirects, tracking and post-launch checks are part of the scope, not extras.' },
 ]
 
 const related = [
@@ -145,234 +140,144 @@ const jsonLd = renderJsonLd([
   ]),
 ])
 
+const industries = [
+  { name: 'Fashion & Clothing', href: '/services/shopify/fashion-apparel', highlight: 'TikTok Shop, size guides, drops' },
+  { name: 'Electronics', href: '/services/shopify/electronics', highlight: 'Spec comparison, B2B, high SKU' },
+  { name: 'Beauty & Cosmetics', href: '/services/shopify/beauty-cosmetics', highlight: 'Shade matching, subscriptions, quiz funnels' },
+  { name: 'Health & Wellness', href: '/services/shopify/health-wellness', highlight: 'Compliant claims, subscriptions, trust signals' },
+  { name: 'Jewelry', href: '/services/shopify/jewelry', highlight: 'Engraving, ring sizers, luxury UX' },
+  { name: 'Food & Beverage', href: '/services/shopify/food-beverage', highlight: 'Delivery, allergens, age gates' },
+  { name: 'Home & Furniture', href: '/services/shopify/home-decor', highlight: 'Configurators, freight, swatches' },
+  { name: 'Sports & Fitness', href: '/services/shopify/sports-fitness', highlight: 'Subscriptions, bundles, B2B' },
+  { name: 'Pet Supplies', href: '/services/shopify/pets', highlight: 'Breed filtering, subscriptions' },
+]
+
 export default function ShopifyDevelopmentPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
-      {/* Hero */}
-      <section className="pt-32 pb-20" style={{ background: '#0a0a0a', backgroundImage: 'radial-gradient(ellipse at 70% 50%, rgba(108,99,255,0.15) 0%, transparent 60%)' }}>
-        <div className="mw-container">
-          <div className="mb-6">
-            <Breadcrumb items={[{ label: 'Services', href: '/services' }, { label: 'Custom Shopify Development' }]} />
-          </div>
-          <div className="max-w-3xl">
-            <span className="mw-eyebrow">CUSTOM SHOPIFY DEVELOPMENT</span>
-            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>
-              Custom Shopify Stores Built to Sell, Scale and Stay Easy to Manage
-            </h1>
-            <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem', maxWidth: '580px', fontWeight: 300 }}>
-              If your store feels generic, loads slowly, limits your team or fails to turn traffic into orders, we build a Shopify experience around your customers, products and growth goals. Every decision is made for clearer buying, faster pages and easier day-to-day store management.
-            </p>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 mb-8">
-              {['Custom theme, no templates', 'Sub-1.5s mobile load time', 'Shopify Plus capable', 'Fixed-price proposal'].map(t => (
-                <span key={t} className="flex items-center gap-1.5" style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.62)', fontWeight: 500 }}>
-                  <span style={{ color: '#10B981', fontWeight: 700 }}>✓</span> {t}
-                </span>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/contact" className="mw-btn-primary">
-                Get a Custom Shopify Quote <ArrowRight size={16} />
-              </Link>
-              <Link href="/work" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                See Shopify Work
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Stats strip */}
-      <div style={{ background: '#080808', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="mw-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px" style={{ background: 'rgba(255,255,255,0.04)' }}>
-            {[
-              { stat: '600+', label: 'Shopify projects' },
-              { stat: '10+', label: 'Years on Shopify' },
-              { stat: '98%+', label: 'Upwork job success' },
-              { stat: '24h', label: 'Proposal turnaround' },
-            ].map((s, i) => (
-              <div key={i} style={{ background: '#080808', padding: '1.25rem 2rem', textAlign: 'center' }}>
-                <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#fff', lineHeight: 1 }}>{s.stat}</div>
-                <div style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.3rem' }}>{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <ServiceHero
+        breadcrumbItems={[{ label: 'Services', href: '/services' }, { label: 'Custom Shopify Development' }]}
+        eyebrow="Custom Shopify development"
+        title={<>A Shopify store built to sell, <span className="mw-mark">and easy to run.</span></>}
+        lede="If your store feels generic, loads slowly or fails to turn traffic into orders, we rebuild it around your customers, your products and how your team actually works. Fixed price, agreed before we start."
+        bullets={['Custom theme or a heavily adapted one, whichever fits the budget', 'Mobile-first, with a speed budget agreed up front', 'Shopify Plus, B2B and integrations when you need them']}
+        aside={
+          <HeroScope
+            label="Prices"
+            items={['Basic store build: $600', 'Advanced store build: $1,000', 'Custom development: from $1,500', 'Care plans after launch: from $99/mo']}
+            foot={<>Every project gets a written fixed quote within 24 hours. <Link href="/pricing" style={{ color: 'var(--text-1)', textDecoration: 'underline', textUnderlineOffset: 3 }}>See pricing</Link></>}
+          />
+        }
+      />
 
-      {/* Case Study Result */}
-      <section style={{ paddingTop: '4rem', paddingBottom: '1rem' }}>
+      {/* Build types */}
+      <section className="mw-section">
         <div className="mw-container">
-          <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '1rem' }}>Real Project Result</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <ServiceResult
-              tag="Custom Store Build"
-              tagColor="#6C63FF"
-              metric="+61%"
-              metricLabel="Revenue (90 days)"
-              title="DTC brand: custom Shopify theme replacing a slow template — 90-day revenue up 61%, mobile conversion rate up 44%."
-              bullets={[
-                'Custom theme replacing a $280 purchased template that was slow and inflexible',
-                'Mobile product pages rebuilt from scratch — sticky ATC, image zoom, size guide modal',
-                'Checkout redesigned with one-click upsells — average order value up 18%',
-              ]}
-              duration="7-week build"
-              cta={{ label: 'See all our work', href: '/work' }}
-            />
-
-            {/* ROI callout */}
-            <div className="rounded-2xl p-6 flex flex-col justify-between" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
-              <div>
-                <p style={{ fontSize: '0.68rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '0.5rem' }}>Why Custom vs. Theme</p>
-                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '1.25rem', lineHeight: 1.4 }}>
-                  A 1% conversion lift on a $500K store pays for our entire build within 60 days.
-                </h3>
-                <div className="flex flex-col gap-3">
-                  {[
-                    { store: '$300K/year store', lift: '+1% conversion', extra: '+$3K/month' },
-                    { store: '$500K/year store', lift: '+1% conversion', extra: '+$5K/month' },
-                    { store: '$1M/year store',   lift: '+1% conversion', extra: '+$10K/month' },
-                  ].map(row => (
-                    <div key={row.store} className="flex items-center justify-between rounded-xl px-4 py-3" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                      <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>{row.store}</span>
-                      <div className="flex items-center gap-3">
-                        <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>{row.lift}</span>
-                        <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#10B981' }}>{row.extra}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', marginTop: '1.25rem', lineHeight: 1.5 }}>
-                Our average across completed builds is a 42% conversion rate improvement. These figures use 1% as a conservative floor.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Build Types */}
-      <section style={{ background: '#080808', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)', marginTop: '3rem' }}>
-        <div className="mw-container">
-          <div style={{ marginBottom: '2.5rem' }}>
-            <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>What We Build</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>For launches, redesigns and serious Shopify growth</h2>
-            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '560px', lineHeight: 1.7 }}>Whether you are starting from zero, replacing a slow theme, or preparing for higher order volume, the goal is the same: a store that shoppers trust and your team can run confidently.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <SectionHead
+            eyebrow="What we build"
+            title="Launches, redesigns and Shopify Plus."
+            intro="Starting from zero, replacing a slow theme or getting ready for more volume, the goal is the same: a store shoppers trust and your team can run without us."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ borderTop: '1px solid var(--text-1)' }}>
             {buildTypes.map((type, i) => (
-              <div key={i} className="rounded-2xl p-5 flex flex-col" style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${type.color}22` }}>
-                <div className="flex items-center gap-2 mb-3">
-                  <p style={{ fontWeight: 700, color: '#fff', fontSize: '0.95rem' }}>{type.title}</p>
-                  <span style={{ fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.06em', padding: '2px 7px', borderRadius: '4px', background: `${type.color}18`, color: type.color, border: `1px solid ${type.color}30` }}>{type.badge}</span>
+              <div key={type.title} className={i ? 'md:border-l md:pl-8' : ''} style={{ padding: '1.5rem 1.5rem 1.5rem 0', borderColor: 'var(--border)', borderBottom: '1px solid var(--border)' }}>
+                <div className="flex items-baseline justify-between gap-3" style={{ marginBottom: '0.75rem' }}>
+                  <h3 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontWeight: 400, fontSize: '1.5rem', letterSpacing: '-0.02em' }}>{type.title}</h3>
+                  <span className="svc-price" style={{ whiteSpace: 'nowrap' }}>{type.price}</span>
                 </div>
-                <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, marginBottom: '1rem', flex: 1 }}>{type.desc}</p>
-                <div className="flex flex-col gap-1">
-                  {type.examples.map(ex => (
-                    <div key={ex} className="flex items-center gap-2">
-                      <span style={{ color: type.color, fontSize: '0.7rem', fontWeight: 700 }}>→</span>
-                      <span style={{ fontSize: '0.76rem', color: 'rgba(255,255,255,0.5)' }}>{ex}</span>
-                    </div>
-                  ))}
-                </div>
+                <p style={{ fontSize: '0.93rem', marginBottom: '1rem' }}>{type.desc}</p>
+                <ul className="offer-list" style={{ marginTop: 0, gap: '0.4rem' }}>
+                  {type.examples.map((ex) => <li key={ex} style={{ fontSize: '0.9rem' }}>{ex}</li>)}
+                </ul>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Proof */}
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="mw-container">
+          <SectionHead eyebrow="Example project" title="What a rebuild can do." />
+          <ServiceResult
+            tag="Custom store build"
+            metric="+61%"
+            metricLabel="Revenue (90 days)"
+            title="DTC brand: custom Shopify theme replacing a slow template. 90-day revenue up 61%, mobile conversion rate up 44%."
+            bullets={[
+              'Custom theme replacing a $280 purchased template that was slow and inflexible',
+              'Mobile product pages rebuilt: sticky add to cart, image zoom, size guide',
+              'Checkout redesigned with one-click upsells; average order value up 18%',
+            ]}
+            duration="7-week build"
+            cta={{ label: 'See all our work', href: '/work' }}
+          />
+        </div>
+      </section>
+
+      <MidPageCta
+        heading="Not sure you need a rebuild?"
+        sub="Often you don't. Send your URL and we will show you, on video, what to fix on the store you already have."
+      />
 
       {/* What's included */}
-      <section style={{ background: '#0a0a0a', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="mw-container">
-          <div style={{ marginBottom: '2.5rem' }}>
-            <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>What&apos;s Included</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>What every serious Shopify build should include</h2>
-            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '540px', lineHeight: 1.7 }}>The details below are not technical decoration. They are the foundation for a store that loads quickly, ranks properly, converts on mobile and stays flexible as the business grows.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl">
-            {features.map((f, i) => (
-              <div key={i} className="flex items-start gap-3 mw-card" style={{ padding: '1rem 1.25rem' }}>
-                <CheckCircle2 size={15} className="shrink-0 mt-0.5" style={{ color: '#10B981' }} />
-                <span style={{ fontSize: '0.86rem', color: 'rgba(255,255,255,0.72)' }}>{f}</span>
-              </div>
-            ))}
-          </div>
+          <SectionHead
+            eyebrow="What's included"
+            title="What every serious build should include."
+            intro="Not technical decoration: the foundation for a store that loads quickly, ranks, converts on mobile and stays flexible as you grow."
+          />
+          <NumberedList items={features.map((f) => ({ title: f }))} columns={3} />
         </div>
       </section>
 
       {/* Integrations */}
-      <section style={{ background: '#080808', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="mw-container">
-          <div style={{ marginBottom: '2.5rem' }}>
-            <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>Integrations</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>Your store connected to the tools that run the business</h2>
-            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '540px', lineHeight: 1.7 }}>Email, reviews, fulfillment, support, ERP, analytics and payments should work together cleanly. We connect the stack so your team spends less time fighting systems and more time selling.</p>
+      <section className="mw-section" style={{ background: 'var(--bg-deep)', borderTop: '1px solid var(--border)' }}>
+        <div className="mw-container grid grid-cols-1 lg:grid-cols-[0.75fr_1.25fr] gap-10 lg:gap-16">
+          <div>
+            <p className="mw-eyebrow">Integrations</p>
+            <h2 style={{ fontSize: 'clamp(28px,3.4vw,44px)' }}>Connected to the tools that run the business.</h2>
+            <p style={{ marginTop: '1rem', maxWidth: '42ch' }}>Email, reviews, fulfilment, support, ERP, analytics and payments, working together so your team spends less time fighting systems.</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-            {integrations.map((item, i) => (
-              <div key={i} className="rounded-xl px-4 py-3 flex flex-col" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                <span style={{ fontSize: '0.88rem', fontWeight: 600, color: '#fff', marginBottom: '0.15rem' }}>{item.name}</span>
-                <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)' }}>{item.category}</span>
+          <dl className="grid grid-cols-2 sm:grid-cols-3 gap-x-8" style={{ borderTop: '1px solid var(--text-1)' }}>
+            {integrations.map((item) => (
+              <div key={item.name} style={{ padding: '0.9rem 0', borderBottom: '1px solid var(--border)' }}>
+                <dt style={{ fontWeight: 600, color: 'var(--text-1)', fontSize: '0.95rem' }}>{item.name}</dt>
+                <dd className="mw-num" style={{ marginTop: '0.2rem' }}>{item.category}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
 
-      {/* Industry specialisms */}
-      <section style={{ background: '#0a0a0a', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+      {/* Industries */}
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="mw-container">
-          <div style={{ marginBottom: '2.5rem' }}>
-            <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>By Industry</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>Build around how your customers actually buy</h2>
-            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '560px', lineHeight: 1.7 }}>Every industry has different buyer questions, product structures, trust signals and repeat-purchase patterns. We use that context when planning your Shopify store.</p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {[
-              { name: 'Fashion & Clothing', href: '/services/shopify/development#fashion', highlight: 'TikTok Shop, size guides, drops' },
-              { name: 'Electronics', href: '/services/shopify/electronics', highlight: 'Spec comparison, B2B, high SKU' },
-              { name: 'Beauty & Cosmetics', href: '/services/shopify/beauty-cosmetics', highlight: 'Shade matching, subscriptions, quiz funnels' },
-              { name: 'Health & Wellness', href: '/services/shopify/health-wellness', highlight: 'Compliant claims, subscriptions, trust signals' },
-              { name: 'Jewelry', href: '/services/shopify/jewelry', highlight: 'Engraving, ring sizers, luxury UX' },
-              { name: 'Food & Beverage', href: '/services/shopify/food-beverage', highlight: 'Delivery, allergens, age gates' },
-              { name: 'Home & Furniture', href: '/services/shopify/home-decor', highlight: 'Configurators, freight, swatches' },
-              { name: 'Sports & Fitness', href: '/services/shopify/sports-fitness', highlight: 'Subscriptions, bundles, B2B' },
-              { name: 'Pet Supplies', href: '/services/shopify/pets', highlight: 'Breed filtering, subscriptions' },
-            ].map((ind, i) => (
-              <Link key={i} href={ind.href} style={{ textDecoration: 'none' }} className="group">
-                <div className="rounded-xl p-4 h-full transition-all" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                  <p style={{ fontWeight: 600, color: '#fff', fontSize: '0.88rem', marginBottom: '0.25rem', lineHeight: 1.3 }}>{ind.name}</p>
-                  <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.4 }}>{ind.highlight}</p>
-                  <div className="flex items-center gap-1 mt-2" style={{ color: 'var(--accent)', fontSize: '0.7rem', fontWeight: 600 }}>
-                    View <ArrowRight size={10} />
-                  </div>
-                </div>
-              </Link>
+          <SectionHead eyebrow="By industry" title="Built around how your customers buy." />
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10" style={{ borderTop: '1px solid var(--text-1)' }}>
+            {industries.map((ind) => (
+              <li key={ind.href} style={{ borderBottom: '1px solid var(--border)' }}>
+                <Link href={ind.href} className="group flex items-start justify-between gap-3" style={{ padding: '1rem 0' }}>
+                  <span>
+                    <span style={{ display: 'block', fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: '1.2rem', color: 'var(--text-1)' }}>{ind.name}</span>
+                    <span style={{ display: 'block', fontSize: '0.88rem', color: 'var(--text-3)', marginTop: '0.2rem' }}>{ind.highlight}</span>
+                  </span>
+                  <ArrowUpRight size={16} className="shrink-0 transition-colors group-hover:text-[var(--accent)]" style={{ color: 'var(--text-4)', marginTop: 4 }} />
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* Mid-page CTA */}
-      <MidPageCta
-        heading="Free Shopify store review before you commit."
-        sub="Whether you are starting from scratch or rebuilding a live store, we will give you a clear plan and fixed price before you commit to anything."
-        btnLabel="Get My Store Review"
-      />
-
-      {/* Guarantees */}
       <GuaranteeBar guarantees={guarantees} />
 
-      <WhyUs />
-
-      <ClientPortfolio />
-
-      <FaqSection faqs={faqs} heading="Custom Shopify development — common questions" />
+      <FaqSection faqs={faqs} heading="Common questions" />
 
       <RelatedServices services={related} />
-
-      <CtaBanner />
     </>
   )
 }

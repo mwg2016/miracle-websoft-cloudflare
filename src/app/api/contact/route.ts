@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server'
+import { NextRequest, after } from 'next/server'
 import { sendEmail } from '@/lib/email'
 import { appendLead } from '@/lib/admin/store'
 import { parseClientOrigin } from '@/lib/admin/origin'
@@ -91,7 +91,7 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string |
       ``,
       `In the meantime, here are a few useful links:`,
       ``,
-      `→ Our Upwork profile (600+ reviews, Top Rated Plus)`,
+      `→ Our Upwork profile (Top Rated Plus, 98% job success)`,
       `   https://www.upwork.com/agencies/shopifyexpertsdevelopers/`,
       ``,
       `→ Shopify Partner Directory listing`,
@@ -161,7 +161,7 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string |
     <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px">
       <tr>
         <td style="width:33%;text-align:center;padding:16px 8px;background:#f8f8fc;border-radius:10px">
-          <div style="font-size:22px;font-weight:800;color:#111;line-height:1">600+</div>
+          <div style="font-size:22px;font-weight:800;color:#111;line-height:1">650+</div>
           <div style="font-size:11px;color:#888;margin-top:4px">Projects completed</div>
         </td>
         <td style="width:4px"></td>
@@ -181,7 +181,7 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string |
     <p style="margin:0 0 14px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#888">Useful links</p>
     <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px">
       ${[
-        { label: 'Upwork Profile', sub: 'Top Rated Plus · 600+ verified reviews', url: 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/', badge: 'Top Rated Plus', badgeColor: '#14a800' },
+        { label: 'Upwork Profile', sub: 'Top Rated Plus · 98% job success', url: 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/', badge: 'Top Rated Plus', badgeColor: '#14a800' },
         { label: 'Shopify Partner Directory', sub: 'Verified Shopify Partner since 2015', url: 'https://www.shopify.com/partners/directory/partner/miracle-websoft1', badge: 'Verified Partner', badgeColor: '#96bf48' },
         { label: 'Case Studies', sub: 'Real Shopify results', url: 'https://miraclewebsoft.com/case-studies', badge: 'Read more', badgeColor: accentColor },
         { label: 'Blog', sub: 'Shopify CRO, speed and growth tips', url: 'https://miraclewebsoft.com/blog', badge: 'Read more', badgeColor: accentColor },
@@ -264,7 +264,6 @@ export async function POST(req: NextRequest) {
     const isServiceSubmission = Boolean(budget) // ServiceContactForm includes a budget field; ContactForm does not.
     await Promise.all([
       sendEmail(buildNotificationEmail(name, email, storeUrl, service, message, _source || '', budget)),
-      sendEmail(buildConfirmationEmail(name, email, service)),
       appendLead({
         form: isServiceSubmission ? 'services' : 'contact',
         ip: clientIp(req),
@@ -273,6 +272,10 @@ export async function POST(req: NextRequest) {
         payload: { name, email, storeUrl, service, message, budget },
       }).catch(err => console.error('[contact] appendLead', err)),
     ])
+
+    // The visitor's confirmation is a courtesy: send it after responding so a
+    // rejected address (typo, bounce) never turns a delivered lead into an error.
+    after(() => sendEmail(buildConfirmationEmail(name, email, service)).catch(err => console.error('[contact] confirmation', err)))
 
     return Response.json({ success: true })
   } catch (err) {

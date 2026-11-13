@@ -1,13 +1,11 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Globe, ShoppingCart, Users, BookOpen, Layers, Zap, ShieldCheck, Star, TrendingUp, DollarSign } from 'lucide-react'
-import Breadcrumb from '@/components/layout/Breadcrumb'
 import FaqSection from '@/components/ui/FaqSection'
 import ServiceContactForm from '@/components/services/ServiceContactForm'
 import ServiceResult from '@/components/services/ServiceResult'
 import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
+import ServiceHero, { HeroScope, NumberedList, QuoteSection, SectionHead } from '@/components/services/ServiceHero'
 import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
@@ -28,17 +26,17 @@ export const metadata: Metadata = {
 }
 
 const whatWeBuild = [
-  { icon: Globe, title: 'Corporate & Business Sites', body: 'Professional multi-page websites for businesses, agencies and service providers. Custom theme design, no page-builder bloat, fast and SEO-ready.' },
-  { icon: ShoppingCart, title: 'WooCommerce Stores', body: 'Full WooCommerce builds for businesses that need WordPress\'s content flexibility alongside e-commerce. Custom product pages, checkout flows, and payment integrations.' },
-  { icon: Users, title: 'Membership & LMS Sites', body: 'Members-only content, course platforms (LearnDash, LifterLMS, MemberPress), and subscription-gated portals — fully customised to your structure.' },
-  { icon: BookOpen, title: 'Content & Media Sites', body: 'High-volume content sites, news portals, blog platforms and editorial sites. Custom post types, advanced taxonomies, and performance-optimised at scale.' },
-  { icon: Layers, title: 'Multi-site & Networks', body: 'WordPress Multisite setups for agencies, franchises and multi-brand organisations — centralised management with site-level customisation.' },
-  { icon: TrendingUp, title: 'Landing Pages & Funnels', body: 'High-conversion standalone landing pages and sales funnels — custom-coded for speed, built to A/B test, and free from drag-and-drop overhead.' },
+  { title: 'Corporate & Business Sites', body: 'Professional multi-page websites for businesses, agencies and service providers. Custom theme design, no page-builder bloat, fast and SEO-ready.' },
+  { title: 'WooCommerce Stores', body: 'Full WooCommerce builds for businesses that need WordPress\'s content flexibility alongside e-commerce. Custom product pages, checkout flows, and payment integrations.' },
+  { title: 'Membership & LMS Sites', body: 'Members-only content, course platforms (LearnDash, LifterLMS, MemberPress), and subscription-gated portals — fully customised to your structure.' },
+  { title: 'Content & Media Sites', body: 'High-volume content sites, news portals, blog platforms and editorial sites. Custom post types, advanced taxonomies, and performance-optimised at scale.' },
+  { title: 'Multi-site & Networks', body: 'WordPress Multisite setups for agencies, franchises and multi-brand organisations — centralised management with site-level customisation.' },
+  { title: 'Landing Pages & Funnels', body: 'High-conversion standalone landing pages and sales funnels — custom-coded for speed, built to A/B test, and free from drag-and-drop overhead.' },
 ]
 
 const features = [
   'Custom theme development — no builders, no bloat',
-  'Mobile-first, sub-2s load time target',
+  'Mobile-first, with a speed budget agreed up front',
   'SEO-optimised code structure and schema markup',
   'WooCommerce integration and custom checkout',
   'Custom post types and advanced custom fields',
@@ -52,17 +50,17 @@ const features = [
 ]
 
 const whyUs = [
-  { icon: Zap, title: 'Performance-first development', body: 'We build WordPress sites without page builders. That means leaner code, faster load times, and stores that don\'t slow down as content grows.' },
-  { icon: ShieldCheck, title: 'Security baked in', body: 'WordPress is the most-targeted CMS on the internet. We harden every build — hardened configs, limited attack surface, proper role management — from the start.' },
-  { icon: DollarSign, title: 'Fixed-price proposals', body: 'Every project starts with a scoped proposal at a fixed price. No hourly surprises, no scope creep billing. You know what you\'re paying before we begin.' },
-  { icon: Star, title: '600+ projects delivered', body: 'A track record built across 600+ projects and 10+ years. Top Rated Plus on Upwork with a 98%+ job success score.' },
-  { icon: Users, title: 'Direct team access', body: 'You work directly with the developers and strategists. No account managers, no ticketing systems, no handoffs.' },
+  { title: 'Performance-first development', body: 'We build WordPress sites without page builders. That means leaner code, faster load times, and stores that don\'t slow down as content grows.' },
+  { title: 'Security baked in', body: 'WordPress is the most-targeted CMS on the internet. We harden every build — hardened configs, limited attack surface, proper role management — from the start.' },
+  { title: 'Fixed-price proposals', body: 'Every project starts with a scoped proposal at a fixed price. No hourly surprises, no scope creep billing. You know what you\'re paying before we begin.' },
+  { title: '650+ projects since 2015', body: 'Top Rated Plus on Upwork with a 98% job success score, and 4.9 on Clutch.' },
+  { title: 'Direct team access', body: 'You work directly with the developers and strategists. No account managers, no ticketing systems, no handoffs.' },
 ]
 
 const guarantees = [
-  { icon: '⚡', title: 'No Page Builders — Ever', body: 'We build custom themes without Elementor, Divi or WPBakery. Leaner code, faster load times, and no technical debt that comes back to haunt you a year later.' },
-  { icon: '🔒', title: 'Fixed-Price Before We Start', body: 'Every project is scoped at a fixed price. No hourly billing, no scope creep invoices. The price we quote is the price you pay.' },
-  { icon: '🛡️', title: 'Security Baked In', body: 'WordPress is the most-targeted CMS on the internet. We harden every build from the start — hardened configs, proper role management, limited attack surface.' },
+  { title: 'No Page Builders — Ever', body: 'We build custom themes without Elementor, Divi or WPBakery. Leaner code, faster load times, and no technical debt that comes back to haunt you a year later.' },
+  { title: 'Fixed-Price Before We Start', body: 'Every project is scoped at a fixed price. No hourly billing, no scope creep invoices. The price we quote is the price you pay.' },
+  { title: 'Security Baked In', body: 'WordPress is the most-targeted CMS on the internet. We harden every build from the start — hardened configs, proper role management, limited attack surface.' },
 ]
 
 const related = [
@@ -86,7 +84,7 @@ const faqs = [
   },
   {
     question: 'Do you migrate existing sites to WordPress?',
-    answer: 'Yes. We migrate from other CMS platforms (Wix, Squarespace, Joomla, Drupal) to WordPress, with full content migration, SEO redirect mapping, and zero traffic loss as the priority.',
+    answer: 'Yes. We migrate from other CMS platforms (Wix, Squarespace, Joomla, Drupal) to WordPress, with full content migration, SEO redirect mapping, and protecting search traffic as the priority.',
   },
   {
     question: 'How do you handle WordPress security?',
@@ -121,47 +119,30 @@ export default function WordPressDevelopmentPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
-      {/* ── Hero ──────────────────────────────────────────────────────────── */}
-      <section className="pt-32 pb-20" style={{ background: '#0a0a0a', backgroundImage: 'radial-gradient(ellipse at 65% 45%, rgba(108,99,255,0.15) 0%, transparent 58%)' }}>
-        <div className="mw-container">
-          <div className="mb-6">
-            <Breadcrumb items={[{ label: 'Services' }, { label: 'WordPress Development' }]} />
-          </div>
-          <div className="max-w-3xl">
-            <span className="mw-eyebrow">WORDPRESS DEVELOPMENT</span>
-            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.5rem' }}>
-              WordPress Development<br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>Built properly. Built to last.</em>
-            </h1>
-            <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: '600px', fontWeight: 300 }}>
-              Custom WordPress websites — no page builders, no bloated themes, no compromise on performance. From WooCommerce stores to membership platforms to corporate sites, built to the specification your business actually needs.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <a href="#get-quote" className="mw-btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                Request a Fixed-Price Quote <ArrowRight size={16} />
-              </a>
-              <Link href="/work" className="mw-btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                View Project Work
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Case Study Result */}
-      <section style={{ paddingTop: '4rem', paddingBottom: '1rem' }}>
+      <ServiceHero
+        breadcrumbItems={[{ label: 'Services', href: '/services' }, { label: 'WordPress Development' }]}
+        eyebrow="WordPress development"
+        title={<>WordPress sites built properly, <span className="mw-mark">without page-builder bloat.</span></>}
+        lede="Business websites, WooCommerce stores, membership platforms and content sites. Custom themes, fast pages and a setup your team can edit without breaking anything."
+        bullets={['No Elementor, Divi or WPBakery', 'Security hardening and backups from day one', 'Fixed-price proposal within 24 hours']}
+        primary={{ label: 'Request a fixed-price quote', href: '#get-quote' }}
+        secondary={{ label: 'Book a 15-min call', href: '/book' }}
+        aside={<HeroScope label="Good fit when you need" items={whatWeBuild.slice(0, 5).map((w) => w.title)} foot="Selling physical products? Shopify is often the simpler choice. We will tell you honestly." />}
+      />
+
+      <section className="mw-section">
         <div className="mw-container">
-          <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '1rem' }}>Real Project Result</p>
+          <SectionHead eyebrow="Example project" title="An Elementor site, rebuilt properly." />
           <ServiceResult
-            tag="Membership & LMS Site"
-            tagColor="#6C63FF"
+            tag="Membership & LMS site"
             metric="2.1s"
-            metricLabel="Mobile Load Time"
-            title="Online education platform: replaced Elementor theme with custom WordPress build — page load dropped from 8.4s to 2.1s, membership sign-ups up 31%."
+            metricLabel="mobile load time"
+            title="Online education platform: Elementor theme replaced with a custom WordPress build. Load time from 8.4s to 2.1s, membership sign-ups up 31%."
             bullets={[
-              'Rebuilt Elementor-based theme from scratch — removed 1.8MB of unused page-builder CSS/JS',
-              'Integrated LearnDash LMS with custom-coded membership tiers and content gating',
-              'Mobile load time dropped from 8.4s to 2.1s — membership sign-up conversion up 31%',
+              'Elementor theme rebuilt from scratch, removing 1.8 MB of unused CSS and JS',
+              'LearnDash integrated with custom membership tiers and content gating',
+              'Mobile load time from 8.4s to 2.1s; sign-up conversion up 31%',
             ]}
             duration="6-week build"
             cta={{ label: 'See all our work', href: '/work' }}
@@ -169,134 +150,57 @@ export default function WordPressDevelopmentPage() {
         </div>
       </section>
 
-      {/* ── What We Build ─────────────────────────────────────────────────── */}
-      <section style={{ background: '#080808', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="mw-container">
-          <div style={{ marginBottom: '3rem' }}>
-            <span className="mw-eyebrow">WHAT WE BUILD</span>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(24px,3vw,36px)' }}>
-              WordPress for every<br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>business model.</em>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {whatWeBuild.map((item, i) => {
-              const Icon = item.icon
-              return (
-                <div key={i} className="mw-card" style={{ padding: '2rem' }}>
-                  <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(108,99,255,0.12)', border: '1px solid rgba(108,99,255,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
-                    <Icon size={18} style={{ color: 'var(--accent)' }} />
-                  </div>
-                  <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#fff', marginBottom: '0.6rem' }}>{item.title}</h3>
-                  <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, fontWeight: 300 }}>{item.body}</p>
-                </div>
-              )
-            })}
-          </div>
+          <SectionHead eyebrow="What we build" title="WordPress for every business model." />
+          <NumberedList items={whatWeBuild.map((w) => ({ title: w.title, body: w.body }))} columns={3} />
         </div>
       </section>
 
-      {/* ── Features ──────────────────────────────────────────────────────── */}
-      <section style={{ background: '#0a0a0a', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="mw-container">
-          <div style={{ marginBottom: '3rem' }}>
-            <span className="mw-eyebrow">WHAT&apos;S INCLUDED</span>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(24px,3vw,36px)' }}>
-              Everything in every build
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl">
-            {features.map((f, i) => (
-              <div key={i} className="flex items-start gap-3 mw-card" style={{ padding: '1rem 1.25rem' }}>
-                <CheckCircle2 size={15} className="shrink-0 mt-0.5" style={{ color: '#10B981' }} />
-                <span style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.7)' }}>{f}</span>
-              </div>
-            ))}
-          </div>
+          <SectionHead eyebrow="What's included" title="Standard in every build." />
+          <NumberedList items={features.map((f) => ({ title: f }))} columns={3} />
         </div>
       </section>
 
-      {/* Mid-page CTA */}
       <MidPageCta
-        heading="Need a WordPress site that supports leads or sales?"
-        sub="Send your requirements and we will reply with the cleanest path, likely scope and a fixed-price quote."
-        btnLabel="Request a Quote"
-        btnHref="/contact"
+        heading="Need a WordPress site that brings in leads or sales?"
+        sub="Talk it through on a 15-minute call, or send your requirements and get a fixed-price quote within a day."
+        btnLabel="Book a 15-min call"
+        btnHref="/book"
+        secondary={{ label: 'or request a quote', href: '#get-quote' }}
       />
 
-      {/* ── Why Us ────────────────────────────────────────────────────────── */}
-      <section className="mw-section" style={{ background: '#080808', backgroundImage: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(108,99,255,0.08) 0%, transparent 70%)' }}>
-        <div className="mw-container">
-          <div className="mw-section-header">
-            <span className="mw-eyebrow">WHY MIRACLE WEBSOFT</span>
-            <h2 style={{ color: '#fff' }}>
-              Not a generic WordPress shop.<br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>A development team that cares about quality.</em>
-            </h2>
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="mw-container grid grid-cols-1 lg:grid-cols-[0.75fr_1.25fr] gap-10 lg:gap-16">
+          <div>
+            <p className="mw-eyebrow">Why Miracle Websoft</p>
+            <h2 style={{ fontSize: 'clamp(28px,3.4vw,44px)' }}>Not a generic WordPress shop.</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {whyUs.map((r, i) => {
-              const Icon = r.icon
-              return (
-                <div key={i} className="mw-card" style={{ padding: '2rem' }}>
-                  <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(108,99,255,0.12)', border: '1px solid rgba(108,99,255,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
-                    <Icon size={18} style={{ color: 'var(--accent)' }} />
-                  </div>
-                  <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#fff', marginBottom: '0.6rem' }}>{r.title}</h3>
-                  <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8, fontWeight: 300 }}>{r.body}</p>
-                </div>
-              )
-            })}
-          </div>
+          <NumberedList items={whyUs} columns={2} />
         </div>
       </section>
 
       <GuaranteeBar guarantees={guarantees} />
 
-      <FaqSection faqs={faqs} heading="WordPress development — common questions" />
+      <FaqSection faqs={faqs} heading="Common questions" />
 
       <RelatedServices services={related} />
 
-      {/* ── Contact Form ──────────────────────────────────────────────────── */}
-      <section id="get-quote" style={{ background: '#0a0a0a', paddingTop: '5rem', paddingBottom: '6rem', borderTop: '1px solid rgba(255,255,255,0.06)', backgroundImage: 'radial-gradient(ellipse 70% 60% at 70% 50%, rgba(108,99,255,0.07) 0%, transparent 70%)' }}>
-        <div className="mw-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-
-            <div>
-              <span className="mw-eyebrow">REQUEST A QUOTE</span>
-              <h2 style={{ color: '#fff', fontSize: 'clamp(28px,4vw,44px)', marginBottom: '1.5rem', lineHeight: 1.15 }}>
-                Let&apos;s build your<br />
-                <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>WordPress site.</em>
-              </h2>
-              <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2.5rem', fontWeight: 300 }}>
-                Tell us what the site needs to do for the business and we will reply with a fixed-price quote, timeline and recommended approach.
-              </p>
-
-              <div className="flex flex-col gap-4">
-                {[
-                  { stat: '600+', label: 'Projects delivered' },
-                  { stat: '98%+', label: 'Job success score on Upwork' },
-                  { stat: '10+', label: 'Years of development experience' },
-                  { stat: '24h', label: 'Proposal turnaround' },
-                ].map((p, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', padding: '1rem 1.5rem', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                    <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--accent)', lineHeight: 1, minWidth: '52px' }}>{p.stat}</div>
-                    <div style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.55)' }}>{p.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mw-card" style={{ padding: '2.5rem' }}>
-              <ServiceContactForm
-                service="WordPress Development"
-                heading="Start your WordPress project"
-                subtext="Tell us what you need built. We'll review it and send a detailed, fixed-price proposal within 24 hours."
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <QuoteSection
+        eyebrow="Request a quote"
+        title="Let's scope your WordPress site."
+        body="Tell us what the site needs to do for the business. We reply with a fixed-price quote, a timeline and the approach we recommend."
+      >
+        <ServiceContactForm
+          service="WordPress Development"
+          heading="Start your WordPress project"
+          subtext="Tell us what you need built. We'll review it and send a detailed, fixed-price proposal within 24 hours."
+          urlLabel="Current website URL"
+          urlPlaceholder="yourcompany.com"
+        />
+      </QuoteSection>
     </>
   )
 }

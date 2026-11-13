@@ -5,7 +5,7 @@ import { industries } from '@/data/industries'
 import { breadcrumb, faqPage, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Shopify Industry Guides for Fashion & Apparel Brands',
+  title: 'Shopify Industry Guides for Fashion & Apparel Brands | Miracle Websoft',
   description:
     "Explore Shopify development guides for women's clothing, activewear, streetwear, sustainable fashion, kidswear, plus-size apparel, menswear, luxury fashion and online boutiques.",
   alternates: { canonical: 'https://miraclewebsoft.com/industries' },
@@ -64,101 +64,76 @@ export default function IndustriesPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
-      <section
-        className="pt-32 pb-16"
-        style={{
-          background: '#0a0a0a',
-          backgroundImage:
-            'radial-gradient(ellipse at 70% 35%, rgba(108,99,255,0.16) 0%, transparent 58%), radial-gradient(ellipse at 20% 90%, rgba(16,185,129,0.08) 0%, transparent 46%)',
-        }}
-      >
-        <div className="mw-container">
-          <div style={{ maxWidth: '760px' }}>
+      <section style={{ paddingTop: 'clamp(8rem, 12vw, 9.5rem)', paddingBottom: '4rem' }}>
+        <div className="mw-container grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-end">
+          <div>
             <p className="mw-eyebrow">Industry Shopify guides</p>
-            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>
-              Shopify development for fashion, apparel and high-growth DTC brands.
+            <h1 className="mw-hero-title" style={{ fontSize: 'clamp(36px, 4.8vw, 62px)', maxWidth: '18ch' }}>
+              Shopify development for fashion, apparel and <span className="mw-mark">DTC brands.</span>
             </h1>
-            <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1.05rem', lineHeight: 1.85, fontWeight: 300, maxWidth: '650px' }}>
+            <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '54ch' }}>
               Every ecommerce vertical has different buying behaviour. These guides explain the Shopify architecture, product-page features,
               filtering, merchandising and conversion systems each type of fashion brand needs to sell better online.
             </p>
           </div>
+          <dl className="audit-facts" style={{ gridTemplateColumns: 'repeat(3, 1fr)', marginTop: 0 }}>
+            <div><dt>Guides</dt><dd>{industries.length}</dd></div>
+            <div><dt>Projects</dt><dd>650+</dd></div>
+            <div><dt>Since</dt><dd>2015</dd></div>
+          </dl>
         </div>
       </section>
 
-      <section style={{ background: '#080808', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)', paddingTop: '4.5rem' }}>
         <div className="mw-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px" style={{ background: 'rgba(255,255,255,0.04)' }}>
-            {[
-              { stat: `${industries.length}`, label: 'Industry guides' },
-              { stat: '600+', label: 'Shopify projects' },
-              { stat: '10+', label: 'Years on Shopify' },
-              { stat: '98%+', label: 'Upwork job success' },
-            ].map((item) => (
-              <div key={item.label} style={{ background: '#080808', padding: '1.5rem 1rem', textAlign: 'center' }}>
-                <div style={{ fontSize: '1.75rem', fontWeight: 800, color: '#fff', lineHeight: 1 }}>{item.stat}</div>
-                <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.35rem' }}>{item.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mw-section" style={{ background: '#0a0a0a' }}>
-        <div className="mw-container">
-          <div style={{ marginBottom: '2.5rem', maxWidth: '680px' }}>
-            <p className="mw-eyebrow">Choose your vertical</p>
-            <h2 style={{ color: '#fff' }}>Find the Shopify playbook closest to your brand.</h2>
-            <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.75, marginTop: '0.75rem' }}>
-              Each page covers customer intent, common conversion leaks, required Shopify features and practical answers to questions buyers
-              and founders ask before rebuilding a store.
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4" style={{ marginBottom: '2.5rem' }}>
+            <div>
+              <p className="mw-eyebrow">Choose your vertical</p>
+              <h2 style={{ maxWidth: '18ch' }}>Find the playbook closest to your brand.</h2>
+            </div>
+            <p style={{ maxWidth: '44ch', fontSize: '0.95rem' }}>
+              Each page covers customer intent, common conversion leaks, required Shopify features and the questions founders ask before rebuilding a store.
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {industries.map((industry) => (
-              <Link
-                key={industry.slug}
-                href={`/industries/${industry.slug}`}
-                className="mw-card group"
-                style={{ padding: '1.35rem', textDecoration: 'none', display: 'block' }}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p style={{ fontSize: '0.72rem', color: 'var(--accent)', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.7rem' }}>
-                      Shopify industry guide
-                    </p>
-                    <h3 style={{ color: '#fff', fontSize: '1rem', fontWeight: 700, lineHeight: 1.35, marginBottom: '0.55rem' }}>
-                      {industry.title}
-                    </h3>
-                    <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.83rem', lineHeight: 1.65 }}>
-                      {industry.subtext}
-                    </p>
-                  </div>
-                  <ArrowRight size={16} style={{ color: 'rgba(255,255,255,0.35)', flexShrink: 0, marginTop: '0.2rem' }} />
-                </div>
-              </Link>
+          <ul className="svc-table">
+            {industries.map((industry, i) => (
+              <li key={industry.slug}>
+                <Link href={`/industries/${industry.slug}`} className="ind-row">
+                  <span className="mw-num">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="svc-name">{industry.title}</span>
+                  <span className="svc-line">{industry.subtext}</span>
+                  <ArrowRight size={18} className="svc-arrow" aria-hidden />
+                </Link>
+              </li>
             ))}
+          </ul>
+        </div>
+        <style>{`
+          .svc-table a.ind-row { grid-template-columns: 2.5rem 1fr 1.6fr 1.5rem; }
+          @media (max-width: 860px) {
+            .svc-table a.ind-row { grid-template-columns: 2rem 1fr 1.25rem; }
+          }
+        `}</style>
+      </section>
+
+      <section className="mw-section" style={{ background: 'var(--bg-deep)' }}>
+        <div className="mw-container grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16">
+          <div>
+            <p className="mw-eyebrow">FAQ</p>
+            <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', maxWidth: '14ch' }}>Before you pick a guide</h2>
           </div>
+          <dl style={{ borderTop: '1px solid var(--text-1)' }}>
+            {faqs.map((faq) => (
+              <div key={faq.question} style={{ padding: '1.5rem 0', borderBottom: '1px solid var(--border)' }}>
+                <dt><h3 style={{ fontSize: '1.1rem', marginBottom: '0.6rem' }}>{faq.question}</h3></dt>
+                <dd><p style={{ maxWidth: '62ch' }}>{faq.answer}</p></dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
-      <section style={{ background: '#080808', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="mw-container">
-          <div className="grid gap-5 lg:grid-cols-3">
-            {faqs.map((faq) => (
-              <div key={faq.question} className="mw-card" style={{ padding: '1.4rem' }}>
-                <h2 style={{ color: '#fff', fontSize: '1rem', fontWeight: 700, marginBottom: '0.7rem', lineHeight: 1.35 }}>
-                  {faq.question}
-                </h2>
-                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.86rem', lineHeight: 1.75 }}>
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   )
 }

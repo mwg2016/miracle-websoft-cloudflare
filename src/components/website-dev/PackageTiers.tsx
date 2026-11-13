@@ -1,17 +1,11 @@
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2, X, Calendar, Star } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { webDevPackages } from '@/data/website-dev-packages'
 import type { CountryCode, Country } from '@/data/website-dev-cities'
 import { countries } from '@/data/website-dev-cities'
 
 interface Props {
   country?: CountryCode
-}
-
-const colorByTier: Record<string, { color: string; bg: string; border: string }> = {
-  starter: { color: '#fb923c', bg: 'rgba(251,146,60,0.08)', border: 'rgba(251,146,60,0.25)' },
-  business: { color: '#a78bfa', bg: 'rgba(108,99,255,0.08)', border: 'rgba(108,99,255,0.3)' },
-  ecommerce: { color: '#34d399', bg: 'rgba(52,211,153,0.06)', border: 'rgba(52,211,153,0.2)' },
 }
 
 function formatPrice(amount: number, country: Country): string {
@@ -22,144 +16,53 @@ export default function PackageTiers({ country = 'us' }: Props) {
   const c = countries[country]
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div className="wd-tiers">
       {webDevPackages.map((pkg) => {
-        const tone = colorByTier[pkg.slug]
         const price = formatPrice(pkg.pricesByCountry[country], c)
         return (
-          <div
-            key={pkg.slug}
-            style={{
-              borderRadius: '16px',
-              overflow: 'hidden',
-              border: `1px solid ${tone.border}`,
-              background: tone.bg,
-              display: 'flex',
-              flexDirection: 'column',
-              position: 'relative',
-            }}
-          >
-            {pkg.popular && (
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '1rem',
-                  right: '1rem',
-                  background: 'var(--accent)',
-                  color: '#fff',
-                  fontSize: '0.62rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  padding: '0.2rem 0.55rem',
-                  borderRadius: '999px',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.25rem',
-                }}
-              >
-                <Star size={9} /> Most popular
+          <div key={pkg.slug} className={`wd-tier${pkg.popular ? ' is-popular' : ''}`}>
+            <div className="flex items-center justify-between gap-3" style={{ minHeight: "1.6rem" }}>
+              <p className="mw-num" style={{ textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--text-2)' }}>{pkg.name}</p>
+              {pkg.popular && <span className="mw-pill mw-pill--accent" style={{ fontSize: '0.68rem', padding: '0.2rem 0.5rem' }}>Most chosen</span>}
+            </div>
+            <p style={{ marginTop: '1rem', lineHeight: 1 }}>
+              <span style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(2.4rem, 3.6vw, 3rem)', letterSpacing: '-0.03em', color: 'var(--text-1)' }}>{price}</span>
+              <span style={{ fontSize: '0.85rem', color: 'var(--text-3)', marginLeft: '0.5rem' }}>one-time</span>
+            </p>
+            <p className="mw-num" style={{ marginTop: '0.75rem' }}>LIVE IN {pkg.deliveryDays.toUpperCase()}</p>
+            <p style={{ fontSize: '0.93rem', marginTop: '1rem', paddingBottom: '1.25rem', borderBottom: '1px solid var(--border)' }}>{pkg.tagline}</p>
+
+            <ul className="wd-tier-list">
+              {pkg.included.map((feat) => <li key={feat}>{feat}</li>)}
+            </ul>
+
+            {pkg.notIncluded.length > 0 && (
+              <div style={{ marginTop: '1.25rem' }}>
+                <p className="mw-num" style={{ textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.4rem' }}>Not included</p>
+                <p style={{ fontSize: '0.84rem', color: 'var(--text-3)', lineHeight: 1.6 }}>{pkg.notIncluded.join(' · ')}</p>
               </div>
             )}
-            <div style={{ height: '3px', background: `linear-gradient(90deg, ${tone.color}, ${tone.color}88)` }} />
-            <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-              <p
-                style={{
-                  fontSize: '0.72rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  color: tone.color,
-                  marginBottom: '0.4rem',
-                }}
-              >
-                {pkg.name}
-              </p>
-              <div style={{ marginBottom: '0.4rem' }}>
-                <span style={{ fontSize: '2.2rem', fontWeight: 800, color: '#fff' }}>{price}</span>
-                <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', marginLeft: '0.4rem' }}>
-                  one-time
-                </span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '1.25rem' }}>
-                <Calendar size={12} style={{ color: tone.color }} />
-                <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>
-                  Live in {pkg.deliveryDays}
-                </span>
-              </div>
-              <p
-                style={{
-                  fontSize: '0.85rem',
-                  color: 'rgba(255,255,255,0.55)',
-                  lineHeight: 1.65,
-                  marginBottom: '1.5rem',
-                }}
-              >
-                {pkg.tagline}
-              </p>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem' }}>
-                {pkg.included.map((feat, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
-                    <CheckCircle2
-                      size={13}
-                      style={{ color: tone.color, flexShrink: 0, marginTop: '3px' }}
-                    />
-                    <span style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.55 }}>
-                      {feat}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {pkg.notIncluded.length > 0 && (
-                <div style={{ marginBottom: '1.5rem' }}>
-                  <p
-                    style={{
-                      fontSize: '0.68rem',
-                      fontWeight: 700,
-                      letterSpacing: '0.08em',
-                      textTransform: 'uppercase',
-                      color: 'rgba(255,255,255,0.3)',
-                      marginBottom: '0.5rem',
-                    }}
-                  >
-                    Not included
-                  </p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-                    {pkg.notIncluded.map((feat, i) => (
-                      <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
-                        <X size={12} style={{ color: 'rgba(255,255,255,0.3)', flexShrink: 0, marginTop: '3px' }} />
-                        <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.4)' }}>{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              <Link
-                href={`/contact?package=${pkg.contactSlug}`}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.4rem',
-                  background: tone.color,
-                  color: '#000',
-                  padding: '0.8rem 1.25rem',
-                  borderRadius: '8px',
-                  fontWeight: 700,
-                  fontSize: '0.85rem',
-                  textDecoration: 'none',
-                  marginTop: 'auto',
-                }}
-              >
-                Get {pkg.name} <ArrowRight size={14} />
-              </Link>
-            </div>
+            <div style={{ flex: 1, minHeight: '1.75rem' }} />
+            <Link
+              href={`/contact?package=${pkg.contactSlug}`}
+              className={pkg.popular ? 'mw-btn-accent' : 'mw-btn-outline'}
+              style={{ width: '100%' }}
+            >
+              Choose {pkg.name} <ArrowRight size={15} />
+            </Link>
           </div>
         )
       })}
+      <style>{`
+        .wd-tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: stretch; }
+        .wd-tier { display: flex; flex-direction: column; background: var(--bg-raised); border: 1px solid var(--border); border-radius: 8px; padding: clamp(1.4rem, 2.5vw, 2rem); }
+        .wd-tier.is-popular { border-color: var(--text-1); box-shadow: 0 30px 60px -40px rgb(23 21 15 / 0.35); }
+        .wd-tier-list { display: grid; gap: 0.55rem; margin: 1.25rem 0 0; }
+        .wd-tier-list li { position: relative; padding-left: 1.4rem; font-size: 0.9rem; line-height: 1.5; color: var(--text-2); }
+        .wd-tier-list li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 0.75rem; height: 1px; background: var(--text-1); }
+        @media (max-width: 900px) { .wd-tiers { grid-template-columns: 1fr; } }
+      `}</style>
     </div>
   )
 }

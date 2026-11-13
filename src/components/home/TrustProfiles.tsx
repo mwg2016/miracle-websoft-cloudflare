@@ -30,10 +30,10 @@ const platforms = [
   {
     name: 'DesignRush',
     badge: 'Listed Agency',
-    badgeColor: '#6c63ff',
+    badgeColor: '#E04F25',
     href: outboundHref('external', 'https://www.designrush.com/agency/profile/miracle-websoft'),
     description: 'Shopify development & e-commerce experts',
-    accent: '#6c63ff',
+    accent: '#E04F25',
     large: false,
   },
   {
@@ -118,11 +118,11 @@ export default function TrustProfiles() {
   const rest = platforms.slice(1)
 
   return (
-    <section style={{ background: '#080808', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingTop: '5rem', paddingBottom: '5rem' }}>
+    <section style={{ background: '#080808', borderTop: '1px solid rgb(var(--ink-rgb) / 0.06)', borderBottom: '1px solid rgb(var(--ink-rgb) / 0.06)', paddingTop: '5rem', paddingBottom: '5rem' }}>
       <div className="mw-container">
         <div className="mb-12">
           <p className="mw-eyebrow">Find Us On</p>
-          <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(28px,4vw,48px)', lineHeight: 1.1 }}>
+          <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: 'var(--text-1)', fontSize: 'clamp(28px,4vw,48px)', lineHeight: 1.1 }}>
             Trusted across every<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>major platform.</em>
           </h2>
         </div>
@@ -130,14 +130,14 @@ export default function TrustProfiles() {
         {/* Upwork featured card */}
         <Link href={featured.href} target="_blank" rel="noopener noreferrer" className="block mb-5 group">
           <div className="mw-card" style={{ padding: '2.5rem', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', top: 0, right: 0, width: '40%', height: '100%', background: `radial-gradient(ellipse at top right, ${featured.accent}12, transparent 70%)`, pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', top: 0, right: 0, width: '40%', height: '100%', background: `linear-gradient(transparent, transparent)`, pointerEvents: 'none' }} />
             <div className="flex flex-col lg:flex-row lg:items-center gap-8">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-3">
-                  <span style={{ fontWeight: 800, fontSize: '1.4rem', color: '#fff' }}>Upwork</span>
+                  <span style={{ fontWeight: 800, fontSize: '1.4rem', color: 'var(--text-1)' }}>Upwork</span>
                   <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '0.3rem 0.75rem', borderRadius: '9999px', background: `${featured.accent}22`, color: featured.accent, border: `1px solid ${featured.accent}40` }}>{featured.badge}</span>
                 </div>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', marginBottom: 0 }}>{featured.description}</p>
+                <p style={{ color: 'rgb(var(--ink-rgb) / 0.5)', fontSize: '0.9rem', marginBottom: 0 }}>{featured.description}</p>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-6">
                 {featured.stats!.map((stat) => {
@@ -146,14 +146,14 @@ export default function TrustProfiles() {
                     <div key={stat.label} className="text-center lg:text-left">
                       <div className="flex items-center justify-center lg:justify-start gap-1.5 mb-1">
                         <Icon size={13} style={{ color: featured.accent }} />
-                        <span style={{ fontSize: '1.5rem', fontWeight: 700, color: '#fff', fontFamily: 'var(--font-playfair), Georgia, serif' }}>{stat.value}</span>
+                        <span style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-1)', fontFamily: 'var(--font-playfair), Georgia, serif' }}>{stat.value}</span>
                       </div>
-                      <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', fontWeight: 500, letterSpacing: '0.05em' }}>{stat.label}</p>
+                      <p style={{ fontSize: '0.72rem', color: 'rgb(var(--ink-rgb) / 0.6)', fontWeight: 500, letterSpacing: '0.05em' }}>{stat.label}</p>
                     </div>
                   )
                 })}
               </div>
-              <ExternalLink size={16} style={{ color: 'rgba(255,255,255,0.25)', flexShrink: 0 }} className="hidden lg:block group-hover:text-white transition-colors" />
+              <ExternalLink size={16} style={{ color: 'rgb(var(--ink-rgb) / 0.25)', flexShrink: 0 }} className="hidden lg:block group-hover:text-[var(--text-1)] transition-colors" />
             </div>
           </div>
         </Link>
@@ -163,21 +163,21 @@ export default function TrustProfiles() {
           {rest.map((p) => (
             <Link key={p.name} href={p.href} target="_blank" rel="noopener noreferrer" className="group">
               <div className="mw-card h-full" style={{ padding: '1.5rem', position: 'relative', overflow: 'hidden' }}>
-                <div style={{ position: 'absolute', top: 0, right: 0, width: '60%', height: '60%', background: `radial-gradient(ellipse at top right, ${p.accent}10, transparent 70%)`, pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', top: 0, right: 0, width: '60%', height: '60%', background: `linear-gradient(transparent, transparent)`, pointerEvents: 'none' }} />
                 <div className="flex items-start justify-between gap-2 mb-2">
-                  <span style={{ fontWeight: 700, fontSize: '0.95rem', color: '#fff' }}>{p.name}</span>
-                  <ExternalLink size={12} style={{ color: 'rgba(255,255,255,0.2)', flexShrink: 0 }} className="group-hover:text-white transition-colors mt-0.5" />
+                  <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text-1)' }}>{p.name}</span>
+                  <ExternalLink size={12} style={{ color: 'rgb(var(--ink-rgb) / 0.2)', flexShrink: 0 }} className="group-hover:text-[var(--text-1)] transition-colors mt-0.5" />
                 </div>
                 <span style={{ display: 'inline-block', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '0.2rem 0.6rem', borderRadius: '9999px', background: `${p.accent}18`, color: p.accent, border: `1px solid ${p.accent}35`, marginBottom: '0.6rem' }}>{p.badge}</span>
-                <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>{p.description}</p>
+                <p style={{ fontSize: '0.78rem', color: 'rgb(var(--ink-rgb) / 0.6)', lineHeight: 1.5 }}>{p.description}</p>
               </div>
             </Link>
           ))}
         </div>
 
         {/* Social links */}
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '2rem' }}>
-          <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '1rem' }}>Follow Us</p>
+        <div style={{ borderTop: '1px solid rgb(var(--ink-rgb) / 0.06)', paddingTop: '2rem' }}>
+          <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgb(var(--ink-rgb) / 0.6)', marginBottom: '1rem' }}>Follow Us</p>
           <div className="flex flex-wrap gap-3">
             {socials.map(({ name, href, icon: Icon }) => (
               <Link key={name} href={href} target="_blank" rel="noopener noreferrer"
@@ -191,11 +191,11 @@ export default function TrustProfiles() {
         </div>
 
         {/* Shopify App Store */}
-        <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+        <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid rgb(var(--ink-rgb) / 0.06)' }}>
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
             <div>
-              <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.4rem' }}>Shopify App Store</p>
-              <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)' }}>Browse our published Shopify apps</p>
+              <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgb(var(--ink-rgb) / 0.6)', marginBottom: '0.4rem' }}>Shopify App Store</p>
+              <p style={{ fontSize: '0.85rem', color: 'rgb(var(--ink-rgb) / 0.5)' }}>Browse our published Shopify apps</p>
             </div>
             <Link href={outboundHref('shopify_apps', 'https://apps.shopify.com/partners/miracle-websoft1')} target="_blank" rel="noopener noreferrer" className="mw-btn-outline" style={{ whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.6rem 1.25rem', fontSize: '0.82rem' }}>
               View Our Apps <ExternalLink size={13} />

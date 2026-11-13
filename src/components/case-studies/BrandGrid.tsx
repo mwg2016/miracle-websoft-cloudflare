@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { ExternalLink } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 
 type Brand = {
   name: string
@@ -8,8 +8,6 @@ type Brand = {
   desc: string
   href: string | null
 }
-
-const ACCENT = '#6C63FF'
 
 export default function BrandGrid({ brands }: { brands: Brand[] }) {
   const categories = ['All', ...Array.from(new Set(brands.map(b => b.category)))]
@@ -19,17 +17,22 @@ export default function BrandGrid({ brands }: { brands: Brand[] }) {
 
   return (
     <>
-      {/* Filter tabs */}
-      <div className="flex flex-wrap gap-2 mb-8">
+      <div className="flex flex-wrap gap-x-1 gap-y-1 mb-6" role="tablist" aria-label="Filter brands by category">
         {categories.map(cat => (
           <button
             key={cat}
             onClick={() => setActive(cat)}
-            className="px-3 py-1.5 rounded-full text-xs font-medium transition-all"
+            role="tab"
+            aria-selected={active === cat}
             style={{
-              background: active === cat ? ACCENT : 'rgba(255,255,255,0.05)',
-              color: active === cat ? '#fff' : 'rgba(255,255,255,0.50)',
-              border: active === cat ? `1px solid ${ACCENT}` : '1px solid rgba(255,255,255,0.08)',
+              fontSize: '0.82rem',
+              padding: '0.35rem 0.7rem',
+              borderRadius: '4px',
+              background: active === cat ? 'var(--text-1)' : 'transparent',
+              color: active === cat ? 'var(--bg)' : 'var(--text-2)',
+              border: '1px solid',
+              borderColor: active === cat ? 'var(--text-1)' : 'var(--border)',
+              cursor: 'pointer',
             }}
           >
             {cat}{cat === 'All' ? ` (${brands.length})` : ''}
@@ -37,45 +40,38 @@ export default function BrandGrid({ brands }: { brands: Brand[] }) {
         ))}
       </div>
 
-      {/* Brand grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {filtered.map((client, i) => (
-          <div
-            key={i}
-            className="mw-card flex items-center justify-between gap-3"
-            style={{ padding: '1.1rem 1.4rem' }}
-          >
-            <div style={{ minWidth: 0 }}>
-              <div className="flex items-center gap-2 mb-1 flex-wrap">
-                <span style={{ fontWeight: 600, color: '#fff', fontSize: '0.88rem' }}>{client.name}</span>
-                <span style={{
-                  fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
-                  padding: '0.18rem 0.5rem', borderRadius: 9999,
-                  background: 'rgba(108,99,255,0.12)', color: 'var(--accent)',
-                  border: '1px solid rgba(108,99,255,0.20)', flexShrink: 0,
-                }}>
-                  {client.category}
-                </span>
-              </div>
-              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>{client.desc}</p>
-            </div>
-            {client.href ? (
-              <a
-                href={client.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: 'rgba(255,255,255,0.20)', flexShrink: 0, transition: 'color 0.2s' }}
-                className="hover:text-white"
-                aria-label={`Visit ${client.name}`}
-              >
-                <ExternalLink size={13} />
-              </a>
-            ) : (
-              <div style={{ width: 13, flexShrink: 0 }} />
-            )}
-          </div>
-        ))}
-      </div>
+      <ul className="brand-grid">
+        {filtered.map(client => {
+          const inner = (
+            <>
+              <span>
+                <b>{client.name}</b>
+                <span className="brand-desc">{client.desc}</span>
+              </span>
+              <span className="mw-num brand-cat">{client.category}</span>
+              {client.href ? <ArrowUpRight size={14} className="brand-arrow" /> : <span />}
+            </>
+          )
+          return (
+            <li key={client.name}>
+              {client.href
+                ? <a href={client.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${client.name}`}>{inner}</a>
+                : <div>{inner}</div>}
+            </li>
+          )
+        })}
+      </ul>
+      <style dangerouslySetInnerHTML={{ __html: `
+.brand-grid { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 2.5rem; border-top: 1px solid var(--text-1); }
+.brand-grid li { border-bottom: 1px solid var(--border); }
+.brand-grid li > * { display: grid; grid-template-columns: 1fr auto 1rem; gap: 1rem; align-items: baseline; padding: 0.95rem 0; }
+.brand-grid a:hover { background: var(--bg-raised); }
+.brand-grid b { display: block; font-weight: 600; color: var(--text-1); }
+.brand-desc { font-size: 0.88rem; color: var(--text-3); }
+.brand-arrow { color: var(--text-4); }
+.brand-grid a:hover .brand-arrow { color: var(--accent); }
+@media (max-width: 760px) { .brand-grid { grid-template-columns: 1fr; } .brand-cat { display: none; } }
+` }} />
     </>
   )
 }

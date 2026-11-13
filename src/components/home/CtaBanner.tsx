@@ -4,65 +4,31 @@ import { outboundHref } from '@/lib/outbound'
 
 export default function CtaBanner() {
   return (
-    <section
-      className="relative overflow-hidden mw-noise"
-      style={{
-        background: 'var(--bg-deep)',
-        backgroundImage:
-          'radial-gradient(ellipse 90% 70% at 50% 60%, rgba(108,99,255,0.22) 0%, transparent 70%)',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-        paddingTop: '8rem',
-        paddingBottom: '8rem',
-      }}
-    >
-      {/* Big editorial wordmark behind */}
-      <div
-        aria-hidden
-        style={{
-          position: 'absolute',
-          inset: 0,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontFamily: 'var(--font-playfair), Georgia, serif',
-          fontSize: 'clamp(12rem, 24vw, 28rem)',
-          fontWeight: 500,
-          color: 'rgba(255,255,255,0.025)',
-          letterSpacing: '-0.04em',
-          lineHeight: 1,
-          userSelect: 'none',
-          zIndex: 0,
-        }}
-      >
-        miracle
-      </div>
-
-      <div className="mw-container relative" style={{ zIndex: 1, textAlign: 'center' }}>
-        <span className="mw-eyebrow" style={{ justifyContent: 'center', display: 'inline-flex' }}>Start here</span>
-        <h2 style={{ color: '#fff', marginBottom: '1.5rem' }}>
-          Let&apos;s find the fastest path<br />
-          to a <span className="mw-italic mw-italic--accent">stronger growth system.</span>
-        </h2>
-        <p style={{ color: 'var(--text-2)', fontSize: '1.1rem', maxWidth: '560px', margin: '0 auto 3rem', lineHeight: 1.65 }}>
-          Send your store, website or workflow challenge. Karam will reply personally with practical next steps, whether you need Shopify help, CRO, speed optimization, AI automation or custom software.
-        </p>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
-          <Link href="/contact" className="mw-btn-primary" style={{ fontSize: '1rem', padding: '1.15rem 2rem' }}>
-            Book Free Consultation <ArrowRight size={17} />
+    <section style={{ background: 'var(--bg-deep)', borderTop: '1px solid var(--border)', padding: 'clamp(4rem, 8vw, 6rem) 0' }}>
+      <div className="mw-container grid lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-16 items-end">
+        <div>
+          <p className="mw-eyebrow">Start here</p>
+          <h2 style={{ fontSize: 'clamp(30px, 4vw, 48px)', maxWidth: '18ch' }}>
+            Find out what to fix first. <span className="mw-mark">It&apos;s free.</span>
+          </h2>
+          <p style={{ marginTop: '1.25rem', maxWidth: '52ch' }}>
+            Send your store URL and get a 5-minute video teardown within 48 hours, with fixes ranked by likely impact. Or book 15 minutes with Karam and talk it through.
+          </p>
+        </div>
+        <div className="flex flex-col gap-3">
+          <Link href="/free-store-audit" className="mw-btn-accent">
+            Get a free store teardown <ArrowRight size={16} />
           </Link>
-          <Link
+          <Link href="/book" className="mw-btn-outline">Book a 15-min call</Link>
+          <a
             href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%20Karam%2C%20how%20are%20you%3F%20I%20need%20help%20with%20my%20website%20or%20AI%20automation.')}
             target="_blank"
             rel="noopener noreferrer"
-            className="mw-btn-outline"
-            style={{ fontSize: '1rem', padding: '1.15rem 2rem' }}
+            style={{ fontSize: '0.88rem', color: 'var(--text-3)', textAlign: 'center', textDecoration: 'underline', textUnderlineOffset: '3px' }}
           >
-            Message Karam on WhatsApp
-          </Link>
+            Or message Karam on WhatsApp
+          </a>
         </div>
-        <p style={{ marginTop: '1.5rem', fontFamily: 'var(--font-geist-mono), monospace', fontSize: '0.75rem', color: 'var(--text-4)', letterSpacing: '0.04em' }}>
-          karam@miraclewebsoft.com &nbsp;·&nbsp; +91 6239 269736 &nbsp;·&nbsp; reply within 24 h
-        </p>
       </div>
     </section>
   )

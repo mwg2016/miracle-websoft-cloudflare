@@ -1,111 +1,57 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, MessageCircle } from 'lucide-react'
 import { outboundHref } from '@/lib/outbound'
 
+// Same $150 package, listed on Upwork for buyers who want Upwork's escrow. Secondary option only.
 export const UPWORK_URL = outboundHref(
   'upwork',
   'https://www.upwork.com/services/product/development-it-black-friday-sale-setup-for-shopify-store-landing-page-banner-discounts-1988947480012939725?ref=project_share',
 )
 
-const GOLD = '#FBBF24'
+export const BF_WHATSAPP =
+  'https://wa.me/916239269736?text=Hi%20Miracle%20Websoft%2C%20I%20want%20help%20setting%20up%20my%20Black%20Friday%20sale.'
 
-// Sticky Upwork CTAs for the Black Friday page.
-// Mobile (<768px): bottom bar, always visible.
-// Desktop: bottom-right teaser, shown only while no in-page Upwork button
-// (anything marked data-upwork-cta) is in view. No pulse here — that's for in-section buttons only.
-export default function UpworkStickyCta() {
-  // Starts hidden so the teaser doesn't flash before the first observer report.
-  const [inlineInView, setInlineInView] = useState(true)
+// Mobile sticky bar for the Black Friday page (the site-wide sticky CTA is hidden on this route).
+// Appears after the hero and hides while the on-page form is on screen, so it never covers the form.
+export default function BfStickyCta() {
+  const [pastHero, setPastHero] = useState(false)
+  const [formInView, setFormInView] = useState(false)
 
   useEffect(() => {
-    const targets = document.querySelectorAll('[data-upwork-cta]')
-    const visible = new Set<Element>()
-    const observer = new IntersectionObserver(entries => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) visible.add(entry.target)
-        else visible.delete(entry.target)
-      }
-      setInlineInView(visible.size > 0)
-    })
-    targets.forEach(t => observer.observe(t))
-    return () => observer.disconnect()
+    const onScroll = () => setPastHero(window.scrollY > 700)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    const form = document.getElementById('lead-form')
+    const obs = form ? new IntersectionObserver(([e]) => setFormInView(e.isIntersecting)) : null
+    if (form && obs) obs.observe(form)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      obs?.disconnect()
+    }
   }, [])
 
-  return (
-    <>
-      {/* Mobile: always-visible bottom bar (+ spacer so it never covers the page end) */}
-      <div className="bf-upwork-mobile-spacer" aria-hidden="true" />
-      <div className="bf-upwork-mobile">
-        <a href={UPWORK_URL} target="_blank" rel="noopener noreferrer" className="bf-upwork-sticky-btn" style={{ width: '100%', justifyContent: 'center' }}>
-          Book Service on Upwork <ArrowRight size={16} />
-        </a>
-      </div>
+  const visible = pastHero && !formInView
 
-      {/* Desktop: bottom-right teaser */}
+  return (
+    <div className={`sticky-cta md:hidden ${visible ? 'is-visible' : ''}`} aria-hidden={!visible}>
+      <a href="#lead-form" className="sticky-cta-main" tabIndex={visible ? 0 : -1}>
+        <span>
+          <span className="sticky-cta-kicker">BFCM · $150 fixed · 48h</span>
+          <span className="sticky-cta-title">Get my Black Friday plan</span>
+        </span>
+        <ArrowRight size={18} aria-hidden="true" />
+      </a>
       <a
-        href={UPWORK_URL}
+        href={BF_WHATSAPP}
         target="_blank"
         rel="noopener noreferrer"
-        className="bf-upwork-sticky-btn bf-upwork-desktop"
-        aria-hidden={inlineInView}
-        tabIndex={inlineInView ? -1 : 0}
-        style={{
-          opacity: inlineInView ? 0 : 1,
-          transform: inlineInView ? 'translateY(16px)' : 'translateY(0)',
-          pointerEvents: inlineInView ? 'none' : 'auto',
-        }}
+        className="sticky-cta-wa"
+        aria-label="Message us on WhatsApp"
+        tabIndex={visible ? 0 : -1}
       >
-        Book Service on Upwork <ArrowRight size={16} />
+        <MessageCircle size={20} aria-hidden="true" />
       </a>
-
-      <style>{`
-        .bf-upwork-sticky-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          background: ${GOLD};
-          color: #000;
-          font-weight: 700;
-          font-size: 0.92rem;
-          padding: 0.85rem 1.4rem;
-          border-radius: 9999px;
-          text-decoration: none;
-          box-shadow: 0 10px 30px rgba(251,191,36,0.35), 0 4px 14px rgba(0,0,0,0.6);
-        }
-        .bf-upwork-sticky-btn:hover { filter: brightness(1.06); }
-
-        .bf-upwork-mobile {
-          position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
-          padding: 0.65rem 16px calc(0.65rem + env(safe-area-inset-bottom));
-          background: rgba(0,0,0,0.92);
-          backdrop-filter: blur(14px);
-          -webkit-backdrop-filter: blur(14px);
-          border-top: 1px solid rgba(251,191,36,0.25);
-        }
-        .bf-upwork-mobile-spacer { height: 76px; }
-
-        .bf-upwork-desktop {
-          display: none;
-          position: fixed; right: 24px; bottom: 24px; z-index: 60;
-          transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        @media (min-width: 768px) {
-          .bf-upwork-mobile, .bf-upwork-mobile-spacer { display: none; }
-          .bf-upwork-desktop { display: inline-flex; }
-        }
-
-        /* Soft pulsing glow for in-section Upwork buttons (not the sticky ones). */
-        @keyframes bf-upwork-glow {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(251,191,36,0.55), 0 0 14px 2px rgba(251,191,36,0.25); }
-          50%      { box-shadow: 0 0 0 8px rgba(251,191,36,0), 0 0 28px 8px rgba(251,191,36,0.45); }
-        }
-        .bf-upwork-pulse { animation: bf-upwork-glow 2.2s ease-in-out infinite; }
-        @media (prefers-reduced-motion: reduce) {
-          .bf-upwork-pulse { animation: none; }
-        }
-      `}</style>
-    </>
+    </div>
   )
 }

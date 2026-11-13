@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 
 interface RelatedService {
   title: string
@@ -7,29 +7,24 @@ interface RelatedService {
   href: string
 }
 
-export default function RelatedServices({ services }: { services: RelatedService[] }) {
+export default function RelatedServices({ services, heading = 'Related services' }: { services: RelatedService[]; heading?: string }) {
   return (
-    <section style={{ paddingTop: '3rem', paddingBottom: '4rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+    <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
       <div className="mw-container">
-        <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '1rem' }}>
-          You might also need
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <p className="mw-eyebrow">{heading}</p>
+        <ul className="grid grid-cols-1 md:grid-cols-3" style={{ borderTop: '1px solid var(--text-1)' }}>
           {services.map((s, i) => (
-            <Link
-              key={i}
-              href={s.href}
-              className="group flex items-center justify-between gap-3 rounded-2xl p-5 transition-all"
-              style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', textDecoration: 'none' }}
-            >
-              <div>
-                <p style={{ fontWeight: 600, color: '#fff', fontSize: '0.88rem', marginBottom: '0.25rem', lineHeight: 1.3 }}>{s.title}</p>
-                <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>{s.desc}</p>
-              </div>
-              <ArrowRight size={15} style={{ color: 'var(--accent)', flexShrink: 0, opacity: 0.7 }} className="group-hover:opacity-100 transition-opacity" />
-            </Link>
+            <li key={i} style={{ borderBottom: '1px solid var(--border)' }}>
+              <Link href={s.href} className="group flex items-start justify-between gap-4 h-full" style={{ padding: '1.25rem 1.25rem 1.25rem 0' }}>
+                <div>
+                  <p style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: 'var(--text-1)', fontSize: '1.2rem', letterSpacing: '-0.01em', lineHeight: 1.25, marginBottom: '0.35rem' }}>{s.title}</p>
+                  <p style={{ fontSize: '0.88rem', color: 'var(--text-3)', lineHeight: 1.55 }}>{s.desc}</p>
+                </div>
+                <ArrowUpRight size={17} className="shrink-0 transition-colors group-hover:text-[var(--accent)]" style={{ color: 'var(--text-4)', marginTop: 4 }} />
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   )

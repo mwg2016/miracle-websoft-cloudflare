@@ -14,14 +14,16 @@ export default function FaqSection({ faqs, heading = 'Common questions', eyebrow
     })),
   }
   return (
-    <section style={{ background: '#0a0a0a', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+    <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mw-container">
-        <div style={{ marginBottom: '3rem' }}>
-          <p className="mw-eyebrow">{eyebrow}</p>
-          <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(26px,3.5vw,40px)', lineHeight: 1.15 }}>{heading}</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-[0.7fr_1.3fr] gap-8 lg:gap-14">
+          <div>
+            <p className="mw-eyebrow">{eyebrow}</p>
+            <h2 style={{ fontSize: 'clamp(26px,3vw,38px)', lineHeight: 1.15, maxWidth: '18ch' }}>{heading}</h2>
+          </div>
+          <FaqAccordionClient faqs={faqs} />
         </div>
-        <FaqAccordionClient faqs={faqs} />
       </div>
     </section>
   )

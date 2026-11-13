@@ -4,27 +4,16 @@ import { useRouter } from 'next/navigation'
 import { ArrowRight, Loader2, Upload, X } from 'lucide-react'
 import { getEffectiveOrigin, trackLead } from '@/lib/analytics'
 
-const inputStyle: React.CSSProperties = {
-  width: '100%',
-  background: 'rgba(255,255,255,0.05)',
-  border: '1px solid rgba(255,255,255,0.1)',
-  borderRadius: '10px',
-  padding: '0.75rem 1rem',
-  fontSize: '0.875rem',
-  color: '#fff',
-  outline: 'none',
-}
-
 const labelStyle: React.CSSProperties = {
   display: 'block',
-  fontSize: '0.78rem',
+  fontSize: '0.85rem',
   fontWeight: 500,
-  color: 'rgba(255,255,255,0.6)',
+  color: 'var(--text-1)',
   marginBottom: '0.4rem',
 }
 
 const optionalTag = (
-  <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.2)', fontWeight: 400, marginLeft: '4px' }}>(optional)</span>
+  <span style={{ fontSize: '0.8rem', color: 'var(--text-4)', fontWeight: 400, marginLeft: '4px' }}>(optional)</span>
 )
 
 export default function CareersForm({ defaultPosition }: { defaultPosition?: string }) {
@@ -79,7 +68,7 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
       const res = await fetch('/api/careers', { method: 'POST', body: fd })
       const data = await res.json() as { success?: boolean }
       if (data.success) {
-        trackLead('lead_form_submit', { form: 'careers', position: form.position || '(unspecified)' })
+        trackLead('job_application_submit', { form: 'careers', position: form.position || '(unspecified)' })
         router.push('/thank-you?form=careers')
       } else {
         setState('error')
@@ -99,12 +88,12 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
         <div>
           <label htmlFor="careers-name" style={labelStyle}>Full name *</label>
           <input id="careers-name" name="name" type="text" required placeholder="Alex Johnson" autoComplete="name"
-            value={form.name} onChange={e => set('name', e.target.value)} style={inputStyle} />
+            value={form.name} onChange={e => set('name', e.target.value)} className="mw-field" />
         </div>
         <div>
           <label htmlFor="careers-email" style={labelStyle}>Email address *</label>
           <input id="careers-email" name="email" type="email" required placeholder="alex@gmail.com" autoComplete="email"
-            value={form.email} onChange={e => set('email', e.target.value)} style={inputStyle} />
+            value={form.email} onChange={e => set('email', e.target.value)} className="mw-field" />
         </div>
       </div>
 
@@ -112,12 +101,12 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
         <div>
           <label htmlFor="careers-phone" style={labelStyle}>Phone number {optionalTag}</label>
           <input id="careers-phone" name="phone" type="tel" placeholder="+91 98765 43210" autoComplete="tel"
-            value={form.phone} onChange={e => set('phone', e.target.value)} style={inputStyle} />
+            value={form.phone} onChange={e => set('phone', e.target.value)} className="mw-field" />
         </div>
         <div>
           <label htmlFor="careers-position" style={labelStyle}>Position applying for *</label>
           <select id="careers-position" name="position" required value={form.position} onChange={e => set('position', e.target.value)}
-            style={{ ...inputStyle, appearance: 'none' as const }}>
+            className="mw-field">
             <option value="">Select a role...</option>
             <option>Shopify Developer — Junior</option>
             <option>Shopify Developer — Mid-Level</option>
@@ -131,7 +120,7 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
       <div>
         <label htmlFor="careers-experience" style={labelStyle}>Years of experience *</label>
         <select id="careers-experience" name="experience" required value={form.experience} onChange={e => set('experience', e.target.value)}
-          style={{ ...inputStyle, appearance: 'none' as const }}>
+          className="mw-field">
           <option value="">Select experience level...</option>
           <option>Fresher — Basic HTML, CSS &amp; JavaScript</option>
           <option>Less than 1 year</option>
@@ -144,7 +133,7 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
       <div>
         <label htmlFor="careers-portfolio" style={labelStyle}>Portfolio / GitHub URL {optionalTag}</label>
         <input id="careers-portfolio" name="portfolio" type="url" placeholder="https://github.com/yourprofile or your portfolio site" autoComplete="url"
-          value={form.portfolio} onChange={e => set('portfolio', e.target.value)} style={inputStyle} />
+          value={form.portfolio} onChange={e => set('portfolio', e.target.value)} className="mw-field" />
       </div>
 
       <div>
@@ -152,7 +141,7 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
         <textarea id="careers-message" name="message" rows={4} required
           placeholder="Tell us about your skills, what projects you've worked on, and why you'd like to join Miracle Websoft..."
           value={form.message} onChange={e => set('message', e.target.value)}
-          style={{ ...inputStyle, resize: 'none' }} />
+          className="mw-field" style={{ resize: 'vertical' }} />
       </div>
 
       {/* Resume upload */}
@@ -168,13 +157,13 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
           onChange={e => { const f = e.target.files?.[0]; if (f) handleFile(f) }}
         />
         {resume ? (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', borderRadius: '10px', background: 'rgba(108,99,255,0.1)', border: '1px solid rgba(108,99,255,0.25)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', borderRadius: '6px', background: 'var(--bg-raised)', border: '1px solid var(--text-1)' }}>
             <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: '0.82rem', fontWeight: 500, color: '#fff', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{resume.name}</div>
-              <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)', marginTop: '1px' }}>{(resume.size / 1024).toFixed(0)} KB</div>
+              <div style={{ fontSize: '0.82rem', fontWeight: 500, color: 'var(--text-1)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{resume.name}</div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--text-3)', marginTop: '1px' }}>{(resume.size / 1024).toFixed(0)} KB</div>
             </div>
             <button type="button" onClick={() => { setResume(null); if (fileRef.current) fileRef.current.value = '' }}
-              style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.6)', padding: '2px', flexShrink: 0 }}>
+              style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-3)', padding: '2px', flexShrink: 0 }}>
               <X size={14} />
             </button>
           </div>
@@ -188,9 +177,9 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
             style={{
               width: '100%',
               padding: '1.25rem 1rem',
-              borderRadius: '10px',
-              background: dragOver ? 'rgba(108,99,255,0.1)' : 'rgba(255,255,255,0.03)',
-              border: `1px dashed ${dragOver ? 'rgba(108,99,255,0.5)' : 'rgba(255,255,255,0.15)'}`,
+              borderRadius: '6px',
+              background: dragOver ? 'var(--bg-deep)' : 'var(--bg-raised)',
+              border: `1px dashed ${dragOver ? 'var(--text-1)' : 'var(--border-hover)'}`,
               cursor: 'pointer',
               display: 'flex',
               flexDirection: 'column',
@@ -199,21 +188,21 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
               transition: 'all 0.2s',
             }}
           >
-            <Upload size={16} style={{ color: 'rgba(255,255,255,0.6)' }} />
-            <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>Click to upload or drag &amp; drop</span>
-            <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.2)' }}>PDF, DOC, DOCX — max 5 MB</span>
+            <Upload size={16} style={{ color: 'var(--text-3)' }} />
+            <span style={{ fontSize: '0.8rem', color: 'var(--text-3)' }}>Click to upload or drag &amp; drop</span>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-4)' }}>PDF, DOC, DOCX — max 5 MB</span>
           </button>
         )}
       </div>
 
       {state === 'error' && (
-        <p style={{ fontSize: '0.8rem', color: '#f87171', textAlign: 'center' }}>
+        <p role="alert" style={{ fontSize: '0.85rem', color: 'var(--accent-hover)', textAlign: 'center' }}>
           Something went wrong. Email us directly at{' '}
-          <a href="mailto:karam@miraclewebsoft.com" style={{ color: '#f87171' }}>karam@miraclewebsoft.com</a>
+          <a href="mailto:karam@miraclewebsoft.com" style={{ color: 'var(--accent-hover)' }}>karam@miraclewebsoft.com</a>
         </p>
       )}
 
-      <button type="submit" disabled={state === 'sending'} className="mw-btn-primary justify-center w-full"
+      <button type="submit" disabled={state === 'sending'} className="mw-btn-accent justify-center w-full"
         style={{ padding: '0.9rem', opacity: state === 'sending' ? 0.7 : 1 }}>
         {state === 'sending' ? (
           <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
@@ -226,7 +215,7 @@ export default function CareersForm({ defaultPosition }: { defaultPosition?: str
         )}
       </button>
 
-      <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.25)', textAlign: 'center', lineHeight: 1.6 }}>
+      <p style={{ fontSize: '0.8rem', color: 'var(--text-3)', textAlign: 'center', lineHeight: 1.6 }}>
         We review every application personally and respond within 3–5 business days.
       </p>
     </form>

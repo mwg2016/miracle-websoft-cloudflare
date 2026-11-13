@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import {
-  ArrowRight, ArrowDown, Calculator, Scale, GraduationCap, Landmark,
-  Palette, Printer, Building2, DollarSign, Zap, CheckCircle2,
-  Repeat, Sparkles, Gift, Handshake,
-} from 'lucide-react'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { partners, universalPerks } from '@/data/partners'
 import { breadcrumb, itemList, renderJsonLd, service, webPage } from '@/lib/jsonld'
 
@@ -22,33 +18,29 @@ export const metadata: Metadata = {
   },
 }
 
-const iconMap = {
-  calculator: Calculator,
-  scale: Scale,
-  graduation: GraduationCap,
-  landmark: Landmark,
-  palette: Palette,
-  printer: Printer,
-  building: Building2,
-} as const
-
 // First-touchpoint journey — the bedrock argument for this whole program.
 const journey = [
-  { step: '1', title: 'Files an LLC', partner: 'Business lawyer' },
-  { step: '2', title: 'Opens a bank account', partner: 'Local bank' },
-  { step: '3', title: 'Hires an accountant', partner: 'CPA' },
-  { step: '4', title: 'Gets advice', partner: 'Business coach' },
-  { step: '5', title: 'Designs a logo', partner: 'Branding agency' },
-  { step: '6', title: 'Prints business cards', partner: 'Printer' },
-  { step: '7', title: 'Moves into co-working', partner: 'Co-working space' },
-  { step: '★', title: 'NEEDS A WEBSITE', partner: 'Miracle Websoft' },
+  { title: 'Files an LLC', partner: 'Business lawyer' },
+  { title: 'Opens a bank account', partner: 'Local bank' },
+  { title: 'Hires an accountant', partner: 'CPA' },
+  { title: 'Gets advice', partner: 'Business coach' },
+  { title: 'Designs a logo', partner: 'Branding agency' },
+  { title: 'Prints business cards', partner: 'Printer' },
+  { title: 'Moves into co-working', partner: 'Co-working space' },
+  { title: 'Needs a website', partner: 'Miracle Websoft' },
 ]
 
-const stats = [
-  { value: '$150', unit: 'max', label: 'Per referral, paid monthly' },
-  { value: '7', unit: '', label: 'Partner types covered' },
-  { value: '0', unit: '', label: 'Forms to fill before referring' },
-  { value: '$0', unit: '', label: 'Cost to partner' },
+const tiers = [
+  { name: 'Starter referral', fee: '$50', pkg: 'Customer buys our Starter package ($299)' },
+  { name: 'Business referral', fee: '$75', pkg: 'Customer buys our Business package ($499)' },
+  { name: 'E-commerce referral', fee: '$150', pkg: 'Customer buys our E-commerce package ($899)' },
+]
+
+const whyUs = [
+  { title: 'Fixed pricing', desc: 'Your client knows the cost up front. No scope creep, no awkward conversation.' },
+  { title: '7–14 day delivery', desc: 'Most sites go live within two weeks, so you look fast too.' },
+  { title: 'All-in package', desc: 'Domain, hosting, design and content included. Your client doesn’t need to learn anything.' },
+  { title: 'White-label option', desc: 'Lawyers and branding studios can resell under their own brand.' },
 ]
 
 const jsonLd = renderJsonLd([
@@ -87,494 +79,160 @@ export default function PartnersHubPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
 
       {/* Hero */}
-      <section
-        className="pt-32 pb-20"
-        style={{
-          background: '#0a0a0a',
-          backgroundImage:
-            'radial-gradient(ellipse at 60% 40%, rgba(108,99,255,0.18) 0%, transparent 55%), radial-gradient(ellipse at 20% 80%, rgba(52,211,153,0.08) 0%, transparent 50%)',
-        }}
-      >
-        <div className="mw-container">
-          <span className="mw-eyebrow">CHANNEL PARTNER PROGRAM</span>
-          <h1 className="text-white mb-5" style={{ maxWidth: '760px' }}>
-            If your business serves small businesses,
-            <br />
-            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>
-              you&apos;re a website referral waiting to happen.
-            </em>
-          </h1>
-          <p
-            style={{
-              color: 'rgba(255,255,255,0.55)',
-              fontSize: '1.1rem',
-              lineHeight: 1.75,
-              maxWidth: '600px',
-              marginBottom: '2.5rem',
-            }}
-          >
-            By the time a new business owner reaches you, they&apos;re weeks away from realising they need a website.
-            We pay accountants, lawyers, coaches, banks, branding studios, printers and co-working spaces $50–$150 per
-            converted referral. Monthly payouts. No quotas. No cost to join.
-          </p>
-
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <Link href="#partner-types" className="mw-btn-primary">
-              See partner types <ArrowDown size={16} />
-            </Link>
-            <Link
-              href="#apply"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                border: '1px solid rgba(255,255,255,0.15)',
-                color: 'rgba(255,255,255,0.65)',
-                padding: '0.65rem 1.4rem',
-                borderRadius: '8px',
-                fontWeight: 500,
-                fontSize: '0.9rem',
-                textDecoration: 'none',
-              }}
-            >
-              Send your first lead
-            </Link>
+      <section style={{ paddingTop: 'clamp(8rem, 12vw, 9.5rem)', paddingBottom: '4.5rem' }}>
+        <div className="mw-container grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-end">
+          <div>
+            <p className="mw-eyebrow">Channel partner program</p>
+            <h1 className="mw-hero-title" style={{ fontSize: 'clamp(36px, 4.6vw, 60px)', maxWidth: '18ch' }}>
+              If your business serves small businesses, you&apos;re a <span className="mw-mark">website referral</span> waiting to happen.
+            </h1>
+            <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '50ch' }}>
+              By the time a new business owner reaches you, they&apos;re weeks away from needing a website. We pay accountants,
+              lawyers, coaches, banks, branding studios, printers and co-working spaces $50–$150 per converted referral.
+            </p>
+            <div className="flex flex-wrap gap-3" style={{ marginTop: '2rem' }}>
+              <Link href="#apply" className="mw-btn-accent">Send your first lead <ArrowRight size={16} /></Link>
+              <Link href="#partner-types" className="mw-btn-outline">See partner types</Link>
+            </div>
+            <p style={{ marginTop: '1.25rem', fontSize: '0.88rem', color: 'var(--text-3)' }}>
+              No sign-up, no contract. Share the lead and get paid when they sign.
+            </p>
           </div>
-
-          <p
-            style={{
-              marginTop: '1.5rem',
-              fontSize: '0.78rem',
-              color: 'rgba(255,255,255,0.45)',
-              fontWeight: 500,
-            }}
-          >
-            No sign-up · No contract · Just share the lead — get paid when they sign
-          </p>
+          <dl className="audit-facts" style={{ marginTop: 0 }}>
+            <div><dt>Per referral</dt><dd>$50–150</dd></div>
+            <div><dt>Payouts</dt><dd>Monthly</dd></div>
+            <div><dt>Cost to join</dt><dd>$0</dd></div>
+          </dl>
         </div>
       </section>
 
-      {/* Stats bar */}
-      <section
-        style={{
-          background: '#111',
-          borderTop: '1px solid rgba(255,255,255,0.06)',
-          borderBottom: '1px solid rgba(255,255,255,0.06)',
-        }}
-      >
+      {/* The journey */}
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="mw-container">
-          <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: 0 }}>
-            {stats.map((s, i) => (
-              <div
-                key={s.label}
-                style={{
-                  padding: '1.75rem 1.5rem',
-                  textAlign: 'center',
-                  borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.06)' : undefined,
-                }}
-              >
-                <div style={{ fontSize: '2rem', fontWeight: 800, color: '#fff', lineHeight: 1 }}>
-                  {s.value}
-                  <span style={{ color: 'var(--accent)', fontSize: '1.5rem' }}>{s.unit}</span>
-                </div>
-                <div
-                  style={{
-                    fontSize: '0.78rem',
-                    color: 'rgba(255,255,255,0.6)',
-                    marginTop: '0.35rem',
-                    fontWeight: 500,
-                  }}
-                >
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* The Funnel — why this works */}
-      <section className="mw-section" style={{ background: '#0a0a0a' }}>
-        <div className="mw-container">
-          <div className="mw-section-header">
-            <span className="mw-eyebrow">THE NEW-BUSINESS JOURNEY</span>
-            <h2 style={{ color: '#fff' }}>
-              You&apos;re the first 7 steps.
-              <br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>
-                We&apos;re step 8 — the one they search for on Google.
-              </em>
-            </h2>
-            <p
-              style={{
-                color: 'rgba(255,255,255,0.6)',
-                maxWidth: '600px',
-                margin: '0 auto',
-                fontSize: '0.95rem',
-                lineHeight: 1.7,
-              }}
-            >
-              Every new business owner walks the same path. They touch a partner at every step — the lawyer,
-              the bank, the accountant, the coach, the designer, the printer, the co-working space. Then, weeks
-              later, they hit Google and search &quot;website developer near me.&quot; That last step is the one we
-              want to skip. So we pay you for it.
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-16" style={{ marginBottom: '3rem' }}>
+            <div>
+              <p className="mw-eyebrow">The new-business journey</p>
+              <h2 style={{ maxWidth: '14ch' }}>You&apos;re the first seven steps. We&apos;re the eighth.</h2>
+            </div>
+            <p style={{ alignSelf: 'end', maxWidth: '54ch' }}>
+              Every new business owner walks the same path: the lawyer, the bank, the accountant, the coach, the designer,
+              the printer, the co-working space. Weeks later they search &quot;website developer near me&quot;. We&apos;d rather
+              they asked you first, so we pay you for it.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+          <ol className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8" style={{ borderTop: '1px solid var(--text-1)' }}>
             {journey.map((j, i) => {
               const isLast = i === journey.length - 1
               return (
-                <div
-                  key={j.step}
+                <li
+                  key={j.title}
                   style={{
-                    border: `1px solid ${isLast ? 'rgba(108,99,255,0.4)' : 'rgba(255,255,255,0.08)'}`,
-                    background: isLast ? 'rgba(108,99,255,0.08)' : 'rgba(255,255,255,0.02)',
-                    borderRadius: '12px',
-                    padding: '1.15rem 1rem',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '0.4rem',
-                    textAlign: 'center',
-                    position: 'relative',
+                    padding: '1.1rem 1rem 1.25rem 0',
+                    borderBottom: '1px solid var(--border)',
+                    borderTop: isLast ? '2px solid var(--accent)' : undefined,
+                    marginTop: isLast ? -1 : undefined,
+                    paddingLeft: isLast ? '0.75rem' : undefined,
+                    background: isLast ? 'var(--bg-raised)' : undefined,
                   }}
                 >
-                  <div
-                    style={{
-                      fontSize: '0.85rem',
-                      fontWeight: 800,
-                      color: isLast ? 'var(--accent)' : 'rgba(255,255,255,0.4)',
-                      fontFamily: 'monospace',
-                    }}
-                  >
-                    {j.step}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: '0.75rem',
-                      fontWeight: 600,
-                      color: isLast ? '#fff' : 'rgba(255,255,255,0.85)',
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {j.title}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: '0.65rem',
-                      color: isLast ? 'var(--accent)' : 'rgba(255,255,255,0.4)',
-                      lineHeight: 1.3,
-                      fontWeight: isLast ? 700 : 400,
-                    }}
-                  >
-                    {j.partner}
-                  </div>
-                </div>
+                  <span className="mw-num" style={{ color: isLast ? 'var(--accent)' : undefined }}>{String(i + 1).padStart(2, '0')}</span>
+                  <div style={{ fontWeight: 600, fontSize: '0.92rem', color: 'var(--text-1)', marginTop: '0.6rem', lineHeight: 1.3 }}>{j.title}</div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-3)', marginTop: '0.25rem' }}>{j.partner}</div>
+                </li>
               )
             })}
-          </div>
+          </ol>
         </div>
       </section>
 
-      {/* Partner type cards */}
-      <section id="partner-types" className="mw-section" style={{ background: '#0d0d0d' }}>
+      {/* Partner types */}
+      <section id="partner-types" className="mw-section" style={{ background: 'var(--bg-deep)', scrollMarginTop: '4rem' }}>
         <div className="mw-container">
-          <div className="mw-section-header">
-            <span className="mw-eyebrow">PARTNER TYPES</span>
-            <h2 style={{ color: '#fff' }}>
-              Seven partnerships.
-              <br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>One reason: your clients need a website.</em>
-            </h2>
-            <p
-              style={{
-                color: 'rgba(255,255,255,0.6)',
-                maxWidth: '520px',
-                margin: '0 auto',
-                fontSize: '0.95rem',
-                lineHeight: 1.7,
-              }}
-            >
-              Each partner type has its own dedicated program — different model, different fee, different assets.
-              Click into the one that matches your business.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {partners.map((p) => {
-              const Icon = iconMap[p.iconKey]
-              return (
-                <Link
-                  key={p.slug}
-                  href={`/partners/${p.slug}`}
-                  style={{
-                    borderRadius: '16px',
-                    overflow: 'hidden',
-                    border: `1px solid ${p.accentBorder}`,
-                    background: p.accentBg,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    textDecoration: 'none',
-                  }}
-                >
-                  <div style={{ height: '3px', background: p.accentGradient }} />
-                  <div style={{ padding: '1.75rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                    <div
-                      style={{
-                        width: 44,
-                        height: 44,
-                        borderRadius: '12px',
-                        background: p.accentBg,
-                        border: `1px solid ${p.accentBorder}`,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginBottom: '1rem',
-                      }}
-                    >
-                      <Icon size={20} style={{ color: p.accentColor }} />
-                    </div>
-                    <span
-                      style={{
-                        fontSize: '0.65rem',
-                        fontWeight: 700,
-                        letterSpacing: '0.08em',
-                        textTransform: 'uppercase',
-                        color: p.accentColor,
-                        marginBottom: '0.55rem',
-                      }}
-                    >
-                      {p.partnershipBadge}
-                    </span>
-                    <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#fff', marginBottom: '0.6rem' }}>
-                      {p.shortName}
-                    </h3>
-                    <p
-                      style={{
-                        fontSize: '0.85rem',
-                        color: 'rgba(255,255,255,0.6)',
-                        lineHeight: 1.65,
-                        flex: 1,
-                        marginBottom: '1rem',
-                      }}
-                    >
-                      {p.firstTouchAngle}
-                    </p>
-                    <span
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '0.35rem',
-                        fontSize: '0.8rem',
-                        color: p.accentColor,
-                        fontWeight: 700,
-                      }}
-                    >
-                      See {p.shortName} program <ArrowRight size={12} />
-                    </span>
-                  </div>
+          <p className="mw-eyebrow">Partner types</p>
+          <h2 style={{ maxWidth: '20ch' }}>Seven partnerships. One reason: your clients need a website.</h2>
+          <p style={{ marginTop: '1.25rem', marginBottom: '2.5rem', maxWidth: '54ch' }}>
+            Each partner type has its own model, fee and assets. Pick the one that matches your business.
+          </p>
+          <ul className="svc-table">
+            {partners.map((p, i) => (
+              <li key={p.slug}>
+                <Link href={`/partners/${p.slug}`}>
+                  <span className="mw-num">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="svc-name">{p.shortName}</span>
+                  <span className="svc-line">{p.firstTouchAngle}</span>
+                  <span className="svc-price">{p.partnershipBadge}</span>
+                  <ArrowUpRight size={18} className="svc-arrow" />
                 </Link>
-              )
-            })}
-          </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
       {/* The economics */}
-      <section className="mw-section" style={{ background: '#0a0a0a' }}>
+      <section className="mw-section">
         <div className="mw-container">
-          <div className="mw-section-header">
-            <span className="mw-eyebrow">THE ECONOMICS</span>
-            <h2 style={{ color: '#fff' }}>
-              Three tiers. One simple structure.
-              <br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>Paid monthly. No cap.</em>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-            {[
-              { name: 'Starter referral', fee: '$50', pkg: 'Customer buys our Starter package ($299)' },
-              { name: 'Business referral', fee: '$75', pkg: 'Customer buys our Business package ($499)' },
-              { name: 'E-commerce referral', fee: '$150', pkg: 'Customer buys our E-commerce package ($899)' },
-            ].map((tier, i) => (
+          <p className="mw-eyebrow">The economics</p>
+          <h2 style={{ maxWidth: '18ch', marginBottom: '3rem' }}>Three tiers. Paid monthly. No cap.</h2>
+          <dl className="grid md:grid-cols-3" style={{ borderTop: '1px solid var(--text-1)' }}>
+            {tiers.map((t, i) => (
               <div
-                key={tier.name}
-                style={{
-                  borderRadius: '16px',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  background: 'rgba(255,255,255,0.02)',
-                  padding: '2rem',
-                }}
+                key={t.name}
+                className={i > 0 ? 'md:border-l md:pl-6 border-t md:border-t-0' : ''}
+                style={{ padding: '1.5rem 1.5rem 1.75rem 0', borderColor: 'var(--border)' }}
               >
-                <p
-                  style={{
-                    fontSize: '0.72rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    color: 'var(--accent)',
-                    marginBottom: '0.4rem',
-                  }}
-                >
-                  Tier {i + 1}
-                </p>
-                <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>
-                  {tier.fee}
-                </div>
-                <p style={{ fontSize: '0.9rem', fontWeight: 600, color: '#fff', marginBottom: '0.5rem' }}>
-                  {tier.name}
-                </p>
-                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.6 }}>
-                  {tier.pkg}
-                </p>
+                <dt className="mw-num" style={{ letterSpacing: '0.1em' }}>TIER {i + 1} · {t.name.toUpperCase()}</dt>
+                <dd style={{ margin: 0 }}>
+                  <div style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(2.75rem, 5vw, 3.75rem)', letterSpacing: '-0.03em', lineHeight: 1.1, margin: '0.5rem 0', color: 'var(--text-1)' }}>{t.fee}</div>
+                  <p style={{ fontSize: '0.92rem', margin: 0 }}>{t.pkg}</p>
+                </dd>
               </div>
             ))}
-          </div>
+          </dl>
 
-          <div
-            style={{
-              background: 'rgba(108,99,255,0.04)',
-              border: '1px solid rgba(108,99,255,0.15)',
-              borderRadius: '16px',
-              padding: '2rem',
-              maxWidth: '720px',
-              margin: '0 auto',
-            }}
-          >
-            <p
-              style={{
-                fontSize: '0.72rem',
-                fontWeight: 700,
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                color: 'var(--accent)',
-                marginBottom: '1rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-              }}
-            >
-              <Sparkles size={11} /> Math example
-            </p>
-            <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.75 }}>
-              An accountant with 200 active small business clients refers 1 in 10 over a year = 20 referrals. Half
-              convert. Average tier 2 = $75. <strong style={{ color: '#fff' }}>= $750 / year</strong> for what is
-              essentially handing out a one-pager. Multiply by 5 years of compounding referrals and it becomes a real
-              line item. No overhead, no risk.
+          <div className="founder-card" style={{ marginTop: '3.5rem', maxWidth: '62ch' }}>
+            <p className="mw-num" style={{ marginBottom: '0.75rem' }}>A WORKED EXAMPLE</p>
+            <p style={{ fontSize: '1.05rem', color: 'var(--text-2)' }}>
+              An accountant with 200 small-business clients refers 1 in 10 over a year: 20 referrals. Half convert at an
+              average tier 2 fee of $75. <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>That&apos;s $750 a year</strong> for
+              handing out a one-pager, with no overhead and no risk.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Universal perks — backend partnership + free partner site */}
-      <section className="mw-section" style={{ background: '#0d0d0d' }}>
+      {/* Universal perks */}
+      <section className="mw-section" style={{ background: 'var(--bg-deep)' }}>
         <div className="mw-container">
-          <div className="mw-section-header">
-            <span className="mw-eyebrow">PLUS — TWO MORE WAYS WE WORK WITH YOU</span>
-            <h2 style={{ color: '#fff' }}>
-              We&apos;re flexible.
-              <br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>
-                Pick the model that fits your business.
-              </em>
-            </h2>
-            <p
-              style={{
-                color: 'rgba(255,255,255,0.6)',
-                maxWidth: '560px',
-                margin: '0 auto',
-                fontSize: '0.95rem',
-                lineHeight: 1.7,
-              }}
-            >
-              Beyond straight referrals, here are two more offers available to every partner type — pick what works,
-              ignore what doesn&apos;t.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {universalPerks.map((perk) => {
-              const Icon = perk.icon === 'gift' ? Gift : Handshake
-              return (
-                <div
-                  key={perk.title}
-                  style={{
-                    borderRadius: '16px',
-                    border: '1px solid rgba(108,99,255,0.2)',
-                    background: 'rgba(108,99,255,0.04)',
-                    padding: '2rem',
-                  }}
-                >
-                  <div style={{ height: '3px', background: 'linear-gradient(90deg, #6c63ff, #a78bfa)', margin: '-2rem -2rem 1.5rem' }} />
-                  <div
-                    style={{
-                      width: 44,
-                      height: 44,
-                      borderRadius: '12px',
-                      background: 'rgba(108,99,255,0.15)',
-                      border: '1px solid rgba(108,99,255,0.3)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '1.25rem',
-                    }}
-                  >
-                    <Icon size={20} style={{ color: 'var(--accent)' }} />
-                  </div>
-                  <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#fff', marginBottom: '0.55rem', lineHeight: 1.35 }}>
-                    {perk.title}
-                  </h3>
-                  <p style={{ fontSize: '0.88rem', color: 'var(--accent)', marginBottom: '1.25rem', fontWeight: 500 }}>
-                    {perk.tagline}
-                  </p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-                    {perk.body.map((p, i) => (
-                      <p key={i} style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, margin: 0 }}>
-                        {p}
-                      </p>
-                    ))}
-                  </div>
+          <p className="mw-eyebrow">Two more ways to work with us</p>
+          <h2 style={{ maxWidth: '18ch', marginBottom: '3rem' }}>Refer, resell, or both. Pick per client.</h2>
+          <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
+            {universalPerks.map((perk, i) => (
+              <article key={perk.title} style={{ borderTop: '1px solid var(--text-1)', paddingTop: '1.5rem' }}>
+                <span className="mw-num">{String.fromCharCode(65 + i)}</span>
+                <h3 style={{ fontSize: '1.25rem', margin: '0.75rem 0 0.5rem', lineHeight: 1.3 }}>{perk.title}</h3>
+                <p style={{ fontWeight: 500, color: 'var(--text-1)', marginBottom: '1rem' }}>{perk.tagline}</p>
+                <div style={{ display: 'grid', gap: '0.85rem' }}>
+                  {perk.body.map((para, j) => <p key={j} style={{ fontSize: '0.95rem', margin: 0 }}>{para}</p>)}
                 </div>
-              )
-            })}
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Why us */}
-      <section className="mw-section" style={{ background: '#0d0d0d' }}>
+      <section className="mw-section">
         <div className="mw-container">
-          <div className="mw-section-header">
-            <span className="mw-eyebrow">WHY US, NOT THE FREELANCER NEXT DOOR</span>
-            <h2 style={{ color: '#fff' }}>
-              The reason you can send clients
-              <br />
-              <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>without embarrassment.</em>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              { icon: Zap, title: 'Fixed pricing', desc: 'Your client always knows the cost upfront. No surprises, no scope creep, no awkward conversation.' },
-              { icon: CheckCircle2, title: '7-day delivery', desc: 'Sites go live in 7–14 days. You look fast because we are.' },
-              { icon: DollarSign, title: 'All-in package', desc: 'Domain + hosting + design + content included. Your client doesn\'t need to learn anything.' },
-              { icon: Repeat, title: 'White-label option', desc: 'Lawyers and branding studios can resell under their brand. Your client never knows we exist.' },
-            ].map(({ icon: Icon, title, desc }) => (
-              <div
-                key={title}
-                style={{
-                  background: 'rgba(255,255,255,0.02)',
-                  border: '1px solid rgba(255,255,255,0.07)',
-                  borderRadius: '14px',
-                  padding: '1.75rem',
-                }}
-              >
-                <Icon size={20} style={{ color: 'var(--accent)', marginBottom: '0.9rem' }} />
-                <h4 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', marginBottom: '0.5rem' }}>{title}</h4>
-                <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.65, margin: 0 }}>
-                  {desc}
-                </p>
+          <p className="mw-eyebrow">Why us, not the freelancer next door</p>
+          <h2 style={{ maxWidth: '18ch', marginBottom: '3rem' }}>Send clients without worrying how it&apos;ll go.</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8">
+            {whyUs.map((w, i) => (
+              <div key={w.title} style={{ borderTop: '1px solid var(--border)', padding: '1.5rem 0 2rem' }}>
+                <span className="mw-num">{String(i + 1).padStart(2, '0')}</span>
+                <h3 style={{ fontSize: '1.05rem', margin: '0.75rem 0 0.5rem' }}>{w.title}</h3>
+                <p style={{ fontSize: '0.93rem', margin: 0 }}>{w.desc}</p>
               </div>
             ))}
           </div>
@@ -582,57 +240,30 @@ export default function PartnersHubPage() {
       </section>
 
       {/* Apply CTA */}
-      <section
-        id="apply"
-        style={{ background: '#0a0a0a', padding: '5rem 0', borderTop: '1px solid rgba(255,255,255,0.06)' }}
-      >
-        <div className="mw-container" style={{ maxWidth: '720px', textAlign: 'center' }}>
-          <span className="mw-eyebrow">READY TO REFER?</span>
-          <h2 style={{ color: '#fff', marginBottom: '1rem' }}>
-            Pick your partner type.
-            <br />
-            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>Share a lead from the right page.</em>
-          </h2>
-          <p
-            style={{
-              color: 'rgba(255,255,255,0.6)',
-              fontSize: '0.95rem',
-              lineHeight: 1.75,
-              marginBottom: '2.5rem',
-            }}
-          >
-            No application, no sign-up, no contract to sign. Each page below has a referral form pre-tagged for your
-            partner type — drop the lead&apos;s details there, or just WhatsApp Karam directly. We reply within 24 hours.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {partners.map((p) => {
-              const Icon = iconMap[p.iconKey]
-              return (
-                <Link
-                  key={p.slug}
-                  href={`/partners/${p.slug}#apply`}
-                  style={{
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    borderRadius: '12px',
-                    padding: '0.9rem 1.2rem',
-                    background: 'rgba(255,255,255,0.02)',
-                    textDecoration: 'none',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.65rem',
-                    color: '#fff',
-                  }}
-                >
-                  <Icon size={16} style={{ color: p.accentColor }} />
-                  <span style={{ fontSize: '0.88rem', fontWeight: 600, textAlign: 'left' }}>
-                    Refer as a {p.shortName}
-                  </span>
-                  <ArrowRight size={12} style={{ color: 'rgba(255,255,255,0.4)', marginLeft: 'auto' }} />
-                </Link>
-              )
-            })}
+      <section id="apply" className="mw-ink" style={{ padding: '5rem 0', scrollMarginTop: '4rem' }}>
+        <div className="mw-container grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-start">
+          <div>
+            <p className="mw-eyebrow">Ready to refer?</p>
+            <h2 style={{ fontSize: 'clamp(30px, 3.6vw, 46px)', maxWidth: '14ch' }}>Pick your partner type and send the lead.</h2>
+            <p style={{ marginTop: '1.25rem', maxWidth: '42ch' }}>
+              No application, no contract. Each page has a referral form tagged for your partner type, or just WhatsApp
+              Karam directly. We reply within 24 hours.
+            </p>
           </div>
+          <ul className="grid sm:grid-cols-2 gap-x-8" style={{ borderTop: '1px solid var(--border-hover)' }}>
+            {partners.map((p) => (
+              <li key={p.slug} style={{ borderBottom: '1px solid var(--border)' }}>
+                <Link
+                  href={`/partners/${p.slug}#apply`}
+                  className="flex items-center justify-between gap-4 group"
+                  style={{ padding: '1rem 0', color: 'var(--text-1)', fontWeight: 500 }}
+                >
+                  <span>{p.shortName}</span>
+                  <ArrowRight size={15} style={{ color: 'var(--text-3)' }} />
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </>

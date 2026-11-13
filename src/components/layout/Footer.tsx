@@ -5,8 +5,6 @@ import { outboundHref } from '@/lib/outbound'
 const serviceLinks = [
   { label: 'All Services', href: '/services' },
   { label: 'AI Services', href: '/services/ai' },
-  { label: 'AI Business Automation', href: '/services/ai/ai-business-automation' },
-  { label: 'OpenAI Integrations', href: '/services/ai/openai-integrations' },
   { label: 'Shopify Services', href: '/services/shopify' },
   { label: 'Website Development for Small Business', href: '/website-development' },
   { label: 'Custom Shopify Development', href: '/services/shopify/development' },
@@ -40,7 +38,6 @@ const companyLinks = [
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'Resources', href: '/resources' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Search', href: '/search' },
   { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },
   { label: 'White Label', href: '/white-label' },
@@ -78,104 +75,103 @@ const socials = [
   },
 ]
 
+const linkCls = 'ftr-link'
+
 export default function Footer() {
   return (
-    <footer style={{ background: '#080808', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-      {/* Big CTA top */}
-      <div className="mw-container" style={{ paddingTop: '6rem', paddingBottom: '5rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10">
-          <div className="max-w-xl">
-            <p className="mw-eyebrow">START WITH A FREE CONSULTATION</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', fontSize: 'clamp(36px,5vw,60px)', lineHeight: 1.1, color: '#fff', marginBottom: '1.5rem' }}>
-              Let&apos;s improve your<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>growth system.</em>
+    <footer className="mw-ink">
+      {/* Closing CTA — the last chance to convert anyone who scrolled this far. */}
+      <div className="mw-container" style={{ paddingTop: '5.5rem', paddingBottom: '4.5rem' }}>
+        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12 items-end">
+          <div>
+            <p className="mw-eyebrow">Next step</p>
+            <h2 style={{ fontSize: 'clamp(40px,5.5vw,76px)', maxWidth: '14ch' }}>
+              Find out what&apos;s costing you orders.
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '1rem', lineHeight: 1.7 }}>
-              Tell us what is holding back your store, website or operations. We will show you the clearest path to more speed, stronger conversions and smarter automation.
-            </p>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/contact" className="mw-btn-primary">Book Free Consultation</Link>
-            <Link href={outboundHref('whatsapp', 'https://wa.me/916239269736?text=Hi%20Karam%2C%20how%20are%20you%3F%20I%20need%20help%20with%20my%20website%20or%20AI%20automation.')} target="_blank" rel="noopener noreferrer" className="mw-btn-outline">Message Karam</Link>
+          <div className="grid gap-3">
+            <Link href="/free-store-audit" className="ftr-cta">
+              <span>
+                <span className="ftr-cta-kicker">Free · reply in 48h</span>
+                <span className="ftr-cta-title">Get a video teardown of your store</span>
+              </span>
+              <span aria-hidden className="ftr-cta-arrow">→</span>
+            </Link>
+            <Link href="/book" className="ftr-cta ftr-cta--quiet">
+              <span>
+                <span className="ftr-cta-kicker">15 minutes · no pitch deck</span>
+                <span className="ftr-cta-title">Book a call with Karam</span>
+              </span>
+              <span aria-hidden className="ftr-cta-arrow">→</span>
+            </Link>
           </div>
         </div>
       </div>
 
-      {/* Nav links */}
-      <div className="mw-container" style={{ paddingTop: '4rem', paddingBottom: '4rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+      <div className="mw-container" style={{ paddingTop: '3.5rem', paddingBottom: '3.5rem', borderTop: '1px solid var(--border)' }}>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1.1fr] gap-10">
           <div>
-            <p className="mw-eyebrow">Services</p>
-            <ul className="flex flex-col gap-3 mt-1">
-              {serviceLinks.map(l => <li key={l.href}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">{l.label}</Link></li>)}
-            </ul>
-            <p className="mw-eyebrow mt-8">Markets</p>
-            <ul className="flex flex-col gap-3 mt-1">
-              {marketLinks.map(l => <li key={l.href}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">{l.label}</Link></li>)}
+            <p className="ftr-head">Services</p>
+            <ul className="grid gap-2.5">
+              {serviceLinks.map(l => <li key={l.href}><Link href={l.href} className={linkCls}>{l.label}</Link></li>)}
             </ul>
           </div>
           <div>
-            <p className="mw-eyebrow">Industries</p>
-            <ul className="flex flex-col gap-3 mt-1">
-              {industryLinks.map(l => <li key={l.href}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">{l.label}</Link></li>)}
+            <p className="ftr-head">Industries</p>
+            <ul className="grid gap-2.5">
+              {industryLinks.map(l => <li key={l.href}><Link href={l.href} className={linkCls}>{l.label}</Link></li>)}
+            </ul>
+            <p className="ftr-head mt-8">Markets</p>
+            <ul className="grid gap-2.5">
+              {marketLinks.map(l => <li key={l.href}><Link href={l.href} className={linkCls}>{l.label}</Link></li>)}
             </ul>
           </div>
           <div>
-            <p className="mw-eyebrow">Partners</p>
-            <ul className="flex flex-col gap-3 mt-1">
-              <li><Link href="/partners" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', fontWeight: 600 }} className="transition-colors hover:text-white">Partner Program — All 7 types</Link></li>
-              {partnerHighlights.map(l => <li key={l.href}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">{l.label}</Link></li>)}
+            <p className="ftr-head">Partners</p>
+            <ul className="grid gap-2.5">
+              <li><Link href="/partners" className={linkCls}>Partner programme</Link></li>
+              {partnerHighlights.map(l => <li key={l.href}><Link href={l.href} className={linkCls}>{l.label}</Link></li>)}
             </ul>
           </div>
           <div>
-            <p className="mw-eyebrow">Company</p>
-            <ul className="flex flex-col gap-3 mt-1">
-              {companyLinks.map(l => <li key={l.href}><Link href={l.href} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">{l.label}</Link></li>)}
+            <p className="ftr-head">Company</p>
+            <ul className="grid gap-2.5">
+              {companyLinks.map(l => <li key={l.href}><Link href={l.href} className={linkCls}>{l.label}</Link></li>)}
             </ul>
           </div>
           <div>
-            <p className="mw-eyebrow">Contact</p>
-            <div className="flex flex-col gap-3 mt-1">
-              <a href={outboundHref('email', 'mailto:karam@miraclewebsoft.com')} style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">karam@miraclewebsoft.com</a>
-              <a href={outboundHref('whatsapp', 'https://wa.me/916239269736')} target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }} className="transition-colors hover:text-white">+91 6239 269736</a>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', lineHeight: 1.5 }}>Miracle Websoft, 1st Floor, #607, Gagan Chowk, near Dasu Ram Tyres,<br />Chaju Majri, Rajpura, Punjab 140401</p>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', lineHeight: 1.5 }}>India<br />Serving USA · Canada · UK · Australia · Europe</p>
+            <p className="ftr-head">Talk to us</p>
+            <div className="grid gap-2.5">
+              <a href="mailto:karam@miraclewebsoft.com" className={linkCls}>karam@miraclewebsoft.com</a>
+              <a href="https://wa.me/916239269736" target="_blank" rel="noopener noreferrer" className={linkCls}>WhatsApp +91 6239 269736</a>
+              <p style={{ fontSize: '0.82rem', lineHeight: 1.55, color: 'var(--text-4)', marginTop: '0.5rem' }}>
+                1st Floor, #607, Gagan Chowk, Chaju Majri,<br />Rajpura, Punjab 140401, India
+              </p>
+              <p style={{ fontSize: '0.82rem', lineHeight: 1.55, color: 'var(--text-4)' }}>
+                Working with brands in the US, Canada, UK, Australia and Europe. Overlap with US mornings and UK afternoons.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="mw-container" style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem' }}>
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>
-            <Link href="/" aria-label="Miracle Websoft home" className="shrink-0 transition-opacity hover:opacity-80">
-              <Image
-                src="/miracle-websoft-logo.png"
-                alt="Miracle Websoft"
-                width={78}
-                height={32}
-                className="h-7 w-auto"
-              />
-            </Link>
-            <span>© 2026 All rights reserved.</span>
-          </div>
-          {/* Social icons */}
+      <div className="mw-container" style={{ paddingTop: '1.25rem', paddingBottom: '1.5rem', borderTop: '1px solid var(--border)' }}>
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4" style={{ fontSize: '0.8rem', color: 'var(--text-4)' }}>
           <div className="flex items-center gap-3">
+            <Image src="/miracle-websoft-logo.png" alt="" width={78} height={32} className="h-6 w-auto" />
+            <span>© {new Date().getFullYear()} Miracle Websoft</span>
+          </div>
+          <div className="flex items-center gap-4">
             {socials.map(({ label, href, icon: Icon }) => (
-              <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                style={{ color: 'rgba(255,255,255,0.6)', transition: 'color 0.2s' }}
-                className="hover:!text-white"
-              >
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className={linkCls}>
                 <Icon />
               </a>
             ))}
           </div>
-          <div className="flex items-center gap-4" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>
-            <Link href={outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1')} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Shopify Partner</Link>
-            <span>·</span>
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-            <span>·</span>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+          <div className="flex items-center gap-4">
+            <Link href={outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1')} target="_blank" rel="noopener noreferrer" className={linkCls}>Shopify Partner</Link>
+            <Link href="/privacy" className={linkCls}>Privacy</Link>
+            <Link href="/terms" className={linkCls}>Terms</Link>
           </div>
         </div>
       </div>

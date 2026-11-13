@@ -38,7 +38,7 @@ export default function YouTubeEmbed({
         borderRadius: rounded,
         overflow: 'hidden',
         background: '#000',
-        border: '1px solid rgba(255,255,255,0.1)',
+        border: '1px solid rgb(var(--ink-rgb) / 0.1)',
         cursor: loaded ? 'default' : 'pointer',
       }}
       onClick={() => {
@@ -88,7 +88,7 @@ export default function YouTubeEmbed({
               position: 'absolute',
               inset: 0,
               background:
-                'linear-gradient(180deg, rgba(0,0,0,0.0) 35%, rgba(0,0,0,0.55) 100%)',
+                'linear-gradient(180deg, rgb(23 21 15 / 0) 35%, rgb(23 21 15 / 0.12) 100%)',
               transition: 'background 0.25s',
             }}
           />
@@ -106,7 +106,7 @@ export default function YouTubeEmbed({
               height: '72px',
               borderRadius: '50%',
               background: 'rgba(255,0,0,0.92)',
-              boxShadow: '0 12px 36px rgba(0,0,0,0.55), 0 0 0 6px rgba(255,255,255,0.12)',
+              boxShadow: '0 0 0 6px rgb(255 255 255 / 0.18)',
               transition: 'transform 0.2s',
             }}
           >
@@ -133,10 +133,10 @@ export default function YouTubeEmbed({
                 bottom: '12px',
                 left: '14px',
                 right: '14px',
-                color: '#fff',
+                color: 'var(--text-1)',
                 fontSize: '0.82rem',
                 fontWeight: 600,
-                textShadow: '0 2px 8px rgba(0,0,0,0.7)',
+                textShadow: '0 2px 8px rgb(23 21 15 / 0.12)',
               }}
             >
               {title}

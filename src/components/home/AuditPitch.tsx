@@ -14,7 +14,7 @@ export default function AuditPitch() {
   return (
     <section
       className="mw-section"
-      style={{ background: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.06)' }}
+      style={{ background: 'var(--bg)', borderTop: '1px solid rgb(var(--ink-rgb) / 0.06)' }}
     >
       <div className="mw-container">
         <div
@@ -29,7 +29,7 @@ export default function AuditPitch() {
           {/* LEFT: the pitch */}
           <div className="audit-left">
             <span className="mw-eyebrow">Free Consultation</span>
-            <h2 style={{ color: '#fff', marginBottom: '1.5rem' }}>
+            <h2 style={{ color: 'var(--text-1)', marginBottom: '1.5rem' }}>
               Find the problems<br />
               slowing growth<br />
               <span className="mw-italic mw-italic--accent">and fix the right ones first.</span>
@@ -88,19 +88,19 @@ export default function AuditPitch() {
                     key={c.title}
                     style={{
                       padding: '1.5rem 1.5rem',
-                      borderBottom: isLastRow ? 'none' : '1px solid rgba(255,255,255,0.06)',
-                      borderRight: isRight ? 'none' : '1px solid rgba(255,255,255,0.06)',
+                      borderBottom: isLastRow ? 'none' : '1px solid rgb(var(--ink-rgb) / 0.06)',
+                      borderRight: isRight ? 'none' : '1px solid rgb(var(--ink-rgb) / 0.06)',
                     }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.7rem' }}>
-                      <span style={{ width: '32px', height: '32px', borderRadius: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(108,99,255,0.12)', border: '1px solid rgba(108,99,255,0.22)' }}>
+                      <span style={{ width: '32px', height: '32px', borderRadius: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'rgb(224 79 37 / 0.12)', border: '1px solid rgb(224 79 37 / 0.22)' }}>
                         <Icon size={15} style={{ color: 'var(--accent)' }} />
                       </span>
                       <span style={{ color: 'var(--text-4)', fontFamily: 'var(--font-geist-mono), monospace', fontSize: '0.7rem', letterSpacing: '0.08em' }}>
                         0{i + 1}
                       </span>
                     </div>
-                    <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#fff', marginBottom: '0.45rem' }}>{c.title}</h3>
+                    <h3 style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-1)', marginBottom: '0.45rem' }}>{c.title}</h3>
                     <p style={{ fontSize: '0.83rem', color: 'var(--text-3)', lineHeight: 1.55 }}>{c.body}</p>
                   </div>
                 )
@@ -124,7 +124,7 @@ export default function AuditPitch() {
           }
           .audit-checks > div {
             border-right: none !important;
-            border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+            border-bottom: 1px solid rgb(var(--ink-rgb) / 0.06) !important;
           }
           .audit-checks > div:last-child {
             border-bottom: none !important;

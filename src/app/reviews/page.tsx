@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { jobs } from '@/data/jobs'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
+import Breadcrumb from '@/components/layout/Breadcrumb'
+import { jobs, jobTitle } from '@/data/jobs'
 import { outboundHref } from '@/lib/outbound'
 import VideoTestimonialGrid from '@/components/ui/VideoTestimonialGrid'
 import FounderIntro from '@/components/ui/FounderIntro'
@@ -11,10 +13,10 @@ const UPWORK_FREELANCER = outboundHref('upwork', 'https://www.upwork.com/freelan
 export const metadata: Metadata = {
   title: 'Client Reviews — 23 Verified Shopify Developer Reviews | Miracle Websoft',
   description:
-    'Read verified client reviews for Miracle Websoft on Upwork. 23 five-star reviews from real Shopify store owners praising quality, speed, communication, and results. 98%+ Job Success Score.',
+    'Read verified client reviews for Miracle Websoft on Upwork. 23 reviews from Shopify store owners, unedited and linked to each project. 98% Job Success Score on Upwork.',
   openGraph: {
     title: 'Verified Client Reviews — Miracle Websoft Shopify Developer',
-    description: '23 verified five-star Upwork reviews from real Shopify store owners. Read what clients say about working with Karam Singh at Miracle Websoft.',
+    description: '23 verified Upwork reviews from real Shopify store owners. Read what clients say about working with Karam Singh at Miracle Websoft.',
     url: 'https://miraclewebsoft.com/reviews',
     type: 'website',
   },
@@ -25,17 +27,6 @@ export const metadata: Metadata = {
 
 // Pull all jobs that have a review
 const reviewedJobs = jobs.filter(j => j.review && j.rating >= 4.0)
-
-const CATEGORY_COLORS: Record<string, string> = {
-  'Store Development': '#6C63FF',
-  'Store Redesign':    '#8B5CF6',
-  'Migration':         '#10B981',
-  'Custom Features':   '#3B82F6',
-  'Shopify Plus':      '#F59E0B',
-  'Speed & CRO':       '#EF4444',
-  'Design & Figma':    '#EC4899',
-  'Ongoing Support':   '#06B6D4',
-}
 
 // Aggregate rating stats
 const avgRating = (reviewedJobs.reduce((s, j) => s + j.rating, 0) / reviewedJobs.length).toFixed(2)
@@ -48,7 +39,7 @@ function JsonLd() {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
       name: 'Miracle Websoft',
-      description: 'Shopify development agency by Karam Singh. 600+ verified projects, 98%+ job success, Top Rated Plus on Upwork.',
+      description: 'Shopify development agency by Karam Singh. 650+ projects, 98% job success, Top Rated Plus on Upwork.',
       url: 'https://miraclewebsoft.com',
       aggregateRating: {
         '@type': 'AggregateRating',
@@ -87,7 +78,7 @@ function JsonLd() {
           name: 'What do clients say about Miracle Websoft?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: `Clients consistently praise Miracle Websoft for quality, communication, and speed. The agency has ${reviewedJobs.length} verified reviews on Upwork with an average rating of ${avgRating}/5.0 and a 98%+ Job Success Score.`,
+            text: `Clients consistently praise Miracle Websoft for quality, communication, and speed. The agency has ${reviewedJobs.length} verified reviews on Upwork with an average rating of ${avgRating}/5.0 and a 98% Job Success Score.`,
           },
         },
         {
@@ -95,7 +86,7 @@ function JsonLd() {
           name: 'Is Miracle Websoft verified on Upwork?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. Miracle Websoft (Karam Singh) is a Top Rated Plus freelancer and Officially Shopify Verified Partner on Upwork, with 600+ completed projects and 17,773+ hours logged.',
+            text: 'Yes. Miracle Websoft (Karam Singh) is a Top Rated Plus freelancer and Officially Shopify Verified Partner on Upwork, with 650+ completed projects and 15,000+ hours delivered.',
           },
         },
         {
@@ -127,30 +118,19 @@ function JsonLd() {
   )
 }
 
-function StarRating({ rating, size = 'sm' }: { rating: number; size?: 'sm' | 'lg' }) {
-  const full = Math.floor(rating)
-  const fontSize = size === 'lg' ? '1.2rem' : '0.85rem'
+function Stars({ rating }: { rating: number }) {
+  const full = Math.round(rating)
   return (
-    <div className="flex items-center gap-0.5">
-      {[...Array(5)].map((_, i) => (
-        <span key={i} style={{ color: i < full ? '#F59E0B' : 'rgba(255,255,255,0.15)', fontSize }}> ★</span>
-      ))}
+    <div className="review-stars" aria-label={`${rating} out of 5 stars`}>
+      {'★'.repeat(full)}<span style={{ color: 'var(--border-hover)' }}>{'★'.repeat(5 - full)}</span>
     </div>
   )
 }
 
-// Highlight key phrases in review text
-function ReviewText({ text }: { text: string }) {
-  return <p style={{ fontSize: '0.97rem', color: 'rgba(255,255,255,0.78)', lineHeight: 1.8, fontStyle: 'italic' }}>&ldquo;{text}&rdquo;</p>
-}
-
 export default function ReviewsPage() {
-  // Pick 3 featured reviews (long, glowing, 5-star)
-  const featured = reviewedJobs
-    .filter(j => j.rating === 5.0 && j.review && j.review.length > 60)
-    .slice(0, 3)
+  const [lead] = [...reviewedJobs].sort((a, b) => (b.rating - a.rating) || ((b.review?.length ?? 0) - (a.review?.length ?? 0)))
+  const ordered = reviewedJobs.filter(j => j.id !== lead.id)
 
-  // Category breakdown
   const categoryReviews: Record<string, number> = {}
   reviewedJobs.forEach(j => {
     categoryReviews[j.category] = (categoryReviews[j.category] || 0) + 1
@@ -159,285 +139,112 @@ export default function ReviewsPage() {
   return (
     <>
       <JsonLd />
-      <div style={{ background: '#0a0a0a', minHeight: '100vh' }}>
 
-        {/* Hero */}
-        <section
-          className="relative overflow-hidden"
-          style={{ paddingTop: '7rem', paddingBottom: '4rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
-        >
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{ backgroundImage: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(245,158,11,0.08) 0%, transparent 70%)' }}
-          />
-          <div className="mw-container relative z-10">
-
-            {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 mb-6" style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>
-              <Link href="/" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}>Home</Link>
-              <span>/</span>
-              <span style={{ color: 'rgba(255,255,255,0.6)' }}>Reviews</span>
-            </nav>
-
-            {/* Upwork badge */}
-            <div
-              className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full"
-              style={{ background: 'rgba(20,189,125,0.10)', border: '1px solid rgba(20,189,125,0.25)' }}
-            >
-              <span style={{ color: '#14BD7D', fontSize: '0.75rem', fontWeight: 700 }}>✓</span>
-              <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 500 }}>
-                All Reviews Verified on Upwork
-              </span>
+      <section style={{ paddingTop: 'clamp(7.5rem, 11vw, 9rem)', paddingBottom: '4rem' }}>
+        <div className="mw-container">
+          <div className="mb-8"><Breadcrumb items={[{ label: 'Reviews' }]} /></div>
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-20 items-end">
+            <div>
+              <p className="mw-eyebrow">Client reviews · verified on Upwork</p>
+              <h1 className="mw-hero-title" style={{ maxWidth: '16ch' }}>
+                What store owners said <span className="mw-mark">after the job was done.</span>
+              </h1>
+              <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '52ch' }}>
+                {reviewedJobs.length} reviews left on Upwork by clients once their project closed. Every one is shown here, unedited, linked to the project it was left on.
+              </p>
             </div>
+            <dl className="stats">
+              <div><dt>Average rating</dt><dd>{avgRating}</dd></div>
+              <div><dt>Reviews on this page</dt><dd>{reviewedJobs.length}</dd></div>
+              <div><dt>Five-star</dt><dd>{fiveStarCount}</dd></div>
+              <div><dt>Upwork job success</dt><dd>98%</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
 
-            <h1
-              style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1rem', maxWidth: '700px' }}
-            >
-              What Clients Say About<br />
-              <span style={{ color: '#F59E0B' }}>Miracle Websoft</span>
-            </h1>
+      <section className="mw-section" style={{ background: 'var(--bg-deep)' }}>
+        <div className="mw-container">
+          <figure style={{ maxWidth: '60rem' }}>
+            <Stars rating={lead.rating} />
+            <blockquote style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.6rem, 3.2vw, 2.6rem)', lineHeight: 1.25, letterSpacing: '-0.02em', color: 'var(--text-1)', marginTop: '1.25rem' }}>
+              &ldquo;{lead.review}&rdquo;
+            </blockquote>
+            <figcaption style={{ marginTop: '1.5rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem 1.25rem', alignItems: 'baseline' }}>
+              <Link href={`/work/${lead.id}`} className="review-project" style={{ fontSize: '0.95rem' }}>{jobTitle(lead)}</Link>
+              <span className="mw-num">Upwork · {lead.completedDate}</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
 
-            <p
-              style={{ color: 'rgba(255,255,255,0.65)', fontSize: 'clamp(1rem,2vw,1.15rem)', maxWidth: '560px', lineHeight: 1.8, marginBottom: '2.5rem', fontWeight: 300 }}
-            >
-              {reviewedJobs.length} verified reviews from real Shopify store owners — left directly on Upwork after completed projects. No testimonials page, no cherry-picking. Just the real thing.
+      <section className="mw-section">
+        <div className="mw-container">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6" style={{ marginBottom: '2rem' }}>
+            <div>
+              <p className="mw-eyebrow">All {reviewedJobs.length} reviews</p>
+              <h2 style={{ fontSize: 'clamp(28px, 3.4vw, 42px)' }}>Every review, by project.</h2>
+            </div>
+            <p className="mw-num" style={{ maxWidth: '40rem', lineHeight: 1.8 }}>
+              {Object.entries(categoryReviews).sort((a, b) => b[1] - a[1]).map(([c, n]) => `${c} ${n}`).join('  ·  ')}
             </p>
-
-            {/* Stats row */}
-            <div className="flex flex-wrap gap-8 mb-8">
-              {[
-                { value: avgRating, label: 'Average Rating' },
-                { value: `${reviewedJobs.length}`, label: 'Verified Reviews' },
-                { value: `${fiveStarCount}`, label: '5-Star Reviews' },
-                { value: '98%+', label: 'Job Success Score' },
-              ].map(({ value, label }) => (
-                <div key={label}>
-                  <div style={{ fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 700, color: '#fff', lineHeight: 1 }}>{value}</div>
-                  <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.2rem' }}>{label}</div>
+          </div>
+          <div className="reviews">
+            {ordered.map(job => (
+              <figure key={job.id} className="review">
+                <div className="flex items-center justify-between gap-3">
+                  <Stars rating={job.rating} />
+                  <span className="mw-num">{job.category}</span>
                 </div>
-              ))}
-            </div>
-
-            {/* Star display */}
-            <div className="flex items-center gap-3">
-              <StarRating rating={5} size="lg" />
-              <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' }}>
-                {avgRating} / 5.0 from {reviewedJobs.length} Upwork reviews
-              </span>
-            </div>
+                <blockquote style={{ fontSize: '1.1rem' }}>&ldquo;{job.review}&rdquo;</blockquote>
+                <figcaption>
+                  <Link href={`/work/${job.id}`} className="review-project">{jobTitle(job)}</Link>
+                  <span className="mw-num" style={{ whiteSpace: 'nowrap' }}>{job.completedDate}</span>
+                </figcaption>
+              </figure>
+            ))}
           </div>
-        </section>
+          <p style={{ marginTop: '2rem', fontSize: '0.95rem', color: 'var(--text-3)' }}>
+            Want to check them at the source?{' '}
+            <a href={UPWORK_FREELANCER} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1" style={{ color: 'var(--text-1)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+              See the full Upwork profile <ArrowUpRight size={14} />
+            </a>
+          </p>
+        </div>
+      </section>
 
-        {/* Video reviews — featured */}
-        <section style={{ paddingTop: '4rem', paddingBottom: '4rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-          <div className="mw-container">
-            <div className="flex items-end justify-between flex-wrap gap-4 mb-6">
-              <div>
-                <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#F59E0B', fontWeight: 600, marginBottom: '0.5rem' }}>
-                  ▶ Video Reviews
-                </p>
-                <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(24px,3vw,34px)' }}>
-                  Hear it from clients on camera.
-                </h2>
-                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', marginTop: '0.5rem', maxWidth: '520px' }}>
-                  Unscripted on-camera reviews from Shopify store owners we&apos;ve worked with.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-5 items-start">
-              <VideoTestimonialGrid videos={clientVideos.slice(0, 3)} theme="dark" metricColor="#F59E0B" />
-              <div>
-                <FounderIntro
-                  variant="compact"
-                  caption="Watch a 60-second intro from Karam — the founder who personally leads every project."
-                />
-              </div>
-            </div>
-
-            {clientVideos.length > 3 && (
-              <div className="mt-5">
-                <VideoTestimonialGrid videos={clientVideos.slice(3)} theme="dark" metricColor="#F59E0B" />
-              </div>
-            )}
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="mw-container">
+          <p className="mw-eyebrow">On camera</p>
+          <h2 style={{ maxWidth: '22ch', marginBottom: '2rem' }}>Hear it from clients, and from Karam.</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-5 items-start">
+            <VideoTestimonialGrid videos={clientVideos.slice(0, 3)} />
+            <FounderIntro variant="compact" caption="A 60-second intro from Karam, who leads every project." />
           </div>
-        </section>
-
-        {/* Featured Reviews — 3 cards full-width */}
-        <section style={{ paddingTop: '4rem', paddingBottom: '3rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-          <div className="mw-container">
-            <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '1.5rem' }}>
-              Featured reviews
-            </p>
-            <div className="grid gap-5 md:grid-cols-3">
-              {featured.map(job => (
-                <div
-                  key={job.id}
-                  className="rounded-2xl p-6 flex flex-col"
-                  style={{ background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.18)' }}
-                >
-                  <StarRating rating={job.rating} />
-                  <div className="mt-4 flex-1">
-                    <ReviewText text={job.review!} />
-                  </div>
-                  <div className="mt-5 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-                    <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.50)', fontWeight: 500 }}>
-                      {job.client || 'Verified Upwork Client'}
-                      {job.company && job.company !== job.client && (
-                        <span style={{ color: 'rgba(255,255,255,0.25)' }}> · {job.company}</span>
-                      )}
-                    </p>
-                    <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.25)', marginTop: '0.2rem' }}>
-                      {job.category} · {job.completedDate}
-                    </p>
-                    <Link
-                      href={`/work/${job.id}`}
-                      style={{ display: 'inline-block', marginTop: '0.6rem', fontSize: '0.75rem', color: '#F59E0B', textDecoration: 'none', fontWeight: 500 }}
-                    >
-                      View project →
-                    </Link>
-                  </div>
-                </div>
-              ))}
+          {clientVideos.length > 3 && (
+            <div className="mt-5">
+              <VideoTestimonialGrid videos={clientVideos.slice(3)} />
             </div>
-          </div>
-        </section>
+          )}
+        </div>
+      </section>
 
-        {/* Category breakdown bar */}
-        <section style={{ paddingTop: '3rem', paddingBottom: '3rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-          <div className="mw-container">
-            <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '1.25rem' }}>
-              Reviews by service category
-            </p>
+      <section style={{ paddingBottom: '5rem' }}>
+        <div className="mw-container">
+          <div className="grid md:grid-cols-[1fr_auto] gap-8 items-end" style={{ borderTop: '1px solid var(--text-1)', paddingTop: '2.5rem' }}>
+            <div>
+              <h2 style={{ fontSize: 'clamp(26px, 3vw, 38px)', marginBottom: '0.75rem' }}>See what we&apos;d fix on your store.</h2>
+              <p style={{ color: 'var(--text-3)', maxWidth: '54ch' }}>
+                Send your URL and get a free 5-minute video teardown within 48 hours, ranked by what each fix is likely worth.
+              </p>
+            </div>
             <div className="flex flex-wrap gap-3">
-              {Object.entries(categoryReviews)
-                .sort((a, b) => b[1] - a[1])
-                .map(([cat, count]) => {
-                  const color = CATEGORY_COLORS[cat] || '#6C63FF'
-                  return (
-                    <div
-                      key={cat}
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl"
-                      style={{ background: color + '10', border: `1px solid ${color}28` }}
-                    >
-                      <span style={{ fontSize: '0.82rem', color, fontWeight: 600 }}>{count}</span>
-                      <span style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.65)' }}>{cat}</span>
-                    </div>
-                  )
-                })}
+              <Link href="/free-store-audit" className="mw-btn-accent">Get a free teardown <ArrowRight size={15} /></Link>
+              <Link href="/book" className="mw-btn-outline">Book a 15-min call</Link>
             </div>
           </div>
-        </section>
-
-        {/* All reviews grid */}
-        <section style={{ paddingTop: '3.5rem', paddingBottom: '6rem' }}>
-          <div className="mw-container">
-            <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '1.5rem' }}>
-              All {reviewedJobs.length} verified reviews
-            </p>
-
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {reviewedJobs.map(job => {
-                const color = CATEGORY_COLORS[job.category] || '#6C63FF'
-                return (
-                  <div
-                    key={job.id}
-                    className="rounded-2xl p-5 flex flex-col"
-                    style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
-                  >
-                    {/* Header */}
-                    <div className="flex items-start justify-between gap-2 mb-3">
-                      <span
-                        className="inline-block px-2.5 py-1 rounded-full text-xs font-semibold"
-                        style={{ background: color + '18', color, border: `1px solid ${color}30` }}
-                      >
-                        {job.category}
-                      </span>
-                      <StarRating rating={job.rating} />
-                    </div>
-
-                    {/* Review text */}
-                    <div className="flex-1 mb-4">
-                      <blockquote style={{ margin: 0, padding: 0 }}>
-                        <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.75, fontStyle: 'italic' }}>
-                          &ldquo;{job.review}&rdquo;
-                        </p>
-                      </blockquote>
-                    </div>
-
-                    {/* Footer */}
-                    <div className="pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                      <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.50)', fontWeight: 500, marginBottom: '0.15rem' }}>
-                        {job.client || 'Verified Upwork Client'}
-                        {job.company && job.company !== job.client && (
-                          <span style={{ color: 'rgba(255,255,255,0.25)', fontWeight: 400 }}> · {job.company}</span>
-                        )}
-                      </p>
-                      <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginBottom: '0.6rem' }}>
-                        {job.title} · {job.completedDate}
-                      </p>
-                      <div className="flex items-center justify-between">
-                        <span style={{ fontSize: '0.7rem', color: '#10B981', fontWeight: 600, letterSpacing: '0.05em' }}>
-                          ✓ VERIFIED · UPWORK
-                        </span>
-                        <Link
-                          href={`/work/${job.id}`}
-                          style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', textDecoration: 'none' }}
-                        >
-                          Project details →
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-
-            {/* Upwork profile link */}
-            <div className="mt-10 text-center">
-              <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', marginBottom: '1rem' }}>
-                Want to see more? All reviews are publicly visible on Upwork.
-              </p>
-              <a
-                href={UPWORK_FREELANCER}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full transition-all"
-                style={{ background: 'rgba(20,189,125,0.10)', border: '1px solid rgba(20,189,125,0.28)', fontSize: '0.85rem', fontWeight: 600, color: '#14BD7D', textDecoration: 'none' }}
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.545-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3.001-2.439-5.439-5.439-5.439z"/>
-                </svg>
-                View Full Profile on Upwork
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Bottom CTA */}
-        <section style={{ paddingBottom: '6rem' }}>
-          <div className="mw-container">
-            <div
-              className="rounded-3xl p-8 sm:p-12 text-center"
-              style={{ background: 'rgba(108,99,255,0.08)', border: '1px solid rgba(108,99,255,0.20)' }}
-            >
-              <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1rem' }}>
-                Ready to join them?
-              </h2>
-              <p style={{ color: 'rgba(255,255,255,0.60)', maxWidth: '480px', margin: '0 auto 2rem', lineHeight: 1.7 }}>
-                Join 600+ store owners who trusted Miracle Websoft with their Shopify store. Request a free store review and get practical next steps before you commit.
-              </p>
-              <Link href="/contact" className="mw-btn-primary inline-flex text-sm px-8 py-4">
-                Get Free Store Review →
-              </Link>
-              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '1rem' }}>
-                98%+ Job Success · Top Rated Plus on Upwork · Response within 4–8 hrs
-              </p>
-            </div>
-          </div>
-        </section>
-
-      </div>
+        </div>
+      </section>
     </>
   )
 }

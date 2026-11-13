@@ -1,33 +1,35 @@
 interface Guarantee {
-  icon: string
+  /** Kept for backwards compatibility; emoji icons are no longer rendered. */
+  icon?: string
   title: string
   body: string
 }
 
 interface Props {
   guarantees: Guarantee[]
+  heading?: string
 }
 
-export default function GuaranteeBar({ guarantees }: Props) {
+export default function GuaranteeBar({ guarantees, heading = 'What you can hold us to.' }: Props) {
   return (
-    <section style={{ paddingTop: '4rem', paddingBottom: '4rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+    <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
       <div className="mw-container">
-        <div className="mb-8">
-          <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#10B981', fontWeight: 700, marginBottom: '0.5rem' }}>Our Guarantees</p>
-          <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>
-            We stand behind our work — in writing.
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {guarantees.map((g, i) => (
-            <div key={i} className="flex gap-4 rounded-2xl p-5" style={{ background: 'rgba(16,185,129,0.05)', border: '1px solid rgba(16,185,129,0.15)' }}>
-              <span style={{ fontSize: '1.5rem', lineHeight: 1, flexShrink: 0 }}>{g.icon}</span>
-              <div>
-                <p style={{ fontWeight: 700, color: '#fff', fontSize: '0.9rem', marginBottom: '0.35rem' }}>{g.title}</p>
-                <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.6 }}>{g.body}</p>
-              </div>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 lg:grid-cols-[0.7fr_1.3fr] gap-8 lg:gap-14">
+          <div>
+            <p className="mw-eyebrow">How we work</p>
+            <h2 style={{ fontSize: 'clamp(26px,3vw,36px)', maxWidth: '16ch' }}>{heading}</h2>
+          </div>
+          <ol className="grid grid-cols-1 sm:grid-cols-2" style={{ borderTop: '1px solid var(--text-1)' }}>
+            {guarantees.map((g, i) => (
+              <li key={i} style={{ padding: '1.25rem 1.25rem 1.25rem 0', borderBottom: '1px solid var(--border)', display: 'grid', gridTemplateColumns: '2.25rem 1fr', gap: '0.5rem' }}>
+                <span className="mw-num">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <p style={{ fontWeight: 600, color: 'var(--text-1)', fontSize: '0.98rem', marginBottom: '0.35rem' }}>{g.title}</p>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-2)', lineHeight: 1.6 }}>{g.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

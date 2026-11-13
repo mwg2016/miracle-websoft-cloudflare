@@ -2,16 +2,19 @@ import type { Metadata } from 'next'
 import { jobs, jobTitle } from '@/data/jobs'
 import WorkList from '@/components/work/WorkList'
 import { outboundHref } from '@/lib/outbound'
+import Link from 'next/link'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
+import Breadcrumb from '@/components/layout/Breadcrumb'
 
 const UPWORK_FREELANCER = outboundHref('upwork', 'https://www.upwork.com/freelancers/shopifydeveloperupwork')
 
 export const metadata: Metadata = {
-  title: 'Verified Shopify Work History — 600+ Projects | Miracle Websoft',
+  title: 'Verified Shopify Work History — 650+ Projects | Miracle Websoft',
   description:
-    'Browse 600+ verified Shopify projects by Miracle Websoft on Upwork. Store builds, migrations, Shopify Plus checkout, custom features, speed & CRO — all delivered with a 98%+ job success score.',
+    'Browse 650+ verified Shopify projects by Miracle Websoft on Upwork. Store builds, migrations, Shopify Plus checkout, custom features, speed & CRO — all delivered with a 98% job success score.',
   openGraph: {
-    title: 'Verified Shopify Work History — 600+ Projects | Miracle Websoft',
-    description: '600+ Shopify projects verified on Upwork. 98%+ Job Success · Top Rated Plus · Shopify Verified Partner.',
+    title: 'Verified Shopify Work History — 650+ Projects | Miracle Websoft',
+    description: '650+ Shopify projects verified on Upwork. 98% Job Success · Top Rated Plus · Shopify Verified Partner.',
     url: 'https://miraclewebsoft.com/work',
     type: 'website',
   },
@@ -27,7 +30,7 @@ function JsonLd() {
       {
         '@type': 'ItemList',
         name: 'Shopify Development Projects by Miracle Websoft',
-        description: 'Verified work history of 600+ Shopify projects completed by Karam S. at Miracle Websoft, as listed on Upwork.',
+        description: 'Verified work history of 650+ Shopify projects completed by Karam S. at Miracle Websoft, as listed on Upwork.',
         numberOfItems: jobs.length,
         itemListElement: jobs.map((job, i) => ({
           '@type': 'ListItem',
@@ -40,7 +43,7 @@ function JsonLd() {
       {
         '@type': 'LocalBusiness',
         name: 'Miracle Websoft',
-        description: 'Shopify development agency specialising in fashion and ecommerce brands. 600+ projects, 98%+ job success, Top Rated Plus on Upwork.',
+        description: 'Shopify development agency specialising in fashion and ecommerce brands. 650+ projects, 98% job success, Top Rated Plus on Upwork.',
         aggregateRating: {
           '@type': 'AggregateRating',
           ratingValue: '5.0',
@@ -80,137 +83,63 @@ const CLIENT_INSIGHTS = [
 ]
 
 export default function WorkPage() {
+  const reviewed = jobs.filter(j => j.review).length
   return (
     <>
       <JsonLd />
-      <div style={{ background: '#0a0a0a', minHeight: '100vh' }}>
 
-        {/* Hero */}
-        <section className="relative overflow-hidden" style={{ paddingTop: '7rem', paddingBottom: '4rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-          <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(108,99,255,0.10) 0%, transparent 70%)' }} />
-          <div className="mw-container relative z-10">
-
-            {/* Upwork verified badge */}
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style={{ background: 'rgba(16,185,129,0.10)', border: '1px solid rgba(16,185,129,0.25)' }}>
-              <span style={{ color: '#10B981', fontSize: '0.75rem', fontWeight: 700 }}>✓</span>
-              <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 500 }}>
-                All Projects Verified on Upwork
-              </span>
+      <section style={{ paddingTop: 'clamp(7.5rem, 11vw, 9rem)', paddingBottom: '3.5rem' }}>
+        <div className="mw-container">
+          <div className="mb-8"><Breadcrumb items={[{ label: 'Work' }]} /></div>
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-20 items-end">
+            <div>
+              <p className="mw-eyebrow">Work history · from Upwork</p>
+              <h1 className="mw-hero-title" style={{ maxWidth: '16ch' }}>
+                The project log, <span className="mw-mark">not a highlight reel.</span>
+              </h1>
+              <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '54ch' }}>
+                {`${jobs.length} Shopify jobs from our Upwork history: store builds, redesigns, migrations, Shopify Plus work, custom features and ongoing support. ${reviewed} of them carry the client’s written review.`}
+              </p>
+              <p style={{ marginTop: '1rem', fontSize: '0.92rem', color: 'var(--text-3)' }}>
+                Top Rated Plus · Shopify Partner ·{' '}
+                <a href={UPWORK_FREELANCER} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1" style={{ color: 'var(--text-1)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                  Check the Upwork profile <ArrowUpRight size={13} />
+                </a>
+              </p>
             </div>
-
-            <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1rem', maxWidth: '700px' }}>
-              600+ Shopify Projects.<br />
-              <span style={{ color: 'var(--accent)' }}>All Verified. All Real.</span>
-            </h1>
-
-            <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 'clamp(1rem,2vw,1.15rem)', maxWidth: '580px', lineHeight: 1.8, marginBottom: '2.5rem', fontWeight: 300 }}>
-              A verified work history of Shopify store builds, migrations, custom features, Shopify Plus development, and ongoing support engagements — all completed through Upwork with a 98%+ job success score.
-            </p>
-
-            {/* Stats row */}
-            <div className="flex flex-wrap gap-8 mb-8">
-              {[
-                { value: '600+', label: 'Projects Delivered' },
-                { value: '98%+',  label: 'Job Success Score' },
-                { value: '10+',  label: 'Years Experience' },
-                { value: '5.0',  label: 'Avg. Client Rating' },
-              ].map(({ value, label }) => (
-                <div key={label}>
-                  <div style={{ fontSize: 'clamp(1.5rem,3vw,2rem)', fontWeight: 700, color: '#fff', lineHeight: 1 }}>{value}</div>
-                  <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.2rem' }}>{label}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Upwork badges + profile link */}
-            <div className="flex flex-wrap items-center gap-3">
-              {['Top Rated Plus', 'Officially Shopify Verified Partner', '17,773 Hours Logged'].map(badge => (
-                <span key={badge} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.10)', fontSize: '0.78rem', color: 'rgba(255,255,255,0.65)' }}>
-                  <span style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span> {badge}
-                </span>
-              ))}
-              <a
-                href={UPWORK_FREELANCER}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full transition-all"
-                style={{ background: 'rgba(20,189,125,0.12)', border: '1px solid rgba(20,189,125,0.30)', fontSize: '0.78rem', fontWeight: 600, color: '#14BD7D', textDecoration: 'none' }}
-              >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.545-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3.001-2.439-5.439-5.439-5.439z"/></svg>
-                View Full Profile on Upwork
-              </a>
-            </div>
+            <dl className="stats">
+              <div><dt>Projects since 2015</dt><dd>650+</dd></div>
+              <div><dt>Upwork job success</dt><dd>98%</dd></div>
+              <div><dt>Hours delivered</dt><dd>15,000+</dd></div>
+              <div><dt>Listed on this page</dt><dd>{jobs.length}</dd></div>
+            </dl>
           </div>
-        </section>
+          <p className="mw-num" style={{ marginTop: '2.5rem', lineHeight: 1.9 }}>
+            CLIENT VOTES ON UPWORK:&nbsp; {CLIENT_INSIGHTS.map(c => `${c.label} ${c.score}`).join('  ·  ')}
+          </p>
+        </div>
+      </section>
 
-        {/* Client Insights from Upwork */}
-        <section style={{ paddingTop: '3rem', paddingBottom: '3rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-          <div className="mw-container">
-            <p style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '1.25rem' }}>
-              Insights from completed jobs — voted by clients on Upwork
-            </p>
+      <section style={{ paddingTop: '1rem', paddingBottom: '5rem' }}>
+        <div className="mw-container">
+          <WorkList />
+        </div>
+      </section>
+
+      <section style={{ paddingBottom: '5rem' }}>
+        <div className="mw-container">
+          <div className="grid md:grid-cols-[1fr_auto] gap-8 items-end" style={{ borderTop: '1px solid var(--text-1)', paddingTop: '2.5rem' }}>
+            <div>
+              <h2 style={{ fontSize: 'clamp(26px, 3vw, 38px)', marginBottom: '0.75rem' }}>Want your store looked at next?</h2>
+              <p style={{ color: 'var(--text-3)', maxWidth: '54ch' }}>Send your URL for a free 5-minute video teardown within 48 hours, or book a 15-minute call with Karam.</p>
+            </div>
             <div className="flex flex-wrap gap-3">
-              {CLIENT_INSIGHTS.map(({ label, score }) => (
-                <div key={label} className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                  <div style={{ position: 'relative', width: 36, height: 36 }}>
-                    <svg viewBox="0 0 36 36" width="36" height="36" style={{ transform: 'rotate(-90deg)' }}>
-                      <circle cx="18" cy="18" r="15" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="3" />
-                      <circle
-                        cx="18" cy="18" r="15" fill="none"
-                        stroke="var(--accent)" strokeWidth="3"
-                        strokeDasharray={`${(score / 100) * 94.2} 94.2`}
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                    <span style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.6rem', fontWeight: 700, color: '#fff' }}>
-                      {score}
-                    </span>
-                  </div>
-                  <span style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.72)', fontWeight: 500 }}>{label}</span>
-                </div>
-              ))}
+              <Link href="/free-store-audit" className="mw-btn-accent">Get a free teardown <ArrowRight size={15} /></Link>
+              <Link href="/book" className="mw-btn-outline">Book a 15-min call</Link>
             </div>
           </div>
-        </section>
-
-        {/* Job list with filter */}
-        <section style={{ paddingTop: '3rem', paddingBottom: '6rem' }}>
-          <div className="mw-container">
-            <WorkList />
-          </div>
-        </section>
-
-        {/* Bottom CTA */}
-        <section style={{ paddingBottom: '6rem' }}>
-          <div className="mw-container">
-            <div className="rounded-3xl p-8 sm:p-12 text-center" style={{ background: 'rgba(108,99,255,0.08)', border: '1px solid rgba(108,99,255,0.20)' }}>
-              <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1rem' }}>
-                Ready to be the next success story?
-              </h2>
-              <p style={{ color: 'rgba(255,255,255,0.60)', maxWidth: '480px', margin: '0 auto 2rem', lineHeight: 1.7 }}>
-                Join 600+ brands who trusted Miracle Websoft with their Shopify store. Book a free 30-minute strategy call — no commitment required.
-              </p>
-              <a href="/contact" className="mw-btn-primary inline-flex text-sm px-8 py-4">
-                Get Free Store Review →
-              </a>
-              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '1rem', marginBottom: '1.25rem' }}>
-                98%+ Job Success · Top Rated Plus on Upwork · Response within 4–8 hrs
-              </p>
-              <a
-                href={UPWORK_FREELANCER}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 transition-opacity hover:opacity-80"
-                style={{ fontSize: '0.75rem', color: '#14BD7D', textDecoration: 'none', fontWeight: 500 }}
-              >
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.545-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3.001-2.439-5.439-5.439-5.439z"/></svg>
-                See all 600+ jobs on my Upwork profile →
-              </a>
-            </div>
-          </div>
-        </section>
-
-      </div>
+        </div>
+      </section>
     </>
   )
 }

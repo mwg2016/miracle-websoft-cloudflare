@@ -60,11 +60,11 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section className="mw-section" style={{ background: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+    <section className="mw-section" style={{ background: 'var(--bg)', borderTop: '1px solid rgb(var(--ink-rgb) / 0.06)' }}>
       <div className="mw-container">
         <div className="mw-section-header">
           <span className="mw-eyebrow">Services</span>
-          <h2 style={{ color: '#fff' }}>
+          <h2 style={{ color: 'var(--text-1)' }}>
             Ecommerce growth and AI services<br />
             built around <span className="mw-italic mw-italic--accent">business outcomes.</span>
           </h2>
@@ -109,7 +109,7 @@ export default function ServicesOverview() {
                     <span style={{ fontFamily: 'var(--font-geist-mono), monospace', fontSize: '0.75rem', color: 'var(--text-4)', letterSpacing: '0.08em' }}>
                       /{s.n}
                     </span>
-                    <ArrowUpRight size={18} style={{ color: 'var(--text-4)', transition: 'all 0.25s ease' }} className="group-hover:text-white group-hover:-translate-y-1 group-hover:translate-x-1" />
+                    <ArrowUpRight size={18} style={{ color: 'var(--text-4)', transition: 'all 0.25s ease' }} className="group-hover:text-[var(--text-1)] group-hover:-translate-y-1 group-hover:translate-x-1" />
                   </div>
 
                   <div
@@ -117,8 +117,8 @@ export default function ServicesOverview() {
                       width: '48px',
                       height: '48px',
                       borderRadius: '12px',
-                      background: 'rgba(108,99,255,0.12)',
-                      border: '1px solid rgba(108,99,255,0.2)',
+                      background: 'rgb(224 79 37 / 0.12)',
+                      border: '1px solid rgb(224 79 37 / 0.2)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -131,7 +131,7 @@ export default function ServicesOverview() {
                   <span style={{ fontFamily: 'var(--font-geist-mono), monospace', fontSize: '0.7rem', fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--accent)', display: 'block', marginBottom: '0.6rem' }}>
                     {s.tag}
                   </span>
-                  <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: '#fff', marginBottom: '0.85rem', lineHeight: 1.25, letterSpacing: '-0.01em' }} dangerouslySetInnerHTML={{ __html: s.title }} />
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: 'var(--text-1)', marginBottom: '0.85rem', lineHeight: 1.25, letterSpacing: '-0.01em' }} dangerouslySetInnerHTML={{ __html: s.title }} />
                   <p style={{ fontSize: '0.92rem', color: 'var(--text-3)', lineHeight: 1.65 }}>
                     {s.body}
                   </p>

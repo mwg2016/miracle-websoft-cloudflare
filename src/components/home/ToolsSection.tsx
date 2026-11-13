@@ -5,12 +5,12 @@ import { outboundHref } from '@/lib/outbound'
 const tools = [
   {
     badge: 'Free Tool',
-    badgeColor: '#a78bfa',
-    badgeBg: 'rgba(108,99,255,0.15)',
-    badgeBorder: 'rgba(108,99,255,0.3)',
-    accentGradient: 'linear-gradient(90deg, #6c63ff, #a78bfa)',
-    accentBorder: 'rgba(108,99,255,0.25)',
-    accentBg: 'linear-gradient(135deg, rgba(108,99,255,0.08) 0%, rgba(108,99,255,0.02) 100%)',
+    badgeColor: '#C7421B',
+    badgeBg: 'rgb(224 79 37 / 0.15)',
+    badgeBorder: 'rgb(224 79 37 / 0.3)',
+    accentGradient: '#E04F25',
+    accentBorder: 'rgb(224 79 37 / 0.25)',
+    accentBg: 'linear-gradient(135deg, rgb(224 79 37 / 0.08) 0%, rgb(224 79 37 / 0.02) 100%)',
     tag: 'No login · No API key',
     title: 'Shopify Theme Detector',
     desc: 'Instantly find what theme any Shopify store is using — plus detect installed apps, product count and collections. 100% free.',
@@ -67,11 +67,11 @@ const tools = [
 
 export default function ToolsSection() {
   return (
-    <section className="mw-section" style={{ background: '#0d0d0d' }}>
+    <section className="mw-section" style={{ background: 'var(--bg-raised)' }}>
       <div className="mw-container">
         <div className="mw-section-header">
           <span className="mw-eyebrow">Built by Us</span>
-          <h2 style={{ color: '#fff' }}>Tools we&apos;ve shipped<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>used by thousands.</em></h2>
+          <h2 style={{ color: 'var(--text-1)' }}>Tools we&apos;ve shipped<br /><em style={{ fontStyle: 'italic', color: 'rgb(var(--ink-rgb) / 0.6)' }}>used by thousands.</em></h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
@@ -100,15 +100,15 @@ export default function ToolsSection() {
                   }}>
                     {tool.badge}
                   </span>
-                  <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>
+                  <span style={{ fontSize: '0.68rem', color: 'rgb(var(--ink-rgb) / 0.6)', fontWeight: 500 }}>
                     {tool.tag}
                   </span>
                 </div>
 
-                <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#fff', marginBottom: '0.6rem', lineHeight: 1.2 }}>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: 'var(--text-1)', marginBottom: '0.6rem', lineHeight: 1.2 }}>
                   {tool.title}
                 </h3>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: 1.65, marginBottom: '1.5rem', flex: 1 }}>
+                <p style={{ color: 'rgb(var(--ink-rgb) / 0.5)', fontSize: '0.88rem', lineHeight: 1.65, marginBottom: '1.5rem', flex: 1 }}>
                   {tool.desc}
                 </p>
 
@@ -117,9 +117,9 @@ export default function ToolsSection() {
                   {tool.features.map(({ icon: Icon, label }) => (
                     <span key={label} style={{
                       display: 'inline-flex', alignItems: 'center', gap: '0.3rem',
-                      background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)',
+                      background: 'rgb(var(--ink-rgb) / 0.05)', border: '1px solid rgb(var(--ink-rgb) / 0.08)',
                       borderRadius: '6px', padding: '0.3rem 0.65rem',
-                      fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', fontWeight: 500,
+                      fontSize: '0.75rem', color: 'rgb(var(--ink-rgb) / 0.6)', fontWeight: 500,
                     }}>
                       <Icon size={11} style={{ color: tool.badgeColor }} />
                       {label}
@@ -150,7 +150,7 @@ export default function ToolsSection() {
                     aria-label={`Visit ${tool.urlLabel}`}
                     style={{
                       display: 'inline-flex', alignItems: 'center', gap: '0.35rem',
-                      border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.5)',
+                      border: '1px solid rgb(var(--ink-rgb) / 0.12)', color: 'rgb(var(--ink-rgb) / 0.5)',
                       padding: '0.55rem 1.1rem', borderRadius: '7px',
                       fontWeight: 500, fontSize: '0.82rem', textDecoration: 'none',
                     }}
@@ -169,8 +169,8 @@ export default function ToolsSection() {
             href="/tools"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-              color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', fontWeight: 500,
-              textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.15)',
+              color: 'rgb(var(--ink-rgb) / 0.5)', fontSize: '0.88rem', fontWeight: 500,
+              textDecoration: 'none', borderBottom: '1px solid rgb(var(--ink-rgb) / 0.15)',
               paddingBottom: '2px',
             }}
           >

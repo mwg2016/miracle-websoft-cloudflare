@@ -1,38 +1,33 @@
 import type { Metadata } from 'next'
-import Breadcrumb from '@/components/layout/Breadcrumb'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import WhyUs from '@/components/home/WhyUs'
-import ClientPortfolio from '@/components/home/ClientPortfolio'
-import CtaBanner from '@/components/home/CtaBanner'
 import FaqSection from '@/components/ui/FaqSection'
 import ServiceResult from '@/components/services/ServiceResult'
 import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
+import ServiceHero, { HeroScope, NumberedList, SectionHead } from '@/components/services/ServiceHero'
 import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Custom Shopify Development for Clothing Brands | Miracle Websoft',
-  description: 'Bespoke Shopify and Shopify Plus stores for clothing and fashion brands. Mobile-first, sub-1.5s load times, TikTok & Instagram Shop ready. USA, UK, Australia.',
+  description: 'Bespoke Shopify and Shopify Plus stores for clothing and fashion brands. Mobile-first, built to a speed budget, TikTok & Instagram Shop ready. USA, UK, Australia.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/shopify-development-clothing-brands' },
   openGraph: {
     title: 'Custom Shopify Development for Clothing Brands | Miracle Websoft',
-    description: 'Bespoke Shopify and Shopify Plus stores for clothing and fashion brands. Mobile-first, sub-1.5s load times, TikTok & Instagram Shop ready. USA, UK, Australia.',
+    description: 'Bespoke Shopify and Shopify Plus stores for clothing and fashion brands. Mobile-first, built to a speed budget, TikTok & Instagram Shop ready. USA, UK, Australia.',
     url: 'https://miraclewebsoft.com/services/shopify-development-clothing-brands',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Custom Shopify Development for Clothing Brands | Miracle Websoft',
-    description: 'Bespoke Shopify and Shopify Plus stores for clothing and fashion brands. Mobile-first, sub-1.5s load times, TikTok & Instagram Shop ready. USA, UK, Australia.',
+    description: 'Bespoke Shopify and Shopify Plus stores for clothing and fashion brands. Mobile-first, built to a speed budget, TikTok & Instagram Shop ready. USA, UK, Australia.',
   },
 }
 
 const features = [
   'Custom theme design — no templates, no generic layouts',
   'Mobile-first build — 375px is the primary canvas',
-  'Sub-1.5s load time target on every project',
+  'A speed budget agreed before the build',
   'Shopify Plus builds for scaling brands',
   'Advanced product filtering and collection architecture',
   'Size guides and fit recommendation tools',
@@ -45,10 +40,10 @@ const features = [
 ]
 
 const socialCommerceFeatures = [
-  { icon: '📱', title: 'TikTok Shop Integration', desc: 'Sync your Shopify catalog to TikTok Shop. Live product links, creator affiliate tracking, and real-time inventory sync so drops don\'t oversell.' },
-  { icon: '📸', title: 'Instagram Shopping', desc: 'Tag products in posts and Reels. Customers buy without leaving Instagram. Full Meta catalog sync with automatic variant-level updates.' },
-  { icon: '🎯', title: 'Meta Ads Pixel & CAPI', desc: 'Server-side Conversions API setup alongside browser pixel for accurate attribution. Vital for fashion brands running Meta ads to warm audiences.' },
-  { icon: '✨', title: 'Shoppable Lookbooks', desc: 'Editorial-style lookbook pages where customers can tap any item and add to cart. Converts browsing sessions into multi-item baskets.' },
+  { title: 'TikTok Shop Integration', desc: 'Sync your Shopify catalog to TikTok Shop. Live product links, creator affiliate tracking, and real-time inventory sync so drops don\'t oversell.' },
+  { title: 'Instagram Shopping', desc: 'Tag products in posts and Reels. Customers buy without leaving Instagram. Full Meta catalog sync with automatic variant-level updates.' },
+  { title: 'Meta Ads Pixel & CAPI', desc: 'Server-side Conversions API setup alongside browser pixel for accurate attribution. Vital for fashion brands running Meta ads to warm audiences.' },
+  { title: 'Shoppable Lookbooks', desc: 'Editorial-style lookbook pages where customers can tap any item and add to cart. Converts browsing sessions into multi-item baskets.' },
 ]
 
 const fashionSpecific = [
@@ -65,13 +60,13 @@ const faqs = [
   { question: 'How long does a custom Shopify build take?', answer: 'A standard custom theme build takes 4–8 weeks depending on scope. Complex projects with custom apps, third-party integrations or Shopify Plus checkout features typically take 10–16 weeks. We give a clear timeline in every proposal.' },
   { question: 'Do you work on existing stores or only new builds?', answer: 'Both. We do full rebuilds, redesigns of live stores, and targeted improvements (product pages, checkout, speed) on existing Shopify stores without a full rebuild.' },
   { question: 'What happens after launch?', answer: 'We offer ongoing support and optimisation packages. Most clients work with us on a retained basis — monthly CRO testing, new feature development, Shopify platform updates, and performance monitoring.' },
-  { question: 'How much does a custom Shopify store cost?', answer: 'Custom Shopify theme builds typically start from $3,000–$5,000 for a focused fashion brand. Complex builds with custom apps and Shopify Plus features range from $10,000–$30,000+. We always provide a fixed-price proposal before any work begins — no hourly billing.' },
+  { question: 'How much does a custom Shopify store cost?', answer: 'A Basic Store build is $600 and an Advanced Store is $1,000. Custom development starts at $1,500, and builds with custom apps or Shopify Plus features are quoted after a short scoping call. You always get a fixed-price proposal before any work begins, with no hourly billing.' },
 ]
 
 const guarantees = [
-  { icon: '⚡', title: 'Sub-1.5s Load Time Target', body: 'Every build targets sub-1.5s mobile load time. Fashion shoppers on Instagram and TikTok won\'t wait — your store needs to be instant.' },
-  { icon: '📱', title: 'Mobile-First, Always', body: 'We design for 375px first. 80%+ of fashion traffic is mobile. If it doesn\'t look perfect on a phone, we don\'t ship it.' },
-  { icon: '🔒', title: 'Fixed Price Before We Start', body: 'You get a detailed fixed-price proposal before a single line of code is written. No hourly billing, no surprise invoices at the end.' },
+  { title: 'A speed budget, agreed up front', body: 'Shoppers arriving from Instagram and TikTok won\'t wait. We set a mobile performance target before the build and test against it before launch.' },
+  { title: 'Mobile first, always', body: 'We design for a 375px screen first, because that is where most fashion traffic lands.' },
+  { title: 'Fixed Price Before We Start', body: 'You get a detailed fixed-price proposal before a single line of code is written. No hourly billing, no surprise invoices at the end.' },
 ]
 
 const related = [
@@ -99,46 +94,34 @@ export default function ShopifyDevelopmentPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
-      {/* Hero */}
-      <section className="pt-32 pb-20" style={{ background: '#0a0a0a', backgroundImage: 'radial-gradient(ellipse at 70% 50%, rgba(108,99,255,0.15) 0%, transparent 60%)' }}>
-        <div className="mw-container">
-          <div className="mb-6">
-            <Breadcrumb items={[{ label: 'Services', href: '/services' }, { label: 'Custom Shopify Development' }]} />
-          </div>
-          <div className="max-w-3xl">
-            <span className="mw-eyebrow">SHOPIFY FOR FASHION BRANDS</span>
-            <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.25rem' }}>Custom Shopify Stores Built for How Fashion Brands Actually Sell</h1>
-            <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem', maxWidth: '580px', fontWeight: 300 }}>
-              Not a template. Not a theme store. A store built around your brand, your product structure, and how your customers shop — on their phones, on Instagram, on TikTok.
-            </p>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 mb-8">
-              {['TikTok & Instagram Shop ready', 'Mobile-first design', 'Sub-1.5s load time', 'Fixed-price proposal'].map(t => (
-                <span key={t} className="flex items-center gap-1.5" style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.62)', fontWeight: 500 }}>
-                  <span style={{ color: '#10B981', fontWeight: 700 }}>✓</span> {t}
-                </span>
-              ))}
-            </div>
-            <Link href="/contact" className="mw-btn-primary">
-              Get a Fashion Store Review <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
 
-      {/* Case Study Result */}
-      <section style={{ paddingTop: '4rem', paddingBottom: '1rem' }}>
+      <ServiceHero
+        breadcrumbItems={[{ label: 'Services', href: '/services' }, { label: 'Shopify for Clothing Brands' }]}
+        eyebrow="Shopify for fashion brands"
+        title={<>Shopify stores built for <span className="mw-mark">how fashion actually sells.</span></>}
+        lede="On a phone, from Instagram and TikTok, in drops, with sizes that have to be right first time. We build the store around your products and your customers, not around a theme demo."
+        bullets={['Size guides, fit tools and clean variant handling', 'TikTok Shop, Instagram and Meta CAPI set up properly', 'Drops, waitlists and restock flows']}
+        aside={
+          <HeroScope
+            label="Prices"
+            items={['Basic store build: $600', 'Advanced store build: $1,000', 'Custom features and apps: from $1,500']}
+            foot="Fixed quote within 24 hours, agreed before any work starts."
+          />
+        }
+      />
+
+      <section className="mw-section">
         <div className="mw-container">
-          <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '1rem' }}>Real Project Result</p>
+          <SectionHead eyebrow="Example project" title="An activewear brand, rebuilt for mobile." />
           <ServiceResult
-            tag="Activewear Brand"
-            tagColor="#6C63FF"
+            tag="Activewear brand"
             metric="+48%"
-            metricLabel="Conversion Rate"
-            title="Activewear DTC brand: TikTok Shop integration, product drop system and rebuilt mobile pages — conversions up 48% in 6 weeks."
+            metricLabel="Conversion rate"
+            title="Activewear DTC brand: TikTok Shop integration, a product drop system and rebuilt mobile pages. Conversions up 48% in 6 weeks."
             bullets={[
-              'Custom TikTok Shop sync with real-time inventory and automatic variant mapping',
-              'Product drop system with waitlists, countdown timers and Klaviyo email flows',
-              'Rebuilt mobile product pages with sticky ATC, image zoom and size guide modal',
+              'TikTok Shop sync with real-time inventory and automatic variant mapping',
+              'Product drop system with waitlists, countdowns and Klaviyo flows',
+              'Mobile product pages rebuilt with sticky add to cart, image zoom and size guide',
             ]}
             duration="6-week build"
             cta={{ label: 'See all our work', href: '/work' }}
@@ -146,83 +129,44 @@ export default function ShopifyDevelopmentPage() {
         </div>
       </section>
 
-      {/* What's included */}
-      <section style={{ paddingTop: '4rem', paddingBottom: '4rem', borderTop: '1px solid rgba(255,255,255,0.06)', marginTop: '3rem' }}>
-        <div className="mw-container">
-          <div style={{ marginBottom: '2.5rem' }}>
-            <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>What&apos;s Included</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>Everything in every build</h2>
-            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', marginTop: '0.5rem', maxWidth: '500px', lineHeight: 1.7 }}>Standard across every project — not optional extras.</p>
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="mw-container grid grid-cols-1 lg:grid-cols-[0.75fr_1.25fr] gap-10 lg:gap-16">
+          <div>
+            <p className="mw-eyebrow">Fashion-specific</p>
+            <h2 style={{ fontSize: 'clamp(28px,3.4vw,44px)' }}>The details that decide returns and repeat orders.</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl">
-            {features.map((f, i) => (
-              <div key={i} className="flex items-start gap-3 mw-card" style={{ padding: '1rem 1.25rem' }}>
-                <CheckCircle2 size={15} className="shrink-0 mt-0.5" style={{ color: '#10B981' }} />
-                <span style={{ fontSize: '0.86rem', color: 'rgba(255,255,255,0.72)' }}>{f}</span>
-              </div>
-            ))}
-          </div>
+          <NumberedList items={fashionSpecific.map((f) => ({ title: f.title, body: f.desc }))} columns={2} />
         </div>
       </section>
 
-      {/* Social Commerce Section */}
-      <section style={{ paddingTop: '4rem', paddingBottom: '4rem', background: '#080808', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="mw-container">
-          <div style={{ marginBottom: '2.5rem' }}>
-            <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>Social Commerce</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)', marginBottom: '0.5rem' }}>Built for brands that sell on TikTok and Instagram</h2>
-            <p style={{ color: 'rgba(255,255,255,0.50)', fontSize: '0.9rem', maxWidth: '520px', lineHeight: 1.7 }}>Your Shopify store is the hub. TikTok, Instagram, and Meta ads are the traffic channels. We connect them properly — not with generic plugins.</p>
+      <section className="mw-section" style={{ background: 'var(--bg-deep)', borderTop: '1px solid var(--border)' }}>
+        <div className="mw-container grid grid-cols-1 lg:grid-cols-[0.75fr_1.25fr] gap-10 lg:gap-16">
+          <div>
+            <p className="mw-eyebrow">Social commerce</p>
+            <h2 style={{ fontSize: 'clamp(28px,3.4vw,44px)' }}>Built for brands that sell on TikTok and Instagram.</h2>
+            <p style={{ marginTop: '1rem', maxWidth: '42ch' }}>Your Shopify store is the hub; TikTok, Instagram and Meta ads are the traffic. We connect them properly, not with generic plugins.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {socialCommerceFeatures.map((f, i) => (
-              <div key={i} className="flex gap-4 rounded-2xl p-5" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                <span style={{ fontSize: '1.5rem', lineHeight: 1, flexShrink: 0 }}>{f.icon}</span>
-                <div>
-                  <p style={{ fontWeight: 700, color: '#fff', fontSize: '0.92rem', marginBottom: '0.35rem' }}>{f.title}</p>
-                  <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65 }}>{f.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <NumberedList items={socialCommerceFeatures.map((f) => ({ title: f.title, body: f.desc }))} columns={2} />
         </div>
       </section>
 
-      {/* Fashion-specific features */}
-      <section style={{ paddingTop: '4rem', paddingBottom: '4rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="mw-container">
-          <div style={{ marginBottom: '2.5rem' }}>
-            <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>Fashion-Specific Features</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(22px,3vw,32px)' }}>Built for how fashion brands actually operate</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {fashionSpecific.map((f, i) => (
-              <div key={i} className="rounded-2xl p-5" style={{ background: 'rgba(108,99,255,0.05)', border: '1px solid rgba(108,99,255,0.15)' }}>
-                <p style={{ fontWeight: 700, color: '#fff', fontSize: '0.95rem', marginBottom: '0.4rem' }}>{f.title}</p>
-                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.58)', lineHeight: 1.65 }}>{f.desc}</p>
-              </div>
-            ))}
-          </div>
+          <SectionHead eyebrow="What's included" title="Standard in every build, not extras." />
+          <NumberedList items={features.map((f) => ({ title: f }))} columns={3} />
         </div>
       </section>
 
-      {/* Mid-page CTA */}
       <MidPageCta
-        heading="Ready to build a store that converts your Meta ads traffic?"
-        sub="Free store audit — we'll review your current store (or brief) and tell you exactly what we'd build and why."
+        heading="Paying for Meta traffic that doesn't buy?"
+        sub="Send your URL. Within 48 hours you get a short video of what is stopping shoppers on your product pages and cart, ranked by likely impact."
       />
 
-      {/* Guarantees */}
       <GuaranteeBar guarantees={guarantees} />
 
-      <WhyUs />
-
-      <ClientPortfolio />
-
-      <FaqSection faqs={faqs} heading="Custom Shopify development — common questions" />
+      <FaqSection faqs={faqs} heading="Common questions" />
 
       <RelatedServices services={related} />
-
-      <CtaBanner />
     </>
   )
 }

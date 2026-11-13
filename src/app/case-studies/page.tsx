@@ -2,90 +2,35 @@ import type { Metadata } from 'next'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { jobs, jobTitle } from '@/data/jobs'
 import FaqSection from '@/components/ui/FaqSection'
-import RecentWork from '@/components/home/RecentWork'
 import BrandGrid from '@/components/case-studies/BrandGrid'
 import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Case Studies — Shopify Results for Growing Stores | Miracle Websoft',
   description:
-    'Real results from 600+ Shopify projects. See how we have helped merchants improve conversion rates, cut cart abandonment, speed up stores and migrate without losing SEO traffic.',
+    'Selected Shopify projects from 650+ since 2015: store builds, redesigns, migrations and custom features, with what we did and what clients said.',
   alternates: { canonical: 'https://miraclewebsoft.com/case-studies' },
   openGraph: {
     title: 'Case Studies — Shopify Results for Growing Stores | Miracle Websoft',
-    description: 'Real results from 600+ Shopify projects. See how we have helped merchants improve conversion rates, cut cart abandonment, speed up stores and migrate without losing SEO traffic.',
+    description: 'Selected Shopify projects from 650+ since 2015: store builds, redesigns, migrations and custom features, with what we did and what clients said.',
     url: 'https://miraclewebsoft.com/case-studies',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Case Studies — Shopify Results for Growing Stores | Miracle Websoft',
-    description: 'Real results from 600+ Shopify projects. See how we have helped merchants improve conversion rates, cut cart abandonment, speed up stores and migrate without losing SEO traffic.',
+    description: 'Selected Shopify projects from 650+ since 2015: store builds, redesigns, migrations and custom features, with what we did and what clients said.',
   },
 }
 
 const csFaqs = [
-  { question: 'How many Shopify projects has Miracle Websoft completed?', answer: 'Over 600 Shopify projects since 2015 — across custom builds, migrations, app development, and CRO. Our clients range from DTC startups to established brands with thousands of SKUs and years of order history.' },
-  { question: 'Can I see specific client results?', answer: 'We share anonymised results on this page — average +48% conversion rate, -35% cart abandonment, and 1.1s mobile load times. We keep individual client names confidential unless the client has given explicit permission to be named. All results shown are real, verified metrics from completed projects.' },
-  { question: 'What fashion verticals have you worked in?', answer: 'We have worked across women\'s clothing, activewear, streetwear, sustainable fashion, luxury fashion, swimwear, menswear, jewelry, accessories, fragrance, beauty, footwear, and home goods.' },
-  { question: 'Do you show before/after comparisons?', answer: 'We can share before/after speed scores, conversion rate data, and design comparisons during our discovery call for projects similar to yours. This helps set realistic expectations for your specific situation.' },
-  { question: 'How long does it take to see results after a CRO project?', answer: 'Speed improvements are immediate — the day we launch. Conversion rate improvements typically become statistically significant within 4–8 weeks, depending on your traffic volume.' },
-]
-
-const featuredCaseStudies = [
-  {
-    tag: 'Activewear',
-    result: '+48%',
-    resultLabel: 'Conversion Rate',
-    title: 'Activewear brand grows conversions after TikTok Shop integration',
-    bullets: [
-      'Built TikTok Shop product sync with automated inventory updates',
-      'Product drop system with waitlists and countdown timers',
-      'Rebuilt mobile product pages with sticky ATC and zoom',
-    ],
-    duration: '6-week project',
-    color: '#6C63FF',
-  },
-  {
-    tag: "Women's Fashion",
-    result: '-35%',
-    resultLabel: 'Cart Abandonment',
-    title: "Women's boutique cuts abandonment with a rebuilt checkout flow",
-    bullets: [
-      'Rebuilt checkout flow with progress indicators and trust badges',
-      'Size guide with fit recommendations built into the product page',
-      'Integrated Klaviyo abandoned cart sequences with dynamic content',
-    ],
-    duration: '4-week project',
-    color: '#EC4899',
-  },
-  {
-    tag: 'Migration',
-    result: '0%',
-    resultLabel: 'SEO Traffic Loss',
-    title: 'Streetwear brand migrates from WooCommerce with zero ranking drops',
-    bullets: [
-      'Full WooCommerce → Shopify migration: 4,000 products, 15,000 customers',
-      'All 8 years of order history preserved and imported',
-      'URL redirect mapping and meta data migration — rankings held day one',
-    ],
-    duration: '3-week project',
-    color: '#10B981',
-  },
-  {
-    tag: 'Speed & CRO',
-    result: '1.1s',
-    resultLabel: 'Mobile Load Time',
-    title: 'Luxury fashion store achieves 1.1s mobile load after full speed overhaul',
-    bullets: [
-      'Complete Lighthouse audit — eliminated 11 conflicting apps',
-      'Image compression, lazy loading, and critical CSS inlining',
-      'Custom theme rebuild replacing 40KB of third-party JavaScript',
-    ],
-    duration: '5-week project',
-    color: '#F59E0B',
-  },
+  { question: 'How many Shopify projects has Miracle Websoft completed?', answer: 'More than 650 Shopify projects since 2015, across custom builds, redesigns, migrations, app and feature development, and CRO. Clients range from new DTC brands to established stores with thousands of SKUs and years of order history.' },
+  { question: 'Can I see specific client results?', answer: 'Each project on this page links to its own write-up with the brief, what we built and the client’s Upwork review where one was left. Many clients ask us not to publish their revenue or conversion numbers, so we don’t; on a call we can walk you through comparable projects in more detail.' },
+  { question: 'Which kinds of brands have you worked with?', answer: 'Fashion and apparel (women’s, menswear, streetwear, swimwear, sustainable), jewelry and accessories, fragrance and beauty, home and furniture, food and drink, sports, tech accessories and more. The brand list on this page is a sample.' },
+  { question: 'Do you show before/after comparisons?', answer: 'For projects similar to yours we can share before/after speed scores and design comparisons on a call, with the client’s permission. The free store teardown is the quickest way to see how we’d approach your store specifically.' },
+  { question: 'How long does it take to see results after a CRO project?', answer: 'Speed improvements show up the day they ship. Conversion changes usually need 4–8 weeks of traffic before you can trust the numbers, depending on your volume.' },
 ]
 
 const portfolioClients = [
@@ -142,11 +87,17 @@ const portfolioClients = [
   { name: 'Saint Mcqueen',       category: 'Fashion',          desc: 'Where fashion meets florals',                                         href: null },
 ]
 
+const caseStudyJob = jobs.find(j => j.caseStudy)
+const featured = [
+  ...(caseStudyJob ? [caseStudyJob] : []),
+  ...jobs.filter(j => j.featured && j.id !== caseStudyJob?.id),
+].slice(0, 7)
+
 const jsonLd = renderJsonLd([
   webPage({
     name: 'Case Studies — Shopify results for growing stores',
     description:
-      'Real results from 600+ Shopify projects — conversion lifts, migration success, speed and CRO outcomes.',
+      'Selected Shopify projects from 650+ since 2015 — builds, redesigns, migrations and custom features.',
     url: 'https://miraclewebsoft.com/case-studies',
     type: 'CollectionPage',
   }),
@@ -155,173 +106,143 @@ const jsonLd = renderJsonLd([
     { name: 'Case Studies', url: '/case-studies' },
   ]),
   itemList({
-    name: 'Featured case studies',
-    items: featuredCaseStudies.map((cs) => ({
-      name: cs.title,
-      url: '/case-studies',
-      description: `${cs.result} ${cs.resultLabel} — ${cs.tag}`,
+    name: 'Featured Shopify projects',
+    items: featured.map((j) => ({
+      name: jobTitle(j),
+      url: `/work/${j.id}`,
+      description: `${j.category} — ${j.completedDate}`,
     })),
   }),
 ])
 
 export default function CaseStudiesPage() {
+  const [lead, ...rest] = featured
+  const cs = lead?.caseStudy
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
-      <div style={{ background: '#0a0a0a', minHeight: '100vh' }}>
 
-        {/* ── Hero ───────────────────────────────────────── */}
-        <section className="relative overflow-hidden" style={{ paddingTop: '7rem', paddingBottom: '4rem', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-          <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(108,99,255,0.10) 0%, transparent 70%)' }} />
-          <div className="mw-container relative z-10">
-            <div className="mb-6"><Breadcrumb items={[{ label: 'Case Studies' }]} /></div>
-
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style={{ background: 'rgba(108,99,255,0.10)', border: '1px solid rgba(108,99,255,0.22)' }}>
-              <span style={{ color: 'var(--accent)', fontSize: '0.75rem', fontWeight: 700 }}>✓</span>
-              <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.65)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 500 }}>
-                600+ Projects · 98%+ Job Success · Top Rated Plus on Upwork
-              </span>
+      <section style={{ paddingTop: 'clamp(7.5rem, 11vw, 9rem)', paddingBottom: '4rem' }}>
+        <div className="mw-container">
+          <div className="mb-8"><Breadcrumb items={[{ label: 'Case Studies' }]} /></div>
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-20 items-end">
+            <div>
+              <p className="mw-eyebrow">Case studies</p>
+              <h1 className="mw-hero-title" style={{ maxWidth: '17ch' }}>
+                What we built, and what <span className="mw-mark">the client said after.</span>
+              </h1>
+              <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '52ch' }}>
+                A selection from 650+ Shopify projects since 2015. Each one links to a write-up of the brief, the work, and the client&apos;s own Upwork review.
+              </p>
             </div>
+            <dl className="stats">
+              <div><dt>Shopify projects</dt><dd>650+</dd></div>
+              <div><dt>Hours delivered</dt><dd>15,000+</dd></div>
+              <div><dt>Brands listed below</dt><dd>{portfolioClients.length}</dd></div>
+              <div><dt>Rating on Clutch</dt><dd>4.9</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
 
-            <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1.25rem', maxWidth: '680px' }}>
-              Real Shopify results<br />
-              <span style={{ color: 'var(--accent)' }}>from stores built to grow</span>
-            </h1>
-            <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 'clamp(1rem,2vw,1.1rem)', maxWidth: '540px', lineHeight: 1.8, marginBottom: '2.5rem', fontWeight: 300 }}>
-              Every number on this page is from a real completed project — not estimates or industry averages. Browse verified results from 600+ Shopify builds, migrations, and optimisations.
-            </p>
-
-            {/* Stats strip */}
-            <div className="flex flex-wrap gap-8">
+      {lead && cs && (
+        <section className="mw-section" style={{ background: 'var(--bg-deep)' }}>
+          <div className="mw-container">
+            <p className="mw-eyebrow">Full case study · {lead.category}</p>
+            <h2 style={{ maxWidth: '24ch', marginBottom: '3rem' }}>{jobTitle(lead)}</h2>
+            <div className="grid lg:grid-cols-3 gap-10 lg:gap-12" style={{ borderTop: '1px solid var(--text-1)', paddingTop: '1.75rem' }}>
               {[
-                { value: '+48%',  label: 'Avg. conversion rate lift' },
-                { value: '-35%',  label: 'Cart abandonment reduction' },
-                { value: '1.1s',  label: 'Mobile load time achieved' },
-                { value: '0%',    label: 'SEO traffic lost on migrations' },
-              ].map(({ value, label }) => (
-                <div key={label}>
-                  <div style={{ fontSize: 'clamp(1.6rem,3vw,2.2rem)', fontWeight: 700, color: '#fff', lineHeight: 1, letterSpacing: '-0.02em' }}>{value}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)', marginTop: '0.25rem' }}>{label}</div>
+                { k: 'The brief', v: cs.challenge },
+                { k: 'What we built', v: cs.approach },
+                { k: 'Outcome', v: cs.outcome },
+              ].map(x => x.v && (
+                <div key={x.k}>
+                  <p className="mw-num" style={{ marginBottom: '0.75rem' }}>{x.k.toUpperCase()}</p>
+                  <p style={{ fontSize: '0.98rem', color: 'var(--text-2)', lineHeight: 1.7 }}>{x.v}</p>
                 </div>
               ))}
             </div>
+            <Link href={`/work/${lead.id}`} className="mw-btn-outline" style={{ marginTop: '2.5rem' }}>
+              Read the full case study <ArrowRight size={15} />
+            </Link>
           </div>
         </section>
+      )}
 
-        {/* ── Featured Case Studies ──────────────────────── */}
-        <section style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
-          <div className="mw-container">
-            <p style={{ fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.6rem' }}>Featured Results</p>
-            <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '2.5rem' }}>What we actually did — and what changed</h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {featuredCaseStudies.map((cs, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl p-6 flex flex-col"
-                  style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
-                >
-                  {/* Tag */}
-                  <span
-                    className="inline-block self-start px-3 py-1 rounded-full text-xs font-semibold mb-4"
-                    style={{ background: cs.color + '18', color: cs.color, border: `1px solid ${cs.color}30` }}
-                  >
-                    {cs.tag}
-                  </span>
-
-                  {/* Big result */}
-                  <div className="flex items-baseline gap-3 mb-1">
-                    <span style={{ fontSize: 'clamp(2.5rem,5vw,3.5rem)', fontWeight: 800, color: cs.color, lineHeight: 1, letterSpacing: '-0.03em' }}>{cs.result}</span>
-                    <span style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)', fontWeight: 500 }}>{cs.resultLabel}</span>
+      <section className="mw-section">
+        <div className="mw-container">
+          <p className="mw-eyebrow">Selected projects</p>
+          <h2 style={{ maxWidth: '22ch', marginBottom: '2.5rem' }}>Recent builds, redesigns and fixes.</h2>
+          <ol className="cs-list">
+            {rest.map((j, i) => (
+              <li key={j.id}>
+                <Link href={`/work/${j.id}`}>
+                  <span className="mw-num">{String(i + 1).padStart(2, '0')}</span>
+                  <div>
+                    <h3 className="cs-title">{jobTitle(j)}</h3>
+                    <p className="cs-desc">{j.description}</p>
+                    {j.review && <p className="cs-quote">&ldquo;{j.review}&rdquo; <span className="mw-num">Upwork review</span></p>}
                   </div>
+                  <span className="mw-num cs-meta">{j.category}<br />{j.completedDate}</span>
+                  <ArrowRight size={18} className="cs-arrow" />
+                </Link>
+              </li>
+            ))}
+          </ol>
+          <Link href="/work" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', marginTop: '1.75rem', fontWeight: 600, fontSize: '0.95rem', color: 'var(--text-1)' }}>
+            Browse the full work history <ArrowRight size={14} />
+          </Link>
+        </div>
+      </section>
 
-                  {/* Title */}
-                  <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', lineHeight: 1.5, marginBottom: '1.25rem', fontFamily: 'var(--font-sans), system-ui, sans-serif' }}>
-                    {cs.title}
-                  </h3>
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="mw-container">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4" style={{ marginBottom: '2rem' }}>
+            <div>
+              <p className="mw-eyebrow">Brands</p>
+              <h2 style={{ fontSize: 'clamp(28px, 3.4vw, 42px)', maxWidth: '20ch' }}>{portfolioClients.length} of the brands we&apos;ve built for.</h2>
+            </div>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-3)', maxWidth: '40ch' }}>From new DTC labels to established stores across jewelry, beauty, sports, food and more.</p>
+          </div>
+          <BrandGrid brands={portfolioClients} />
+        </div>
+      </section>
 
-                  {/* What we did */}
-                  <div style={{ marginBottom: '1.25rem', flex: 1 }}>
-                    <p style={{ fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', fontWeight: 600, marginBottom: '0.6rem' }}>What we did</p>
-                    <ul className="flex flex-col gap-2">
-                      {cs.bullets.map((b, j) => (
-                        <li key={j} className="flex gap-2.5">
-                          <span style={{ color: cs.color, fontWeight: 700, marginTop: '0.1rem', flexShrink: 0, fontSize: '0.78rem' }}>→</span>
-                          <span style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.62)', lineHeight: 1.55 }}>{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Duration */}
-                  <div className="flex items-center justify-between pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                    <span style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.6)' }}>{cs.duration}</span>
-                    <span style={{ fontSize: '0.68rem', color: '#10B981', fontWeight: 700, letterSpacing: '0.06em' }}>✓ REAL PROJECT</span>
-                  </div>
-                </div>
-              ))}
+      <section style={{ paddingBottom: '5rem' }}>
+        <div className="mw-container">
+          <div className="grid md:grid-cols-[1fr_auto] gap-8 items-end" style={{ borderTop: '1px solid var(--text-1)', paddingTop: '2.5rem' }}>
+            <div>
+              <h2 style={{ fontSize: 'clamp(26px, 3vw, 38px)', marginBottom: '0.75rem' }}>See what we&apos;d change on your store.</h2>
+              <p style={{ color: 'var(--text-3)', maxWidth: '54ch' }}>A free 5-minute video teardown within 48 hours, with fixes ranked by what each is likely worth.</p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/free-store-audit" className="mw-btn-accent">Get a free teardown <ArrowRight size={15} /></Link>
+              <Link href="/book" className="mw-btn-outline">Book a 15-min call</Link>
             </div>
           </div>
-        </section>
-
-        {/* ── Mid-page CTA ─────────────────────────────────── */}
-        <section style={{ paddingTop: '1rem', paddingBottom: '4rem' }}>
-          <div className="mw-container">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl px-7 py-5" style={{ background: 'rgba(108,99,255,0.08)', border: '1px solid rgba(108,99,255,0.18)' }}>
-              <div>
-                <p style={{ fontWeight: 600, color: '#fff', fontSize: '1rem', marginBottom: '0.25rem' }}>Want results like these for your store?</p>
-                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)' }}>Request a free store review and we will tell you what is holding back speed, conversion or growth.</p>
-              </div>
-              <Link href="/contact" className="mw-btn-primary whitespace-nowrap text-sm">
-                Get Free Store Review <ArrowRight size={14} />
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Client Brand Grid ─────────────────────────────── */}
-        <section style={{ paddingTop: '2rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-          <div className="mw-container">
-            <div className="mb-8">
-              <p style={{ fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.5rem' }}>Our Clients</p>
-              <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '0.5rem' }}>
-                {portfolioClients.length}+ Brands We&apos;ve Built on Shopify
-              </h2>
-              <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.6)', maxWidth: '500px', lineHeight: 1.7 }}>
-                From DTC fashion startups to established global brands across jewelry, beauty, sports, food, and more.
-              </p>
-            </div>
-            <BrandGrid brands={portfolioClients} />
-          </div>
-        </section>
-
-        {/* ── Bottom CTA ───────────────────────────────────── */}
-        <section style={{ paddingBottom: '5rem' }}>
-          <div className="mw-container">
-            <div className="rounded-3xl px-8 py-12 text-center" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
-              <p style={{ fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 600, marginBottom: '0.75rem' }}>Ready to start?</p>
-              <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '1rem' }}>
-                Your brand could be next.
-              </h2>
-              <p style={{ color: 'rgba(255,255,255,0.55)', maxWidth: '460px', margin: '0 auto 2rem', lineHeight: 1.75, fontSize: '0.95rem' }}>
-                Join 600+ stores and ecommerce teams who trusted Miracle Websoft. Request a free review and get a practical plan for your store.
-              </p>
-              <Link href="/contact" className="mw-btn-primary inline-flex text-sm px-8 py-4">
-                Get My Shopify Plan <ArrowRight size={15} />
-              </Link>
-              <p style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.6)', marginTop: '1rem' }}>
-                No commitment · 30-min call · Response within 4–8 hrs · 98%+ Job Success on Upwork
-              </p>
-            </div>
-          </div>
-        </section>
-
-      </div>
-
-      {/* Verified work strip */}
-      <RecentWork />
+        </div>
+      </section>
 
       <FaqSection faqs={csFaqs} heading="About our work & results" />
+
+      <style dangerouslySetInnerHTML={{ __html: `
+.cs-list { border-top: 1px solid var(--text-1); }
+.cs-list li { border-bottom: 1px solid var(--border); }
+.cs-list a { display: grid; grid-template-columns: 2.5rem 1fr 9rem 1.5rem; gap: 1.25rem; padding: 1.75rem 0.25rem; align-items: start; transition: background .15s ease; }
+.cs-list a:hover { background: var(--bg-raised); }
+.cs-title { font-size: clamp(1.25rem, 2vw, 1.6rem); margin-bottom: 0.5rem; }
+.cs-desc { color: var(--text-3); font-size: 0.95rem; max-width: 70ch; }
+.cs-quote { margin-top: 0.85rem; font-family: var(--font-playfair); font-size: 1.1rem; color: var(--text-1); max-width: 60ch; }
+.cs-quote .mw-num { font-family: var(--font-geist-mono); margin-left: 0.4rem; }
+.cs-meta { text-align: right; line-height: 1.7; }
+.cs-arrow { color: var(--text-4); margin-top: 0.3rem; transition: color .15s ease, transform .15s ease; }
+.cs-list a:hover .cs-arrow { color: var(--accent); transform: translateX(2px); }
+@media (max-width: 760px) {
+  .cs-list a { grid-template-columns: 2rem 1fr 1.25rem; }
+  .cs-meta { grid-column: 2; grid-row: 2; text-align: left; }
+  .cs-arrow { grid-column: 3; grid-row: 1; }
+}
+` }} />
     </>
   )
 }

@@ -10,10 +10,10 @@ export default function FounderIntro({ variant = 'default', caption }: Props) {
   if (variant === 'compact') {
     return (
       <div
-        className="rounded-2xl"
+        className="rounded-lg"
         style={{
-          background: 'rgba(255,255,255,0.04)',
-          border: '1px solid rgba(255,255,255,0.08)',
+          background: 'rgb(var(--ink-rgb) / 0.04)',
+          border: '1px solid rgb(var(--ink-rgb) / 0.08)',
           padding: '1rem',
         }}
       >
@@ -27,7 +27,7 @@ export default function FounderIntro({ variant = 'default', caption }: Props) {
           <p
             style={{
               fontSize: '0.78rem',
-              color: 'rgba(255,255,255,0.55)',
+              color: 'var(--text-3)',
               marginTop: '0.75rem',
               textAlign: 'center',
               lineHeight: 1.6,
@@ -43,10 +43,10 @@ export default function FounderIntro({ variant = 'default', caption }: Props) {
   if (variant === 'cro-lp') {
     return (
       <div
-        className="rounded-2xl"
+        className="rounded-lg"
         style={{
-          background: 'rgba(0,0,0,0.35)',
-          border: '1px solid rgba(255,255,255,0.18)',
+          background: 'rgb(23 21 15 / 0.12)',
+          border: '1px solid rgb(var(--ink-rgb) / 0.18)',
           padding: '0',
           overflow: 'hidden',
         }}
@@ -61,7 +61,8 @@ export default function FounderIntro({ variant = 'default', caption }: Props) {
           <p
             style={{
               fontSize: '0.7rem',
-              color: '#A7F3D0',
+              color: 'var(--text-3)',
+              fontFamily: 'var(--font-geist-mono)',
               fontWeight: 700,
               letterSpacing: '0.1em',
               marginBottom: '0.25rem',
@@ -69,7 +70,7 @@ export default function FounderIntro({ variant = 'default', caption }: Props) {
           >
             INTRO · 60 SECONDS
           </p>
-          <p style={{ fontSize: '0.85rem', color: '#fff', lineHeight: 1.5, fontWeight: 500 }}>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-1)', lineHeight: 1.5, fontWeight: 500 }}>
             Hear directly from {founderIntro.speaker} — the same person who will scope and build your store.
           </p>
         </div>
@@ -80,11 +81,10 @@ export default function FounderIntro({ variant = 'default', caption }: Props) {
   // default
   return (
     <div
-      className="rounded-2xl overflow-hidden"
+      className="rounded-lg overflow-hidden"
       style={{
-        background:
-          'linear-gradient(160deg, rgba(108,99,255,0.08) 0%, rgba(255,255,255,0.03) 100%)',
-        border: '1px solid rgba(108,99,255,0.22)',
+        background: 'var(--bg-raised)',
+        border: '1px solid var(--border)',
       }}
     >
       <YouTubeEmbed
@@ -96,23 +96,19 @@ export default function FounderIntro({ variant = 'default', caption }: Props) {
       <div style={{ padding: '1.25rem 1.5rem' }}>
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div>
-            <div style={{ color: '#fff', fontSize: '0.92rem', fontWeight: 600 }}>
+            <div style={{ color: 'var(--text-1)', fontSize: '0.92rem', fontWeight: 600 }}>
               {founderIntro.speaker}
             </div>
-            <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.76rem', marginTop: '0.15rem' }}>
+            <div style={{ color: 'var(--text-3)', fontSize: '0.8rem', marginTop: '0.15rem' }}>
               {founderIntro.role}
             </div>
           </div>
           <span
             style={{
-              fontSize: '0.65rem',
-              fontWeight: 700,
+              fontFamily: 'var(--font-geist-mono)',
+              fontSize: '0.68rem',
               letterSpacing: '0.1em',
-              color: 'var(--accent)',
-              background: 'rgba(108,99,255,0.15)',
-              border: '1px solid rgba(108,99,255,0.3)',
-              padding: '0.3rem 0.65rem',
-              borderRadius: '999px',
+              color: 'var(--text-3)',
             }}
           >
             FOUNDER INTRO

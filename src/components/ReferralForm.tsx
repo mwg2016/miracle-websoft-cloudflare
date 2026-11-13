@@ -6,27 +6,22 @@ import { getEffectiveOrigin, trackLead } from '@/lib/analytics'
 
 type State = 'idle' | 'sending' | 'error'
 
-const inputStyle: React.CSSProperties = {
-  width: '100%',
-  padding: '0.8rem 1rem',
-  background: 'rgba(255,255,255,0.04)',
-  border: '1px solid rgba(255,255,255,0.1)',
-  borderRadius: 12,
-  color: '#fff',
-  fontSize: '0.875rem',
-  outline: 'none',
-  fontFamily: 'var(--font-sans), system-ui, sans-serif',
-  transition: 'border-color 0.2s',
-}
-
 const labelStyle: React.CSSProperties = {
   display: 'block',
-  fontSize: '0.72rem',
-  fontWeight: 600,
-  letterSpacing: '0.08em',
-  textTransform: 'uppercase',
-  color: 'rgba(255,255,255,0.6)',
+  fontSize: '0.85rem',
+  fontWeight: 500,
+  color: 'var(--text-1)',
   marginBottom: '0.45rem',
+}
+
+const groupLabel: React.CSSProperties = {
+  margin: '0 0 1rem',
+  fontFamily: 'var(--font-geist-mono)',
+  fontSize: '0.7rem',
+  fontWeight: 500,
+  letterSpacing: '0.12em',
+  textTransform: 'uppercase',
+  color: 'var(--text-3)',
 }
 
 function fieldId(label: string) {
@@ -38,7 +33,7 @@ function Field({ label, required, children }: { label: string; required?: boolea
   const id = child?.props.id ?? fieldId(label)
   return (
     <div>
-      <label htmlFor={id} style={labelStyle}>{label}{required && <span style={{ color: '#6C63FF', marginLeft: 3 }}>*</span>}</label>
+      <label htmlFor={id} style={labelStyle}>{label}{required && <span style={{ color: 'var(--accent)', marginLeft: 3 }}>*</span>}</label>
       {child ? cloneElement(child, { id }) : children}
     </div>
   )
@@ -87,36 +82,29 @@ export default function ReferralForm() {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      style={{
-        background: 'rgba(255,255,255,0.025)',
-        border: '1px solid rgba(255,255,255,0.08)',
-        borderRadius: 24,
-        padding: '2rem 1.75rem',
-        maxWidth: 560,
-        margin: '0 auto',
-      }}
+      className="audit-form-card"
     >
       {/* Honeypot */}
       <input name="_hp" type="text" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
 
       {/* Referrer section */}
-      <p style={{ margin: '0 0 1.25rem', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(108,99,255,0.7)' }}>
-        Your Details
+      <p style={groupLabel}>
+        Your details
       </p>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.85rem', marginBottom: '0.85rem' }}>
-        <Field label="Your Name" required>
-          <input name="referrerName" type="text" required placeholder="Jane Smith" style={inputStyle} />
+      <div className="grid sm:grid-cols-2" style={{ gap: '0.85rem', marginBottom: '0.85rem' }}>
+        <Field label="Your name" required>
+          <input name="referrerName" type="text" required placeholder="Jane Smith" className="mw-field" />
         </Field>
-        <Field label="Your Email" required>
-          <input name="referrerEmail" type="email" required placeholder="jane@agency.com" style={inputStyle} />
+        <Field label="Your email" required>
+          <input name="referrerEmail" type="email" required placeholder="jane@agency.com" className="mw-field" />
         </Field>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.85rem', marginBottom: '1.5rem' }}>
-        <Field label="Your Phone">
-          <input name="referrerPhone" type="tel" placeholder="+1 555 000 0000" style={inputStyle} />
+      <div className="grid sm:grid-cols-2" style={{ gap: '0.85rem', marginBottom: '1.5rem' }}>
+        <Field label="Your phone">
+          <input name="referrerPhone" type="tel" placeholder="+1 555 000 0000" className="mw-field" />
         </Field>
-        <Field label="Your Role">
-          <select name="referrerRole" style={{ ...inputStyle, cursor: 'pointer' }}>
+        <Field label="Your role">
+          <select name="referrerRole" className="mw-field" style={{ cursor: 'pointer' }}>
             <option value="">Select…</option>
             <option>Freelancer / Designer</option>
             <option>Digital Agency</option>
@@ -129,26 +117,26 @@ export default function ReferralForm() {
       </div>
 
       {/* Divider */}
-      <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', marginBottom: '1.5rem' }} />
+      <div style={{ borderTop: '1px solid var(--border)', marginBottom: '1.5rem' }} />
 
       {/* Client section */}
-      <p style={{ margin: '0 0 1.25rem', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(16,185,129,0.7)' }}>
-        Client You&apos;re Referring
+      <p style={groupLabel}>
+        Client you&apos;re referring
       </p>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.85rem', marginBottom: '0.85rem' }}>
-        <Field label="Client Name" required>
-          <input name="clientName" type="text" required placeholder="Client or company" style={inputStyle} />
+      <div className="grid sm:grid-cols-2" style={{ gap: '0.85rem', marginBottom: '0.85rem' }}>
+        <Field label="Client name" required>
+          <input name="clientName" type="text" required placeholder="Client or company" className="mw-field" />
         </Field>
-        <Field label="Client Email" required>
-          <input name="clientEmail" type="email" required placeholder="client@brand.com" style={inputStyle} />
+        <Field label="Client email" required>
+          <input name="clientEmail" type="email" required placeholder="client@brand.com" className="mw-field" />
         </Field>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.85rem', marginBottom: '0.85rem' }}>
-        <Field label="Client Phone">
-          <input name="clientPhone" type="tel" placeholder="+1 555 000 0000" style={inputStyle} />
+      <div className="grid sm:grid-cols-2" style={{ gap: '0.85rem', marginBottom: '0.85rem' }}>
+        <Field label="Client phone">
+          <input name="clientPhone" type="tel" placeholder="+1 555 000 0000" className="mw-field" />
         </Field>
-        <Field label="Project Type">
-          <select name="projectType" style={{ ...inputStyle, cursor: 'pointer' }}>
+        <Field label="Project type">
+          <select name="projectType" className="mw-field" style={{ cursor: 'pointer' }}>
             <option value="">Select…</option>
             <option>New Shopify Store</option>
             <option>Migration to Shopify</option>
@@ -161,8 +149,8 @@ export default function ReferralForm() {
         </Field>
       </div>
       <div style={{ marginBottom: '0.85rem' }}>
-        <Field label="Estimated Budget">
-          <select name="budget" style={{ ...inputStyle, cursor: 'pointer' }}>
+        <Field label="Estimated budget">
+          <select name="budget" className="mw-field" style={{ cursor: 'pointer' }}>
             <option value="">Select…</option>
             <option>Under $500</option>
             <option>$500 – $2,000</option>
@@ -179,13 +167,13 @@ export default function ReferralForm() {
             name="notes"
             rows={3}
             placeholder="Any context about the client or project that would help us…"
-            style={{ ...inputStyle, resize: 'vertical', minHeight: 80, lineHeight: 1.6 }}
+            className="mw-field" style={{ resize: 'vertical', minHeight: 80, lineHeight: 1.6 }}
           />
         </Field>
       </div>
 
       {error && (
-        <p style={{ margin: '0 0 1rem', fontSize: '0.8rem', color: '#f87171', background: 'rgba(248,113,113,0.08)', border: '1px solid rgba(248,113,113,0.2)', borderRadius: 10, padding: '0.65rem 1rem' }}>
+        <p style={{ margin: '0 0 1rem', fontSize: '0.8rem', color: '#B42318', background: 'rgb(180 35 24 / 0.06)', border: '1px solid rgb(180 35 24 / 0.25)', borderRadius: 6, padding: '0.65rem 1rem' }}>
           {error}
         </p>
       )}
@@ -193,28 +181,23 @@ export default function ReferralForm() {
       <button
         type="submit"
         disabled={state === 'sending'}
+        className="mw-btn-accent"
         style={{
           width: '100%',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.6rem',
-          padding: '1rem',
-          background: state === 'sending' ? 'rgba(108,99,255,0.5)' : 'linear-gradient(135deg, #6C63FF 0%, #5245d8 100%)',
-          color: '#fff', fontWeight: 700, fontSize: '0.95rem',
-          borderRadius: 14, border: 'none',
           cursor: state === 'sending' ? 'not-allowed' : 'pointer',
-          boxShadow: state === 'sending' ? 'none' : '0 8px 28px rgba(108,99,255,0.35)',
-          transition: 'all 0.2s',
-          fontFamily: 'var(--font-sans), system-ui, sans-serif',
+          opacity: state === 'sending' ? 0.6 : 1,
+          fontSize: '1rem',
         }}
       >
         {state === 'sending' ? (
           <><Loader2 size={17} style={{ animation: 'spin 1s linear infinite' }} /> Sending…</>
         ) : (
-          <><Send size={16} /> Submit Referral</>
+          <>Submit referral <Send size={15} /></>
         )}
       </button>
 
-      <p style={{ margin: '1rem 0 0', textAlign: 'center', fontSize: '0.72rem', color: 'rgba(255,255,255,0.22)' }}>
-        We reply within 24 hours · Your commission is logged on submission
+      <p style={{ margin: '1rem 0 0', fontSize: '0.8rem', color: 'var(--text-3)' }}>
+        We reply within 24 hours. Your referral is logged against your name on submission.
       </p>
 
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>

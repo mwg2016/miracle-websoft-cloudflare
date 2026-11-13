@@ -6,27 +6,37 @@ interface Props {
   sub: string
   btnLabel?: string
   btnHref?: string
+  /** Secondary text link; defaults to the 15-min call. Pass null to hide. */
+  secondary?: { label: string; href: string } | null
 }
 
 export default function MidPageCta({
   heading,
   sub,
-  btnLabel = 'Get Free Store Review',
-  btnHref = '/contact',
+  btnLabel = 'Get a free store teardown',
+  btnHref = '/free-store-audit',
+  secondary = { label: 'or book a 15-min call', href: '/book' },
 }: Props) {
   return (
-    <div className="mw-container" style={{ paddingBottom: '3rem' }}>
+    <div className="mw-container" style={{ paddingTop: '1rem', paddingBottom: '3rem' }}>
       <div
-        className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl px-7 py-6"
-        style={{ background: 'rgba(108,99,255,0.08)', border: '1px solid rgba(108,99,255,0.20)' }}
+        className="flex flex-col md:flex-row md:items-center justify-between gap-5"
+        style={{ borderTop: '1px solid var(--text-1)', borderBottom: '1px solid var(--border)', padding: '1.75rem 0' }}
       >
-        <div>
-          <p style={{ fontWeight: 600, color: '#fff', fontSize: '1rem', marginBottom: '0.3rem' }}>{heading}</p>
-          <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.50)', lineHeight: 1.6 }}>{sub}</p>
+        <div style={{ maxWidth: '60ch' }}>
+          <p style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: 'var(--text-1)', fontSize: 'clamp(1.3rem,2vw,1.6rem)', lineHeight: 1.25, letterSpacing: '-0.015em', marginBottom: '0.4rem' }}>{heading}</p>
+          <p style={{ fontSize: '0.92rem', color: 'var(--text-2)', lineHeight: 1.6 }}>{sub}</p>
         </div>
-        <Link href={btnHref} className="mw-btn-primary whitespace-nowrap text-sm shrink-0">
-          {btnLabel} <ArrowRight size={14} />
-        </Link>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 shrink-0">
+          <Link href={btnHref} className="mw-btn-accent whitespace-nowrap">
+            {btnLabel} <ArrowRight size={15} />
+          </Link>
+          {secondary && (
+            <Link href={secondary.href} style={{ fontSize: '0.9rem', color: 'var(--text-2)', textDecoration: 'underline', textUnderlineOffset: 3 }}>
+              {secondary.label}
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   )

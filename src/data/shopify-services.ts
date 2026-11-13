@@ -884,7 +884,7 @@ const shopifyServices: ShopifyServiceData[] = [
     challenges: [
       {
         title: 'Mobile speed kills fashion conversion',
-        body: '81% of fashion traffic is mobile. If your PDP takes more than 2 seconds to load, paid social traffic bounces before they see the product. We build with sub-1.5s mobile load times as a non-negotiable.',
+        body: 'Most fashion traffic is mobile, much of it from paid social. If your product page is slow on a phone, those visitors bounce before they see the product. We agree a mobile speed budget up front and build to it.',
       },
       {
         title: 'Fit uncertainty drives returns',

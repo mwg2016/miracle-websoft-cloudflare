@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Code2, Gauge, Puzzle, ShoppingBag, Workflow } from 'lucide-react'
-import Breadcrumb from '@/components/layout/Breadcrumb'
-import CtaBanner from '@/components/home/CtaBanner'
 import FaqSection from '@/components/ui/FaqSection'
+import MidPageCta from '@/components/services/MidPageCta'
+import ServiceHero, { HeroScope, SectionHead, ServiceTable, NumberedList } from '@/components/services/ServiceHero'
 import { breadcrumb, itemList, renderJsonLd, service, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
@@ -26,54 +24,51 @@ export const metadata: Metadata = {
   },
 }
 
-const shopifyServices = [
+const shopifyServices: { title: string; desc: string; href: string; price?: string }[] = [
   {
     title: 'Shopify Store Development',
     desc: 'Custom Shopify stores, redesigns and launch-ready ecommerce experiences built for conversion and easy management.',
     href: '/services/shopify/development',
-    icon: ShoppingBag,
+    price: 'From $600',
   },
   {
     title: 'Shopify Plus Development',
     desc: 'Shopify Plus builds, B2B, checkout extensions, Functions, Markets, expansion stores and enterprise integrations.',
     href: '/services/shopify/shopify-plus-development',
-    icon: Code2,
   },
   {
     title: 'Shopify Theme Customization',
     desc: 'Theme sections, product pages, collection templates, checkout-adjacent UX and custom storefront improvements.',
     href: '/services/shopify/theme-customization',
-    icon: Workflow,
   },
   {
     title: 'Shopify Custom Features',
     desc: 'Build the specific buying flow, configurator, bundle, quiz, portal or workflow that standard apps cannot handle.',
     href: '/services/shopify/custom-features',
-    icon: Puzzle,
+    price: 'From $1,500',
   },
   {
     title: 'Shopify App Integration',
     desc: 'Integrate Klaviyo, Gorgias, ReCharge, Yotpo, ERPs, CRMs, fulfilment, analytics, marketplaces and custom APIs.',
     href: '/services/shopify/app-integration',
-    icon: Puzzle,
   },
   {
     title: 'Shopify Migration',
     desc: 'Move from WooCommerce, Magento, BigCommerce or custom platforms with data, redirects and launch checks handled.',
     href: '/services/shopify-migration',
-    icon: Workflow,
+    price: 'Fixed quote',
   },
   {
     title: 'Shopify Maintenance',
     desc: 'Ongoing support, theme updates, app checks, speed monitoring, product changes and long-term improvement retainers.',
     href: '/services/shopify/shopify-maintenance',
-    icon: Gauge,
+    price: 'From $99/mo',
   },
   {
     title: 'Shopify API & Private Apps',
     desc: 'Custom Shopify APIs, private apps, admin tools, storefront integrations, webhooks and automation for unique operations.',
     href: '/services/shopify/api-private-apps',
-    icon: Code2,
+    price: 'From $1,500',
   },
 ]
 
@@ -131,86 +126,55 @@ export default function ShopifyServicesPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
 
-      <section className="pt-32 pb-20" style={{ background: '#0a0a0a', backgroundImage: 'linear-gradient(135deg, rgba(108,99,255,0.16), transparent 46%), linear-gradient(315deg, rgba(16,185,129,0.08), transparent 38%)' }}>
-        <div className="mw-container">
-          <div className="mb-6">
-            <Breadcrumb items={[{ label: 'Services', href: '/services' }, { label: 'Shopify Services' }]} />
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-10 items-end">
-            <div className="max-w-3xl">
-              <span className="mw-eyebrow">Shopify Services</span>
-              <h1 className="mw-hero-title" style={{ color: '#fff', marginBottom: '1.1rem' }}>
-                Shopify Development, Optimization and Long-Term Support
-              </h1>
-              <p style={{ color: 'rgba(255,255,255,0.68)', fontSize: '1.05rem', lineHeight: 1.72, marginBottom: '1.35rem', maxWidth: '680px', fontWeight: 300 }}>
-                Miracle Websoft helps Shopify merchants build faster stores, improve conversions, add custom features, integrate business systems and maintain a stronger ecommerce platform over time.
-              </p>
-              <div className="flex flex-wrap gap-x-5 gap-y-2 mb-7">
-                {['650+ projects completed', '15,000+ hours delivered', 'Top Rated Shopify Experts', 'Global clients'].map((item) => (
-                  <span key={item} className="flex items-center gap-1.5" style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.62)', fontWeight: 500 }}>
-                    <CheckCircle2 size={13} style={{ color: '#10B981' }} /> {item}
-                  </span>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <Link href="/contact" className="mw-btn-primary">
-                  Book Free Consultation <ArrowRight size={16} />
-                </Link>
-                <Link href="/work" className="mw-btn-outline">
-                  View Our Work
-                </Link>
-              </div>
-            </div>
+      <ServiceHero
+        breadcrumbItems={[{ label: 'Services', href: '/services' }, { label: 'Shopify Services' }]}
+        eyebrow="Shopify services · Shopify Partner"
+        title={<>Shopify builds, fixes and support, <span className="mw-mark">at a fixed price.</span></>}
+        lede="New stores, redesigns, custom features, integrations and ongoing care for Shopify merchants. 650+ projects since 2015, done by a 16-person in-house team."
+        aside={
+          <HeroScope
+            label="Where to start"
+            items={[
+              'Launching or redesigning: store build from $600',
+              'Need something apps cannot do: custom features from $1,500',
+              'Keeping it running: care plans from $99/mo',
+            ]}
+            foot="Not sure which one you need? The free teardown tells you what to fix first."
+          />
+        }
+      />
 
-            <aside className="mw-card" style={{ padding: '1.25rem' }} aria-label="Shopify service shortcuts">
-              <p style={{ fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--accent)', fontWeight: 700, marginBottom: '0.8rem' }}>
-                Choose by need
-              </p>
-              <div className="flex flex-col">
-                {[
-                  { label: 'Launch or redesign', href: '/services/shopify/development', detail: 'Custom store build, theme, UX and launch support' },
-                  { label: 'Add a custom feature', href: '/services/shopify/custom-features', detail: 'Bundles, quizzes, configurators and private workflows' },
-                  { label: 'Maintain and improve', href: '/services/shopify/shopify-maintenance', detail: 'Ongoing support, speed, app checks and fixes' },
-                ].map((item) => (
-                  <Link key={item.href} href={item.href} className="group flex items-center justify-between gap-4" style={{ padding: '0.85rem 0', textDecoration: 'none', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-                    <span>
-                      <span style={{ display: 'block', color: '#fff', fontSize: '0.9rem', fontWeight: 650, lineHeight: 1.35 }}>{item.label}</span>
-                      <span style={{ display: 'block', color: 'rgba(255,255,255,0.5)', fontSize: '0.74rem', lineHeight: 1.45, marginTop: '0.2rem' }}>{item.detail}</span>
-                    </span>
-                    <ArrowRight size={15} style={{ color: 'var(--accent)', flexShrink: 0 }} />
-                  </Link>
-                ))}
-              </div>
-            </aside>
-          </div>
+      <section className="mw-section">
+        <div className="mw-container">
+          <SectionHead eyebrow="Shopify services" title="Pick the service that matches the blocker." />
+          <ServiceTable items={shopifyServices.map((s) => ({ name: s.title, line: s.desc, price: s.price, href: s.href }))} />
         </div>
       </section>
 
-      <section style={{ background: '#080808', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="mw-container">
-          <div style={{ marginBottom: '2.5rem' }}>
-            <span className="mw-eyebrow">Shopify Capabilities</span>
-            <h2 style={{ color: '#fff', fontSize: 'clamp(28px,4vw,46px)' }}>Choose the Shopify service that matches the blocker</h2>
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="mw-container grid grid-cols-1 lg:grid-cols-[0.75fr_1.25fr] gap-10 lg:gap-16">
+          <div>
+            <p className="mw-eyebrow">How we work</p>
+            <h2 style={{ fontSize: 'clamp(28px,3.4vw,44px)' }}>No open-ended hourly billing.</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {shopifyServices.map(({ icon: Icon, ...item }) => (
-              <Link key={item.href} href={item.href} className="mw-card group" style={{ padding: '1.35rem', minHeight: 190, textDecoration: 'none' }}>
-                <div className="flex items-start justify-between gap-3 mb-4">
-                  <span style={{ width: 42, height: 42, borderRadius: 12, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(108,99,255,0.12)', border: '1px solid rgba(108,99,255,0.22)' }}>
-                    <Icon size={18} style={{ color: 'var(--accent)' }} />
-                  </span>
-                  <ArrowRight size={16} style={{ color: 'rgba(255,255,255,0.35)' }} className="group-hover:text-white transition-colors" />
-                </div>
-                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff', lineHeight: 1.35, marginBottom: '0.65rem' }}>{item.title}</h3>
-                <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.56)', lineHeight: 1.65 }}>{item.desc}</p>
-              </Link>
-            ))}
-          </div>
+          <NumberedList
+            columns={2}
+            items={[
+              { title: 'Fixed quote in 24 hours', body: 'Scope, price and timeline in writing, agreed before any work starts.' },
+              { title: 'Mobile first', body: 'Most of your shoppers are on a phone, so that is where we design and test first.' },
+              { title: 'Speed is part of the build', body: 'App bloat, image weight and Core Web Vitals are handled as part of the work.' },
+              { title: 'Direct access', body: 'You talk to the people building your store, not an account manager.' },
+            ]}
+          />
         </div>
       </section>
 
-      <FaqSection faqs={faqs} heading="Shopify services - common questions" />
-      <CtaBanner />
+      <MidPageCta
+        heading="Already on Shopify? Start with what is costing you orders."
+        sub="Send your URL. Within 48 hours you get a short screen recording of the biggest problems on your store, ranked by likely impact."
+      />
+
+      <FaqSection faqs={faqs} heading="Common questions" />
     </>
   )
 }

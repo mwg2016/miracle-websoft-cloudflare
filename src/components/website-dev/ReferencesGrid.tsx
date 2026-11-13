@@ -1,196 +1,74 @@
-import Link from 'next/link'
-import { ExternalLink, Sparkles } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import { realCases, categoryDemos } from '@/data/website-dev-content'
 import { outboundHref } from '@/lib/outbound'
 
-const flagEmoji: Record<string, string> = {
-  us: '🇺🇸',
-  uk: '🇬🇧',
-  au: '🇦🇺',
-  global: '🌍',
+const countryLabel: Record<string, string> = {
+  us: 'USA',
+  uk: 'UK',
+  au: 'Australia',
+  global: 'Global',
 }
 
 export default function ReferencesGrid() {
   return (
-    <section className="mw-section" style={{ background: '#0a0a0a' }}>
+    <section className="mw-section" style={{ background: 'var(--bg-deep)' }}>
       <div className="mw-container">
-        <div className="mw-section-header">
-          <span className="mw-eyebrow">PROOF OF WORK</span>
-          <h2 style={{ color: '#fff' }}>
-            Sites we&apos;ve built.
-            <br />
-            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.6)' }}>And ones we can build for you.</em>
-          </h2>
-          <p
-            style={{
-              color: 'rgba(255,255,255,0.6)',
-              maxWidth: '500px',
-              margin: '0 auto',
-              fontSize: '0.95rem',
-              lineHeight: 1.7,
-            }}
-          >
-            Three live client stores below, then three example builds for the most common small business types. Yours
-            can look like any of them.
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4" style={{ marginBottom: '2.5rem' }}>
+          <div>
+            <p className="mw-eyebrow">Proof of work</p>
+            <h2 style={{ maxWidth: '16ch' }}>Sites we&apos;ve built, and ones we can build for you.</h2>
+          </div>
+          <p style={{ maxWidth: '42ch', fontSize: '0.95rem' }}>
+            Three live client sites, then the three small-business builds we&apos;re asked for most.
           </p>
         </div>
 
-        {/* Real cases */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
-          {realCases.map((rc) => (
-            <Link
-              key={rc.name}
-              href={outboundHref('external', rc.url)}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                borderRadius: '16px',
-                overflow: 'hidden',
-                border: '1px solid rgba(255,255,255,0.08)',
-                background: 'rgba(255,255,255,0.02)',
-                display: 'flex',
-                flexDirection: 'column',
-                textDecoration: 'none',
-              }}
-            >
-              <div style={{ height: '3px', background: 'linear-gradient(90deg, #6c63ff, #a78bfa)' }} />
-              <div style={{ padding: '1.75rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    marginBottom: '1rem',
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: '0.65rem',
-                      fontWeight: 700,
-                      letterSpacing: '0.08em',
-                      textTransform: 'uppercase',
-                      color: 'rgba(108,99,255,0.9)',
-                      background: 'rgba(108,99,255,0.1)',
-                      border: '1px solid rgba(108,99,255,0.25)',
-                      padding: '0.2rem 0.55rem',
-                      borderRadius: '999px',
-                    }}
-                  >
-                    Live client
-                  </span>
-                  <span style={{ fontSize: '1.05rem' }}>{flagEmoji[rc.countryFlag]}</span>
-                </div>
-                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#fff', marginBottom: '0.3rem' }}>
-                  {rc.name}
-                </h3>
-                <p
-                  style={{
-                    fontSize: '0.7rem',
-                    color: 'rgba(255,255,255,0.45)',
-                    marginBottom: '0.9rem',
-                    letterSpacing: '0.04em',
-                    textTransform: 'uppercase',
-                    fontWeight: 600,
-                  }}
-                >
-                  {rc.category}
-                </p>
-                <p
-                  style={{
-                    fontSize: '0.85rem',
-                    color: 'rgba(255,255,255,0.6)',
-                    lineHeight: 1.65,
-                    flex: 1,
-                    marginBottom: '1rem',
-                  }}
-                >
-                  {rc.blurb}
-                </p>
-                <span
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.35rem',
-                    fontSize: '0.78rem',
-                    color: 'var(--accent)',
-                    fontWeight: 600,
-                  }}
-                >
-                  View live site <ExternalLink size={11} />
+        <ul style={{ borderTop: '1px solid var(--text-1)' }}>
+          {realCases.map((rc, i) => (
+            <li key={rc.name} style={{ borderBottom: '1px solid var(--border)' }}>
+              <a href={outboundHref('external', rc.url)} target="_blank" rel="noopener noreferrer" className="wd-ref">
+                <span className="mw-num">{String(i + 1).padStart(2, '0')}</span>
+                <span>
+                  <span className="wd-ref-name">{rc.name}</span>
+                  <span className="wd-ref-meta">{rc.category} · {countryLabel[rc.countryFlag] ?? rc.countryFlag}</span>
                 </span>
-              </div>
-            </Link>
+                <span className="wd-ref-desc">{rc.blurb}</span>
+                <span className="wd-ref-link">Live site <ExternalLink size={13} aria-hidden /></span>
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        {/* Category demos */}
-        <div className="mb-6 text-center">
-          <span className="mw-eyebrow" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-            <Sparkles size={11} /> Common small-business builds
-          </span>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <p className="mw-num" style={{ textTransform: 'uppercase', letterSpacing: '0.12em', margin: '3.5rem 0 1rem' }}>Common small-business builds</p>
+        <div className="wd-demos">
           {categoryDemos.map((demo) => (
-            <div
-              key={demo.name}
-              style={{
-                borderRadius: '16px',
-                overflow: 'hidden',
-                border: '1px solid rgba(255,255,255,0.08)',
-                background: 'rgba(255,255,255,0.02)',
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-            >
-              <div
-                style={{
-                  height: '140px',
-                  background: demo.bgGradient,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  position: 'relative',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'var(--font-playfair), Georgia, serif',
-                    fontSize: '1.5rem',
-                    fontStyle: 'italic',
-                    color: 'rgba(255,255,255,0.95)',
-                    textShadow: '0 2px 12px rgba(0,0,0,0.2)',
-                  }}
-                >
-                  {demo.name}
-                </span>
-              </div>
-              <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <p
-                  style={{
-                    fontSize: '0.7rem',
-                    color: demo.accentColor,
-                    marginBottom: '0.75rem',
-                    letterSpacing: '0.05em',
-                    textTransform: 'uppercase',
-                    fontWeight: 700,
-                  }}
-                >
-                  {demo.category}
-                </p>
-                <p
-                  style={{
-                    fontSize: '0.85rem',
-                    color: 'rgba(255,255,255,0.6)',
-                    lineHeight: 1.65,
-                  }}
-                >
-                  {demo.blurb}
-                </p>
-              </div>
+            <div key={demo.name} className="wd-demo">
+              <p className="mw-num" style={{ textTransform: 'uppercase', letterSpacing: '0.1em' }}>{demo.category}</p>
+              <h3 style={{ fontFamily: 'var(--font-playfair)', fontWeight: 400, fontSize: '1.5rem', letterSpacing: '-0.02em', margin: '0.6rem 0 0.6rem' }}>{demo.name}</h3>
+              <p style={{ fontSize: '0.92rem' }}>{demo.blurb}</p>
             </div>
           ))}
         </div>
       </div>
+      <style>{`
+        .wd-ref { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) minmax(0, 1.5fr) 7rem; gap: 1.25rem; align-items: baseline; padding: 1.35rem 0.25rem; transition: background 0.15s ease; }
+        .wd-ref:hover { background: var(--bg-raised); }
+        .wd-ref-name { display: block; font-family: var(--font-playfair); font-size: clamp(1.2rem, 1.8vw, 1.45rem); letter-spacing: -0.02em; color: var(--text-1); }
+        .wd-ref-meta { display: block; margin-top: 0.2rem; font-family: var(--font-geist-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-4); }
+        .wd-ref-desc { font-size: 0.92rem; color: var(--text-3); line-height: 1.55; }
+        .wd-ref-link { display: inline-flex; align-items: center; justify-content: flex-end; gap: 0.4rem; font-size: 0.85rem; font-weight: 500; color: var(--text-2); }
+        .wd-ref:hover .wd-ref-link { color: var(--accent); }
+        .wd-demos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--border); }
+        .wd-demo { padding: 1.5rem 1.5rem 0 0; }
+        .wd-demo + .wd-demo { padding-left: 1.5rem; border-left: 1px solid var(--border); }
+        @media (max-width: 860px) {
+          .wd-ref { grid-template-columns: 2rem 1fr; row-gap: 0.5rem; }
+          .wd-ref-desc, .wd-ref-link { grid-column: 2; }
+          .wd-ref-link { justify-content: flex-start; }
+          .wd-demos { grid-template-columns: 1fr; }
+          .wd-demo, .wd-demo + .wd-demo { padding: 1.25rem 0; border-left: 0; border-bottom: 1px solid var(--border); }
+        }
+      `}</style>
     </section>
   )
 }

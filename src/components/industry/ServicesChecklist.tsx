@@ -1,23 +1,26 @@
 import type { IndustryPage } from '@/data/industries'
-import { CheckCircle2 } from 'lucide-react'
 interface Props { services: IndustryPage['services'] }
 export default function ServicesChecklist({ services }: Props) {
   return (
-    <section className="mw-section" style={{ background: '#080808' }}>
+    <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
       <div className="mw-container">
-        <div className="mw-section-header">
-          <span className="mw-eyebrow">What We Build</span>
-          <h2 style={{ color: '#fff' }}>Everything your brand<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>needs on Shopify.</em></h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mx-auto">
+        <p className="mw-eyebrow">What we build</p>
+        <h2 style={{ maxWidth: '18ch', marginBottom: '2.5rem' }}>Everything your brand needs on Shopify.</h2>
+        <ul className="ind-scope">
           {services.map((service, i) => (
-            <div key={i} className="flex items-start gap-3 rounded-xl p-4" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
-              <CheckCircle2 size={15} className="shrink-0 mt-0.5" style={{ color: '#10B981' }} />
-              <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.5 }}>{service}</span>
-            </div>
+            <li key={service}>
+              <span className="mw-num">{String(i + 1).padStart(2, '0')}</span>
+              <span>{service}</span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
+      <style>{`
+        .ind-scope { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 2.5rem; border-top: 1px solid var(--text-1); }
+        .ind-scope li { display: grid; grid-template-columns: 2.25rem 1fr; align-items: baseline; padding: 0.95rem 0; border-bottom: 1px solid var(--border); color: var(--text-1); font-size: 0.95rem; line-height: 1.45; }
+        @media (max-width: 900px) { .ind-scope { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 600px) { .ind-scope { grid-template-columns: 1fr; } }
+      `}</style>
     </section>
   )
 }

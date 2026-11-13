@@ -45,7 +45,7 @@ export default function CitationsAndProfiles() {
       id="sources-and-profiles"
       style={{
         background: '#080808',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
+        borderTop: '1px solid rgb(var(--ink-rgb) / 0.06)',
         paddingTop: '5rem',
         paddingBottom: '5rem',
       }}
@@ -53,10 +53,10 @@ export default function CitationsAndProfiles() {
       <div className="mw-container">
         <div className="mb-10">
           <p className="mw-eyebrow">Sources &amp; Profiles</p>
-          <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', fontSize: 'clamp(28px,4vw,44px)', lineHeight: 1.1, marginBottom: '0.75rem' }}>
+          <h2 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: 'var(--text-1)', fontSize: 'clamp(28px,4vw,44px)', lineHeight: 1.1, marginBottom: '0.75rem' }}>
             Cross-check what Miracle Websoft says.
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.55)', maxWidth: '640px', fontSize: '0.95rem', lineHeight: 1.7 }}>
+          <p style={{ color: 'rgb(var(--ink-rgb) / 0.55)', maxWidth: '640px', fontSize: '0.95rem', lineHeight: 1.7 }}>
             Independent benchmarks behind our claims and the public profiles where clients leave verified reviews of Miracle Websoft.
           </p>
         </div>
@@ -67,19 +67,19 @@ export default function CitationsAndProfiles() {
             margin: '0 0 3rem',
             padding: '1.75rem 2rem',
             borderLeft: '3px solid var(--accent)',
-            background: 'rgba(108,99,255,0.06)',
+            background: 'rgb(224 79 37 / 0.06)',
             borderRadius: '0 12px 12px 0',
             maxWidth: '780px',
           }}
         >
           <blockquote
             cite="https://web.dev/articles/vitals"
-            style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', lineHeight: 1.7, fontStyle: 'italic', margin: 0 }}
+            style={{ color: 'rgb(var(--ink-rgb) / 0.85)', fontSize: '1.05rem', lineHeight: 1.7, fontStyle: 'italic', margin: 0 }}
           >
             &ldquo;Core Web Vitals are a set of metrics that measure real-world user experience for loading performance,
             interactivity, and visual stability of the page.&rdquo;
           </blockquote>
-          <figcaption style={{ marginTop: '0.85rem', fontSize: '0.82rem', color: 'rgba(255,255,255,0.55)' }}>
+          <figcaption style={{ marginTop: '0.85rem', fontSize: '0.82rem', color: 'rgb(var(--ink-rgb) / 0.55)' }}>
             — Google Chrome team, <cite style={{ fontStyle: 'normal' }}>web.dev — Core Web Vitals</cite>.
             We hold every Shopify store we ship to these public thresholds.
           </figcaption>
@@ -87,7 +87,7 @@ export default function CitationsAndProfiles() {
 
         {/* Citations table */}
         <div className="mb-10">
-          <h3 style={{ color: '#fff', fontSize: '1.05rem', fontWeight: 600, marginBottom: '1rem', letterSpacing: '0.02em' }}>
+          <h3 style={{ color: 'var(--text-1)', fontSize: '1.05rem', fontWeight: 600, marginBottom: '1rem', letterSpacing: '0.02em' }}>
             Claims and where they come from
           </h3>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gap: '0.75rem' }}>
@@ -96,15 +96,15 @@ export default function CitationsAndProfiles() {
                 key={c.href}
                 style={{
                   padding: '1rem 1.25rem',
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  background: 'rgb(var(--ink-rgb) / 0.03)',
+                  border: '1px solid rgb(var(--ink-rgb) / 0.06)',
                   borderRadius: '10px',
                 }}
               >
-                <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.92rem', marginBottom: '0.4rem', lineHeight: 1.6 }}>
+                <p style={{ color: 'rgb(var(--ink-rgb) / 0.85)', fontSize: '0.92rem', marginBottom: '0.4rem', lineHeight: 1.6 }}>
                   {c.claim}
                 </p>
-                <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', margin: 0 }}>
+                <p style={{ fontSize: '0.8rem', color: 'rgb(var(--ink-rgb) / 0.55)', margin: 0 }}>
                   Source: {c.source} —{' '}
                   <a
                     href={c.href}
@@ -125,16 +125,16 @@ export default function CitationsAndProfiles() {
           className="mb-10"
           style={{
             padding: '1.5rem 1.75rem',
-            background: 'rgba(255,255,255,0.025)',
-            border: '1px solid rgba(255,255,255,0.06)',
+            background: 'rgb(var(--ink-rgb) / 0.025)',
+            border: '1px solid rgb(var(--ink-rgb) / 0.06)',
             borderRadius: '12px',
             maxWidth: '780px',
           }}
         >
-          <h3 style={{ color: '#fff', fontSize: '1rem', fontWeight: 600, marginBottom: '0.5rem' }}>
+          <h3 style={{ color: 'var(--text-1)', fontSize: '1rem', fontWeight: 600, marginBottom: '0.5rem' }}>
             Original Miracle Websoft data
           </h3>
-          <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }}>
+          <p style={{ color: 'rgb(var(--ink-rgb) / 0.65)', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }}>
             Across 600+ Shopify projects we have shipped since 2015, our internal benchmarks show an average
             mobile Largest Contentful Paint under 1.5 seconds and a 42% median uplift in conversion rate after a
             theme rebuild. Methodology: data aggregated from client GA4 properties and our internal Lighthouse
@@ -144,7 +144,7 @@ export default function CitationsAndProfiles() {
 
         {/* Direct outbound profile links — visible to crawlers (no internal redirect) */}
         <div>
-          <h3 style={{ color: '#fff', fontSize: '1.05rem', fontWeight: 600, marginBottom: '1rem' }}>
+          <h3 style={{ color: 'var(--text-1)', fontSize: '1.05rem', fontWeight: 600, marginBottom: '1rem' }}>
             Verified profiles for Miracle Websoft
           </h3>
           <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', listStyle: 'none', padding: 0, margin: 0 }}>
@@ -160,9 +160,9 @@ export default function CitationsAndProfiles() {
                     gap: '0.4rem',
                     padding: '0.5rem 0.9rem',
                     fontSize: '0.82rem',
-                    color: 'rgba(255,255,255,0.85)',
-                    background: 'rgba(255,255,255,0.04)',
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    color: 'rgb(var(--ink-rgb) / 0.85)',
+                    background: 'rgb(var(--ink-rgb) / 0.04)',
+                    border: '1px solid rgb(var(--ink-rgb) / 0.1)',
                     borderRadius: '9999px',
                     textDecoration: 'none',
                   }}

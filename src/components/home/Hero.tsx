@@ -348,8 +348,8 @@ export default function Hero() {
           min-height: 100svh;
           padding: 7.5rem 0 2rem;
           background:
-            radial-gradient(circle at 72% 38%, rgba(37, 99, 235, 0.26), transparent 34rem),
-            radial-gradient(circle at 18% 18%, rgba(96, 165, 250, 0.11), transparent 26rem),
+            linear-gradient(transparent, transparent),
+            linear-gradient(transparent, transparent),
             linear-gradient(180deg, #050505 0%, #08080b 56%, #050505 100%);
           color: #ffffff;
         }
@@ -360,10 +360,10 @@ export default function Hero() {
           inset: 0;
           z-index: -2;
           background-image:
-            linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+            linear-gradient(rgb(var(--ink-rgb) / 0.035) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(var(--ink-rgb) / 0.035) 1px, transparent 1px);
           background-size: 76px 76px;
-          mask-image: radial-gradient(ellipse 78% 58% at 55% 35%, #000 28%, transparent 82%);
+          mask-image: linear-gradient(transparent, transparent);
         }
 
         .mws-shopify-hero::after {
@@ -464,7 +464,7 @@ export default function Hero() {
           border: 1px solid rgba(59, 130, 246, 0.38);
           border-radius: 999px;
           background: linear-gradient(180deg, rgba(59, 130, 246, 0.18), rgba(59, 130, 246, 0.07));
-          box-shadow: 0 0 34px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+          box-shadow: 0 0 34px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgb(var(--ink-rgb) / 0.12);
           color: #dbeafe;
           font-size: 0.82rem;
           font-weight: 700;
@@ -537,14 +537,14 @@ export default function Hero() {
           border: 1px solid rgba(147, 197, 253, 0.5);
           background: linear-gradient(135deg, #2563eb 0%, #3b82f6 45%, #60a5fa 100%);
           color: #ffffff;
-          box-shadow: 0 16px 44px rgba(37, 99, 235, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+          box-shadow: 0 16px 44px rgba(37, 99, 235, 0.38), inset 0 1px 0 rgb(var(--ink-rgb) / 0.22);
         }
 
         .mws-hero-button-secondary {
-          border: 1px solid rgba(255, 255, 255, 0.16);
-          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgb(var(--ink-rgb) / 0.16);
+          background: rgb(var(--ink-rgb) / 0.04);
           color: #ffffff;
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+          box-shadow: inset 0 1px 0 rgb(var(--ink-rgb) / 0.08);
           backdrop-filter: blur(16px);
         }
 
@@ -553,12 +553,12 @@ export default function Hero() {
         }
 
         .mws-hero-button-primary:hover {
-          box-shadow: 0 20px 58px rgba(37, 99, 235, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+          box-shadow: 0 20px 58px rgba(37, 99, 235, 0.5), inset 0 1px 0 rgb(var(--ink-rgb) / 0.28);
         }
 
         .mws-hero-button-secondary:hover {
-          border-color: rgba(255, 255, 255, 0.34);
-          background: rgba(255, 255, 255, 0.07);
+          border-color: rgb(var(--ink-rgb) / 0.34);
+          background: rgb(var(--ink-rgb) / 0.07);
         }
 
         .mws-hero-button svg {
@@ -581,10 +581,10 @@ export default function Hero() {
         .mws-hero-metric {
           min-height: 6.4rem;
           padding: 1rem;
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          border: 1px solid rgb(var(--ink-rgb) / 0.08);
           border-radius: 16px;
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 16px 42px rgba(0, 0, 0, 0.24);
+          background: linear-gradient(180deg, rgb(var(--ink-rgb) / 0.055), rgb(var(--ink-rgb) / 0.025));
+          box-shadow: inset 0 1px 0 rgb(var(--ink-rgb) / 0.08), 0 16px 42px rgb(23 21 15 / 0.12);
           backdrop-filter: blur(18px);
           transition: transform 0.24s ease, border-color 0.24s ease, background 0.24s ease;
         }
@@ -592,7 +592,7 @@ export default function Hero() {
         .mws-hero-metric:hover {
           transform: translateY(-3px);
           border-color: rgba(96, 165, 250, 0.34);
-          background: linear-gradient(180deg, rgba(59, 130, 246, 0.095), rgba(255, 255, 255, 0.03));
+          background: linear-gradient(180deg, rgba(59, 130, 246, 0.095), rgb(var(--ink-rgb) / 0.03));
         }
 
         .mws-hero-metric-value {
@@ -624,7 +624,7 @@ export default function Hero() {
           position: absolute;
           inset: 5% -7% 1% 7%;
           border-radius: 999px;
-          background: radial-gradient(circle, rgba(59, 130, 246, 0.25), transparent 62%);
+          background: linear-gradient(transparent, transparent);
           filter: blur(30px);
           opacity: 0.9;
         }
@@ -642,15 +642,15 @@ export default function Hero() {
           position: absolute;
           inset: 4rem 2.5rem 3rem 0;
           overflow: hidden;
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          border: 1px solid rgb(var(--ink-rgb) / 0.1);
           border-radius: 30px;
           background:
-            linear-gradient(135deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.035)),
-            rgba(11, 11, 15, 0.86);
+            linear-gradient(135deg, rgb(var(--ink-rgb) / 0.105), rgb(var(--ink-rgb) / 0.035)),
+            rgba(244,241,234,0.86);
           box-shadow:
-            0 46px 110px rgba(0, 0, 0, 0.52),
+            0 46px 110px rgb(23 21 15 / 0.12),
             0 0 72px rgba(37, 99, 235, 0.18),
-            inset 0 1px 0 rgba(255, 255, 255, 0.14);
+            inset 0 1px 0 rgb(var(--ink-rgb) / 0.14);
           backdrop-filter: blur(28px);
           transform: rotateY(-7deg) rotateX(4deg) translateZ(18px);
         }
@@ -660,8 +660,8 @@ export default function Hero() {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            linear-gradient(rgb(var(--ink-rgb) / 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(var(--ink-rgb) / 0.03) 1px, transparent 1px);
           background-size: 42px 42px;
           mask-image: linear-gradient(180deg, #000, transparent 82%);
           pointer-events: none;
@@ -675,7 +675,7 @@ export default function Hero() {
           justify-content: space-between;
           gap: 1rem;
           padding: 1.35rem 1.35rem 1rem;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          border-bottom: 1px solid rgb(var(--ink-rgb) / 0.08);
         }
 
         .mws-dashboard-kicker {
@@ -737,10 +737,10 @@ export default function Hero() {
         .mws-dashboard-summary div {
           min-height: 4.7rem;
           padding: 0.76rem;
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          border: 1px solid rgb(var(--ink-rgb) / 0.08);
           border-radius: 15px;
-          background: rgba(255, 255, 255, 0.035);
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+          background: rgb(var(--ink-rgb) / 0.035);
+          box-shadow: inset 0 1px 0 rgb(var(--ink-rgb) / 0.08);
         }
 
         .mws-dashboard-summary span,
@@ -771,10 +771,10 @@ export default function Hero() {
           overflow: hidden;
           min-height: 8.6rem;
           padding: 1rem;
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          border: 1px solid rgb(var(--ink-rgb) / 0.08);
           border-radius: 18px;
-          background: rgba(255, 255, 255, 0.04);
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+          background: rgb(var(--ink-rgb) / 0.04);
+          box-shadow: inset 0 1px 0 rgb(var(--ink-rgb) / 0.08);
         }
 
         .mws-widget::after {
@@ -782,7 +782,7 @@ export default function Hero() {
           position: absolute;
           inset: auto -20% -45% 12%;
           height: 7rem;
-          background: radial-gradient(circle, rgba(59, 130, 246, 0.16), transparent 68%);
+          background: linear-gradient(transparent, transparent);
           pointer-events: none;
         }
 
@@ -880,8 +880,8 @@ export default function Hero() {
           margin: 0 auto 0.72rem;
           border-radius: 999px;
           background:
-            radial-gradient(circle at center, rgba(11, 11, 15, 0.95) 56%, transparent 58%),
-            conic-gradient(from 0deg, #60a5fa 0deg 330deg, rgba(255, 255, 255, 0.1) 330deg 360deg);
+            linear-gradient(transparent, transparent),
+            conic-gradient(from 0deg, #60a5fa 0deg 330deg, rgb(var(--ink-rgb) / 0.1) 330deg 360deg);
           color: #ffffff;
         }
 
@@ -912,7 +912,7 @@ export default function Hero() {
           display: block;
           height: 0.56rem;
           border-radius: 999px;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgb(var(--ink-rgb) / 0.1);
         }
 
         .mws-order-stack span:nth-child(1) {
@@ -950,8 +950,8 @@ export default function Hero() {
           border-radius: 12px;
           background:
             linear-gradient(135deg, rgba(96, 165, 250, 0.58), rgba(37, 99, 235, 0.16)),
-            rgba(255, 255, 255, 0.05);
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+            rgb(var(--ink-rgb) / 0.05);
+          box-shadow: inset 0 1px 0 rgb(var(--ink-rgb) / 0.18);
         }
 
         .mws-product-row strong {
@@ -997,12 +997,12 @@ export default function Hero() {
           width: 10.6rem;
           min-height: 20.5rem;
           padding: 1rem 0.8rem;
-          border: 1px solid rgba(255, 255, 255, 0.12);
+          border: 1px solid rgb(var(--ink-rgb) / 0.12);
           border-radius: 2rem;
           background:
-            linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
-            rgba(5, 5, 5, 0.92);
-          box-shadow: 0 30px 80px rgba(0, 0, 0, 0.52), 0 0 44px rgba(37, 99, 235, 0.22);
+            linear-gradient(180deg, rgb(var(--ink-rgb) / 0.12), rgb(var(--ink-rgb) / 0.035)),
+            rgba(244,241,234,0.92);
+          box-shadow: 0 30px 80px rgb(23 21 15 / 0.12), 0 0 44px rgba(37, 99, 235, 0.22);
           backdrop-filter: blur(24px);
         }
 
@@ -1012,7 +1012,7 @@ export default function Hero() {
           height: 0.28rem;
           margin: 0 auto 1rem;
           border-radius: 999px;
-          background: rgba(255, 255, 255, 0.22);
+          background: rgb(var(--ink-rgb) / 0.22);
         }
 
         .mws-phone-product {
@@ -1020,8 +1020,8 @@ export default function Hero() {
           border-radius: 1.2rem;
           background:
             linear-gradient(135deg, rgba(96, 165, 250, 0.56), rgba(37, 99, 235, 0.12)),
-            rgba(255, 255, 255, 0.06);
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+            rgb(var(--ink-rgb) / 0.06);
+          box-shadow: inset 0 1px 0 rgb(var(--ink-rgb) / 0.18);
         }
 
         .mws-mobile-preview strong {
@@ -1046,7 +1046,7 @@ export default function Hero() {
           gap: 0.7rem;
           margin-top: 1rem;
           padding-top: 1rem;
-          border-top: 1px solid rgba(255, 255, 255, 0.09);
+          border-top: 1px solid rgb(var(--ink-rgb) / 0.09);
           color: #a1a1aa;
           font-size: 0.7rem;
         }
@@ -1076,10 +1076,10 @@ export default function Hero() {
           align-items: center;
           gap: 0.72rem;
           padding: 0.78rem 0.9rem;
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          border: 1px solid rgb(var(--ink-rgb) / 0.1);
           border-radius: 18px;
-          background: rgba(255, 255, 255, 0.06);
-          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42), 0 0 28px rgba(37, 99, 235, 0.18);
+          background: rgb(var(--ink-rgb) / 0.06);
+          box-shadow: 0 24px 60px rgb(23 21 15 / 0.12), 0 0 28px rgba(37, 99, 235, 0.18);
           backdrop-filter: blur(20px);
         }
 

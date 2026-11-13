@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-import Breadcrumb from '@/components/layout/Breadcrumb'
-import Link from 'next/link'
+import LegalDoc, { type LegalSection } from './LegalDoc'
 import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
 
@@ -33,45 +32,26 @@ const jsonLd = renderJsonLd([
   ]),
 ])
 
+const sections: LegalSection[] = [
+  { id: 'information-we-collect', title: 'Information We Collect', body: <p>When you contact us through our website or by email, we collect the information you provide — such as your name, email address, Shopify store URL, and details about your project. We do not collect any data automatically beyond standard server logs.</p> },
+  { id: 'how-we-use-your-information', title: 'How We Use Your Information', body: <p>We use the information you provide solely to respond to your enquiry, deliver the services you have requested, and send project-related communications. We do not sell, rent or share your personal data with third parties for marketing purposes.</p> },
+  { id: 'data-storage-security', title: 'Data Storage & Security', body: <p>Your data is stored securely and accessed only by team members who need it to deliver your project. We use industry-standard practices to protect your information from unauthorised access.</p> },
+  { id: 'cookies', title: 'Cookies', body: <p>This website uses cookies for basic functionality and, to understand how visitors use the site and which pages lead to enquiries, analytics and advertising tags loaded through Google Tag Manager, including Google Analytics, Microsoft Clarity and the Meta Pixel. These tools may set their own cookies. You can block or delete cookies in your browser settings; the site still works without them.</p> },
+  { id: 'your-rights', title: 'Your Rights', body: <p>You have the right to access, correct or delete any personal data we hold about you. To exercise these rights, contact us at <a href={outboundHref('email', 'mailto:karam@miraclewebsoft.com')}>karam@miraclewebsoft.com</a>.</p> },
+  { id: 'contact', title: 'Contact', body: <p>For any privacy-related questions, email us at <a href={outboundHref('email', 'mailto:karam@miraclewebsoft.com')}>karam@miraclewebsoft.com</a>.</p> },
+]
+
 export default function PrivacyPage() {
   return (
-    <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '8rem', paddingBottom: '5rem' }}>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
-      <div className="mw-container" style={{ maxWidth: '760px' }}>
-        <div className="mb-8"><Breadcrumb items={[{ label: 'Privacy Policy' }]} /></div>
-        <span className="mw-eyebrow">Legal</span>
-        <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff', marginBottom: '0.5rem' }}>Privacy Policy</h1>
-        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', marginBottom: '3rem' }}>Last updated: January 2025</p>
-        <div style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.9, fontSize: '0.95rem' }} className="flex flex-col gap-8">
-          <section>
-            <h2 style={{ color: '#fff', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem' }}>1. Information We Collect</h2>
-            <p>When you contact us through our website or by email, we collect the information you provide — such as your name, email address, Shopify store URL, and details about your project. We do not collect any data automatically beyond standard server logs.</p>
-          </section>
-          <section>
-            <h2 style={{ color: '#fff', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem' }}>2. How We Use Your Information</h2>
-            <p>We use the information you provide solely to respond to your enquiry, deliver the services you have requested, and send project-related communications. We do not sell, rent or share your personal data with third parties for marketing purposes.</p>
-          </section>
-          <section>
-            <h2 style={{ color: '#fff', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem' }}>3. Data Storage & Security</h2>
-            <p>Your data is stored securely and accessed only by team members who need it to deliver your project. We use industry-standard practices to protect your information from unauthorised access.</p>
-          </section>
-          <section>
-            <h2 style={{ color: '#fff', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem' }}>4. Cookies</h2>
-            <p>This website uses minimal cookies required for basic functionality. We do not use advertising cookies or third-party tracking cookies.</p>
-          </section>
-          <section>
-            <h2 style={{ color: '#fff', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem' }}>5. Your Rights</h2>
-            <p>You have the right to access, correct or delete any personal data we hold about you. To exercise these rights, contact us at <a href={outboundHref('email', 'mailto:karam@miraclewebsoft.com')} style={{ color: 'var(--accent)' }}>karam@miraclewebsoft.com</a>.</p>
-          </section>
-          <section>
-            <h2 style={{ color: '#fff', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.75rem' }}>6. Contact</h2>
-            <p>For any privacy-related questions, email us at <a href={outboundHref('email', 'mailto:karam@miraclewebsoft.com')} style={{ color: 'var(--accent)' }}>karam@miraclewebsoft.com</a>.</p>
-          </section>
-        </div>
-        <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-          <Link href="/terms" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem' }} className="hover:text-white transition-colors">View Terms of Service →</Link>
-        </div>
-      </div>
-    </div>
+      <LegalDoc
+        title="Privacy Policy"
+        updated="January 2025"
+        intro={<p>This policy explains what we collect when you get in touch with Miracle Websoft, why we collect it, and what you can ask us to do with it.</p>}
+        sections={sections}
+        related={{ href: '/terms', label: 'Read the Terms of Service' }}
+      />
+    </>
   )
 }

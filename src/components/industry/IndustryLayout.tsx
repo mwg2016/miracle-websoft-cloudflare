@@ -1,7 +1,6 @@
 import type { IndustryPage } from '@/data/industries'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import IndustryHero from './IndustryHero'
-import IndustryStats from './IndustryStats'
 import PainPoints from './PainPoints'
 import ServicesChecklist from './ServicesChecklist'
 import FaqSection from '@/components/ui/FaqSection'
@@ -9,31 +8,31 @@ import WhyUs from '@/components/home/WhyUs'
 import ProcessSteps from '@/components/home/ProcessSteps'
 import ClientPortfolio from '@/components/home/ClientPortfolio'
 import { industryStores } from '@/data/industryStores'
-import CtaBanner from '@/components/home/CtaBanner'
 
 interface Props { industry: IndustryPage }
 
 export default function IndustryLayout({ industry }: Props) {
+  const stores = industryStores[industry.slug as keyof typeof industryStores]
   return (
     <>
-      <div style={{ background: '#0a0a0a', paddingTop: '5.5rem', paddingBottom: '1rem' }}>
+      <div style={{ paddingTop: 'clamp(7.5rem, 11vw, 8.5rem)' }}>
         <div className="mw-container">
-          <Breadcrumb items={[{ label: 'Industries' }, { label: industry.title }]} />
+          <Breadcrumb items={[{ label: 'Industries', href: '/industries' }, { label: industry.title }]} />
         </div>
       </div>
       <IndustryHero industry={industry} />
-      <IndustryStats stats={industry.stats} />
       <PainPoints painPoints={industry.painPoints} />
       <ServicesChecklist services={industry.services} />
       <WhyUs />
-      <ClientPortfolio
-        stores={industryStores[industry.slug as keyof typeof industryStores]}
-        eyebrow="Stores in this niche"
-        heading={`${industry.title} stores\non Shopify`}
-      />
+      {stores && stores.length > 0 && (
+        <ClientPortfolio
+          stores={stores}
+          eyebrow="Stores in this niche"
+          heading={`${industry.title} stores on Shopify`}
+        />
+      )}
       <ProcessSteps />
-      <FaqSection faqs={industry.faqs} heading={`${industry.title} — common questions`} />
-      <CtaBanner />
+      <FaqSection faqs={industry.faqs} heading={`${industry.title}: common questions`} />
     </>
   )
 }

@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
 import { blogPosts } from '@/data/blogPosts'
 import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Blog — Shopify, CRO, Speed, AI & Ecommerce Growth',
+  title: 'Shopify, CRO & Ecommerce Growth Blog | Miracle Websoft',
   description: 'Shopify development tips, CRO tactics, speed advice, AI automation ideas and ecommerce growth guides from Miracle Websoft.',
   alternates: { canonical: 'https://miraclewebsoft.com/blog' },
   openGraph: {
@@ -21,18 +20,6 @@ export const metadata: Metadata = {
     description: 'Shopify development tips, CRO tactics, speed advice, AI automation ideas and ecommerce growth guides from Miracle Websoft.',
   },
 }
-
-const categories = [
-  'Shopify',
-  'Shopify CRO',
-  'Shopify SEO',
-  'Shopify Speed',
-  'AI',
-  'Business Automation',
-  'Ecommerce Growth',
-  'Case Studies',
-  'Tutorials',
-]
 
 const jsonLd = renderJsonLd([
   webPage({
@@ -58,35 +45,52 @@ const jsonLd = renderJsonLd([
 ])
 
 export default function BlogPage() {
+  const [lead, ...rest] = blogPosts
+
   return (
-    <div style={{ background: '#0a0a0a', minHeight: '100vh', paddingTop: '8rem', paddingBottom: '5rem' }}>
+    <div style={{ paddingTop: 'clamp(7.5rem, 11vw, 9rem)', paddingBottom: '5rem' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <div className="mw-container">
-        <div className="mb-8"><Breadcrumb items={[{ label: 'Blog' }]} /></div>
-        <div className="mb-12">
-          <span className="mw-eyebrow">Blog</span>
-          <h1 style={{ fontFamily: 'var(--font-playfair), Georgia, serif', color: '#fff' }}>Insights for<br /><em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.5)' }}>ecommerce teams that need to grow.</em></h1>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.8, maxWidth: '560px', marginTop: '0.75rem', fontWeight: 300 }}>Practical Shopify, conversion, speed, AI automation and custom development advice for brands that want more qualified sales and cleaner operations.</p>
-          <div className="flex flex-wrap gap-2 mt-6">
-            {categories.map((category) => (
-              <span key={category} className="mw-pill" style={{ fontSize: '0.72rem', padding: '0.34rem 0.7rem' }}>{category}</span>
-            ))}
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {blogPosts.map((post) => (
-            <article key={post.slug} className="mw-card flex flex-col" style={{ padding: '2rem' }}>
-              <div className="flex items-center gap-3 mb-4">
-                <span style={{ fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '0.25rem 0.65rem', borderRadius: '9999px', background: 'rgba(108,99,255,0.15)', color: 'var(--accent)' }}>{post.tag}</span>
-                <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.6)' }}>{post.date}</span>
-              </div>
-              <h2 style={{ fontWeight: 600, color: '#fff', fontSize: '0.95rem', marginBottom: '0.75rem', lineHeight: 1.5, flex: 1 }}>{post.title}</h2>
-              <p style={{ fontSize: '0.83rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, marginBottom: '1.25rem', fontWeight: 300 }}>{post.excerpt}</p>
-              <Link href={`/blog/${post.slug}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.83rem', fontWeight: 600, color: 'var(--accent)' }}>Read more <ArrowRight size={13} /></Link>
-            </article>
+        <Breadcrumb items={[{ label: 'Blog' }]} />
+        <header style={{ marginTop: '2rem', marginBottom: '3.5rem', maxWidth: '46rem' }}>
+          <p className="mw-eyebrow">Blog</p>
+          <h1 className="mw-hero-title" style={{ fontSize: 'clamp(38px, 5vw, 64px)' }}>
+            Notes for ecommerce teams that <span className="mw-mark">need to grow.</span>
+          </h1>
+          <p style={{ marginTop: '1.25rem', fontSize: '1.08rem', maxWidth: '54ch' }}>
+            Practical Shopify, conversion, speed, AI automation and custom development advice, written by the team that does the work.
+          </p>
+        </header>
+
+        {lead && (
+          <Link href={`/blog/${lead.slug}`} className="blog-lead">
+            <span className="mw-num" style={{ textTransform: 'uppercase', letterSpacing: '0.1em' }}>Latest · {lead.tag} · {lead.date}</span>
+            <h2>{lead.title}</h2>
+            <p>{lead.excerpt}</p>
+            <span className="blog-read">Read the post →</span>
+          </Link>
+        )}
+
+        <div className="blog-grid">
+          {rest.map((post) => (
+            <Link key={post.slug} href={`/blog/${post.slug}`} className="post-card">
+              <span className="mw-num" style={{ textTransform: 'uppercase', letterSpacing: '0.08em' }}>{post.tag} · {post.date}</span>
+              <h3>{post.title}</h3>
+              <p>{post.excerpt}</p>
+            </Link>
           ))}
         </div>
       </div>
+      <style>{`
+        .blog-lead { display: grid; gap: 1rem; padding: 2rem 0 2.5rem; border-top: 1px solid var(--text-1); border-bottom: 1px solid var(--border); margin-bottom: 1rem; }
+        .blog-lead h2 { font-size: clamp(30px, 3.8vw, 48px); max-width: 22ch; }
+        .blog-lead p { max-width: 62ch; font-size: 1.05rem; }
+        .blog-lead:hover h2 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
+        .blog-read { font-weight: 600; font-size: 0.92rem; color: var(--accent); }
+        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 2.5rem; }
+        @media (max-width: 960px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
+      `}</style>
     </div>
   )
 }

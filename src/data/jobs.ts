@@ -69,6 +69,16 @@ export function fixTypos(s: string): string {
 // generic title to it so each title is specific.
 const GENERIC_TITLE = /^(shopify|web ?site|consultation|30 ?minute consultation|new changes|store|project|task|revision)\b/i
 
+/**
+ * Only jobs with genuinely unique content (a case study, a developer write-up,
+ * or a client review) are indexed. The rest share ~300 words of template and
+ * read as thin/near-duplicate pages to Google, which drags down the whole site.
+ * Non-indexable jobs still render (and are linked from /work) with noindex.
+ */
+export function isIndexableJob(job: Job): boolean {
+  return Boolean(job.caseStudy || job.devNotes || job.review)
+}
+
 /** Human-readable, de-duplicated title for a job (typos fixed, generics anchored to the client). */
 export function jobTitle(job: Job): string {
   const t = fixTypos(job.title).trim()
@@ -117,7 +127,7 @@ export function workFaqs(job: Job): { question: string; answer: string }[] {
   }
   faqs.push({
     question: 'Can Miracle Websoft build something similar for my store?',
-    answer: `Yes — Miracle Websoft specialises in ${job.category} and has delivered 600+ verified Shopify projects. Tell us what you need at miraclewebsoft.com/contact.`,
+    answer: `Yes — Miracle Websoft specialises in ${job.category} and has delivered 650+ Shopify projects. Tell us what you need at miraclewebsoft.com/contact.`,
   })
   return faqs
 }

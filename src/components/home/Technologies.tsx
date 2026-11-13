@@ -35,12 +35,12 @@ const groups = [
 
 export default function Technologies() {
   return (
-    <section style={{ background: '#0a0a0a', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+    <section style={{ background: 'var(--bg)', paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgb(var(--ink-rgb) / 0.06)' }}>
       <div className="mw-container">
         <div className="mw-section-header">
           <span className="mw-eyebrow">Technologies</span>
-          <h2 style={{ color: '#fff' }}>The stack behind<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>stores, AI and software.</em></h2>
-          <p style={{ color: 'rgba(255,255,255,0.6)', marginTop: '1rem', fontSize: '0.95rem', fontWeight: 300, maxWidth: '620px' }}>
+          <h2 style={{ color: 'var(--text-1)' }}>The stack behind<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>stores, AI and software.</em></h2>
+          <p style={{ color: 'rgb(var(--ink-rgb) / 0.6)', marginTop: '1rem', fontSize: '0.95rem', fontWeight: 300, maxWidth: '620px' }}>
             We choose tools for reliability, maintainability and business fit, not for trend value.
           </p>
         </div>
@@ -49,10 +49,10 @@ export default function Technologies() {
           {groups.map(({ icon: Icon, ...group }) => (
             <div key={group.title} className="mw-card" style={{ padding: '1.75rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                <span style={{ width: 38, height: 38, borderRadius: 10, background: 'rgba(108,99,255,0.12)', border: '1px solid rgba(108,99,255,0.22)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ width: 38, height: 38, borderRadius: 10, background: 'rgb(224 79 37 / 0.12)', border: '1px solid rgb(224 79 37 / 0.22)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Icon size={17} style={{ color: 'var(--accent)' }} />
                 </span>
-                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff' }}>{group.title}</h3>
+                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-1)' }}>{group.title}</h3>
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
                 {group.items.map((item) => (

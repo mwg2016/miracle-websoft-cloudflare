@@ -17,7 +17,7 @@ const NAV = [
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ minHeight: '100vh', background: '#0a0a0a', color: '#fff' }}>
+    <div className="mw-ink" style={{ minHeight: '100vh', background: '#0a0a0a', color: '#fff' }}>
       <header style={{
         position: 'sticky', top: 0, zIndex: 30,
         background: 'rgba(10,10,10,0.92)', backdropFilter: 'blur(8px)',

@@ -27,43 +27,19 @@ export default function Countdown() {
 
   return (
     <div>
-      <div className="flex gap-2.5" role="timer" aria-live="off" aria-label="Time left until Black Friday">
+      <div className="bf-count" role="timer" aria-live="off" aria-label="Time left until Black Friday">
         {units.map((u) => (
-          <div
-            key={u.l}
-            className="text-center"
-            style={{
-              minWidth: '64px',
-              padding: '0.7rem 0.5rem',
-              borderRadius: '12px',
-              background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(251,191,36,0.25)',
-            }}
-          >
-            <div
-              style={{
-                fontSize: '1.6rem',
-                fontWeight: 800,
-                color: '#FBBF24',
-                lineHeight: 1,
-                fontVariantNumeric: 'tabular-nums',
-                letterSpacing: '-0.02em',
-              }}
-            >
-              {u.v === null ? '--' : String(u.v).padStart(2, '0')}
-            </div>
-            <div style={{ fontSize: '0.64rem', color: 'rgba(255,255,255,0.55)', marginTop: '0.35rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              {u.l}
-            </div>
+          <div key={u.l}>
+            <span className="bf-count-v">{u.v === null ? '--' : String(u.v).padStart(2, '0')}</span>
+            <span className="bf-count-l">{u.l}</span>
           </div>
         ))}
       </div>
-      {target && (
-        <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', marginTop: '0.6rem' }}>
-          Black Friday:{' '}
-          {target.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
-        </p>
-      )}
+      <p style={{ fontSize: '0.8rem', color: 'var(--text-3)', marginTop: '0.6rem', minHeight: '1.3em' }}>
+        {target && (
+          <>Black Friday: {target.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</>
+        )}
+      </p>
     </div>
   )
 }

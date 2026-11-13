@@ -2,31 +2,20 @@
 import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowRight, Loader2, CheckCircle2, Tag } from 'lucide-react'
+import { ArrowRight, Loader2 } from 'lucide-react'
 import { getEffectiveOrigin, trackLead } from '@/lib/analytics'
 import { getPlanBySlug } from '@/lib/pricing'
 
-const inputStyle: React.CSSProperties = {
-  width: '100%',
-  background: 'rgba(255,255,255,0.05)',
-  border: '1px solid rgba(255,255,255,0.1)',
-  borderRadius: '10px',
-  padding: '0.75rem 1rem',
-  fontSize: '0.875rem',
-  color: '#fff',
-  outline: 'none',
-}
-
 const labelStyle: React.CSSProperties = {
   display: 'block',
-  fontSize: '0.78rem',
+  fontSize: '0.85rem',
   fontWeight: 500,
-  color: 'rgba(255,255,255,0.6)',
-  marginBottom: '0.4rem',
+  color: 'var(--text-1)',
+  marginBottom: '0.45rem',
 }
 
 const optionalTag = (
-  <span style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.2)', fontWeight: 400, marginLeft: '4px' }}>(optional)</span>
+  <span style={{ fontSize: '0.8rem', color: 'var(--text-4)', fontWeight: 400, marginLeft: '4px' }}>(optional)</span>
 )
 
 export default function ContactForm() {
@@ -87,33 +76,20 @@ export default function ContactForm() {
         style={{ display: 'none' }} tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
       {selectedPlan && (
-        <div
-          style={{
-            background: 'linear-gradient(135deg, rgba(108,99,255,0.12) 0%, rgba(108,99,255,0.04) 100%)',
-            border: '1px solid rgba(108,99,255,0.3)',
-            borderRadius: '14px',
-            padding: '1rem 1.1rem',
-            display: 'flex',
-            alignItems: 'flex-start',
-            gap: '0.75rem',
-          }}
-        >
-          <CheckCircle2 size={18} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: '2px' }} />
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.25rem' }}>
-              <Tag size={10} style={{ display: 'inline', marginRight: '4px', verticalAlign: '-1px' }} /> Selected plan
+        <div style={{ border: '1px solid var(--border)', borderLeft: '3px solid var(--accent)', borderRadius: '6px', padding: '0.9rem 1rem', background: 'var(--bg)' }}>
+          <div className="mw-num" style={{ marginBottom: '0.3rem' }}>SELECTED PLAN</div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', alignItems: 'baseline', flexWrap: 'wrap' }}>
+            <div style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-1)' }}>
+              {selectedPlan.name} <span style={{ fontFamily: 'var(--font-geist-mono)', fontWeight: 500, fontSize: '0.9rem', color: 'var(--text-2)' }}>· {selectedPlan.price}</span>
             </div>
-            <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#fff', marginBottom: '0.15rem' }}>
-              {selectedPlan.name} <span style={{ color: 'var(--accent)' }}>· {selectedPlan.price}</span>
-            </div>
-            <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.5 }}>
-              {selectedPlan.type === 'build'
-                ? 'No payment yet — we\'ll send a written proposal first. 50% only after you approve.'
-                : 'No payment yet — we\'ll confirm scope, then start with month 1 invoice.'}
-            </div>
-            <Link href="/pricing" style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.5)', textDecoration: 'underline', textUnderlineOffset: '3px', marginTop: '0.4rem', display: 'inline-block' }}>
+            <Link href="/pricing" style={{ fontSize: '0.82rem', color: 'var(--text-2)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
               Change plan
             </Link>
+          </div>
+          <div style={{ fontSize: '0.85rem', color: 'var(--text-3)', lineHeight: 1.5, marginTop: '0.3rem' }}>
+            {selectedPlan.type === 'build'
+              ? 'No payment yet. We send a written proposal first; 50% only after you approve.'
+              : 'No payment yet. We confirm scope, then start with the month 1 invoice.'}
           </div>
         </div>
       )}
@@ -122,26 +98,26 @@ export default function ContactForm() {
         <div>
           <label htmlFor="contact-name" style={labelStyle}>Your name *</label>
           <input id="contact-name" name="name" type="text" required placeholder="Jane Smith" autoComplete="name"
-            value={form.name} onChange={e => set('name', e.target.value)} style={inputStyle} />
+            value={form.name} onChange={e => set('name', e.target.value)} className="mw-field" />
         </div>
         <div>
           <label htmlFor="contact-email" style={labelStyle}>Email address *</label>
           <input id="contact-email" name="email" type="email" required placeholder="jane@yourbrand.com" autoComplete="email"
-            value={form.email} onChange={e => set('email', e.target.value)} style={inputStyle} />
+            value={form.email} onChange={e => set('email', e.target.value)} className="mw-field" />
         </div>
       </div>
 
       <div>
         <label htmlFor="contact-store-url" style={labelStyle}>Website, store or workflow URL {optionalTag}</label>
         <input id="contact-store-url" name="storeUrl" type="text" placeholder="yourstore.com, yourstore.myshopify.com or tool name" autoComplete="url"
-          value={form.storeUrl} onChange={e => set('storeUrl', e.target.value)} style={inputStyle} />
+          value={form.storeUrl} onChange={e => set('storeUrl', e.target.value)} className="mw-field" />
       </div>
 
       {!selectedPlan && (
         <div>
           <label htmlFor="contact-service" style={labelStyle}>What do you need help with? {optionalTag}</label>
           <select id="contact-service" name="service" value={form.service} onChange={e => set('service', e.target.value)}
-            style={{ ...inputStyle, appearance: 'none' as const }}>
+            className="mw-field">
             <option value="">Select a service...</option>
             <option>Improve my current Shopify store</option>
             <option>Build or redesign a Shopify store</option>
@@ -152,43 +128,43 @@ export default function ContactForm() {
             <option>AI business automation</option>
             <option>OpenAI integration or AI chatbot</option>
             <option>Custom web application or portal</option>
-            <option>Free consultation</option>
+            <option>Not sure yet</option>
           </select>
         </div>
       )}
 
       <div>
         <label htmlFor="contact-message" style={labelStyle}>Tell us about your business challenge *</label>
-        <textarea id="contact-message" name="message" rows={3} required
+        <textarea id="contact-message" name="message" rows={5} required
           placeholder="What do you sell, what is your biggest challenge right now, and what result would make this project successful?"
           value={form.message} onChange={e => set('message', e.target.value)}
-          style={{ ...inputStyle, resize: 'none' }} />
+          className="mw-field" style={{ resize: 'vertical' }} />
       </div>
 
       {state === 'error' && (
-        <p style={{ fontSize: '0.8rem', color: '#f87171', textAlign: 'center' }}>
+        <p style={{ fontSize: '0.8rem', color: '#B42318', textAlign: 'center' }}>
           Something went wrong. Email us directly at{' '}
-          <a href="mailto:karam@miraclewebsoft.com" style={{ color: '#f87171' }}>karam@miraclewebsoft.com</a>
+          <a href="mailto:karam@miraclewebsoft.com" style={{ color: '#B42318', textDecoration: 'underline' }}>karam@miraclewebsoft.com</a>
         </p>
       )}
 
-      <button type="submit" disabled={state === 'sending'} className="mw-btn-primary justify-center w-full"
-        style={{ padding: '0.9rem', opacity: state === 'sending' ? 0.7 : 1 }}>
+      <button type="submit" disabled={state === 'sending'} className="mw-btn-accent justify-center w-full"
+        style={{ padding: '1rem', opacity: state === 'sending' ? 0.7 : 1 }}>
         {state === 'sending' ? (
           <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
             <Loader2 size={15} style={{ animation: 'spin 1s linear infinite' }} /> Sending…
           </span>
         ) : (
           <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
-            {selectedPlan ? `Confirm ${selectedPlan.name} & send` : 'Book Free Consultation'} <ArrowRight size={15} />
+            {selectedPlan ? `Confirm ${selectedPlan.name} & send` : 'Send my brief'} <ArrowRight size={15} />
           </span>
         )}
       </button>
 
-      <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.25)', textAlign: 'center', lineHeight: 1.6 }}>
+      <p style={{ fontSize: '0.82rem', color: 'var(--text-3)', lineHeight: 1.6 }}>
         {selectedPlan
           ? 'No payment now. You\'ll get a confirmation email immediately, then a written proposal within 24 hours.'
-          : 'Takes 60 seconds. You will get a confirmation email immediately. Karam responds within 24 hours.'}
+          : 'Takes a minute. You get a confirmation email straight away and a personal reply from Karam within 24 hours. NDA on request.'}
       </p>
     </form>
   )

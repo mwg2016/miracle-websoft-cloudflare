@@ -165,8 +165,8 @@ export const categoryDemos: CategoryDemo[] = [
 
 // Stat bar — same 4 stats on every page.
 export const stats = [
-  { value: '7', unit: 'days', label: 'Average delivery' },
-  { value: '$299', unit: '+', label: 'All-in pricing' },
-  { value: '150+', unit: '', label: 'Cities served' },
-  { value: '100%', unit: '', label: 'Done-for-you' },
+  { value: '7–14', unit: ' days', label: 'Live in' },
+  { value: '$299', unit: '+', label: 'All-in, one-time' },
+  { value: '650+', unit: '', label: 'Projects since 2015' },
+  { value: '4.9', unit: '', label: 'Rating on Clutch' },
 ]
