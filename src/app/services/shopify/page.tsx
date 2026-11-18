@@ -130,7 +130,7 @@ export default function ShopifyServicesPage() {
         breadcrumbItems={[{ label: 'Services', href: '/services' }, { label: 'Shopify Services' }]}
         eyebrow="Shopify services · Shopify Partner"
         title={<>Shopify builds, fixes and support, <span className="mw-mark">at a fixed price.</span></>}
-        lede="New stores, redesigns, custom features, integrations and ongoing care for Shopify merchants. 650+ projects since 2015, done by a 16-person in-house team."
+        lede="New stores, redesigns, custom features, integrations and ongoing care for Shopify merchants. 700+ projects since 2015, done by a 16-person in-house team."
         aside={
           <HeroScope
             label="Where to start"

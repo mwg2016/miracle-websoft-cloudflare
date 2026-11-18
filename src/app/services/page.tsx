@@ -6,18 +6,18 @@ import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Shopify, AI & Ecommerce Growth Services | Miracle Websoft',
-  description: 'Explore Shopify development, CRO, store speed, AI automation and custom web services designed to improve ecommerce revenue, operations and growth.',
+  description: 'Shopify development, CRO, speed, AI automation, full stack web applications, API integration, CRM, Moodle and custom software you own instead of renting.',
   alternates: { canonical: 'https://miraclewebsoft.com/services' },
   openGraph: {
     title: 'Shopify, AI & Ecommerce Growth Services | Miracle Websoft',
-    description: 'Explore Shopify development, CRO, store speed, AI automation and custom web services designed to improve ecommerce revenue, operations and growth.',
+    description: 'Shopify development, CRO, speed, AI automation, full stack web applications, API integration, CRM, Moodle and custom software you own instead of renting.',
     url: 'https://miraclewebsoft.com/services',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Shopify, AI & Ecommerce Growth Services | Miracle Websoft',
-    description: 'Explore Shopify development, CRO, store speed, AI automation and custom web services designed to improve ecommerce revenue, operations and growth.',
+    description: 'Shopify development, CRO, speed, AI automation, full stack web applications, API integration, CRM, Moodle and custom software you own instead of renting.',
   },
 }
 
@@ -163,12 +163,58 @@ const otherServices: Svc[] = [
   },
 ]
 
+const fullStackServices: Svc[] = [
+  {
+    title: 'Custom Software (Stop Renting, Start Owning)',
+    desc: 'Custom alternatives to CRM, ERP, invoicing, inventory and SaaS tools. One-time build, no per-user licence fees for your own software.',
+    href: '/services/custom-software-development',
+    price: 'Fixed quote',
+  },
+  {
+    title: 'Full Stack Web Application Development',
+    desc: 'React, Node.js, Laravel and PHP applications: dashboards, admin panels, portals and SaaS, plus modernising existing systems.',
+    href: '/services/full-stack-development',
+    price: 'From $1,500',
+  },
+  {
+    title: 'API Integration & Backend Development',
+    desc: 'REST, GraphQL and webhook integrations between CRMs, ERPs, LMSs, ecommerce, payment, subscription and shipping platforms.',
+    href: '/services/api-integration',
+  },
+  {
+    title: 'CRM Development & SuiteCRM',
+    desc: 'SuiteCRM modules, workflows, reports and performance tuning, or a custom CRM you own.',
+    href: '/services/crm-development',
+  },
+  {
+    title: 'Moodle LMS Development',
+    desc: 'Moodle plugins and themes, enrollment and permissions, REST web services and WordPress integration.',
+    href: '/services/moodle-development',
+  },
+  {
+    title: 'Laravel & PHP Development',
+    desc: 'New Laravel apps and APIs, Yii2 customization, legacy PHP upgrades and performance fixes.',
+    href: '/services/laravel-development',
+  },
+  {
+    title: 'WordPress Plugin Development',
+    desc: 'Custom WordPress plugins and WooCommerce extensions that replace paid add-ons and connect to your systems.',
+    href: '/services/wordpress-plugin-development',
+  },
+  {
+    title: 'Maintenance, Bug Fixing & Support',
+    desc: 'Debugging, WordPress and Shopify speed work, PHP and API troubleshooting, updates and ongoing technical support.',
+    href: '/services/website-maintenance',
+  },
+]
+
 const toRows = (list: Svc[]) => list.map((x) => ({ name: x.title, line: x.desc, price: x.price, href: x.href }))
 
 const groups = [
   { id: 'shopify-services', eyebrow: 'Shopify', title: 'Build, rebuild and extend your store.', items: shopifyCore },
   { id: 'cro-performance', eyebrow: 'CRO & speed', title: 'More orders from the traffic you already have.', items: growthServices },
   { id: 'ai-services', eyebrow: 'AI automation', title: 'Take repetitive work off your team.', items: aiCore },
+  { id: 'full-stack', eyebrow: 'Full stack & business software', title: 'Own your software. Connect your systems.', items: fullStackServices },
   { id: 'web-development', eyebrow: 'Beyond Shopify', title: 'Websites, portals and custom software.', items: otherServices },
 ]
 
@@ -188,7 +234,7 @@ const jsonLd = renderJsonLd([
   ]),
   itemList({
     name: 'Services offered by Miracle Websoft',
-    items: [...shopifyCore, ...growthServices, ...aiCore, ...shopifyIndustry, ...otherServices].map((s) => ({
+    items: [...shopifyCore, ...growthServices, ...aiCore, ...shopifyIndustry, ...fullStackServices, ...otherServices].map((s) => ({
       name: s.title,
       url: s.href,
       description: s.desc,
@@ -206,7 +252,7 @@ export default function ServicesPage() {
       <ServiceHero
         eyebrow="All services"
         title={<>Start with the problem, <span className="mw-mark">not the service.</span></>}
-        lede="Shopify builds, CRO and speed work, AI automation and custom web development. Fixed prices, a 16-person in-house team, and 650+ projects since 2015."
+        lede="Shopify builds, CRO and speed work, AI automation, full stack applications, API integrations and custom software you own. Fixed prices, a 16-person in-house team, and 700+ projects since 2015."
         aside={
           <aside className="audit-form-card" style={{ boxShadow: 'none' }} aria-label="Which service do I need?">
             <p className="mw-num" style={{ marginBottom: '0.75rem' }}>WHICH ONE DO I NEED?</p>

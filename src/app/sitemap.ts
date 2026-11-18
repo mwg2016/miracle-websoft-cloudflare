@@ -7,13 +7,18 @@ import { blogPosts } from '@/data/blogPosts'
 import { blogDateToIso } from '@/lib/blog-date'
 import shopifyServices from '@/data/shopify-services'
 import { aiServices } from '@/data/ai-services'
+import { devServices } from '@/data/dev-services'
+import { listPublicReviews } from '@/lib/reviews/db'
+
+// Review pages come from D1, so build the sitemap per request.
+export const dynamic = 'force-dynamic'
 
 const BASE = 'https://miraclewebsoft.com'
 const LAST_MODIFIED = new Date('2026-07-09')
 // 'development' is deliberately excluded — it already has an explicit Tier 2 entry above.
 const shopifyServiceSlugs = shopifyServices.map((service) => service.slug)
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const core: MetadataRoute.Sitemap = [
     // ── Tier 1: Homepage & highest-intent pages ──────────────────────────────
     { url: BASE,                                                          priority: 1.0, changeFrequency: 'weekly'  as const },
@@ -99,8 +104,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const workIndex: MetadataRoute.Sitemap = [
     { url: `${BASE}/work`,    priority: 0.85, changeFrequency: 'weekly'  as const, lastModified: LAST_MODIFIED },
-    { url: `${BASE}/reviews`, priority: 0.85, changeFrequency: 'monthly' as const, lastModified: LAST_MODIFIED },
+    { url: `${BASE}/reviews`, priority: 0.85, changeFrequency: 'weekly'  as const, lastModified: LAST_MODIFIED },
+    { url: `${BASE}/share`,   priority: 0.5,  changeFrequency: 'monthly' as const, lastModified: LAST_MODIFIED },
   ]
+
+  const devServicePages: MetadataRoute.Sitemap = devServices.map((s) => ({
+    url: `${BASE}/services/${s.slug}`,
+    priority: s.slug === 'custom-software-development' || s.slug === 'full-stack-development' ? 0.9 : 0.8,
+    changeFrequency: 'monthly' as const,
+    lastModified: new Date('2026-11-18'),
+  }))
+
+  const reviewPages: MetadataRoute.Sitemap = (await listPublicReviews()).map((r) => ({
+    url: `${BASE}/reviews/${r.slug}`,
+    priority: 0.55,
+    changeFrequency: 'yearly' as const,
+    lastModified: new Date(r.date),
+  }))
 
   const webdevCountryPages: MetadataRoute.Sitemap = (Object.keys(countries) as CountryCode[]).map((code) => ({
     url: `${BASE}/website-development/${code}`,
@@ -121,9 +141,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...core.map(p => ({ ...p, lastModified: LAST_MODIFIED })),
     ...shopifyServicePages,
     ...aiServicePages,
+    ...devServicePages,
     ...industryPages,
     ...blogPages,
     ...workIndex,
+    ...reviewPages,
     ...workPages,
     ...webdevCountryPages,
     ...partnerPages,

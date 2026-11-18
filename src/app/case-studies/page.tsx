@@ -10,23 +10,23 @@ import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 export const metadata: Metadata = {
   title: 'Case Studies — Shopify Results for Growing Stores | Miracle Websoft',
   description:
-    'Selected Shopify projects from 650+ since 2015: store builds, redesigns, migrations and custom features, with what we did and what clients said.',
+    'Selected Shopify projects from 700+ since 2015: store builds, redesigns, migrations and custom features, with what we did and what clients said.',
   alternates: { canonical: 'https://miraclewebsoft.com/case-studies' },
   openGraph: {
     title: 'Case Studies — Shopify Results for Growing Stores | Miracle Websoft',
-    description: 'Selected Shopify projects from 650+ since 2015: store builds, redesigns, migrations and custom features, with what we did and what clients said.',
+    description: 'Selected Shopify projects from 700+ since 2015: store builds, redesigns, migrations and custom features, with what we did and what clients said.',
     url: 'https://miraclewebsoft.com/case-studies',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Case Studies — Shopify Results for Growing Stores | Miracle Websoft',
-    description: 'Selected Shopify projects from 650+ since 2015: store builds, redesigns, migrations and custom features, with what we did and what clients said.',
+    description: 'Selected Shopify projects from 700+ since 2015: store builds, redesigns, migrations and custom features, with what we did and what clients said.',
   },
 }
 
 const csFaqs = [
-  { question: 'How many Shopify projects has Miracle Websoft completed?', answer: 'More than 650 Shopify projects since 2015, across custom builds, redesigns, migrations, app and feature development, and CRO. Clients range from new DTC brands to established stores with thousands of SKUs and years of order history.' },
+  { question: 'How many Shopify projects has Miracle Websoft completed?', answer: 'More than 700 Shopify projects since 2015, across custom builds, redesigns, migrations, app and feature development, and CRO. Clients range from new DTC brands to established stores with thousands of SKUs and years of order history.' },
   { question: 'Can I see specific client results?', answer: 'Each project on this page links to its own write-up with the brief, what we built and the client’s Upwork review where one was left. Many clients ask us not to publish their revenue or conversion numbers, so we don’t; on a call we can walk you through comparable projects in more detail.' },
   { question: 'Which kinds of brands have you worked with?', answer: 'Fashion and apparel (women’s, menswear, streetwear, swimwear, sustainable), jewelry and accessories, fragrance and beauty, home and furniture, food and drink, sports, tech accessories and more. The brand list on this page is a sample.' },
   { question: 'Do you show before/after comparisons?', answer: 'For projects similar to yours we can share before/after speed scores and design comparisons on a call, with the client’s permission. The free store teardown is the quickest way to see how we’d approach your store specifically.' },
@@ -97,7 +97,7 @@ const jsonLd = renderJsonLd([
   webPage({
     name: 'Case Studies — Shopify results for growing stores',
     description:
-      'Selected Shopify projects from 650+ since 2015 — builds, redesigns, migrations and custom features.',
+      'Selected Shopify projects from 700+ since 2015 — builds, redesigns, migrations and custom features.',
     url: 'https://miraclewebsoft.com/case-studies',
     type: 'CollectionPage',
   }),
@@ -132,11 +132,11 @@ export default function CaseStudiesPage() {
                 What we built, and what <span className="mw-mark">the client said after.</span>
               </h1>
               <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '52ch' }}>
-                A selection from 650+ Shopify projects since 2015. Each one links to a write-up of the brief, the work, and the client&apos;s own Upwork review.
+                A selection from 700+ Shopify projects since 2015. Each one links to a write-up of the brief, the work, and the client&apos;s own Upwork review.
               </p>
             </div>
             <dl className="stats">
-              <div><dt>Shopify projects</dt><dd>650+</dd></div>
+              <div><dt>Shopify projects</dt><dd>700+</dd></div>
               <div><dt>Hours delivered</dt><dd>15,000+</dd></div>
               <div><dt>Brands listed below</dt><dd>{portfolioClients.length}</dd></div>
               <div><dt>Rating on Clutch</dt><dd>4.9</dd></div>

@@ -9,18 +9,18 @@ import { outboundHref } from '@/lib/outbound'
 
 export const metadata: Metadata = {
   title: 'About Miracle Websoft — Ecommerce Growth & AI Technology Agency',
-  description: 'Miracle Websoft is an ecommerce growth and AI technology agency with 650+ projects and 15,000+ hours delivered. Shopify, CRO, speed, AI and custom web development.',
+  description: 'Miracle Websoft is an ecommerce growth and AI technology agency with 700+ projects and 15,000+ hours delivered. Shopify, CRO, speed, AI and custom web development.',
   alternates: { canonical: 'https://miraclewebsoft.com/about' },
   openGraph: {
     title: 'About Miracle Websoft — Ecommerce Growth & AI Technology Agency',
-    description: 'Miracle Websoft is an ecommerce growth and AI technology agency with 650+ projects and 15,000+ hours delivered. Shopify, CRO, speed, AI and custom web development.',
+    description: 'Miracle Websoft is an ecommerce growth and AI technology agency with 700+ projects and 15,000+ hours delivered. Shopify, CRO, speed, AI and custom web development.',
     url: 'https://miraclewebsoft.com/about',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About Miracle Websoft — Ecommerce Growth & AI Technology Agency',
-    description: 'Miracle Websoft is an ecommerce growth and AI technology agency with 650+ projects and 15,000+ hours delivered. Shopify, CRO, speed, AI and custom web development.',
+    description: 'Miracle Websoft is an ecommerce growth and AI technology agency with 700+ projects and 15,000+ hours delivered. Shopify, CRO, speed, AI and custom web development.',
   },
 }
 
@@ -34,9 +34,11 @@ const values = [
 
 const facts = [
   { dt: 'Founded', dd: '2015' },
-  { dt: 'Projects', dd: '650+' },
+  { dt: 'Projects', dd: '700+' },
   { dt: 'Hours delivered', dd: '15,000+' },
+  { dt: 'Earned on Upwork', dd: '$600K+' },
   { dt: 'In-house team', dd: '16' },
+  { dt: 'Upwork job success', dd: '98%' },
 ]
 
 const credentials = [
@@ -50,7 +52,7 @@ const jsonLd = renderJsonLd([
   webPage({
     name: 'About Miracle Websoft - ecommerce growth and AI technology agency',
     description:
-      'Ecommerce growth and AI technology agency with 650+ projects, 15,000+ hours delivered and a 16-person team serving global clients since 2015.',
+      'Ecommerce growth and AI technology agency with 700+ projects, 15,000+ hours delivered and a 16-person team serving global clients since 2015.',
     url: 'https://miraclewebsoft.com/about',
     type: 'AboutPage',
   }),
@@ -112,7 +114,7 @@ export default function AboutPage() {
       <section className="mw-section" style={{ background: 'var(--bg-deep)' }}>
         <div className="mw-container">
           <p className="mw-eyebrow">The founder</p>
-          <h2 style={{ maxWidth: '20ch', marginBottom: '3rem' }}>From a ten-dollar first job to 650+ projects.</h2>
+          <h2 style={{ maxWidth: '20ch', marginBottom: '3rem' }}>From a ten-dollar first job to 700+ projects.</h2>
           <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-start">
             <div className="lg:sticky lg:top-28">
               <FounderIntro />

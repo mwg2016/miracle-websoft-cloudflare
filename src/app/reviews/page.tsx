@@ -1,215 +1,186 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, ArrowUpRight } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, PenLine } from 'lucide-react'
 import Breadcrumb from '@/components/layout/Breadcrumb'
-import { jobs, jobTitle } from '@/data/jobs'
 import { outboundHref } from '@/lib/outbound'
 import VideoTestimonialGrid from '@/components/ui/VideoTestimonialGrid'
 import FounderIntro from '@/components/ui/FounderIntro'
 import { clientVideos } from '@/data/videos'
+import { listPublicReviews } from '@/lib/reviews/db'
+import { computeStats, ratingLabel } from '@/lib/reviews/types'
+import { reviewsIndexSchema } from '@/lib/reviews/schema'
+import { breadcrumb, faqPage, renderJsonLd, SITE_URL } from '@/lib/jsonld'
+import RatingSummary from '@/components/reviews/RatingSummary'
+import ReviewCard from '@/components/reviews/ReviewCard'
+import ShareButtons from '@/components/share/ShareButtons'
+
+// Approved reviews come from D1, so render per request.
+export const dynamic = 'force-dynamic'
 
 const UPWORK_FREELANCER = outboundHref('upwork', 'https://www.upwork.com/freelancers/shopifydeveloperupwork')
+const PAGE_SIZE = 20
 
-export const metadata: Metadata = {
-  title: 'Client Reviews — 23 Verified Shopify Developer Reviews | Miracle Websoft',
-  description:
-    'Read verified client reviews for Miracle Websoft on Upwork. 23 reviews from Shopify store owners, unedited and linked to each project. 98% Job Success Score on Upwork.',
-  openGraph: {
-    title: 'Verified Client Reviews — Miracle Websoft Shopify Developer',
-    description: '23 verified Upwork reviews from real Shopify store owners. Read what clients say about working with Karam Singh at Miracle Websoft.',
-    url: 'https://miraclewebsoft.com/reviews',
-    type: 'website',
-  },
-  alternates: {
-    canonical: 'https://miraclewebsoft.com/reviews',
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const stats = computeStats(await listPublicReviews())
+  const title = `Miracle Websoft Reviews: ${stats.average.toFixed(1)}/5 from ${stats.count} Verified Clients`
+  const description = `Read ${stats.count} verified reviews of Miracle Websoft, the Shopify development agency. Rated ${stats.average.toFixed(1)} out of 5 (${ratingLabel(stats.average)}) by store owners on Upwork and on our site.`
+  return {
+    title,
+    description,
+    alternates: { canonical: `${SITE_URL}/reviews` },
+    openGraph: { title, description, url: `${SITE_URL}/reviews`, type: 'website' },
+    twitter: { card: 'summary_large_image', title, description },
+  }
 }
 
-// Pull all jobs that have a review
-const reviewedJobs = jobs.filter(j => j.review && j.rating >= 4.0)
+type SearchParams = Promise<{ rating?: string; source?: string; sort?: string; page?: string }>
 
-// Aggregate rating stats
-const avgRating = (reviewedJobs.reduce((s, j) => s + j.rating, 0) / reviewedJobs.length).toFixed(2)
-const fiveStarCount = reviewedJobs.filter(j => j.rating === 5.0).length
+export default async function ReviewsPage({ searchParams }: { searchParams: SearchParams }) {
+  const sp = await searchParams
+  const all = await listPublicReviews()
+  const stats = computeStats(all)
 
-function JsonLd() {
+  const ratingFilter = Number(sp.rating)
+  const activeRating = ratingFilter >= 1 && ratingFilter <= 5 ? ratingFilter : undefined
+  const source = sp.source === 'upwork' || sp.source === 'website' ? sp.source : undefined
+  const sort = sp.sort === 'highest' || sp.sort === 'lowest' ? sp.sort : 'recent'
+
+  let list = all
+  if (activeRating) list = list.filter(r => Math.round(r.rating) === activeRating)
+  if (source) list = list.filter(r => r.source === source)
+  if (sort === 'highest') list = [...list].sort((a, b) => b.rating - a.rating || b.date.localeCompare(a.date))
+  if (sort === 'lowest') list = [...list].sort((a, b) => a.rating - b.rating || b.date.localeCompare(a.date))
+
+  const pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE))
+  const page = Math.min(pages, Math.max(1, Number(sp.page) || 1))
+  const visible = list.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+
+  const qs = (patch: Record<string, string | undefined>) => {
+    const p = new URLSearchParams()
+    const merged = { rating: activeRating ? String(activeRating) : undefined, source, sort: sort === 'recent' ? undefined : sort, ...patch }
+    for (const [k, v] of Object.entries(merged)) if (v) p.set(k, v)
+    const s = p.toString()
+    return s ? `/reviews?${s}` : '/reviews'
+  }
+
+  const fiveStar = stats.distribution[4]
+  const websiteCount = all.filter(r => r.source === 'website').length
+  const upworkCount = all.length - websiteCount
+
   const schema = [
-    // AggregateRating on the business
-    {
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Miracle Websoft',
-      description: 'Shopify development agency by Karam Singh. 650+ projects, 98% job success, Top Rated Plus on Upwork.',
-      url: 'https://miraclewebsoft.com',
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: avgRating,
-        reviewCount: reviewedJobs.length.toString(),
-        bestRating: '5',
-        worstRating: '1',
+    reviewsIndexSchema(all, stats),
+    breadcrumb([{ name: 'Home', url: '/' }, { name: 'Reviews', url: '/reviews' }]),
+    faqPage([
+      {
+        question: 'What do clients say about Miracle Websoft?',
+        answer: `Miracle Websoft is rated ${stats.average.toFixed(1)} out of 5 (${ratingLabel(stats.average)}) across ${stats.count} verified client reviews. Clients most often mention code quality, clear communication and fast delivery on Shopify projects.`,
       },
-      review: reviewedJobs.map(job => ({
-        '@type': 'Review',
-        reviewBody: job.review,
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: job.rating.toString(),
-          bestRating: '5',
-        },
-        datePublished: job.completedDate,
-        author: {
-          '@type': 'Person',
-          name: job.client || 'Verified Upwork Client',
-        },
-        itemReviewed: {
-          '@type': 'Service',
-          name: job.title,
-          serviceType: job.category,
-        },
-      })),
-    },
-    // FAQPage for AEO
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'What do clients say about Miracle Websoft?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: `Clients consistently praise Miracle Websoft for quality, communication, and speed. The agency has ${reviewedJobs.length} verified reviews on Upwork with an average rating of ${avgRating}/5.0 and a 98% Job Success Score.`,
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Is Miracle Websoft verified on Upwork?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Yes. Miracle Websoft (Karam Singh) is a Top Rated Plus freelancer and Officially Shopify Verified Partner on Upwork, with 650+ completed projects and 15,000+ hours delivered.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'How many 5-star reviews does Miracle Websoft have?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: `Miracle Websoft has ${fiveStarCount} five-star reviews out of ${reviewedJobs.length} total verified reviews on Upwork, giving an average rating of ${avgRating} out of 5.`,
-          },
-        },
-      ],
-    },
-    // BreadcrumbList
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://miraclewebsoft.com' },
-        { '@type': 'ListItem', position: 2, name: 'Reviews', item: 'https://miraclewebsoft.com/reviews' },
-      ],
-    },
+      {
+        question: 'Are Miracle Websoft reviews verified?',
+        answer: `Yes. ${upworkCount} reviews were left by clients on Upwork when their contract closed, and ${websiteCount} were submitted on miraclewebsoft.com and checked against real projects before being published.`,
+      },
+      {
+        question: 'How many 5-star reviews does Miracle Websoft have?',
+        answer: `${fiveStar} of ${stats.count} reviews are 5 stars (${stats.count ? Math.round((fiveStar / stats.count) * 100) : 0}%).`,
+      },
+    ]),
   ]
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  )
-}
-
-function Stars({ rating }: { rating: number }) {
-  const full = Math.round(rating)
-  return (
-    <div className="review-stars" aria-label={`${rating} out of 5 stars`}>
-      {'★'.repeat(full)}<span style={{ color: 'var(--border-hover)' }}>{'★'.repeat(5 - full)}</span>
-    </div>
-  )
-}
-
-export default function ReviewsPage() {
-  const [lead] = [...reviewedJobs].sort((a, b) => (b.rating - a.rating) || ((b.review?.length ?? 0) - (a.review?.length ?? 0)))
-  const ordered = reviewedJobs.filter(j => j.id !== lead.id)
-
-  const categoryReviews: Record<string, number> = {}
-  reviewedJobs.forEach(j => {
-    categoryReviews[j.category] = (categoryReviews[j.category] || 0) + 1
-  })
-
-  return (
     <>
-      <JsonLd />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: renderJsonLd(schema) }} />
 
-      <section style={{ paddingTop: 'clamp(7.5rem, 11vw, 9rem)', paddingBottom: '4rem' }}>
+      <section style={{ paddingTop: 'clamp(7.5rem, 11vw, 9rem)', paddingBottom: '2.5rem', borderBottom: '1px solid var(--border)' }}>
         <div className="mw-container">
           <div className="mb-8"><Breadcrumb items={[{ label: 'Reviews' }]} /></div>
-          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-20 items-end">
+          <div className="rv-hero">
             <div>
-              <p className="mw-eyebrow">Client reviews · verified on Upwork</p>
-              <h1 className="mw-hero-title" style={{ maxWidth: '16ch' }}>
-                What store owners said <span className="mw-mark">after the job was done.</span>
+              <p className="mw-eyebrow">Client reviews · verified</p>
+              <h1 style={{ fontSize: 'clamp(36px, 5vw, 64px)', maxWidth: '18ch' }}>
+                Miracle Websoft reviews
               </h1>
-              <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '52ch' }}>
-                {reviewedJobs.length} reviews left on Upwork by clients once their project closed. Every one is shown here, unedited, linked to the project it was left on.
+              <div className="rv-hero-line">
+                <span className="rv-hero-score">{stats.average.toFixed(1)}</span>
+                <span className="rv-hero-label">{ratingLabel(stats.average)}</span>
+                <span className="rv-hero-sep" aria-hidden="true">·</span>
+                <span>{stats.count} reviews</span>
+              </div>
+              <p style={{ marginTop: '1rem', fontSize: '1.05rem', maxWidth: '56ch', color: 'var(--text-2)' }}>
+                Reviews from Shopify store owners we&apos;ve worked with, left on Upwork when the job closed or submitted here.
+                Every review is checked against a real project. Nothing is edited.
               </p>
             </div>
-            <dl className="stats">
-              <div><dt>Average rating</dt><dd>{avgRating}</dd></div>
-              <div><dt>Reviews on this page</dt><dd>{reviewedJobs.length}</dd></div>
-              <div><dt>Five-star</dt><dd>{fiveStarCount}</dd></div>
-              <div><dt>Upwork job success</dt><dd>98%</dd></div>
-            </dl>
-          </div>
-        </div>
-      </section>
-
-      <section className="mw-section" style={{ background: 'var(--bg-deep)' }}>
-        <div className="mw-container">
-          <figure style={{ maxWidth: '60rem' }}>
-            <Stars rating={lead.rating} />
-            <blockquote style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.6rem, 3.2vw, 2.6rem)', lineHeight: 1.25, letterSpacing: '-0.02em', color: 'var(--text-1)', marginTop: '1.25rem' }}>
-              &ldquo;{lead.review}&rdquo;
-            </blockquote>
-            <figcaption style={{ marginTop: '1.5rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem 1.25rem', alignItems: 'baseline' }}>
-              <Link href={`/work/${lead.id}`} className="review-project" style={{ fontSize: '0.95rem' }}>{jobTitle(lead)}</Link>
-              <span className="mw-num">Upwork · {lead.completedDate}</span>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section className="mw-section">
-        <div className="mw-container">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6" style={{ marginBottom: '2rem' }}>
-            <div>
-              <p className="mw-eyebrow">All {reviewedJobs.length} reviews</p>
-              <h2 style={{ fontSize: 'clamp(28px, 3.4vw, 42px)' }}>Every review, by project.</h2>
+            <div className="rv-hero-cta">
+              <Link href="/reviews/write" className="mw-btn-accent"><PenLine size={15} /> Write a review</Link>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-3)', marginTop: '0.6rem' }}>Worked with us? We&apos;d value your honest feedback.</p>
             </div>
-            <p className="mw-num" style={{ maxWidth: '40rem', lineHeight: 1.8 }}>
-              {Object.entries(categoryReviews).sort((a, b) => b[1] - a[1]).map(([c, n]) => `${c} ${n}`).join('  ·  ')}
+          </div>
+        </div>
+      </section>
+
+      <section style={{ padding: '2.5rem 0 4rem', background: 'var(--bg-deep)' }}>
+        <div className="mw-container rv-layout">
+          <aside className="rv-aside">
+            <div className="rv-panel">
+              <RatingSummary stats={stats} activeRating={activeRating} />
+            </div>
+            <div className="rv-panel">
+              <div className="rv-panel-title">Sources</div>
+              <ul className="rv-sources">
+                <li><span>Upwork (verified contracts)</span><strong>{upworkCount}</strong></li>
+                <li><span>miraclewebsoft.com</span><strong>{websiteCount}</strong></li>
+              </ul>
+              <a href={UPWORK_FREELANCER} target="_blank" rel="noopener noreferrer" className="rv-link inline-flex items-center gap-1" style={{ marginTop: '0.8rem' }}>
+                Check the Upwork profile <ArrowUpRight size={14} />
+              </a>
+            </div>
+            <div className="rv-panel">
+              <div className="rv-panel-title">Share these reviews</div>
+              <ShareButtons url={`${SITE_URL}/reviews`} text={`Miracle Websoft: rated ${stats.average.toFixed(1)}/5 by ${stats.count} Shopify clients`} contentType="reviews" size="sm" />
+            </div>
+          </aside>
+
+          <div>
+            <div className="rv-toolbar">
+              <div className="rv-chips" role="group" aria-label="Filter by source">
+                <Link href={qs({ source: undefined, page: undefined })} className={`rv-chip${!source ? ' is-active' : ''}`} scroll={false}>All</Link>
+                <Link href={qs({ source: 'upwork', page: undefined })} className={`rv-chip${source === 'upwork' ? ' is-active' : ''}`} scroll={false}>Upwork</Link>
+                <Link href={qs({ source: 'website', page: undefined })} className={`rv-chip${source === 'website' ? ' is-active' : ''}`} scroll={false}>Website</Link>
+                {activeRating && (
+                  <Link href={qs({ rating: undefined, page: undefined })} className="rv-chip is-active" scroll={false}>{activeRating}-star ✕</Link>
+                )}
+              </div>
+              <div className="rv-chips" role="group" aria-label="Sort">
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-3)' }}>Sort:</span>
+                <Link href={qs({ sort: undefined, page: undefined })} className={`rv-chip${sort === 'recent' ? ' is-active' : ''}`} scroll={false}>Most recent</Link>
+                <Link href={qs({ sort: 'highest', page: undefined })} className={`rv-chip${sort === 'highest' ? ' is-active' : ''}`} scroll={false}>Highest</Link>
+                <Link href={qs({ sort: 'lowest', page: undefined })} className={`rv-chip${sort === 'lowest' ? ' is-active' : ''}`} scroll={false}>Lowest</Link>
+              </div>
+            </div>
+
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-3)', margin: '0 0 1rem' }}>
+              Showing {visible.length ? (page - 1) * PAGE_SIZE + 1 : 0}–{(page - 1) * PAGE_SIZE + visible.length} of {list.length} review{list.length === 1 ? '' : 's'}
             </p>
+
+            {visible.length === 0 ? (
+              <div className="rv-card" style={{ textAlign: 'center' }}>
+                <p>No reviews match this filter yet.</p>
+                <Link href="/reviews" className="rv-link">Show all reviews</Link>
+              </div>
+            ) : (
+              <div className="rv-list">
+                {visible.map(r => <ReviewCard key={r.slug} review={r} />)}
+              </div>
+            )}
+
+            {pages > 1 && (
+              <nav className="rv-pager" aria-label="Review pages">
+                {page > 1 && <Link href={qs({ page: page > 2 ? String(page - 1) : undefined })} className="rv-chip">← Previous</Link>}
+                <span style={{ fontSize: '0.85rem', color: 'var(--text-3)' }}>Page {page} of {pages}</span>
+                {page < pages && <Link href={qs({ page: String(page + 1) })} className="rv-chip">Next →</Link>}
+              </nav>
+            )}
           </div>
-          <div className="reviews">
-            {ordered.map(job => (
-              <figure key={job.id} className="review">
-                <div className="flex items-center justify-between gap-3">
-                  <Stars rating={job.rating} />
-                  <span className="mw-num">{job.category}</span>
-                </div>
-                <blockquote style={{ fontSize: '1.1rem' }}>&ldquo;{job.review}&rdquo;</blockquote>
-                <figcaption>
-                  <Link href={`/work/${job.id}`} className="review-project">{jobTitle(job)}</Link>
-                  <span className="mw-num" style={{ whiteSpace: 'nowrap' }}>{job.completedDate}</span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-          <p style={{ marginTop: '2rem', fontSize: '0.95rem', color: 'var(--text-3)' }}>
-            Want to check them at the source?{' '}
-            <a href={UPWORK_FREELANCER} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1" style={{ color: 'var(--text-1)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>
-              See the full Upwork profile <ArrowUpRight size={14} />
-            </a>
-          </p>
         </div>
       </section>
 

@@ -16,7 +16,8 @@ export type ServiceLandingData = {
   benefits: string[]
   deliverables: string[]
   process: ServiceStep[]
-  caseStudy: {
+  /** Optional: omitted when there's no real project to point to. */
+  caseStudy?: {
     tag: string
     metric: string
     metricLabel: string
@@ -28,6 +29,8 @@ export type ServiceLandingData = {
   formHeading: string
   formSubtext: string
   related: { title: string; desc: string; href: string }[]
+  /** Optional technology list, rendered as a "Stack" row. */
+  technologies?: { group: string; items: string[] }[]
 }
 
 const defaultProcess: ServiceStep[] = [
@@ -58,7 +61,7 @@ const defaultRelated = [
   {
     title: 'API Integration Services',
     desc: 'Connect CRMs, ERPs, ecommerce platforms, support desks and databases.',
-    href: '/services/custom-web-development',
+    href: '/services/api-integration',
   },
   {
     title: 'Shopify Development',

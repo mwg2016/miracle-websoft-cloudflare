@@ -7,26 +7,26 @@ import { outboundHref } from '@/lib/outbound'
 
 export const metadata: Metadata = {
   title: 'Miracle Websoft — Shopify Experts for Growing Stores',
-  description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 650+ projects, 98% job success, 16 team members.',
+  description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 700+ projects, 98% job success, 16 team members.',
   alternates: { canonical: 'https://miraclewebsoft.com/bio/company' },
   robots: { index: true, follow: true },
   openGraph: {
     title: 'Miracle Websoft — Shopify Experts for Growing Stores',
-    description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 650+ projects, 98% job success, 16 team members.',
+    description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 700+ projects, 98% job success, 16 team members.',
     url: 'https://miraclewebsoft.com/bio/company',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Miracle Websoft — Shopify Experts for Growing Stores',
-    description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 650+ projects, 98% job success, 16 team members.',
+    description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 700+ projects, 98% job success, 16 team members.',
   },
 }
 
 const PAYMENT_LINK = outboundHref('external', 'https://razorpay.com/export-link/@miraclewebsoft')
 
 const stats = [
-  { value: '650+', label: 'Projects' },
+  { value: '700+', label: 'Projects' },
   { value: '98%', label: 'Upwork job success' },
   { value: '2015', label: 'Founded' },
   { value: '16', label: 'In-house team' },
@@ -60,7 +60,7 @@ const jsonLd = renderJsonLd([
   webPage({
     name: 'Miracle Websoft — Company bio',
     description:
-      'Miracle Websoft company profile — Top Rated Plus Shopify agency for custom development, CRO, speed, apps and migrations. 650+ projects, 98% job success, 16 specialists.',
+      'Miracle Websoft company profile — Top Rated Plus Shopify agency for custom development, CRO, speed, apps and migrations. 700+ projects, 98% job success, 16 specialists.',
     url: 'https://miraclewebsoft.com/bio/company',
     type: 'AboutPage',
   }),

@@ -45,7 +45,7 @@ const shopifyRelated = [
 ]
 
 const whyReasons = [
-  { title: 'Shopify since 2015', body: 'Launches, redesigns, migrations, app builds and growth work across 650+ projects.' },
+  { title: 'Shopify since 2015', body: 'Launches, redesigns, migrations, app builds and growth work across 700+ projects.' },
   { title: 'Business-first advice', body: 'We tell you what is likely to move revenue, what can wait, and when a full rebuild is unnecessary.' },
   { title: 'Speed is part of the build', body: 'App bloat, Core Web Vitals and mobile layout are handled as part of the store, not as an afterthought.' },
   { title: 'You talk to the people doing the work', body: 'A 16-person in-house team in India. Clear updates, practical decisions, no hand-off chain.' },

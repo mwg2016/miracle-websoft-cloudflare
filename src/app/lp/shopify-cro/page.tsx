@@ -66,7 +66,7 @@ const faqs = [
   {
     question: 'Why Miracle Websoft over a generic agency?',
     answer:
-      'We’ve been building on Shopify since 2015: 650+ projects, a 16-person in-house team in India, 4.9 on Clutch and Top Rated Plus on Upwork with 98% job success. We don’t outsource, and the person who scopes your project stays on it.',
+      'We’ve been building on Shopify since 2015: 700+ projects, a 16-person in-house team in India, 4.9 on Clutch and Top Rated Plus on Upwork with 98% job success. We don’t outsource, and the person who scopes your project stays on it.',
   },
 ]
 
@@ -163,7 +163,7 @@ export default function ShopifyCROLandingPage() {
             </div>
             <dl className="lp-facts">
               <div><dt>Since</dt><dd>2015</dd></div>
-              <div><dt>Projects</dt><dd>650+</dd></div>
+              <div><dt>Projects</dt><dd>700+</dd></div>
               <div><dt>Clutch</dt><dd>4.9★</dd></div>
             </dl>
             <p style={{ fontSize: '0.9rem', color: 'var(--text-3)', marginTop: '1.25rem' }}>

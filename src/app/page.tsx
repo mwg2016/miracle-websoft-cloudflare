@@ -20,7 +20,7 @@ const homeFaqs = [
 export const metadata: Metadata = {
   title: 'Shopify Development & CRO Agency | Miracle Websoft',
   description:
-    'Shopify development, conversion rate optimisation and speed work for DTC brands. 650+ Shopify projects, fixed prices, and a free 5-minute video teardown of your store.',
+    'Shopify development, conversion rate optimisation and speed work for DTC brands. 700+ Shopify projects, fixed prices, and a free 5-minute video teardown of your store.',
   alternates: { canonical: 'https://miraclewebsoft.com' },
   openGraph: {
     title: 'Shopify Development & CRO Agency | Miracle Websoft',
@@ -70,6 +70,25 @@ const services = [
   { name: 'Care plans', line: 'Monthly development hours, monitoring and fixes.', price: 'From $99/mo', href: '/pricing' },
 ]
 
+const ownSoftware = [
+  'CRM & ERP systems',
+  'Shopify apps & WordPress plugins',
+  'Invoicing & billing platforms',
+  'Inventory & order management',
+  'Business automation tools',
+  'Custom SaaS applications',
+]
+
+const beyondShopify = [
+  { name: 'Full stack development', href: '/services/full-stack-development' },
+  { name: 'API integration', href: '/services/api-integration' },
+  { name: 'CRM & SuiteCRM', href: '/services/crm-development' },
+  { name: 'Moodle LMS', href: '/services/moodle-development' },
+  { name: 'Laravel & PHP', href: '/services/laravel-development' },
+  { name: 'WordPress plugins', href: '/services/wordpress-plugin-development' },
+  { name: 'Maintenance & bug fixing', href: '/services/website-maintenance' },
+]
+
 const steps = [
   { t: '48 hours', title: 'Teardown', body: 'A recorded walkthrough of your store with fixes ranked by likely impact.' },
   { t: '24 hours', title: 'Fixed quote', body: 'Scope, price and timeline in writing, agreed before any work starts.' },
@@ -98,7 +117,7 @@ export default function HomePage() {
               More orders from the traffic you <span className="mw-mark">already have.</span>
             </h1>
             <p className="home-lede">
-              We build, fix and speed up Shopify stores for DTC brands. 650+ Shopify projects since 2015, fixed prices, and a 16-person in-house team led by the person you actually talk to.
+              We build, fix and speed up Shopify stores for DTC brands. 700+ Shopify projects since 2015, fixed prices, and a 16-person in-house team led by the person you actually talk to.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mt-8">
               <Link href="/free-store-audit" className="mw-btn-accent" style={{ minHeight: 54, padding: '0 1.5rem', fontSize: '1rem' }}>
@@ -157,7 +176,7 @@ export default function HomePage() {
               <p className="mw-eyebrow">The usual suspects</p>
               <h2>Most stores don&apos;t have a traffic problem.</h2>
               <p style={{ marginTop: '1.25rem', maxWidth: '38ch' }}>
-                They have a leak. After 650+ Shopify projects, it&apos;s nearly always one of these four.
+                They have a leak. After 700+ Shopify projects, it&apos;s nearly always one of these four.
               </p>
             </div>
             <ol className="leaks">
@@ -222,8 +241,40 @@ export default function HomePage() {
             ))}
           </ul>
           <p style={{ marginTop: '1.5rem', fontSize: '0.9rem', color: 'var(--text-3)' }}>
-            Also: <Link href="/services/ai" className="underline underline-offset-4">AI automation</Link>, <Link href="/services/wordpress-development" className="underline underline-offset-4">WordPress</Link>, <Link href="/services/custom-web-development" className="underline underline-offset-4">custom web apps</Link> and <Link href="/white-label" className="underline underline-offset-4">white-label work for agencies</Link>.
+            Also: <Link href="/services/ai" className="underline underline-offset-4">AI automation</Link>, <Link href="/services/wordpress-development" className="underline underline-offset-4">WordPress</Link>, <Link href="/services/custom-web-development" className="underline underline-offset-4">custom web apps</Link>, <Link href="/services/full-stack-development" className="underline underline-offset-4">full stack development</Link> and <Link href="/white-label" className="underline underline-offset-4">white-label work for agencies</Link>.
           </p>
+        </div>
+      </section>
+
+      {/* ── Own your software ───────────────────────────────────────────────── */}
+      <section className="mw-ink mw-section" id="own-your-software">
+        <div className="mw-container grid lg:grid-cols-2 gap-14 items-start">
+          <div>
+            <p className="mw-eyebrow">Beyond Shopify · Custom software</p>
+            <h2>Still paying per-user licence fees for your business software?</h2>
+            <p style={{ marginTop: '1.25rem', maxWidth: '46ch', fontSize: '1.05rem' }}>
+              In the AI era, custom applications are faster and more affordable to build than ever. Why keep renting expensive monthly subscriptions when you can own software built for your business?
+            </p>
+            <div className="flex flex-wrap gap-3" style={{ marginTop: '1.75rem' }}>
+              <Link href="/services/custom-software-development" className="mw-btn-accent">Stop renting, start owning <ArrowRight size={16} /></Link>
+              <Link href="/book" className="mw-btn-outline" style={{ color: 'var(--on-ink)', borderColor: 'rgb(244 241 234 / 0.35)' }}>Free technical consultation</Link>
+            </div>
+          </div>
+          <div>
+            <p className="mw-num" style={{ marginBottom: '0.75rem', color: 'rgb(244 241 234 / 0.6)' }}>WE BUILD CUSTOM ALTERNATIVES TO</p>
+            <ul className="offer-list" style={{ marginTop: 0 }}>
+              {ownSoftware.map(x => <li key={x}>{x}</li>)}
+            </ul>
+            <p style={{ marginTop: '1.25rem', fontSize: '0.88rem', color: 'rgb(244 241 234 / 0.7)', maxWidth: '50ch' }}>
+              One-time development investment. No recurring per-user licence fees for your own software. Hosting, maintenance and third-party services may still have costs.
+            </p>
+            <p className="mw-num" style={{ margin: '1.75rem 0 0.75rem', color: 'rgb(244 241 234 / 0.6)' }}>FULL STACK SERVICES</p>
+            <div className="flex flex-wrap gap-2">
+              {beyondShopify.map(b => (
+                <Link key={b.href} href={b.href} className="home-chip-ink">{b.name}</Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -275,15 +326,15 @@ export default function HomePage() {
           <div className="founder-card">
             <p className="mw-num" style={{ marginBottom: '1rem' }}>A NOTE FROM THE FOUNDER</p>
             <p className="founder-quote">
-              “I started taking Shopify projects in 2015. More than ten years and 650+ stores later, the work that pays off fastest is still the unglamorous stuff: a faster product page, a clearer cart, one less app. That&apos;s where we start.”
+              “I started taking Shopify projects in 2015. More than ten years and 700+ stores later, the work that pays off fastest is still the unglamorous stuff: a faster product page, a clearer cart, one less app. That&apos;s where we start.”
             </p>
             <p style={{ marginTop: '1.5rem', color: 'var(--text-1)', fontWeight: 600 }}>Karam Singh Mehra</p>
             <p style={{ fontSize: '0.9rem' }}>Founder, Miracle Websoft</p>
           </div>
           <dl className="stats">
-            <div><dt>Shopify projects</dt><dd>650+</dd></div>
+            <div><dt>Shopify projects</dt><dd>700+</dd></div>
             <div><dt>Hours logged on Upwork</dt><dd>15,000+</dd></div>
-            <div><dt>Clutch rating</dt><dd>4.9</dd></div>
+            <div><dt>Earned on Upwork</dt><dd>$600K+</dd></div>
             <div><dt>Upwork job success</dt><dd>98%</dd></div>
           </dl>
         </div>

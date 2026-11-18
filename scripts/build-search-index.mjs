@@ -261,7 +261,7 @@ for (const pageFile of pages) {
     href,
     title,
     description: meta.description ?? '',
-    keywords: meta.keywords,
+    keywords: meta.keywords ?? [],
     body: copyForPage(pageFile),
   })
 }

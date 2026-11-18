@@ -8,19 +8,19 @@ import { clientVideos, founderIntro } from '@/data/videos'
 
 export const metadata: Metadata = {
   title: 'Karam Singh Mehra — Shopify Expert & Founder | Miracle Websoft',
-  description: 'Karam Singh Mehra is the founder of Miracle Websoft, a Top Rated Plus Shopify agency on Upwork. 10+ years of Shopify expertise, 650+ projects delivered.',
+  description: 'Karam Singh Mehra is the founder of Miracle Websoft and a Top Rated Plus full stack and Shopify developer on Upwork. 10+ years, 700+ Shopify projects, $600K+ earned on Upwork.',
   alternates: { canonical: 'https://miraclewebsoft.com/bio/owner' },
   robots: { index: true, follow: true },
   openGraph: {
     title: 'Karam Singh Mehra — Shopify Expert & Founder | Miracle Websoft',
-    description: 'Karam Singh Mehra is the founder of Miracle Websoft, a Top Rated Plus Shopify agency on Upwork. 10+ years of Shopify expertise, 650+ projects delivered.',
+    description: 'Karam Singh Mehra is the founder of Miracle Websoft and a Top Rated Plus full stack and Shopify developer on Upwork. 10+ years, 700+ Shopify projects, $600K+ earned on Upwork.',
     url: 'https://miraclewebsoft.com/bio/owner',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Karam Singh Mehra — Shopify Expert & Founder | Miracle Websoft',
-    description: 'Karam Singh Mehra is the founder of Miracle Websoft, a Top Rated Plus Shopify agency on Upwork. 10+ years of Shopify expertise, 650+ projects delivered.',
+    description: 'Karam Singh Mehra is the founder of Miracle Websoft and a Top Rated Plus full stack and Shopify developer on Upwork. 10+ years, 700+ Shopify projects, $600K+ earned on Upwork.',
   },
 }
 
@@ -51,7 +51,7 @@ const jsonLd = renderJsonLd([
     url: 'https://miraclewebsoft.com/bio/owner',
     jobTitle: 'Founder & Lead Shopify Expert',
     description:
-      'Founder of Miracle Websoft — 10+ years of Shopify expertise, 650+ projects delivered. Top Rated Plus on Upwork.',
+      'Founder of Miracle Websoft — 10+ years of Shopify expertise, 700+ projects delivered. Top Rated Plus on Upwork.',
     image: 'https://miraclewebsoft.com/icon-512.png',
     sameAs: [
       'https://www.linkedin.com/in/ecommerce-experts/',
@@ -89,7 +89,7 @@ export default function OwnerBioPage() {
           <p className="mw-eyebrow">Founder · Miracle Websoft</p>
           <h1 style={{ fontSize: 'clamp(2.2rem, 7vw, 3rem)', lineHeight: 1.05 }}>Karam Singh Mehra</h1>
           <p style={{ marginTop: '0.75rem', fontSize: '1.05rem', color: 'var(--text-2)' }}>
-            Lead Shopify developer. 650+ Shopify projects since 2015, Top Rated Plus on Upwork.
+            Full stack and lead Shopify developer. 700+ Shopify projects since 2015, $600K+ earned and Top Rated Plus on Upwork.
           </p>
           <p className="mw-num" style={{ marginTop: '0.75rem' }}>Chandigarh, India · working with the US, UK &amp; Australia</p>
         </header>

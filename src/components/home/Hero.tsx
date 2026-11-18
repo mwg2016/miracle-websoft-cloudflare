@@ -6,7 +6,7 @@ import { motion, animate, useInView, useMotionValue, useReducedMotion, useSpring
 import { ArrowRight, Gauge, PackageCheck, ShoppingBag, Star, Zap } from 'lucide-react'
 
 const metrics = [
-  { value: 650, suffix: '+', label: 'Shopify Projects' },
+  { value: 700, suffix: '+', label: 'Shopify Projects' },
   { value: 15000, suffix: '+', label: 'Hours Worked' },
   { value: 500, prefix: '$', suffix: 'K+', label: 'Earned on Upwork' },
   { value: 100, suffix: '%', label: 'Shopify Focus' },
@@ -302,7 +302,7 @@ export default function Hero() {
             animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.72, delay: 0.16, ease: [0.2, 0.8, 0.2, 1] }}
           >
-            <strong>650+ Shopify projects completed.</strong> From custom Shopify development and Shopify Plus builds to
+            <strong>700+ Shopify projects completed.</strong> From custom Shopify development and Shopify Plus builds to
             performance optimization, migrations, and long-term technical support, we help ecommerce brands build faster,
             convert better, and scale with confidence.
           </motion.p>

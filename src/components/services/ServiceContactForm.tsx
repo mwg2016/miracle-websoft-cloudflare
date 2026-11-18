@@ -47,7 +47,7 @@ export default function ServiceContactForm({
   messageLabel = 'What do you want to improve?',
   messagePlaceholder = 'Example: our store is slow, mobile conversion is low, we need to migrate, or we need a custom feature Shopify apps cannot handle.',
   buttonLabel = 'Request My Shopify Plan',
-  proofPoints = ['Responds within 24 hours', '650+ projects delivered', 'Fixed-price proposals'],
+  proofPoints = ['Responds within 24 hours', '700+ projects delivered', 'Fixed-price proposals'],
   fixedPrice,
 }: Props) {
   const router = useRouter()

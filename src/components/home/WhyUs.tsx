@@ -8,9 +8,9 @@ const reasons = [
 ]
 
 const stats = [
-  { value: '650+', label: 'Projects completed' },
+  { value: '700+', label: 'Projects completed' },
   { value: '15k+', label: 'Hours delivered' },
-  { value: '2015', label: 'Building since' },
+  { value: '$600K+', label: 'Earned on Upwork' },
   { value: '4.9', label: 'Rating on Clutch' },
 ]
 

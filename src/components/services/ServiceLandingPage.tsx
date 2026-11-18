@@ -108,21 +108,39 @@ export default function ServiceLandingPage({
         </div>
       </section>
 
+      {data.technologies && data.technologies.length > 0 && (
+        <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
+          <div className="mw-container">
+            <SectionHead eyebrow="Stack" title="Technologies we work with." />
+            <dl className="tech-groups">
+              {data.technologies.map((t) => (
+                <div key={t.group}>
+                  <dt>{t.group}</dt>
+                  <dd>{t.items.map((i) => <span key={i} className="rv-chip">{i}</span>)}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+      )}
+
       {/* Proof */}
+      {data.caseStudy && (
       <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="mw-container">
           <SectionHead eyebrow="Example project" title="What this looks like in practice." />
           <ServiceResult
-            tag={data.caseStudy.tag}
-            metric={data.caseStudy.metric}
-            metricLabel={data.caseStudy.metricLabel}
-            title={data.caseStudy.title}
-            bullets={data.caseStudy.bullets}
-            duration={data.caseStudy.duration}
+            tag={data.caseStudy!.tag}
+            metric={data.caseStudy!.metric}
+            metricLabel={data.caseStudy!.metricLabel}
+            title={data.caseStudy!.title}
+            bullets={data.caseStudy!.bullets}
+            duration={data.caseStudy!.duration}
             cta={{ label: 'See more work', href: '/work' }}
           />
         </div>
       </section>
+      )}
 
       <MidPageCta {...midCta} />
 

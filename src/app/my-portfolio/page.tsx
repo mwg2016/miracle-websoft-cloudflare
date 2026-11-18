@@ -9,11 +9,11 @@ import { breadcrumb, person, webPage, itemList, renderJsonLd } from '@/lib/jsonl
 export const metadata: Metadata = {
   title: 'Portfolio — Karam Singh Mehra, Shopify Expert | Miracle Websoft',
   description:
-    'Portfolio of Karam Singh Mehra, founder of Miracle Websoft — 650+ Shopify projects, 40+ brands across fashion, beauty, home and food, Top Rated Plus on Upwork.',
+    'Portfolio of Karam Singh Mehra, founder of Miracle Websoft — 700+ Shopify projects, 40+ brands across fashion, beauty, home and food, Top Rated Plus on Upwork.',
   alternates: { canonical: 'https://miraclewebsoft.com/my-portfolio' },
   openGraph: {
     title: 'Portfolio — Karam Singh Mehra, Shopify Expert | Miracle Websoft',
-    description: '650+ Shopify projects. 40+ brands. Top Rated Plus on Upwork, verified Shopify Partner.',
+    description: '700+ Shopify projects. 40+ brands. Top Rated Plus on Upwork, verified Shopify Partner.',
     url: 'https://miraclewebsoft.com/my-portfolio',
     type: 'profile',
   },
@@ -24,7 +24,7 @@ const SHOPIFY_PARTNER = outboundHref('shopify_partners', 'https://www.shopify.co
 const CLUTCH_PROFILE = outboundHref('external', 'https://clutch.co/profile/miracle-websoft')
 
 const STATS = [
-  { value: '650+', label: 'Shopify projects' },
+  { value: '700+', label: 'Shopify projects' },
   { value: '15,000+', label: 'Hours delivered' },
   { value: '2015', label: 'Building since' },
   { value: '98%', label: 'Upwork job success' },
@@ -96,7 +96,7 @@ const jsonLd = renderJsonLd([
     name: 'Karam Singh Mehra',
     url: 'https://miraclewebsoft.com/my-portfolio',
     jobTitle: 'Founder & Lead Shopify Expert',
-    description: 'Founder of Miracle Websoft — 650+ verified Shopify projects across 40+ brands. Top Rated Plus on Upwork, verified Shopify Partner.',
+    description: 'Founder of Miracle Websoft — 700+ verified Shopify projects across 40+ brands. Top Rated Plus on Upwork, verified Shopify Partner.',
     image: 'https://miraclewebsoft.com/icon-512.png',
     sameAs: [
       'https://www.linkedin.com/in/ecommerce-experts/',
@@ -107,7 +107,7 @@ const jsonLd = renderJsonLd([
   }),
   webPage({
     name: 'Portfolio — Karam Singh Mehra, Shopify Expert',
-    description: 'Portfolio of 650+ Shopify projects and 40+ brands built by Karam Singh Mehra, founder of Miracle Websoft.',
+    description: 'Portfolio of 700+ Shopify projects and 40+ brands built by Karam Singh Mehra, founder of Miracle Websoft.',
     url: 'https://miraclewebsoft.com/my-portfolio',
     type: 'ProfilePage',
   }),
@@ -158,7 +158,7 @@ export default function PortfolioPage() {
               <p className="mw-eyebrow">Selected work</p>
               <h2 style={{ fontSize: 'clamp(28px, 3.4vw, 42px)' }}>Recent projects, with the client&apos;s words.</h2>
             </div>
-            <Link href="/work" className="inline-flex items-center gap-1.5" style={{ fontSize: '0.92rem', fontWeight: 600, color: 'var(--text-1)' }}>All 650+ projects <ArrowRight size={14} /></Link>
+            <Link href="/work" className="inline-flex items-center gap-1.5" style={{ fontSize: '0.92rem', fontWeight: 600, color: 'var(--text-1)' }}>All 700+ projects <ArrowRight size={14} /></Link>
           </div>
           <ol className="pf-list">
             {featuredJobs.map((job, i) => (

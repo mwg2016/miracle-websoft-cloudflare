@@ -161,7 +161,7 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string |
     <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px">
       <tr>
         <td style="width:33%;text-align:center;padding:16px 8px;background:#f8f8fc;border-radius:10px">
-          <div style="font-size:22px;font-weight:800;color:#111;line-height:1">650+</div>
+          <div style="font-size:22px;font-weight:800;color:#111;line-height:1">700+</div>
           <div style="font-size:11px;color:#888;margin-top:4px">Projects completed</div>
         </td>
         <td style="width:4px"></td>

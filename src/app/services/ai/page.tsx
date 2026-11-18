@@ -97,7 +97,7 @@ export default function AiServicesPage() {
           <HeroScope
             label="What we connect"
             items={['OpenAI and other model APIs', 'Shopify and ecommerce workflows', 'CRMs, helpdesks and spreadsheets', 'Review queues, logs and escalation']}
-            foot="Built by the same in-house team behind 650+ web and Shopify projects."
+            foot="Built by the same in-house team behind 700+ web and Shopify projects."
           />
         }
       />

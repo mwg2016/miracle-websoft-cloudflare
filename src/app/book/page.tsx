@@ -23,7 +23,7 @@ export default function BookPage() {
           <p className="mw-eyebrow">15 minutes · Google Meet or Zoom</p>
           <h1 className="mw-hero-title">Talk to the person who&apos;ll do the work.</h1>
           <p style={{ marginTop: '1.25rem', fontSize: '1.05rem', maxWidth: '42ch' }}>
-            You&apos;ll speak with Karam Singh Mehra, founder of Miracle Websoft. Ten-plus years and 650+ Shopify projects, so you&apos;ll get a straight answer on what&apos;s worth doing.
+            You&apos;ll speak with Karam Singh Mehra, founder of Miracle Websoft. Ten-plus years and 700+ Shopify projects, so you&apos;ll get a straight answer on what&apos;s worth doing.
           </p>
           <p className="mw-num" style={{ marginTop: '2.25rem', marginBottom: '0.75rem' }}>WHAT WE&apos;LL COVER</p>
           <ol className="book-agenda">

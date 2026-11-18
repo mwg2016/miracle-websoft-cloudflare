@@ -15,6 +15,14 @@ const serviceLinks = [
   { label: 'Conversion Rate Optimization', href: '/services/conversion-rate-optimization' },
   { label: 'Shopify Speed Optimization', href: '/services/shopify-speed-optimization' },
   { label: 'Custom Web Development', href: '/services/custom-web-development' },
+  { label: 'Custom Software (Replace SaaS)', href: '/services/custom-software-development' },
+  { label: 'Full Stack Development', href: '/services/full-stack-development' },
+  { label: 'API Integration', href: '/services/api-integration' },
+  { label: 'CRM & SuiteCRM Development', href: '/services/crm-development' },
+  { label: 'Moodle LMS Development', href: '/services/moodle-development' },
+  { label: 'Laravel & PHP Development', href: '/services/laravel-development' },
+  { label: 'WordPress Plugin Development', href: '/services/wordpress-plugin-development' },
+  { label: 'Website Maintenance & Bug Fixing', href: '/services/website-maintenance' },
   { label: 'WordPress Development', href: '/services/wordpress-development' },
 ]
 
@@ -35,6 +43,8 @@ const companyLinks = [
   { label: 'Pricing', href: '/pricing' },
   { label: 'Work', href: '/work' },
   { label: 'Reviews', href: '/reviews' },
+  { label: 'Write a Review', href: '/reviews/write' },
+  { label: 'Share Our Services', href: '/share' },
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'Resources', href: '/resources' },
   { label: 'Blog', href: '/blog' },

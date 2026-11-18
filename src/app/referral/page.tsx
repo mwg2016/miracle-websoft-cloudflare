@@ -47,7 +47,7 @@ const qualifying = [
 ]
 
 const trustPoints = [
-  { title: '650+ projects, Top Rated Plus', body: '98% job success on Upwork and 4.9 on Clutch. Your referral goes to a team with a long public track record.' },
+  { title: '700+ projects, Top Rated Plus', body: '98% job success on Upwork and 4.9 on Clutch. Your referral goes to a team with a long public track record.' },
   { title: 'Your relationship stays yours', body: 'We never approach your client for future work without your involvement. You stay the trusted advisor.' },
   { title: 'NDAs signed on request', body: 'Need confidentiality covered? We sign an NDA before any project discussion.' },
   { title: 'No cap on referrals', body: 'Refer one client or fifty: 20% on every project, including repeat work from the same client.' },

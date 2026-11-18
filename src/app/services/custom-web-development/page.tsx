@@ -76,7 +76,7 @@ const whyUs = [
   { title: 'Security from the start', body: 'OWASP Top 10, input validation, CSRF protection, secrets management, and proper authentication are defaults in every build — not extras.' },
   { title: 'Fixed-price proposals', body: 'Scoped clearly, priced accurately, delivered as agreed. No hourly billing, no change-order surprises. You know what you\'re paying before we start.' },
   { title: 'Direct access to developers', body: 'You talk to the engineers building your product. No PMs translating requirements, no handoffs. Faster decisions, less miscommunication.' },
-  { title: '650+ projects since 2015', body: 'Top Rated Plus on Upwork with a 98% job success score, and 4.9 on Clutch. Internal tools through to production SaaS platforms.' },
+  { title: '700+ projects since 2015', body: 'Top Rated Plus on Upwork with a 98% job success score, and 4.9 on Clutch. Internal tools through to production SaaS platforms.' },
 ]
 
 const guarantees = [

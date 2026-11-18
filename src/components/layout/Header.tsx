@@ -16,6 +16,10 @@ const services = [
 
 const moreServices = [
   { label: 'All Shopify services', href: '/services/shopify' },
+  { label: 'Custom software (replace SaaS)', href: '/services/custom-software-development' },
+  { label: 'Full stack development', href: '/services/full-stack-development' },
+  { label: 'API integration', href: '/services/api-integration' },
+  { label: 'CRM & SuiteCRM development', href: '/services/crm-development' },
   { label: 'WordPress development', href: '/services/wordpress-development' },
   { label: 'Custom web development', href: '/services/custom-web-development' },
   { label: 'White-label for agencies', href: '/white-label' },

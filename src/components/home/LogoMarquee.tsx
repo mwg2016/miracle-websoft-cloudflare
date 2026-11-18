@@ -7,7 +7,7 @@ const brands = [
   { name: 'Esparda',          flag: '🇮🇳' },
   { name: 'Shopify Plus',     flag: '◆' },
   { name: 'AI Automation',    flag: '◆' },
-  { name: '650+ Projects',    flag: '✓' },
+  { name: '700+ Projects',    flag: '✓' },
   { name: '15,000+ Hours',    flag: '✓' },
   { name: 'Verified Partner', flag: '✓' },
   { name: 'Top Rated · Upwork', flag: '★' },

@@ -78,7 +78,7 @@ export default function IndustriesPage() {
           </div>
           <dl className="audit-facts" style={{ gridTemplateColumns: 'repeat(3, 1fr)', marginTop: 0 }}>
             <div><dt>Guides</dt><dd>{industries.length}</dd></div>
-            <div><dt>Projects</dt><dd>650+</dd></div>
+            <div><dt>Projects</dt><dd>700+</dd></div>
             <div><dt>Since</dt><dd>2015</dd></div>
           </dl>
         </div>
