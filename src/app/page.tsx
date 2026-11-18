@@ -6,53 +6,140 @@ import AuditForm from '@/components/landing/AuditForm'
 import { jobs, jobTitle } from '@/data/jobs'
 import { blogPosts } from '@/data/blogPosts'
 import { blogDateToIso } from '@/lib/blog-date'
-import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
+import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 const homeFaqs = [
-  { question: 'What does a project usually cost?', answer: 'A Basic Store build is $600 and an Advanced Store is $1,000. Custom development starts at $1,500, and ongoing care plans run from $99 to $500 a month. CRO and speed work is quoted as a fixed price after the free teardown, so you know the number before anything starts.' },
-  { question: 'What exactly is the free teardown?', answer: 'You send your store URL. Within 48 hours you get a 5-minute screen-recorded video of us going through your store on mobile and desktop, plus a short list of fixes ranked by likely revenue impact. No call, no obligation. Most people use it to fix the easy items themselves.' },
-  { question: 'Who will actually work on my store?', answer: 'Karam Singh Mehra leads every project and is your point of contact. The build work is done by our 16-person in-house team in India, not subcontracted, and you get regular progress updates and a staging link throughout.' },
+  { question: 'Do you only work on Shopify?', answer: 'No. Shopify is our biggest specialty, with 700+ Shopify projects since 2015, but Miracle Websoft is a full stack development team. We also build custom web applications in React, Node.js, Laravel and PHP, WordPress sites and plugins, Moodle LMS platforms, SuiteCRM and custom CRMs, API integrations and AI automation.' },
+  { question: 'What does a project usually cost?', answer: 'A Basic Shopify Store build is $600 and an Advanced Store is $1,000. Custom development, including Shopify apps, web applications, plugins and integrations, starts at $1,500, and ongoing care plans run from $99 to $500 a month. Every project gets a fixed written quote before work starts.' },
+  { question: 'Can you replace our SaaS subscriptions with custom software?', answer: 'Often, yes. We build custom alternatives to CRM and ERP systems, invoicing and billing tools, inventory and order management, Shopify apps, WordPress plugins and internal SaaS tools. You pay once for development and own the code, with no per-user licence fees. Hosting, maintenance and any third-party services can still have costs, and we tell you what they are up front.' },
+  { question: 'Do you develop for Moodle?', answer: 'Yes. We build Moodle plugins and themes, customize enrollment, roles and permissions, restore and migrate courses, and connect Moodle to other systems through the Moodle web services API, including WordPress integrations. We have done Moodle work since 2017 and every Moodle job has been rated 5.0 on Upwork.' },
+  { question: 'Do you build WordPress sites and plugins?', answer: 'Yes. We build custom WordPress sites, custom plugins and WooCommerce extensions, and we fix, speed up and maintain existing WordPress sites. If a WooCommerce store has outgrown WordPress, we also migrate it to Shopify without losing SEO.' },
+  { question: 'What technologies do you work with?', answer: 'React and Next.js on the frontend; Node.js, PHP, Laravel and Yii2 on the backend; MySQL and Firebase for data; REST and GraphQL APIs and webhooks for integrations; and Shopify (Liquid, apps, Functions), WordPress, Moodle and SuiteCRM as platforms.' },
+  { question: 'Who will actually work on my project?', answer: 'Karam Singh Mehra leads every project and is your point of contact. The work is done by our 16-person in-house team in India, not subcontracted, and you get regular progress updates and a staging link throughout.' },
+  { question: 'What exactly is the free Shopify teardown?', answer: 'You send your store URL. Within 48 hours you get a 5-minute screen-recorded video of us going through your store on mobile and desktop, plus a short list of fixes ranked by likely revenue impact. No call, no obligation. For software projects, book a free technical consultation instead.' },
   { question: 'Do you work with Shopify Plus?', answer: 'Yes. We build Shopify Plus themes, checkout extensions, Shopify Functions (including migrations off the retired Shopify Scripts), B2B setups and private apps.' },
   { question: 'Can you work with my agency as a white-label partner?', answer: 'Yes. We work under NDA as a white-label development team for agencies in the US, UK and Australia. See the white-label page for how that works.' },
   { question: 'What time zones do you cover?', answer: 'We are based in India and overlap with US mornings and UK/EU afternoons. Most messages get a reply the same working day.' },
 ]
 
+const TITLE = 'Shopify & Full Stack Development Company | Miracle Websoft'
+const DESCRIPTION =
+  'Shopify, WordPress, Moodle, CRM and custom software development. 700+ projects since 2015, Top Rated Plus on Upwork, fixed prices. Free technical consultation.'
+
 export const metadata: Metadata = {
-  title: 'Shopify Development & CRO Agency | Miracle Websoft',
-  description:
-    'Shopify development, conversion rate optimisation and speed work for DTC brands. 700+ Shopify projects, fixed prices, and a free 5-minute video teardown of your store.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: 'https://miraclewebsoft.com' },
   openGraph: {
-    title: 'Shopify Development & CRO Agency | Miracle Websoft',
-    description: 'More orders from the traffic you already have. Shopify builds, CRO and speed work with fixed prices. Get a free video teardown of your store.',
+    title: TITLE,
+    description: 'Shopify stores, WordPress sites, Moodle platforms, CRMs, custom web apps and API integrations, built by one in-house team since 2015.',
     url: 'https://miraclewebsoft.com',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shopify Development & CRO Agency | Miracle Websoft',
-    description: 'More orders from the traffic you already have. Get a free video teardown of your store.',
+    title: TITLE,
+    description: 'Shopify, WordPress, Moodle, CRM and custom software development. 700+ projects since 2015.',
   },
 }
 
+// What we build: every service on the site, grouped. Also feeds the ItemList schema.
+const pillars = [
+  {
+    id: 'shopify',
+    name: 'Shopify & ecommerce',
+    line: 'Custom Shopify and Shopify Plus stores, apps, migrations, and the speed and conversion work that turns traffic into orders.',
+    proof: '700+ Shopify projects since 2015',
+    links: [
+      { name: 'Store build & redesign', href: '/services/shopify/development' },
+      { name: 'Custom Shopify apps', href: '/services/shopify-app-development' },
+      { name: 'Migration to Shopify', href: '/services/shopify-migration' },
+      { name: 'Conversion rate optimisation', href: '/services/conversion-rate-optimization' },
+      { name: 'Speed optimisation', href: '/services/shopify-speed-optimization' },
+      { name: 'All Shopify services', href: '/services/shopify' },
+    ],
+  },
+  {
+    id: 'custom-software',
+    name: 'Custom software & full stack',
+    line: 'Web applications, dashboards, portals and internal tools in React, Node.js, Laravel and PHP. Built to your process, owned by you.',
+    proof: '2,942-hour full stack retainer, rated 5.0',
+    links: [
+      { name: 'Custom software (replace SaaS)', href: '/services/custom-software-development' },
+      { name: 'Full stack development', href: '/services/full-stack-development' },
+      { name: 'Custom web development', href: '/services/custom-web-development' },
+      { name: 'Laravel, Yii2 & PHP', href: '/services/laravel-development' },
+    ],
+  },
+  {
+    id: 'wordpress',
+    name: 'WordPress & WooCommerce',
+    line: 'Custom WordPress sites, plugins and WooCommerce extensions, plus fixes, speed work and ongoing maintenance for sites you already have.',
+    proof: 'Custom plugins, themes and WooCommerce',
+    links: [
+      { name: 'WordPress development', href: '/services/wordpress-development' },
+      { name: 'WordPress plugin development', href: '/services/wordpress-plugin-development' },
+      { name: 'Website maintenance', href: '/services/website-maintenance' },
+    ],
+  },
+  {
+    id: 'moodle',
+    name: 'Moodle & e-learning',
+    line: 'Moodle plugins and themes, enrollment and permission changes, course restores, and Moodle connected to WordPress and your other systems.',
+    proof: '5.0 on every Moodle job since 2017',
+    links: [
+      { name: 'Moodle development', href: '/services/moodle-development' },
+      { name: 'Moodle & LMS integrations', href: '/services/api-integration' },
+    ],
+  },
+  {
+    id: 'crm-integrations',
+    name: 'CRM & API integrations',
+    line: 'SuiteCRM customization or a custom CRM you own, and REST, GraphQL and webhook integrations that keep your systems in sync.',
+    proof: 'eSIM provider API integration, rated 5.0',
+    links: [
+      { name: 'CRM & SuiteCRM development', href: '/services/crm-development' },
+      { name: 'API integration', href: '/services/api-integration' },
+    ],
+  },
+  {
+    id: 'ai',
+    name: 'AI & automation',
+    line: 'AI chatbots, support automation, OpenAI integrations and workflow automation that take repetitive work off your team.',
+    proof: 'OpenAI, chatbots and workflow automation',
+    links: [
+      { name: 'AI automation', href: '/services/ai' },
+      { name: 'AI chatbots', href: '/services/ai/ai-chatbots' },
+      { name: 'AI workflow automation', href: '/services/ai/ai-workflow-automation' },
+      { name: 'OpenAI integrations', href: '/services/ai/openai-integrations' },
+    ],
+  },
+]
+
+const techStack = [
+  { group: 'Frontend', items: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'Liquid'] },
+  { group: 'Backend', items: ['Node.js', 'PHP', 'Laravel', 'Yii2'] },
+  { group: 'Platforms', items: ['Shopify & Shopify Plus', 'WordPress', 'WooCommerce', 'Moodle', 'SuiteCRM'] },
+  { group: 'Data, APIs & AI', items: ['MySQL', 'Firebase', 'REST', 'GraphQL', 'Webhooks', 'OpenAI'] },
+]
+
 const jsonLd = renderJsonLd([
   webPage({
-    name: 'Shopify Development & CRO Agency - Miracle Websoft',
-    description: 'Shopify development, conversion rate optimisation and speed optimisation for ecommerce brands.',
+    name: 'Shopify & Full Stack Development Company - Miracle Websoft',
+    description: 'Miracle Websoft is a full stack development company in Chandigarh, India that builds Shopify stores, WordPress sites, Moodle platforms, CRMs, custom software, API integrations and AI automation.',
     url: 'https://miraclewebsoft.com/',
+  }),
+  itemList({
+    name: 'Miracle Websoft services',
+    description: 'Development services offered by Miracle Websoft.',
+    items: pillars.flatMap(p => p.links)
+      .filter((l, i, all) => all.findIndex(x => x.href === l.href) === i)
+      .map(l => ({ name: l.name, url: l.href })),
   }),
   breadcrumb([{ name: 'Home', url: '/' }]),
 ])
 
 const clients = ['Farmers Atelier', 'Shirtonomy', 'Buddha Trends', 'Momifa', 'Flowers A Million', 'Esparda']
-
-const findings = [
-  { sev: 'High', area: 'Speed', text: 'Mobile LCP is 4.6s. The hero is a 2.1 MB PNG served at desktop size.' },
-  { sev: 'High', area: 'CRO', text: 'Add to cart sits below the fold on a 375px screen.' },
-  { sev: 'Med', area: 'Speed', text: '7 apps inject scripts on every page. 3 of them are no longer used.' },
-  { sev: 'Med', area: 'CRO', text: 'Free-shipping threshold only appears inside the cart.' },
-  { sev: 'Low', area: 'UX', text: 'Collection filters reset when shoppers press back.' },
-]
 
 const leaks = [
   { n: '01', title: 'Slow mobile pages', body: 'Heavy images, render-blocking apps and theme bloat. Most of your traffic is on a phone, and every extra second shows up in bounce rate.', fix: 'Speed optimisation', href: '/services/shopify-speed-optimization' },
@@ -79,27 +166,20 @@ const ownSoftware = [
   'Custom SaaS applications',
 ]
 
-const beyondShopify = [
-  { name: 'Full stack development', href: '/services/full-stack-development' },
-  { name: 'API integration', href: '/services/api-integration' },
-  { name: 'CRM & SuiteCRM', href: '/services/crm-development' },
-  { name: 'Moodle LMS', href: '/services/moodle-development' },
-  { name: 'Laravel & PHP', href: '/services/laravel-development' },
-  { name: 'WordPress plugins', href: '/services/wordpress-plugin-development' },
-  { name: 'Maintenance & bug fixing', href: '/services/website-maintenance' },
-]
-
 const steps = [
-  { t: '48 hours', title: 'Teardown', body: 'A recorded walkthrough of your store with fixes ranked by likely impact.' },
+  { t: '24–48 hours', title: 'Free consultation', body: 'A technical consultation for software projects, or a recorded teardown of your Shopify store with fixes ranked by likely impact.' },
   { t: '24 hours', title: 'Fixed quote', body: 'Scope, price and timeline in writing, agreed before any work starts.' },
   { t: 'Ongoing', title: 'Build in the open', body: 'Regular progress updates and a staging link you can click through at any point.' },
-  { t: 'Launch', title: 'Launch & look after', body: 'We launch, watch the numbers with you, and stay on for care plans if you want us.' },
+  { t: 'Launch', title: 'Launch & look after', body: 'We launch, watch how it performs with you, and stay on for maintenance and care plans if you want us.' },
 ]
 
 export default function HomePage() {
-  const reviews = jobs
-    .filter(j => j.review && j.rating === 5 && j.review.length > 45)
-    .slice(0, 6)
+  // Lead with the full stack retainer review so the mix isn't Shopify-only.
+  const featured = jobs.find(j => j.id === 'web-development-long-retainer-2025')
+  const reviews = [
+    ...(featured ? [featured] : []),
+    ...jobs.filter(j => j !== featured && j.review && j.rating === 5 && j.review.length > 45),
+  ].slice(0, 6)
   const latestPosts = [...blogPosts]
     .sort((a, b) => blogDateToIso(b.date).localeCompare(blogDateToIso(a.date)))
     .slice(0, 3)
@@ -112,19 +192,19 @@ export default function HomePage() {
       <section className="home-hero">
         <div className="mw-container grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-center">
           <div>
-            <p className="mw-eyebrow">Shopify development &amp; CRO · Shopify Partner</p>
-            <h1 style={{ maxWidth: '13ch' }}>
-              More orders from the traffic you <span className="mw-mark">already have.</span>
+            <p className="mw-eyebrow">Shopify Partner · Full stack development since 2015</p>
+            <h1 style={{ maxWidth: '15ch' }}>
+              We build the software your <span className="mw-mark">business runs on.</span>
             </h1>
             <p className="home-lede">
-              We build, fix and speed up Shopify stores for DTC brands. 700+ Shopify projects since 2015, fixed prices, and a 16-person in-house team led by the person you actually talk to.
+              Shopify and Shopify Plus stores, WordPress sites, Moodle learning platforms, CRMs, custom web apps and API integrations. 700+ projects since 2015, fixed prices, and a 16-person in-house team led by the person you actually talk to.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mt-8">
-              <Link href="/free-store-audit" className="mw-btn-accent" style={{ minHeight: 54, padding: '0 1.5rem', fontSize: '1rem' }}>
-                Get a free store teardown <ArrowRight size={18} />
+              <Link href="/book" className="mw-btn-accent" style={{ minHeight: 54, padding: '0 1.5rem', fontSize: '1rem' }}>
+                Free technical consultation <ArrowRight size={18} />
               </Link>
-              <Link href="/book" className="mw-btn-outline" style={{ minHeight: 54, padding: '0 1.5rem', fontSize: '1rem' }}>
-                Book a 15-min call
+              <Link href="/free-store-audit" className="mw-btn-outline" style={{ minHeight: 54, padding: '0 1.5rem', fontSize: '1rem' }}>
+                Free Shopify store teardown
               </Link>
             </div>
             <ul className="home-proof">
@@ -134,33 +214,30 @@ export default function HomePage() {
             </ul>
           </div>
 
-          {/* A real artefact instead of a fake dashboard: what the teardown looks like. */}
-          <figure className="teardown" aria-label="Example store teardown">
+          <figure className="teardown" aria-label="What Miracle Websoft builds">
             <div className="teardown-head">
-              <span className="mw-num">SAMPLE TEARDOWN</span>
-              <span className="mw-num">mobile · 375px</span>
+              <span className="mw-num">ONE TEAM · THE WHOLE STACK</span>
+              <span className="mw-num">since 2015</span>
             </div>
-            <p className="teardown-store">your-store.com</p>
-            <ol className="teardown-list">
-              {findings.map((f, i) => (
-                <li key={i}>
-                  <span className={`sev sev--${f.sev.toLowerCase()}`}>{f.sev}</span>
-                  <span>
-                    <span className="teardown-area">{f.area}</span>
-                    {f.text}
-                  </span>
+            <ol className="stack-list">
+              {pillars.map(p => (
+                <li key={p.id}>
+                  <a href={`#${p.id}`}>
+                    <span className="stack-name">{p.name}</span>
+                    <span className="stack-proof">{p.proof}</span>
+                  </a>
                 </li>
               ))}
             </ol>
             <figcaption className="teardown-foot">
-              A typical teardown has 12–20 findings, ranked by how much revenue each one is likely costing you.
+              Shopify is where we started. Today the same team builds the systems around your store, and the ones that have nothing to do with ecommerce.
             </figcaption>
           </figure>
         </div>
 
         <div className="mw-container">
           <div className="home-clients">
-            <span className="mw-num">STORES WE&apos;VE WORKED ON</span>
+            <span className="mw-num">BUSINESSES WE&apos;VE WORKED WITH</span>
             <ul>
               {clients.map(c => <li key={c}>{c}</li>)}
             </ul>
@@ -168,15 +245,77 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Where stores leak revenue ─────────────────────────────────────── */}
-      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
+      {/* ── What we build: every service ──────────────────────────────────── */}
+      <section className="mw-section" id="services" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="mw-container">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <p className="mw-eyebrow">What we build</p>
+              <h2 style={{ maxWidth: '20ch' }}>Shopify, WordPress, Moodle, CRM and custom software. One team.</h2>
+              <p style={{ marginTop: '1.25rem', maxWidth: '60ch' }}>
+                Miracle Websoft is a full stack development company in Chandigarh, India. We build Shopify stores, WordPress sites, Moodle platforms, CRMs, custom web applications, API integrations and AI automation for businesses in the US, UK, Canada, Australia and Europe.
+              </p>
+            </div>
+            <Link href="/services" className="mw-btn-outline self-start md:self-auto">All services <ArrowRight size={16} /></Link>
+          </div>
+          <div className="pillars">
+            {pillars.map((p, i) => (
+              <article key={p.id} id={p.id} className="pillar">
+                <span className="mw-num">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{p.name}</h3>
+                <p>{p.line}</p>
+                <p className="pillar-proof">{p.proof}</p>
+                <ul>
+                  {p.links.map(l => (
+                    <li key={l.href + l.name}>
+                      <Link href={l.href}>{l.name} <ArrowUpRight size={14} /></Link>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+          <p style={{ marginTop: '1.5rem', fontSize: '0.9rem', color: 'var(--text-3)' }}>
+            Also: <Link href="/services/website-maintenance" className="underline underline-offset-4">maintenance &amp; bug fixing</Link> for sites we didn&apos;t build, and <Link href="/white-label" className="underline underline-offset-4">white-label development for agencies</Link>.
+          </p>
+        </div>
+      </section>
+
+      {/* ── Own your software ───────────────────────────────────────────────── */}
+      <section className="mw-ink mw-section" id="own-your-software">
+        <div className="mw-container grid lg:grid-cols-2 gap-14 items-start">
+          <div>
+            <p className="mw-eyebrow">Custom software</p>
+            <h2>Still paying per-user licence fees for your business software?</h2>
+            <p style={{ marginTop: '1.25rem', maxWidth: '46ch', fontSize: '1.05rem' }}>
+              In the AI era, custom applications are faster and more affordable to build than ever. Why keep renting expensive monthly subscriptions when you can own software built for your business?
+            </p>
+            <div className="flex flex-wrap gap-3" style={{ marginTop: '1.75rem' }}>
+              <Link href="/services/custom-software-development" className="mw-btn-accent">Stop renting, start owning <ArrowRight size={16} /></Link>
+              <Link href="/book" className="mw-btn-outline" style={{ color: 'var(--on-ink)', borderColor: 'rgb(244 241 234 / 0.35)' }}>Free technical consultation</Link>
+            </div>
+          </div>
+          <div>
+            <p className="mw-num" style={{ marginBottom: '0.75rem', color: 'rgb(244 241 234 / 0.6)' }}>WE BUILD CUSTOM ALTERNATIVES TO</p>
+            <ul className="offer-list" style={{ marginTop: 0 }}>
+              {ownSoftware.map(x => <li key={x}>{x}</li>)}
+            </ul>
+            <p style={{ marginTop: '1.25rem', fontSize: '0.88rem', color: 'rgb(244 241 234 / 0.7)', maxWidth: '50ch' }}>
+              One-time development investment. No recurring per-user licence fees for your own software. Hosting, maintenance and third-party services may still have costs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Shopify: where stores leak revenue ────────────────────────────── */}
+      <section className="mw-section">
         <div className="mw-container">
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12">
             <div className="lg:sticky lg:top-32 self-start">
-              <p className="mw-eyebrow">The usual suspects</p>
-              <h2>Most stores don&apos;t have a traffic problem.</h2>
+              <p className="mw-eyebrow">For Shopify stores</p>
+              <h2>More orders from the traffic you already have.</h2>
               <p style={{ marginTop: '1.25rem', maxWidth: '38ch' }}>
-                They have a leak. After 700+ Shopify projects, it&apos;s nearly always one of these four.
+                Most stores don&apos;t have a traffic problem. They have a leak. After 700+ Shopify projects, it&apos;s nearly always one of these four.
               </p>
             </div>
             <ol className="leaks">
@@ -199,7 +338,7 @@ export default function HomePage() {
       <section className="mw-ink mw-section" id="teardown">
         <div className="mw-container grid lg:grid-cols-2 gap-14 items-start">
           <div>
-            <p className="mw-eyebrow">Free · 48-hour turnaround</p>
+            <p className="mw-eyebrow">Free Shopify teardown · 48-hour turnaround</p>
             <h2>See your store the way a CRO specialist does.</h2>
             <p style={{ marginTop: '1.25rem', maxWidth: '44ch', fontSize: '1.05rem' }}>
               Send us your URL. You&apos;ll get a 5-minute video of us going through your store on a phone, pointing at exactly what&apos;s slowing shoppers down.
@@ -217,12 +356,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Services ───────────────────────────────────────────────────────── */}
+      {/* ── Shopify pricing ────────────────────────────────────────────────── */}
       <section className="mw-section">
         <div className="mw-container">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
-              <p className="mw-eyebrow">Services</p>
+              <p className="mw-eyebrow">Shopify services</p>
               <h2 style={{ maxWidth: '16ch' }}>Everything a Shopify store needs, priced up front.</h2>
             </div>
             <Link href="/pricing" className="mw-btn-outline self-start md:self-auto">See full pricing <ArrowRight size={16} /></Link>
@@ -240,41 +379,22 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-          <p style={{ marginTop: '1.5rem', fontSize: '0.9rem', color: 'var(--text-3)' }}>
-            Also: <Link href="/services/ai" className="underline underline-offset-4">AI automation</Link>, <Link href="/services/wordpress-development" className="underline underline-offset-4">WordPress</Link>, <Link href="/services/custom-web-development" className="underline underline-offset-4">custom web apps</Link>, <Link href="/services/full-stack-development" className="underline underline-offset-4">full stack development</Link> and <Link href="/white-label" className="underline underline-offset-4">white-label work for agencies</Link>.
-          </p>
         </div>
       </section>
 
-      {/* ── Own your software ───────────────────────────────────────────────── */}
-      <section className="mw-ink mw-section" id="own-your-software">
-        <div className="mw-container grid lg:grid-cols-2 gap-14 items-start">
-          <div>
-            <p className="mw-eyebrow">Beyond Shopify · Custom software</p>
-            <h2>Still paying per-user licence fees for your business software?</h2>
-            <p style={{ marginTop: '1.25rem', maxWidth: '46ch', fontSize: '1.05rem' }}>
-              In the AI era, custom applications are faster and more affordable to build than ever. Why keep renting expensive monthly subscriptions when you can own software built for your business?
-            </p>
-            <div className="flex flex-wrap gap-3" style={{ marginTop: '1.75rem' }}>
-              <Link href="/services/custom-software-development" className="mw-btn-accent">Stop renting, start owning <ArrowRight size={16} /></Link>
-              <Link href="/book" className="mw-btn-outline" style={{ color: 'var(--on-ink)', borderColor: 'rgb(244 241 234 / 0.35)' }}>Free technical consultation</Link>
-            </div>
-          </div>
-          <div>
-            <p className="mw-num" style={{ marginBottom: '0.75rem', color: 'rgb(244 241 234 / 0.6)' }}>WE BUILD CUSTOM ALTERNATIVES TO</p>
-            <ul className="offer-list" style={{ marginTop: 0 }}>
-              {ownSoftware.map(x => <li key={x}>{x}</li>)}
-            </ul>
-            <p style={{ marginTop: '1.25rem', fontSize: '0.88rem', color: 'rgb(244 241 234 / 0.7)', maxWidth: '50ch' }}>
-              One-time development investment. No recurring per-user licence fees for your own software. Hosting, maintenance and third-party services may still have costs.
-            </p>
-            <p className="mw-num" style={{ margin: '1.75rem 0 0.75rem', color: 'rgb(244 241 234 / 0.6)' }}>FULL STACK SERVICES</p>
-            <div className="flex flex-wrap gap-2">
-              {beyondShopify.map(b => (
-                <Link key={b.href} href={b.href} className="home-chip-ink">{b.name}</Link>
-              ))}
-            </div>
-          </div>
+      {/* ── Technology ─────────────────────────────────────────────────────── */}
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="mw-container">
+          <p className="mw-eyebrow">Technology</p>
+          <h2 style={{ maxWidth: '24ch', marginBottom: '2.5rem' }}>The stack we work in every day.</h2>
+          <dl className="tech-groups">
+            {techStack.map(g => (
+              <div key={g.group}>
+                <dt>{g.group}</dt>
+                <dd>{g.items.map(t => <span key={t} className="rv-chip">{t}</span>)}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
@@ -284,7 +404,7 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <p className="mw-eyebrow">Verified Upwork reviews</p>
-              <h2 style={{ maxWidth: '18ch' }}>What store owners say after the invoice is paid.</h2>
+              <h2 style={{ maxWidth: '18ch' }}>What clients say after the invoice is paid.</h2>
             </div>
             <Link href="/reviews" className="mw-btn-outline self-start md:self-auto">All reviews <ArrowRight size={16} /></Link>
           </div>
@@ -326,7 +446,7 @@ export default function HomePage() {
           <div className="founder-card">
             <p className="mw-num" style={{ marginBottom: '1rem' }}>A NOTE FROM THE FOUNDER</p>
             <p className="founder-quote">
-              “I started taking Shopify projects in 2015. More than ten years and 700+ stores later, the work that pays off fastest is still the unglamorous stuff: a faster product page, a clearer cart, one less app. That&apos;s where we start.”
+              “I started taking Shopify projects in 2015. Since then the work has grown into custom software, CRMs, Moodle platforms and API integrations, but the approach hasn&apos;t changed: understand how the business actually runs, then build the simplest thing that does the job well.”
             </p>
             <p style={{ marginTop: '1.5rem', color: 'var(--text-1)', fontWeight: 600 }}>Karam Singh Mehra</p>
             <p style={{ fontSize: '0.9rem' }}>Founder, Miracle Websoft</p>

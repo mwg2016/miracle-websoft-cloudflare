@@ -668,3 +668,19 @@ footer.mw-ink { border-top: 1px solid rgb(244 241 234 / 0.12); }
 .tech-groups dd { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .home-chip-ink { display: inline-flex; padding: 0.4rem 0.85rem; border-radius: 999px; border: 1px solid rgb(244 241 234 / 0.25); color: var(--on-ink); font-size: 0.85rem; text-decoration: none; transition: background .15s, border-color .15s; }
 .home-chip-ink:hover { background: rgb(244 241 234 / 0.08); border-color: var(--on-ink); }
+
+/* Homepage: "one team, the whole stack" card + service pillars */
+.stack-list { display: grid; margin-top: 0.4rem; }
+.stack-list li { border-bottom: 1px solid var(--border); }
+.stack-list a { display: grid; gap: 0.15rem; padding: 0.7rem 0; text-decoration: none; }
+.stack-name { font-family: var(--font-playfair); font-size: 1.12rem; letter-spacing: -0.01em; color: var(--text-1); }
+.stack-proof { font-family: var(--font-geist-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-4); }
+.stack-list a:hover .stack-name { color: var(--accent); }
+.pillars { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+.pillar { min-width: 0; background: var(--bg-raised); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.65rem; scroll-margin-top: 7rem; }
+.pillar h3 { font-family: var(--font-playfair); font-weight: 400; letter-spacing: -0.02em; font-size: clamp(1.4rem, 2vw, 1.7rem); }
+.pillar > p { font-size: 0.95rem; color: var(--text-2); }
+.pillar .pillar-proof { font-family: var(--font-geist-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.pillar ul { margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border); display: grid; gap: 0.15rem; }
+.pillar ul a { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.3rem 0; font-size: 0.92rem; color: var(--text-1); text-decoration: none; }
+.pillar ul a:hover { color: var(--accent); }

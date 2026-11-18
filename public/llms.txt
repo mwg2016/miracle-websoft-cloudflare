@@ -4,7 +4,7 @@
 
 Miracle Websoft is an ecommerce growth and AI technology agency founded in 2015 and based in Chandigarh, India. We serve ecommerce brands, Shopify merchants, SMBs, agencies and startups in the United States, Canada, United Kingdom, Australia and Europe.
 
-The company helps businesses build Shopify stores, improve conversion rates, increase website performance, automate operations with AI, develop custom business software and maintain long-term technical partnerships.
+Miracle Websoft is a full stack development company. It builds Shopify and Shopify Plus stores, WordPress sites and plugins, Moodle LMS platforms, SuiteCRM and custom CRMs, custom web applications (React, Node.js, Laravel, PHP), API integrations and AI automation, and improves conversion rates and site performance for ecommerce brands.
 
 Founder Karam Singh Mehra is a Top Rated Plus full stack and Shopify developer on Upwork with 10+ years of experience, a Shopify Certified & Verified Partner. Miracle Websoft has completed 700+ Shopify projects, earned $600K+ on Upwork and delivered 15,000+ hours for global clients.
 

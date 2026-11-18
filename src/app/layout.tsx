@@ -125,7 +125,7 @@ const jsonLd = {
       },
       image: 'https://miraclewebsoft.com/icon-512.png',
       slogan: 'Ecommerce growth and AI technology partner.',
-      description: 'Miracle Websoft is an ecommerce growth and AI technology agency building Shopify stores, CRO improvements, speed optimization, AI automation, OpenAI integrations and custom web applications. Based in India, serving the USA, Canada, UK, Australia and Europe since 2015.',
+      description: 'Miracle Websoft is a full stack development company building Shopify stores, WordPress sites and plugins, Moodle LMS platforms, CRMs, custom web applications, API integrations and AI automation. 700+ Shopify projects. Based in Chandigarh, India, serving the USA, Canada, UK, Australia and Europe since 2015.',
       foundingDate: '2015',
       email: 'karam@miraclewebsoft.com',
       telephone: '+916239269736',
