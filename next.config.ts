@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
   poweredByHeader: false,
   trailingSlash: false,
   experimental: {
@@ -314,9 +315,3 @@ const nextConfig: NextConfig = {
 }
 
 export default nextConfig
-
-// Proxies Cloudflare bindings (KV/R2/env) into `next dev`, backed by local
-// miniflare emulation, so src/lib/admin/store.ts's getCloudflareContext()
-// calls resolve during local development too.
-import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare'
-initOpenNextCloudflareForDev()

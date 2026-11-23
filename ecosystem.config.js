@@ -27,7 +27,8 @@ module.exports = {
       name: 'miraclewebsoft',
       script: '.next/standalone/server.js',
       env: {
-        PORT: 3200,
+        PORT: 3008,
+        HOSTNAME: '127.0.0.1',
         NODE_ENV: 'production',
         ...loadEnvLocal(),
       },

@@ -3,7 +3,6 @@
 // falls back to an empty list so the public site still renders the Upwork
 // reviews instead of crashing.
 
-import { getCloudflareContext } from '@opennextjs/cloudflare'
 import type { PublicReview, ReviewRecord, ReviewStatus } from './types'
 import { upworkReviews } from './upwork'
 
@@ -18,12 +17,9 @@ type D1Stmt = {
 type D1Database = { prepare(sql: string): D1Stmt }
 
 async function getDb(): Promise<D1Database | null> {
-  try {
-    const { env } = await getCloudflareContext({ async: true })
-    return ((env as unknown as Record<string, unknown>).REVIEWS_DB as D1Database | undefined) ?? null
-  } catch {
-    return null
-  }
+  // VPS deployment: no D1 database. Reads fall back to Upwork-only reviews;
+  // writes throw via requireDb().
+  return null
 }
 
 export async function requireDb(): Promise<D1Database> {

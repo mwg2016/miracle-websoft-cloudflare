@@ -21,14 +21,15 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             set -e
-            export PATH=/home/miraclewebsoft/.nvm/versions/node/v22.22.1/bin:$PATH
+            export PATH=/home/miraclewebsoft/.nvm/versions/node/v24.22.3/bin:$PATH
             export PM2_HOME=/home/miraclewebsoft/.pm2
             git config --global --add safe.directory /home/miraclewebsoft/htdocs/miraclewebsoft.com
             cd /home/miraclewebsoft/htdocs/miraclewebsoft.com
             git pull --rebase --autostash origin main
             npm ci
             npm run build
-            cp -r public .next/standalone/
+            rm -rf .next/standalone/public .next/standalone/.next/static
+            cp -r public .next/standalone/public
             cp -r .next/static .next/standalone/.next/static
             pm2 startOrReload ecosystem.config.js --update-env
             pm2 save

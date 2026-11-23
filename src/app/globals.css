@@ -684,3 +684,9 @@ footer.mw-ink { border-top: 1px solid rgb(244 241 234 / 0.12); }
 .pillar ul { margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border); display: grid; gap: 0.15rem; }
 .pillar ul a { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.3rem 0; font-size: 0.92rem; color: var(--text-1); text-decoration: none; }
 .pillar ul a:hover { color: var(--accent); }
+
+/* VPS: review submissions disabled (no D1) — hide entry points */
+a[href="/reviews/write"],
+li:has(> a[href="/reviews/write"]) {
+  display: none !important;
+}
