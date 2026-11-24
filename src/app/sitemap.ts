@@ -40,7 +40,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/services/shopify-cro-speed`,                          priority: 0.9,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/services/wordpress-development`,                      priority: 0.7,  changeFrequency: 'monthly' as const },
     { url: `${BASE}/services/custom-web-development`,                     priority: 0.7,  changeFrequency: 'monthly' as const },
-    { url: `${BASE}/services/shopify-development-clothing-brands`,        priority: 0.75, changeFrequency: 'monthly' as const },
 
     // ── Tier 3: Company & content ────────────────────────────────────────────
     { url: `${BASE}/about`,                                               priority: 0.8,  changeFrequency: 'monthly' as const },
