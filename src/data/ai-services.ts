@@ -31,6 +31,24 @@ export type ServiceLandingData = {
   related: { title: string; desc: string; href: string }[]
   /** Optional technology list, rendered as a "Stack" row. */
   technologies?: { group: string; items: string[] }[]
+  /**
+   * Optional productised offer: one promised result at a fixed price and
+   * timeline. When present it replaces the process steps in the hero aside.
+   * Only use prices that exist on /pricing or that have been agreed.
+   */
+  offer?: ServiceOffer
+}
+
+export type ServiceOffer = {
+  /** The result the client is buying, in one line. */
+  promise: string
+  price: string
+  priceNote?: string
+  timeline: string
+  /** What happens if we don't deliver the promise. */
+  guarantee: string
+  /** Short list of what's included. */
+  includes?: string[]
 }
 
 const defaultProcess: ServiceStep[] = [

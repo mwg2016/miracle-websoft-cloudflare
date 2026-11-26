@@ -2,7 +2,10 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { jobs, jobTitle, fixTypos, CATEGORIES, type JobCategory } from '@/data/jobs'
+import { jobs as allJobs, jobTitle, fixTypos, CATEGORIES, shopifyFirst, type JobCategory } from '@/data/jobs'
+
+// Shopify projects lead every filter; other work is still listed after them.
+const jobs = shopifyFirst(allJobs)
 
 const INITIAL = 40
 type Filter = JobCategory | 'All' | 'Reviewed'

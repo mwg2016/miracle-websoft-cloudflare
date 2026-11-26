@@ -2,35 +2,23 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { outboundHref } from '@/lib/outbound'
 
+// Shopify only. Every non-Shopify page stays live and is reachable from the
+// single "Other development work" link (anchor on /services).
 const serviceLinks = [
-  { label: 'All Services', href: '/services' },
-  { label: 'AI Services', href: '/services/ai' },
-  { label: 'Shopify Services', href: '/services/shopify' },
-  { label: 'Website Development for Small Business', href: '/website-development' },
-  { label: 'Custom Shopify Development', href: '/services/shopify/development' },
+  { label: 'All Shopify Services', href: '/services/shopify' },
+  { label: 'Launch a Store in 7 Days', href: '/services/shopify-store-launch' },
+  { label: 'Speed Fix Sprint', href: '/services/shopify-speed-optimization' },
+  { label: 'Conversion Audit + Fix', href: '/services/conversion-rate-optimization' },
+  { label: 'Zero-Loss Migration', href: '/services/shopify-migration' },
+  { label: 'Dedicated Shopify Developer', href: '/services/dedicated-shopify-developer' },
+  { label: 'Plus Checkout Upgrade', href: '/services/shopify-checkout-customization' },
+  { label: 'Sell Internationally', href: '/services/shopify-international-expansion' },
+  { label: 'Store Build & Redesign', href: '/services/shopify/development' },
   { label: 'Shopify Plus Development', href: '/services/shopify/shopify-plus-development' },
-  { label: 'Shopify Theme Customization', href: '/services/shopify/theme-customization' },
-  { label: 'Shopify App Development', href: '/services/shopify-app-development' },
-  { label: 'Shopify Migrations', href: '/services/shopify-migration' },
-  { label: 'Conversion Rate Optimization', href: '/services/conversion-rate-optimization' },
-  { label: 'Shopify Speed Optimization', href: '/services/shopify-speed-optimization' },
-  { label: 'Custom Web Development', href: '/services/custom-web-development' },
-  { label: 'Custom Software (Replace SaaS)', href: '/services/custom-software-development' },
-  { label: 'Full Stack Development', href: '/services/full-stack-development' },
-  { label: 'API Integration', href: '/services/api-integration' },
-  { label: 'CRM & SuiteCRM Development', href: '/services/crm-development' },
-  { label: 'Moodle LMS Development', href: '/services/moodle-development' },
-  { label: 'Laravel & PHP Development', href: '/services/laravel-development' },
-  { label: 'WordPress Plugin Development', href: '/services/wordpress-plugin-development' },
-  { label: 'Website Maintenance & Bug Fixing', href: '/services/website-maintenance' },
-  { label: 'WordPress Development', href: '/services/wordpress-development' },
+  { label: 'Custom Shopify Apps', href: '/services/shopify-app-development' },
+  { label: 'Store Care Plans', href: '/services/shopify/shopify-maintenance' },
 ]
 
-const marketLinks = [
-  { label: 'USA — Website Development', href: '/website-development/us' },
-  { label: 'UK — Website Development', href: '/website-development/uk' },
-  { label: 'Australia — Website Development', href: '/website-development/au' },
-]
 const industryLinks = [
   { label: "Women's Clothing & Boutiques", href: '/industries/womens-clothing-boutiques' },
   { label: 'Activewear & Athleisure', href: '/industries/activewear-athleisure' },
@@ -44,7 +32,6 @@ const companyLinks = [
   { label: 'Work', href: '/work' },
   { label: 'Reviews', href: '/reviews' },
   { label: 'Write a Review', href: '/reviews/write' },
-  { label: 'Share Our Services', href: '/share' },
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'Resources', href: '/resources' },
   { label: 'Blog', href: '/blog' },
@@ -53,6 +40,7 @@ const companyLinks = [
   { label: 'White Label', href: '/white-label' },
   { label: 'Referral Program', href: '/referral' },
   { label: 'Partner Program', href: '/partners' },
+  { label: 'Other development work', href: '/services#other-development' },
 ]
 
 const partnerHighlights = [
@@ -130,10 +118,6 @@ export default function Footer() {
             <p className="ftr-head">Industries</p>
             <ul className="grid gap-2.5">
               {industryLinks.map(l => <li key={l.href}><Link href={l.href} className={linkCls}>{l.label}</Link></li>)}
-            </ul>
-            <p className="ftr-head mt-8">Markets</p>
-            <ul className="grid gap-2.5">
-              {marketLinks.map(l => <li key={l.href}><Link href={l.href} className={linkCls}>{l.label}</Link></li>)}
             </ul>
           </div>
           <div>

@@ -193,6 +193,44 @@ export function HeroScope({ label = 'Typical scope', items, foot }: { label?: st
   )
 }
 
+/** Productised-offer card: promise, fixed price, timeline and guarantee. */
+export function OfferCard({ offer }: { offer: { promise: string; price: string; priceNote?: string; timeline: string; guarantee: string; includes?: string[] } }) {
+  const row = { display: 'grid', gridTemplateColumns: '6.5rem 1fr', gap: '0.75rem', padding: '0.75rem 0', borderTop: '1px solid var(--border)', fontSize: '0.93rem', lineHeight: 1.45 } as const
+  return (
+    <aside className="audit-form-card" aria-label="The offer" style={{ boxShadow: 'none' }}>
+      <p className="mw-num" style={{ marginBottom: '0.6rem' }}>THE OFFER</p>
+      <p style={{ fontSize: '1.08rem', color: 'var(--text-1)', fontWeight: 500, lineHeight: 1.4, marginBottom: '1rem' }}>{offer.promise}</p>
+      <dl>
+        <div style={row}>
+          <dt className="mw-num">Price</dt>
+          <dd style={{ color: 'var(--text-1)' }}>
+            <strong>{offer.price}</strong>
+            {offer.priceNote && <span style={{ display: 'block', fontSize: '0.84rem', color: 'var(--text-3)' }}>{offer.priceNote}</span>}
+          </dd>
+        </div>
+        <div style={row}>
+          <dt className="mw-num">Timeline</dt>
+          <dd style={{ color: 'var(--text-1)' }}>{offer.timeline}</dd>
+        </div>
+        <div style={row}>
+          <dt className="mw-num" style={{ color: 'var(--accent)' }}>Guarantee</dt>
+          <dd style={{ color: 'var(--text-1)' }}>{offer.guarantee}</dd>
+        </div>
+      </dl>
+      {offer.includes && offer.includes.length > 0 && (
+        <ul style={{ borderTop: '1px solid var(--border)', paddingTop: '0.75rem' }}>
+          {offer.includes.map((it) => (
+            <li key={it} style={{ display: 'grid', gridTemplateColumns: '1.25rem 1fr', padding: '0.3rem 0', fontSize: '0.88rem', color: 'var(--text-2)' }}>
+              <span aria-hidden style={{ color: 'var(--accent)' }}>✓</span>
+              <span>{it}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </aside>
+  )
+}
+
 /** Editorial service index (same pattern as the homepage service table). */
 export function ServiceTable({ items }: { items: { name: string; line: string; price?: string; href: string }[] }) {
   return (

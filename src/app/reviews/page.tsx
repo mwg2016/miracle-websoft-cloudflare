@@ -45,7 +45,9 @@ export default async function ReviewsPage({ searchParams }: { searchParams: Sear
   const source = sp.source === 'upwork' || sp.source === 'website' ? sp.source : undefined
   const sort = sp.sort === 'highest' || sp.sort === 'lowest' ? sp.sort : 'recent'
 
-  let list = all
+  // Shopify reviews first by default; everything else follows in date order.
+  const isShopify = (r: (typeof all)[number]) => /shopify/i.test(`${r.title} ${r.service ?? ''} ${r.body}`)
+  let list = sort === 'recent' ? [...all.filter(isShopify), ...all.filter(r => !isShopify(r))] : all
   if (activeRating) list = list.filter(r => Math.round(r.rating) === activeRating)
   if (source) list = list.filter(r => r.source === source)
   if (sort === 'highest') list = [...list].sort((a, b) => b.rating - a.rating || b.date.localeCompare(a.date))

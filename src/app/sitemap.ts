@@ -8,6 +8,7 @@ import { blogDateToIso } from '@/lib/blog-date'
 import shopifyServices from '@/data/shopify-services'
 import { aiServices } from '@/data/ai-services'
 import { devServices } from '@/data/dev-services'
+import { shopifyOffers } from '@/data/shopify-offers'
 import { listPublicReviews } from '@/lib/reviews/db'
 
 // Review pages come from D1, so build the sitemap per request.
@@ -114,6 +115,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date('2026-11-18'),
   }))
 
+  const shopifyOfferPages: MetadataRoute.Sitemap = shopifyOffers.map((s) => ({
+    url: `${BASE}/services/${s.slug}`,
+    priority: 0.9,
+    changeFrequency: 'monthly' as const,
+    lastModified: new Date('2026-11-26'),
+  }))
+
   const reviewPages: MetadataRoute.Sitemap = (await listPublicReviews()).map((r) => ({
     url: `${BASE}/reviews/${r.slug}`,
     priority: 0.55,
@@ -141,6 +149,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...shopifyServicePages,
     ...aiServicePages,
     ...devServicePages,
+    ...shopifyOfferPages,
     ...industryPages,
     ...blogPages,
     ...workIndex,

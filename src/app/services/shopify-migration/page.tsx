@@ -4,7 +4,7 @@ import ServiceResult from '@/components/services/ServiceResult'
 import GuaranteeBar from '@/components/services/GuaranteeBar'
 import MidPageCta from '@/components/services/MidPageCta'
 import RelatedServices from '@/components/services/RelatedServices'
-import ServiceHero, { HeroScope, NumberedList, SectionHead } from '@/components/services/ServiceHero'
+import ServiceHero, { OfferCard, NumberedList, SectionHead } from '@/components/services/ServiceHero'
 import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
@@ -92,17 +92,22 @@ export default function MigrationPage() {
 
       <ServiceHero
         breadcrumbItems={[{ label: 'Services', href: '/services' }, { label: 'Shopify Migrations' }]}
-        eyebrow="Shopify migration"
+        eyebrow="Zero-loss Shopify migration"
         title={<>Move to Shopify <span className="mw-mark">without losing sales</span> or rankings.</>}
         lede="Products, customers, orders, URLs, tracking and rankings all have to survive the move. We plan it carefully so you get Shopify's easier day-to-day without a messy launch."
         bullets={['Every old URL redirected, meta data carried over', 'Old store keeps selling until the cutover', 'Fixed price, typically 3 to 6 weeks']}
         primary={{ label: 'Book a 15-min migration call', href: '/book' }}
         secondary={{ label: 'Send your store details', href: '/contact' }}
         aside={
-          <HeroScope
-            label="We migrate from"
-            items={['WooCommerce', 'Magento', 'BigCommerce', 'Squarespace and Wix', 'Custom-built platforms']}
-            foot="Small-store migrations start from around $1,500. Fixed quote after we see your catalogue."
+          <OfferCard
+            offer={{
+              promise: 'Your store on Shopify with every product, customer, order and old URL accounted for.',
+              price: 'From ~$1,500',
+              priceNote: 'Fixed quote after we see your catalogue and integrations.',
+              timeline: 'Typically 3–6 weeks',
+              guarantee: 'Data checked before go-live. If anything is missing, we fix it at no cost.',
+              includes: ['From WooCommerce, Magento, BigCommerce, Wix, Squarespace or custom', '301 redirects for every old URL', 'Old store sells until cutover', '30 days of post-launch monitoring'],
+            }}
           />
         }
       />

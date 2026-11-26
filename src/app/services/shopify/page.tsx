@@ -24,6 +24,20 @@ export const metadata: Metadata = {
   },
 }
 
+// Outcome-first offers: what the merchant is trying to achieve, one fixed-price
+// result each. The technical service list below stays for SEO and for buyers
+// who already know what they need.
+const outcomes: { title: string; desc: string; href: string; price?: string }[] = [
+  { title: 'Launch a store that sells', desc: 'Live and taking orders in 7 days, with payments, shipping and mobile tested.', href: '/services/shopify-store-launch', price: 'From $600' },
+  { title: 'Make my store faster', desc: 'Speed Fix Sprint on your revenue pages. No measurable improvement, no fee.', href: '/services/shopify-speed-optimization', price: 'Fixed price' },
+  { title: 'Get more orders from my traffic', desc: 'Free teardown, then the biggest conversion leaks fixed at a fixed price.', href: '/services/conversion-rate-optimization', price: 'Free teardown' },
+  { title: 'Move to Shopify safely', desc: 'Zero-loss migration: data checked, every URL redirected, old store sells until cutover.', href: '/services/shopify-migration', price: 'From ~$1,500' },
+  { title: 'Upgrade my Plus checkout', desc: 'Upsells, delivery dates and custom fields with native checkout extensions.', href: '/services/shopify-checkout-customization', price: 'Per feature' },
+  { title: 'Sell in new countries', desc: 'Markets, currencies and native translations, with no translations lost.', href: '/services/shopify-international-expansion', price: 'Per market' },
+  { title: 'Have a developer on call', desc: 'A dedicated Shopify developer who knows your store, month after month.', href: '/services/dedicated-shopify-developer', price: 'From $299/mo' },
+  { title: 'Keep my store healthy', desc: 'Updates, monthly health checks and small fixes handled for you.', href: '/services/shopify/shopify-maintenance', price: 'From $99/mo' },
+]
+
 const shopifyServices: { title: string; desc: string; href: string; price?: string }[] = [
   {
     title: 'Shopify Store Development',
@@ -82,6 +96,14 @@ const faqs = [
     answer: 'Yes. We work on new builds, redesigns, feature development, CRO, speed optimization, app cleanup, migration support and ongoing maintenance for existing stores.',
   },
   {
+    question: 'Do you guarantee results?',
+    answer: 'Each offer has its own guarantee, stated on its page. For example: on a Speed Fix Sprint, if the agreed pages do not measurably improve, there is no fee; on a migration, if any data is missing after go-live, we fix it at no cost.',
+  },
+  {
+    question: 'Can I hire a dedicated Shopify developer?',
+    answer: 'Yes. Plans start at $299/mo for 4 hours with the same developer every month, and we also provide part-time and full-time dedicated Shopify developers quoted to your hours.',
+  },
+  {
     question: 'Can you work as a long-term Shopify partner?',
     answer: 'Yes. Many clients retain us for ongoing feature work, technical support, speed improvements, CRO, app integrations and campaign support after the first project.',
   },
@@ -113,7 +135,7 @@ const jsonLd = renderJsonLd([
   ]),
   itemList({
     name: 'Shopify services offered by Miracle Websoft',
-    items: shopifyServices.map((item) => ({
+    items: [...outcomes, ...shopifyServices].filter((x, i, all) => all.findIndex((y) => y.href === x.href) === i).map((item) => ({
       name: item.title,
       url: item.href,
       description: item.desc,
@@ -129,15 +151,16 @@ export default function ShopifyServicesPage() {
       <ServiceHero
         breadcrumbItems={[{ label: 'Services', href: '/services' }, { label: 'Shopify Services' }]}
         eyebrow="Shopify services · Shopify Partner"
-        title={<>Shopify builds, fixes and support, <span className="mw-mark">at a fixed price.</span></>}
-        lede="New stores, redesigns, custom features, integrations and ongoing care for Shopify merchants. 700+ projects since 2015, done by a 16-person in-house team."
+        title={<>Tell us the result you need. <span className="mw-mark">We quote a fixed price for it.</span></>}
+        lede="A faster store, more orders, a safe migration, a new market or a developer on call. Each one is a fixed-scope offer with a price, a timeline and a guarantee. 700+ Shopify projects since 2015, done by a 16-person in-house team."
+        bullets={['Fixed price and timeline, in writing, before work starts', 'Before-and-after numbers, not hours billed', 'You own everything we build, no lock-in']}
         aside={
           <HeroScope
-            label="Where to start"
+            label="Most asked for"
             items={[
-              'Launching or redesigning: store build from $600',
-              'Need something apps cannot do: custom features from $1,500',
-              'Keeping it running: care plans from $99/mo',
+              'Launch-ready store in 7 days: from $600',
+              'Speed Fix Sprint: no measurable improvement, no fee',
+              'Dedicated Shopify developer: from $299/mo',
             ]}
             foot="Not sure which one you need? The free teardown tells you what to fix first."
           />
@@ -146,7 +169,14 @@ export default function ShopifyServicesPage() {
 
       <section className="mw-section">
         <div className="mw-container">
-          <SectionHead eyebrow="Shopify services" title="Pick the service that matches the blocker." />
+          <SectionHead eyebrow="Shopify outcomes" title="What do you need your store to do?" />
+          <ServiceTable items={outcomes.map((s) => ({ name: s.title, line: s.desc, price: s.price, href: s.href }))} />
+        </div>
+      </section>
+
+      <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="mw-container">
+          <SectionHead eyebrow="By service" title="Already know what you need built?" />
           <ServiceTable items={shopifyServices.map((s) => ({ name: s.title, line: s.desc, price: s.price, href: s.href }))} />
         </div>
       </section>

@@ -5,19 +5,19 @@ import ServiceHero, { ServiceTable, SectionHead } from '@/components/services/Se
 import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Shopify, AI & Ecommerce Growth Services | Miracle Websoft',
-  description: 'Shopify development, CRO, speed, AI automation, full stack web applications, API integration, CRM, Moodle and custom software you own instead of renting.',
+  title: 'Shopify Services: Pick the Result You Need | Miracle Websoft',
+  description: 'Dedicated Shopify services at fixed prices: launch a store in 7 days, speed fixes, conversion fixes, zero-loss migration, Plus checkout, international and a dedicated developer.',
   alternates: { canonical: 'https://miraclewebsoft.com/services' },
   openGraph: {
-    title: 'Shopify, AI & Ecommerce Growth Services | Miracle Websoft',
-    description: 'Shopify development, CRO, speed, AI automation, full stack web applications, API integration, CRM, Moodle and custom software you own instead of renting.',
+    title: 'Shopify Services: Pick the Result You Need | Miracle Websoft',
+    description: 'Dedicated Shopify services at fixed prices: launch a store in 7 days, speed fixes, conversion fixes, zero-loss migration, Plus checkout, international and a dedicated developer.',
     url: 'https://miraclewebsoft.com/services',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shopify, AI & Ecommerce Growth Services | Miracle Websoft',
-    description: 'Shopify development, CRO, speed, AI automation, full stack web applications, API integration, CRM, Moodle and custom software you own instead of renting.',
+    title: 'Shopify Services: Pick the Result You Need | Miracle Websoft',
+    description: 'Dedicated Shopify services at fixed prices: launch a store in 7 days, speed fixes, conversion fixes, zero-loss migration, Plus checkout, international and a dedicated developer.',
   },
 }
 
@@ -57,16 +57,44 @@ const shopifyCore: Svc[] = [
   },
 ]
 
-const growthServices: Svc[] = [
+// Outcome-based Shopify offers: one result, fixed price, timeline and guarantee.
+const shopifyOutcomes: Svc[] = [
   {
-    title: 'Conversion Rate Optimization',
-    desc: 'Improve buyer journeys with Microsoft Clarity review, heatmap analysis, product page optimization, checkout fixes and testing.',
-    href: '/services/conversion-rate-optimization',
-    price: 'Fixed quote after teardown',
+    title: 'Launch-Ready Shopify Store',
+    desc: 'Live and taking orders in 7 days, with payments, taxes, shipping and mobile layout tested.',
+    href: '/services/shopify-store-launch',
+    price: 'From $600',
   },
   {
-    title: 'Shopify Speed Optimization',
-    desc: 'Improve Core Web Vitals, PageSpeed, LCP, CLS, INP, image delivery, app bloat and mobile performance.',
+    title: 'Dedicated Shopify Developer',
+    desc: 'The same Shopify developer on your store every month, working through your task list. Cancel anytime.',
+    href: '/services/dedicated-shopify-developer',
+    price: 'From $299/mo',
+  },
+  {
+    title: 'Shopify Plus Checkout Upgrade',
+    desc: 'Upsells, delivery date pickers and custom fields in checkout, built with native extensions and Functions.',
+    href: '/services/shopify-checkout-customization',
+    price: 'Fixed price per feature',
+  },
+  {
+    title: 'Sell Internationally',
+    desc: 'Shopify Markets, local currencies and native translations, including migration off Langify or Weglot.',
+    href: '/services/shopify-international-expansion',
+    price: 'Fixed price per market',
+  },
+]
+
+const growthServices: Svc[] = [
+  {
+    title: 'Conversion Audit + Fix',
+    desc: 'Find where shoppers drop off between product page and checkout, then fix the biggest leaks at a fixed price.',
+    href: '/services/conversion-rate-optimization',
+    price: 'Free teardown first',
+  },
+  {
+    title: 'Shopify Speed Fix Sprint',
+    desc: 'Faster revenue pages on mobile, measured before and after. No measurable improvement, no fee.',
     href: '/services/shopify-speed-optimization',
     price: 'Fixed quote after teardown',
   },
@@ -210,12 +238,18 @@ const fullStackServices: Svc[] = [
 
 const toRows = (list: Svc[]) => list.map((x) => ({ name: x.title, line: x.desc, price: x.price, href: x.href }))
 
+// Non-Shopify pages: listed once, in small print, at the bottom.
+const otherDev = [
+  ...aiCore.slice(0, 1),
+  ...fullStackServices,
+  ...otherServices,
+  { title: 'Website development (US/UK/AU)', desc: '', href: '/website-development' },
+].filter((x, i, all) => all.findIndex((y) => y.href === x.href) === i)
+
 const groups = [
+  { id: 'shopify-outcomes', eyebrow: 'Shopify outcomes', title: 'One result, a fixed price, a guarantee.', items: shopifyOutcomes },
   { id: 'shopify-services', eyebrow: 'Shopify', title: 'Build, rebuild and extend your store.', items: shopifyCore },
   { id: 'cro-performance', eyebrow: 'CRO & speed', title: 'More orders from the traffic you already have.', items: growthServices },
-  { id: 'ai-services', eyebrow: 'AI automation', title: 'Take repetitive work off your team.', items: aiCore },
-  { id: 'full-stack', eyebrow: 'Full stack & business software', title: 'Own your software. Connect your systems.', items: fullStackServices },
-  { id: 'web-development', eyebrow: 'Beyond Shopify', title: 'Websites, portals and custom software.', items: otherServices },
 ]
 
 // ─── JSON-LD ──────────────────────────────────────────────────────────────────
@@ -234,7 +268,7 @@ const jsonLd = renderJsonLd([
   ]),
   itemList({
     name: 'Services offered by Miracle Websoft',
-    items: [...shopifyCore, ...growthServices, ...aiCore, ...shopifyIndustry, ...fullStackServices, ...otherServices].map((s) => ({
+    items: [...shopifyOutcomes, ...shopifyCore, ...growthServices, ...shopifyIndustry].map((s) => ({
       name: s.title,
       url: s.href,
       description: s.desc,
@@ -250,9 +284,9 @@ export default function ServicesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
 
       <ServiceHero
-        eyebrow="All services"
+        eyebrow="Shopify services"
         title={<>Start with the problem, <span className="mw-mark">not the service.</span></>}
-        lede="Shopify builds, CRO and speed work, AI automation, full stack applications, API integrations and custom software you own. Fixed prices, a 16-person in-house team, and 700+ projects since 2015."
+        lede="Everything here is Shopify. One result per project, a fixed price, and a guarantee. 700+ Shopify projects since 2015."
         aside={
           <aside className="audit-form-card" style={{ boxShadow: 'none' }} aria-label="Which service do I need?">
             <p className="mw-num" style={{ marginBottom: '0.75rem' }}>WHICH ONE DO I NEED?</p>
@@ -261,7 +295,7 @@ export default function ServicesPage() {
                 { q: 'Getting traffic but not enough orders?', a: 'Conversion rate optimisation', href: '/services/conversion-rate-optimization' },
                 { q: 'Launching, rebranding or stuck with a bad theme?', a: 'Shopify store development', href: '/services/shopify/development' },
                 { q: 'Moving from WooCommerce, Magento or Wix?', a: 'Shopify migration', href: '/services/shopify-migration' },
-                { q: 'Repeating the same manual work every week?', a: 'AI automation', href: '/services/ai' },
+                { q: 'Need a Shopify developer every month?', a: 'Dedicated Shopify developer', href: '/services/dedicated-shopify-developer' },
               ].map((item) => (
                 <li key={item.href} style={{ borderTop: '1px solid var(--border)' }}>
                   <Link href={item.href} className="group flex items-start justify-between gap-4" style={{ padding: '0.85rem 0' }}>
@@ -319,6 +353,21 @@ export default function ServicesPage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* Not promoted: kept so these pages stay linked for SEO and existing visitors. */}
+      <section id="other-development" style={{ borderTop: '1px solid var(--border)', scrollMarginTop: 96 }}>
+        <div className="mw-container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
+          <p style={{ fontSize: '0.86rem', color: 'var(--text-3)', lineHeight: 1.8 }}>
+            <span className="mw-num" style={{ marginRight: '0.75rem' }}>OTHER DEVELOPMENT WORK</span>
+            {[...otherDev].map((x, i) => (
+              <span key={x.href}>
+                {i > 0 && ' · '}
+                <Link href={x.href} className="underline underline-offset-4">{x.title}</Link>
+              </span>
+            ))}
+          </p>
         </div>
       </section>
     </>

@@ -5,25 +5,27 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { ArrowRight, ArrowUpRight, ChevronDown, Menu, Search, X } from 'lucide-react'
 
+// Outcome-first: each item is a result the merchant wants, priced on its page.
 const services = [
-  { label: 'Conversion rate optimisation', note: 'More orders from the traffic you have', href: '/services/conversion-rate-optimization' },
-  { label: 'Speed optimisation', note: 'Faster pages, better Core Web Vitals', href: '/services/shopify-speed-optimization' },
-  { label: 'Store build & redesign', note: 'Custom Shopify & Shopify Plus themes', href: '/services/shopify/development' },
-  { label: 'Migration to Shopify', note: 'Woo, Wix, BigCommerce, Magento', href: '/services/shopify-migration' },
-  { label: 'Custom Shopify apps', note: 'Private apps, Functions, integrations', href: '/services/shopify-app-development' },
-  { label: 'AI automation', note: 'Support, ops and content workflows', href: '/services/ai' },
+  { label: 'More orders from my traffic', note: 'Conversion audit + fix', href: '/services/conversion-rate-optimization' },
+  { label: 'A faster store', note: 'Speed Fix Sprint · no improvement, no fee', href: '/services/shopify-speed-optimization' },
+  { label: 'Launch a store in 7 days', note: 'Launch-ready store from $600', href: '/services/shopify-store-launch' },
+  { label: 'Move to Shopify safely', note: 'Zero-loss migration, every URL redirected', href: '/services/shopify-migration' },
+  { label: 'A dedicated Shopify developer', note: 'Same developer every month, from $299/mo', href: '/services/dedicated-shopify-developer' },
+  { label: 'Upgrade my Plus checkout', note: 'Upsells, delivery dates, custom fields', href: '/services/shopify-checkout-customization' },
+  { label: 'Sell in new countries', note: 'Markets, currencies, native translations', href: '/services/shopify-international-expansion' },
 ]
 
+// Shopify only. Non-Shopify pages stay live but are linked from the footer
+// ("Other development work") rather than promoted here.
 const moreServices = [
   { label: 'All Shopify services', href: '/services/shopify' },
-  { label: 'Custom software (replace SaaS)', href: '/services/custom-software-development' },
-  { label: 'Full stack development', href: '/services/full-stack-development' },
-  { label: 'API integration', href: '/services/api-integration' },
-  { label: 'CRM & SuiteCRM development', href: '/services/crm-development' },
-  { label: 'WordPress development', href: '/services/wordpress-development' },
-  { label: 'Custom web development', href: '/services/custom-web-development' },
+  { label: 'Store build & redesign', href: '/services/shopify/development' },
+  { label: 'Shopify Plus development', href: '/services/shopify/shopify-plus-development' },
+  { label: 'Custom Shopify apps', href: '/services/shopify-app-development' },
+  { label: 'Theme customization', href: '/services/shopify/theme-customization' },
+  { label: 'Store care plans', href: '/services/shopify/shopify-maintenance' },
   { label: 'White-label for agencies', href: '/white-label' },
-  { label: 'Referral programme', href: '/referral' },
 ]
 
 const industries = [
@@ -147,7 +149,7 @@ export default function Header() {
                   {open === 'services' && (
                     <div className="hdr-panel hdr-mega">
                       <div>
-                        <p className="hdr-panel-label">What we do</p>
+                        <p className="hdr-panel-label">Shopify: what do you need?</p>
                         <ul className="grid gap-1">
                           {services.map(s => (
                             <li key={s.href}>
@@ -167,7 +169,7 @@ export default function Header() {
                         </ul>
                       </div>
                       <div className="hdr-mega-aside">
-                        <p className="hdr-panel-label">Also</p>
+                        <p className="hdr-panel-label">More Shopify</p>
                         <ul className="grid gap-0.5 mb-5">
                           {moreServices.map(i => <li key={i.href}><Link href={i.href} className="hdr-panel-link">{i.label}</Link></li>)}
                         </ul>

@@ -28,10 +28,10 @@ const croData: ServiceLandingData = {
   metaTitle: 'Shopify CRO Agency to Increase Sales | Miracle Websoft',
   metaDescription:
     'Increase Shopify conversions with analytics, Clarity, heatmaps, product page improvements, cart fixes, checkout optimization and structured testing.',
-  eyebrow: 'SHOPIFY CRO',
-  h1: 'Conversion Rate Optimization for Stores That Need More Revenue From Existing Traffic',
+  eyebrow: 'SHOPIFY CONVERSION AUDIT + FIX',
+  h1: 'More orders from the traffic you already pay for',
   subtext:
-    'We identify where shoppers hesitate, get confused or abandon the buying journey, then improve product pages, checkout, homepage, landing pages and speed in priority order.',
+    'We find where shoppers hesitate or drop off between product page and checkout, rank the leaks by likely revenue impact, then fix the biggest ones at a fixed price.',
   serviceType: 'Conversion rate optimization',
   problem: {
     title: 'Traffic is coming in, but too few visitors buy',
@@ -40,6 +40,14 @@ const croData: ServiceLandingData = {
   solution: {
     title: 'A CRO program grounded in real user behavior',
     body: 'We review analytics, Microsoft Clarity sessions, heatmaps, product pages, cart and checkout flow, then ship changes that reduce friction and improve decision confidence.',
+  },
+  offer: {
+    promise: 'A ranked list of where your store loses orders, then the top fixes shipped.',
+    price: 'Free teardown, then fixed price',
+    priceNote: 'The 48-hour video teardown is free. Fixes are quoted as one fixed price.',
+    timeline: 'Teardown in 48 hours, fixes in 1–3 weeks',
+    guarantee: 'Every fix comes with the reason we expect it to help, and you approve the plan before paying anything.',
+    includes: ['Clarity session and heatmap review', 'Product page, cart and checkout fixes', 'Before-and-after conversion tracking', 'A/B test plan for bigger changes'],
   },
   benefits: [
     'Improve conversion rate without increasing ad spend',
@@ -156,6 +164,7 @@ export default function ConversionRateOptimizationPage() {
         urlPlaceholder="yourstore.com or yourstore.myshopify.com"
         messageLabel="What conversion problem should we review?"
         messagePlaceholder="Example: traffic is good but product page conversion is low, checkout abandonment is high, or paid landing pages are not converting."
+        compact
       />
     </>
   )

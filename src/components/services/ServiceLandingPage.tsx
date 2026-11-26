@@ -3,7 +3,7 @@ import ServiceContactForm from '@/components/services/ServiceContactForm'
 import ServiceResult from '@/components/services/ServiceResult'
 import RelatedServices from '@/components/services/RelatedServices'
 import MidPageCta from '@/components/services/MidPageCta'
-import ServiceHero, { HeroSteps, NumberedList, QuoteSection, SectionHead, TEARDOWN_CTA, BOOK_CTA } from '@/components/services/ServiceHero'
+import ServiceHero, { HeroSteps, OfferCard, NumberedList, QuoteSection, SectionHead, TEARDOWN_CTA, BOOK_CTA } from '@/components/services/ServiceHero'
 import type { ServiceLandingData } from '@/data/ai-services'
 
 type BreadcrumbItem = { label: string; href?: string }
@@ -28,6 +28,8 @@ type Props = {
   urlPlaceholder?: string
   messageLabel?: string
   messagePlaceholder?: string
+  /** Shorter page for Shopify offers: no stack grid, max 4 FAQs, short form intro. */
+  compact?: boolean
 }
 
 export default function ServiceLandingPage({
@@ -44,6 +46,7 @@ export default function ServiceLandingPage({
   urlPlaceholder = 'yourcompany.com, store URL or tool name',
   messageLabel = 'What should this service help you improve?',
   messagePlaceholder = 'Example: we need to automate support triage, connect OpenAI to our product data, or build an AI internal tool for operations.',
+  compact = false,
 }: Props) {
   return (
     <>
@@ -55,7 +58,7 @@ export default function ServiceLandingPage({
         bullets={data.benefits.slice(0, 3)}
         primary={primaryCta}
         secondary={secondaryCta}
-        aside={<HeroSteps steps={data.process.slice(0, 3)} />}
+        aside={data.offer ? <OfferCard offer={data.offer} /> : <HeroSteps steps={data.process.slice(0, 3)} />}
       />
 
       {/* Problem → approach */}
@@ -108,7 +111,7 @@ export default function ServiceLandingPage({
         </div>
       </section>
 
-      {data.technologies && data.technologies.length > 0 && (
+      {!compact && data.technologies && data.technologies.length > 0 && (
         <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
           <div className="mw-container">
             <SectionHead eyebrow="Stack" title="Technologies we work with." />
@@ -144,13 +147,13 @@ export default function ServiceLandingPage({
 
       <MidPageCta {...midCta} />
 
-      <FaqSection faqs={data.faqs} heading="Common questions" />
+      <FaqSection faqs={compact ? data.faqs.slice(0, 4) : data.faqs} heading="Common questions" />
 
       <RelatedServices services={data.related} />
 
       <QuoteSection
-        title="Tell us what it needs to do."
-        body="You don't need a perfect brief. Send the messy version: the tools involved, the manual steps today, the goal and any deadline. You'll get a practical scope and a fixed price within one business day."
+        title={compact ? 'Get your fixed price.' : 'Tell us what it needs to do.'}
+        body={compact ? 'Send your store URL and the result you need. Fixed price within one business day.' : "You don't need a perfect brief. Send the messy version: the tools involved, the manual steps today, the goal and any deadline. You'll get a practical scope and a fixed price within one business day."}
       >
         <ServiceContactForm
           service={data.h1}

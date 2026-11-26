@@ -5,6 +5,7 @@ import staticPages from '@/data/search-index.generated.json'
 import shopifyServices from '@/data/shopify-services'
 import { aiServices } from '@/data/ai-services'
 import { devServices } from '@/data/dev-services'
+import { shopifyOffers } from '@/data/shopify-offers'
 import { industries } from '@/data/industries'
 import { blogPosts } from '@/data/blogPosts'
 import { partners } from '@/data/partners'
@@ -65,6 +66,7 @@ function doc(href: string, title: string, description: string, record: unknown, 
 const dynamicDocs: SearchDoc[] = [
   ...shopifyServices.map(s => doc(`/services/shopify/${s.slug}`, s.metaTitle, s.metaDescription, s)),
   ...aiServices.map(s => doc(`/services/ai/${s.slug}`, s.metaTitle, s.metaDescription, s)),
+  ...shopifyOffers.map(s => doc(`/services/${s.slug}`, s.metaTitle, s.metaDescription, s)),
   ...devServices.map(s => doc(`/services/${s.slug}`, s.metaTitle, s.metaDescription, s)),
   ...industries.map(i => doc(`/industries/${i.slug}`, i.metaTitle, i.metaDescription, i)),
   ...blogPosts.map(p => doc(`/blog/${p.slug}`, p.title, p.excerpt, p, [p.tag])),

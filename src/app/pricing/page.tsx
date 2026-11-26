@@ -185,6 +185,10 @@ const pricingFaqs = [
     answer: 'No. The price you see is what you pay for the work listed. Third-party app subscriptions (Klaviyo, reviews apps, etc.) and Shopify\'s own subscription are billed by them directly — we\'ll always tell you in advance which paid apps are recommended for your build.',
   },
   {
+    question: 'Can I get a dedicated Shopify developer?',
+    answer: 'Yes. Care+ and Pro give you the same developer every month (4 or 8 hours). For bigger roadmaps we provide part-time or full-time dedicated Shopify developers, quoted to your hours. See the dedicated Shopify developer page for details.',
+  },
+  {
     question: 'Can I switch maintenance plans later?',
     answer: 'Yes. Upgrade, downgrade, or cancel any month — we\'ll prorate where it makes sense. You\'re never locked in.',
   },

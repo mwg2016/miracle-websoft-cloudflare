@@ -53,6 +53,16 @@ export interface Job {
   devNotes?: string
 }
 
+/** True for Shopify work. The site leads with these; other jobs stay listed after them. */
+export function isShopifyJob(job: Job): boolean {
+  return /shopify/i.test(`${job.title} ${job.description} ${job.tags.join(' ')}`)
+}
+
+/** Same jobs, Shopify first (stable: original order kept within each group). */
+export function shopifyFirst<T extends Job>(list: T[]): T[] {
+  return [...list.filter(isShopifyJob), ...list.filter((j) => !isShopifyJob(j))]
+}
+
 // ── Display helpers ─────────────────────────────────────────────────────────
 // Used by both the /work index and the /work/[id] detail page so titles and
 // copy render consistently. These NEVER affect a job `id` (the public URL).

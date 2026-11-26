@@ -28,10 +28,10 @@ const speedData: ServiceLandingData = {
   metaTitle: 'Speed Up Your Shopify Store | Miracle Websoft',
   metaDescription:
     'Improve Shopify PageSpeed and Core Web Vitals by reducing app bloat, optimizing images and scripts, and fixing performance issues on revenue pages.',
-  eyebrow: 'SHOPIFY SPEED OPTIMIZATION',
-  h1: 'Shopify Speed Optimization for Faster Mobile Shopping',
+  eyebrow: 'SHOPIFY SPEED FIX SPRINT',
+  h1: 'A faster Shopify store on mobile, measured before and after',
   subtext:
-    'We improve Shopify performance by reducing app bloat, optimizing images and scripts, fixing Core Web Vitals and making key buying pages load faster on mobile.',
+    'A short, fixed-price sprint on the pages that make you money: home, collection, product and cart. We remove app bloat, fix images and scripts, and show you the before and after numbers.',
   serviceType: 'Shopify speed optimization',
   problem: {
     title: 'Slow stores lose buyers before the product has a chance',
@@ -40,6 +40,14 @@ const speedData: ServiceLandingData = {
   solution: {
     title: 'A performance pass focused on revenue pages',
     body: 'We audit theme code, apps, scripts, images, fonts and Core Web Vitals, then implement fixes on the pages that affect discovery and buying decisions.',
+  },
+  offer: {
+    promise: 'Faster home, collection and product pages on mobile, with before-and-after numbers.',
+    price: 'Fixed price',
+    priceNote: 'Quoted after the free teardown, based on your theme and apps.',
+    timeline: 'Usually 3–5 working days',
+    guarantee: 'We agree the pages and metrics up front. No measurable improvement on them, no fee.',
+    includes: ['PageSpeed and Core Web Vitals baseline', 'App, script, image and font fixes', 'Tracking and apps kept working', 'Before-and-after report'],
   },
   benefits: [
     'Improve mobile PageSpeed and Core Web Vitals',
@@ -156,6 +164,7 @@ export default function ShopifySpeedOptimizationPage() {
         urlPlaceholder="yourstore.com or yourstore.myshopify.com"
         messageLabel="What speed problem should we review?"
         messagePlaceholder="Example: PageSpeed is low, mobile LCP is slow, apps are heavy, or product pages feel sluggish."
+        compact
       />
     </>
   )

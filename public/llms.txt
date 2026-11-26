@@ -1,15 +1,16 @@
-# Miracle Websoft - Ecommerce Growth & AI Technology Agency
+# Miracle Websoft - Shopify Development Agency
 
 ## Who We Are
 
-Miracle Websoft is an ecommerce growth and AI technology agency founded in 2015 and based in Chandigarh, India. We serve ecommerce brands, Shopify merchants, SMBs, agencies and startups in the United States, Canada, United Kingdom, Australia and Europe.
+Miracle Websoft is a dedicated Shopify development agency founded in 2015 and based in Chandigarh, India. We serve ecommerce brands, Shopify merchants, SMBs, agencies and startups in the United States, Canada, United Kingdom, Australia and Europe.
 
-Miracle Websoft is a full stack development company. It builds Shopify and Shopify Plus stores, WordPress sites and plugins, Moodle LMS platforms, SuiteCRM and custom CRMs, custom web applications (React, Node.js, Laravel, PHP), API integrations and AI automation, and improves conversion rates and site performance for ecommerce brands.
+Miracle Websoft focuses on Shopify and Shopify Plus: store launches, speed and conversion fixes, migrations to Shopify, Plus checkout extensions, international expansion, custom Shopify apps and dedicated Shopify developers on monthly plans. Every offer has a fixed price, a timeline and a guarantee. The team also takes on WordPress, Moodle, CRM and custom software work, but Shopify is the core specialty.
 
 Founder Karam Singh Mehra is a Top Rated Plus full stack and Shopify developer on Upwork with 10+ years of experience, a Shopify Certified & Verified Partner. Miracle Websoft has completed 700+ Shopify projects, earned $600K+ on Upwork and delivered 15,000+ hours for global clients.
 
 ## Core Services
 
+- **Outcome-based Shopify offers** - fixed-scope offers, each with one promised result, a fixed price, a timeline and a guarantee: launch-ready store in 7 days (from $600), Speed Fix Sprint (no measurable improvement, no fee), conversion audit + fix, zero-loss migration, Shopify Plus checkout upgrade, international expansion, and a dedicated Shopify developer on a monthly plan (from $299/mo).
 - **Shopify Services** - Shopify store development, Shopify Plus development, theme customization, custom features, app integration, migration, maintenance, API development and private apps.
 - **CRO Services** - conversion rate optimization, user journey analysis, Microsoft Clarity review, heatmap analysis, checkout optimization, product page optimization, homepage optimization, landing page optimization and A/B testing.
 - **Performance Services** - Shopify speed optimization, Core Web Vitals, PageSpeed improvements, performance audits, LCP, CLS and INP improvements.
@@ -72,6 +73,10 @@ Fashion and apparel, beauty and cosmetics, health and wellness, home and furnitu
 - Shopify Maintenance: https://miraclewebsoft.com/services/shopify/shopify-maintenance
 - Shopify API Development and Private Apps: https://miraclewebsoft.com/services/shopify/api-private-apps
 - Shopify App Development: https://miraclewebsoft.com/services/shopify-app-development
+- Dedicated Shopify Developer: https://miraclewebsoft.com/services/dedicated-shopify-developer
+- Launch a Shopify Store in 7 Days: https://miraclewebsoft.com/services/shopify-store-launch
+- Shopify Plus Checkout Customization: https://miraclewebsoft.com/services/shopify-checkout-customization
+- Shopify International Expansion: https://miraclewebsoft.com/services/shopify-international-expansion
 - Shopify Migration: https://miraclewebsoft.com/services/shopify-migration
 - Conversion Rate Optimization: https://miraclewebsoft.com/services/conversion-rate-optimization
 - Shopify Speed Optimization: https://miraclewebsoft.com/services/shopify-speed-optimization
