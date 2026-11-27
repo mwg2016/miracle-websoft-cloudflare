@@ -155,6 +155,7 @@ const jsonLd = {
         { '@type': 'Place', name: 'Europe' },
         { '@type': 'Country', name: 'India' },
       ],
+      numberOfEmployees: { '@type': 'QuantitativeValue', value: COMPANY.teamSize },
       knowsAbout: [
         'Shopify development', 'Shopify Plus development', 'Shopify app development', 'Shopify migration',
         'Shopify CRO', 'Shopify speed optimization', 'Shopify SEO', 'Shopify support',

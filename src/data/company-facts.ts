@@ -8,7 +8,6 @@
  *
  * Deliberately NOT here (unverified or contradicted, do not publish):
  *  - a Clutch rating: Clutch profile shows "Not yet reviewed" (checked 2026-11-27)
- *  - an exact team size: Shopify directory says 1–10, Clutch 10–49, Upwork 11–50
  *  - hours delivered: no verifiable source
  *  - agency Job Success Score: only the founder's JSS is readable
  */
@@ -46,6 +45,8 @@ export const COMPANY = {
     since: 2019,
   },
   clutchUrl: 'https://clutch.co/profile/miracle-websoft',
+  /** Owner-confirmed 2026-11-27 (external profiles show ranges: 1–10, 10–49, 11–50). */
+  teamSize: 15,
   verifiedOn: '2026-11-27',
 } as const
 

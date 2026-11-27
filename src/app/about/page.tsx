@@ -39,7 +39,7 @@ const facts = [
   { dt: 'Upwork jobs', dd: COMPANY.upwork.jobs },
   { dt: 'Earned on Upwork', dd: COMPANY.upwork.earnings },
   { dt: 'Shopify Partner since', dd: String(COMPANY.shopifyPartner.since) },
-  { dt: 'Upwork status', dd: COMPANY.upwork.badge },
+  { dt: 'In-house team', dd: String(COMPANY.teamSize) },
 ]
 
 const credentials = [

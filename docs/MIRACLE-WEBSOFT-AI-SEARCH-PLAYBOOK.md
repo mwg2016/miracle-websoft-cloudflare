@@ -326,7 +326,7 @@ Claims found in code on 2026-11-27. Verification source for Upwork rows: owner's
 | aggregateRating 4.9 / 650 | was `src/app/layout.tsx:208`, plus /work and /reviews | Self-serving markup | **Removed** (commit e910c08) |
 | Clutch rating "4.9" | ~44 pages (hero proof, stat tiles, bios, contact, OG image) | Clutch profile shows **"Not yet reviewed"** (checked 2026-11-27) | **Removed** on branch `ai-search-review-2` |
 | Shopify Partner "since 2016" | home badge, TrustProfiles, contact email | Partner Directory says **"Partner since 2019"** | **Corrected to 2019** on branch |
-| "16-person team" / numberOfEmployees 16 | ~24 pages + schema | Shopify directory 1–10, Clutch 10–49, Upwork 11–50 | **Removed** (now "in-house team"); owner to confirm a number |
+| Team size | home FAQ, About, schema `numberOfEmployees`, llms.txt | Owner confirmed **15** on 2026-11-27 (old "16" removed). External profiles still show ranges | **Approved: 15** (in `COMPANY.teamSize`) |
 | 98% Job Success | ~10 pages | Only founder JSS readable (99%) | Agency-level 98% removed; founder 99% shown where context is the founder |
 | Founded year on DesignRush | DesignRush profile | Says 2017 (site/Upwork/Clutch: 2016) | Owner to fix the DesignRush profile |
 | Offer prices (from $600 launch, from $299/mo dedicated developer, "no improvement, no fee") | `src/data/shopify-offers.ts`, `/pricing` | Owner approved 2026-11-27 | **Approved** |
@@ -650,3 +650,19 @@ For each approved phase append date, scope, files changed, actual tests, before/
 8. Supply one real story per content brief.
 9. Rewrite or confirm the templated `jobs.ts` descriptions.
 10. Decide whether to delete the unused home components (`Hero`, `LogoMarquee`, `TrustProfiles`, `Testimonials`, `RecentWork`, `StatsRow`, `CitationsAndProfiles`, `IndustryGrid`). They still contain stale claims, but none of them is rendered.
+
+**2026-11-27 — Owner answers applied and deployed**
+- Delivered scope, per the owner, is now shown on the homepage portfolio and the /case-studies brand grid:
+  - Farmers Atelier, Shirtonomy and Buddha Trends: "Store improvements, new landing pages and conversion (CRO) improvements."
+  - OTAA: "Website improvements, mobile view updates and moving an AI-created design onto Shopify."
+  - The OTAA 42% metric stays off the site, per the owner.
+- Team size: **15**, set in `COMPANY.teamSize` and used in the home FAQ, the About tile, Organization `numberOfEmployees` and llms.txt.
+- Tests:
+  - tsc passed and eslint is clean.
+  - The build succeeded after fixing a template-literal typo caught by tsc.
+  - The local validator found 0 issues on 174 pages.
+- Deploy approved by the owner. `ai-search-review-2` was merged to `main`; see the live verification below.
+- Still open (owner):
+  - External profile corrections: DesignRush founded 2017 → 2016; Shopify-first summaries on Clutch, DesignRush and Upwork; team size 15 on each.
+  - GSC/GA4 access: not yet provided.
+  - Request recrawl in GSC and Bing.

@@ -26,6 +26,7 @@ const clients: PortfolioStore[] = [
     country: 'Austria',
     flag: '🇦🇹',
     desc: 'Austrian knitwear brand selling across EU markets.',
+    delivered: 'Store improvements, new landing pages and conversion (CRO) improvements.',
     accent: '#8B7355',
   },
   {
@@ -36,6 +37,7 @@ const clients: PortfolioStore[] = [
     country: 'Australia',
     flag: '🇦🇺',
     desc: 'Australian men\'s accessories brand.',
+    delivered: 'Website improvements, mobile view updates and moving an AI-created design onto Shopify.',
     accent: '#FFB800',
   },
   {
@@ -46,6 +48,7 @@ const clients: PortfolioStore[] = [
     country: 'Sweden',
     flag: '🇸🇪',
     desc: 'Swedish made-to-measure shirt brand.',
+    delivered: 'Store improvements, new landing pages and conversion (CRO) improvements.',
     accent: '#4A6FA5',
   },
   {
@@ -56,6 +59,7 @@ const clients: PortfolioStore[] = [
     country: 'USA',
     flag: '🇺🇸',
     desc: 'US plus-size bohemian women\'s fashion brand.',
+    delivered: 'Store improvements, new landing pages and conversion (CRO) improvements.',
     accent: '#FFB503',
   },
   {
@@ -131,7 +135,7 @@ export default function ClientPortfolio({ stores, heading, eyebrow }: Props) {
               {heading ?? 'Shopify brands we\u2019ve worked with.'}
             </h2>
           </div>
-          <p style={{ fontSize: '0.88rem', color: 'var(--text-3)' }}>Delivered scope is shown where the project record is public.</p>
+          <p style={{ fontSize: '0.88rem', color: 'var(--text-3)' }}>What we delivered for each brand.</p>
         </div>
         <ul style={{ borderTop: '1px solid var(--text-1)' }}>
           {list.map((client, i) => (

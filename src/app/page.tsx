@@ -51,7 +51,7 @@ const homeFaqs = [
   { question: 'Do you only work on Shopify?', answer: 'Yes. Shopify and Shopify Plus are what we do: store builds, migrations, speed, conversion, checkout, apps and ongoing development. 700+ projects since 2016.' },
   { question: 'How much does a Shopify project cost?', answer: 'Store builds are $600 (Basic) or $1,000 (Advanced). Custom apps start at $1,500. Care plans and dedicated developer hours run $99 to $500 a month. Everything else gets a fixed quote within 24 hours. You see the price before any work starts.' },
   { question: 'How fast can you start?', answer: 'Usually within 3 to 5 working days of approving the quote. Care and dedicated developer plans onboard within 48 hours.' },
-  { question: 'Who works on my store?', answer: 'Our in-house team in India, led by founder Karam Singh Mehra. No subcontracting. On monthly plans you keep the same developer.' },
+  { question: 'Who works on my store?', answer: `Our ${COMPANY.teamSize}-person in-house team in India, led by founder Karam Singh Mehra. No subcontracting. On monthly plans you keep the same developer.` },
   { question: 'Do you work with agencies?', answer: 'Yes. We work as a white-label Shopify team for agencies in the US, UK and Australia, under NDA, with no contact with your clients.' },
 ]
 
