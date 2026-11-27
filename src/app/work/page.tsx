@@ -41,16 +41,10 @@ function JsonLd() {
         })),
       },
       {
-        '@type': 'LocalBusiness',
+        '@type': 'Organization',
+        '@id': 'https://miraclewebsoft.com/#organization',
         name: 'Miracle Websoft',
         description: 'Shopify development agency specialising in fashion and ecommerce brands. 700+ projects, 98% job success, Top Rated Plus on Upwork.',
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: '5.0',
-          reviewCount: fiveStarJobs.length.toString(),
-          bestRating: '5',
-          worstRating: '1',
-        },
         review: fiveStarJobs.slice(0, 5).map(job => ({
           '@type': 'Review',
           reviewBody: job.review,

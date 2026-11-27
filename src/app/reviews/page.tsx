@@ -70,7 +70,7 @@ export default async function ReviewsPage({ searchParams }: { searchParams: Sear
   const upworkCount = all.length - websiteCount
 
   const schema = [
-    reviewsIndexSchema(all, stats),
+    reviewsIndexSchema(all),
     breadcrumb([{ name: 'Home', url: '/' }, { name: 'Reviews', url: '/reviews' }]),
     faqPage([
       {

@@ -113,7 +113,7 @@ const jsonLd = {
       '@type': ['Organization', 'LocalBusiness', 'ProfessionalService'],
       '@id': 'https://miraclewebsoft.com/#organization',
       name: 'Miracle Websoft',
-      alternateName: ['Miracle Websoft Pvt Ltd', 'Miracle Websoft Shopify Agency', 'Miracle Websoft AI Agency'],
+      alternateName: ['Miracle Websoft Pvt Ltd', 'Miracle Websoft Shopify Agency'],
       legalName: 'Miracle Websoft',
       url: 'https://miraclewebsoft.com',
       logo: {
@@ -124,7 +124,7 @@ const jsonLd = {
         caption: 'Miracle Websoft logo',
       },
       image: 'https://miraclewebsoft.com/icon-512.png',
-      slogan: 'Ecommerce growth and AI technology partner.',
+      slogan: 'Shopify development, support and growth in one team.',
       description: 'Miracle Websoft is a dedicated Shopify development agency: store builds, speed and conversion fixes, migrations, Shopify Plus checkout, custom apps and dedicated Shopify developers. 700+ Shopify projects. Based in India, serving the USA, Canada, UK, Australia and Europe since 2015.',
       foundingDate: '2015',
       email: 'karam@miraclewebsoft.com',
@@ -205,12 +205,6 @@ const jsonLd = {
         'https://www.trustpilot.com/review/miraclewebsoft.com',
         'https://techbehemoths.com/company/miracle-websoft',
       ],
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        reviewCount: '650',
-        bestRating: '5',
-      },
     },
 
     // ── WebSite + SearchAction (enables Google Sitelinks Search Box) ──────────

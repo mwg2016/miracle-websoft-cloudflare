@@ -76,10 +76,11 @@ export function aggregateRatingSchema(stats: RatingStats) {
 }
 
 /** /reviews index: the Organization with its aggregate + a list of reviews. */
-export function reviewsIndexSchema(reviews: PublicReview[], stats: RatingStats) {
+export function reviewsIndexSchema(reviews: PublicReview[]) {
   return {
     ...ORG_REF,
-    aggregateRating: aggregateRatingSchema(stats),
+    // No aggregateRating: self-serving rating markup on our own Organization
+    // isn't eligible for review stars and the AI-search playbook rules it out.
     // Embedding every review is fine for a few dozen; cap so the payload
     // stays small as the list grows — each review also has its own page.
     review: reviews.slice(0, 50).map(r => reviewSchema(r, { itemReviewed: false })),

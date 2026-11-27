@@ -6,7 +6,7 @@ import Breadcrumb from '@/components/layout/Breadcrumb'
 import { getPublicReview, listPublicReviews } from '@/lib/reviews/db'
 import { upworkProjectTitle } from '@/lib/reviews/upwork'
 import { computeStats, ratingLabel } from '@/lib/reviews/types'
-import { reviewSchema, reviewUrl, aggregateRatingSchema } from '@/lib/reviews/schema'
+import { reviewSchema, reviewUrl } from '@/lib/reviews/schema'
 import { breadcrumb, renderJsonLd, ORG_ID, SITE_URL } from '@/lib/jsonld'
 import StarTiles from '@/components/reviews/StarTiles'
 import ReviewCard, { Avatar, SourceBadge, formatReviewDate } from '@/components/reviews/ReviewCard'
@@ -52,12 +52,6 @@ export default async function ReviewPage({ params }: { params: Params }) {
   const schema = [
     {
       ...reviewSchema(review),
-      // Attach the live aggregate to the reviewed organisation so a single
-      // review page still carries the overall rating for crawlers / AI.
-      itemReviewed: {
-        ...reviewSchema(review).itemReviewed,
-        aggregateRating: aggregateRatingSchema(stats),
-      },
       mainEntityOfPage: { '@type': 'WebPage', '@id': url, url, isPartOf: { '@id': `${SITE_URL}/#website` }, publisher: { '@id': ORG_ID } },
     },
     breadcrumb([
