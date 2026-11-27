@@ -18,15 +18,6 @@ const DESCRIPTION =
 export const metadata: Metadata = {
   title: { absolute: `${TITLE} | Miracle Websoft` },
   description: DESCRIPTION,
-  keywords: [
-    'Black Friday sale setup',
-    'Black Friday Shopify setup',
-    'Black Friday store preparation',
-    'Black Friday email campaign',
-    'Black Friday banner design',
-    'Shopify Black Friday agency',
-    'WooCommerce Black Friday',
-  ],
   alternates: { canonical: PAGE_URL },
   robots: { index: true, follow: true },
   openGraph: {

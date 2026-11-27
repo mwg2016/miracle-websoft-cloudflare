@@ -15,7 +15,9 @@ import { listPublicReviews } from '@/lib/reviews/db'
 export const dynamic = 'force-dynamic'
 
 const BASE = 'https://miraclewebsoft.com'
-const LAST_MODIFIED = new Date('2026-07-09')
+// lastmod is only sent where we know a real content date (blog posts, reviews,
+// recently shipped pages). A single hard-coded date on every URL is not a
+// truthful signal, so pages without a known date simply omit it.
 // 'development' is deliberately excluded — it already has an explicit Tier 2 entry above.
 const shopifyServiceSlugs = shopifyServices.map((service) => service.slug)
 
@@ -71,21 +73,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${BASE}/services/shopify/${slug}`,
     priority: 0.75,
     changeFrequency: 'monthly' as const,
-    lastModified: LAST_MODIFIED,
   }))
 
   const aiServicePages: MetadataRoute.Sitemap = aiServices.map(service => ({
     url: `${BASE}/services/ai/${service.slug}`,
     priority: 0.8,
     changeFrequency: 'monthly' as const,
-    lastModified: LAST_MODIFIED,
   }))
 
   const industryPages: MetadataRoute.Sitemap = industries.map(industry => ({
     url: `${BASE}/industries/${industry.slug}`,
     priority: 0.75,
     changeFrequency: 'monthly' as const,
-    lastModified: LAST_MODIFIED,
   }))
 
   const blogPages: MetadataRoute.Sitemap = blogPosts.map(post => ({
@@ -99,13 +98,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${BASE}/work/${job.id}`,
     priority: 0.60,
     changeFrequency: 'yearly' as const,
-    lastModified: LAST_MODIFIED,
   }))
 
   const workIndex: MetadataRoute.Sitemap = [
-    { url: `${BASE}/work`,    priority: 0.85, changeFrequency: 'weekly'  as const, lastModified: LAST_MODIFIED },
-    { url: `${BASE}/reviews`, priority: 0.85, changeFrequency: 'weekly'  as const, lastModified: LAST_MODIFIED },
-    { url: `${BASE}/share`,   priority: 0.5,  changeFrequency: 'monthly' as const, lastModified: LAST_MODIFIED },
+    { url: `${BASE}/my-portfolio`, priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: `${BASE}/work`,    priority: 0.85, changeFrequency: 'weekly'  as const },
+    { url: `${BASE}/reviews`, priority: 0.85, changeFrequency: 'weekly'  as const },
+    { url: `${BASE}/share`,   priority: 0.5,  changeFrequency: 'monthly' as const },
   ]
 
   const devServicePages: MetadataRoute.Sitemap = devServices.map((s) => ({
@@ -133,7 +132,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${BASE}/website-development/${code}`,
     priority: 0.8,
     changeFrequency: 'monthly' as const,
-    lastModified: LAST_MODIFIED,
   }))
 
 
@@ -141,11 +139,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${BASE}/partners/${p.slug}`,
     priority: 0.75,
     changeFrequency: 'monthly' as const,
-    lastModified: LAST_MODIFIED,
   }))
 
   return [
-    ...core.map(p => ({ ...p, lastModified: LAST_MODIFIED })),
+    ...core.map(p => ({ ...p })),
     ...shopifyServicePages,
     ...aiServicePages,
     ...devServicePages,

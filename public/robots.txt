@@ -1,11 +1,18 @@
-User-agent: GPTBot
+# Search and AI-search crawlers are allowed. Training crawlers (GPTBot,
+# ClaudeBot, Google-Extended, etc.) are also currently allowed by owner
+# default; that is a separate business decision, see the playbook.
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
 User-agent: ClaudeBot
 User-agent: Claude-Web
 User-agent: anthropic-ai
 User-agent: PerplexityBot
-User-agent: Googlebot
-User-agent: Bingbot
+User-agent: Perplexity-User
 User-agent: Applebot
 User-agent: meta-externalagent
 User-agent: *
