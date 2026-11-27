@@ -9,3 +9,5 @@ npm run build      # production build (.next/standalone)
 ```
 
 Hosting, environment variables and deploy steps: see [CLAUDE.md](CLAUDE.md).
+
+AI search strategy and phased implementation: [AI Search Playbook](docs/MIRACLE-WEBSOFT-AI-SEARCH-PLAYBOOK.md).
