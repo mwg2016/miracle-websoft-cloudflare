@@ -137,7 +137,7 @@ export function workFaqs(job: Job): { question: string; answer: string }[] {
   }
   faqs.push({
     question: 'Can Miracle Websoft build something similar for my store?',
-    answer: `Yes — Miracle Websoft specialises in ${job.category} and has delivered 650+ Shopify projects. Tell us what you need at miraclewebsoft.com/contact.`,
+    answer: `Yes — Miracle Websoft specialises in ${job.category} and has delivered 700+ projects. Tell us what you need at miraclewebsoft.com/contact.`,
   })
   return faqs
 }
