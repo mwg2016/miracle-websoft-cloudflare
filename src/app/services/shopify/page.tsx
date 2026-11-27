@@ -31,7 +31,7 @@ const outcomes: { title: string; desc: string; href: string; price?: string }[] 
   { title: 'Launch a store that sells', desc: 'Live and taking orders in 7 days, with payments, shipping and mobile tested.', href: '/services/shopify-store-launch', price: 'From $600' },
   { title: 'Make my store faster', desc: 'Speed Fix Sprint on your revenue pages. No measurable improvement, no fee.', href: '/services/shopify-speed-optimization', price: 'Fixed price' },
   { title: 'Get more orders from my traffic', desc: 'Free teardown, then the biggest conversion leaks fixed at a fixed price.', href: '/services/conversion-rate-optimization', price: 'Free teardown' },
-  { title: 'Move to Shopify safely', desc: 'Zero-loss migration: data checked, every URL redirected, old store sells until cutover.', href: '/services/shopify-migration', price: 'From ~$1,500' },
+  { title: 'Move to Shopify safely', desc: 'Data checked before go-live, old URLs redirected, old store sells until cutover.', href: '/services/shopify-migration', price: 'From ~$1,500' },
   { title: 'Upgrade my Plus checkout', desc: 'Upsells, delivery dates and custom fields with native checkout extensions.', href: '/services/shopify-checkout-customization', price: 'Per feature' },
   { title: 'Sell in new countries', desc: 'Markets, currencies and native translations, with no translations lost.', href: '/services/shopify-international-expansion', price: 'Per market' },
   { title: 'Have a developer on call', desc: 'A dedicated Shopify developer who knows your store, month after month.', href: '/services/dedicated-shopify-developer', price: 'From $299/mo' },

@@ -1,8 +1,9 @@
 const stats = [
-  { value: '42%', label: 'Average conversion rate increase' },
-  { value: '1.2s', label: 'Average mobile load time' },
-  { value: '31%', label: 'Reduction in cart abandonment' },
-  { value: '50+', label: 'Fashion brands launched' },
+  // Verified figures only (see src/data/company-facts.ts).
+  { value: '700+', label: 'Projects since 2016' },
+  { value: '780+', label: 'Upwork jobs' },
+  { value: '$600K+', label: 'Earned on Upwork' },
+  { value: '2019', label: 'Shopify Partner since' },
 ]
 
 export default function StatsRow() {

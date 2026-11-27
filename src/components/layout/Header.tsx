@@ -10,7 +10,7 @@ const services = [
   { label: 'More orders from my traffic', note: 'Conversion audit + fix', href: '/services/conversion-rate-optimization' },
   { label: 'A faster store', note: 'Speed Fix Sprint · no improvement, no fee', href: '/services/shopify-speed-optimization' },
   { label: 'Launch a store in 7 days', note: 'Launch-ready store from $600', href: '/services/shopify-store-launch' },
-  { label: 'Move to Shopify safely', note: 'Zero-loss migration, every URL redirected', href: '/services/shopify-migration' },
+  { label: 'Move to Shopify safely', note: 'Data checked, old URLs redirected', href: '/services/shopify-migration' },
   { label: 'A dedicated Shopify developer', note: 'Same developer every month, from $299/mo', href: '/services/dedicated-shopify-developer' },
   { label: 'Upgrade my Plus checkout', note: 'Upsells, delivery dates, custom fields', href: '/services/shopify-checkout-customization' },
   { label: 'Sell in new countries', note: 'Markets, currencies, native translations', href: '/services/shopify-international-expansion' },

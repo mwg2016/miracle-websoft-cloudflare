@@ -12,7 +12,7 @@ import type { ServiceLandingData } from './ai-services'
 const R = {
   speed: { title: 'Shopify Speed Fix', desc: 'A faster mobile store, measured before and after.', href: '/services/shopify-speed-optimization' },
   cro: { title: 'Conversion Audit + Fix', desc: 'Find where shoppers drop off, then fix the biggest leaks.', href: '/services/conversion-rate-optimization' },
-  migration: { title: 'Zero-Loss Migration', desc: 'Move to Shopify without losing data, orders or rankings.', href: '/services/shopify-migration' },
+  migration: { title: 'Data-Checked Migration', desc: 'Move to Shopify with data checked, old URLs redirected and SEO protected.', href: '/services/shopify-migration' },
   launch: { title: 'Launch-Ready Store', desc: 'A store that takes orders in 7 days, from $600.', href: '/services/shopify-store-launch' },
   checkout: { title: 'Shopify Plus Checkout Upgrade', desc: 'Upsells, delivery dates and custom fields in checkout.', href: '/services/shopify-checkout-customization' },
   global: { title: 'Sell Internationally', desc: 'Native translations, currencies and Markets set up right.', href: '/services/shopify-international-expansion' },
@@ -218,11 +218,11 @@ export const shopifyOffers: ServiceLandingData[] = [
     slug: 'shopify-international-expansion',
     metaTitle: 'Shopify International Expansion: Markets, Translation & Multi-Currency | Miracle Websoft',
     metaDescription:
-      'Sell in new countries with Shopify Markets: native translations, local currencies, domains, pricing and duties set up correctly. Migrate from Langify or Weglot without losing translations.',
+      'Sell in new countries with Shopify Markets: native translations, local currencies, domains, pricing and duties set up correctly. Migrate from Langify or Weglot with existing translations exported and checked.',
     eyebrow: 'SELL INTERNATIONALLY ON SHOPIFY',
     h1: 'Shopify international expansion: sell in new countries without a second store',
     subtext:
-      'Shopify Markets, native translations, local currencies, domains and pricing set up properly, plus migration off translation apps like Langify without losing a single translated string.',
+      'Shopify Markets, native translations, local currencies, domains and pricing set up properly, plus migration off translation apps like Langify with every translated string exported and checked.',
     serviceType: 'Shopify international expansion and localisation',
     offer: {
       promise: 'Your store selling in a new market, in the local language and currency.',
@@ -314,7 +314,7 @@ export const shopifyOffers: ServiceLandingData[] = [
       promise: 'A store that is live and ready to take real orders, at a fixed price.',
       price: '$600',
       priceNote: 'Basic Store, 7 days. Advanced Store with custom design, conversion-tuned product pages and email flows: $1,000 in 10–14 days.',
-      timeline: 'Live in 7 days (Basic) or 10–14 days (Advanced)',
+      timeline: 'Live in 7 days (Basic) or 10–14 days (Advanced), counted from when we have your products, branding and store access',
       guarantee: 'Full deposit refund if we have not started development. After that, we keep working until the store matches the agreed scope.',
       includes: [
         'Theme set up for your brand, mobile first',

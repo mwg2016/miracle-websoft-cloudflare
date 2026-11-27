@@ -35,7 +35,7 @@ function relatedService(tag: string): RelatedService {
   if (/\bai\b/.test(t)) return { name: 'AI for Shopify stores', line: 'Support bots, product content and automations wired into your store and stack.', href: '/services/ai' }
   if (t.includes('conversion') || t.includes('cro')) return { name: 'Shopify conversion rate optimisation', line: 'Product pages, cart and checkout reworked around what stops shoppers buying.', href: '/services/conversion-rate-optimization' }
   if (t.includes('speed')) return { name: 'Shopify speed optimisation', line: 'Image weight, app scripts and theme bloat cut so mobile pages load fast.', href: '/services/shopify-speed-optimization' }
-  if (t.includes('migration') || t.includes('bigcommerce')) return { name: 'Migration to Shopify', line: 'Products, customers, orders and SEO moved over without losing rankings.', href: '/services/shopify-migration' }
+  if (t.includes('migration') || t.includes('bigcommerce')) return { name: 'Migration to Shopify', line: 'Products, customers, orders and SEO metadata moved over, with old URLs redirected.', href: '/services/shopify-migration' }
   if (t.includes('app')) return { name: 'Shopify app development', line: 'Custom apps for the jobs off-the-shelf apps can’t do well.', href: '/services/shopify-app-development' }
   if (t.includes('development')) return { name: 'Custom Shopify development', line: 'Custom sections, features and integrations built into your theme by an in-house team.', href: '/services/shopify/development' }
   return { name: 'Shopify development', line: 'Store builds, redesigns, custom features and ongoing care, at fixed prices.', href: '/services/shopify' }

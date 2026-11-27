@@ -29,7 +29,7 @@ export default function RecentWork() {
               Recent Projects on Upwork
             </h2>
             <p style={{ color: 'rgb(var(--ink-rgb) / 0.50)', fontSize: '0.95rem' }}>
-              600+ completed · 98%+ Job Success · All verified
+              700+ projects · Top Rated Plus · All verified
             </p>
           </div>
           <Link
@@ -37,7 +37,7 @@ export default function RecentWork() {
             className="inline-flex items-center gap-2 text-sm font-medium transition-colors"
             style={{ color: 'var(--accent)' }}
           >
-            View all 600+ projects →
+            View all 700+ projects →
           </Link>
         </div>
 

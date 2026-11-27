@@ -8,10 +8,10 @@ const brands = [
   { name: 'Shopify Plus',     flag: '◆' },
   { name: 'AI Automation',    flag: '◆' },
   { name: '700+ Projects',    flag: '✓' },
-  { name: '15,000+ Hours',    flag: '✓' },
+  { name: '780+ Upwork Jobs', flag: '✓' },
   { name: 'Verified Partner', flag: '✓' },
   { name: 'Top Rated · Upwork', flag: '★' },
-  { name: 'Clutch · 4.9',     flag: '★' },
+  { name: 'Partner since 2019', flag: '★' },
 ]
 
 export default function LogoMarquee() {

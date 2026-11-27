@@ -198,8 +198,8 @@ function DashboardIllustration() {
 
             <div className="mws-widget mws-widget-wide">
               <div className="mws-widget-top">
-                <span>Conversion lift</span>
-                <strong>+31%</strong>
+                <span>Conversion work</span>
+                <strong>Illustrative</strong>
               </div>
               <div className="mws-conversion-bars" aria-hidden="true">
                 <span style={{ width: '46%' }} />

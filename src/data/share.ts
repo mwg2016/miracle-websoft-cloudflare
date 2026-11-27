@@ -28,7 +28,7 @@ export const shareItems: ShareItem[] = [
     title: 'Shopify migration',
     href: '/services/shopify-migration',
     group: 'Shopify',
-    caption: 'Moving from WooCommerce, Magento or BigCommerce to Shopify? Miracle Websoft migrates products, customers, orders and SEO without losing rankings.',
+    caption: 'Moving from WooCommerce, Magento or BigCommerce to Shopify? Miracle Websoft migrates products, customers, orders and SEO metadata, with old URLs redirected.',
     hashtags: ['Shopify', 'ShopifyMigration', 'Ecommerce'],
   },
   {

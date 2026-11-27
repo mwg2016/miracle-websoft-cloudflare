@@ -10,9 +10,9 @@ const platforms = [
     href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/'),
     description: 'Top 3% of all Shopify agencies globally',
     stats: [
-      { icon: Star, value: '98%+', label: 'Job Success Score' },
+      { icon: Star, value: '99%', label: 'Founder Job Success Score' },
       { icon: CheckCircle2, value: '700+', label: 'Projects Completed' },
-      { icon: TrendingUp, value: '$500K+', label: 'Total Earned' },
+      { icon: TrendingUp, value: '$600K+', label: 'Total Earned' },
       { icon: Clock, value: '10+ yrs', label: 'Experience' },
     ],
     accent: '#14a800',

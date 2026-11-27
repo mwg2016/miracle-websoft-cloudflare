@@ -51,7 +51,7 @@ const buildTypes = [
   {
     title: 'Store Redesigns',
     price: 'From $1,000',
-    desc: 'Your live store rebuilt for speed, conversion and mobile. We keep your URL structure, SEO rankings and customer data intact — only the experience improves.',
+    desc: 'Your live store rebuilt for speed, conversion and mobile. We keep your customer data and URL structure, and set up redirects wherever a URL has to change, so search value is protected.',
     examples: ['Full theme replacement', 'Product & collection pages', 'Checkout flow rebuild', 'SEO preserved throughout'],
   },
   {

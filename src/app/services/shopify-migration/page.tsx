@@ -8,26 +8,26 @@ import ServiceHero, { OfferCard, NumberedList, SectionHead } from '@/components/
 import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
-  title: 'Migrate to Shopify Without Losing SEO | Miracle Websoft',
+  title: 'Shopify Migration Services: Data, Redirects & SEO Protected | Miracle Websoft',
   description: 'Move from WooCommerce, Magento, BigCommerce or another platform to Shopify while protecting products, customers, orders, redirects, tracking and SEO.',
   alternates: { canonical: 'https://miraclewebsoft.com/services/shopify-migration' },
   openGraph: {
-    title: 'Migrate to Shopify Without Losing SEO | Miracle Websoft',
+    title: 'Shopify Migration Services: Data, Redirects & SEO Protected | Miracle Websoft',
     description: 'Move from WooCommerce, Magento, BigCommerce or another platform to Shopify while protecting products, customers, orders, redirects, tracking and SEO.',
     url: 'https://miraclewebsoft.com/services/shopify-migration',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Migrate to Shopify Without Losing SEO | Miracle Websoft',
+    title: 'Shopify Migration Services: Data, Redirects & SEO Protected | Miracle Websoft',
     description: 'Move from WooCommerce, Magento, BigCommerce or another platform to Shopify while protecting products, customers, orders, redirects, tracking and SEO.',
   },
 }
 
 const faqs = [
-  { question: 'Will I lose SEO rankings when migrating to Shopify?', answer: 'Not if done correctly. We set up 301 redirects for every old URL, migrate all meta titles and descriptions, preserve your blog content and internal link structure, and monitor rankings for 30 days post-launch.' },
-  { question: 'What platforms can you migrate from?', answer: 'WooCommerce, Magento, BigCommerce, Squarespace, Wix, PrestaShop, OpenCart, and custom-built ecommerce platforms. We have completed the most migrations from WooCommerce and Magento, including large stores with 4,000+ products and 8 years of order history.' },
-  { question: 'Will I lose any data during the migration?', answer: 'No. We migrate all products (with variants, images and metafields), customers, orders, blog posts, pages, and media files. We also migrate product reviews where the platform and review app technically allow it.' },
+  { question: 'Will I lose SEO rankings when migrating to Shopify?', answer: 'Any platform change carries some ranking risk, and short-term movement is common while search engines recrawl the new URLs. Nobody can guarantee rankings, because search engines decide them. We reduce the risk: 301 redirects mapped from a full crawl of the old site, meta titles and descriptions carried over, blog content and internal links kept, and Search Console watched for 30 days after launch so new 404s are fixed quickly.' },
+  { question: 'What platforms can you migrate from?', answer: 'WooCommerce, Magento, BigCommerce, Squarespace, Wix, PrestaShop, OpenCart, and custom-built ecommerce platforms. Our completed migrations on record include WooCommerce, Wix and WordPress stores moving to Shopify.' },
+  { question: 'Will I lose any data during the migration?', answer: 'Everything in the agreed scope is moved and checked before go-live: products (with variants, images and metafields), customers, historical orders, blog posts, pages and media, with record counts compared between the old and new store. A few things cannot move as-is: customer passwords cannot be transferred to Shopify, so customers set a new password or activate their account, and some app data (reviews, loyalty points, subscriptions) moves only where the apps support import.' },
   { question: 'How long does a Shopify migration take?', answer: 'A standard migration with 500–2,000 products typically takes 3–6 weeks. Large migrations with 5,000+ products, complex taxonomies, multiple integrations, or a custom theme build alongside the migration may take 8–14 weeks.' },
   { question: 'Do you handle the DNS cutover and go-live?', answer: 'Yes. We manage the entire go-live process — DNS changes, SSL certificate configuration, post-launch redirect verification, and real-time monitoring during the cutover window so the store stays available.' },
   { question: 'Can I keep my existing theme design after migrating?', answer: 'Your old platform\'s theme cannot run on Shopify, but we can match your existing design in a new Shopify theme or build something improved. Both are included in our migration proposals.' },
@@ -59,7 +59,7 @@ const phases = [
 
 const guarantees = [
   { title: 'Data verified before go-live', body: 'Every product, customer record and order is migrated and checked before launch. If anything is missing, we fix it at no cost.' },
-  { title: 'Every old URL redirected', body: 'A full 301 map, meta data carried over, and rankings watched for 30 days after launch.' },
+  { title: 'Old URLs redirected', body: 'A 301 map built from a crawl of the old site, meta data carried over, and Search Console watched for 30 days after launch.' },
   { title: 'Old store live until cutover', body: 'Your current store keeps selling right up to the switch. We manage DNS and monitor the cutover live.' },
   { title: 'Fixed price', body: 'Quoted after we have seen your catalogue and integrations. No hourly billing.' },
 ]
@@ -92,10 +92,10 @@ export default function MigrationPage() {
 
       <ServiceHero
         breadcrumbItems={[{ label: 'Services', href: '/services' }, { label: 'Shopify Migrations' }]}
-        eyebrow="Zero-loss Shopify migration"
-        title={<>Shopify migration <span className="mw-mark">without losing sales</span> or rankings.</>}
+        eyebrow="Shopify migration"
+        title={<>Shopify migration with your data, URLs <span className="mw-mark">and SEO protected.</span></>}
         lede="Products, customers, orders, URLs, tracking and rankings all have to survive the move. We plan it carefully so you get Shopify's easier day-to-day without a messy launch."
-        bullets={['Every old URL redirected, meta data carried over', 'Old store keeps selling until the cutover', 'Fixed price, typically 3 to 6 weeks']}
+        bullets={['Old URLs redirected (301), meta data carried over', 'Old store keeps selling until the cutover', 'Fixed price, typically 3 to 6 weeks']}
         primary={{ label: 'Book a 15-min migration call', href: '/book' }}
         secondary={{ label: 'Send your store details', href: '/contact' }}
         aside={
@@ -106,7 +106,7 @@ export default function MigrationPage() {
               priceNote: 'Fixed quote after we see your catalogue and integrations.',
               timeline: 'Typically 3–6 weeks',
               guarantee: 'Data checked before go-live. If anything is missing, we fix it at no cost.',
-              includes: ['From WooCommerce, Magento, BigCommerce, Wix, Squarespace or custom', '301 redirects for every old URL', 'Old store sells until cutover', '30 days of post-launch monitoring'],
+              includes: ['From WooCommerce, Magento, BigCommerce, Wix, Squarespace or custom', '301 redirects mapped from a crawl of the old site', 'Old store sells until cutover', '30 days of post-launch monitoring'],
             }}
           />
         }

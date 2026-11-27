@@ -19,7 +19,7 @@ const testimonials = [
     href: outboundHref('linkedin', 'https://in.linkedin.com/company/shopify-experts-miracle-websoft'),
   },
   {
-    quote: 'Top Rated Plus on Upwork — top 3% globally. 600+ jobs completed. 98%+ job success score. $500K+ earned. Our track record speaks for itself.',
+    quote: 'Top Rated Plus on Upwork. 780+ Upwork jobs and $600K+ earned. Our track record is public.',
     name: 'Miracle Websoft',
     source: 'Upwork Agency Profile',
     href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/'),

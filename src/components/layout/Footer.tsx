@@ -9,7 +9,7 @@ const serviceLinks = [
   { label: 'Launch a Store in 7 Days', href: '/services/shopify-store-launch' },
   { label: 'Speed Fix Sprint', href: '/services/shopify-speed-optimization' },
   { label: 'Conversion Audit + Fix', href: '/services/conversion-rate-optimization' },
-  { label: 'Zero-Loss Migration', href: '/services/shopify-migration' },
+  { label: 'Shopify Migration', href: '/services/shopify-migration' },
   { label: 'Dedicated Shopify Developer', href: '/services/dedicated-shopify-developer' },
   { label: 'Plus Checkout Upgrade', href: '/services/shopify-checkout-customization' },
   { label: 'Sell Internationally', href: '/services/shopify-international-expansion' },

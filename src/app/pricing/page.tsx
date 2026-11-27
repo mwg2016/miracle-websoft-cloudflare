@@ -47,7 +47,7 @@ const buildPlans: Plan[] = [
     name: 'Basic Store',
     price: '$600',
     priceSub: 'one-time · 50% to start',
-    promise: 'Your store, live and selling within 7 days.',
+    promise: 'Your store, live and selling within 7 days of receiving your products and branding.',
     bestFor: 'New brands launching their first Shopify store.',
     outcomes: [
       'A premium-looking store on a properly configured theme',

@@ -667,3 +667,128 @@ For each approved phase append date, scope, files changed, actual tests, before/
   - GSC/GA4 access: not yet provided.
   - Request recrawl in GSC and Bing.
 - **Live verification (2026-11-27, after deploy of `42c6805`):** GitHub Actions deploy succeeded. The production validator found 174/174 URLs returning 200 and **0 issues**: no stale credentials, no duplicate-brand titles, all FAQ answers visible, no AggregateRating, foundingDate 2016. The new homepage H1 is live.
+
+### 2026-11-27 (evening) — Review round 3: guarantees, credential cleanup, competitor gap analysis (branch `ai-search-review-3`, NOT deployed)
+
+**Already complete; confirmed live, not redone**
+- About metadata. Live title: "About Miracle Websoft — Shopify Development Agency Since 2016". The description is Shopify-first.
+- Homepage FAQ answers in HTML.
+- Founding year 2016.
+- The external review at 15:32 IST also confirmed the FAQ and founding-year fixes.
+
+**Item 2 — conflicting counts and earnings.**
+- Production crawl of all 174 URLs (2026-11-27): only "700+" (174 pages) and "$600K+" (90 pages) appear. **0 pages** show 600+, 650+ or $400K+.
+- One "$500K" is a worked example ("a store doing $500K a year"), not a credential.
+- The conflicting figures the external review saw come from (a) stale search snapshots, (b) external profiles, and (c) dead components that are never rendered.
+- Fix on this branch: those components (`Testimonials`, `TrustProfiles`, `RecentWork`, `CitationsAndProfiles`, `LogoMarquee`, `StatsRow`, `Hero`) now carry only verified values or neutral text, so a future re-import cannot reintroduce 600+/$500K+/98%/4.9 Clutch/42%/1.5s/31%.
+- Source of truth: `src/data/company-facts.ts`.
+- "$400K+" was not found anywhere in the repo. If it appears on an external profile, the owner should update it there.
+
+**Item 3 — portfolio.**
+- Momifa and Flowers A Million already state their technical scope from the project records.
+- Farmers Atelier, OTAA, Shirtonomy and Buddha Trends use the owner-confirmed scope. No project records exist for them, so more technical detail (theme, sections, apps, integrations built) needs owner input. Nothing was invented.
+
+**Item 4 — absolute claims rewritten to what is in our control.**
+
+| Removed | Replacement |
+|---|---|
+| "Zero-loss migration" (eyebrow, header, footer, /services, /services/shopify, offer title) | "Data-checked migration" or "Shopify migration" |
+| "without losing sales or rankings", "rankings kept", "SEO without losing rankings" (H1, home, blog card, share caption, title) | "data, URLs and SEO protected"; old URLs redirected (301) |
+| Migration FAQ "Will I lose rankings? Not if done correctly." | States that some ranking risk always exists and nobody can guarantee rankings, then lists the safeguards: crawl-based 301 map, metadata, content, 30-day Search Console monitoring |
+| Migration FAQ "Will I lose any data? No." | In-scope data moved and record counts compared. Customer passwords cannot transfer to Shopify; app data moves only where the apps support import |
+| "large stores with 4,000+ products and 8 years of order history" | Unverified; replaced by migrations on record (WooCommerce, Wix, WordPress) |
+| "every old URL redirected" | "301 map built from a crawl of the old site" |
+| /services/shopify/development "We keep your … SEO rankings … intact" | Data and URL structure kept, redirects where URLs change |
+| "without losing a single translated string" | "every translated string exported and checked" |
+| "live within 7 days" | Same timeline, counted from receipt of products, branding and store access |
+
+- Kept: owner-approved, clearly scoped guarantees such as speed ("agreed pages and metrics; no measurable improvement, no fee"), deposit refund and no lock-in. Response-time commitments ("reply within 24 hours") are also kept.
+
+**Item 5 — production crawl files.** Re-verified this round; evidence is in the progress log below.
+
+**Items 6–8 — competitor roundups.**
+- Searched 2026-11-27 and read the pages in full via fetch. The DiscountOS roundup was **not found** by any search; the owner should supply its URL.
+
+| Publisher (page) | Type | Self-ranked | Method stated | Data used | Structure | Lists MW |
+|---|---|---|---|---|---|---|
+| ThriveDesk (`/best-shopify-agencies/india/`, verified 28 Oct 2026) | Helpdesk SaaS, programmatic city/country series | No (no disclosure) | Partner tier, Shopify focus, public reviews, years, store-size fit, services, client work | Shopify Partner Directory (tier, review counts), Clutch (rating, reviews, min project, hourly), agency sites | Comparison table + fixed per-agency fields (based in, founded, tier, team, minimum, named clients, why it ranks, check before hiring) + cost section + FAQ; correction route | No |
+| ThemeXpert (`/best-shopify-agencies/united-kingdom/`, checked 28 Oct 2026) | Joomla theme vendor, same template as ThriveDesk | No (no disclosure) | Tier, focus, reviews, track record | Partner Directory, Clutch | Same template; correction route; US/UK cities only | No |
+| FactoryJet (`/blog/best-shopify-development-companies-india`, 24 Nov 2026) | Competitor agency | Yes (disclosed: "ours included") | No ranking; inclusion if the home page describes Shopify work | Agency home pages; Shopify India pricing | Table + FAQ + "check the Partner Directory" routine; author byline | No |
+| Crawlapps (`/blogs/news/best-shopify-plus-agency-india`, updated 26 Nov 2026) | Competitor agency (Plus, Surat) | Yes, #1 (disclosed) | Built from the Shopify directory: tier, review depth, named work, specialty | Partner Directory, Clutch | Table + fixed fields (tier, city, partner since, choose if / think twice if, prices) | No |
+| Growww Tech (`/resources/top-shopify-development-companies-in-india`) | Competitor agency (Select) | Yes, #1 (disclosed) | None beyond price bands and fit | None cited | Price-band table + strengths / watch-outs + FAQ | No |
+
+**Item 7 — why these pages and agencies are discoverable for non-branded searches** (observations, not measured rankings):
+- **Pages:**
+  1. Exact-intent titles with year and location ("Best Shopify Agencies in India (2026)").
+  2. Visible freshness ("verified/updated" dates).
+  3. Comparison tables and fixed per-agency fields that AI engines can extract.
+  4. Stated methodology.
+  5. Third-party numbers (directory tier and review counts, Clutch ratings, minimum project).
+  6. Scale: programmatic series across many cities.
+  7. FAQ and "how to choose" sections.
+- **Agencies that recur** (Dynamic Dreamz, Seventh Triangle, KLoc, Codify Infotech) share:
+  1. A visible Partner Directory tier (Platinum/Premier/Plus).
+  2. Large public review counts (e.g. KLoc 621, Codify 636, Parkhya 2,492 directory reviews; Dynamic Dreamz 134 on Clutch).
+  3. Published starting prices or a Clutch minimum project.
+  4. Named client work.
+  5. A Shopify-only focus.
+- The Partner Directory and Clutch are the primary sources every methodology cites.
+
+**Item 8 — Miracle Websoft vs these criteria**
+
+| Criterion | Listed agencies | Miracle Websoft (verified) | Gap / action |
+|---|---|---|---|
+| Partner Directory tier | Platinum/Premier/Plus | Directory shows a "Plus" badge, Partner since 2019 | Owner to confirm the exact tier label and state it on the site only once confirmed |
+| Directory reviews | Tens to thousands | None shown on the profile | Biggest gap. Ask every completed client to leave a directory review (no incentives, no gating) |
+| Clutch reviews | 4–134 | **0 ("Not yet reviewed")** | Request Clutch reviews from recent 5.0 Upwork clients |
+| Upwork proof | Rarely cited | Strong: Top Rated Plus, $600K+, 780+ jobs, 208 of 258 recorded jobs rated 5.0 | Make the Upwork record easy to cite: /work, /reviews, and llms.txt already done |
+| Published pricing | Some (KLoc, Parkhya, Codify) | Strong: fixed prices on /pricing and offer pages | Mirror the starting prices on the Partner Directory and Clutch profiles |
+| Team size consistency | Usually consistent | Site 15; directory 1–10; Clutch 10–49; Upwork 11–50 | Owner updates the directory, Clutch and Upwork |
+| Named client work | Yes | Named clients on the homepage and /case-studies; 6 Shopify-verified featured clients on the directory | Turn 3–5 into full case studies (Prompt 05) |
+| Shopify-only focus | Rewarded | Site is Shopify-first; Clutch/DesignRush/Upwork summaries are not | Owner updates the profile summaries |
+| Methodology-style content | Comparison guides | None (correctly, no fake rankings) | Publish a fair "how to choose / verify a Shopify agency in India" guide (below), with commercial interest disclosed |
+| City or country page | Agencies located in metros | Rajpura; remote delivery | Do not create fake local pages. Target India lists and "remote/offshore" angles |
+
+**Item 9 — outreach tracker.** `docs/outreach-tracker.csv` gains 10 rows: ThriveDesk and ThemeXpert (both have correction routes), FactoryJet, Crawlapps and Growww (competitors, low priority), DiscountOS (not found), PageFly, Webtonic and OneLittleWeb (criteria still to read), and the own Partner Directory profile (fix team size, add prices, request reviews). Every row needs owner approval; nothing was sent.
+
+**Items 10–11 — content priorities (improve existing URLs first)**
+
+| Topic | Existing URL to improve first | Specific improvement | New page only if… |
+|---|---|---|---|
+| Hiring a Shopify developer | `/services/dedicated-shopify-developer` + `/blog/shopify-developer-vs-shopify-agency` | Add a comparison table: freelancer vs dedicated developer vs agency (cost model, continuity, QA, cover); a "how to verify a developer" checklist (Partner Directory, Upwork record, reviews); link the 2,942-hour retainer record | A distinct hiring-guide query shows GSC impressions |
+| Monthly maintenance | `/services/shopify/shopify-maintenance` + `/pricing` care plans | What's included / excluded per plan, response times, worked monthly task examples, the verified SparkTrendz maintenance record | — |
+| Dedicated developer | `/services/dedicated-shopify-developer` | Hours, rollover, timezone overlap (IST vs US/UK/AU, factual), example monthly task list, retainer proof | — |
+| Shopify Plus | `/services/shopify/shopify-plus-development`, `/services/shopify-checkout-customization` | "What needs Plus vs not" table (checkout steps, custom-app Functions, B2B), citing shopify.dev; verified 3-feature checkout record | "When to upgrade to Plus" guide |
+| API integration / ERP | `/services/shopify/api-private-apps` | Integration patterns (webhooks, Admin GraphQL, sync frequency, error handling); eSIM API record; ERP named only when a verified ERP project exists | ERP page only after a verified ERP project |
+| Custom apps | `/services/shopify-app-development` | Cost ranges (owner-approved), total cost of ownership (hosting, API version upkeep) vs app subscriptions | Cost guide |
+| CRO | `/services/conversion-rate-optimization` | Audit deliverable sample, process, PDP record; settle the overlap with `/services/shopify-cro-speed` using GSC | — |
+| Migration | `/services/shopify-migration` | Now accurate; add a migration checklist and cost factors; link the WooCommerce record and the existing migration blog post | Migration cost guide |
+| Speed | `/services/shopify-speed-optimization` | Field vs lab explanation, what is measured, the guarantee's terms | — |
+| White-label | `/white-label` | Process under NDA, timezone, communication, verified agency-partner examples (owner) | — |
+| Original research | (new, later) | "What 250+ Shopify client projects show": category mix and ratings from `jobs.ts` (reliable fields only) | Only with methodology and limitations stated |
+
+**Not done in this round, by design:** no reviews, statistics, backlinks or AI recommendation results were created; no outreach was sent; no AI engine tests were run (the 25-prompt log is still empty); not deployed.
+
+**Round 3 progress log (2026-11-27)**
+- **Item 5 re-check** (2026-11-27T10:25Z):
+  - `robots.txt` and `llms.txt` return 200 `text/plain; charset=UTF-8`; `sitemap.xml` returns 200 `application/xml`.
+  - Same result for the Googlebot, Bingbot, OAI-SearchBot, Claude-SearchBot and PerplexityBot user agents. These are spoofed-UA tests; real crawler access needs GSC/Bing and server logs.
+  - No CDN in front: DNS points to the VPS and the response header is `server: nginx`.
+  - The external tool's retrieval failure is not evidence that the files are missing.
+- **Tests:**
+  - `tsc --noEmit` passed; `eslint src` is clean; `npm run build` succeeded (exit 0).
+  - The local validator found 0 issues on 174 URLs: no stale credentials, no AggregateRating, every FAQ answer visible, valid JSON-LD, no duplicate-brand titles.
+  - The migration page has 0 "zero-loss" or "without losing" claims.
+- **Status:**
+  - Prompt 02 (claims) → review.
+  - Prompt 11 (outreach) → in progress: tracker updated; owner approval needed before any contact.
+  - Prompt 03/06 content priorities → updated above.
+- **Remaining (owner):**
+  1. Approve the deploy of `ai-search-review-3`.
+  2. Update external profiles (team size 15; Shopify-first summaries; DesignRush founding year 2016; starting prices on the Partner Directory and Clutch).
+  3. Confirm the Partner Directory tier label.
+  4. Request Clutch and Partner Directory reviews from recent clients (no incentives).
+  5. Supply technical scope for the 4 owner-described clients.
+  6. Supply the DiscountOS URL.
+  7. GSC/GA4 access and recrawl requests.
+  8. One real project story per priority content brief.

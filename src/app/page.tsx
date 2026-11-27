@@ -37,7 +37,7 @@ const clients = ['Farmers Atelier', 'Shirtonomy', 'Buddha Trends', 'Momifa', 'Fl
 // Service name = what it is. Line = what you get. Price = what it costs.
 const services = [
   { name: 'Shopify Store Development', line: 'Launch-ready in 7 days. Mobile first, payments and shipping tested.', price: 'From $600', href: '/services/shopify-store-launch' },
-  { name: 'Shopify Migration', line: 'From WooCommerce, Wix or Magento. Data, URLs and rankings kept.', price: 'From ~$1,500', href: '/services/shopify-migration' },
+  { name: 'Shopify Migration', line: 'From WooCommerce, Wix or Magento. Data checked, old URLs redirected, SEO protected.', price: 'From ~$1,500', href: '/services/shopify-migration' },
   { name: 'Speed Optimization', line: 'Faster mobile pages, measured before and after. No improvement, no fee.', price: 'Fixed price', href: '/services/shopify-speed-optimization' },
   { name: 'Conversion Optimization', line: 'Find where shoppers drop off. Fix the biggest leaks first.', price: 'Free teardown', href: '/services/conversion-rate-optimization' },
   { name: 'Dedicated Shopify Developer', line: 'Same developer every month, working through your list.', price: 'From $299/mo', href: '/services/dedicated-shopify-developer' },

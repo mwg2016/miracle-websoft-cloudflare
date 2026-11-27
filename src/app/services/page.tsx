@@ -6,18 +6,18 @@ import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 export const metadata: Metadata = {
   title: 'Shopify Services: Pick the Result You Need | Miracle Websoft',
-  description: 'Dedicated Shopify services at fixed prices: launch a store in 7 days, speed fixes, conversion fixes, zero-loss migration, Plus checkout, international and a dedicated developer.',
+  description: 'Dedicated Shopify services at fixed prices: launch a store in 7 days, speed fixes, conversion fixes, data-checked migration, Plus checkout, international and a dedicated developer.',
   alternates: { canonical: 'https://miraclewebsoft.com/services' },
   openGraph: {
     title: 'Shopify Services: Pick the Result You Need | Miracle Websoft',
-    description: 'Dedicated Shopify services at fixed prices: launch a store in 7 days, speed fixes, conversion fixes, zero-loss migration, Plus checkout, international and a dedicated developer.',
+    description: 'Dedicated Shopify services at fixed prices: launch a store in 7 days, speed fixes, conversion fixes, data-checked migration, Plus checkout, international and a dedicated developer.',
     url: 'https://miraclewebsoft.com/services',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Shopify Services: Pick the Result You Need | Miracle Websoft',
-    description: 'Dedicated Shopify services at fixed prices: launch a store in 7 days, speed fixes, conversion fixes, zero-loss migration, Plus checkout, international and a dedicated developer.',
+    description: 'Dedicated Shopify services at fixed prices: launch a store in 7 days, speed fixes, conversion fixes, data-checked migration, Plus checkout, international and a dedicated developer.',
   },
 }
 

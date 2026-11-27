@@ -132,13 +132,11 @@ export default function CitationsAndProfiles() {
           }}
         >
           <h3 style={{ color: 'var(--text-1)', fontSize: '1rem', fontWeight: 600, marginBottom: '0.5rem' }}>
-            Original Miracle Websoft data
+            Our public track record
           </h3>
           <p style={{ color: 'rgb(var(--ink-rgb) / 0.65)', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }}>
-            Across 600+ Shopify projects we have shipped since 2016, our internal benchmarks show an average
-            mobile Largest Contentful Paint under 1.5 seconds and a 42% median uplift in conversion rate after a
-            theme rebuild. Methodology: data aggregated from client GA4 properties and our internal Lighthouse
-            CI pipeline; figures cover engagements between January 2023 and the current quarter.
+            700+ projects since 2016, with the Upwork project log and client reviews published on this site.
+            We do not publish aggregate speed or conversion averages until we have a documented dataset and method.
           </p>
         </div>
 
