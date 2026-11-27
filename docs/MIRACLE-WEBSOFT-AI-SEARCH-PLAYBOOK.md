@@ -226,7 +226,7 @@ Historical metadata work is reported complete above; this does not mark the broa
   2. Shopify-only promotion since 2026-11-26. Non-Shopify pages stay live and are reachable from the footer link "Other development work".
   3. Short, outcome-based copy. Prices only from /pricing or "quoted".
 - Conflict: CLAUDE.md allows merge, redirect or noindex "with traffic/backlink evidence and explicit approval", while owner memory says never redirect. **Recommendation: the stricter rule governs. Propose any merge or redirect only with GSC evidence and explicit owner approval.**
-- `MIRACLE-WEBSOFT-AI-SEARCH-PLAYBOOK.md` (v1.0) still sits untracked in the repo root. It is superseded by this file; the owner can delete it.
+- The v1.0 playbook that was in the repo root has since been removed by the owner. This v2 file in `docs/` is the only copy.
 
 **August 2026 Standard Digitals plan: BLOCKED.** It is not in the repo, not in git history (195 commits), and not under `~/Documents`, `~/Desktop`, `~/Downloads` or `/Applications/ai`. The owner needs to supply its path. Below is what the current implementation shows against the plan topics listed in Prompt 00:
 
