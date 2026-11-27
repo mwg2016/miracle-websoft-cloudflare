@@ -7,7 +7,7 @@ import CopyCaption from '@/components/share/CopyCaption'
 import { shareItems, type ShareItem } from '@/data/share'
 import { breadcrumb, itemList, renderJsonLd, webPage, SITE_URL } from '@/lib/jsonld'
 
-const TITLE = 'Share Miracle Websoft: Shopify & AI Services | Miracle Websoft'
+const TITLE = 'Share Our Shopify Services | Miracle Websoft'
 const DESCRIPTION = 'Know a brand that needs Shopify, CRO or AI help? Share any Miracle Websoft service on Facebook, LinkedIn, X, WhatsApp or email in one click, with a ready-made caption.'
 
 export const metadata: Metadata = {

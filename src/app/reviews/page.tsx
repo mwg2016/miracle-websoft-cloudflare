@@ -9,7 +9,8 @@ import { clientVideos } from '@/data/videos'
 import { listPublicReviews } from '@/lib/reviews/db'
 import { computeStats, ratingLabel } from '@/lib/reviews/types'
 import { reviewsIndexSchema } from '@/lib/reviews/schema'
-import { breadcrumb, faqPage, renderJsonLd, SITE_URL } from '@/lib/jsonld'
+import { breadcrumb, renderJsonLd, SITE_URL } from '@/lib/jsonld'
+import FaqSection from '@/components/ui/FaqSection'
 import RatingSummary from '@/components/reviews/RatingSummary'
 import ReviewCard from '@/components/reviews/ReviewCard'
 import ShareButtons from '@/components/share/ShareButtons'
@@ -69,10 +70,7 @@ export default async function ReviewsPage({ searchParams }: { searchParams: Sear
   const websiteCount = all.filter(r => r.source === 'website').length
   const upworkCount = all.length - websiteCount
 
-  const schema = [
-    reviewsIndexSchema(all),
-    breadcrumb([{ name: 'Home', url: '/' }, { name: 'Reviews', url: '/reviews' }]),
-    faqPage([
+  const reviewFaqs = [
       {
         question: 'What do clients say about Miracle Websoft?',
         answer: `Miracle Websoft is rated ${stats.average.toFixed(1)} out of 5 (${ratingLabel(stats.average)}) across ${stats.count} verified client reviews. Clients most often mention code quality, clear communication and fast delivery on Shopify projects.`,
@@ -85,7 +83,11 @@ export default async function ReviewsPage({ searchParams }: { searchParams: Sear
         question: 'How many 5-star reviews does Miracle Websoft have?',
         answer: `${fiveStar} of ${stats.count} reviews are 5 stars (${stats.count ? Math.round((fiveStar / stats.count) * 100) : 0}%).`,
       },
-    ]),
+  ]
+
+  const schema = [
+    reviewsIndexSchema(all),
+    breadcrumb([{ name: 'Home', url: '/' }, { name: 'Reviews', url: '/reviews' }]),
   ]
 
   return (
@@ -201,6 +203,8 @@ export default async function ReviewsPage({ searchParams }: { searchParams: Sear
           )}
         </div>
       </section>
+
+      <FaqSection faqs={reviewFaqs} heading="About these reviews" />
 
       <section style={{ paddingBottom: '5rem' }}>
         <div className="mw-container">

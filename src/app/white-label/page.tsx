@@ -101,7 +101,7 @@ const whyUs = [
   { title: 'Deliverables under your brand', body: 'Code, reports and write-ups delivered under your agency name if you need it.' },
   { title: 'Your tools, your workflow', body: 'Asana, Jira, ClickUp, Notion, Linear. Slack or email for daily updates.' },
   { title: 'Start within 48 hours', body: 'Once scope is agreed, work starts within 48 hours. No long onboarding cycle.' },
-  { title: 'Shopify is most of what we do', body: '700+ projects since 2016, by a 16-person in-house team in India.' },
+  { title: 'Shopify is most of what we do', body: '700+ projects since 2016, by an in-house team in India.' },
 ]
 
 const techStack = ['Shopify Liquid', 'React / Next.js', 'Shopify Hydrogen', 'Shopify App Bridge', 'Node.js', 'GraphQL / REST API', 'Figma', 'Git / GitHub']
@@ -158,7 +158,7 @@ export default function WhiteLabelPage() {
           <div>
             <p className="mw-eyebrow">White-label Shopify for agencies</p>
             <h1 className="mw-hero-title" style={{ fontSize: 'clamp(38px, 5vw, 64px)', maxWidth: '14ch' }}>
-              Your agency&apos;s <span className="mw-mark">quiet Shopify team.</span>
+              White-label Shopify development: your agency&apos;s <span className="mw-mark">quiet Shopify team.</span>
             </h1>
             <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '46ch' }}>
               We build under your brand. You keep the client, the credit and the margin.
@@ -170,7 +170,7 @@ export default function WhiteLabelPage() {
             </div>
             <ul className="home-proof">
               <li><strong>700+</strong> projects</li>
-              <li><strong>4.9★</strong> on Clutch</li>
+              <li><strong>Top Rated Plus</strong> on Upwork</li>
               <li><strong>Top Rated Plus</strong> on Upwork</li>
             </ul>
           </div>

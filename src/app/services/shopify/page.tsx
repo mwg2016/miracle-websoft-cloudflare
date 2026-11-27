@@ -79,8 +79,8 @@ const shopifyServices: { title: string; desc: string; href: string; price?: stri
     price: 'From $99/mo',
   },
   {
-    title: 'Shopify API & Private Apps',
-    desc: 'Custom Shopify APIs, private apps, admin tools, storefront integrations, webhooks and automation for unique operations.',
+    title: 'Shopify API & Custom Apps',
+    desc: 'Custom Shopify APIs, custom apps, admin tools, storefront integrations, webhooks and automation for unique operations.',
     href: '/services/shopify/api-private-apps',
     price: 'From $1,500',
   },
@@ -89,7 +89,7 @@ const shopifyServices: { title: string; desc: string; href: string; price?: stri
 const faqs = [
   {
     question: 'What Shopify services do you provide?',
-    answer: 'We provide Shopify store development, Shopify Plus development, theme customization, custom features, app integration, migration, maintenance, API development and private apps.',
+    answer: 'We provide Shopify store development, Shopify Plus development, theme customization, custom features, app integration, migration, maintenance, API development and custom apps.',
   },
   {
     question: 'Do you work with existing Shopify stores?',
@@ -117,13 +117,13 @@ const jsonLd = renderJsonLd([
   webPage({
     name: 'Shopify Services - Miracle Websoft',
     description:
-      'Shopify development, Shopify Plus, theme customization, custom features, app integration, migrations, maintenance, APIs and private apps.',
+      'Shopify development, Shopify Plus, theme customization, custom features, app integration, migrations, maintenance, APIs and custom apps.',
     url: 'https://miraclewebsoft.com/services/shopify',
   }),
   service({
     name: 'Shopify Services',
     description:
-      'Shopify development, Shopify Plus, theme customization, custom features, app integrations, migrations, maintenance and private apps.',
+      'Shopify development, Shopify Plus, theme customization, custom features, app integrations, migrations, maintenance and custom apps.',
     url: '/services/shopify',
     serviceType: 'Shopify development agency',
     areaServed: ['United States', 'Canada', 'United Kingdom', 'Australia', 'Europe', 'India'],
@@ -151,8 +151,8 @@ export default function ShopifyServicesPage() {
       <ServiceHero
         breadcrumbItems={[{ label: 'Services', href: '/services' }, { label: 'Shopify Services' }]}
         eyebrow="Shopify services · Shopify Partner"
-        title={<>Tell us the result you need. <span className="mw-mark">We quote a fixed price for it.</span></>}
-        lede="A faster store, more orders, a safe migration, a new market or a developer on call. Each one is a fixed-scope offer with a price, a timeline and a guarantee. 700+ projects since 2016, done by a 16-person in-house team."
+        title={<>Shopify experts for development and growth. <span className="mw-mark">Fixed price for the result you need.</span></>}
+        lede="A faster store, more orders, a safe migration, a new market or a developer on call. Each one is a fixed-scope offer with a price, a timeline and a guarantee. 700+ projects since 2016, done by our in-house team."
         bullets={['Fixed price and timeline, in writing, before work starts', 'Before-and-after numbers, not hours billed', 'You own everything we build, no lock-in']}
         aside={
           <HeroScope

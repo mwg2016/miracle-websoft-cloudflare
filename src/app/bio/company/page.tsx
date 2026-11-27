@@ -4,32 +4,33 @@ import Link from 'next/link'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
+import { COMPANY } from '@/data/company-facts'
 
 export const metadata: Metadata = {
   title: 'Miracle Websoft — Shopify Experts for Growing Stores',
-  description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 700+ projects, 98% job success, 16 team members.',
+  description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 700+ projects, $600K+ earned on Upwork.',
   alternates: { canonical: 'https://miraclewebsoft.com/bio/company' },
   robots: { index: true, follow: true },
   openGraph: {
     title: 'Miracle Websoft — Shopify Experts for Growing Stores',
-    description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 700+ projects, 98% job success, 16 team members.',
+    description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 700+ projects, $600K+ earned on Upwork.',
     url: 'https://miraclewebsoft.com/bio/company',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Miracle Websoft — Shopify Experts for Growing Stores',
-    description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 700+ projects, 98% job success, 16 team members.',
+    description: 'Miracle Websoft is a Top Rated Plus Shopify agency helping merchants with custom development, CRO, speed, apps and migrations. 700+ projects, $600K+ earned on Upwork.',
   },
 }
 
 const PAYMENT_LINK = outboundHref('external', 'https://razorpay.com/export-link/@miraclewebsoft')
 
 const stats = [
-  { value: '700+', label: 'Projects' },
-  { value: '98%', label: 'Upwork job success' },
-  { value: '2016', label: 'Founded' },
-  { value: '16', label: 'In-house team' },
+  { value: COMPANY.projects, label: 'Projects' },
+  { value: COMPANY.upwork.earnings, label: 'Earned on Upwork' },
+  { value: String(COMPANY.foundedYear), label: 'Founded' },
+  { value: String(COMPANY.shopifyPartner.since), label: 'Shopify Partner since' },
 ]
 
 const services = [
@@ -49,9 +50,9 @@ const socialLinks = [
 ]
 
 const trustProfiles = [
-  { label: 'Upwork agency', sub: 'Top Rated Plus · 98% job success', href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/') },
+  { label: 'Upwork agency', sub: 'Top Rated Plus', href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/') },
   { label: 'Shopify Partner directory', sub: 'Official partner listing', href: outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1') },
-  { label: 'Clutch', sub: '4.9 rating · verified reviews', href: outboundHref('external', 'https://clutch.co/profile/miracle-websoft') },
+  { label: 'Clutch', sub: 'Company profile', href: outboundHref('external', 'https://clutch.co/profile/miracle-websoft') },
   { label: 'Trustpilot', sub: 'Customer reviews', href: 'https://www.trustpilot.com/review/miraclewebsoft.com' },
   { label: 'DesignRush', sub: 'Agency listing', href: 'https://www.designrush.com/agency/profile/miracle-websoft' },
 ]
@@ -60,7 +61,7 @@ const jsonLd = renderJsonLd([
   webPage({
     name: 'Miracle Websoft — Company bio',
     description:
-      'Miracle Websoft company profile — Top Rated Plus Shopify agency for custom development, CRO, speed, apps and migrations. 700+ projects, 98% job success, 16 specialists.',
+      'Miracle Websoft company profile — Top Rated Plus Shopify agency for custom development, CRO, speed, apps and migrations. 700+ projects, $600K+ earned on Upwork.',
     url: 'https://miraclewebsoft.com/bio/company',
     type: 'AboutPage',
   }),
@@ -92,7 +93,7 @@ export default function CompanyBioPage() {
           <p className="mw-eyebrow">Shopify agency · est. 2016</p>
           <h1 style={{ fontSize: 'clamp(2.2rem, 7vw, 3rem)', lineHeight: 1.05 }}>Miracle Websoft</h1>
           <p style={{ marginTop: '0.75rem', fontSize: '1.05rem', color: 'var(--text-2)' }}>
-            Shopify development and CRO for growing stores. A 16-person in-house team building, fixing and speeding up Shopify stores.
+            Shopify development and CRO for growing stores. An in-house team building, fixing and speeding up Shopify stores.
           </p>
           <p className="mw-num" style={{ marginTop: '0.75rem' }}>Rajpura, Punjab, India · USA · UK · Australia</p>
         </header>

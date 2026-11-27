@@ -28,7 +28,7 @@ type Svc = { title: string; desc: string; href: string; price?: string }
 const shopifyCore: Svc[] = [
   {
     title: 'Shopify Services',
-    desc: 'Store development, Shopify Plus, theme customization, custom features, app integration, maintenance, APIs and private apps.',
+    desc: 'Store development, Shopify Plus, theme customization, custom features, app integration, maintenance, APIs and custom apps.',
     href: '/services/shopify',
   },
   {
@@ -300,7 +300,7 @@ export default function ServicesPage() {
 
       <ServiceHero
         eyebrow="Shopify services"
-        title={<>Start with the problem, <span className="mw-mark">not the service.</span></>}
+        title={<>Shopify development services, <span className="mw-mark">picked by the result you need.</span></>}
         lede="Everything here is Shopify. One result per project, a fixed price, and a guarantee. 700+ projects since 2016."
         aside={
           <aside className="audit-form-card" style={{ boxShadow: 'none' }} aria-label="Which service do I need?">

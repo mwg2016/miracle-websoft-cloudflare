@@ -9,6 +9,7 @@ import LeadTracker from '@/components/LeadTracker'
 import ClarityInit from '@/components/ClarityInit'
 import NavigationProgress from '@/components/layout/NavigationProgress'
 import StickyMobileCta from '@/components/layout/StickyMobileCta'
+import { COMPANY } from '@/data/company-facts'
 
 // Self-hosted by next/font at build time — no runtime request to Google.
 const display = Fraunces({ subsets: ['latin'], axes: ['opsz', 'SOFT'], style: ['normal', 'italic'], variable: '--font-display', display: 'swap' })
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Miracle Websoft', url: 'https://miraclewebsoft.com' }],
   creator: 'Karam Singh Mehra',
   publisher: 'Miracle Websoft',
-  category: 'Ecommerce growth and AI technology services',
+  category: 'Shopify development services',
   formatDetection: {
     email: false,
     address: false,
@@ -126,7 +127,7 @@ const jsonLd = {
       image: 'https://miraclewebsoft.com/icon-512.png',
       slogan: 'Shopify development, support and growth in one team.',
       description: 'Miracle Websoft is a dedicated Shopify development agency: store builds, speed and conversion fixes, migrations, Shopify Plus checkout, custom apps and dedicated Shopify developers. 700+ projects. Based in India, serving the USA, Canada, UK, Australia and Europe since 2016.',
-      foundingDate: '2016',
+      foundingDate: String(COMPANY.foundedYear),
       email: 'karam@miraclewebsoft.com',
       telephone: '+916239269736',
       contactPoint: [
@@ -141,10 +142,10 @@ const jsonLd = {
       ],
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Rajpura',
-        addressRegion: 'Punjab',
-        postalCode: '140702',
-        addressCountry: 'IN',
+        addressLocality: COMPANY.address.locality,
+        addressRegion: COMPANY.address.region,
+        postalCode: COMPANY.address.postalCode,
+        addressCountry: COMPANY.address.country,
       },
       areaServed: [
         { '@type': 'Country', name: 'United States' },
@@ -154,7 +155,6 @@ const jsonLd = {
         { '@type': 'Place', name: 'Europe' },
         { '@type': 'Country', name: 'India' },
       ],
-      numberOfEmployees: { '@type': 'QuantitativeValue', value: 16 },
       knowsAbout: [
         'Shopify development', 'Shopify Plus development', 'Shopify app development', 'Shopify migration',
         'Shopify CRO', 'Shopify speed optimization', 'Shopify SEO', 'Shopify support',

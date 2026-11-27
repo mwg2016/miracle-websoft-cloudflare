@@ -6,21 +6,22 @@ import FounderIntro from '@/components/ui/FounderIntro'
 import { jobs, jobTitle } from '@/data/jobs'
 import { breadcrumb, renderJsonLd, webPage } from '@/lib/jsonld'
 import { outboundHref } from '@/lib/outbound'
+import { COMPANY } from '@/data/company-facts'
 
 export const metadata: Metadata = {
-  title: 'About Miracle Websoft — Ecommerce Growth & AI Technology Agency',
-  description: 'Miracle Websoft is an ecommerce growth and AI technology agency with 700+ projects and 15,000+ hours delivered. Shopify, CRO, speed, AI and custom web development.',
+  title: 'About Miracle Websoft — Shopify Development Agency Since 2016',
+  description: 'Miracle Websoft is a Shopify development agency in Rajpura, Punjab, founded in 2016 by Karam Singh Mehra. 700+ projects, Top Rated Plus on Upwork, Shopify Partner since 2019.',
   alternates: { canonical: 'https://miraclewebsoft.com/about' },
   openGraph: {
-    title: 'About Miracle Websoft — Ecommerce Growth & AI Technology Agency',
-    description: 'Miracle Websoft is an ecommerce growth and AI technology agency with 700+ projects and 15,000+ hours delivered. Shopify, CRO, speed, AI and custom web development.',
+    title: 'About Miracle Websoft — Shopify Development Agency Since 2016',
+    description: 'Miracle Websoft is a Shopify development agency in Rajpura, Punjab, founded in 2016 by Karam Singh Mehra. 700+ projects, Top Rated Plus on Upwork, Shopify Partner since 2019.',
     url: 'https://miraclewebsoft.com/about',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Miracle Websoft — Ecommerce Growth & AI Technology Agency',
-    description: 'Miracle Websoft is an ecommerce growth and AI technology agency with 700+ projects and 15,000+ hours delivered. Shopify, CRO, speed, AI and custom web development.',
+    title: 'About Miracle Websoft — Shopify Development Agency Since 2016',
+    description: 'Miracle Websoft is a Shopify development agency in Rajpura, Punjab, founded in 2016 by Karam Singh Mehra. 700+ projects, Top Rated Plus on Upwork, Shopify Partner since 2019.',
   },
 }
 
@@ -33,26 +34,26 @@ const values = [
 ]
 
 const facts = [
-  { dt: 'Founded', dd: '2016' },
-  { dt: 'Projects', dd: '700+' },
-  { dt: 'Hours delivered', dd: '15,000+' },
-  { dt: 'Earned on Upwork', dd: '$600K+' },
-  { dt: 'In-house team', dd: '16' },
-  { dt: 'Upwork job success', dd: '98%' },
+  { dt: 'Founded', dd: String(COMPANY.foundedYear) },
+  { dt: 'Projects', dd: COMPANY.projects },
+  { dt: 'Upwork jobs', dd: COMPANY.upwork.jobs },
+  { dt: 'Earned on Upwork', dd: COMPANY.upwork.earnings },
+  { dt: 'Shopify Partner since', dd: String(COMPANY.shopifyPartner.since) },
+  { dt: 'Upwork status', dd: COMPANY.upwork.badge },
 ]
 
 const credentials = [
   { name: 'Shopify Partner', sub: 'Official partner directory', href: outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1') },
-  { name: 'Upwork Top Rated Plus', sub: '98% job success · since 2020', href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/') },
-  { name: 'Clutch', sub: '4.9 rating · verified reviews', href: outboundHref('external', 'https://clutch.co/profile/miracle-websoft') },
+  { name: 'Upwork Top Rated Plus', sub: 'Agency profile', href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/') },
+  { name: 'Clutch', sub: 'Company profile', href: outboundHref('external', 'https://clutch.co/profile/miracle-websoft') },
   { name: 'Shopify Foundations', sub: 'Certified · 2023', href: null },
 ]
 
 const jsonLd = renderJsonLd([
   webPage({
-    name: 'About Miracle Websoft - ecommerce growth and AI technology agency',
+    name: 'About Miracle Websoft - Shopify development agency',
     description:
-      'Ecommerce growth and AI technology agency with 700+ projects, 15,000+ hours delivered and a 16-person team serving global clients since 2016.',
+      'Shopify development agency with 700+ projects, serving merchants in the US, UK, Canada, Australia and Europe since 2016.',
     url: 'https://miraclewebsoft.com/about',
     type: 'AboutPage',
   }),
@@ -78,7 +79,7 @@ export default function AboutPage() {
                 A Shopify studio built by <span className="mw-mark">the person you talk to.</span>
               </h1>
               <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '54ch' }}>
-                Miracle Websoft is a Shopify development and CRO agency founded in 2016 by Karam Singh Mehra. A 16-person in-house team in India builds, fixes and speeds up stores for brands across the USA, Canada, UK, Australia and Europe.
+                Miracle Websoft is a Shopify development and CRO agency founded in 2016 by Karam Singh Mehra. An in-house team in India builds, fixes and speeds up stores for brands across the USA, Canada, UK, Australia and Europe.
               </p>
               <p style={{ marginTop: '1rem', color: 'var(--text-3)', maxWidth: '54ch' }}>
                 We also take on custom web development and AI automation when a client needs it, but ecommerce is the core: slow stores, low mobile conversion, migrations, and the custom features apps can&apos;t do.

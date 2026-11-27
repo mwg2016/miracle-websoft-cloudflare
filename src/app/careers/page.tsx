@@ -68,7 +68,7 @@ const openRoles = [
     title: 'Shopify Developer — Senior',
     type: 'Full-time',
     level: '3+ years',
-    description: 'You are comfortable building complex Shopify solutions end-to-end — custom themes, private apps, Hydrogen storefronts, and performance optimisation. You take ownership and deliver.',
+    description: 'You are comfortable building complex Shopify solutions end-to-end — custom themes, custom apps, Hydrogen storefronts, and performance optimisation. You take ownership and deliver.',
     requirements: [
       '3+ years of Shopify development experience',
       'Expert in Liquid, JavaScript, and CSS',
@@ -168,7 +168,7 @@ export default function CareersPage() {
             Join a small team that ships <span className="mw-mark">good Shopify work.</span>
           </h1>
           <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '54ch' }}>
-            Miracle Websoft is a 16-person, in-house Shopify team in India. Since 2016 we&apos;ve delivered 700+ projects and hold Top Rated Plus on Upwork{HIRING_OPEN ? '. We are always looking for good developers to grow with us' : ''}.
+            Miracle Websoft is an in-house Shopify team in India. Since 2016 we&apos;ve delivered 700+ projects and hold Top Rated Plus on Upwork{HIRING_OPEN ? '. We are always looking for good developers to grow with us' : ''}.
           </p>
           {HIRING_OPEN && (
             <p style={{ marginTop: '1rem', maxWidth: '54ch' }}>

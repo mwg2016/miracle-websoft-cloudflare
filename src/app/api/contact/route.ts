@@ -91,7 +91,7 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string |
       ``,
       `In the meantime, here are a few useful links:`,
       ``,
-      `→ Our Upwork profile (Top Rated Plus, 98% job success)`,
+      `→ Our Upwork profile (Top Rated Plus)`,
       `   https://www.upwork.com/agencies/shopifyexpertsdevelopers/`,
       ``,
       `→ Shopify Partner Directory listing`,
@@ -166,8 +166,8 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string |
         </td>
         <td style="width:4px"></td>
         <td style="width:33%;text-align:center;padding:16px 8px;background:#f8f8fc;border-radius:10px">
-          <div style="font-size:22px;font-weight:800;color:#111;line-height:1">98%</div>
-          <div style="font-size:11px;color:#888;margin-top:4px">Upwork job success</div>
+          <div style="font-size:22px;font-weight:800;color:#111;line-height:1">$600K+</div>
+          <div style="font-size:11px;color:#888;margin-top:4px">Earned on Upwork</div>
         </td>
         <td style="width:4px"></td>
         <td style="width:33%;text-align:center;padding:16px 8px;background:#f8f8fc;border-radius:10px">
@@ -181,8 +181,8 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string |
     <p style="margin:0 0 14px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#888">Useful links</p>
     <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px">
       ${[
-        { label: 'Upwork Profile', sub: 'Top Rated Plus · 98% job success', url: 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/', badge: 'Top Rated Plus', badgeColor: '#14a800' },
-        { label: 'Shopify Partner Directory', sub: 'Verified Shopify Partner since 2016', url: 'https://www.shopify.com/partners/directory/partner/miracle-websoft1', badge: 'Verified Partner', badgeColor: '#96bf48' },
+        { label: 'Upwork Profile', sub: 'Top Rated Plus · $600K+ earned', url: 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/', badge: 'Top Rated Plus', badgeColor: '#14a800' },
+        { label: 'Shopify Partner Directory', sub: 'Shopify Partner since 2019', url: 'https://www.shopify.com/partners/directory/partner/miracle-websoft1', badge: 'Verified Partner', badgeColor: '#96bf48' },
         { label: 'Case Studies', sub: 'Real Shopify results', url: 'https://miraclewebsoft.com/case-studies', badge: 'Read more', badgeColor: accentColor },
         { label: 'Blog', sub: 'Shopify CRO, speed and growth tips', url: 'https://miraclewebsoft.com/blog', badge: 'Read more', badgeColor: accentColor },
       ].map(l => `

@@ -131,7 +131,7 @@ export default function ServiceLandingPage({
       {data.caseStudy && (
       <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="mw-container">
-          <SectionHead eyebrow="Example project" title="What this looks like in practice." />
+          <SectionHead eyebrow="Verified project" title="What this looks like in practice." />
           <ServiceResult
             tag={data.caseStudy!.tag}
             metric={data.caseStudy!.metric}
@@ -139,7 +139,7 @@ export default function ServiceLandingPage({
             title={data.caseStudy!.title}
             bullets={data.caseStudy!.bullets}
             duration={data.caseStudy!.duration}
-            cta={{ label: 'See more work', href: '/work' }}
+            cta={data.caseStudy!.href ? { label: 'Read the project record', href: data.caseStudy!.href } : { label: 'See more work', href: '/work' }}
           />
         </div>
       </section>

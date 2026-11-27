@@ -53,7 +53,7 @@ const whyUs = [
   { title: 'Performance-first development', body: 'We build WordPress sites without page builders. That means leaner code, faster load times, and stores that don\'t slow down as content grows.' },
   { title: 'Security baked in', body: 'WordPress is the most-targeted CMS on the internet. We harden every build — hardened configs, limited attack surface, proper role management — from the start.' },
   { title: 'Fixed-price proposals', body: 'Every project starts with a scoped proposal at a fixed price. No hourly surprises, no scope creep billing. You know what you\'re paying before we begin.' },
-  { title: '700+ projects since 2016', body: 'Top Rated Plus on Upwork with a 98% job success score, and 4.9 on Clutch.' },
+  { title: '700+ projects since 2016', body: 'Top Rated Plus on Upwork with $600K+ earned.' },
   { title: 'Direct team access', body: 'You work directly with the developers and strategists. No account managers, no ticketing systems, no handoffs.' },
 ]
 

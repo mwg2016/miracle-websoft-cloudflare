@@ -6,6 +6,7 @@ import { jobs, jobTitle } from '@/data/jobs'
 import FaqSection from '@/components/ui/FaqSection'
 import BrandGrid from '@/components/case-studies/BrandGrid'
 import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
+import { COMPANY } from '@/data/company-facts'
 
 export const metadata: Metadata = {
   title: 'Case Studies — Shopify Results for Growing Stores | Miracle Websoft',
@@ -49,13 +50,13 @@ const portfolioClients = [
   { name: 'Shirtonomy',          category: 'Menswear',         desc: 'Made-to-measure shirts with Scandinavian precision',                  href: null },
   { name: 'SF Citywear',         category: 'Streetwear',       desc: 'Iconic San Francisco apparel for every style',                        href: null },
   { name: 'Globalhooper',        category: 'Streetwear',       desc: 'Basketball streetwear for the underdog spirit',                       href: null },
-  { name: 'Momifa',              category: 'Sustainable',      desc: 'Premium polo shirts and everyday essentials — USA',                   href: null },
+  { name: 'Momifa',              category: 'Sustainable',      desc: 'Premium polo shirts and everyday essentials — USA',                   href: null, delivered: 'Homepage section rebuilds, new product page templates and mobile fixes across two engagements (2024–25). Rated 5.0.', record: '/work/momifa-website-updates-2025' },
   { name: 'Farmers Atelier',     category: 'Sustainable',      desc: 'Earthy minimalist knitwear serving 20+ EU markets',                   href: 'https://farmersatelier.com' },
   { name: 'Angel De Palma',      category: 'Swimwear',         desc: 'Handcrafted resort swimwear — Mexican Caribbean',                     href: null },
   { name: 'Buddha Trends',       category: "Women's Fashion",  desc: 'Bohemian plus-size clothing for women — USA',                         href: 'https://buddhatrends.com' },
   // Fragrance & Beauty
   { name: 'Afnan Perfumes UK',   category: 'Fragrance',        desc: 'Luxury fragrance brand — UK market expansion',                        href: 'https://afnanperfumes.co.uk' },
-  { name: 'Rue Broca',           category: 'Fragrance',        desc: 'Luxury fragrance ecommerce — USA',                                    href: null },
+  { name: 'Rue Broca',           category: 'Fragrance',        desc: 'Luxury fragrance ecommerce — USA',                                    href: null , delivered: 'Custom branded Shopify theme, core catalogue and marketplace channel integrations (2024). Rated 5.0.', record: '/work/rue-broca-shopify-marketplace-2024' },
   { name: 'Amuerte Gin',         category: 'Spirits',          desc: 'Belgian craftsmanship meets Peruvian botanicals',                     href: 'https://amuertegin.com' },
   { name: 'Lash Shark',          category: 'Beauty',           desc: 'Premium lash tools for professionals',                                href: null },
   { name: 'Francis Global',      category: 'Skincare',         desc: 'Cutting-edge skincare and beauty tech',                               href: null },
@@ -129,17 +130,17 @@ export default function CaseStudiesPage() {
             <div>
               <p className="mw-eyebrow">Case studies</p>
               <h1 className="mw-hero-title" style={{ maxWidth: '17ch' }}>
-                What we built, and what <span className="mw-mark">the client said after.</span>
+                Shopify case studies: what we built, and what <span className="mw-mark">the client said after.</span>
               </h1>
               <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '52ch' }}>
                 A selection from 700+ projects since 2016. Each one links to a write-up of the brief, the work, and the client&apos;s own Upwork review.
               </p>
             </div>
             <dl className="stats">
-              <div><dt>Projects</dt><dd>700+</dd></div>
-              <div><dt>Hours delivered</dt><dd>15,000+</dd></div>
+              <div><dt>Projects</dt><dd>{COMPANY.projects}</dd></div>
+              <div><dt>Upwork jobs</dt><dd>{COMPANY.upwork.jobs}</dd></div>
               <div><dt>Brands listed below</dt><dd>{portfolioClients.length}</dd></div>
-              <div><dt>Rating on Clutch</dt><dd>4.9</dd></div>
+              <div><dt>Upwork status</dt><dd>{COMPANY.upwork.badge}</dd></div>
             </dl>
           </div>
         </div>
@@ -200,7 +201,7 @@ export default function CaseStudiesPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4" style={{ marginBottom: '2rem' }}>
             <div>
               <p className="mw-eyebrow">Brands</p>
-              <h2 style={{ fontSize: 'clamp(28px, 3.4vw, 42px)', maxWidth: '20ch' }}>{portfolioClients.length} of the brands we&apos;ve built for.</h2>
+              <h2 style={{ fontSize: 'clamp(28px, 3.4vw, 42px)', maxWidth: '20ch' }}>{portfolioClients.length} Shopify brands we&apos;ve worked with.</h2>
             </div>
             <p style={{ fontSize: '0.95rem', color: 'var(--text-3)', maxWidth: '40ch' }}>From new DTC labels to established stores across jewelry, beauty, sports, food and more.</p>
           </div>

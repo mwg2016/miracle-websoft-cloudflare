@@ -93,7 +93,7 @@ export default function MigrationPage() {
       <ServiceHero
         breadcrumbItems={[{ label: 'Services', href: '/services' }, { label: 'Shopify Migrations' }]}
         eyebrow="Zero-loss Shopify migration"
-        title={<>Move to Shopify <span className="mw-mark">without losing sales</span> or rankings.</>}
+        title={<>Shopify migration <span className="mw-mark">without losing sales</span> or rankings.</>}
         lede="Products, customers, orders, URLs, tracking and rankings all have to survive the move. We plan it carefully so you get Shopify's easier day-to-day without a messy launch."
         bullets={['Every old URL redirected, meta data carried over', 'Old store keeps selling until the cutover', 'Fixed price, typically 3 to 6 weeks']}
         primary={{ label: 'Book a 15-min migration call', href: '/book' }}
@@ -114,20 +114,19 @@ export default function MigrationPage() {
 
       <section className="mw-section">
         <div className="mw-container">
-          <SectionHead eyebrow="Example migration" title="4,000 products, rankings held." />
+          <SectionHead eyebrow="Verified migration" title="What a migration includes, as delivered." />
           <ServiceResult
             tag="WooCommerce to Shopify"
-            metric="0%"
-            metricLabel="SEO traffic lost"
-            title="Streetwear brand migrated 4,000 products, 15,000 customers and 8 years of order history. Rankings held from day one."
+            metric="5.0"
+            metricLabel="Client rating on Upwork"
+            title="WooCommerce to Shopify migration for an established store: catalogue, history, customers and SEO moved together."
             bullets={[
-              '4,000 products with all variants, images and metafields migrated in full',
-              '15,000 customer records and complete order history preserved',
-              'Redirect map covering every old URL',
-              'Custom Shopify theme built to match the existing brand',
+              'Products, order history, customer data and blog posts migrated',
+              'SEO metadata carried over and old URLs mapped to 301 redirects',
+              'Client: “Quick revisions and good communication.”',
             ]}
-            duration="5-week project"
-            cta={{ label: 'See all our work', href: '/work' }}
+            duration="Nov 2024 · Upwork"
+            cta={{ label: 'Read the project record', href: '/work/woocommerce-to-shopify-migration-2024' }}
           />
         </div>
       </section>

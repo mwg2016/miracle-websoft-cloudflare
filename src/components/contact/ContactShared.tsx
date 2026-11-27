@@ -12,8 +12,8 @@ export const EMAIL_URL = outboundHref('email', 'mailto:karam@miraclewebsoft.com?
 export const LINKEDIN_URL = outboundHref('linkedin', 'https://www.linkedin.com/in/ecommerce-experts/')
 
 const platforms = [
-  { name: 'Upwork', sub: 'Top Rated Plus · 98% job success', href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/') },
-  { name: 'Clutch', sub: '4.9 rating · verified reviews', href: outboundHref('external', 'https://clutch.co/profile/miracle-websoft') },
+  { name: 'Upwork', sub: 'Top Rated Plus', href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/') },
+  { name: 'Clutch', sub: 'Company profile', href: outboundHref('external', 'https://clutch.co/profile/miracle-websoft') },
   { name: 'Shopify Partners', sub: 'Official partner directory', href: outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1') },
   { name: 'DesignRush', sub: 'Agency directory listing', href: outboundHref('external', 'https://www.designrush.com/agency/profile/miracle-websoft') },
 ]

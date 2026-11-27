@@ -7,6 +7,10 @@ type Brand = {
   category: string
   desc: string
   href: string | null
+  /** What we delivered — only from a verified project record. */
+  delivered?: string
+  /** Internal project record, e.g. /work/<id>. */
+  record?: string
 }
 
 export default function BrandGrid({ brands }: { brands: Brand[] }) {
@@ -47,6 +51,7 @@ export default function BrandGrid({ brands }: { brands: Brand[] }) {
               <span>
                 <b>{client.name}</b>
                 <span className="brand-desc">{client.desc}</span>
+                {client.delivered && <span className="brand-desc brand-delivered"><strong>We delivered:</strong> {client.delivered}</span>}
               </span>
               <span className="mw-num brand-cat">{client.category}</span>
               {client.href ? <ArrowUpRight size={14} className="brand-arrow" /> : <span />}
@@ -57,6 +62,7 @@ export default function BrandGrid({ brands }: { brands: Brand[] }) {
               {client.href
                 ? <a href={client.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${client.name}`}>{inner}</a>
                 : <div>{inner}</div>}
+              {client.record && <a href={client.record} className="brand-record">Project record →</a>}
             </li>
           )
         })}
@@ -69,6 +75,8 @@ export default function BrandGrid({ brands }: { brands: Brand[] }) {
 .brand-grid b { display: block; font-weight: 600; color: var(--text-1); }
 .brand-desc { font-size: 0.88rem; color: var(--text-3); }
 .brand-arrow { color: var(--text-4); }
+.brand-delivered { display: block; margin-top: 0.3rem; color: var(--text-2); }
+.brand-grid li > .brand-record { display: block; padding: 0 0 0.9rem; font-size: 0.85rem; color: var(--text-1); text-decoration: underline; text-underline-offset: 3px; }
 .brand-grid a:hover .brand-arrow { color: var(--accent); }
 @media (max-width: 760px) { .brand-grid { grid-template-columns: 1fr; } .brand-cat { display: none; } }
 ` }} />

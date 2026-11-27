@@ -66,7 +66,7 @@ const faqs = [
   {
     question: 'Why Miracle Websoft over a generic agency?',
     answer:
-      'We’ve been building on Shopify since 2016: 700+ projects, a 16-person in-house team in India, 4.9 on Clutch and Top Rated Plus on Upwork with 98% job success. We don’t outsource, and the person who scopes your project stays on it.',
+      'We’ve been building on Shopify since 2016: 700+ projects, an in-house team in India and Top Rated Plus on Upwork with 99% job success. We don’t outsource, and the person who scopes your project stays on it.',
   },
 ]
 
@@ -164,10 +164,10 @@ export default function ShopifyCROLandingPage() {
             <dl className="lp-facts">
               <div><dt>Since</dt><dd>2016</dd></div>
               <div><dt>Projects</dt><dd>700+</dd></div>
-              <div><dt>Clutch</dt><dd>4.9★</dd></div>
+              <div><dt>Upwork</dt><dd>$600K+</dd></div>
             </dl>
             <p style={{ fontSize: '0.9rem', color: 'var(--text-3)', marginTop: '1.25rem' }}>
-              Top Rated Plus on Upwork · 98% job success · Shopify Partner
+              Top Rated Plus on Upwork · 99% founder job success · Shopify Partner
             </p>
           </div>
 
@@ -249,7 +249,7 @@ export default function ShopifyCROLandingPage() {
             <h2 style={{ fontSize: 'clamp(30px, 3.6vw, 48px)', maxWidth: '16ch' }}>The person who scopes your project stays on it.</h2>
             <div className="founder-card" style={{ marginTop: '2rem' }}>
               <p style={{ fontSize: '1.02rem' }}>
-                Karam Singh Mehra founded Miracle Websoft in 2016 and leads every CRO engagement with a 16-person in-house team.
+                Karam Singh Mehra founded Miracle Websoft in 2016 and leads every CRO engagement with the in-house team.
                 No sales loop, no junior hand-off. You email him, you get him.
               </p>
               <a href="#lead-form" className="mw-btn-primary" style={{ marginTop: '1.5rem' }}>

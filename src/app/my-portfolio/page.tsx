@@ -5,6 +5,7 @@ import Breadcrumb from '@/components/layout/Breadcrumb'
 import { jobs, jobTitle, fixTypos } from '@/data/jobs'
 import { outboundHref } from '@/lib/outbound'
 import { breadcrumb, person, webPage, itemList, renderJsonLd } from '@/lib/jsonld'
+import { COMPANY } from '@/data/company-facts'
 
 export const metadata: Metadata = {
   title: 'Portfolio — Karam Singh Mehra, Shopify Expert | Miracle Websoft',
@@ -24,10 +25,10 @@ const SHOPIFY_PARTNER = outboundHref('shopify_partners', 'https://www.shopify.co
 const CLUTCH_PROFILE = outboundHref('external', 'https://clutch.co/profile/miracle-websoft')
 
 const STATS = [
-  { value: '700+', label: 'Projects' },
-  { value: '15,000+', label: 'Hours delivered' },
-  { value: '2016', label: 'Building since' },
-  { value: '98%', label: 'Upwork job success' },
+  { value: COMPANY.projects, label: 'Projects' },
+  { value: COMPANY.upwork.earnings, label: 'Earned on Upwork' },
+  { value: String(COMPANY.foundedYear), label: 'Building since' },
+  { value: COMPANY.upwork.founderJobSuccess, label: 'Upwork job success' },
 ]
 
 const SKILLS = [
@@ -37,9 +38,9 @@ const SKILLS = [
 ]
 
 const CREDENTIALS = [
-  { label: 'Upwork', sub: 'Top Rated Plus · 98% job success', href: UPWORK_PROFILE },
+  { label: 'Upwork', sub: 'Top Rated Plus · 99% job success', href: UPWORK_PROFILE },
   { label: 'Shopify Partner', sub: 'Official partner directory', href: SHOPIFY_PARTNER },
-  { label: 'Clutch', sub: '4.9 rating · verified reviews', href: CLUTCH_PROFILE },
+  { label: 'Clutch', sub: 'Company profile', href: CLUTCH_PROFILE },
 ]
 
 const featuredJobs = jobs.filter(j => j.featured)

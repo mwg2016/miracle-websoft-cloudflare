@@ -3,8 +3,13 @@ import { outboundHref } from '@/lib/outbound'
 
 export type PortfolioStore = {
   name: string
-  url: string
+  /** Live store URL. Omit when not verified; the row then links to recordHref. */
+  url?: string
   displayUrl: string
+  /** What Miracle Websoft delivered — only from a verified project record. */
+  delivered?: string
+  /** Internal project record, e.g. /work/<id>. */
+  recordHref?: string
   category: string
   country: string
   flag: string
@@ -20,7 +25,7 @@ const clients: PortfolioStore[] = [
     category: 'Knitwear & Basics',
     country: 'Austria',
     flag: '🇦🇹',
-    desc: 'Contemporary comfort-focused knitwear and hoodies with an earthy minimalist aesthetic. Serving 20+ EU markets.',
+    desc: 'Austrian knitwear brand selling across EU markets.',
     accent: '#8B7355',
   },
   {
@@ -30,7 +35,7 @@ const clients: PortfolioStore[] = [
     category: "Men's Accessories",
     country: 'Australia',
     flag: '🇦🇺',
-    desc: 'Award-winning luxury ties, non-iron shirts and handcrafted men\'s accessories. 16,500+ five-star reviews.',
+    desc: 'Australian men\'s accessories brand.',
     accent: '#FFB800',
   },
   {
@@ -40,7 +45,7 @@ const clients: PortfolioStore[] = [
     category: 'Bespoke Shirts',
     country: 'Sweden',
     flag: '🇸🇪',
-    desc: 'Made-to-measure and ready-to-wear shirts. Scandinavian precision, Portuguese and Italian craftsmanship.',
+    desc: 'Swedish made-to-measure shirt brand.',
     accent: '#4A6FA5',
   },
   {
@@ -50,7 +55,7 @@ const clients: PortfolioStore[] = [
     category: "Women's Fashion",
     country: 'USA',
     flag: '🇺🇸',
-    desc: 'Loose, trendy plus-size bohemian clothing for women. Free shipping on orders $99+.',
+    desc: 'US plus-size bohemian women\'s fashion brand.',
     accent: '#FFB503',
   },
   {
@@ -60,18 +65,21 @@ const clients: PortfolioStore[] = [
     category: 'Premium Basics',
     country: 'USA',
     flag: '🇺🇸',
-    desc: 'Premium polo shirts and everyday essentials with video commerce, size guides and Judge.me reviews.',
+    desc: 'US premium basics brand.',
+    delivered: 'Two Shopify engagements (2024–25): homepage section rebuilds, new product page templates, mobile responsiveness fixes and conversion-focused UI work. Rated 5.0 on Upwork.',
+    recordHref: '/work/momifa-website-updates-2025',
     accent: '#FDCC0D',
   },
   {
-    name: 'Esparda',
-    url: 'https://www.esparda.in',
-    displayUrl: 'esparda.in',
-    category: 'Fashion',
-    country: 'India',
-    flag: '🇮🇳',
-    desc: 'Contemporary fashion brand with Shopify store featuring Shiprocket logistics and full regional checkout.',
-    accent: '#108474',
+    name: 'Flowers A Million',
+    displayUrl: 'Project record',
+    category: 'Florist & Gifting',
+    country: 'USA',
+    flag: '🇺🇸',
+    desc: 'Occasion florist moving onto Shopify.',
+    delivered: 'Complete store build on a custom theme: bespoke homepage and collection sections, image-forward product pages and a mobile-first purchase flow. Rated 5.0 on Upwork.',
+    recordHref: '/work/shopify-ecomerce-store-2025',
+    accent: '#B5546B',
   },
 ]
 
@@ -79,9 +87,8 @@ function ClientRow({ client, index }: { client: PortfolioStore; index: number })
   return (
     <li style={{ borderBottom: '1px solid var(--border)' }}>
       <a
-        href={outboundHref('external', client.url)}
-        target="_blank"
-        rel="noopener noreferrer"
+        href={client.url ? outboundHref('external', client.url) : client.recordHref}
+        {...(client.url ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         className="cp-row group"
       >
         <span className="mw-num">{String(index + 1).padStart(2, '0')}</span>
@@ -89,10 +96,17 @@ function ClientRow({ client, index }: { client: PortfolioStore; index: number })
           <span className="cp-name">{client.name}</span>
           <span className="cp-meta">{client.category} · {client.country}</span>
         </span>
-        <span className="cp-desc">{client.desc}</span>
+        <span className="cp-desc">
+          {client.desc}
+          {client.delivered && (
+            <span style={{ display: 'block', marginTop: '0.35rem', color: 'var(--text-2)' }}>
+              <strong style={{ fontWeight: 600 }}>We delivered:</strong> {client.delivered}
+            </span>
+          )}
+        </span>
         <span className="cp-url">
           {client.displayUrl}
-          <ExternalLink size={13} aria-hidden />
+          {client.url && <ExternalLink size={13} aria-hidden />}
         </span>
       </a>
     </li>
@@ -114,10 +128,10 @@ export default function ClientPortfolio({ stores, heading, eyebrow }: Props) {
           <div>
             <p className="mw-eyebrow">{eyebrow ?? 'Our work'}</p>
             <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', maxWidth: '22ch' }}>
-              {heading ?? 'Stores we\u2019ve built for real brands.'}
+              {heading ?? 'Shopify brands we\u2019ve worked with.'}
             </h2>
           </div>
-          <p style={{ fontSize: '0.88rem', color: 'var(--text-3)' }}>Live stores. Each link opens the site.</p>
+          <p style={{ fontSize: '0.88rem', color: 'var(--text-3)' }}>Delivered scope is shown where the project record is public.</p>
         </div>
         <ul style={{ borderTop: '1px solid var(--text-1)' }}>
           {list.map((client, i) => (

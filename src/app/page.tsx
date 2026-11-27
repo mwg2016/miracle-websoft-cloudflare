@@ -7,6 +7,7 @@ import ClientPortfolio from '@/components/home/ClientPortfolio'
 import { jobs, jobTitle, isShopifyJob } from '@/data/jobs'
 import { outboundHref } from '@/lib/outbound'
 import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
+import { COMPANY } from '@/data/company-facts'
 
 // Homepage is Shopify-only by design. Structure: one clear promise → proof
 // right under it → why us → services (one line each) → real stores → reviews
@@ -25,10 +26,10 @@ export const metadata: Metadata = {
 }
 
 const badges = [
-  { label: 'Shopify Partner', note: 'since 2016', href: outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1') },
+  { label: 'Shopify Partner', note: `since ${COMPANY.shopifyPartner.since}`, href: outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1') },
   { label: 'Top Rated Plus', note: 'Upwork', href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/') },
-  { label: '4.9★', note: 'Clutch', href: outboundHref('external', 'https://clutch.co/profile/miracle-websoft') },
-  { label: '98%', note: 'job success', href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/') },
+  { label: COMPANY.upwork.earnings, note: 'earned on Upwork', href: outboundHref('upwork', COMPANY.founder.upworkUrl) },
+  { label: COMPANY.projects, note: 'projects', href: '/work' },
 ]
 
 const clients = ['Farmers Atelier', 'Shirtonomy', 'Buddha Trends', 'Momifa', 'Flowers A Million', 'Esparda']
@@ -42,7 +43,7 @@ const services = [
   { name: 'Dedicated Shopify Developer', line: 'Same developer every month, working through your list.', price: 'From $299/mo', href: '/services/dedicated-shopify-developer' },
   { name: 'Shopify Plus Checkout', line: 'Upsells, delivery dates and custom fields, built natively.', price: 'Per feature', href: '/services/shopify-checkout-customization' },
   { name: 'International Selling', line: 'Markets, currencies and native translations.', price: 'Per market', href: '/services/shopify-international-expansion' },
-  { name: 'Custom Shopify Apps', line: 'Private apps and integrations that replace paid subscriptions.', price: 'From $1,500', href: '/services/shopify-app-development' },
+  { name: 'Custom Shopify Apps', line: 'Custom apps and integrations that replace paid subscriptions.', price: 'From $1,500', href: '/services/shopify-app-development' },
   { name: 'Store Care Plans', line: 'Updates, health checks and small fixes every month.', price: 'From $99/mo', href: '/services/shopify/shopify-maintenance' },
 ]
 
@@ -50,7 +51,7 @@ const homeFaqs = [
   { question: 'Do you only work on Shopify?', answer: 'Yes. Shopify and Shopify Plus are what we do: store builds, migrations, speed, conversion, checkout, apps and ongoing development. 700+ projects since 2016.' },
   { question: 'How much does a Shopify project cost?', answer: 'Store builds are $600 (Basic) or $1,000 (Advanced). Custom apps start at $1,500. Care plans and dedicated developer hours run $99 to $500 a month. Everything else gets a fixed quote within 24 hours. You see the price before any work starts.' },
   { question: 'How fast can you start?', answer: 'Usually within 3 to 5 working days of approving the quote. Care and dedicated developer plans onboard within 48 hours.' },
-  { question: 'Who works on my store?', answer: 'Our 16-person in-house team in India, led by founder Karam Singh Mehra. No subcontracting. On monthly plans you keep the same developer.' },
+  { question: 'Who works on my store?', answer: 'Our in-house team in India, led by founder Karam Singh Mehra. No subcontracting. On monthly plans you keep the same developer.' },
   { question: 'Do you work with agencies?', answer: 'Yes. We work as a white-label Shopify team for agencies in the US, UK and Australia, under NDA, with no contact with your clients.' },
 ]
 
@@ -83,9 +84,9 @@ export default function HomePage() {
       <section className="home-hero">
         <div className="mw-container">
           <div style={{ maxWidth: '52rem' }}>
-            <p className="mw-eyebrow">Since 2016 · Shopify Partner</p>
+            <p className="mw-eyebrow">Since {COMPANY.foundedYear} · Shopify Partner</p>
             <h1 style={{ maxWidth: '18ch' }}>
-              Shopify development, support and improvements <span className="mw-mark">in one team.</span>
+              Shopify development agency: builds, support and improvements <span className="mw-mark">in one team.</span>
             </h1>
             <p className="home-lede" style={{ maxWidth: '50ch' }}>
               We help ecommerce brands and agencies launch, migrate, speed up and scale Shopify stores. Fixed prices, an in-house team, and results you can measure.
@@ -160,7 +161,7 @@ export default function HomePage() {
 
       {/* ── Selected work ──────────────────────────────────────────────────── */}
       <div id="work" style={{ scrollMarginTop: 96 }}>
-        <ClientPortfolio eyebrow="Selected work" heading="Live Shopify stores we've worked on." />
+        <ClientPortfolio eyebrow="Selected work" heading="Shopify brands we've worked with." />
       </div>
 
       {/* ── Client stories ─────────────────────────────────────────────────── */}

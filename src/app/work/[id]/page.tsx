@@ -6,6 +6,7 @@ import Breadcrumb from '@/components/layout/Breadcrumb'
 import { jobs, jobTitle, fixTypos, jobNarrative, workFaqs, isIndexableJob } from '@/data/jobs'
 import { outboundHref } from '@/lib/outbound'
 import FaqSection from '@/components/ui/FaqSection'
+import { COMPANY } from '@/data/company-facts'
 
 const UPWORK_FREELANCER = outboundHref('upwork', 'https://www.upwork.com/freelancers/shopifydeveloperupwork')
 
@@ -225,8 +226,8 @@ export default async function JobPage({ params }: Props) {
               <Link href="/book" className="mw-btn-outline" style={{ width: '100%', justifyContent: 'center', marginTop: '0.6rem' }}>Book a 15-min call</Link>
             </div>
             <dl className="wd-side">
-              <div><dt>Projects since 2016</dt><dd>700+</dd></div>
-              <div><dt>Upwork job success</dt><dd>98%</dd></div>
+              <div><dt>Projects since {COMPANY.foundedYear}</dt><dd>{COMPANY.projects}</dd></div>
+              <div><dt>Founder&apos;s job success</dt><dd>{COMPANY.upwork.founderJobSuccess}</dd></div>
               <div><dt>Upwork status</dt><dd>Top Rated Plus</dd></div>
             </dl>
             <a href={UPWORK_FREELANCER} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1" style={{ fontSize: '0.9rem', color: 'var(--text-1)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>

@@ -290,13 +290,13 @@ export default function PricingPage() {
             <div>
               <p className="mw-eyebrow">Pricing</p>
               <h1 className="mw-hero-title" style={{ maxWidth: '16ch' }}>
-                Fixed prices for Shopify builds and <span className="mw-mark">monthly care.</span>
+                Shopify development pricing: fixed prices for builds and <span className="mw-mark">monthly care.</span>
               </h1>
               <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '50ch' }}>
                 Pick the closest fit and tell us about your store. Karam replies within 24 hours with scope, timeline and next steps. Nothing is paid until you approve a written proposal.
               </p>
               <p style={{ marginTop: '1.25rem', fontSize: '0.9rem', color: 'var(--text-3)' }}>
-                700+ projects since 2016 · 98% job success on Upwork · no hourly billing
+                700+ projects since 2016 · Top Rated Plus on Upwork · no hourly billing
               </p>
             </div>
             <nav aria-label="Price list" className="price-index">

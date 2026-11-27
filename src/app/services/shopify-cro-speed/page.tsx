@@ -85,12 +85,12 @@ export default function CROSpeedPage() {
       <ServiceHero
         breadcrumbItems={[{ label: 'Services', href: '/services' }, { label: 'CRO & Speed Optimisation' }]}
         eyebrow="CRO & speed"
-        title={<>Your store gets traffic. <span className="mw-mark">Let&apos;s get more of it to buy.</span></>}
+        title={<>Shopify CRO and speed optimization. <span className="mw-mark">Get more of your traffic to buy.</span></>}
         lede="Slow pages, confusing product pages, app bloat and checkout friction quietly waste your ad spend. We find what stops shoppers buying, then fix speed and conversion together, in priority order."
         bullets={['Works on your current theme, no rebuild needed', 'Fixes ranked by likely revenue impact', 'Fixed-price quote after the free teardown']}
         aside={
           <figure className="audit-form-card" style={{ boxShadow: 'none' }} aria-label="Before and after example">
-            <p className="mw-num" style={{ marginBottom: '1rem' }}>EXAMPLE · LUXURY FASHION STORE</p>
+            <p className="mw-num" style={{ marginBottom: '1rem' }}>ILLUSTRATIVE · WHAT WE MEASURE BEFORE AND AFTER</p>
             <div className="grid grid-cols-2" style={{ borderTop: '1px solid var(--text-1)' }}>
               {[
                 { label: 'Before', score: '44', rows: ['4.2 MB page weight', '11 app scripts', '6.8s LCP', 'CLS 0.42'], color: 'var(--text-3)' },
@@ -106,7 +106,7 @@ export default function CROSpeedPage() {
                 </div>
               ))}
             </div>
-            <figcaption style={{ fontSize: '0.84rem', color: 'var(--text-3)', marginTop: '1rem' }}>Five-week project. Conversion rate up 42% over the same period.</figcaption>
+            <figcaption style={{ fontSize: '0.84rem', color: 'var(--text-3)', marginTop: '1rem' }}>Illustrative numbers showing the metrics we report, not a specific client result. Your teardown gives your store&apos;s real figures.</figcaption>
           </figure>
         }
       />
@@ -114,22 +114,22 @@ export default function CROSpeedPage() {
       {/* Proof */}
       <section className="mw-section">
         <div className="mw-container">
-          <SectionHead eyebrow="Example project" title="Speed and conversion, fixed together." />
+          <SectionHead eyebrow="Verified project" title="Speed and conversion, fixed together." />
           <ServiceResult
             tag="Speed & CRO"
-            metric="+42%"
-            metricLabel="Conversion rate"
-            title="Luxury fashion store: mobile PageSpeed 44 to 91, conversion rate up 42% in 5 weeks."
+            metric="5.0"
+            metricLabel="Client rating on Upwork"
+            title="Shopify store optimization: performance and conversion audit, then the fixes on the existing theme."
             bullets={[
-              'Lighthouse audit found 8 unnecessary app scripts; all removed',
-              'Image work cut page weight from 4.2 MB to 680 KB',
-              'Checkout simplified from two steps to one page; cart abandonment down 28%',
+              'Removed app bloat and deferred non-critical scripts',
+              'Optimised images and fonts, and added lazy-loading',
+              'Client: “Developed some really creative solutions to some very unique requests. Would recommend.”',
             ]}
-            duration="5-week project"
-            cta={{ label: 'See all our work', href: '/work' }}
+            duration="Feb 2025 · Upwork"
+            cta={{ label: 'Read the project record', href: '/work/shopify-site-optimization-2025' }}
           />
           <p style={{ fontSize: '0.92rem', color: 'var(--text-3)', marginTop: '1.25rem', maxWidth: '70ch' }}>
-            Why it matters: on a store doing $500K a year, every extra percent of conversion is roughly $5,000 a month, with no extra ad spend.
+            Why it matters: on a store doing $500K a year, a 10% relative lift in conversion rate is worth about $4,200 a month at the same traffic and order value.
           </p>
         </div>
       </section>

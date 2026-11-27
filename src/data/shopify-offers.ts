@@ -28,7 +28,7 @@ export const shopifyOffers: ServiceLandingData[] = [
     metaDescription:
       'A dedicated Shopify developer for your store on a monthly retainer: theme changes, new features, integrations, A/B tests and speed fixes. Same developer every month, cancel anytime. From $299/mo.',
     eyebrow: 'DEDICATED SHOPIFY DEVELOPER',
-    h1: 'Your in-house Shopify developer, without the hire',
+    h1: 'Hire a dedicated Shopify developer, without the in-house hire',
     subtext:
       'One Shopify developer who knows your store, your theme and your apps, working through your list every month. No recruiting, no onboarding a new freelancer for every task, and no long contract.',
     serviceType: 'Dedicated Shopify developer retainer',
@@ -98,6 +98,7 @@ export const shopifyOffers: ServiceLandingData[] = [
         'Also: a 10-month retainer for Trima covering theme upkeep, features and monthly performance reviews',
       ],
       duration: 'Multi-year engagement',
+      href: '/work/web-development-long-retainer-2025',
     },
     faqs: [
       {
@@ -133,7 +134,7 @@ export const shopifyOffers: ServiceLandingData[] = [
     metaDescription:
       'Add upsells, delivery date pickers, custom fields and trust signals to your Shopify Plus checkout with Checkout UI Extensions and Shopify Functions. Fixed price per feature.',
     eyebrow: 'SHOPIFY PLUS CHECKOUT UPGRADE',
-    h1: 'A Shopify Plus checkout that sells more and asks the right questions',
+    h1: 'Shopify Plus checkout customization that sells more and asks the right questions',
     subtext:
       'In-checkout upsells, delivery date selectors, custom order fields, trust content and discount or shipping rules, built natively with Checkout UI Extensions and Shopify Functions so they survive Shopify updates.',
     serviceType: 'Shopify Plus checkout extensibility development',
@@ -191,6 +192,7 @@ export const shopifyOffers: ServiceLandingData[] = [
         'Custom order note field with character validation',
       ],
       duration: 'Completed Dec 2025',
+      href: '/work/shopify-plus-checkout-3-features-2025',
     },
     faqs: [
       {
@@ -218,7 +220,7 @@ export const shopifyOffers: ServiceLandingData[] = [
     metaDescription:
       'Sell in new countries with Shopify Markets: native translations, local currencies, domains, pricing and duties set up correctly. Migrate from Langify or Weglot without losing translations.',
     eyebrow: 'SELL INTERNATIONALLY ON SHOPIFY',
-    h1: 'Sell in new countries without running a second store',
+    h1: 'Shopify international expansion: sell in new countries without a second store',
     subtext:
       'Shopify Markets, native translations, local currencies, domains and pricing set up properly, plus migration off translation apps like Langify without losing a single translated string.',
     serviceType: 'Shopify international expansion and localisation',
@@ -276,6 +278,7 @@ export const shopifyOffers: ServiceLandingData[] = [
         'Zero downtime during the switch',
       ],
       duration: 'Completed Apr 2026',
+      href: '/work/langify-to-shopify-native-2026',
     },
     faqs: [
       {
@@ -303,7 +306,7 @@ export const shopifyOffers: ServiceLandingData[] = [
     metaDescription:
       'A launch-ready Shopify store, live and taking orders in 7 days for $600, or a custom-designed, conversion-tuned store in 10–14 days for $1,000. Fixed price, mobile-first, payments and shipping tested.',
     eyebrow: 'LAUNCH-READY SHOPIFY STORE',
-    h1: 'Your Shopify store, live and taking orders in 7 days',
+    h1: 'Shopify store setup: live and taking orders in 7 days',
     subtext:
       'Products, payments, taxes, shipping and a mobile-first theme set up and tested, so you launch with a store that sells instead of a half-finished project.',
     serviceType: 'Shopify store setup and launch',
@@ -361,6 +364,7 @@ export const shopifyOffers: ServiceLandingData[] = [
         'Streamlined cart and checkout for gifting orders',
       ],
       duration: 'Completed Jul 2025',
+      href: '/work/shopify-ecomerce-store-2025',
     },
     faqs: [
       {

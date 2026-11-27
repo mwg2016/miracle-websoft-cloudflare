@@ -1,3 +1,5 @@
+import { COMPANY } from '@/data/company-facts'
+
 const reasons = [
   { title: 'Business-first technical judgment', body: 'You get recommendations tied to revenue, operations and customer experience, not isolated development tasks.' },
   { title: 'Performance tied to outcomes', body: 'We treat load time, Core Web Vitals and app bloat as sales and SEO problems, not cosmetic technical scores.' },
@@ -8,10 +10,10 @@ const reasons = [
 ]
 
 const stats = [
-  { value: '700+', label: 'Projects completed' },
-  { value: '15k+', label: 'Hours delivered' },
-  { value: '$600K+', label: 'Earned on Upwork' },
-  { value: '4.9', label: 'Rating on Clutch' },
+  { value: COMPANY.projects, label: 'Projects completed' },
+  { value: COMPANY.upwork.jobs, label: 'Upwork jobs' },
+  { value: COMPANY.upwork.earnings, label: 'Earned on Upwork' },
+  { value: String(COMPANY.foundedYear), label: 'Founded' },
 ]
 
 export default function WhyUs() {

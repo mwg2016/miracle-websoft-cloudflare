@@ -42,7 +42,7 @@ const socialLinks = [
 const profileLinks = [
   { label: 'Upwork', sub: 'Top Rated Plus · 99% job success', href: outboundHref('upwork', 'https://www.upwork.com/freelancers/~0108a0862ff3e2f2de') },
   { label: 'Shopify Partner', sub: 'Official partner directory', href: outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1') },
-  { label: 'Clutch', sub: '4.9 rating · verified reviews', href: outboundHref('external', 'https://clutch.co/profile/miracle-websoft') },
+  { label: 'Clutch', sub: 'Company profile', href: outboundHref('external', 'https://clutch.co/profile/miracle-websoft') },
 ]
 
 const jsonLd = renderJsonLd([

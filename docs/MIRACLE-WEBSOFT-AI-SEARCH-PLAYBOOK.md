@@ -324,6 +324,11 @@ Claims found in code on 2026-11-27. Verification source for Upwork rows: owner's
 | 16 team members | bio/company, lp/shopify-cro, schema numberOfEmployees | Upwork agency size band 11–50 (consistent, not exact) | Unverified exact number (removed from llms.txt) |
 | Shopify Certified & Verified Partner | was llms.txt; still on /work metadata | Partner Directory not re-checked | Unverified (removed from llms.txt) |
 | aggregateRating 4.9 / 650 | was `src/app/layout.tsx:208`, plus /work and /reviews | Self-serving markup | **Removed** (commit e910c08) |
+| Clutch rating "4.9" | ~44 pages (hero proof, stat tiles, bios, contact, OG image) | Clutch profile shows **"Not yet reviewed"** (checked 2026-11-27) | **Removed** on branch `ai-search-review-2` |
+| Shopify Partner "since 2016" | home badge, TrustProfiles, contact email | Partner Directory says **"Partner since 2019"** | **Corrected to 2019** on branch |
+| "16-person team" / numberOfEmployees 16 | ~24 pages + schema | Shopify directory 1–10, Clutch 10–49, Upwork 11–50 | **Removed** (now "in-house team"); owner to confirm a number |
+| 98% Job Success | ~10 pages | Only founder JSS readable (99%) | Agency-level 98% removed; founder 99% shown where context is the founder |
+| Founded year on DesignRush | DesignRush profile | Says 2017 (site/Upwork/Clutch: 2016) | Owner to fix the DesignRush profile |
 | Offer prices (from $600 launch, from $299/mo dedicated developer, "no improvement, no fee") | `src/data/shopify-offers.ts`, `/pricing` | Owner approved 2026-11-27 | **Approved** |
 
 ### Content and case study progress
@@ -483,3 +488,165 @@ For each approved phase append date, scope, files changed, actual tests, before/
   - Average HTML response is still about 1.9 s (unchanged; caching is roadmap item 10).
 - Rollback: `git revert 4d55f67^..94f36c6` on `main`, then push (this redeploys).
 - Next (owner): submit the sitemap in GSC and Bing, then share GSC/GA4 exports for Prompts 03 and 13.
+
+### 2026-11-27 — External AI search review follow-up (branch `ai-search-review-2`, NOT deployed)
+
+**Scope.** Owner brief: 14 issues raised by an external AI search review. No redesign, and no repeat of completed work. Deployment needs approval.
+
+**Evidence, by item**
+
+1. **Raw vs rendered vs indexed.**
+   - Headless Chrome `--dump-dom` against production for `/`, `/services/dedicated-shopify-developer` and `/case-studies`. On all three, the H1 is identical raw vs rendered. Word counts are within 2% (981/998, 1182/1199, 1600/1617). All FAQ answers are present in raw HTML (5/5, 4/4, 5/5).
+   - The search index (web search, `site:miraclewebsoft.com`) still serves **old snapshots**: "600+ projects, 98%+ job success", "650+", "since 2015", and the "Shopify API & Private App Development" title. None of these is in production HTML any more. They are outdated snapshots, not production problems.
+   - Fix: request recrawl in GSC/Bing (owner access).
+2. **H1s.** 16 commercial H1s now lead with the Shopify intent, keeping the existing selling line and highlight styling. Before → after:
+
+   | Page | Before | After |
+   |---|---|---|
+   | / | "Shopify development, support and improvements in one team." | "Shopify development agency: builds, support and improvements in one team." |
+   | /services | "Start with the problem, not the service." | "Shopify development services, picked by the result you need." |
+   | /services/shopify | "Tell us the result you need. We quote a fixed price for it." | "Shopify experts for development and growth. Fixed price for the result you need." |
+   | /services/shopify/development | "A Shopify store built to sell, and easy to run." | "Custom Shopify store development, built to sell and easy to run." |
+   | /services/shopify-app-development | "When apps almost fit, we build the one that does." | "Custom Shopify app development: when apps almost fit…" |
+   | /services/shopify-migration | "Move to Shopify without losing sales or rankings." | "Shopify migration without losing sales or rankings." |
+   | /services/conversion-rate-optimization | "More orders from the traffic you already pay for" | "Shopify conversion rate optimization: more orders…" |
+   | /services/shopify-speed-optimization | "A faster Shopify store on mobile…" | "Shopify speed optimization: a faster store on mobile…" |
+   | /services/shopify-cro-speed | "Your store gets traffic. Let's get more of it to buy." | "Shopify CRO and speed optimization. Get more of your traffic to buy." |
+   | /services/dedicated-shopify-developer | "Your in-house Shopify developer, without the hire" | "Hire a dedicated Shopify developer, without the in-house hire" |
+   | /services/shopify-checkout-customization | "A Shopify Plus checkout that sells more…" | "Shopify Plus checkout customization that sells more…" |
+   | /services/shopify-international-expansion | "Sell in new countries without running a second store" | "Shopify international expansion: sell in new countries without a second store" |
+   | /services/shopify-store-launch | "Your Shopify store, live and taking orders in 7 days" | "Shopify store setup: live and taking orders in 7 days" |
+   | /white-label | "Your agency's quiet Shopify team." | "White-label Shopify development: your agency's quiet Shopify team." |
+   | /pricing | "Fixed prices for Shopify builds and monthly care." | "Shopify development pricing: fixed prices for builds and monthly care." |
+   | /case-studies | "What we built, and what the client said after." | "Shopify case studies: what we built…" |
+   | /services/shopify/api-private-apps | "Shopify API Development and Private Apps for Custom Operations" | "Shopify API Integration and Custom App Development" |
+
+   Mobile check: screenshots at a true 500px viewport (headless Chrome's minimum) show clean wrapping. A 390px capture is not reliable with headless Chrome because it lays out at 500px; verify on a real phone after deploy.
+3. **FAQ answers.**
+   - Answers have been in the initial HTML since commit `aff853c` (native `<details>`), and production checks confirm it.
+   - The external review most likely read an older index snapshot. Some extractors also skip collapsed `<details>` text; the content is still server-rendered and accessible.
+   - New fix: `/reviews` emitted FAQ schema for 3 questions that were **not visible**. Those FAQs are now rendered visibly through the shared FAQ component.
+4. **Credentials centralised.**
+   - New `src/data/company-facts.ts` holds only verified values: founded 2016; 700+ projects; Upwork Top Rated Plus, $600K+, 780+ jobs, founder 99% JSS; Shopify Partner since 2019; Rajpura address.
+   - Schema, stat tiles, hero proof lines and badges import from it. The file also documents what must not be published.
+   - Removed or corrected: Clutch "4.9" (Clutch: not yet reviewed), "Partner since 2016" (2019), "16-person team", agency "98%", "15,000+ hours".
+5. **Metadata.**
+   - About page: the title changed from "…Ecommerce Growth & AI Technology Agency" to "About Miracle Websoft — Shopify Development Agency Since 2016", with a Shopify-first description and AboutPage schema text.
+   - Site `category` is now "Shopify development services".
+   - `/share` title had a duplicate brand ("Share Miracle Websoft … | Miracle Websoft"); now "Share Our Shopify Services | Miracle Websoft".
+   - Validator: 0 duplicate-brand titles or og:titles across 174 pages.
+   - The legacy `/website-development/*` "Web Development Company" titles are left as they are (owner spreadsheet; Prompt 07 decision).
+6. **Homepage portfolio.**
+   - Product-marketing blurbs replaced with one-line client context.
+   - A "We delivered" line is added only where a verified record exists: Momifa (two 2024–25 engagements) and Flowers A Million (custom store build). Flowers A Million replaces Esparda in the list because Esparda has no project record.
+   - Heading changed from "Live Shopify stores we've worked on" to "Shopify brands we've worked with".
+   - **Owner input needed:** what we delivered for Farmers Atelier, OTAA, Shirtonomy and Buddha Trends. That work is not in `jobs.ts`.
+7. **Case studies.**
+   - The "42 case studies" on /case-studies are a **brand list**, not case studies. Only 5 brands match a project record. Momifa and Rue Broca now show delivered scope plus a "Project record" link. The heading changed from "brands we've built for" to "Shopify brands we've worked with".
+   - **Service-page proof:** 7 case cards stated metrics with no record behind them. Each now shows a verified project with real scope, the Upwork rating, the client quote and a link to its `/work` record:
+
+     | Page | Removed claim | Replacement project |
+     |---|---|---|
+     | /services/shopify-cro-speed | +42% conversion; 44→91 PageSpeed; −28% cart abandonment | `shopify-site-optimization-2025` |
+     | /services/shopify-migration | "4,000 products / 15,000 customers / 0% SEO loss" | `woocommerce-to-shopify-migration-2024` |
+     | /services/shopify-app-development | "4 apps replaced, $340/mo, 54→88" | `shopify-esim-api-integration-2025` |
+     | /services/shopify/development | "+61% revenue, +44% mobile CR, +18% AOV" | Flowers A Million |
+     | /services/shopify-speed-optimization | 44→91 | site optimisation record |
+     | /services/conversion-rate-optimization | +42% | `pdp-optimization-template-dev-2024` |
+
+   - The CRO+speed hero visual is kept but labelled "Illustrative". The "every extra percent ≈ $5,000/month" arithmetic was wrong; it now reads: "a 10% relative lift ≈ $4,200/month on $500K/yr".
+   - The 4 outcome-offer case cards were already record-based; they now link to their records.
+   - New: 7 `/services/shopify/<service>` pages show one verified project (Plus checkout, Figma-to-Shopify, cart logic, Klaviyo tracking, store maintenance, eSIM API, eco-brand build).
+   - **Finding:** 162 of 258 `jobs.ts` descriptions are templated boilerplate shared across unrelated jobs. One example: "Need few changes in my shopify store" carries "complete storefront build" text. Treat descriptions as unverified unless unique. The Upwork title, rating and review text are the verifiable parts. Owner to rewrite or confirm before more `/work` pages are promoted.
+   - **The 42% result** may be real (OTAA). It can be restored once the baseline, period and denominator exist.
+8. **Shopify technical claims** (checked against official docs, 2026-11-27):
+   - "Private apps" were deprecated in January 2022; new custom apps are created in the Dev Dashboard. Source: shopify.dev/docs/apps/launch/distribution and help.shopify.com/en/manual/apps/app-types/custom-apps. About 20 uses are now "custom apps"; one explanatory "formerly called private apps" remains for searchers.
+   - Shopify Functions: "Functions are only available on Shopify Plus" was **wrong**. Public apps containing Functions work on any plan; only custom apps containing Functions need Plus (shopify.dev/docs/apps/build/functions). Corrected on the app development page, and in the Plus FAQ on /services/shopify/development.
+   - API versions: released every quarter, each supported for at least 12 months (shopify.dev/docs/api/usage/versioning). The copy now says exactly that.
+   - Shopify Scripts were retired on 30 June 2026. No site copy relied on Scripts.
+   - Plus price: the "~$2,300/month" figure could not be confirmed in USD (the page rendered in INR), so the copy now points to shopify.com/plus/pricing.
+   - Checkout: extensions on the information, shipping and payment steps are Plus-only; thank-you and order status page extensions work on all plans. Copy is consistent with this.
+   - Recurring costs: the custom app FAQ no longer says custom code "eliminates recurring costs". It now says hosting and API-version maintenance still apply.
+9. **robots.txt, sitemap.xml, llms.txt on production.**
+   - All return 200 to Googlebot, Bingbot, OAI-SearchBot, Claude-SearchBot, PerplexityBot and GPTBot user agents. These were spoofed-UA requests; they show the server does not block by user agent, but they don't prove real crawler access.
+   - Content types: `text/plain; charset=UTF-8` (robots, llms) and `application/xml` (sitemap). The sitemap is valid XML with 174 URLs.
+   - `http://` and `www.` versions redirect once to the canonical https host.
+   - **No CDN:** DNS A record 191.101.0.204 (the VPS), `server: nginx`, no CDN headers. The external tool's failure to fetch these files is a limitation of that tool. Server and WAF logs were not available (no VPS access).
+10. **Structured data.**
+    - Validator over all 174 local pages: 0 invalid JSON-LD, 0 AggregateRating, every FAQ question and answer visible, breadcrumb positions sequential, BlogPosting has headline, date, author (`/bio/owner#person`) and publisher, Organization foundingDate is 2016.
+    - Organization now takes its address and foundingDate from `COMPANY`; the unverified `numberOfEmployees` was removed.
+11. **Commercial coverage.**
+
+    | Topic | Owner URL | Gap |
+    |---|---|---|
+    | Developers | `/services/dedicated-shopify-developer` | Hiring guide missing |
+    | Maintenance | `/services/shopify/shopify-maintenance` | Maintenance cost and inclusions guide missing |
+    | Plus | `/services/shopify/shopify-plus-development` + checkout offer | "When to upgrade" guide missing |
+    | Custom apps | `/services/shopify-app-development` | Cost guide missing |
+    | API integrations | `/services/shopify/api-private-apps` | — |
+    | ERP integrations | No dedicated page (mentioned on the API and electronics pages) | Create only with a verified ERP project (none unique in `jobs.ts`) |
+    | B2B | `/services/shopify/b2b-wholesale` | Only templated job evidence |
+    | CRO | `/services/conversion-rate-optimization` | Overlap with `/services/shopify-cro-speed` unresolved (needs GSC) |
+    | Speed | `/services/shopify-speed-optimization` | — |
+    | Migrations | `/services/shopify-migration` + WooCommerce guide | — |
+    | AI automation | `/services/ai` + 10 sub-pages | Generic, not Shopify-specific |
+    | White-label | `/white-label` | — |
+
+12. **Missing high-intent content, in priority order:**
+    1. Shopify maintenance cost and inclusions guide.
+    2. Custom Shopify app cost guide.
+    3. How to hire a Shopify developer: checklist and interview questions.
+    4. Shopify migration cost guide.
+    5. When to upgrade to Shopify Plus.
+    6. Fair comparison pages: Storetasker and HeyCarson alternatives, with commercial interest disclosed.
+    7. Original research from real data. `jobs.ts` has 258 Upwork records (2017–2026): 135 custom features, 47 store builds, 41 ongoing support, 14 speed/CRO, 8 migrations; 208 rated 5.0. Candidate: "What 250+ Shopify client projects show about the work merchants hire for". Category mix and ratings are reliable; descriptions are not, see item 7.
+
+    Each needs one real project story from the owner (briefs are under Prompt 06).
+13. **External profiles** (fetched 2026-11-27):
+    - Shopify Partner Directory: Rajpura; "Partner since 2019"; team 1–10; "Plus" badge; "over 700 projects".
+    - Clutch: founded 2016; 10–49 employees; **not yet reviewed**; services list puts SEO and web development ahead of Shopify.
+    - DesignRush: founded **2017**; Rajpura address; non-Shopify-first services.
+    - Trustpilot: 3.8 TrustScore from 2 reviews; Rajpura.
+    - Upwork agency page: blocked to automated fetch (403). Via API: founded 2016, Rajpura, 11–50 staff, summary "Full Stack Development Agency…" (not Shopify-first).
+    - Owner actions: fix the DesignRush founding year, make the Clutch, DesignRush and Upwork summaries Shopify-first, align team size, and request Clutch reviews from recent clients.
+14. **GSC, GA4 and leads.** No access in this session.
+    - Code review: `lead_form_submit` fires only after a successful API response on the contact, services, audit, referral, white-label and Calendly forms. First-touch `first_referrer` and UTM values are captured, so AI referrers (chatgpt.com, perplexity.ai, claude.ai, gemini.google.com, copilot.microsoft.com) are measurable once `first_referrer` is registered as a GA4 custom dimension.
+    - Risk: with two direct GA4 tags plus GTM, events may count twice if GTM also fires GA4. Not verifiable without GTM access.
+
+**Before → after (production vs branch, same validator, 174 URLs)**
+
+| Metric | Production now | Branch |
+|---|---|---|
+| Pages returning 200 | 174 | 174 |
+| "Clutch rating" / "4.9 on Clutch" occurrences (pages) | 44 / 16 | 0 / 0 |
+| "16-person" claims (pages) | 24 | 0 |
+| "98% job success" (pages) | 10 | 0 |
+| "15,000+ hours" (pages) | 4 | 0 |
+| "Partner since 2016" | 1 | 0 (2019) |
+| Duplicate-brand title / og:title | 1 / 1 | 0 / 0 |
+| FAQ schema not visible on page | 3 questions | 0 |
+| Commercial H1s naming the Shopify service | 4 of 16 | 16 of 16 |
+| Service-page case cards with unverified metrics | 7 | 0 (verified records, linked) |
+| "Private app" terminology | ~20 | 0 (one "formerly called") |
+| Incorrect Functions / Plus claims | 2 | 0 |
+
+**Tests.**
+- `tsc --noEmit` passed.
+- `eslint src` is clean.
+- `npm run build` succeeded (exit 0).
+- The local standalone validator found 0 issues on 174 pages.
+- There are still no unit tests in the repo; a candidate is to turn `validate.py`'s checks into a CI script.
+
+**Rollback.** Do not merge `ai-search-review-2`, or `git revert` its commit.
+
+**Remaining tasks (owner).**
+1. Approve the deploy.
+2. Request recrawl in GSC and Bing.
+3. Supply delivered scope for Farmers Atelier, OTAA, Shirtonomy and Buddha Trends.
+4. Supply OTAA baseline data to restore the 42% case.
+5. Confirm team size.
+6. Fix the external profiles (item 13).
+7. Share GSC/GA4 access, and confirm whether GTM fires GA4.
+8. Supply one real story per content brief.
+9. Rewrite or confirm the templated `jobs.ts` descriptions.
+10. Decide whether to delete the unused home components (`Hero`, `LogoMarquee`, `TrustProfiles`, `Testimonials`, `RecentWork`, `StatsRow`, `CitationsAndProfiles`, `IndustryGrid`). They still contain stale claims, but none of them is rendered.

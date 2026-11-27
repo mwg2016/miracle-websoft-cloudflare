@@ -66,7 +66,7 @@ export default function FreeStoreAuditPage() {
               <div><dt>Cost</dt><dd>Free</dd></div>
             </dl>
             <p style={{ fontSize: '0.9rem', color: 'var(--text-3)', marginTop: '1.5rem' }}>
-              Recorded by the team behind 700+ projects. 4.9 on Clutch, Top Rated Plus on Upwork.
+              Recorded by the team behind 700+ projects. Top Rated Plus on Upwork.
             </p>
           </div>
           <div className="audit-form-card" id="request">

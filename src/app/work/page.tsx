@@ -5,16 +5,17 @@ import { outboundHref } from '@/lib/outbound'
 import Link from 'next/link'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import Breadcrumb from '@/components/layout/Breadcrumb'
+import { COMPANY } from '@/data/company-facts'
 
 const UPWORK_FREELANCER = outboundHref('upwork', 'https://www.upwork.com/freelancers/shopifydeveloperupwork')
 
 export const metadata: Metadata = {
   title: 'Verified Shopify Work History — 700+ Projects | Miracle Websoft',
   description:
-    'Browse 700+ verified projects by Miracle Websoft on Upwork. Store builds, migrations, Shopify Plus checkout, custom features, speed & CRO — all delivered with a 98% job success score.',
+    'Browse 700+ verified projects by Miracle Websoft on Upwork. Store builds, migrations, Shopify Plus checkout, custom features, speed & CRO — with a 99% founder job success score on Upwork.',
   openGraph: {
     title: 'Verified Shopify Work History — 700+ Projects | Miracle Websoft',
-    description: '700+ projects verified on Upwork. 98% Job Success · Top Rated Plus · Shopify Verified Partner.',
+    description: '700+ projects verified on Upwork. Top Rated Plus · 99% founder job success · Shopify Partner.',
     url: 'https://miraclewebsoft.com/work',
     type: 'website',
   },
@@ -44,7 +45,7 @@ function JsonLd() {
         '@type': 'Organization',
         '@id': 'https://miraclewebsoft.com/#organization',
         name: 'Miracle Websoft',
-        description: 'Shopify development agency specialising in fashion and ecommerce brands. 700+ projects, 98% job success, Top Rated Plus on Upwork.',
+        description: 'Shopify development agency specialising in fashion and ecommerce brands. 700+ projects, Top Rated Plus on Upwork.',
         review: fiveStarJobs.slice(0, 5).map(job => ({
           '@type': 'Review',
           reviewBody: job.review,
@@ -102,9 +103,9 @@ export default function WorkPage() {
               </p>
             </div>
             <dl className="stats">
-              <div><dt>Projects since 2016</dt><dd>700+</dd></div>
-              <div><dt>Upwork job success</dt><dd>98%</dd></div>
-              <div><dt>Hours delivered</dt><dd>15,000+</dd></div>
+              <div><dt>Projects since {COMPANY.foundedYear}</dt><dd>{COMPANY.projects}</dd></div>
+              <div><dt>Founder&apos;s Upwork job success</dt><dd>{COMPANY.upwork.founderJobSuccess}</dd></div>
+              <div><dt>Earned on Upwork</dt><dd>{COMPANY.upwork.earnings}</dd></div>
               <div><dt>Listed on this page</dt><dd>{jobs.length}</dd></div>
             </dl>
           </div>

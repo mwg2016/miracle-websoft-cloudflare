@@ -8,6 +8,25 @@ import RelatedServices from '@/components/services/RelatedServices'
 import ServiceHero, { HeroScope, NumberedList, QuoteSection, SectionHead } from '@/components/services/ServiceHero'
 import shopifyServices, { getShopifyService } from '@/data/shopify-services'
 import { breadcrumb, renderJsonLd, service } from '@/lib/jsonld'
+import { COMPANY } from '@/data/company-facts'
+import ServiceResult from '@/components/services/ServiceResult'
+import { jobs, jobTitle } from '@/data/jobs'
+
+// One verified Upwork project per service page (unique, non-templated record).
+const RELATED_JOB: Record<string, string> = {
+  'shopify-plus-development': 'shopify-plus-checkout-3-features-2025',
+  'theme-customization': 'figma-to-shopify-dessert-2026',
+  'custom-features': 'shopify-cart-disclaimer-2025',
+  'app-integration': 'klaviyo-theme-tracking-2024',
+  'shopify-maintenance': 'sparktrendz-store-maintenance-2025',
+  'api-private-apps': 'shopify-esim-api-integration-2025',
+  'fashion-apparel': 'eco-brand-turnkey-shopify-2026',
+}
+
+function firstSentence(text: string) {
+  const m = text.match(/^.*?[.!?](\s|$)/)
+  return (m ? m[0] : text).trim()
+}
 
 type Params = { slug: string }
 
@@ -48,7 +67,7 @@ const whyReasons = [
   { title: 'Shopify since 2016', body: 'Launches, redesigns, migrations, app builds and growth work across 700+ projects.' },
   { title: 'Business-first advice', body: 'We tell you what is likely to move revenue, what can wait, and when a full rebuild is unnecessary.' },
   { title: 'Speed is part of the build', body: 'App bloat, Core Web Vitals and mobile layout are handled as part of the store, not as an afterthought.' },
-  { title: 'You talk to the people doing the work', body: 'A 16-person in-house team in India. Clear updates, practical decisions, no hand-off chain.' },
+  { title: 'You talk to the people doing the work', body: 'An in-house team in India. Clear updates, practical decisions, no hand-off chain.' },
 ]
 
 export default async function ShopifyServicePage({ params }: { params: Promise<Params> }) {
@@ -72,6 +91,9 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
   ])
 
   const category = svc.eyebrow.toLowerCase().replace('shopify for ', '').replace('shopify ', '')
+
+  const relatedJobId = RELATED_JOB[slug]
+  const relatedJob = relatedJobId ? jobs.find(j => j.id === relatedJobId) : undefined
 
   return (
     <>
@@ -121,8 +143,8 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
             <p className="mw-eyebrow">Why Miracle Websoft</p>
             <h2 style={{ fontSize: 'clamp(28px,3.4vw,44px)' }}>A Shopify team that ships, not a hand-off chain.</h2>
             <dl className="stats" style={{ marginTop: '2rem', maxWidth: 420 }}>
-              <div><dt>Upwork job success</dt><dd style={{ fontSize: '2.4rem' }}>98%</dd></div>
-              <div><dt>Clutch rating</dt><dd style={{ fontSize: '2.4rem' }}>4.9</dd></div>
+              <div><dt>Projects since {COMPANY.foundedYear}</dt><dd style={{ fontSize: '2.4rem' }}>{COMPANY.projects}</dd></div>
+              <div><dt>Upwork status</dt><dd style={{ fontSize: '1.6rem' }}>{COMPANY.upwork.badge}</dd></div>
             </dl>
           </div>
           <NumberedList items={whyReasons} columns={2} />
@@ -133,6 +155,26 @@ export default async function ShopifyServicePage({ params }: { params: Promise<P
         heading={`See what is holding your ${category} store back.`}
         sub="Send your URL. Within 48 hours you get a short screen recording of the biggest problems on your store, ranked by likely impact."
       />
+
+      {relatedJob && (
+        <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
+          <div className="mw-container">
+            <SectionHead eyebrow="Verified project" title="A recent project like this." />
+            <ServiceResult
+              tag={relatedJob.category}
+              metric={relatedJob.rating.toFixed(1)}
+              metricLabel="Client rating on Upwork"
+              title={jobTitle(relatedJob)}
+              bullets={[
+                firstSentence(relatedJob.description),
+                ...(relatedJob.review ? [`Client: “${relatedJob.review}”`] : []),
+              ]}
+              duration={`${relatedJob.completedDate} · Upwork`}
+              cta={{ label: 'Read the project record', href: `/work/${relatedJob.id}` }}
+            />
+          </div>
+        </section>
+      )}
 
       <GuaranteeBar guarantees={shopifyGuarantees} />
 

@@ -168,5 +168,5 @@ export const stats = [
   { value: '7–14', unit: ' days', label: 'Live in' },
   { value: '$299', unit: '+', label: 'All-in, one-time' },
   { value: '700+', unit: '', label: 'Projects since 2016' },
-  { value: '4.9', unit: '', label: 'Rating on Clutch' },
+  { value: '$600K', unit: '+', label: 'Earned on Upwork' },
 ]

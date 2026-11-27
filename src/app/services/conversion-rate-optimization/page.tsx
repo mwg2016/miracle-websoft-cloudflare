@@ -29,7 +29,7 @@ const croData: ServiceLandingData = {
   metaDescription:
     'Increase Shopify conversions with analytics, Clarity, heatmaps, product page improvements, cart fixes, checkout optimization and structured testing.',
   eyebrow: 'SHOPIFY CONVERSION AUDIT + FIX',
-  h1: 'More orders from the traffic you already pay for',
+  h1: 'Shopify conversion rate optimization: more orders from the traffic you already pay for',
   subtext:
     'We find where shoppers hesitate or drop off between product page and checkout, rank the leaks by likely revenue impact, then fix the biggest ones at a fixed price.',
   serviceType: 'Conversion rate optimization',
@@ -84,16 +84,17 @@ const croData: ServiceLandingData = {
     },
   ],
   caseStudy: {
-    tag: 'CRO Program',
-    metric: '+42%',
-    metricLabel: 'conversion lift',
-    title: 'Fashion store: product page, cart and checkout improvements increased conversion rate after Clarity review and heatmap analysis.',
+    tag: 'Product page CRO',
+    metric: '5.0',
+    metricLabel: 'Client rating on Upwork',
+    title: 'Product page optimisation and custom product templates for a growing Shopify brand.',
     bullets: [
-      'Session recordings exposed mobile size-guide friction and cart hesitation',
-      'Product page trust signals, sticky cart and returns messaging were rebuilt',
-      'Checkout distraction and shipping uncertainty were reduced',
+      'Sticky add-to-cart, accordion content blocks and trust badges on product pages',
+      'Dynamic variant image switching built into new product templates',
+      'Client: “Karam has been incredibly responsive and always willing to tackle whatever task we need. He had great suggestions for specific design features to implement for optimization.”',
     ],
-    duration: '5-week project',
+    duration: 'Dec 2024 · Upwork',
+    href: '/work/pdp-optimization-template-dev-2024',
   },
   faqs: [
     {

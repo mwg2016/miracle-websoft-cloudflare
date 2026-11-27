@@ -29,7 +29,7 @@ const speedData: ServiceLandingData = {
   metaDescription:
     'Improve Shopify PageSpeed and Core Web Vitals by reducing app bloat, optimizing images and scripts, and fixing performance issues on revenue pages.',
   eyebrow: 'SHOPIFY SPEED FIX SPRINT',
-  h1: 'A faster Shopify store on mobile, measured before and after',
+  h1: 'Shopify speed optimization: a faster store on mobile, measured before and after',
   subtext:
     'A short, fixed-price sprint on the pages that make you money: home, collection, product and cart. We remove app bloat, fix images and scripts, and show you the before and after numbers.',
   serviceType: 'Shopify speed optimization',
@@ -85,15 +85,16 @@ const speedData: ServiceLandingData = {
   ],
   caseStudy: {
     tag: 'Speed Optimization',
-    metric: '44->91',
-    metricLabel: 'mobile PageSpeed',
-    title: 'Luxury fashion store: image, app and theme cleanup improved mobile PageSpeed and reduced product page load friction.',
+    metric: '5.0',
+    metricLabel: 'Client rating on Upwork',
+    title: 'Shopify store optimization: app bloat removed, scripts deferred, images and fonts optimised on the existing theme.',
     bullets: [
-      'Removed unnecessary scripts and deferred non-critical third-party tags',
-      'Reduced page weight by optimizing images and theme assets',
-      'Fixed layout shift from late-loading media and app embeds',
+      'Removed app bloat and deferred non-critical scripts',
+      'Optimised images and fonts, and added lazy-loading',
+      'Client: “Developed some really creative solutions to some very unique requests. Would recommend.”',
     ],
-    duration: '3-week project',
+    duration: 'Feb 2025 · Upwork',
+    href: '/work/shopify-site-optimization-2025',
   },
   faqs: [
     {

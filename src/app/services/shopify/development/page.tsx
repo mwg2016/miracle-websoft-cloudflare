@@ -88,7 +88,7 @@ const faqs = [
   },
   {
     question: 'What is Shopify Plus and do I need it?',
-    answer: 'Shopify Plus is Shopify\'s enterprise tier (from ~$2,300/month). It unlocks custom checkout extensibility, Shopify Functions, higher API limits, B2B wholesale features and dedicated support. Most brands need it once they exceed $1M/year in revenue or require checkout customisations not possible on standard Shopify.',
+    answer: 'Shopify Plus is Shopify\'s enterprise plan (see shopify.com/plus/pricing for current pricing). It adds checkout customization on the information, shipping and payment steps, custom apps that use Shopify Functions, B2B features, higher API limits and dedicated support. Most brands need it once they exceed $1M/year in revenue or require checkout customisations not possible on standard Shopify.',
   },
   {
     question: 'How long does a custom Shopify build take?',
@@ -120,7 +120,7 @@ const guarantees = [
 ]
 
 const related = [
-  { title: 'Shopify App Development', desc: 'Custom private apps, Functions and checkout extensions.', href: '/services/shopify-app-development' },
+  { title: 'Shopify App Development', desc: 'Custom apps, Functions and checkout extensions.', href: '/services/shopify-app-development' },
   { title: 'CRO & Speed Optimisation', desc: 'Improve conversions and PageSpeed on your existing store.', href: '/services/shopify-cro-speed' },
   { title: 'Shopify Migrations', desc: 'Move from WooCommerce, Magento or BigCommerce to Shopify.', href: '/services/shopify-migration' },
 ]
@@ -163,7 +163,7 @@ export default function ShopifyDevelopmentPage() {
       <ServiceHero
         breadcrumbItems={[{ label: 'Services', href: '/services' }, { label: 'Custom Shopify Development' }]}
         eyebrow="Custom Shopify development"
-        title={<>A Shopify store built to sell, <span className="mw-mark">and easy to run.</span></>}
+        title={<>Custom Shopify store development, <span className="mw-mark">built to sell and easy to run.</span></>}
         lede="If your store feels generic, loads slowly or fails to turn traffic into orders, we rebuild it around your customers, your products and how your team actually works. Fixed price, agreed before we start."
         bullets={['Custom theme or a heavily adapted one, whichever fits the budget', 'Mobile-first, with a speed budget agreed up front', 'Shopify Plus, B2B and integrations when you need them']}
         aside={
@@ -203,19 +203,19 @@ export default function ShopifyDevelopmentPage() {
       {/* Proof */}
       <section className="mw-section" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="mw-container">
-          <SectionHead eyebrow="Example project" title="What a rebuild can do." />
+          <SectionHead eyebrow="Verified project" title="A recent custom store build." />
           <ServiceResult
             tag="Custom store build"
-            metric="+61%"
-            metricLabel="Revenue (90 days)"
-            title="DTC brand: custom Shopify theme replacing a slow template. 90-day revenue up 61%, mobile conversion rate up 44%."
+            metric="5.0"
+            metricLabel="Client rating on Upwork"
+            title="Flowers A Million: complete Shopify store on a custom theme, built for mobile occasion buying."
             bullets={[
-              'Custom theme replacing a $280 purchased template that was slow and inflexible',
-              'Mobile product pages rebuilt: sticky add to cart, image zoom, size guide',
-              'Checkout redesigned with one-click upsells; average order value up 18%',
+              'Bespoke homepage and collection sections so seasonal ranges can be merchandised without code',
+              'Image-forward product pages and a mobile-first purchase flow',
+              'Client: “Great work and delivered exactly what was asked.”',
             ]}
-            duration="7-week build"
-            cta={{ label: 'See all our work', href: '/work' }}
+            duration="Jul 2025 · Upwork"
+            cta={{ label: 'Read the case study', href: '/work/shopify-ecomerce-store-2025' }}
           />
         </div>
       </section>

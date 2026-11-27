@@ -288,15 +288,15 @@ const shopifyServices: ShopifyServiceData[] = [
   },
   {
     slug: 'api-private-apps',
-    metaTitle: 'Shopify API & Private App Development | Miracle Websoft',
-    metaDescription: 'Build Shopify API integrations, private apps, admin tools, webhooks and custom automations that connect your store with unique business workflows.',
+    metaTitle: 'Shopify API & Custom App Development | Miracle Websoft',
+    metaDescription: 'Build Shopify API integrations, custom apps, admin tools, webhooks and custom automations that connect your store with unique business workflows.',
     eyebrow: 'SHOPIFY API DEVELOPMENT',
-    h1: 'Shopify API Development and Private Apps for Custom Operations',
+    h1: 'Shopify API Integration and Custom App Development',
     subtext: 'We build private Shopify apps, API integrations, webhooks, admin tools and automation workflows when your store needs custom logic beyond theme code or public apps.',
     features: [
       'Shopify Admin API and GraphQL development',
       'Storefront API integrations',
-      'Private apps and custom admin tools',
+      'Custom apps and custom admin tools',
       'Webhook processors and background jobs',
       'ERP, CRM and warehouse sync',
       'Custom reporting and dashboards',
@@ -308,7 +308,7 @@ const shopifyServices: ShopifyServiceData[] = [
     challenges: [
       {
         title: 'Operational workflows often need backend logic',
-        body: 'Some Shopify problems cannot be solved in Liquid. APIs, webhooks and private apps let the store connect to the systems that run the business.',
+        body: 'Some Shopify problems cannot be solved in Liquid. APIs, webhooks and custom apps let the store connect to the systems that run the business.',
       },
       {
         title: 'Unreliable integrations create expensive mistakes',
@@ -321,8 +321,8 @@ const shopifyServices: ShopifyServiceData[] = [
     ],
     faqs: [
       {
-        question: 'Do you build Shopify private apps?',
-        answer: 'Yes. We build private and custom Shopify apps for admin workflows, storefront features, integrations, reporting, automation and operational tools.',
+        question: 'Do you build Shopify custom apps?',
+        answer: 'Yes. We build custom Shopify apps (the replacement for the retired private app type) for admin workflows, storefront features, integrations, reporting, automation and operational tools.',
       },
       {
         question: 'Which Shopify APIs do you use?',
@@ -333,7 +333,7 @@ const shopifyServices: ShopifyServiceData[] = [
         answer: 'Yes. We build integrations with ERPs, CRMs, inventory systems, warehouses, accounting tools, marketplaces and custom databases.',
       },
       {
-        question: 'Can you maintain an existing private app?',
+        question: 'Can you maintain an existing custom app?',
         answer: 'Yes. We can audit an existing app, document how it works, fix bugs, update API versions and improve reliability.',
       },
     ],

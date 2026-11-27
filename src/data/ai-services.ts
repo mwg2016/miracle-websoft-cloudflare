@@ -24,6 +24,8 @@ export type ServiceLandingData = {
     title: string
     bullets: string[]
     duration: string
+    /** Link to the verified project record (e.g. /work/<id>). */
+    href?: string
   }
   faqs: { question: string; answer: string }[]
   formHeading: string
