@@ -690,3 +690,13 @@ a[href="/reviews/write"],
 li:has(> a[href="/reviews/write"]) {
   display: none !important;
 }
+
+/* FAQ accordions use native <details> so answers are in the initial HTML. */
+.mw-faq > summary::-webkit-details-marker { display: none; }
+.mw-faq > summary::marker { content: ''; }
+.mw-faq > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mw-faq-icon, .mw-faq-chevron { transition: transform 0.2s; }
+.mw-faq[open] .mw-faq-icon { transform: rotate(45deg); }
+.mw-faq[open] .mw-faq-chevron { transform: rotate(180deg); }
+.mw-faq-card { border: 1px solid var(--border); transition: border-color 0.2s; }
+.mw-faq-card[open] { border-color: var(--border-hover); }
