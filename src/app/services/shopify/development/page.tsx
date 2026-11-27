@@ -150,6 +150,9 @@ const industries = [
   { name: 'Home & Furniture', href: '/services/shopify/home-decor', highlight: 'Configurators, freight, swatches' },
   { name: 'Sports & Fitness', href: '/services/shopify/sports-fitness', highlight: 'Subscriptions, bundles, B2B' },
   { name: 'Pet Supplies', href: '/services/shopify/pets', highlight: 'Breed filtering, subscriptions' },
+  { name: 'B2B & Wholesale', href: '/services/shopify/b2b-wholesale', highlight: 'Company accounts, price lists, net terms' },
+  { name: 'Subscription & DTC', href: '/services/shopify/subscription-dtc', highlight: 'Recurring orders, bundles, retention' },
+  { name: 'Print on Demand', href: '/services/shopify/print-on-demand', highlight: 'Product personalisation, fulfilment apps' },
 ]
 
 export default function ShopifyDevelopmentPage() {

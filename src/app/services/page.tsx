@@ -175,6 +175,21 @@ const shopifyIndustry: Svc[] = [
     desc: 'Breed filtering, pet food subscriptions, portion calculators and vet-approval trust signals.',
     href: '/services/shopify/pets',
   },
+  {
+    title: 'Shopify B2B & Wholesale',
+    desc: 'Wholesale catalogues, company accounts, customer-specific pricing and reorder flows alongside your retail store.',
+    href: '/services/shopify/b2b-wholesale',
+  },
+  {
+    title: 'Shopify for Subscription & DTC',
+    desc: 'Subscription products, bundles and retention flows for direct-to-consumer brands.',
+    href: '/services/shopify/subscription-dtc',
+  },
+  {
+    title: 'Shopify for Print on Demand',
+    desc: 'Personalised products, print-on-demand app integrations and order routing.',
+    href: '/services/shopify/print-on-demand',
+  },
 ]
 
 const otherServices: Svc[] = [

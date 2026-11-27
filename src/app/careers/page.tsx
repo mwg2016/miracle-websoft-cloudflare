@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Breadcrumb from '@/components/layout/Breadcrumb'
 import CareersForm from '@/components/careers/CareersForm'
 import { breadcrumb, jobPosting, renderJsonLd, webPage } from '@/lib/jsonld'
@@ -197,8 +198,8 @@ export default function CareersPage() {
               </p>
             </div>
             <div className="flex flex-wrap gap-3 lg:justify-end">
-              <a href="/about" className="mw-btn-outline">About the team</a>
-              <a href="/work" className="mw-btn-outline">See our work</a>
+              <Link href="/about" className="mw-btn-outline">About the team</Link>
+              <Link href="/work" className="mw-btn-outline">See our work</Link>
             </div>
           </div>
         </section>

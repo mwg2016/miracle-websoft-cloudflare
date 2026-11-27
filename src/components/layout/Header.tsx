@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useSyncExternalStore } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
@@ -55,6 +55,7 @@ const companyItems = [
 
 // Black Friday 2026 is Nov 27; the promo strip retires itself after Cyber Monday.
 const BF_ENDS = new Date('2026-12-01T00:00:00Z').getTime()
+const noopSubscribe = () => () => {}
 
 type OpenMenu = 'services' | 'work' | 'company' | 'search' | null
 
@@ -64,15 +65,22 @@ export default function Header() {
   const [open, setOpen] = useState<OpenMenu>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileSection, setMobileSection] = useState<string | null>(null)
-  const [showPromo, setShowPromo] = useState(false)
+  // Client-only clock check (false during SSR, so hydration stays consistent).
+  const promoLive = useSyncExternalStore(noopSubscribe, () => Date.now() < BF_ENDS, () => false)
+  const showPromo = promoLive && !pathname?.startsWith('/black-friday')
+  const [prevPathname, setPrevPathname] = useState(pathname)
   const [searchQuery, setSearchQuery] = useState('')
   const [suggestions, setSuggestions] = useState<{ title: string; href: string; type: string }[]>([])
   const [activeSuggestion, setActiveSuggestion] = useState(-1)
   const navRef = useRef<HTMLDivElement>(null)
   const searchInputRef = useRef<HTMLInputElement>(null)
 
-  useEffect(() => { setShowPromo(Date.now() < BF_ENDS && !pathname?.startsWith('/black-friday')) }, [pathname])
-  useEffect(() => { setOpen(null); setMobileOpen(false) }, [pathname])
+  // Close menus on navigation (state adjusted during render, not in an effect).
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname)
+    setOpen(null)
+    setMobileOpen(false)
+  }
 
   useEffect(() => {
     const onClick = (e: MouseEvent) => { if (navRef.current && !navRef.current.contains(e.target as Node)) setOpen(null) }

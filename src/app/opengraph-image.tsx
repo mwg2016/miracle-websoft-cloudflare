@@ -20,7 +20,6 @@ export default async function Image() {
       <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', background: '#F4F1EA', color: ink, padding: '64px 72px', fontFamily: 'Georgia, serif' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={logoSrc} alt="" width="96" height="40" style={{ width: 96, height: 40, objectFit: 'contain' }} />
             <span style={{ fontSize: 32, letterSpacing: -0.5 }}>Miracle Websoft</span>
           </div>
