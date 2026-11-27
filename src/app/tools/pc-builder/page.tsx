@@ -193,7 +193,7 @@ export default function PcBuilderPage() {
           <div>
             <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', maxWidth: '20ch' }}>We build Shopify apps, and the stores around them.</h2>
             <p style={{ marginTop: '1rem', maxWidth: '52ch' }}>
-              PC Builder is one of several tools we&apos;ve shipped. Since 2015 we&apos;ve built apps, stores and custom tools for Shopify merchants.
+              PC Builder is one of several tools we&apos;ve shipped. Since 2016 we&apos;ve built apps, stores and custom tools for Shopify merchants.
             </p>
           </div>
           <div className="flex flex-wrap gap-3 shrink-0">

@@ -225,7 +225,7 @@ export default async function JobPage({ params }: Props) {
               <Link href="/book" className="mw-btn-outline" style={{ width: '100%', justifyContent: 'center', marginTop: '0.6rem' }}>Book a 15-min call</Link>
             </div>
             <dl className="wd-side">
-              <div><dt>Shopify projects since 2015</dt><dd>700+</dd></div>
+              <div><dt>Projects since 2016</dt><dd>700+</dd></div>
               <div><dt>Upwork job success</dt><dd>98%</dd></div>
               <div><dt>Upwork status</dt><dd>Top Rated Plus</dd></div>
             </dl>

@@ -313,8 +313,8 @@ Claims found in code on 2026-11-27. Verification source for Upwork rows: owner's
 
 | Claim | Where found | Conflict / issue | Status |
 |---|---|---|---|
-| 700+ Shopify projects | ~45 places (home Hero, layout metadata, services, work, OG image) | Upwork founder profile: 789 total jobs (all types, 2026-11-27). "700+ projects" verified; "Shopify" share not verified. jobs.ts 650+ fixed to 700+ | Partly verified — owner confirms Shopify share |
-| Founded 2015 | layout schema, case-studies, services pages | Upwork agency profile says **2016** (checked 2026-11-27). ("founded in 2009" in blogPosts.ts is about BigCommerce, not a conflict) | Conflict — owner decides |
+| 700+ Shopify projects | ~45 places (home Hero, layout metadata, services, work, OG image) | Upwork founder profile: 789 total jobs (all types, 2026-11-27). "700+ projects" verified; "Shopify" share not verified. jobs.ts 650+ fixed to 700+ | Now worded "700+ projects" sitewide — **Verified** |
+| Founded 2016 | sitewide | Upwork agency profile 2016; owner confirmed 2026-11-27 | **Approved** |
 | 42% conversion uplift | Live only as a single-client case on `/services/shopify-cro-speed` and `/services/conversion-rate-optimization`. Aggregate "42% average/median" exists only in unused components `StatsRow.tsx` / `CitationsAndProfiles.tsx` (not rendered) | Single case needs baseline, period, denominator (Prompt 05). Never reuse as an average | Unverified |
 | 1.5 s average mobile LCP | Unused `CitationsAndProfiles.tsx` only (not rendered) | Do not render without dataset | Not public |
 | 98% Job Success Score | `/bio/company`, `/work` | Founder profile JSS is **99** (2026-11-27); agency JSS not readable via API | Unverified for agency; avoid hard-coding |
@@ -324,7 +324,7 @@ Claims found in code on 2026-11-27. Verification source for Upwork rows: owner's
 | 16 team members | bio/company, lp/shopify-cro, schema numberOfEmployees | Upwork agency size band 11–50 (consistent, not exact) | Unverified exact number (removed from llms.txt) |
 | Shopify Certified & Verified Partner | was llms.txt; still on /work metadata | Partner Directory not re-checked | Unverified (removed from llms.txt) |
 | aggregateRating 4.9 / 650 | was `src/app/layout.tsx:208`, plus /work and /reviews | Self-serving markup | **Removed** (commit e910c08) |
-| Offer prices (from $600 launch, from $299/mo dedicated developer, "no improvement, no fee") | `src/data/shopify-offers.ts`, `/pricing` (removed from llms.txt) | Need owner pricing approval | Unverified |
+| Offer prices (from $600 launch, from $299/mo dedicated developer, "no improvement, no fee") | `src/data/shopify-offers.ts`, `/pricing` | Owner approved 2026-11-27 | **Approved** |
 
 ### Content and case study progress
 Record target URL, intent, supporting evidence, reviewer, status and publication date. The topic backlog and case-study requirements above remain the master plan.
@@ -440,3 +440,31 @@ For each approved phase append date, scope, files changed, actual tests, before/
   - Prompts 04, 05, 07, 08, 09 and 12: blocked on approved prices, client permission, data or recordings.
   - No articles were published; the 12 briefs are ready for writing once an author is assigned.
 - Next action: the owner reviews and merges the branch to `main` (which deploys), then supplies the inputs listed under "Owner decisions still open".
+
+**2026-11-27 — Owner decisions applied**
+- Owner decisions:
+  - Founded **2016**.
+  - Published address **Rajpura, Punjab 140702**.
+  - Training crawlers **stay allowed**.
+  - **No consent banner.** Risk noted: GA4, Meta Pixel, Clarity, Apollo and the OpenAI pixel load for UK and EU visitors without consent.
+  - Offer prices **approved**: launch from $600, dedicated developer from $299/mo, "no improvement, no fee" speed guarantee.
+  - Project count: the owner deferred, so we use **"700+ projects"**, the Upwork-verified total (789 jobs), instead of "700+ Shopify projects".
+  - Client **consent given** for case studies.
+  - Blog **author: Karam Singh Mehra**, with profile links.
+  - The August plan is **not available**; it is now treated as historical only.
+- Changes:
+  - "2015" is now 2016 sitewide, including the founder's "since" lines, so one date is used everywhere.
+  - Schema and copy use the Rajpura address. The vCards were updated too.
+  - "700+ Shopify projects" variants now read "700+ projects".
+  - Founder Upwork link now shows 99% Job Success Score (verified).
+  - Blog posts have a linked byline (`rel="author"`), an "About the author" section linking /bio/owner, LinkedIn and Upwork, and a shared Person `@id` (`/bio/owner#person`) in the BlogPosting, Organization founder and /bio/owner schema.
+- Tests:
+  - tsc passed, eslint clean, build succeeded.
+  - Local run: 174 of 174 sitemap URLs returned 200, 0 pages contain "2015", and 0 contain AggregateRating.
+  - Homepage schema shows foundingDate 2016 and addressLocality Rajpura.
+  - Blog posts render the author section.
+- Still open:
+  - The 42% case still needs baseline numbers before it is shown as a case study with metrics. Consent alone isn't enough.
+  - The 12 articles need one real project story each from the owner.
+  - The case studies (Prompt 05) need screenshots and outcomes per client.
+  - The OTAA display name was deliberately anonymised in an earlier commit; it stays that way unless the owner confirms OTAA approves naming.

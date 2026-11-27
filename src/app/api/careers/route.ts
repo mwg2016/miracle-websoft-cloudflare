@@ -174,7 +174,7 @@ function buildConfirmationEmail(name: string, toEmail: string, position: string)
       <td style="vertical-align:middle">
         <div style="font-size:14px;font-weight:700;color:#111">Karam Singh Mehra</div>
         <div style="font-size:12px;color:#888">Founder · Miracle Websoft</div>
-        <div style="font-size:11px;color:#aaa;margin-top:2px">Shopify Expert since 2015</div>
+        <div style="font-size:11px;color:#aaa;margin-top:2px">Shopify Expert since 2016</div>
       </td>
     </tr></table>
   </td></tr>

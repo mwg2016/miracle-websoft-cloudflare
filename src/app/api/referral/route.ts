@@ -80,7 +80,7 @@ function buildConfirmation(name: string, toEmail: string) {
             <div style="width:42px;height:42px;border-radius:50%;background:#0d0d0d;text-align:center;line-height:42px;font-size:16px;font-weight:800;color:#6c63ff;flex-shrink:0">K</div>
             <div>
               <div style="font-size:13px;font-weight:700;color:#111">Karam Singh Mehra</div>
-              <div style="font-size:12px;color:#888">Founder · Miracle Websoft · Shopify Expert since 2015</div>
+              <div style="font-size:12px;color:#888">Founder · Miracle Websoft · Shopify Expert since 2016</div>
             </div>
           </div>
         </div>

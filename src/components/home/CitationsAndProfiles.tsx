@@ -135,7 +135,7 @@ export default function CitationsAndProfiles() {
             Original Miracle Websoft data
           </h3>
           <p style={{ color: 'rgb(var(--ink-rgb) / 0.65)', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }}>
-            Across 600+ Shopify projects we have shipped since 2015, our internal benchmarks show an average
+            Across 600+ Shopify projects we have shipped since 2016, our internal benchmarks show an average
             mobile Largest Contentful Paint under 1.5 seconds and a 42% median uplift in conversion rate after a
             theme rebuild. Methodology: data aggregated from client GA4 properties and our internal Lighthouse
             CI pipeline; figures cover engagements between January 2023 and the current quarter.

@@ -101,7 +101,7 @@ const whyUs = [
   { title: 'Deliverables under your brand', body: 'Code, reports and write-ups delivered under your agency name if you need it.' },
   { title: 'Your tools, your workflow', body: 'Asana, Jira, ClickUp, Notion, Linear. Slack or email for daily updates.' },
   { title: 'Start within 48 hours', body: 'Once scope is agreed, work starts within 48 hours. No long onboarding cycle.' },
-  { title: 'Shopify is most of what we do', body: '700+ Shopify projects since 2015, by a 16-person in-house team in India.' },
+  { title: 'Shopify is most of what we do', body: '700+ projects since 2016, by a 16-person in-house team in India.' },
 ]
 
 const techStack = ['Shopify Liquid', 'React / Next.js', 'Shopify Hydrogen', 'Shopify App Bridge', 'Node.js', 'GraphQL / REST API', 'Figma', 'Git / GitHub']
@@ -129,7 +129,7 @@ const faqs = [
   },
   {
     q: 'What time zones do you cover?',
-    a: 'Our team in Chandigarh, India covers significant overlap with USA (EST/PST), UK, and Australia. We also have flexible hours to cover early/late standups across time zones.',
+    a: 'Our team in Rajpura, Punjab (near Chandigarh) covers significant overlap with USA (EST/PST), UK, and Australia. We also have flexible hours to cover early/late standups across time zones.',
   },
 ]
 
@@ -169,7 +169,7 @@ export default function WhiteLabelPage() {
               <Link href="/book" className="mw-btn-outline">Book a 15-min call</Link>
             </div>
             <ul className="home-proof">
-              <li><strong>700+</strong> Shopify projects</li>
+              <li><strong>700+</strong> projects</li>
               <li><strong>4.9★</strong> on Clutch</li>
               <li><strong>Top Rated Plus</strong> on Upwork</li>
             </ul>

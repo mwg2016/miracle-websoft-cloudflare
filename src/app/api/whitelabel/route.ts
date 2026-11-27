@@ -81,7 +81,7 @@ function buildConfirmation(contactName: string, toEmail: string, companyName: st
               </td>
               <td style="vertical-align:middle">
                 <div style="font-size:13px;font-weight:700;color:#111">Karam Singh Mehra</div>
-                <div style="font-size:12px;color:#888">Founder · Miracle Websoft · Shopify Expert since 2015</div>
+                <div style="font-size:12px;color:#888">Founder · Miracle Websoft · Shopify Expert since 2016</div>
               </td>
             </tr></table>
           </div>

@@ -161,7 +161,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <h1 className="post-title">{post.title}</h1>
             <p className="post-dek">{post.excerpt}</p>
             <div className="post-byline">
-              <span>By <strong>Karam Singh Mehra</strong>, founder, Miracle Websoft</span>
+              <span>By <Link href="/bio/owner" rel="author"><strong>Karam Singh Mehra</strong></Link>, founder, Miracle Websoft</span>
               <time dateTime={blogDateToIso(post.date)}>{post.date}</time>
               <span>{minutes} min read</span>
             </div>
@@ -189,6 +189,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               )
             })}
           </div>
+
+          <section className="mw-card" aria-labelledby="about-author" style={{ maxWidth: '68ch', marginTop: '3rem', padding: '1.5rem 1.75rem' }}>
+            <p className="mw-num" style={{ textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>About the author</p>
+            <h2 id="about-author" style={{ fontSize: '1.25rem', marginTop: '0.5rem' }}>
+              <Link href="/bio/owner" rel="author">Karam Singh Mehra</Link>
+            </h2>
+            <p style={{ marginTop: '0.5rem', color: 'var(--text-2)', lineHeight: 1.7 }}>
+              Founder of Miracle Websoft and lead Shopify developer. Top Rated Plus on Upwork with $600K+ earned across 700+ projects. Writes from the Shopify builds, migrations and fixes the team ships for merchants in the US, UK and Australia.
+            </p>
+            <p className="flex flex-wrap gap-x-4 gap-y-1" style={{ marginTop: '0.75rem', fontSize: '0.9rem' }}>
+              <Link href="/bio/owner">Full profile</Link>
+              <a href="https://www.linkedin.com/in/ecommerce-experts/" rel="noopener" target="_blank">LinkedIn</a>
+              <a href="https://www.upwork.com/freelancers/~0108a0862ff3e2f2de" rel="noopener" target="_blank">Upwork</a>
+            </p>
+          </section>
 
           <aside className="post-end" aria-label="Next steps">
             <Link href={related.href} className="mw-card post-related">

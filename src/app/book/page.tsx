@@ -34,7 +34,7 @@ const steps = [
 
 const bookFaqs = [
   { question: 'Is the call free?', answer: 'Yes. 15 minutes, no cost and no obligation.' },
-  { question: 'Who will I talk to?', answer: 'Karam Singh Mehra, founder of Miracle Websoft. 10+ years and 700+ Shopify projects. Not a salesperson.' },
+  { question: 'Who will I talk to?', answer: 'Karam Singh Mehra, founder of Miracle Websoft. 10+ years and 700+ projects. Not a salesperson.' },
   { question: 'What should I prepare?', answer: 'Just your store URL and what you want to change. Screenshots or a short list help but are not needed.' },
   { question: 'None of the times work for me. What now?', answer: 'Message us on WhatsApp or email karam@miraclewebsoft.com with a few times that suit you, or send a written brief instead.' },
   { question: 'Can I just get a quote without a call?', answer: 'Yes. Send a written brief on the contact page and you get a fixed quote within 24 hours.' },

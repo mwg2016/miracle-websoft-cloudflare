@@ -28,7 +28,7 @@ const PAYMENT_LINK = outboundHref('external', 'https://razorpay.com/export-link/
 const stats = [
   { value: '700+', label: 'Projects' },
   { value: '98%', label: 'Upwork job success' },
-  { value: '2015', label: 'Founded' },
+  { value: '2016', label: 'Founded' },
   { value: '16', label: 'In-house team' },
 ]
 
@@ -89,12 +89,12 @@ export default function CompanyBioPage() {
       <div className="bio-wrap">
         <header>
           <Image src="/miracle-websoft-logo.png" alt="Miracle Websoft" width={120} height={50} style={{ width: 120, height: 'auto', marginBottom: '1.5rem' }} />
-          <p className="mw-eyebrow">Shopify agency · est. 2015</p>
+          <p className="mw-eyebrow">Shopify agency · est. 2016</p>
           <h1 style={{ fontSize: 'clamp(2.2rem, 7vw, 3rem)', lineHeight: 1.05 }}>Miracle Websoft</h1>
           <p style={{ marginTop: '0.75rem', fontSize: '1.05rem', color: 'var(--text-2)' }}>
             Shopify development and CRO for growing stores. A 16-person in-house team building, fixing and speeding up Shopify stores.
           </p>
-          <p className="mw-num" style={{ marginTop: '0.75rem' }}>Chandigarh, India · USA · UK · Australia</p>
+          <p className="mw-num" style={{ marginTop: '0.75rem' }}>Rajpura, Punjab, India · USA · UK · Australia</p>
         </header>
 
         <dl className="stats" style={{ marginTop: '1.75rem' }}>

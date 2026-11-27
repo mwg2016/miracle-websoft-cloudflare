@@ -436,7 +436,7 @@ export default function BlackFridaySaleSetupPage() {
             <UpworkNote />
 
             <p style={{ fontSize: '0.88rem', color: 'var(--text-3)', marginTop: '2rem', paddingTop: '1.25rem', borderTop: '1px solid var(--border)', maxWidth: '60ch' }}>
-              <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>700+</strong> ecommerce projects since 2015 ·{' '}
+              <strong style={{ color: 'var(--text-1)', fontWeight: 600 }}>700+</strong> ecommerce projects since 2016 ·{' '}
               Top Rated Plus on Upwork · Shopify Partner
             </p>
           </div>

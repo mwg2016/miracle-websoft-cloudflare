@@ -106,17 +106,17 @@ const openRoles = [
 
 const perks = [
   { label: 'Full-time', sub: 'Stable full-time position' },
-  { label: 'Real projects', sub: '700+ Shopify projects since 2015' },
+  { label: 'Real projects', sub: '700+ projects since 2016' },
   { label: 'Growth path', sub: 'Junior → Mid → Senior → Lead' },
   { label: 'Good pay', sub: 'Based on skill, not just title' },
-  { label: 'Stable work', sub: 'In business since 2015' },
+  { label: 'Stable work', sub: 'In business since 2016' },
 ]
 
 const jsonLd = renderJsonLd([
   webPage({
     name: 'Careers — Miracle Websoft',
     description:
-      'Shopify developer jobs at Miracle Websoft — Junior, Mid-level, Senior and Theme Developer roles. Full-time, remote-friendly, based out of Chandigarh, India.',
+      'Shopify developer jobs at Miracle Websoft — Junior, Mid-level, Senior and Theme Developer roles. Full-time, remote-friendly, based out of Rajpura, Punjab, near Chandigarh.',
     url: 'https://miraclewebsoft.com/careers',
   }),
   breadcrumb([
@@ -168,7 +168,7 @@ export default function CareersPage() {
             Join a small team that ships <span className="mw-mark">good Shopify work.</span>
           </h1>
           <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '54ch' }}>
-            Miracle Websoft is a 16-person, in-house Shopify team in India. Since 2015 we&apos;ve delivered 700+ Shopify projects and hold Top Rated Plus on Upwork{HIRING_OPEN ? '. We are always looking for good developers to grow with us' : ''}.
+            Miracle Websoft is a 16-person, in-house Shopify team in India. Since 2016 we&apos;ve delivered 700+ projects and hold Top Rated Plus on Upwork{HIRING_OPEN ? '. We are always looking for good developers to grow with us' : ''}.
           </p>
           {HIRING_OPEN && (
             <p style={{ marginTop: '1rem', maxWidth: '54ch' }}>

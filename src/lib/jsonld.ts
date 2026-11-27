@@ -8,6 +8,7 @@ export const WEBSITE_ID = `${SITE_URL}/#website`
 const PUBLISHER_REF = { '@id': ORG_ID }
 const AUTHOR = {
   '@type': 'Person',
+  '@id': `${SITE_URL}/bio/owner#person`,
   name: 'Karam Singh Mehra',
   url: `${SITE_URL}/bio/owner`,
   jobTitle: 'Founder & Lead Shopify Expert',
@@ -138,10 +139,12 @@ export function person(args: {
   image?: string
   sameAs?: string[]
   worksFor?: { name: string; url: string }
+  id?: string
 }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
+    ...(args.id ? { '@id': args.id } : {}),
     name: args.name,
     url: args.url.startsWith('http') ? args.url : `${SITE_URL}${args.url}`,
     ...(args.jobTitle ? { jobTitle: args.jobTitle } : {}),
@@ -191,7 +194,7 @@ export function jobPosting(args: {
       '@type': 'Place',
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Chandigarh',
+        addressLocality: 'Rajpura',
         addressRegion: 'Punjab',
         addressCountry: 'IN',
       },

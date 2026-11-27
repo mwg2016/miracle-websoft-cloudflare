@@ -14,7 +14,7 @@ import { breadcrumb, itemList, renderJsonLd, webPage } from '@/lib/jsonld'
 
 const TITLE = 'Shopify Development Agency | Miracle Websoft'
 const DESCRIPTION =
-  'Shopify development for growing brands: store builds, migrations, speed, conversion, Shopify Plus and dedicated developers. 700+ Shopify projects since 2015. Fixed prices.'
+  'Shopify development for growing brands: store builds, migrations, speed, conversion, Shopify Plus and dedicated developers. 700+ projects since 2016. Fixed prices.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 }
 
 const badges = [
-  { label: 'Shopify Partner', note: 'since 2015', href: outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1') },
+  { label: 'Shopify Partner', note: 'since 2016', href: outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1') },
   { label: 'Top Rated Plus', note: 'Upwork', href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/') },
   { label: '4.9★', note: 'Clutch', href: outboundHref('external', 'https://clutch.co/profile/miracle-websoft') },
   { label: '98%', note: 'job success', href: outboundHref('upwork', 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/') },
@@ -47,7 +47,7 @@ const services = [
 ]
 
 const homeFaqs = [
-  { question: 'Do you only work on Shopify?', answer: 'Yes. Shopify and Shopify Plus are what we do: store builds, migrations, speed, conversion, checkout, apps and ongoing development. 700+ Shopify projects since 2015.' },
+  { question: 'Do you only work on Shopify?', answer: 'Yes. Shopify and Shopify Plus are what we do: store builds, migrations, speed, conversion, checkout, apps and ongoing development. 700+ projects since 2016.' },
   { question: 'How much does a Shopify project cost?', answer: 'Store builds are $600 (Basic) or $1,000 (Advanced). Custom apps start at $1,500. Care plans and dedicated developer hours run $99 to $500 a month. Everything else gets a fixed quote within 24 hours. You see the price before any work starts.' },
   { question: 'How fast can you start?', answer: 'Usually within 3 to 5 working days of approving the quote. Care and dedicated developer plans onboard within 48 hours.' },
   { question: 'Who works on my store?', answer: 'Our 16-person in-house team in India, led by founder Karam Singh Mehra. No subcontracting. On monthly plans you keep the same developer.' },
@@ -57,7 +57,7 @@ const homeFaqs = [
 const jsonLd = renderJsonLd([
   webPage({
     name: 'Shopify Development Agency - Miracle Websoft',
-    description: 'Miracle Websoft is a Shopify development agency: store builds, migrations, speed, conversion, Shopify Plus, custom apps and dedicated Shopify developers. 700+ Shopify projects since 2015.',
+    description: 'Miracle Websoft is a Shopify development agency: store builds, migrations, speed, conversion, Shopify Plus, custom apps and dedicated Shopify developers. 700+ projects since 2016.',
     url: 'https://miraclewebsoft.com/',
   }),
   itemList({
@@ -83,7 +83,7 @@ export default function HomePage() {
       <section className="home-hero">
         <div className="mw-container">
           <div style={{ maxWidth: '52rem' }}>
-            <p className="mw-eyebrow">Since 2015 · Shopify Partner</p>
+            <p className="mw-eyebrow">Since 2016 · Shopify Partner</p>
             <h1 style={{ maxWidth: '18ch' }}>
               Shopify development, support and improvements <span className="mw-mark">in one team.</span>
             </h1>
@@ -124,7 +124,7 @@ export default function HomePage() {
             </p>
           </div>
           <dl className="stats">
-            <div><dt>Shopify projects</dt><dd>700+</dd></div>
+            <div><dt>Projects</dt><dd>700+</dd></div>
             <div><dt>Years on Shopify</dt><dd>10+</dd></div>
             <div><dt>In-house team</dt><dd>16</dd></div>
             <div><dt>Hours on one retainer</dt><dd>2,942</dd></div>

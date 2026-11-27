@@ -19,7 +19,7 @@ export default function IndustryHero({ industry }: Props) {
             <Link href="/book" className="mw-btn-outline">Book a 15-min call</Link>
           </div>
           <p style={{ fontSize: '0.88rem', color: 'var(--text-3)', marginTop: '1.5rem' }}>
-            700+ Shopify projects since 2015 · 4.9 on Clutch · Top Rated Plus on Upwork
+            700+ projects since 2016 · 4.9 on Clutch · Top Rated Plus on Upwork
           </p>
         </div>
         <IndustryFacts stats={industry.stats} />

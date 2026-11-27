@@ -12,7 +12,7 @@ export const BOOK_CTA: Cta = { label: 'Book a 15-min call', href: '/book' }
 export const DEFAULT_PROOF: ReactNode[] = [
   <><strong>4.9★</strong> on Clutch</>,
   <><strong>Top Rated Plus</strong> on Upwork</>,
-  <><strong>700+</strong> projects since 2015</>,
+  <><strong>700+</strong> projects since 2016</>,
 ]
 
 interface Props {
@@ -156,7 +156,7 @@ export function QuoteSection({ eyebrow = 'Prefer a written quote?', title, body,
             <h2 style={{ fontSize: 'clamp(28px,3.6vw,46px)', marginBottom: '1.25rem' }}>{title}</h2>
             <p style={{ fontSize: '1.02rem', maxWidth: '46ch' }}>{body}</p>
             <dl className="stats" style={{ marginTop: '2rem', maxWidth: 420 }}>
-              <div><dt>Projects since 2015</dt><dd style={{ fontSize: '2.2rem' }}>700+</dd></div>
+              <div><dt>Projects since 2016</dt><dd style={{ fontSize: '2.2rem' }}>700+</dd></div>
               <div><dt>Clutch rating</dt><dd style={{ fontSize: '2.2rem' }}>4.9</dd></div>
             </dl>
             <p style={{ marginTop: '1.5rem', fontSize: '0.92rem', color: 'var(--text-3)' }}>

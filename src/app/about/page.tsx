@@ -33,7 +33,7 @@ const values = [
 ]
 
 const facts = [
-  { dt: 'Founded', dd: '2015' },
+  { dt: 'Founded', dd: '2016' },
   { dt: 'Projects', dd: '700+' },
   { dt: 'Hours delivered', dd: '15,000+' },
   { dt: 'Earned on Upwork', dd: '$600K+' },
@@ -52,7 +52,7 @@ const jsonLd = renderJsonLd([
   webPage({
     name: 'About Miracle Websoft - ecommerce growth and AI technology agency',
     description:
-      'Ecommerce growth and AI technology agency with 700+ projects, 15,000+ hours delivered and a 16-person team serving global clients since 2015.',
+      'Ecommerce growth and AI technology agency with 700+ projects, 15,000+ hours delivered and a 16-person team serving global clients since 2016.',
     url: 'https://miraclewebsoft.com/about',
     type: 'AboutPage',
   }),
@@ -78,7 +78,7 @@ export default function AboutPage() {
                 A Shopify studio built by <span className="mw-mark">the person you talk to.</span>
               </h1>
               <p style={{ marginTop: '1.5rem', fontSize: '1.1rem', maxWidth: '54ch' }}>
-                Miracle Websoft is a Shopify development and CRO agency founded in 2015 by Karam Singh Mehra. A 16-person in-house team in India builds, fixes and speeds up stores for brands across the USA, Canada, UK, Australia and Europe.
+                Miracle Websoft is a Shopify development and CRO agency founded in 2016 by Karam Singh Mehra. A 16-person in-house team in India builds, fixes and speeds up stores for brands across the USA, Canada, UK, Australia and Europe.
               </p>
               <p style={{ marginTop: '1rem', color: 'var(--text-3)', maxWidth: '54ch' }}>
                 We also take on custom web development and AI automation when a client needs it, but ecommerce is the core: slow stores, low mobile conversion, migrations, and the custom features apps can&apos;t do.

@@ -23,7 +23,7 @@ const platforms = [
     badge: 'Verified Partner',
     badgeColor: '#96bf48',
     href: outboundHref('shopify_partners', 'https://www.shopify.com/partners/directory/partner/miracle-websoft1'),
-    description: 'Official Shopify Partner since 2015',
+    description: 'Official Shopify Partner since 2016',
     accent: '#96bf48',
     large: false,
   },

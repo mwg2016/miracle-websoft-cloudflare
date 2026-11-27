@@ -11,10 +11,10 @@ const UPWORK_FREELANCER = outboundHref('upwork', 'https://www.upwork.com/freelan
 export const metadata: Metadata = {
   title: 'Verified Shopify Work History — 700+ Projects | Miracle Websoft',
   description:
-    'Browse 700+ verified Shopify projects by Miracle Websoft on Upwork. Store builds, migrations, Shopify Plus checkout, custom features, speed & CRO — all delivered with a 98% job success score.',
+    'Browse 700+ verified projects by Miracle Websoft on Upwork. Store builds, migrations, Shopify Plus checkout, custom features, speed & CRO — all delivered with a 98% job success score.',
   openGraph: {
     title: 'Verified Shopify Work History — 700+ Projects | Miracle Websoft',
-    description: '700+ Shopify projects verified on Upwork. 98% Job Success · Top Rated Plus · Shopify Verified Partner.',
+    description: '700+ projects verified on Upwork. 98% Job Success · Top Rated Plus · Shopify Verified Partner.',
     url: 'https://miraclewebsoft.com/work',
     type: 'website',
   },
@@ -30,7 +30,7 @@ function JsonLd() {
       {
         '@type': 'ItemList',
         name: 'Shopify Development Projects by Miracle Websoft',
-        description: 'Verified work history of 700+ Shopify projects completed by Karam S. at Miracle Websoft, as listed on Upwork.',
+        description: 'Verified work history of 700+ projects completed by Karam S. at Miracle Websoft, as listed on Upwork.',
         numberOfItems: jobs.length,
         itemListElement: jobs.map((job, i) => ({
           '@type': 'ListItem',
@@ -102,7 +102,7 @@ export default function WorkPage() {
               </p>
             </div>
             <dl className="stats">
-              <div><dt>Projects since 2015</dt><dd>700+</dd></div>
+              <div><dt>Projects since 2016</dt><dd>700+</dd></div>
               <div><dt>Upwork job success</dt><dd>98%</dd></div>
               <div><dt>Hours delivered</dt><dd>15,000+</dd></div>
               <div><dt>Listed on this page</dt><dd>{jobs.length}</dd></div>

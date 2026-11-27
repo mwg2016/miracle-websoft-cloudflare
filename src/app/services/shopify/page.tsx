@@ -152,7 +152,7 @@ export default function ShopifyServicesPage() {
         breadcrumbItems={[{ label: 'Services', href: '/services' }, { label: 'Shopify Services' }]}
         eyebrow="Shopify services · Shopify Partner"
         title={<>Tell us the result you need. <span className="mw-mark">We quote a fixed price for it.</span></>}
-        lede="A faster store, more orders, a safe migration, a new market or a developer on call. Each one is a fixed-scope offer with a price, a timeline and a guarantee. 700+ Shopify projects since 2015, done by a 16-person in-house team."
+        lede="A faster store, more orders, a safe migration, a new market or a developer on call. Each one is a fixed-scope offer with a price, a timeline and a guarantee. 700+ projects since 2016, done by a 16-person in-house team."
         bullets={['Fixed price and timeline, in writing, before work starts', 'Before-and-after numbers, not hours billed', 'You own everything we build, no lock-in']}
         aside={
           <HeroScope

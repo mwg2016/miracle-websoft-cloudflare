@@ -34,7 +34,7 @@ export default async function Image() {
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: `2px solid ${ink}`, paddingTop: 26 }}>
           <div style={{ display: 'flex', gap: 34, fontFamily: 'Arial, sans-serif', fontSize: 24, color: muted }}>
-            <span>700+ Shopify projects</span>
+            <span>700+ projects</span>
             <span>4.9 on Clutch</span>
           </div>
           <div style={{ display: 'flex', background: '#E04F25', color: '#fff', fontFamily: 'Arial, sans-serif', fontSize: 24, fontWeight: 700, padding: '14px 22px', borderRadius: 6, whiteSpace: 'nowrap' }}>

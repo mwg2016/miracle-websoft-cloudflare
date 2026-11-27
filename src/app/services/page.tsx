@@ -301,7 +301,7 @@ export default function ServicesPage() {
       <ServiceHero
         eyebrow="Shopify services"
         title={<>Start with the problem, <span className="mw-mark">not the service.</span></>}
-        lede="Everything here is Shopify. One result per project, a fixed price, and a guarantee. 700+ Shopify projects since 2015."
+        lede="Everything here is Shopify. One result per project, a fixed price, and a guarantee. 700+ projects since 2016."
         aside={
           <aside className="audit-form-card" style={{ boxShadow: 'none' }} aria-label="Which service do I need?">
             <p className="mw-num" style={{ marginBottom: '0.75rem' }}>WHICH ONE DO I NEED?</p>

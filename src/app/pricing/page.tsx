@@ -296,7 +296,7 @@ export default function PricingPage() {
                 Pick the closest fit and tell us about your store. Karam replies within 24 hours with scope, timeline and next steps. Nothing is paid until you approve a written proposal.
               </p>
               <p style={{ marginTop: '1.25rem', fontSize: '0.9rem', color: 'var(--text-3)' }}>
-                700+ Shopify projects since 2015 · 98% job success on Upwork · no hourly billing
+                700+ projects since 2016 · 98% job success on Upwork · no hourly billing
               </p>
             </div>
             <nav aria-label="Price list" className="price-index">

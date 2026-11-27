@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   applicationName: 'Miracle Websoft',
   metadataBase: new URL('https://miraclewebsoft.com'),
   title: { default: 'Miracle Websoft — Shopify Development & CRO Agency', template: '%s' }, // page titles already carry the brand; a '%s | Miracle Websoft' suffix doubled it
-  description: 'Shopify development, conversion rate optimisation and speed work for ecommerce brands. 700+ Shopify projects since 2015. Get a free video teardown of your store.',
+  description: 'Shopify development, conversion rate optimisation and speed work for ecommerce brands. 700+ projects since 2016. Get a free video teardown of your store.',
   authors: [{ name: 'Miracle Websoft', url: 'https://miraclewebsoft.com' }],
   creator: 'Karam Singh Mehra',
   publisher: 'Miracle Websoft',
@@ -125,8 +125,8 @@ const jsonLd = {
       },
       image: 'https://miraclewebsoft.com/icon-512.png',
       slogan: 'Shopify development, support and growth in one team.',
-      description: 'Miracle Websoft is a dedicated Shopify development agency: store builds, speed and conversion fixes, migrations, Shopify Plus checkout, custom apps and dedicated Shopify developers. 700+ Shopify projects. Based in India, serving the USA, Canada, UK, Australia and Europe since 2015.',
-      foundingDate: '2015',
+      description: 'Miracle Websoft is a dedicated Shopify development agency: store builds, speed and conversion fixes, migrations, Shopify Plus checkout, custom apps and dedicated Shopify developers. 700+ projects. Based in India, serving the USA, Canada, UK, Australia and Europe since 2016.',
+      foundingDate: '2016',
       email: 'karam@miraclewebsoft.com',
       telephone: '+916239269736',
       contactPoint: [
@@ -141,8 +141,9 @@ const jsonLd = {
       ],
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Chandigarh',
+        addressLocality: 'Rajpura',
         addressRegion: 'Punjab',
+        postalCode: '140702',
         addressCountry: 'IN',
       },
       areaServed: [
@@ -184,6 +185,7 @@ const jsonLd = {
       },
       founder: {
         '@type': 'Person',
+        '@id': 'https://miraclewebsoft.com/bio/owner#person',
         name: 'Karam Singh Mehra',
         jobTitle: 'Founder & Lead Shopify Expert',
         url: 'https://miraclewebsoft.com/bio/owner',

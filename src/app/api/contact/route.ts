@@ -107,7 +107,7 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string |
       ``,
       `— Karam Singh Mehra`,
       `Founder, Miracle Websoft`,
-      `Shopify Expert since 2015 · Top Rated Plus on Upwork`,
+      `Shopify Expert since 2016 · Top Rated Plus on Upwork`,
       `https://miraclewebsoft.com`,
     ].join('\n'),
     html: `
@@ -182,7 +182,7 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string |
     <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px">
       ${[
         { label: 'Upwork Profile', sub: 'Top Rated Plus · 98% job success', url: 'https://www.upwork.com/agencies/shopifyexpertsdevelopers/', badge: 'Top Rated Plus', badgeColor: '#14a800' },
-        { label: 'Shopify Partner Directory', sub: 'Verified Shopify Partner since 2015', url: 'https://www.shopify.com/partners/directory/partner/miracle-websoft1', badge: 'Verified Partner', badgeColor: '#96bf48' },
+        { label: 'Shopify Partner Directory', sub: 'Verified Shopify Partner since 2016', url: 'https://www.shopify.com/partners/directory/partner/miracle-websoft1', badge: 'Verified Partner', badgeColor: '#96bf48' },
         { label: 'Case Studies', sub: 'Real Shopify results', url: 'https://miraclewebsoft.com/case-studies', badge: 'Read more', badgeColor: accentColor },
         { label: 'Blog', sub: 'Shopify CRO, speed and growth tips', url: 'https://miraclewebsoft.com/blog', badge: 'Read more', badgeColor: accentColor },
       ].map(l => `
@@ -217,7 +217,7 @@ function buildConfirmationEmail(name: string, toEmail: string, service: string |
       <td style="vertical-align:middle">
         <div style="font-size:14px;font-weight:700;color:#111">Karam Singh Mehra</div>
         <div style="font-size:12px;color:#888">Founder · Miracle Websoft</div>
-        <div style="font-size:11px;color:#aaa;margin-top:2px">Shopify Expert since 2015 · Top Rated Plus on Upwork</div>
+        <div style="font-size:11px;color:#aaa;margin-top:2px">Shopify Expert since 2016 · Top Rated Plus on Upwork</div>
       </td>
     </tr></table>
   </td></tr>
