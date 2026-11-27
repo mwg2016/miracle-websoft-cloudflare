@@ -666,3 +666,4 @@ For each approved phase append date, scope, files changed, actual tests, before/
   - External profile corrections: DesignRush founded 2017 → 2016; Shopify-first summaries on Clutch, DesignRush and Upwork; team size 15 on each.
   - GSC/GA4 access: not yet provided.
   - Request recrawl in GSC and Bing.
+- **Live verification (2026-11-27, after deploy of `42c6805`):** GitHub Actions deploy succeeded. The production validator found 174/174 URLs returning 200 and **0 issues**: no stale credentials, no duplicate-brand titles, all FAQ answers visible, no AggregateRating, foundingDate 2016. The new homepage H1 is live.
