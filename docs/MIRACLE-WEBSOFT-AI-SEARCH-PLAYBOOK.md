@@ -187,7 +187,7 @@ Baaki har page (about, blog, careers, case-studies, contact, industries, partner
 | Prompt | Status | Evidence / next action |
 |---|---|---|
 | 00 | Complete | Baseline 2026-11-27: `docs/page-inventory.csv`, findings below. August plan file still missing (owner) |
-| 01 | Review (on branch `ai-search-playbook`, not deployed) | FAQ answers moved into the initial HTML; truthful sitemap lastmod; robots names the AI search bots; meta keywords removed; 17 redirect targets fixed; lint clean. Pending: nginx duplicate headers (VPS), crawler log verification, GSC/Bing coverage |
+| 01 | Complete (deployed 2026-11-27, commit 94f36c6) | FAQ answers moved into the initial HTML; truthful sitemap lastmod; robots names the AI search bots; meta keywords removed; 17 redirect targets fixed; lint clean. Pending: nginx duplicate headers (VPS), crawler log verification, GSC/Bing coverage |
 | 02 | In progress | Self-serving AggregateRating removed sitewide; org schema now Shopify-first; claims checked against Upwork; llms.txt rewritten. Blocked: founding year 2015 vs 2016, homepage H1 test (needs GSC), 42% case evidence |
 | 03 | In progress (draft) | `docs/shopify-keyword-map.csv`: 19 families mapped to existing owner URLs. Blocked: GSC queries/volumes for cannibalisation decisions |
 | 04 | Blocked | Needs approved pricing ranges + verified proof per page; keyword map approval |
@@ -200,7 +200,7 @@ Baaki har page (about, blog, careers, case-studies, contact, industries, partner
 | 11 | In progress (drafts) | `docs/outreach-tracker.csv`. Owner approves every account change/outreach |
 | 12 | Blocked | Owner records videos; author bios need approval |
 | 13 | In progress (template) | `docs/ai-visibility-tests.csv` (25 prompts, no results yet). Needs GA4/GSC access and real fresh-session tests |
-| 14 | Not started | Deploy only after owner approves the branch |
+| 14 | In progress | First release deployed 2026-11-27 with owner approval; live verification below. Weekly/monthly maintenance cadence starts now |
 
 Historical metadata work is reported complete above; this does not mark the broader AI search phases complete.
 
@@ -468,3 +468,18 @@ For each approved phase append date, scope, files changed, actual tests, before/
   - The 12 articles need one real project story each from the owner.
   - The case studies (Prompt 05) need screenshots and outcomes per client.
   - The OTAA display name was deliberately anonymised in an earlier commit; it stays that way unless the owner confirms OTAA approves naming.
+
+**2026-11-27 — Deployed (owner approved "ship it")**
+- `main` was fast-forwarded to `94f36c6` and pushed. GitHub Actions "Deploy to VPS" run 45961435744 succeeded.
+- Live checks:
+  - 174 of 174 sitemap URLs return 200.
+  - 0 pages carry AggregateRating.
+  - Homepage schema shows foundingDate 2016 and addressLocality Rajpura.
+  - /pricing renders 7 FAQ `<details>` with answers in the HTML.
+  - `robots.txt` names OAI-SearchBot.
+  - `llms.txt` serves the new version.
+  - The blog author section is live.
+  - Redirect samples return a single 308 to the new targets.
+  - Average HTML response is still about 1.9 s (unchanged; caching is roadmap item 10).
+- Rollback: `git revert 4d55f67^..94f36c6` on `main`, then push (this redeploys).
+- Next (owner): submit the sitemap in GSC and Bing, then share GSC/GA4 exports for Prompts 03 and 13.
